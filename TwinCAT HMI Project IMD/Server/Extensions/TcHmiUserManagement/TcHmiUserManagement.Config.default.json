@@ -1,0 +1,19 @@
+{
+    "USERS": {
+        "TestUser": {
+            "ENABLED": true,
+            "PASSWORD": "a5af1194a6066b12a1d27e70b58db371210a3d9de04c44071738f06dd207117e",
+            "SALT": "PHEaN79+E4Up+zZDd2KF5lWxTCBz7SvmnKrWHTCaIFAqnUL/tB6zGNt1CHTtJ8Ij96ydKdVP2osxGv9uqtYDAA=="
+        },
+        "__SystemAdministrator": {
+            "ENABLED": false,
+            "PASSWORD": "",
+            "SALT": ""
+        },
+        "__SystemGuest": {
+            "ENABLED": true,
+            "PASSWORD": "",
+            "SALT": ""
+        }
+    }
+}

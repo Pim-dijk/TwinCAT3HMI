@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_GantryErrors" Id="{01cf582a-17dd-4229-b88a-99184135fecd}">
+    <Declaration><![CDATA[TYPE ST_GantryErrors :
+STRUCT
+	Collision					: BOOL;
+	EndLimitHorFront			: BOOL;
+	EndLimitHorBack				: BOOL;
+	EndLimitVertUp				: BOOL;
+	EndLimitVertDown			: BOOL;
+	ProductLost					: ARRAY [1..6] OF BOOL;
+	
+	VerticalNCAxisError			: ST_NcAxis_Errors;
+	HorizontalNCAxisError		: ST_NcAxis_Errors;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

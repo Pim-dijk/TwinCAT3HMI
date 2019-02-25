@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_PowerMeasurement" Id="{97e21bad-f5f6-4855-acf9-b0270b103098}">
+    <Declaration><![CDATA[TYPE ST_PowerMeasurement :
+STRUCT
+	ixPDOToggle		:BOOL;
+	iwCurrent 		:DINT;
+	iwVoltage		:DINT;
+	iwActivePower	:DINT;
+	iwIndex			:USINT;
+	iwVariantValue	:DINT;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

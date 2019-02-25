@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_TopMold" Id="{2e250e61-b76c-4394-b65d-3dcc6d70421f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_TopMold
+VAR CONSTANT
+	sCycleStateTextDef: ARRAY[0..25]  OF STRING :=	
+		['State 0: Wait for Start',
+		'State 1: Wait for signal to start move down',
+		'State 2: Move down',
+		'State 3: Drying lock time, Building pressure',
+		'State 4: Start drying time',
+		'State 5: Open pressure relief valve',
+		'State 6: Vacuum time closed',
+		'State 7: Move up',
+		'State 8: Wait until take out unit is moving up and start blowoff',
+		'State 9: Await blowoff time and stop blowoff',
+		'State 10:',
+		'State 11:',
+		'State 12:',
+		'State 13:',
+		'State 14:',
+		'State 15:',
+		'State 16:',
+		'State 17:',
+		'State 18:',
+		'State 19:',
+		'State 20: Stop cycle state',																
+		'State 21: Stop cycle state',
+		'State 22:',
+		'State 23:',
+		'State 24:',
+		'State 25:Stop direct state'];
+	
+	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
+		T#10S];
+
+	sInitStateTextDef: ARRAY[0..10] OF STRING :=
+		['State 0: Wait for Init Start',
+		'State 1: Await pressure relief',
+		'State 2: Move up',
+		'State 3: Description Init State 3',
+		'State 4: Description Init State 4',
+		'State 5: Description Init State 5',
+		'State 6: Description Init State 6',
+		'State 7: Description Init State 7',
+		'State 8: Description Init State 8',
+		'State 9: Description Init State 9',
+		'State 10: Stop init state'];
+
+	tInitStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S
+		,T#10S];
+END_VAR
+
+VAR_INPUT
+	mxReset							: BOOL;	(*Reset Error*)
+	mxEmergency						: BOOL;
+	mxDoorsOpened					: BOOL;
+	mxAutoMode						: BOOL; (* TRUE = Automode *)
+	mxEmptyMachine					: BOOL;
+	mxEnableHeating					: BOOL;
+
+	mxResetCycleState				: BOOL;
+	mxResetInitState				: BOOL;
+
+
+	mxMoveUp						: BOOL; (* Drying finished or transfer ready with new product *)
+	mxTakeOutIsMovingUp				: BOOL;
+	ActualPositionTransfermold		: REAL;
+	RHSR_Blocked 					: BOOL;
+	
+	(*Signals*)
+	sgMoveDown						: BOOL; (* Signal from bottommold *)
+END_VAR
+VAR_IN_OUT
+	MachParameters					: ST_TopMoldMachPar;
+	ProdParameters					: ST_TopMoldProdPar;
+END_VAR
+VAR_OUTPUT
+(*Errors*)
+	Errors							: ST_TopMoldErrors;
+	mxErrorInit						: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
+	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
+
+(* State vars *)
+	mxCycleBusy						: BOOL;
+	mxInitBusy						: BOOL;
+	
+(* Vars *)
+	mxInitialized					: BOOL;
+	
+
+	mxCilIsMovingIn					: BOOL;
+	mxCilIsMovingOut				: BOOL;
+	mxCilIsIn						: BOOL;
+	mxCilIsOut						: BOOL;	
+	ActualPosition					: REAL;
+	
+(*Signals*)
+	SgTmIsUp						: BOOL;	// Signals that the topmold is up
+	SgTmIsDown						: BOOL; // Signals that the topmold is down
+	
+END_VAR
+VAR
+(* State vars *)
+	miCycleState					: INT :=0;
+	miCycleOldstate					: INT :=0;
+	mxCycleTransitionState			: BOOL := FALSE;
+	sCycleStateText					: STRING;
+	exCycleTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	CycleTimeout					: TON;
+	CycleTimeOutUpFlank				: R_TRIG;
+	mxCycleTimeoutEnable			: BOOL;
+	CycleTime						: REAL;
+	mxCycleHasError					: BOOL;
+	miStopState						: INT;
+	mxStartCycle					: BOOL;
+	mxStopCycle						: BOOL;
+	mxStopDirect					: BOOL;
+	
+	miInitState						: INT	:=0;
+	miInitOldstate					: INT	:=0;
+	mxInitTransitionState			: BOOL	:= FALSE;
+	sInitStateText					: STRING;
+	exInitTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	InitTimeout						: TON;
+	InitTimeOutUpFlank				: R_TRIG;
+	mxInitTimeoutEnable				: BOOL;
+	InitTime						: REAL;
+	mxInitHasError					: BOOL;
+	mxStartInit						: BOOL;
+	mxStopInit						: BOOL;
+(* Objects *)
+	HydraulicCilinder				: FB_HydraulicCilinderAnalog;
+	Vacuum							: FB_MonoValveNoFdbck;
+	BlowOff							: FB_MonoValveNoFdbck;
+	HeatingZone						: ARRAY [1..6] OF FB_Heatingzone;
+(* Vars *)
+	T_DryingTime					: TON;
+	T_BlowOffClosed					: TON;
+	RT_TakeOutIsMovingUp			: R_TRIG;
+	T_DryingMoldLock				: TON;
+	T_VacuumTimeClosed				: TON;
+	T_BlowOff						: TON;
+	RT_EnableBlowOff				: R_TRIG;
+	RT_EnableVacuum					: R_TRIG;
+	RT_StartBlowOffClosed: R_TRIG;
+	RT_StartVacuumClosed: R_TRIG;
+	T_StartVacuumAfterDrying: TON;
+	RT_StartVacuumAfterDrying: R_TRIG;
+	TestTime: TIME := T#24500MS;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+Init();
+Cycle();
+Objects();
+
+ActualPosition := HydraulicCilinder.ActPosition;
+
+{region "Closed vacuum and blowoff HMI stuff"}
+RT_EnableBlowOff(CLK:=MachParameters.EnableClosedBlowOff);
+RT_EnableVacuum(CLK:=MachParameters.EnableClosedVacuum);
+
+IF RT_EnableBlowOff.Q THEN
+	MachParameters.EnableClosedVacuum := FALSE;
+END_IF
+
+IF RT_EnableVacuum.Q THEN
+	MachParameters.EnableClosedBlowOff := FALSE;
+END_IF
+{endregion}]]></ST>
+    </Implementation>
+    <Action Name="Cycle" Id="{aa84e275-3c1d-464c-ac84-bda18804604f}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
+(*State text*)
+sCycleStateText:=sCycleStateTextDef[miCycleState];
+(*Timeout Watchdog for Statemachine*)
+mxCycleTimeoutEnable:=NOT (miCycleState=0) AND NOT mxReset;
+
+CycleTimeout(IN:=mxCycleTimeoutEnable  , PT:=tCycleStateTimeouts[miCycleState] );
+CycleTimeOutUpFlank(CLK:=CycleTimeout.Q );
+miCycleOldstate:=miCycleState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF CycleTimeOutUpFlank.Q THEN
+	exCycleTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetCycleState THEN
+	mxResetCycleState:= FALSE;
+	mxInitialized := FALSE;
+		
+	miCycleState:=0;
+	miCycleOldstate:=miCycleState;
+	mxCycleTransitionState:=FALSE;
+
+	mxStartCycle:= FALSE;
+	mxStopCycle:= FALSE;
+	mxStopDirect:=FALSE;
+	SgTmIsDown := FALSE;
+	SgTmIsUp := FALSE;
+	mxMoveUp := FALSE;
+	sgMoveDown := FALSE;
+
+	T_DryingTime.IN:= FALSE;
+	T_DryingMoldLock.IN:= FALSE;
+	T_VacuumTimeClosed.IN:= FALSE;
+	T_BlowOffClosed.IN:= FALSE;
+	T_BlowOff.IN:=FALSE;	
+	
+	HydraulicCilinder.M_Stop();
+END_IF
+
+// Test CODE!
+//RT_StartVacuumAfterDrying(CLK:=(miCycleState = 4));
+//T_StartVacuumAfterDrying(IN:=, PT:=TestTime);
+(*
+IF RT_StartVacuumAfterDrying.q THEN
+	T_StartVacuumAfterDrying.IN:=TRUE;
+END_IF
+
+IF T_StartVacuumAfterDrying.q THEN
+	T_StartVacuumAfterDrying.IN := FALSE;
+	Vacuum.M_On();
+END_IF
+*)
+
+(*Definition State has Error*)
+mxCycleHasError:=FALSE;
+
+T_BlowOff(IN:=, PT:=MachParameters.BlowOffToTakeOut);
+T_DryingTime(IN:= , PT:= MachParameters.DryingTime);
+
+{region "Vacuum / Blowoff while closed"}
+	T_VacuumTimeClosed(IN:= , PT:= MachParameters.VacuumTimeClosed);
+	T_BlowOffClosed(IN:= , PT:= MachParameters.BlowOffTimeClosed);
+	RT_StartBlowOffClosed(CLK:= MachParameters.EnableClosedBlowOff AND (miCycleState = 4));
+	RT_StartVacuumClosed(CLK:=MachParameters.EnableClosedVacuum AND (miCycleState = 4));
+	
+	IF RT_StartBlowOffClosed.Q THEN 
+		T_BlowOffClosed.IN := TRUE;
+		BlowOff.M_On();
+	ELSIF RT_StartVacuumClosed.Q THEN
+		T_VacuumTimeClosed.IN := TRUE;
+		Vacuum.M_On();
+	END_IF
+	
+	IF T_BlowOffClosed.Q THEN 
+		T_BlowOffClosed.IN := FALSE;
+		BlowOff.M_Off(); 
+	END_IF
+	IF T_VacuumTimeClosed.Q THEN 
+		T_VacuumTimeClosed.IN := FALSE;
+		Vacuum.M_Off(); 
+	END_IF
+{endregion}
+
+
+(*Cycle State's*)
+CASE miCycleState OF
+
+{region "Description"}
+	(* Cycle:
+	LEEG beginnen
+		-wacht op signaal vanuit bottommold, naar beneden
+		-Naar beneden om product te drogen
+		-als bijna dicht dan extra druk opbouwen
+		-Na droogtijd/transfer up wait time, relief presure
+		-vacuum aan, omhoog, signal to bottom mold -> vac of blow on
+		-signaal Mold is up -> bottom mold
+		-Wacht op bottom mold is in
+		-Wacht op takeout unit is omhoog (als enabled)
+		-blow off aan*)
+{endregion}
+	0:
+		IF mxStartCycle THEN
+			mxStartCycle:= FALSE;
+			miCycleState:= 1;
+		END_IF
+	
+	1: // wait for move down
+		
+		// Keep topmold in its "up" position.
+		HydraulicCilinder.M_Move(EndPosition:= MachParameters.PositionUpStop,  NormalSpeed:= MachParameters.SpeedUpNormal, 
+								SlowPosition:= MachParameters.PositionUpStop - MachParameters.PositionUpSlow, SlowSpeed:= MachParameters.SpeedUpSlow, 
+								CreepPosition:=MachParameters.PositionUpStop - MachParameters.PositionUpCreep, CreepSpeed:=MachParameters.SpeedUpCreep);
+ 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF mxStopCycle AND mxEmptyMachine THEN
+			mxStopCycle:=False;
+			mxEmptyMachine:= FALSE;
+			miCycleState:= 0;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 0;
+		ELSIF sgMoveDown THEN	
+			sgMoveDown:= FALSE;
+			mxMoveUp:= FALSE;
+			SgTmIsUp:= FALSE;
+			miCycleState:= 2;
+		END_IF
+			
+	2: // Move down. 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;(*Stop direct*)
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF HydraulicCilinder.M_Move(EndPosition:=ProdParameters.PositionDownStop, NormalSpeed:=MachParameters.SpeedDownNormal, 
+										SlowPosition:=ProdParameters.PositionDownStop + Machparameters.PositionDownSlow, SlowSpeed:=MachParameters.SpeedDownSlow, 
+										CreepPosition:=ProdParameters.PositionDownStop + Machparameters.PositionDownCreep, CreepSpeed:=MachParameters.SpeedDownCreep) THEN
+			//BlowOff.M_On(); 			// Blowoff stops after delay ^ at top of cylce
+			miCycleState:= 3;
+		END_IF
+	
+	3: // Drying Lock time, build up pressure 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;(*Stop direct*)
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF TRUE  THEN 	// ELSIF HydraulicCilinder.M_Press(Pressdown:=TRUE, PressSpeed:=MachParameters.PressSpeed, StoppingPressure:=MachParameters.PressStop) THEN
+			//HydraulicCilinder.M_Stop();		
+			sgTmIsDown:= TRUE;
+			sgTmIsUp:=FALSE;
+			miCycleState:= 4;
+		END_IF
+	
+	
+	4:  // start drying 
+		T_DryingTime(IN:= TRUE);
+		
+		HydraulicCilinder.M_Press(Pressdown:=TRUE, PressSpeed:=MachParameters.PressSpeed, StoppingPressure:=MachParameters.PressStop);
+		
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;(*Stop direct*)
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:=miCycleState;
+			miCycleState:= 20;
+		ELSIF T_DryingTime.Q THEN		// When dryingtime has finished, allways open up
+			T_DryingTime(IN:= FALSE);
+			Vacuum.M_On();
+			miCycleState:= 5;
+		END_IF
+		
+	5: // Move up to "open" position with "slow" speed 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF HydraulicCilinder.M_Move(EndPosition:= ProdParameters.PositionDownOpen,  NormalSpeed:=MachParameters.SpeedOpening, 
+										SlowPosition:= ProdParameters.PositionDownOpen, SlowSpeed:=MachParameters.SpeedOpening, 
+										CreepPosition:=ProdParameters.PositionDownOpen, CreepSpeed:=MachParameters.SpeedOpening) THEN
+			miCycleState:= 6;
+		END_IF
+	
+		
+	6: // Move up 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF HydraulicCilinder.M_Move(EndPosition:= MachParameters.PositionUpStop,  NormalSpeed:= MachParameters.SpeedUpNormal, 
+										SlowPosition:= MachParameters.PositionUpStop - MachParameters.PositionUpSlow, SlowSpeed:= MachParameters.SpeedUpSlow, 
+										CreepPosition:=MachParameters.PositionUpStop - MachParameters.PositionUpCreep, CreepSpeed:=MachParameters.SpeedUpCreep) THEN
+			SgTmIsUp:= TRUE;
+			SgTmIsDown:= FALSE;
+			mxMoveUp:= FALSE;
+			
+			miCycleState:= 7;
+		END_IF
+		
+	7: //Wait until takeout is moving up *)	
+	
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;(*Stop direct*)
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			HydraulicCilinder.M_Stop();
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF mxTakeOutIsMovingUp THEN
+			Vacuum.M_Off();
+			BlowOff.M_On();
+			
+			miCycleState:= 8;
+		END_IF
+		
+	8: // Await Blowoff
+		T_BlowOff.IN := TRUE;
+		
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;(*Stop direct*)
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			HydraulicCilinder.M_Stop();
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF T_BlowOff.Q THEN
+			BlowOff.M_Off();
+			
+			T_BlowOff.IN := FALSE;
+			miCycleState:= 1;
+		END_IF
+
+	20: // Stop Cycle
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF TRUE THEN
+			miCycleState:= 21;
+		END_IF
+
+	21:	//Stop cycle, wait for start
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF mxStartCycle THEN
+
+			miCycleState:= miStopState;
+		END_IF
+	(* Stop Direct *)	
+	25:
+		mxStartCycle:= FALSE;
+		mxStopCycle:= FALSE;
+		mxInitialized:= FALSE;
+
+		T_DryingTime.IN:= FALSE;
+		
+		HydraulicCilinder.M_StopDirect();
+		Vacuum.M_Off(); (* When product do not switch off *)
+		BlowOff.M_Off();
+	
+		miCycleState:= 0;
+
+END_CASE
+
+mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=21);]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Error" Id="{66da3a34-a24d-40b5-a841-1ea942d4ab90}">
+      <Implementation>
+        <ST><![CDATA[
+
+(* ****************************************************************************** *)
+mxErrorStopInPos:= HydraulicCilinder.mxErrorStopInPos;
+mxErrorInit:= HydraulicCilinder.mxErrorInit
+			OR HeatingZone[1].mxErrorInit
+			OR HeatingZone[2].mxErrorInit
+			OR HeatingZone[3].mxErrorInit
+			OR HeatingZone[4].mxErrorInit
+			OR HeatingZone[5].mxErrorInit
+			OR HEatingZone[6].mxErrorInit;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Init" Id="{f7aba8dc-4755-4b83-9e5d-3eeacad8d9cb}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxInitTransitionState:=(miInitState<>miInitOldstate);
+(*State text*)
+sInitStateText:=sInitStateTextDef[miInitState];
+(*Timeout Watchdog for Statemachine*)
+mxInitTimeoutEnable:=NOT (miInitState=0)  AND NOT mxReset;
+
+InitTimeout(IN:=mxInitTimeoutEnable  , PT:=tInitStateTimeouts[miInitState] );
+InitTimeOutUpFlank(CLK:=InitTimeout.Q );
+miInitOldstate:=miInitState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF InitTimeOutUpFlank.Q THEN
+	exInitTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetInitState THEN
+	mxResetInitState:=FALSE;
+	miInitState:=0;
+	miInitOldstate:=miInitState;
+	mxInitTransitionState:=FALSE;
+	
+	mxStartInit:= FALSE;
+	mxStopInit:= FALSE;		
+END_IF
+
+(*Definition State has Error*)
+mxInitHasError:=FALSE;
+
+(*Init State's*)
+CASE miInitState OF
+	0:
+		IF mxStartInit THEN
+			mxStartInit:= FALSE;
+			mxInitialized:=FALSE;
+			
+			Vacuum.M_Off();
+			BlowOff.M_Off();
+
+			miInitState:= 1;
+		END_IF
+		
+	(* Move Up *)	
+	1:
+		IF mxStopInit THEN
+			mxStopInit:= FALSE;
+
+			miInitState:= 10;
+		END_IF
+			
+		// Above Normal Position
+		IF HydraulicCilinder.ActPosition > MachParameters.PositionUpStop THEN // Move down
+			IF HydraulicCilinder.M_Move(EndPosition:=MachParameters.PositionUpStop, NormalSpeed:= MachParameters.SpeedUpNormal, 
+											SlowPosition:=MachParameters.PositionUpStop + MachParameters.PositionUpSlow, SlowSpeed:=MachParameters.SpeedUpSlow, 
+											CreepPosition:=MachParameters.PositionUpStop + MachParameters.PositionUpCreep,	CreepSpeed:=MachParameters.SpeedUpCreep ) THEN
+			mxInitialized:= TRUE; (* Return val *)
+			miInitState:= 0;	
+			END_IF
+		ELSE
+		// Below normal position
+			IF HydraulicCilinder.M_Move(EndPosition:=MachParameters.PositionUpStop, NormalSpeed:= MachParameters.SpeedUpNormal, 
+											SlowPosition:=MachParameters.PositionUpStop - MachParameters.PositionUpSlow, SlowSpeed:=MachParameters.SpeedUpSlow, 
+											CreepPosition:=MachParameters.PositionUpStop - MachParameters.PositionUpCreep,	CreepSpeed:=MachParameters.SpeedUpCreep ) THEN
+			mxInitialized:= TRUE; (* Return val *)
+			miInitState:= 0;	
+			END_IF
+		END_IF
+
+	(* Stop Init *)
+	10:
+		HydraulicCilinder.M_Stop();
+
+		mxStartInit:= FALSE;
+		mxStopInit:= FALSE;
+		mxInitialized:=FALSE;					
+
+		miInitState:= 0;
+END_CASE
+
+mxInitBusy:= miInitState<>0;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_EmptyMachine" Id="{427defab-33ee-46e3-b86c-26c43217307b}">
+      <Declaration><![CDATA[METHOD M_EmptyMachine
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxEmptyMachine:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StartCycle" Id="{60f5d12b-dd25-4393-b3b3-a2162a925419}">
+      <Declaration><![CDATA[METHOD M_StartCycle
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT mxCycleBusy THEN
+	mxStartCycle:= TRUE;	
+	mxStopCycle := FALSE;
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StartInit" Id="{1e7dd9cb-2b74-4360-92d5-d40cba4e6f74}">
+      <Declaration><![CDATA[METHOD M_StartInit
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT mxInitBusy THEN 
+	mxStartInit:= TRUE; 
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycle" Id="{6b0e6f3c-2f7c-4e9c-b362-79a28a7b070e}">
+      <Declaration><![CDATA[METHOD M_StopCycle
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN 
+	mxStopCycle:= TRUE; 
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopDirect" Id="{bb973ae9-b5f9-4eab-86c6-e4763c6aa73e}">
+      <Declaration><![CDATA[METHOD M_StopDirect
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxStopDirect:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopInit" Id="{39a3f404-e2be-408d-b953-4425c44cc67f}">
+      <Declaration><![CDATA[METHOD M_StopInit
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxInitBusy THEN 
+	mxStopInit:= TRUE; 
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="Objects" Id="{f4c6d122-9031-434d-b21e-1f3c62e81905}">
+      <Implementation>
+        <ST><![CDATA[(* Object Calls *)
+HydraulicCilinder(
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency OR mxDoorsOpened, 
+	mxAutoMode:= mxAutoMode, 
+	EndPositionIn:= MachParameters.PositionUpStop,
+	EndPositionOut:= ProdParameters.PositionDownStop,
+	OffsetPosition:= MachParameters.PositionOffsetZero,
+	OffsetAlarmPosition:= MachParameters.PositionOffsetAlarm,
+	PositionPhysicalMeasured:=MachParameters.PositionPhyscialMeasured,
+	PositionPhysicalMeasuredOld:=MachParameters.PositionPhysicalMeasuredOld,
+	PhysicalOffsetPos:=MachParameters.PhysicalOffsetPos,
+	RHSR_Blocked:=RHSR_Blocked,
+	mxIsMovingIn=> mxCilIsMovingIn, 
+	mxIsMovingOut=> mxCilIsMovingOut, 
+	ManSpeedCreepIn:=MachParameters.SpeedUpCreep,
+	ManSpeedCreepOut:=MachParameters.SpeedDownCreep,
+	ManSpeedSlowIn:=MachParameters.SpeedUpSlow,
+	ManSpeedSlowOut:=MachParameters.SpeedDownSlow,
+	ManSpeedIn:=MachParameters.SpeedUpNormal,
+	ManSpeedOut:=MachParameters.SpeedDownNormal,
+	mxIsIn=> mxCilIsIn, 
+	mxIsOut=> mxCilIsOut,
+	Errors=> Errors.Hydraulic);
+	
+Vacuum(
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency OR mxDoorsOpened, 
+	mxAutoMode:= mxAutoMode);
+	
+BlowOff(
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency OR mxDoorsOpened, 
+	mxAutoMode:= mxAutoMode);
+
+
+HeatingZone[1](
+	mxReset:= mxReset,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
+	mxEnableHeating:=mxEnableHeating,
+	MachParameters:=MachParameters.HeatingZone[1],
+	Errors=> Errors.HeatingZone[1]);
+	
+HeatingZone[2](
+	mxReset:= mxReset,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
+	mxEnableHeating:=mxEnableHeating,
+	MachParameters:=MachParameters.HeatingZone[2],
+	Errors=> Errors.HeatingZone[2]);
+
+HeatingZone[3](
+	mxReset:= mxReset,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
+	mxEnableHeating:=mxEnableHeating,
+	MachParameters:=MachParameters.HeatingZone[3],
+	Errors=> Errors.HeatingZone[3]);
+
+HeatingZone[4](
+	mxReset:= mxReset,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
+	mxEnableHeating:=mxEnableHeating,
+	MachParameters:=MachParameters.HeatingZone[4],
+	Errors=> Errors.HeatingZone[4]);
+
+HeatingZone[5](
+	mxReset:= mxReset,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
+	mxEnableHeating:=mxEnableHeating,
+	MachParameters:=MachParameters.HeatingZone[5],
+	Errors=> Errors.HeatingZone[5]);
+
+HeatingZone[6](
+	mxReset:= mxReset,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
+	mxEnableHeating:=mxEnableHeating,
+	MachParameters:=MachParameters.HeatingZone[6],
+	Errors=> Errors.HeatingZone[6]);]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_TopMold">
+      <LineId Id="330" Count="3" />
+      <LineId Id="470" Count="0" />
+      <LineId Id="613" Count="0" />
+      <LineId Id="629" Count="0" />
+      <LineId Id="614" Count="1" />
+      <LineId Id="618" Count="1" />
+      <LineId Id="621" Count="5" />
+      <LineId Id="620" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.Cycle">
+      <LineId Id="763" Count="17" />
+      <LineId Id="1097" Count="0" />
+      <LineId Id="1099" Count="0" />
+      <LineId Id="781" Count="3" />
+      <LineId Id="1101" Count="2" />
+      <LineId Id="1108" Count="0" />
+      <LineId Id="1113" Count="0" />
+      <LineId Id="1112" Count="0" />
+      <LineId Id="1116" Count="0" />
+      <LineId Id="1107" Count="0" />
+      <LineId Id="1105" Count="0" />
+      <LineId Id="1203" Count="3" />
+      <LineId Id="1174" Count="1" />
+      <LineId Id="788" Count="0" />
+      <LineId Id="1259" Count="0" />
+      <LineId Id="1319" Count="0" />
+      <LineId Id="1323" Count="0" />
+      <LineId Id="1322" Count="0" />
+      <LineId Id="1320" Count="0" />
+      <LineId Id="1324" Count="0" />
+      <LineId Id="1327" Count="0" />
+      <LineId Id="1326" Count="0" />
+      <LineId Id="1328" Count="2" />
+      <LineId Id="1332" Count="0" />
+      <LineId Id="1331" Count="0" />
+      <LineId Id="1321" Count="0" />
+      <LineId Id="1333" Count="0" />
+      <LineId Id="790" Count="2" />
+      <LineId Id="1294" Count="0" />
+      <LineId Id="794" Count="0" />
+      <LineId Id="1295" Count="1" />
+      <LineId Id="796" Count="0" />
+      <LineId Id="1261" Count="0" />
+      <LineId Id="1278" Count="1" />
+      <LineId Id="1297" Count="0" />
+      <LineId Id="1266" Count="0" />
+      <LineId Id="1268" Count="0" />
+      <LineId Id="1315" Count="0" />
+      <LineId Id="1269" Count="0" />
+      <LineId Id="1275" Count="0" />
+      <LineId Id="1316" Count="0" />
+      <LineId Id="1276" Count="0" />
+      <LineId Id="1298" Count="0" />
+      <LineId Id="798" Count="0" />
+      <LineId Id="1281" Count="0" />
+      <LineId Id="1284" Count="0" />
+      <LineId Id="1283" Count="0" />
+      <LineId Id="799" Count="0" />
+      <LineId Id="1287" Count="0" />
+      <LineId Id="1289" Count="0" />
+      <LineId Id="1288" Count="0" />
+      <LineId Id="1262" Count="1" />
+      <LineId Id="806" Count="3" />
+      <LineId Id="1234" Count="0" />
+      <LineId Id="810" Count="10" />
+      <LineId Id="1235" Count="0" />
+      <LineId Id="823" Count="2" />
+      <LineId Id="827" Count="2" />
+      <LineId Id="831" Count="0" />
+      <LineId Id="1301" Count="0" />
+      <LineId Id="1306" Count="0" />
+      <LineId Id="1302" Count="0" />
+      <LineId Id="1304" Count="1" />
+      <LineId Id="1303" Count="0" />
+      <LineId Id="832" Count="1" />
+      <LineId Id="835" Count="1" />
+      <LineId Id="1300" Count="0" />
+      <LineId Id="837" Count="0" />
+      <LineId Id="839" Count="2" />
+      <LineId Id="843" Count="4" />
+      <LineId Id="849" Count="0" />
+      <LineId Id="851" Count="2" />
+      <LineId Id="855" Count="2" />
+      <LineId Id="859" Count="2" />
+      <LineId Id="863" Count="1" />
+      <LineId Id="1211" Count="0" />
+      <LineId Id="1214" Count="0" />
+      <LineId Id="1216" Count="0" />
+      <LineId Id="1225" Count="0" />
+      <LineId Id="867" Count="1" />
+      <LineId Id="870" Count="1" />
+      <LineId Id="874" Count="1" />
+      <LineId Id="877" Count="2" />
+      <LineId Id="881" Count="1" />
+      <LineId Id="1218" Count="0" />
+      <LineId Id="1237" Count="0" />
+      <LineId Id="887" Count="0" />
+      <LineId Id="1152" Count="0" />
+      <LineId Id="889" Count="5" />
+      <LineId Id="1318" Count="0" />
+      <LineId Id="895" Count="0" />
+      <LineId Id="1317" Count="0" />
+      <LineId Id="896" Count="1" />
+      <LineId Id="899" Count="2" />
+      <LineId Id="903" Count="1" />
+      <LineId Id="906" Count="0" />
+      <LineId Id="911" Count="0" />
+      <LineId Id="1299" Count="0" />
+      <LineId Id="916" Count="1" />
+      <LineId Id="956" Count="0" />
+      <LineId Id="1238" Count="0" />
+      <LineId Id="1242" Count="9" />
+      <LineId Id="1256" Count="1" />
+      <LineId Id="1241" Count="0" />
+      <LineId Id="1239" Count="0" />
+      <LineId Id="958" Count="2" />
+      <LineId Id="962" Count="2" />
+      <LineId Id="966" Count="1" />
+      <LineId Id="1228" Count="0" />
+      <LineId Id="1231" Count="0" />
+      <LineId Id="1233" Count="0" />
+      <LineId Id="968" Count="0" />
+      <LineId Id="1110" Count="0" />
+      <LineId Id="970" Count="4" />
+      <LineId Id="976" Count="0" />
+      <LineId Id="1309" Count="0" />
+      <LineId Id="977" Count="1" />
+      <LineId Id="980" Count="3" />
+      <LineId Id="985" Count="7" />
+      <LineId Id="1180" Count="0" />
+      <LineId Id="1182" Count="0" />
+      <LineId Id="1199" Count="0" />
+      <LineId Id="1314" Count="0" />
+      <LineId Id="1183" Count="1" />
+      <LineId Id="1186" Count="3" />
+      <LineId Id="1191" Count="2" />
+      <LineId Id="1195" Count="0" />
+      <LineId Id="1202" Count="0" />
+      <LineId Id="1196" Count="2" />
+      <LineId Id="993" Count="0" />
+      <LineId Id="995" Count="2" />
+      <LineId Id="999" Count="1" />
+      <LineId Id="1003" Count="2" />
+      <LineId Id="1007" Count="2" />
+      <LineId Id="1011" Count="11" />
+      <LineId Id="1207" Count="0" />
+      <LineId Id="1025" Count="8" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.Error">
+      <LineId Id="10" Count="1" />
+      <LineId Id="2" Count="1" />
+      <LineId Id="12" Count="5" />
+      <LineId Id="4" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.Init">
+      <LineId Id="60" Count="0" />
+      <LineId Id="33" Count="19" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="53" Count="4" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="196" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="165" Count="1" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="159" Count="0" />
+      <LineId Id="224" Count="1" />
+      <LineId Id="227" Count="0" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="211" Count="6" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="218" Count="5" />
+      <LineId Id="226" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="160" Count="0" />
+      <LineId Id="137" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="202" Count="0" />
+      <LineId Id="199" Count="0" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="203" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="69" Count="1" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.M_EmptyMachine">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.M_StartCycle">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.M_StartInit">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.M_StopCycle">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.M_StopDirect">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.M_StopInit">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TopMold.Objects">
+      <LineId Id="2" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="14" Count="2" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="53" Count="1" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="115" Count="1" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="131" Count="5" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="102" Count="1" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="43" Count="2" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="46" Count="2" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="137" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="106" Count="1" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="79" Count="1" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="83" Count="1" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="85" Count="1" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="87" Count="1" />
+      <LineId Id="122" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="91" Count="1" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="142" Count="0" />
+      <LineId Id="93" Count="1" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_AnalogInPT100" Id="{7599e9cd-5dfc-4d12-9a58-4a142cf64b93}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AnalogInPT100
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	EngTempOut			: REAL; (*Output in engineering units*)
+	Error				: BOOL;
+	Wirebreak			: BOOL;
+END_VAR
+VAR
+	RawInput 			AT %I*: INT;
+	Status				AT %I*: WORD;
+	Underrange			: BOOL;
+	Overrange			: BOOL;
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Underrange:= Status.0;
+Overrange:= Status.1;
+Error:= Status.4 OR UnderRange OR Overrange;
+Wirebreak := Status.4;
+
+
+EngTempOut:= INT_TO_REAL(RawInput)/10;
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_AnalogInPT100">
+      <LineId Id="72" Count="2" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

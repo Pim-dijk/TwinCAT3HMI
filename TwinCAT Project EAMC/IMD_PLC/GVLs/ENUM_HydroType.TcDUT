@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ENUM_HydroType" Id="{a6f8465a-24d9-424c-ba0a-956e5b3192e9}">
+    <Declaration><![CDATA[TYPE ENUM_HydroType:
+(
+	(* Used to identify which *)
+	UpDown := 1,
+	LeftRight :=2
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

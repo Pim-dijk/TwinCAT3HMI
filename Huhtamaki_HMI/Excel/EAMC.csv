@@ -1,0 +1,800 @@
+LabelNr,English,Dutch
+1,AUTOMATIC,AUTOMATISCH
+2,MANUAL,HANDBEDIENING
+3,INIT,INIT
+4,SETTINGS,INSTELLING
+5,PRODUCT,PRODUCT
+6,GENERAL,ALGEMEEN
+7,Timestamp,Tijdstempel
+8,Message,Melding
+9,Logged in:,Ingelogd:
+10,Level:,Niveau:
+11,Overview Actual Alarms,Overzicht aktuele alarmen
+12,RESET,RESET
+13,BACK,TERUG
+14,Group,Groep
+15,Machine Status:,Machine Status:
+16,Product:,Product:
+17,Total Products,Totaal producten:
+18,Actual Kick-Offs,Aktuele Kicks-Offs
+19,Production,Productie
+20,Waiting,Wachten
+21,Stopped,Gestopt
+22,Fault,Fout
+23,Machine Totals,Machine Totalen
+24,Login,Inloggen
+25,Logout,Uitloggen
+26,On,Aan
+27,Off,Uit
+28,Close HMI,Afsluiten HMI
+29,Up,Hoog
+30,Down,Laag
+31,Forward,Vooruit
+32,Reverse,Achteruit
+33,In,In
+34,Out,Uit
+35,Numpad,Toestenbord numeriek
+36,Product Selection,Product selectie
+37,Product Name,Productnaam
+38,Load,Laden
+39,Cancel,Annuleren
+40,Save,Opslaan
+41,Yes,Ja
+42,No,Nee
+43,Enter,Enter
+44,Esc,Esc
+45,invalid value!,Ongeldige waarde!
+46,Enter a value between,Voer een waarde in tussen
+47,and,en
+48,Enter a value,Waarde invoeren
+49,Invalid Password!,Ongeldig wachtwoord!
+50,Are you sure?,Weet u het zeker?
+51,SERVICE,SERVICE
+52,Can't connect to Twincat,Geen connectie met Twincat
+53,Start,Start
+54,Stop,Stop
+55,Clean Screen,Schoonmaak scherm
+56,Clean Screen closes in,Schoonmaak scherm sluit over
+57,seconds !!,seconden !!
+58,Start init,Start init
+59,Cancel init,Annuleren init
+60,Open,Open
+61,Close,Dicht
+62,Save as new,Opslaan als nieuw
+63,Delete,Verwijderen
+64,Enable,Inschakelen
+65,Info,Info
+66,ALARMS,ALARMEN
+67,Users,Gebruikers
+68,OK,OK
+69,User,Gebruiker
+70,Login Code User,Inlogcode gebruiker
+71,New Login Code:,Nieuwe Inlogcode:
+72,Confirm Login Code:,Bevestig Inlogcode:
+73,New Login code and Confirmation not equal,Nieuwe Inlogcode en bevestiging niet gelijk
+74,Position,Positie
+75,No connection with plc established hmi will close now,Spare075
+76,Pause,Spare076
+77,Cycle,Cycle
+78,Vacuum,Spare078
+79,Spare079,Spare079
+80,More settings,Spare080
+81,Spare81,Spare081
+82,Spare082,Spare082
+83,Spare083,Spare083
+84,Spare084,Spare084
+85,Spare085,Spare085
+86,Machine pond manual,Spare086
+87,Machine pond overview,Spare087
+88,Machine pond settings,Spare088
+89,Spraybar manual,Spare089
+90,Spraybar overview,Spare090
+91,Spraybar settings,Spare091
+92,Pulp overview,Spare092
+93,Spare093,Spare093
+94,Transfer mold manual,Spare094
+95,Transfer mold overview,Spare095
+96,Transfer mold settings (1/2),Spare096
+97,Transfer mold settings (2/2),Spare097
+98,Formingmold overview,Spare098
+99,Formingmold manual,Spare099
+100,Formingmold settings,Spare100
+101,Takeout unit A overview,Spare101
+102,Takeout unit A manual,Spare102
+103,Takeout unit A settings,Spare103
+104,Takeout unit B overview,Spare104
+105,Takeout unit B manual,Spare105
+106,Takeout unit B settings,Spare106
+107,Spare107,Spare107
+108,Spare108,Spare108
+109,Spare109,Spare109
+110,Enable Takeout A/B,Spare110
+111,Enable A-Side,Spare111
+112,Enable B-Side,Spare112
+113,Spare113,Spare113
+114,Spare114,Spare114
+115,Spare115,Spare115
+116,Spare116,Spare116
+117,Spare117,Spare117
+118,Spare118,Spare118
+119,Spare119,Spare119
+120,Drying mold A-Side overview,Spare120
+121,Drying mold B-Side overview,Spare121
+122,Drying mold A-Side settings,Spare122
+123,Drying mold B-side settings,Spare123
+124,Spare124,Spare124
+125,Spare125,Spare125
+126,Drying mold A-Side top overview,Spare126
+127,Drying mold A-Side bot overview,Spare127
+128,Drying mold B-Side top overview,Spare128
+129,Drying mold B-side bot overview,Spare129
+130,Active,Spare130
+131,PV,Spare131
+132,CV,Spare132
+133,SP,Spare133
+134,Spare134,Spare134
+135,PID settings A-Side Top ,Spare135
+136,PID settings B-Side Top,Spare136
+137,PID settings A-Side Bottom,Spare137
+138,PID settings B-Side Bottom,Spare138
+139,Spare139,Spare139
+140,Positions top mold,Spare140
+141,Top mold up stop,Spare141
+142,Top mold up slow,Spare142
+143,Top mold offset slow range,Spare143
+144,Top mold offset alarm,Spare144
+145,Top mold down open,Spare145
+146,Spare146,Spare146
+147,Spare147,Spare147
+148,Spare148,Spare148
+149,Spare149,Spare149
+150,Timing top mold,Spare150
+151,Top closed blow off time,Spare151
+152,Top closed vacuum time,Spare152
+153,Top pressure relief time,Spare153
+154,Top drying press. Lock time,Spare154
+155,Top drying time,Spare155
+156,Spare156,Spare156
+157,Spare157,Spare157
+158,Spare158,Spare158
+159,Spare159,Spare159
+160,Positions bottom mold,Spare160
+161,Bottom mold in stop,Spare161
+162,Bottom mold in slow,Spare162
+163,Bottom mold out stop,Spare163
+164,Bottom mold out slow,Spare164
+165,Bottom mold offset slow,Spare165
+166,Bottom mold offset alarm,Spare166
+167,Spare167,Spare167
+168,Spare168,Spare168
+169,Spare169,Spare169
+170,Timing horizontal cylinder,Spare170
+171,Guard time Error,Spare171
+172,Guard time Warning in,Spare172
+173,Guard time Warning out,Spare173
+174,Timing vertical cylinder,Spare174
+175,Vacuum sections in bottom molds,Spare175
+176,Vacuum section 1,Spare176
+177,Vacuum section 2,Spare177
+178,Vacuum section 3,Spare178
+179,Vacuum section 4,Spare179
+180,Vacuum section 5,Spare180
+181,Vacuum section 6,Spare181
+182,Spare182,Spare182
+183,Take out unit vacuum sections,Spare183
+184,vacuum take out 1,Spare184
+185,vacuum take out 2,Spare185
+186,vacuum take out 3,Spare186
+187,vacuum take out 4,Spare187
+188,vacuum take out 5,Spare188
+189,vacuum take out 6,Spare189
+190,Horizontal cylinder,Spare190
+191,Vertical cylinder,Spare191
+192,Manual control,Spare192
+193,Settings,Spare193
+194,Overview,Spare194
+195,Spare195,Spare195
+196,Spare196,Spare196
+197,Spare197,Spare197
+198,PWM settings,Spare198
+199,PWM period time,Spare199
+200,PID controller bottom mold,Spare200
+201,Gain,Spare201
+202,Ti,Spare202
+203,Tv,Spare203
+204,Td,Spare204
+205,1st order filter,Spare205
+206,Deadband,Spare206
+207,ROC. Limit setpoint,Spare207
+208,ROC. Limit OUT up,Spare208
+209,ROC. Limit OUT down,Spare209
+210,Output minimum,Spare210
+211,Output maximum,Spare211
+212,Setpoint minimum,Spare212
+213,Setpoint maximum,Spare213
+214,Auto,Spare214
+215,Setpoint Manual,Spare215
+216,Out,Spare216
+217,SP,Spare217
+218,PV,Spare218
+219,OUT,Spare219
+220,Active,Spare220
+221,PID Settings,Spare221
+222,Bottom mold cycle:,Spare222
+223,Top mold cycle:,Spare223
+224,spare224,Spare224
+225,Spare225,Spare225
+226,Spare226,Spare226
+227,Spare227,Spare227
+228,Spare228,Spare228
+229,Spare229,Spare229
+230,Pressure settings,Spare230
+231,Pressure up,Spare231
+232,Pressure up slow,Spare232
+233,Pressure down,Spare233
+234,Pressure down slow,Spare234
+235,Pressure lock transfer,Spare235
+236,Pressure open transfer,Spare236
+237,Pressure lock forming,Spare237
+238,Pressure open forming,Spare238
+239,Spare239,Spare239
+240,Flow settings,Spare240
+241,Flow up,Spare241
+242,Flow up slow,Spare242
+243,Flow down,Spare243
+244,Flow down slow,Spare244
+245,Flow transfer lock,Spare245
+246,Flow transfer open,Spare246
+247,Flow forming lock,Spare247
+248,Flow forming open,Spare248
+249,Spare249,Spare249
+250,Ramp times,Spare250
+251,Ramp time in,Spare251
+252,Ramp time in slow,Spare252
+253,Ramp time out,Spare253
+254,Ramp time out slow,Spare254
+255,Ramp time transfer lock,Spare255
+256,Ramp time transfer open,Spare256
+257,Ramp time forming lock,Spare257
+258,Ramp time forming open,Spare258
+259,Spare259,Spare259
+260,Positions,Spare260
+261,Transfer mold up stop,Spare261
+262,Transfer mold up slow,Spare262
+263,Start forming process pos. ,Spare263
+264,Offset slow range,Spare264
+265,position offset alarm,Spare265
+266,Spare266,Spare266
+267,Spare267,Spare267
+268,Spare268,Spare268
+269,Spare269,Spare269
+270,Spare270,Spare270
+271,Spare271,Spare271
+272,Spare272,Spare272
+273,Spare273,Spare273
+274,Spare274,Spare274
+275,Timing,Spare275
+276,Transfer mold transfer time,Spare276
+277,Transfer mold up wait time,Spare277
+278,Forming time,Spare278
+279,Blow off time,Spare279
+280,Travel down time,Spare280
+281,Pre ignition down time,Spare281
+282,Spare282,Spare282
+283,Spare283,Spare283
+284,Spare284,Spare284
+285,Valves,Spare285
+286,Vacuum valve,Spare286
+287,Blowoff valve,Spare287
+288,Cylinder,Spare288
+289,Hydraulic cylinder,Spare289
+290,Up,Omhoog
+291,Down,Omlaag
+292,Slow,Traag
+293,On,Aan
+294,Air Cylinder,Spare294
+295,Spare295,Spare295
+296,Spare296,Spare296
+297,Spare297,Spare297
+298,Spare298,Spare298
+299,Spare299,Spare299
+300,Machine pond positions,Spare300
+301,Machine pond down stop,Spare301
+302,Machine pond down slow,Spare302
+303,Machine pond up stop,Spare303
+304,Machine pond up slow,Spare304
+305,Machine pond offset slow range,Spare305
+306,Machine pond offset alarm range,Spare306
+307,Spare307,Spare307
+308,Spare308,Spare308
+309,Spare309,Spare309
+310,Forming mold settings,Spare310
+311,Forming mold vacuum time,Spare311
+312,Forming mold vac. Time flash,Spare312
+313,Forming mold bubble time,Spare313
+314,Forming mold blow off time,Spare314
+315,Forming mold blow after time,Spare315
+316,Spare316,Spare316
+317,Spare317,Spare317
+318,Spare318,Spare318
+319,Spare319,Spare319
+320,Machine pond timing,Spare320
+321,Pond up wait time,Spare321
+322,Feeding pulp time,Spare322
+323,Spare323,Spare323
+324,Spare324,Spare324
+325,Guard time drain cylinder,Spare325
+326,Guard time pulp feeding valve,Spare326
+327,Spare327,Spare327
+328,Spare328,Spare328
+329,Spare329,Spare329
+330,Top mold pressure,Spare330
+331,Top mold flow,Spare331
+332,Top mold time,Spare332
+333,Bottom mold pressure,Spare333
+334,Bottom mold flow,Spare334
+335,Bottom mold time,Spare335
+336,Pressure down lock,Spare336
+337,Pressure down open,Spare337
+338,Flow down lock,Spare338
+339,Flow down open,Spare339
+340,Time down lock,Spare340
+341,Time down open,Spare341
+342,Time up,Spare342
+343,Time up slow,Spare343
+344,Time down,Spare344
+345,Time down slow,Spare345
+346,Spare346,Spare346
+347,Spare347,Spare347
+348,Spare348,Spare348
+349,Spare349,Spare349
+350,Positions,Spare350
+351,Rest front,Spare351
+352,Rest back,Spare352
+353,Start flash spraying forward,Spare353
+354,Stop flash spraying forward,Spare354
+355,Start wire spraying forward,Spare355
+356,Stop wire spraying forward,Spare356
+357,Start flash spraying backwd,Spare357
+358,Stop flash spraying backwd,Spare358
+359,Start wire spraying backwd,Spare359
+360,Stop wire spraying backwd,Spare360
+361,Actual measured position,Spare361
+362,Spare362,Spare362
+363,Spare363,Spare363
+364,Spare364,Spare364
+365,Speeds,Spare365
+366,Manual speed,Spare366
+367,Automatic speed,Spare367
+368,Spare368,Spare368
+369,Spare369,Spare369
+370,Timing,Spare370
+371,Spray delay time,Spare371
+372,Wire spray interval,Spare372
+373,Flash spray interval,Spare373
+374,Spare374,Spare374
+375,Top mold valves,Spare375
+376,Bottom mold valves,Spare376
+377,Top mold hydraulics,Spare377
+378,Bottom mold hydraulics,Spare378
+379,Pressure relief,Spare379
+380,Lock,Spare380
+381,Relief,Spare381
+382,Spare382,Spare382
+383,Spare383,Spare383
+384,Spare384,Spare384
+385,Machine pond valves,Spare385
+386,Pulp feeding,Spare386
+387,Drain valve,Spare387
+388,Hydraulic pump,Spare388
+389,Forming valves,Spare389
+390,Hydraulic pump manual control,Spare390
+391,Spare391,Spare391
+392,Spare392,Spare392
+393,Spare393,Spare393
+394,Spare394,Spare394
+395,Spare395,Spare395
+396,Spare396,Spare396
+397,Spare397,Spare397
+398,Spare398,Spare398
+399,Spare399,Spare399
+400,Offset position settings,Spare400
+401,Top mold A offset zero,Spare401
+402,Top mold b offset zero,Spare402
+403,Bottom mold A offset zero,Spare403
+404,Bottom mold B offset zero,Spare404
+405,Spare405,Spare405
+406,Spare406,Spare406
+407,Spare407,Spare407
+408,Spare408,Spare408
+409,Spare409,Spare409
+410,Enable heating,Spare410
+411,Heating,Spare411
+412,Spare412,Spare412
+413,Spare413,Spare413
+414,Spare414,Spare414
+415,Spare415,Spare415
+416,Spare416,Spare416
+417,Spare417,Spare417
+418,Spare418,Spare418
+419,Spare419,Spare419
+420,Spare420,Spare420
+421,Spare421,Spare421
+422,Spare422,Spare422
+423,Spare423,Spare423
+424,Spare424,Spare424
+425,Spare425,Spare425
+426,Spare426,Spare426
+427,Spare427,Spare427
+428,Spare428,Spare428
+429,Spare429,Spare429
+430,Spare430,Spare430
+431,Spare431,Spare431
+432,Spare432,Spare432
+433,Spare433,Spare433
+434,Spare434,Spare434
+435,Spare435,Spare435
+436,Spare436,Spare436
+437,Spare437,Spare437
+438,Spare438,Spare438
+439,Spare439,Spare439
+440,Spare440,Spare440
+441,Spare441,Spare441
+442,Spare442,Spare442
+443,Spare443,Spare443
+444,Spare444,Spare444
+445,Spare445,Spare445
+446,Spare446,Spare446
+447,Spare447,Spare447
+448,Spare448,Spare448
+449,Spare449,Spare449
+450,Spare450,Spare450
+451,Spare451,Spare451
+452,Spare452,Spare452
+453,Spare453,Spare453
+454,Spare454,Spare454
+455,Spare455,Spare455
+456,Spare456,Spare456
+457,Spare457,Spare457
+458,Spare458,Spare458
+459,Spare459,Spare459
+460,Spare460,Spare460
+461,Spare461,Spare461
+462,Spare462,Spare462
+463,Spare463,Spare463
+464,Spare464,Spare464
+465,Spare465,Spare465
+466,Spare466,Spare466
+467,Spare467,Spare467
+468,Spare468,Spare468
+469,Spare469,Spare469
+470,Spare470,Spare470
+471,Spare471,Spare471
+472,Spare472,Spare472
+473,Spare473,Spare473
+474,Spare474,Spare474
+475,Spare475,Spare475
+476,Spare476,Spare476
+477,Spare477,Spare477
+478,Spare478,Spare478
+479,Spare479,Spare479
+480,Spare480,Spare480
+481,Spare481,Spare481
+482,Spare482,Spare482
+483,Spare483,Spare483
+484,Spare484,Spare484
+485,Spare485,Spare485
+486,Spare486,Spare486
+487,Spare487,Spare487
+488,Spare488,Spare488
+489,Spare489,Spare489
+490,Spare490,Spare490
+491,Spare491,Spare491
+492,Spare492,Spare492
+493,Spare493,Spare493
+494,Spare494,Spare494
+495,Spare495,Spare495
+496,Spare496,Spare496
+497,Spare497,Spare497
+498,Spare498,Spare498
+499,Spare499,Spare499
+500,Top mold A - Position down slow,Spare500
+501,Top mold A - Position down stop,Spare501
+502,Top mold B - Position down slow,Spare502
+503,Top mold B - Position down stop,Spare503
+504,Transfermold - Position transfer slow,Spare504
+505,Transfermold - Position Transfer stop A,Spare505
+506,Transfermold - Position Transfer stop B,Spare506
+507,Transfermold - Position Transfer open,Spare507
+508,Transfermold - Position down slow,Spare508
+509,Transfermold - Position down open,Spare509
+510,Transfermold - Position down stop,Spare510
+511,Spare511,Spare511
+512,Spare512,Spare512
+513,Spare513,Spare513
+514,Spare514,Spare514
+515,Spare515,Spare515
+516,Spare516,Spare516
+517,Spare517,Spare517
+518,Spare518,Spare518
+519,Spare519,Spare519
+520,Spare520,Spare520
+521,Spare521,Spare521
+522,Spare522,Spare522
+523,Spare523,Spare523
+524,Spare524,Spare524
+525,Spare525,Spare525
+526,Spare526,Spare526
+527,Spare527,Spare527
+528,Spare528,Spare528
+529,Spare529,Spare529
+530,Spare530,Spare530
+531,Spare531,Spare531
+532,Spare532,Spare532
+533,Spare533,Spare533
+534,Spare534,Spare534
+535,Spare535,Spare535
+536,Spare536,Spare536
+537,Spare537,Spare537
+538,Spare538,Spare538
+539,Spare539,Spare539
+540,Spare540,Spare540
+541,Spare541,Spare541
+542,Spare542,Spare542
+543,Spare543,Spare543
+544,Spare544,Spare544
+545,Spare545,Spare545
+546,Spare546,Spare546
+547,Spare547,Spare547
+548,Spare548,Spare548
+549,Spare549,Spare549
+550,Spare550,Spare550
+551,Spare551,Spare551
+552,Spare552,Spare552
+553,Spare553,Spare553
+554,Spare554,Spare554
+555,Spare555,Spare555
+556,Spare556,Spare556
+557,Spare557,Spare557
+558,Spare558,Spare558
+559,Spare559,Spare559
+560,Spare560,Spare560
+561,Spare561,Spare561
+562,Spare562,Spare562
+563,Spare563,Spare563
+564,Spare564,Spare564
+565,Spare565,Spare565
+566,Spare566,Spare566
+567,Spare567,Spare567
+568,Spare568,Spare568
+569,Spare569,Spare569
+570,Spare570,Spare570
+571,Spare571,Spare571
+572,Spare572,Spare572
+573,Spare573,Spare573
+574,Spare574,Spare574
+575,Spare575,Spare575
+576,Spare576,Spare576
+577,Spare577,Spare577
+578,Spare578,Spare578
+579,Spare579,Spare579
+580,Spare580,Spare580
+581,Spare581,Spare581
+582,Spare582,Spare582
+583,Spare583,Spare583
+584,Spare584,Spare584
+585,Spare585,Spare585
+586,Spare586,Spare586
+587,Spare587,Spare587
+588,Spare588,Spare588
+589,Spare589,Spare589
+590,Spare590,Spare590
+591,Spare591,Spare591
+592,Spare592,Spare592
+593,Spare593,Spare593
+594,Spare594,Spare594
+595,Spare595,Spare595
+596,Spare596,Spare596
+597,Spare597,Spare597
+598,Spare598,Spare598
+599,Spare599,Spare599
+600,Gantry side A overview,Spare600
+601,Gantry side B overview,Spare601
+602,Gantry side A Manual,Spare602
+603,Gantry side B Manual,Spare603
+604,Gantry side A Settings,Spare604
+605,Gantry side B Settings,Spare605
+606,Spare606,Spare606
+607,Spare607,Spare607
+608,Spare608,Spare608
+609,Spare609,Spare609
+610,Spare610,Spare610
+611,Spare611,Spare611
+612,Spare612,Spare612
+613,Spare613,Spare613
+614,Spare614,Spare614
+615,Spare615,Spare615
+616,Spare616,Spare616
+617,Spare617,Spare617
+618,Spare618,Spare618
+619,Spare619,Spare619
+620,Spare620,Spare620
+621,Spare621,Spare621
+622,Spare622,Spare622
+623,Spare623,Spare623
+624,Spare624,Spare624
+625,Spare625,Spare625
+626,Spare626,Spare626
+627,Spare627,Spare627
+628,Spare628,Spare628
+629,Spare629,Spare629
+630,Spare630,Spare630
+631,Spare631,Spare631
+632,Spare632,Spare632
+633,Spare633,Spare633
+634,Spare634,Spare634
+635,Spare635,Spare635
+636,Spare636,Spare636
+637,Spare637,Spare637
+638,Spare638,Spare638
+639,Spare639,Spare639
+640,Spare640,Spare640
+641,Spare641,Spare641
+642,Spare642,Spare642
+643,Spare643,Spare643
+644,Spare644,Spare644
+645,Spare645,Spare645
+646,Spare646,Spare646
+647,Spare647,Spare647
+648,Spare648,Spare648
+649,Spare649,Spare649
+650,Spare650,Spare650
+651,Spare651,Spare651
+652,Spare652,Spare652
+653,Spare653,Spare653
+654,Spare654,Spare654
+655,Spare655,Spare655
+656,Spare656,Spare656
+657,Spare657,Spare657
+658,Spare658,Spare658
+659,Spare659,Spare659
+660,Spare660,Spare660
+661,Spare661,Spare661
+662,Spare662,Spare662
+663,Spare663,Spare663
+664,Spare664,Spare664
+665,Spare665,Spare665
+666,Spare666,Spare666
+667,Spare667,Spare667
+668,Spare668,Spare668
+669,Spare669,Spare669
+670,Spare670,Spare670
+671,Spare671,Spare671
+672,Spare672,Spare672
+673,Spare673,Spare673
+674,Spare674,Spare674
+675,Spare675,Spare675
+676,Spare676,Spare676
+677,Spare677,Spare677
+678,Spare678,Spare678
+679,Spare679,Spare679
+680,Spare680,Spare680
+681,Spare681,Spare681
+682,Spare682,Spare682
+683,Spare683,Spare683
+684,Spare684,Spare684
+685,Spare685,Spare685
+686,Spare686,Spare686
+687,Spare687,Spare687
+688,Spare688,Spare688
+689,Spare689,Spare689
+690,Spare690,Spare690
+691,Spare691,Spare691
+692,Spare692,Spare692
+693,Spare693,Spare693
+694,Spare694,Spare694
+695,Spare695,Spare695
+696,Spare696,Spare696
+697,Spare697,Spare697
+698,Spare698,Spare698
+699,Spare699,Spare699
+700,Spare700,Spare700
+701,Spare701,Spare701
+702,Spare702,Spare702
+703,Spare703,Spare703
+704,Spare704,Spare704
+705,Spare705,Spare705
+706,Spare706,Spare706
+707,Spare707,Spare707
+708,Spare708,Spare708
+709,Spare709,Spare709
+710,Spare710,Spare710
+711,Spare711,Spare711
+712,Spare712,Spare712
+713,Spare713,Spare713
+714,Spare714,Spare714
+715,Spare715,Spare715
+716,Spare716,Spare716
+717,Spare717,Spare717
+718,Spare718,Spare718
+719,Spare719,Spare719
+720,Spare720,Spare720
+721,Spare721,Spare721
+722,Spare722,Spare722
+723,Spare723,Spare723
+724,Spare724,Spare724
+725,Spare725,Spare725
+726,Spare726,Spare726
+727,Spare727,Spare727
+728,Spare728,Spare728
+729,Spare729,Spare729
+730,Spare730,Spare730
+731,Spare731,Spare731
+732,Spare732,Spare732
+733,Spare733,Spare733
+734,Spare734,Spare734
+735,Spare735,Spare735
+736,Spare736,Spare736
+737,Spare737,Spare737
+738,Spare738,Spare738
+739,Spare739,Spare739
+740,Spare740,Spare740
+741,Spare741,Spare741
+742,Spare742,Spare742
+743,Spare743,Spare743
+744,Spare744,Spare744
+745,Spare745,Spare745
+746,Spare746,Spare746
+747,Spare747,Spare747
+748,Spare748,Spare748
+749,Spare749,Spare749
+750,Spare750,Spare750
+751,Spare751,Spare751
+752,Spare752,Spare752
+753,Spare753,Spare753
+754,Spare754,Spare754
+755,Spare755,Spare755
+756,Spare756,Spare756
+757,Spare757,Spare757
+758,Spare758,Spare758
+759,Spare759,Spare759
+760,Spare760,Spare760
+761,Spare761,Spare761
+762,Spare762,Spare762
+763,Spare763,Spare763
+764,Spare764,Spare764
+765,Spare765,Spare765
+766,Spare766,Spare766
+767,Spare767,Spare767
+768,Spare768,Spare768
+769,Spare769,Spare769
+770,Spare770,Spare770
+771,Spare771,Spare771
+772,Spare772,Spare772
+773,Spare773,Spare773
+774,Spare774,Spare774
+775,Spare775,Spare775
+776,Spare776,Spare776
+777,Spare777,Spare777
+778,Spare778,Spare778
+779,Spare779,Spare779
+780,Spare780,Spare780
+781,Spare781,Spare781
+782,Spare782,Spare782
+783,Spare783,Spare783
+784,Spare784,Spare784
+785,Spare785,Spare785
+786,Spare786,Spare786
+787,Spare787,Spare787
+788,Spare788,Spare788
+789,Spare789,Spare789
+790,Spare790,Spare790
+791,Spare791,Spare791
+792,Spare792,Spare792
+793,Spare793,Spare793
+794,Spare794,Spare794
+795,Spare795,Spare795
+796,Spare796,Spare796
+797,Spare797,Spare797
+798,Spare798,Spare798
+799,Spare799,Spare799

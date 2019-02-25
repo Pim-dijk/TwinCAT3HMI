@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_FormingMoldMachPar" Id="{f7a6d144-9397-48b2-a90c-f3d1de2c66a3}">
+    <Declaration><![CDATA[TYPE ST_FormingMoldMachPar :
+STRUCT
+	VacuumTime							: TIME;
+	SecondVacuum						: TIME;
+	ThirdVacuum							: TIME := T#300S ;
+	VacuumTimeIncr						: TIME; (* Increase vacuum time when pulp tank is switched *)
+	BubbleTime							: TIME;
+	ClosedTime							: TIME;
+	
+	StopVacuumAtTrPosOffset				: REAL; // Transfermold endposition minus this ofset is where the forming vacuumvalve is closed.
+	StartBlowOffAtTrPosOffset			: REAL; // Transfermold endposition minus this ofset is where the foming mold blowoff is started.
+	StopBlowOffAtTrPosOffset			: REAL; // Transfermold endposition minus this ofset is where the forming mold blowoff is stopped.
+	
+
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

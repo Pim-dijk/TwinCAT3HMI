@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_BalluffMagnet" Id="{c7b35cd2-c85b-41cf-a2bc-4c1d8293d9ab}">
+    <Declaration><![CDATA[TYPE ST_BalluffMagnet :
+STRUCT
+	Position	: DINT;
+	Speed	: DINT;
+	PosMarkerFailure : BYTE;
+	CamState1	 : BYTE;
+	CamState2	: BYTE;
+	CamState3	: BYTE;
+	CamState4	 : BYTE;
+	PosAboveWorkAreaHighLimit	 : BYTE;
+	PosBelowWorkAreaLowLimit	: BYTE;
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

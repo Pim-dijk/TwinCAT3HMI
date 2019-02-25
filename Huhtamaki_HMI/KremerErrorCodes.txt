@@ -1,0 +1,13 @@
+﻿ErrorCodes in the kremer log are described here
+
+Error code:			| Message:
+
+Template Errors		| 001 t/m 100
+	001:			| No connection with the PLC could be establised.
+	002:			| App was forced to close
+
+Template Warnings	| 101 t/m 200
+	101:			|
+	102:			|
+
+Case specific		| 201 t/m 400

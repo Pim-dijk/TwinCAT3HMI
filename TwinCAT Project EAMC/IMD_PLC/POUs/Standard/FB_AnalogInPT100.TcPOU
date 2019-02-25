@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_AnalogInPT100" Id="{7599e9cd-5dfc-4d12-9a58-4a142cf64b93}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AnalogInPT100
+VAR_INPUT
+	
+END_VAR
+VAR_OUTPUT
+	EngUnits : LREAL; (*Output in engineering units*)
+	EngFilt : LREAL; (*Gefilterde output*)
+
+END_VAR
+VAR
+	RawInput AT%I*: WORD;
+	
+	X : INT;
+	Buffer : ARRAY [1..50] OF LREAL;
+ 
+	rc: LREAL;
+	correction:LREAL;
+	(*HMI*)
+	HMI_SetCorrection: BOOL;
+	HMI_SetRawUnder:BOOL;
+	HMI_SetRawUpper:BOOL;
+	HMI_EnableSetUnder: BOOL;
+	HMI_EnableSetUpper: BOOL;
+	EngUnitsWithoutOffset: LREAL;
+END_VAR
+VAR_IN_OUT
+	parameters : st_AnalogInWithCalibrate;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[M_SetOffSet();
+IF HMI_SetRawUnder THEN
+	parameters.RawUnder := WORD_TO_LREAL(RawInput);
+	parameters.EngUnder:= parameters.SetEngUnder;
+	HMI_SetRawUnder:=FALSE;
+END_IF
+IF HMI_SetRawUpper THEN
+	parameters.RawUpper := WORD_TO_LREAL(RawInput);
+	parameters.EngUpper:= parameters.SetEngUpper;
+	HMI_SetRawUpper:=FALSE;
+END_IF 
+(*HMI set enable*)
+HMI_EnableSetUnder := parameters.SetEngUnder < parameters.EngUpper;
+HMI_EnableSetUpper := parameters.SetEngUpper > parameters.EngUnder; 
+
+  rc:= 0.1;(* (parameters.EngUpper-parameters.EngUnder)/(parameters.RawUpper-parameters.RawUnder);*)
+  (*correction:=parameters.EngUpper-(rc*parameters.RawUpper);*);
+  (*EngUnitsWithoutOffset:=(((rc*RawInput)+correction))*);
+  Engunits:= ((RawInput*rc)+parameters.Cal1Pt_CalcOffset);
+
+
+
+
+(*Wanneer Filter Geactiveerd dan loop filter waarden door*)
+IF parameters.Filton THEN
+	Engfilt:=0;
+   (*Schuif waarden door in buffer*)
+	FOR x:=1 TO parameters.Filterbreedte-1 DO
+          	Buffer[x]:=Buffer[x+1];
+		EngFilt:=EngFilt+Buffer[x];
+	END_FOR
+   Buffer[parameters.Filterbreedte]:=Engunits;
+   (*Gefilterde output is gemiddelde laatste x waarden*)
+   EngFilt:=(Engfilt+Engunits)/parameters.Filterbreedte;
+END_IF]]></ST>
+    </Implementation>
+    <Method Name="M_SetOffSet" Id="{bcb99864-1e32-4dba-a6ee-a861b6379352}">
+      <Declaration><![CDATA[METHOD M_SetOffSet
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF HMI_SetCorrection THEN
+	(*parameters.Cal1Pt_CalcOffset := (((rc*RawInput)+correction)-parameters.Cal1Pt_ActualValue);*)
+	parameters.Cal1Pt_CalcOffset:=  parameters.Cal1Pt_ActualValue - EngUnitsWithoutOffset;
+	HMI_SetCorrection:=FALSE;
+END_IF;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_AnalogInPT100">
+      <LineId Id="3" Count="33" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_AnalogInPT100.M_SetOffSet">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

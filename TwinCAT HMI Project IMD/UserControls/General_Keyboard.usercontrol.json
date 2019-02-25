@@ -1,0 +1,22 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-senderobject",
+      "displayName": "SenderObject",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/TcHmiTextblock",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SenderObject",
+      "propertySetterName": "setSenderObject",
+      "propertyGetterName": "getSenderObject"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

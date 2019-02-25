@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_SpraybarMachPar" Id="{29bfda78-5ba8-4a3d-a437-09f22179e9ec}">
+    <Declaration><![CDATA[TYPE ST_SpraybarMachPar :
+STRUCT
+	PositionRestFront					: LREAL;
+	PositionRestBack					: LREAL;
+	PositionStartFlashFwd				: LREAL;
+	PositionStopFlashFwd				: LREAL;
+	PositionStartWireFwd				: LREAL;
+	PositionStopWireFwd					: LREAL;
+	PositionStartFlashBkw				: LREAL;
+	PositionStopFlashBkw				: LREAL;
+	PositionStartWireBkw				: LREAL;
+	PositionStopWireBkw					: LREAL;
+
+	ManualVelocity						: LREAL;
+	AutoVelocity						: LREAL;
+
+	PositionActualMeasured				: LREAL; (* ?? *)	
+	PositionOffsetZero					: LREAL; (* Zero offset *)
+
+	SprayDelayTime						: TIME;
+	WireSprayInterval					: INT; (* 0 = no spraying *)
+	FlashSprayInterval					: INT; (* 0 = no spraying *)
+	
+	PositionHome						: LREAL;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

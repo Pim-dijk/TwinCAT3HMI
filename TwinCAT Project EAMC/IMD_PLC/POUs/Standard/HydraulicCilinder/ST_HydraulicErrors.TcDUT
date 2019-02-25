@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_HydraulicErrors" Id="{c65b4c76-ff8a-43a6-bb3a-ec38c224d560}">
+    <Declaration><![CDATA[TYPE ST_HydraulicErrors:
+STRUCT
+	PositionError						: BOOL; (* Out of range *)
+	IsMovingWithoutActivation			: BOOL; (* Moving cilinder when no valve is activated *)
+	BallufError							: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

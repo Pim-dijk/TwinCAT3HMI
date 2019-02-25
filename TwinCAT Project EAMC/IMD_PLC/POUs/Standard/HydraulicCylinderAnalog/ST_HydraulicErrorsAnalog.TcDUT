@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_HydraulicErrorsAnalog" Id="{f05d9a72-471d-4504-ab3e-6f97240da418}">
+    <Declaration><![CDATA[TYPE ST_HydraulicErrorsAnalog:
+STRUCT
+	PositionError						: BOOL; (* Out of range *)
+	IsMovingWithoutActivation			: BOOL; (* Moving cilinder when no valve is activated *)
+	BallufError							: BOOL;
+
+	RodSidePressureTooHigh				: BOOL;	(*Pressure on the Rod side was to high while moving*)
+	BotSidePressureTooHigh				: BOOL; (*Pressure on the Bot side was to high while moving*)
+	
+	SafePositionValveNotReached			: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_MotorSSErrors" Id="{054817f4-da67-4da6-bce6-3b598874c5d3}">
+    <Declaration><![CDATA[TYPE ST_MotorSSErrors :
+STRUCT	
+	SofstarterFailure		: BOOL;
+	Maintenance				: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

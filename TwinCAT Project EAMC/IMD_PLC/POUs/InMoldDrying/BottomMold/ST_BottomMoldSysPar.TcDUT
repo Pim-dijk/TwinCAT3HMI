@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_BottomMoldSysPar" Id="{6ce44eac-af43-4677-a138-f9a5d8328690}">
+    <Declaration><![CDATA[TYPE ST_BottomMoldSysPar :
+STRUCT
+	BottomMoldAxis				: ST_NcAxis_SysPar;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

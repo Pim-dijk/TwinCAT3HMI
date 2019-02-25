@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_BiValve2Fdbck" Id="{b4b72d65-5a56-4ea4-96a5-faf3d225dd41}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_BiValve2Fdbck
+VAR_INPUT
+	mxReset						: BOOL;	(*Reset Error*)
+	mxEmergency					: BOOL;
+	mxAutoMode					: BOOL; (* TRUE = Automode *)
+	mxCheckCilinder				: BOOL:= TRUE;
+	mxIsVertical				: BOOL;
+END_VAR
+VAR_IN_OUT
+	MachParameters					: ST_CilinderParameters;
+END_VAR
+VAR_OUTPUT
+	mxIsIn						: BOOL;
+	mxIsOut						: BOOL;
+	mxIsOpen					: BOOL;
+	mxIsClosed					: BOOL;
+	Errors						: ST_CilinderErrors;
+	
+	mxErrorInit: BOOL;
+	mxErrorStopInPos: BOOL;
+
+END_VAR
+VAR
+	Check						: FB_CheckCilinder;
+	
+	QxIn	 					AT %Q*: BOOL;
+	QxOut						AT %Q*: BOOL;
+	IxIsIn						AT %I*: BOOL;
+	IxIsOut						AT %I*: BOOL;
+
+	mxHMI_In					: BOOL;
+	mxHMI_Out					: BOOL;
+	mxHMI_Open					: BOOL;
+	mxHMI_Close					: BOOL;
+	RT_HMI_In					: R_TRIG;
+	RT_HMI_Out					: R_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+
+RT_HMI_In(CLK:= NOT mxAutoMode AND (mxHMI_In OR mxHMI_Open));
+RT_HMI_Out(CLK:= NOT mxAutoMode AND (mxHMI_Out OR mxHMI_Close));
+
+(* Manual *)
+IF RT_HMI_In.Q THEN M_In(); END_IF
+IF RT_HMI_Out.Q THEN M_Out(); END_IF
+
+(* Reset Outputs *)
+
+//IF IxIsIn THEN QxIn:= FALSE; END_IF
+//IF IxIsOut THEN QxOut:= FALSE; END_IF
+
+(* Status *)
+mxIsIn:= mxIsOpen:= IxIsIn;
+mxIsOut:= mxIsClosed:= IxIsOut;
+]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{b6861101-21e3-4269-ae3d-cc00c5b3378d}">
+      <Implementation>
+        <ST><![CDATA[
+IF NOT mxIsVertical THEN
+	
+	Check(
+		MoveCilOut:= qxOut,
+		MoveCilin:= qxIn,
+		CheckCilinder:= mxCheckCilinder,
+		SensorOut:=  mxIsOut OR mxIsClosed, // mx closed and open omgedraaid (20180528 -> Bateu*)
+		SensorIn:= mxIsIn OR mxIsOpen,
+		TimMax:= MachParameters.T_GuardTimeError,
+		mxReset:= mxReset,
+		ErrorCilinder=> Errors.Cilinder,
+		ErrorCilinderOut=> ,
+		ErrorCilinderIn=> ,
+		ErrorEndNotReached=> ,
+		ErrorSensorSwitched=> ,
+		Time_Cil_Out=> ,
+		Time_Cil_In=> );
+
+(* Too slow errors, only messages *)
+
+	Errors.CilinderSlow_IN	:=	mxCheckCilinder AND (Check.Time_Cil_In > MachParameters.T_GuardTimeWarning_IN);
+	Errors.CilinderSlow_OUT	:=	mxCheckCilinder AND (Check.Time_Cil_Out > MachParameters.T_GuardTimeWarning_OUT);
+END_IF
+
+(**********************************************************************************************************)
+mxErrorStopinPos:= FALSE;
+mxErrorInit:= Errors.Cilinder;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_Close" Id="{478a060a-3593-4b78-9ce1-84762883432e}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Close: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT IxIsOut THEN QxOut:= TRUE; END_IF
+QxIn:= FALSE;
+
+(* Return value *)
+M_Close:= IxIsOut;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_In" Id="{fa965505-a815-48c3-b9e1-76a49b9d8719}">
+      <Declaration><![CDATA[METHOD PUBLIC M_In : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT IxIsIn THEN QxIn:= TRUE; END_IF
+//QxIn:= TRUE;
+QxOut:= FALSE;
+
+(* Return value *)
+M_In:= IxIsIn;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Open" Id="{63dc6af2-d7bd-48ce-b3fd-428d06b55477}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Open : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT IxIsIn THEN QxIn:= TRUE; END_IF
+QxOut:= FALSE;
+
+(* Return value *)
+M_Open:= IxIsIn;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Out" Id="{1406251c-4949-40e6-9149-fd522861dd6b}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Out: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT IxIsOut THEN QxOut:= TRUE; END_IF
+//qxOut:=TRUE;
+QxIn:= FALSE;
+
+(* Return value *)
+M_Out:= IxIsOut;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_BiValve2Fdbck">
+      <LineId Id="172" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="28" Count="1" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="30" Count="2" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="117" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BiValve2Fdbck.Error">
+      <LineId Id="47" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="23" Count="15" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="19" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BiValve2Fdbck.M_Close">
+      <LineId Id="27" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BiValve2Fdbck.M_In">
+      <LineId Id="27" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BiValve2Fdbck.M_Open">
+      <LineId Id="27" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BiValve2Fdbck.M_Out">
+      <LineId Id="26" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

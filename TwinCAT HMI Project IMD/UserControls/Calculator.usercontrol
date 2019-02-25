@@ -1,0 +1,278 @@
+﻿<div id="Calculator" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="267" data-tchmi-height="390" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="275" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout="Numpad" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="104" data-tchmi-top-unit="px" data-tchmi-width="247" data-tchmi-width-unit="px" data-tchmi-fixed-target="TcHmiTextbox_calc" data-tchmi-release-sticky-keys-manually="False">
+<script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
+{
+  "top": 10,
+  "topUnit": "px",
+  "right": 10,
+  "rightUnit": "px",
+  "bottom": 10,
+  "bottomUnit": "px",
+  "left": 10,
+  "leftUnit": "px"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-key-padding" type="application/json">
+{
+  "top": 4,
+  "topUnit": "px",
+  "right": 4,
+  "rightUnit": "px",
+  "bottom": 4,
+  "bottomUnit": "px",
+  "left": 4,
+  "leftUnit": "px"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-additional-key-backdrop-padding" type="application/json">
+{
+  "top": 10,
+  "topUnit": "px",
+  "right": 10,
+  "rightUnit": "px",
+  "bottom": 10,
+  "bottomUnit": "px",
+  "left": 10,
+  "leftUnit": "px"
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiKeyboard.onKeyPressStarted",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%ctrl%Calculator_1::Zindex%/ctrl%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/UDINT",
+              "value": 0
+            },
+            "compareOperator": ">",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "Condition",
+            "active": true,
+            "expressions": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%ctrl%TcHmiKeyboard::PressedKeys[0]::key%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Enter"
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "true": [
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "WriteToSymbol_REAL",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%pp%SymbolToWriteTo%/pp%"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%pp%Self%/pp%"
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "Condition",
+                "active": false,
+                "expressions": [
+                  {
+                    "compare1": {
+                      "objectType": "Symbol",
+                      "symbolExpression": "%pp%CheckForINT%/pp%"
+                    },
+                    "compare2": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/BOOL",
+                      "value": true
+                    },
+                    "compareOperator": "==",
+                    "logic": null
+                  }
+                ],
+                "true": [
+                  {
+                    "objectType": "Function",
+                    "active": true,
+                    "fn": "WriteToSymbol_INT",
+                    "fnParams": [
+                      {
+                        "objectType": "Symbol",
+                        "symbolExpression": "%pp%SymbolToWriteTo%/pp%"
+                      }
+                    ],
+                    "asyncWait": true
+                  }
+                ],
+                "false": [
+                  {
+                    "objectType": "Function",
+                    "active": true,
+                    "fn": "WriteToSymbol_REAL",
+                    "fnParams": [
+                      {
+                        "objectType": "Symbol",
+                        "symbolExpression": "%pp%SymbolToWriteTo%/pp%"
+                      },
+                      {
+                        "objectType": "StaticValue",
+                        "valueType": "tchmi:general#/definitions/String",
+                        "value": ""
+                      }
+                    ],
+                    "asyncWait": true
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextbox_calc::Text%/ctrl%",
+                "valueType": "tchmi:general#/definitions/String",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": ""
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "ActionTemplate",
+                "active": true,
+                "templateName": "Hide_Calculator",
+                "fnParams": [],
+                "asyncWait": true
+              }
+            ],
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiTextbox_calc::Text%/ctrl%",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": ""
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ],
+    "displayName": ""
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[
+  {
+    "virtualControlRight": "SpecialPermission",
+    "controlRight": "operate"
+  },
+  {
+    "virtualControlRight": "SpecialPermission",
+    "controlRight": "observe"
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+<div id="TcHmiTextbox_calc" data-tchmi-type="tchmi-textbox" data-tchmi-height="57" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="247" data-tchmi-width-unit="px" data-tchmi-text-font-size="50">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+</div>
+
+<div id="TcHmiButton_5" data-tchmi-type="tchmi-button" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="212" data-tchmi-left-unit="px" data-tchmi-text="X" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="45" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_5.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiTextbox_calc::Text%/ctrl%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": ""
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "ActionTemplate",
+        "active": true,
+        "templateName": "Hide_Calculator",
+        "fnParams": [],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+
+
+
+</div>

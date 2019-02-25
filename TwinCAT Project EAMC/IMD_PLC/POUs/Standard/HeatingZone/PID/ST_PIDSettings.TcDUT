@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_PIDSettings" Id="{7e82ea1a-67e3-45e2-b915-8cadb94b78a6}">
+    <Declaration><![CDATA[TYPE ST_PIDSettings :
+STRUCT
+	AutoState		: BOOL;
+	SetpointState	: BOOL;
+	OutState		: BOOL;	
+
+	//PID_ON			: BOOL;			// PID controller on / off
+	IL_ON			: BOOL; 			// Interlock output on 	
+	RAUT_OP			: BOOL; 			// Release automatic operation 		
+	DEADBAND		: REAL; 		(* Deadband +/- SP-PV *)
+	OUT_ROC_UP		: REAL; 		(* Output rate of change up *)
+	OUT_ROC_DOWN	: REAL; 		(* Output rate of change down *)
+	EU_LLM			: REAL; 		(* Low limit engineerings units SP en PV *)
+	EU_HLM			: REAL:= 100.0;	(* High limit engineerings units SP en PV *)
+	SP_AUTO			: REAL; 		(* Setpoint Auto *)
+	SP_ROC_EXT		: REAL; 		(* Setpoint rate of change *)
+	SP_LLM_EXT		: REAL; 		(* Setpoint low limit *)
+	SP_HLM_EXT		: REAL:= 100.0;	(* Setpoint high limit *)							
+	PV_TMLAG		: REAL; 			// Process value 1ste orde filter (Sec) 	
+	SP_MAN			: REAL;
+	SP_PID			: REAL;
+	fI_InnerWindow	: REAL; 		(*Linear reduction of I component in the innerwindow*)
+	INVERTED		: BOOL;		(* (0) PV<SP dan OUT en (1) PV<SP dan OUT *)
+	FF_SIGNAL		: REAL;				// Feedforward signal	
+	FF_GAIN			: REAL;		(* Feedforward gain	*)
+	P				: REAL;		(* P-factor			*)
+	I				: REAL; 		(* I-factor (Sec)		*)
+	D				: REAL; 		(* D-factor (Sec)		*)
+	Dtime			: REAL;		(* Damping time		*)
+	TMLAG			: REAL;
+	OUT_IL			: REAL; 		(* Output interlock value *)
+	OUT_LLM_EXT		: REAL; 			// Output low limit 								
+	OUT_HLM_EXT		: REAL:=100.0; 			// Output high limit 	
+	OUT_MIN			: REAL; 		(* Output minimum value *)
+	OUT_MAX			: REAL:= 100.0;	(* Output maximum value *)
+	OUT_MAN			: REAL;		(* Output manual		*)
+	OUT_FF			: REAL;		(* Output Feedforward component	*)
+	SP_AUTO_TOTAL	: REAL := 185.0;
+	LowCutOff		: REAL;
+	HighCutOff		: REAL;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

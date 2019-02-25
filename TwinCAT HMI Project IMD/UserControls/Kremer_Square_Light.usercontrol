@@ -1,0 +1,18 @@
+﻿<div id="Kremer_Square_Light" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="14" data-tchmi-height="14" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiRectangle_8" data-tchmi-type="tchmi-rectangle" data-tchmi-height="12" data-tchmi-height-unit="px" data-tchmi-left="1" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="0.5" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="12" data-tchmi-width-unit="px" data-tchmi-fill-color="%f%ConvertBooleanToEnum(%pp%Bind_Boolean%/pp%, '{ &quot;color&quot;: &quot;rgba(255,0,0,1)&quot;}', '{ &quot;color&quot;: &quot;rgba(150,150,150,1)&quot;}')%/f%">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+</div>
+
+</div>

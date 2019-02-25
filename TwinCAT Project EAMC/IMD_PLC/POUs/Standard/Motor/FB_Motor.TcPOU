@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_Motor" Id="{dccc3e6f-a5bb-4f57-896d-021bb5c2e147}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Motor
+VAR_INPUT
+	mxReset							: BOOL;
+	mxEmergency						: BOOL;
+	mxAutoMode						: BOOL;
+	mxDisableManualAutoTrigger		: BOOL := FALSE; // If this bit is enabled, the outputs status is not changed when change from/to automode happens
+END_VAR
+VAR_OUTPUT
+(*Errors*)
+	Errors							: ST_MotorErrors;
+	mxErrorInit						: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
+	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
+
+(* State vars *)
+	mxCycleBusy						: BOOL;
+	mxInitBusy						: BOOL;
+	
+(* Vars *)
+	mxInitialized					: BOOL;
+	IsRunning						: BOOL;
+	
+END_VAR
+VAR
+	ixThermal						AT %I* : BOOL;
+	ixRunning						AT %I* : BOOL;
+	ixMaintenance					AT %I* : BOOL;
+	Q								AT %Q* : BOOL;
+	
+	Hmi_On							: BOOL;
+	RT_AutoMode						: R_TRIG;
+	SR_ErrorThermal					: SR;
+	SR_ErrorMaintenance				: SR;
+	Ixtest: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+
+(* Reset hmi when switched to automode*)
+RT_AutoMode(CLK:= mxAutoMode);
+
+// if manual mode becomes active, the manualmode (hmi) is over written by its current state.
+// this ensures that the motor keeps running when it was running and is switched to manual. 
+IF RT_AutoMode.Q AND NOT mxDisableManualAutoTrigger THEN Hmi_On:= Q; END_IF	
+
+(* Manual control *)
+//IF NOT mxAutoMode THEN Q:= Hmi_On; END_IF
+
+// Is running becomes high when signal becomes low.
+IsRunning:= NOT ixRunning;]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{4eac1137-ff38-460e-ba84-b81dd3446ebe}">
+      <Implementation>
+        <ST><![CDATA[SR_ErrorThermal(SET1:= NOT ixThermal, RESET:= mxReset, Q1=> Errors.Thermal);
+SR_ErrorMaintenance(SET1:= NOT ixMaintenance, RESET:= mxReset, Q1=> Errors.Maintenance);
+
+(******************************************************************************************************)
+mxErrorStopinPos:= FALSE;
+mxErrorInit:= Errors.Thermal OR Errors.Maintenance;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_Init" Id="{fde6f22f-b713-42ec-ae0a-377d2254630d}">
+      <Declaration><![CDATA[METHOD M_Init
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+Q:= FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Start" Id="{79110aac-879f-40af-9cd3-84457a8c1fff}">
+      <Declaration><![CDATA[METHOD M_Start : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:=TRUE;
+
+(* Return Value *)
+M_Start:= Q;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Stop" Id="{4a9aca0a-dd7a-4bb5-b3e9-ef23a97c2074}">
+      <Declaration><![CDATA[METHOD M_Stop : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:= FALSE;
+
+(* Return Value *)
+M_Stop:= NOT Q;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Motor">
+      <LineId Id="22" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="217" Count="2" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="143" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="254" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.Error">
+      <LineId Id="4" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="7" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.M_Init">
+      <LineId Id="6" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.M_Start">
+      <LineId Id="6" Count="0" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.M_Stop">
+      <LineId Id="13" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

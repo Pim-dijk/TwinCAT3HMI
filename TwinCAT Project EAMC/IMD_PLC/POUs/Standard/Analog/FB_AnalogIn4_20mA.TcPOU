@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_AnalogIn4_20mA" Id="{a5ebbd98-9460-453a-8b28-c40981474ff6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AnalogIn4_20mA
+VAR_INPUT
+	EngLowLimit				: REAL; (*Low limit*)
+	EngUpperLimit 			: REAL; (*Upper limit*)
+END_VAR
+VAR_OUTPUT
+	maOut 					: REAL;
+	EngUnits 				: REAL; (*Output in engineering units*)
+	EngFilt 				: REAL; (*Gefilterde output*)
+	OverRange				: BOOL;
+	UnderRange				: BOOL;
+END_VAR
+VAR
+	RawInput				AT%I*	:INT;
+	Status					AT%I*	:BYTE;
+	Buffer					: ARRAY [1..50] OF REAL;
+	X						: INT;
+	Filton 					: BOOL:=TRUE;
+	FilterSize				: INT:=10;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[OverRange:=FALSE;
+UnderRange:=FALSE;
+
+IF Status<=0 THEN
+  mAOut:=(20.0-4.0)/32767*RawInput+4;
+  Engunits:=(EngUpperLimit-EngLowLimit)/32767*RawInput+EngLowLimit;
+ELSE
+ mAOut:=Engunits:=(EngUpperLimit-EngLowLimit)/32767*RawInput+EngLowLimit;
+ Engunits:= Engunits:=(EngUpperLimit-EngLowLimit)/32767*RawInput+EngLowLimit;
+ OverRange:=(2 AND Status)>0;
+ UnderRange:=(1 AND Status)>0;
+  IF ((NOT OverRange) AND (NOT UnderRange)) THEN
+       OverRange:=TRUE;
+	UnderRange:=TRUE;
+  END_IF;
+END_IF;
+
+(*Wanneer Filter Geactiveerd dan loop filter waarden door*)
+IF Filton THEN
+	Engfilt:=0;
+   (*Schuif waarden door in buffer*)
+	FOR x:=1 TO FilterSize-1 DO
+          	Buffer[x]:=Buffer[x+1];
+		EngFilt:=EngFilt+Buffer[x];
+	END_FOR
+   Buffer[FilterSize]:=Engunits;
+   (*Gefilterde output is gemiddelde laatste x waarden*)
+   EngFilt:=(Engfilt+Engunits)/FilterSize;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_AnalogIn4_20mA">
+      <LineId Id="29" Count="16" />
+      <LineId Id="47" Count="10" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

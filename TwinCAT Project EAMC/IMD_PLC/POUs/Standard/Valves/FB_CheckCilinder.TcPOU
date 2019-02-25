@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_CheckCilinder" Id="{b913e398-a45f-416c-9f6d-78f3a064470e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_CheckCilinder
+
+VAR_INPUT
+	mxReset:BOOL;					(* Reset error *)	
+	MoveCilOut:BOOL; 				(* Set output cilinder out *)
+	MoveCilin:BOOL; 				(* Set output cilinder in *)
+	CheckCilinder: BOOL;			(* Cilinder is enabled *)
+	SensorOut:BOOL; 				(* Sensor cilinder out *)
+	SensorIn:BOOL; 					(* Sensor cilinder in *)
+	TimMax:TIME;					(* Maximum moving time *)
+END_VAR
+
+VAR_OUTPUT
+	ErrorCilinder:BOOL;				(* Error cilinder not in position *)
+	ErrorCilinderOut: BOOL;			(* Error cilinder not in position out *)
+	ErrorCilinderIn: BOOL;			(* Error cilinder not in position in *)
+	ErrorEndNotReached:BOOL;		(* Error cilinder was not in endposition at new comand *)
+	ErrorSensorSwitched:BOOL;		(* Error sensor switched off after in position *)
+	Time_Cil_Out:TIME;			(* Duration cilinder moving *)
+	Time_Cil_In:TIME;				(* Duration cilinder moving *)
+
+END_VAR
+
+VAR
+	CilinderOut:BOOL;				(* Helpbit last positioncommand *)
+	CilinderIn:BOOL;				(* Helpbit last positioncommand *)
+	
+	PositionOut:BOOL;				(* Last position detected is out *)
+	PositionIn:BOOL;				(* Last position detected is in *)
+	fbiTimMaxOut:TON;				(* Maximum movingtime *)
+	fbiTimMaxIn:TON;				(* Maximum movingtime *)
+	fbiTim_Check_Sens: TON;		(* Check both sensors on *)
+	R_TrigCilOut:R_TRIG;			(* Puls command cilinder out *)
+	R_TrigCilin:R_TRIG;				(* Puls command cilinder in *)
+	R_TrigSensOut:R_TRIG;			(* Puls cilinder comes in position out *)
+	R_TrigSensIn:R_TRIG;			(* Puls cilinder comes in position in *)
+	F_TrigSensOut:F_TRIG;			(* Puls cilinder was in position out *)
+	F_TrigSensIn:F_TRIG;			(* Puls cilinder was in position in *)
+
+	LastPosOut: BOOL;		(*Last command before this new one*)
+	fbiTime_Out: TOF;		(* Duration cilinder moving out *)
+	fbiTime_In: TOF;			(* Duration cilinder moving in *)
+	T_SensorOut			: TOF;
+	T_SensorIn			: TOF;
+
+	LastTime_Cil_Out:TIME;			(* Duration cilinder moving, on HMI *)
+	LastTime_Cil_In:TIME;				(* Duration cilinder moving, on HMI *)
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Store last position command *)
+IF MoveCilOut THEN CilinderOut:=TRUE; CilinderIn:=FALSE;	END_IF
+IF MoveCilin THEN CilinderIn:=TRUE;	 CilinderOut:=FALSE; END_IF
+
+(* Puls command cilinder in/out *)
+R_TrigCilOut(CLK:=CilinderOut);
+R_TrigCilin(CLK:=CilinderIn);
+
+(* Puls sensor in/out *)
+T_SensorIn(IN:= SensorIn, PT:= T#500ms);
+T_SensorOut(IN:= SensorOut, PT:=T#500ms);
+R_TrigSensOut(CLK:=SensorOut);
+F_TrigSensOut(CLK:=SensorOut);
+R_TrigSensIn(CLK:=SensorIn);
+F_TrigSensIn(CLK:=SensorIn);
+
+(* Check if sensor switched off after in position *)
+IF CheckCilinder THEN
+	IF (CilinderOut AND F_TrigSensOut.Q) OR (CilinderIn AND F_TrigSensIn.Q)  THEN
+		ErrorCilinder:=TRUE;
+		ErrorSensorSwitched:=TRUE;
+	END_IF
+END_IF
+
+(******************************************************************************
+Cilinder in or out: Check movingtime & other sensor is off
+******************************************************************************)
+fbiTimMaxOut(IN:=CilinderOut AND CheckCilinder,PT:=TimMax);
+IF fbiTimMaxOut.Q AND ( SensorIn OR NOT SensorOut) THEN
+	ErrorCilinder:=TRUE;
+	ErrorCilinderOut:=TRUE;
+END_IF
+
+fbiTimMaxIn(IN:=CilinderIn AND CheckCilinder,PT:=TimMax);
+IF fbiTimMaxIn.Q AND ( SensorOut OR NOT SensorIn) THEN
+	ErrorCilinder:=TRUE;
+	ErrorCilinderIn:=TRUE;
+END_IF
+
+
+(******************************************************************************
+Check if both sensors on
+******************************************************************************)
+fbiTim_Check_Sens(IN:=SensorOut AND SensorIn AND CheckCilinder, PT:=TimMax);
+IF fbiTim_Check_Sens.Q THEN
+	ErrorCilinder:=TRUE;
+	ErrorCilinderOut:=TRUE;
+	ErrorCilinderIn:=TRUE;
+END_IF
+
+(******************************************************************************
+Check if sensors was on before switch-over to other side
+******************************************************************************)
+IF R_TrigCilOut.Q AND NOT LastPosOut AND NOT SensorIn THEN
+	ErrorEndNotReached:=TRUE;
+END_IF
+IF R_TrigCilin.Q AND LastPosOut AND NOT SensorOut THEN
+	ErrorEndNotReached:=TRUE;
+END_IF
+IF R_TrigCilOut.Q THEN LastPosOut:=TRUE; END_IF
+IF R_TrigCilin.Q THEN LastPosOut:=FALSE; END_IF
+
+
+(******************************************************************************
+Reset Errors
+******************************************************************************)
+IF mxReset THEN
+	ErrorCilinder:=FALSE;
+	ErrorCilinderOut:=FALSE;
+	ErrorCilinderIn:=FALSE;
+	ErrorEndNotReached:=FALSE;
+	ErrorSensorSwitched:=FALSE;
+END_IF
+
+
+(******************************************************************************
+Timers for display actual movingtime
+******************************************************************************)
+(* preset timer on startcommand *)
+fbiTime_Out(IN:=R_TrigCilOut.Q,PT:=t#60s);
+fbiTime_In(IN:=R_TrigCilin.Q,PT:=t#60s);
+(* Display actual movingtime *)
+IF R_TrigSensOut.Q THEN
+	Time_Cil_Out:=fbiTime_Out.ET;
+	LastTime_Cil_Out:=fbiTime_Out.ET;
+ELSIF mxReset THEN
+	Time_Cil_Out:= T#0ms;
+END_IF
+IF R_TrigSensIn.Q THEN
+	Time_Cil_In:=fbiTime_In.ET;
+	LastTime_Cil_In:=fbiTime_In.ET;
+ELSIF mxReset THEN
+	Time_Cil_In:= T#0ms;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_CheckCilinder">
+      <LineId Id="155" Count="2" />
+      <LineId Id="60" Count="19" />
+      <LineId Id="81" Count="69" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

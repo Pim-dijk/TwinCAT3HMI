@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_HeatingZoneErrors" Id="{bdb235aa-d438-4910-abc7-95e7a7fc8fd5}">
+    <Declaration><![CDATA[TYPE ST_HeatingZoneErrors :
+STRUCT
+	Thermal							: BOOL;
+	
+	PT100_Loose						: BOOL; (* Alarm 1 -> Main alarm for alarms 2,3, 4 and 5 indicating somethings wrong with pt100*)
+	PT100_WireBreak					: BOOL; (* Alarm 2 -> Terminal has detected a wirebreak.*)
+	PT100_HasWrongPosition			: BOOL; (* Alarm 3 -> Temperature change detected during startup on PT100 which shouldn't be active.*)
+	PT100_NotInserted				: BOOL; (* Alarm 4 -> No Temperature change detected during startup on PT100 while zone is active*)
+	PT100_ConnectorNotConnected		: BOOL; (* Connector pt100 not connected: 100 ohm missing / pt100 , open loop.*)
+	PT100_TempAboveSetpoint			: BOOL; (* When heating is on, and startup period is over, temperature is higher that 20 degrees above setpoint for a period of 1 minute*)
+	PT100_TempBelowSetpoint			: BOOL; (* When heating is on, and startup period is over, temperature is lower that 20 degrees below setpoint for a period of 1 minute*)
+	PT100_Heating100OhmTryActivate	: BOOL; (* Happens when the connector measures 100 ohm if this happens, this element may not be enabeled (because of electric failure) *)
+	PT100_TemperatureAboveMaximum	: BOOL;	(* Temperature is above the 230 degree maximum mark.*)
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

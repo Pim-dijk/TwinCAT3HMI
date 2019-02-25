@@ -1,0 +1,19 @@
+﻿{
+  "controlTypeValues": {
+    "tchmi-button": {
+      "attributes": {
+        "BackgroundColor": {
+          "color": "rgba(227, 227, 227, 1)"
+        },
+        "TextFontSize": 14.0,
+        "TextFontWeight": "Bold",
+        "TextColor": {
+          "color": "rgba(0, 0, 0, 1)"
+        }
+      },
+      "themedResources": {}
+    }
+  },
+  "controlClassValues": {},
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/ThemeDescription.Schema.json"
+}

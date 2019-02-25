@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_HydrolicPump" Id="{0ea3798f-f3ef-4b7a-8c69-e34e684e7d45}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_HydrolicPump
+VAR_INPUT
+	mxReset							: BOOL;
+	mxEmergency						: BOOL;
+	mxAutoMode						: BOOL;
+END_VAR
+VAR_OUTPUT
+(*Errors*)
+	Errors							: ST_PumpErrors;
+	mxErrorInit						: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
+	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
+
+(* State vars *)
+	mxCycleBusy						: BOOL;
+	mxInitBusy						: BOOL;
+	
+(* Vars *)
+	mxInitialized					: BOOL;
+
+	
+END_VAR
+VAR
+	ixThermal						AT %I* : BOOL;
+	Q								AT %Q* : BOOL;
+	
+	Hmi_On							: BOOL;
+	RT_AutoMode						: R_TRIG;
+	SR_ErrorThermal					: SR;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+
+(* Reset hmi when switched to automode*)
+RT_AutoMode(CLK:= mxAutoMode);
+IF RT_AutoMode.Q THEN Hmi_On:= FALSE; Q:= FALSE; END_IF	
+
+(* Manual control *)
+IF NOT mxAutoMode THEN Q:= Hmi_On; END_IF
+]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{37a36703-b1f9-4b3c-a076-ddf7a884235c}">
+      <Implementation>
+        <ST><![CDATA[SR_ErrorThermal(SET1:= NOT IxThermal, RESET:= mxReset, Q1=> Errors.Thermal);
+
+(******************************************************************************************************)
+mxErrorStopinPos:= FALSE;
+mxErrorInit:= Errors.Thermal;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_Init" Id="{8bf75573-5989-4760-bba1-0659b6747b2e}">
+      <Declaration><![CDATA[METHOD M_Init
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+Q:= FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Start" Id="{e4d3ab16-c75d-4327-aeb1-b840cda65341}">
+      <Declaration><![CDATA[METHOD M_Start : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:=TRUE;
+
+(* Return Value *)
+M_Start:= Q;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Stop" Id="{25eab6d4-a5e3-4d22-be2b-5bfb5d525259}">
+      <Declaration><![CDATA[METHOD M_Stop : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:= FALSE;
+
+(* Return Value *)
+M_Stop:= NOT Q;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_HydrolicPump">
+      <LineId Id="22" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrolicPump.Error">
+      <LineId Id="4" Count="0" />
+      <LineId Id="7" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrolicPump.M_Init">
+      <LineId Id="6" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrolicPump.M_Start">
+      <LineId Id="6" Count="0" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydrolicPump.M_Stop">
+      <LineId Id="13" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

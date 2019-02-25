@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TargetSystemConfig Crc="3241195945" Version="1.3">
+  <TargetSystemType>HSafetyPLC</TargetSystemType>
+  <TargetSystemSubType>EL6900</TargetSystemSubType>
+  <IsExternalDevice>False</IsExternalDevice>
+  <TargetSystemObjectId>50462781</TargetSystemObjectId>
+  <TargetSystemObjectName>600A4_TwinsafeController (EL6900)</TargetSystemObjectName>
+  <SoftwareVersion>05</SoftwareVersion>
+  <SerialNumber>1415530</SerialNumber>
+  <ProjectCRC>48927</ProjectCRC>
+  <MapProjectCRC>False</MapProjectCRC>
+  <MapSerialNumber>False</MapSerialNumber>
+  <VersionNumber>1</VersionNumber>
+  <FSOEAddress>128</FSOEAddress>
+  <DipSwitch>128</DipSwitch>
+  <AmsNetID>10.55.6.83.3.1</AmsNetID>
+  <AmsPort>1003</AmsPort>
+  <ConnectionInfoDataConfigOld>False</ConnectionInfoDataConfigOld>
+  <BackupRestore Needed="0" Activated="False" />
+</TargetSystemConfig>

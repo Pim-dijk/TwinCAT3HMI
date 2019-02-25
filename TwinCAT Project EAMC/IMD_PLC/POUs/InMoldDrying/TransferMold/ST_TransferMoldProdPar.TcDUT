@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_TransferMoldProdPar" Id="{c4a0f8d1-2751-4d15-8c67-fc3f35233fe3}">
+    <Declaration><![CDATA[TYPE ST_TransferMoldProdPar :
+STRUCT
+
+
+	PositionTransferStopA				: REAL;	(* Transfer stop, At Mold B *)
+	PositionTransferStopB				: REAL;	(* Transfer stop, At Mold A *)
+	PositionTransferOpen				: REAL;	(* Transfer Open, just above the bottom mold *)
+	PositionDownStop					: REAL; (* Down stop at forming mold *)
+	PositionDownOpen					: REAL; (* Down open, just above the pond *)
+	ReleaseBmMovementOffset				: REAL; // Position of the transfermold, that indicates the bottommold is free to move
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

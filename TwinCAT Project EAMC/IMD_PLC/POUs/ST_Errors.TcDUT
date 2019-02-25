@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_Errors" Id="{3cef52b5-7938-4d02-b952-a56dc3b37f38}">
+    <Declaration><![CDATA[TYPE ST_Errors :
+STRUCT
+	exEmergency						: ARRAY[1..GVL.MAX_ZONES+1] OF BOOL;  (*Emergecy Stop Active, Index=Zone, 1=Stacker, 2=Zipper, 3=Bundle Buffer track, 4=Vertical denester, 5=Bundle Outfeed // stop buttons.*)
+	exEmStopImdFront				: BOOL;
+	exEmStopImdBack					: BOOL;
+	exEmStopGantryA_Front			: BOOL;
+	exEmStopGantryA_Back			: BOOL;
+	exEmStopGantryB_Front			: BOOL;
+	exEmStopGantryB_Back			: BOOL;
+	
+	exImdFrontDoorLeft				: BOOL;
+	exImdFrontDoorMiddle			: BOOL;
+	exImdFrontDoorRight				: BOOL;						
+	exImdBackDoorLeft1				: BOOL;
+	exImdBackDoorLeft2				: BOOL;
+	exImdBackDoorMiddle3			: BOOL;
+	exImdBackDoorMiddle4			: BOOL;
+	exImdBackDoorRight5				: BOOL;
+	exImdBackDoorRight6				: BOOL;
+
+	exGantryA_FrontDoorLeft			: BOOL;
+	exGantryA_FrontDoorRight		: BOOL;
+	exGantryA_BackDoor				: BOOL;
+	exGantryB_FrontDoorLeft			: BOOL;
+	exGantryB_FrontDoorRight		: BOOL;
+	exGantryB_BackDoor				: BOOL;
+	
+	ex24VoltError1					: BOOL; 
+	ex24VoltError2					: BOOL;
+	
+	exUpsAlarm						: BOOL;
+	
+	exAtteptedStartWithNoProduct	: BOOL;
+	
+	InMoldDryingErrors				: ST_IMDErrors;
+	ProductHandlingErrors 			: ST_ProductHandlingErrors;
+	
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

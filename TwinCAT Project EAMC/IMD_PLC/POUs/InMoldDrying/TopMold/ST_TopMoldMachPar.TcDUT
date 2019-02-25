@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_TopMoldMachPar" Id="{d96a0463-697e-425e-8398-290d008c2fcd}">
+    <Declaration><![CDATA[TYPE ST_TopMoldMachPar :
+STRUCT
+	EnableClosedBlowOff					: BOOL;
+	EnableClosedVacuum					: BOOL;
+	BlowOffTimeClosed					: TIME;
+	VacuumTimeClosed					: TIME;
+
+
+// Moving up
+	SpeedUpNormal						: REAL;
+	SpeedUpSlow							: REAL;
+	SpeedUpCreep						: REAL;
+	PositionUpStop						: REAL;
+	PositionUpSlow						: REAL;
+	PositionUpCreep						: REAL;	(*New since speed upgrade*)
+
+// Opening
+	SpeedOpening						: REAL;
+	//PositionDownOpen					: REAL;	//product par.
+	
+// Moving down	
+	SpeedDownNormal						: REAL;
+	SpeedDownSlow						: REAL;
+	SpeedDownCreep						: REAL;
+	PositionDownSlow					: REAL;
+	PositionDownCreep					: REAL;
+	//PositionDownStop					: REAL;	// product par.
+	
+	
+// Moving down pressing.
+	PressSpeed							: REAL; // Flow at which the pressing is executed.
+	PressStop							: REAL; // Pressure at which the pressing stops.
+
+	PositionOffsetZero					: REAL;
+	PositionOffsetSlowRange				: REAL;
+	PositionOffsetAlarm					: REAL;
+	PositionPhyscialMeasured			: REAL;
+	PositionPhysicalMeasuredOld			: REAL;
+	PhysicalOffsetPos					: REAL;
+	
+	DryingTime							: TIME;
+	BlowOffToTakeOut					: TIME;
+	HeatingZone 						: ARRAY [1..6] OF ST_HeatingZone;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

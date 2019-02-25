@@ -1,0 +1,52 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-username",
+      "displayName": "Username",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Username",
+      "propertySetterName": "setUsername",
+      "propertyGetterName": "getUsername"
+    },
+    {
+      "name": "data-tchmi-password",
+      "displayName": "Password",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Password",
+      "propertySetterName": "setPassword",
+      "propertyGetterName": "getPassword"
+    },
+    {
+      "name": "data-tchmi-thiscontrol",
+      "displayName": "ThisControl",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Control",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ThisControl",
+      "propertySetterName": "setThisControl",
+      "propertyGetterName": "getThisControl"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

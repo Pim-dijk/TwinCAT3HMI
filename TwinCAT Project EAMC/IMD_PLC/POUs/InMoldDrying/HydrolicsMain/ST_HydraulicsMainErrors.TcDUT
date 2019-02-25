@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_HydraulicsMainErrors" Id="{2dc88c20-ced6-486d-bab7-b6881d609fac}">
+    <Declaration><![CDATA[TYPE ST_HydraulicsMainErrors :
+STRUCT
+	// Alarms
+	OilTemperatureTooHigh				: BOOL;
+	OilLevelTooLow						: BOOL;
+	Filter100Dirty						: BOOL;
+	AuxFilter100Dirty					: BOOL;
+	
+	// Warnings
+	Filter75Dirty						: BOOL;
+	AuxFilter75Dirty					: BOOL;
+	
+	CoolingFanCabinet					: BOOL;
+	Hydraulics24VError					: BOOL;
+	
+	
+	// Alarms/Warnings
+	HydraulicPump						: ST_MotorSSErrors;
+	FilterMotor							: ST_MotorErrors;
+	Coolingfan							: ST_MotorErrors;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

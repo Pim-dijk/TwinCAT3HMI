@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <GVL Name="GVL" Id="{46c3f20f-a185-49ce-ac90-9817da5d26a6}">
+    <Declaration><![CDATA[
+VAR_GLOBAL PERSISTENT
+	PersMachPar					: ST_MachPar;
+	PersSysPar					: ST_SysPar;
+END_VAR
+VAR_GLOBAL CONSTANT
+	MaxNrOfVacSectTakeOutUnit	: INT:= 4;	
+	MAX_ZONES					: INT:= 7;
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<safetyApplication Crc="3416457117" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9842efbb-7892-462f-b93e-8eca9c65c3d1" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+  <networks>
+    <safetyApplicationHasNetworks Id="597afdc9-b3cf-40b3-8fd6-2a66ea8ccd71">
+      <Network Id="f85f62ba-ce8f-4d53-8b7f-26a8a31e031e" name="Network1" networkName="Network1" intId="1" networkOrderId="0" xmlid="0">
+        <functionBlocks>
+          <networkHasFunctionBlocks Id="50f37544-2eff-4e0d-95ac-554f62f5b11a">
+            <fBEstop Id="a2eca67f-e15b-4c7b-82a9-7d50c3301865" name="FBEstop1" instanceName="FBEstop1" orderOfExecution="1" mapState="false" mapDiag="false" xmlid="0" functionName="safeEstop" safeInputsAfterDiscError="false">
+              <inPorts>
+                <functioBlockHasInPorts Id="e0052e44-0fb4-4268-80a8-ce7d18214257">
+                  <inPort Id="d812cb51-1ba2-45b3-9d10-dfab1cd64a0f" name="Restart" portName="Restart" portNum="2" objectIndex="0" varId="1" filter="3" portDataType="1" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="daebb450-1b97-4e98-bf4a-2659f6278d66">
+                  <inPort Id="a6e7628c-aee8-400d-a124-47b8ba956e27" name="EStopIn1" portName="EStopIn1" assignedVariable="Noodstop1" portNum="4" objectIndex="8" varId="3" filter="2" portDataType="1" channelInterface="Two-Channel" discrepancyTime="200" deactivate1="Break Contact (NC)" deactivate2="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                    <portMappings>
+                      <functionBlockPortHasPortMappings Id="0d4373d0-3985-4228-8495-0f902edda178">
+                        <portMapping Id="65c82c10-bc6e-49e3-88c9-d334d3a0b679" name="FBEstop1_EStopIn1_mapping" direction="input" dataType="safeBool" assignedVariable="Noodstop1" physicalPorts="3.InputChannel1">
+                          <aliasPorts>
+                            <portMappingHasAliasPorts Id="8f54f8a9-4ae4-4a02-9055-9f681fe0bd97">
+                              <aliasPort Id="7e7c5ca5-c73c-4963-aca6-3ed28176ca07" name="SdsId3.ChannelId1" sdsId="3" channelId="1" channelName="InputChannel1" functionId="1610678529" />
+                            </portMappingHasAliasPorts>
+                          </aliasPorts>
+                        </portMapping>
+                      </functionBlockPortHasPortMappings>
+                    </portMappings>
+                  </inPort>
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="4d43e776-de80-4f64-9c4a-c648f3c96d52">
+                  <inPort Id="e51e415f-7d00-41af-b1a1-f19285fe78b8" name="EStopIn2" portName="EStopIn2" assignedVariable="Noodstop2" portNum="5" objectIndex="9" varId="4" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0">
+                    <portMappings>
+                      <functionBlockPortHasPortMappings Id="e7f512f8-f9c8-45f6-b2d9-edd82b9f5bad">
+                        <portMapping Id="5c37129c-33e2-45bc-b053-470a6a4d57c6" name="FBEstop1_EStopIn2_mapping" direction="input" dataType="safeBool" assignedVariable="Noodstop2" physicalPorts="3.InputChannel2">
+                          <aliasPorts>
+                            <portMappingHasAliasPorts Id="f0dddaae-f8ee-4e48-8ea8-3a9e5976854b">
+                              <aliasPort Id="9c6f1791-7d4b-41ee-a0d5-812e0f93f063" name="SdsId3.ChannelId2" sdsId="3" channelId="2" channelName="InputChannel2" functionId="1610678785" />
+                            </portMappingHasAliasPorts>
+                          </aliasPorts>
+                        </portMapping>
+                      </functionBlockPortHasPortMappings>
+                    </portMappings>
+                  </inPort>
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="edbb43bf-a878-403c-b6ad-6adc04f864ba">
+                  <inPort Id="1c7ab71c-aecc-405b-95ac-45465bb0cc8a" name="EStopIn3" portName="EStopIn3" portNum="6" objectIndex="10" varId="5" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="bec5b860-2f1d-4bde-8d21-80f06935474d">
+                  <inPort Id="eeaeb5bb-efac-435f-8f80-a0647bd23375" name="EStopIn4" portName="EStopIn4" portNum="7" objectIndex="11" varId="6" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="1345df4c-845b-408e-8cc1-04b5a47cc9a8">
+                  <inPort Id="b66615a6-1bd1-44d8-8339-afd4ab7ff5da" name="EStopIn5" portName="EStopIn5" portNum="8" objectIndex="12" varId="7" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="eb0a30e9-66cb-44f2-861f-818be624c11c">
+                  <inPort Id="5a328dab-9f9e-455e-8261-1103ed028802" name="EStopIn6" portName="EStopIn6" portNum="9" objectIndex="13" varId="8" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="2584e30a-487e-4afd-980e-ca5945ca60b0">
+                  <inPort Id="c5c1cb78-f8ea-47c1-bc72-6dfe22e946c5" name="EStopIn7" portName="EStopIn7" portNum="10" objectIndex="14" varId="9" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="49566829-b0b4-46fe-8f0f-d580806b5e36">
+                  <inPort Id="44b44ca1-8fc2-42e0-ab40-a24474ec2f66" name="EStopIn8" portName="EStopIn8" portNum="11" objectIndex="15" varId="10" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="4f7ee762-6da5-4f99-9c10-abf2bae14605">
+                  <inPort Id="9c146f28-7469-4b11-9c11-1dbd50859372" name="EDM1" portName="EDM1" portNum="13" objectIndex="1" varId="12" filter="3" portDataType="1" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="ed7d42a9-1e83-4c8a-90c3-5e3bab89e62a">
+                  <inPort Id="46d76751-c1d2-4f8a-8907-e8c387950738" name="EDM2" portName="EDM2" portNum="14" objectIndex="2" varId="13" filter="3" portDataType="1" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+              </inPorts>
+              <outPorts>
+                <functionBlockHasOutPorts Id="8f14918a-ffbf-42fb-b90b-3e4695eada15">
+                  <outPort Id="09dbf02f-8352-42dc-b373-9eefa305070c" name="Error" portName="Error" portNum="4" objectIndex="0" varId="16" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="1f05d10b-95db-434d-8270-e32d0e017fbb">
+                  <outPort Id="a8c53f9a-a0cf-4bf7-97a0-b728ab07c6d4" name="EStopOut" portName="EStopOut" assignedVariable="bert" portNum="11" objectIndex="1" varId="23" filter="7" portDataType="1" replacementValue="0">
+                    <portMappings>
+                      <functionBlockPortHasPortMappings Id="eb4f23d7-820c-47ca-a3b1-982fd01e90b1">
+                        <portMapping Id="bea38df9-f941-43f8-ae0b-f676ec638080" name="FBEstop1_EStopOut_mapping" direction="output" dataType="safeBool" assignedVariable="bert" physicalPorts="AX 5805 Drive Option Card (2 axes, up to FW 4)_1.Axis 1 STO ;AX 5805 Drive Option Card (2 axes, up to FW 4)_1.Axis 2 STO ">
+                          <aliasPorts>
+                            <portMappingHasAliasPorts Id="33044ccd-7b81-4f27-bb0a-4d65d1058f9e">
+                              <aliasPort Id="bb774567-c130-4702-828b-df1cea72a6a8" name="SdsId5.ChannelId1" sdsId="5" channelId="1" channelName="Axis 1 STO " functionId="1715470337" />
+                            </portMappingHasAliasPorts>
+                            <portMappingHasAliasPorts Id="e7714190-3ca0-4483-a003-0ac68d2ba1b8">
+                              <aliasPort Id="9dd363ce-b67d-4563-bdbe-b7b9c1c15f23" name="SdsId5.ChannelId17" sdsId="5" channelId="17" channelName="Axis 2 STO " functionId="1849688065" />
+                            </portMappingHasAliasPorts>
+                          </aliasPorts>
+                        </portMapping>
+                      </functionBlockPortHasPortMappings>
+                    </portMappings>
+                  </outPort>
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="e4da807e-4685-4392-8a5b-41e43c42e08b">
+                  <outPort Id="5fd28ba9-f5ab-4435-a7fd-bd6d4a06037f" name="EStopDelOut" portName="EStopDelOut" assignedVariable="Del" portNum="12" objectIndex="2" varId="26" filter="7" portDataType="1" replacementValue="0">
+                    <portMappings>
+                      <functionBlockPortHasPortMappings Id="b777b4c3-4f99-41f0-9c4c-271c796158ad">
+                        <portMapping Id="f1c28da4-12d1-4636-a373-e87f03e8f525" name="FBEstop1_EStopDelOut_mapping" direction="output" dataType="safeBool" assignedVariable="Del" />
+                      </functionBlockPortHasPortMappings>
+                    </portMappings>
+                  </outPort>
+                </functionBlockHasOutPorts>
+              </outPorts>
+              <parameterPorts>
+                <functionBlockHasParamPorts Id="bd6a3d41-9322-4173-8954-39d3969490d6">
+                  <parameterPort Id="1cf5838d-4798-4be3-9158-5652c4fcecfc" name="Delay Time (ms)" portName="Delay Time (ms)" portNum="8" objectIndex="0" varId="0" filter="0" portDataType="0" timing="100" />
+                </functionBlockHasParamPorts>
+              </parameterPorts>
+            </fBEstop>
+          </networkHasFunctionBlocks>
+        </functionBlocks>
+      </Network>
+    </safetyApplicationHasNetworks>
+    <safetyApplicationHasNetworks Id="51b73228-f932-40a5-ae9f-42a03640ca38">
+      <Network Id="b20c6a1d-cb5c-46d9-82c1-94a3260bdcf0" name="Network2" networkName="Network2" intId="2" networkOrderId="1" xmlid="0" />
+    </safetyApplicationHasNetworks>
+  </networks>
+</safetyApplication>

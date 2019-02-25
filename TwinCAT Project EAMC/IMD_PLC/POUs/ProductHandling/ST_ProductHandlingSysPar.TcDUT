@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_ProductHandlingSysPar" Id="{2e3a68e4-b26f-4048-a945-e6a9ee2a5638}">
+    <Declaration><![CDATA[TYPE ST_ProductHandlingSysPar :
+STRUCT
+	GantryA						: ST_GantrySysPar;
+	GantryB						: ST_GantrySysPar;
+	OutfeedConveyor				: ST_OutfeedConveyorSysPar;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

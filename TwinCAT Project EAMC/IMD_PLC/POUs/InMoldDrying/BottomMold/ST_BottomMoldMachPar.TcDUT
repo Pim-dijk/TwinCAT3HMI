@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_BottomMoldMachPar" Id="{8111af69-3b12-4b09-98ca-4b9949f5eb8c}">
+    <Declaration><![CDATA[TYPE ST_BottomMoldMachPar :
+STRUCT
+	EnableNewTakeOut						: BOOL;
+	PositionInStop							: REAL;
+	//PositionInSlow						: REAL;
+	PositionOutStop							: REAL;
+	PhysicalOffsetPos						: REAL;
+	
+	StartVacAtTrPosOffset					: REAL;	// Start vacuum position at postion x of transfer (ofset)			
+	StopVacAtBmPosOffset					: REAL; // Stop vacuum at a certain bottommold pos (this is the ofset from the end)
+	
+	HorizontalCilinder						: ST_CilinderParameters;
+	VerticalCilinder						: ST_CilinderParameters;
+	
+	//BottomMoldVacuumDelay					: TIME := T#22S;
+	BottomMoldVacuumClosed					: TIME;
+	ClosedVacEnabled						: BOOL;	
+
+	
+	VerticalCilinderUpDelay					: TIME := T#1250MS;
+	VerticalCilinderTakeOutTime				: TIME := T#1250MS;
+	
+	
+	AxisVelocityManual						: LREAL;
+	AxisVelocityInit						: LREAL;
+	AxisVelocityAuto						: LREAL;
+	AxisPositionRest						: LREAL;
+	AxisPositionHome						: LREAL;(* Used when motor is Replaced, write this value as "position bias" in system manager NC-Axis *)
+
+	
+	
+	//PIDTempZone 							: ARRAY [1..6] OF ST_PIDSettings;
+	HeatingZone								: ARRAY [1..6] OF ST_HeatingZone;
+	VacuumSection							: ARRAY [1..6] OF FB_MonoValveNoFdbck;
+	EnableVacuumSection						: ARRAY [1..6] OF BOOL;	
+	
+	KickOffCounter							: DINT; // Counts the number of times the bottommold moved in or out.
+	GreasingVelocity						: LREAL;
+	GreasingPosition						: LREAL;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

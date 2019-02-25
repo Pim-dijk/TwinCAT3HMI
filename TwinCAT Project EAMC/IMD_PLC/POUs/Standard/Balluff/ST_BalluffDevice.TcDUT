@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_BalluffDevice" Id="{bf27cdb9-fa26-410b-8013-0b2e3be721d2}">
+    <Declaration><![CDATA[TYPE ST_BalluffDevice :
+STRUCT
+	ErrorRegister	: BYTE;
+	Temperature	: INT;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

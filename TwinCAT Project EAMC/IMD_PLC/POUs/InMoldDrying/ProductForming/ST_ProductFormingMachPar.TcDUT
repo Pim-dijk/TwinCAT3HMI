@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_ProductFormingMachPar" Id="{e9982952-352c-4a53-8d65-0de9f3c03f71}">
+    <Declaration><![CDATA[TYPE ST_ProductFormingMachPar :
+STRUCT
+(*
+ (* Forming Mold *)
+	MoldVacuum						: FB_MonoValveNoFdbck;							
+	MoldBlowOff						: FB_MonoValveNoFdbck;
+(* MachinePond *)
+	PondHydrolicCilinder			: FB_HydrolicCilinder;
+	HydroPump						: FB_HydroPump;
+	FeedingPulp						: FB_BiValve2Fdbck;
+	Drain							: FB_BiValve2Fdbck;
+(* SprayBart *)	
+	WireSprayValve					: FB_MonoValveNoFdbck;
+	FlashSprayValve					: FB_MonoValveNoFdbck;
+	SprayBarMotor					: FB_NCAxis;	
+ *)
+ 
+	FormingMold							: ST_FormingMoldMachPar;
+	MachinePond							: ST_MachinePondMachPar;
+	SprayBar							: ST_SpraybarMachPar;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_IMDMachPar" Id="{6f46e381-924d-4081-95a0-7003af558fd6}">
+    <Declaration><![CDATA[TYPE ST_IMDMachPar :
+STRUCT
+	EnableEamcSideA						: BOOL;
+	EnableEamcSideB						: BOOL;
+	
+	EnableTakeOutAB						: BOOL; (* Enable new takeout unit, with vertical cilinder *)
+
+	CommisioningMode					: BOOL;	(* Enables movement without RHSR checks.*)
+	
+	MinTempAlowTransferToBot			: REAL := 175.0;
+	
+	TopMoldA							: ST_TopMoldMachPar;
+	TopMoldB							: ST_TopMoldMachPar;
+	BottomMoldA							: ST_BottomMoldMachPar;
+	BottomMoldB							: ST_BottomMoldMachPar;
+	TransferMold						: ST_TransferMoldMachPar;
+	ProductForming						: ST_ProductFormingMachPar;
+	HydraulicsMain						: ST_HydraulicsMainMachPar;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

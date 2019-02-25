@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_IMDProdPar" Id="{db4dfcb5-9e6c-4928-8887-adf01366fd21}">
+    <Declaration><![CDATA[TYPE ST_IMDProdPar :
+STRUCT
+	TopMoldA				: ST_TopMoldProdPar;
+	TopMoldB				: ST_TopMoldProdPar;
+	BottomMoldA				: ST_BottomMoldProdPar;
+	BottomMoldB				: ST_BottomMoldProdPar;
+	TransferMold			: ST_TransferMoldProdPar;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

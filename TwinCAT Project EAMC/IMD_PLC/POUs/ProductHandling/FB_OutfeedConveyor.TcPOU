@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_OutfeedConveyor" Id="{b8a7b499-3a0e-47d5-b072-1f1e0bee45c8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_OutfeedConveyor
+VAR CONSTANT
+	sCycleStateTextDef: ARRAY[0..10]  OF STRING :=	
+		['State 0: Wait for Start','1','2','3','4','5','6','7','8','9',
+		'State 10: Error'];
+	
+	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
+		T#10S];
+
+	sInitStateTextDef: ARRAY[0..10] OF STRING :=
+		['State 0: Wait for Start',
+		'State 1: Description Init State 1',
+		'State 2: Description Init State 2',
+		'State 3; Description Init State 3',
+		'State 4; Description Init State 4',
+		'State 5; Description Init State 5',
+		'State 6; Error State'];
+
+	tInitStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S
+		,T#10S];
+END_VAR
+VAR_INPUT
+	mxResetCycleState				: BOOL;
+	mxResetInitState				: BOOL;
+	mxForceInit						: BOOL; (*Reset Calibration Flag*)
+	mxReset							: BOOL;	(*Reset Error*)
+	mxEmergency						: BOOL;
+	mxAutoMode						: BOOL; (* TRUE = Automode *)
+	mxFirstCycle					: BOOL;
+
+END_VAR
+VAR_IN_OUT
+	MachParameters					: ST_OutfeedConveyorMachPar;
+	ProdParameters					: ST_OutfeedConveyorProdPar;
+	SysParameters					: ST_OutfeedConveyorSysPar;
+END_VAR
+VAR_OUTPUT
+	(*Errors*)
+	Errors							: ST_OutfeedConveyorErrors;
+	mxErrorInit						: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
+	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
+
+(* State vars *)
+	mxCycleBusy						: BOOL;
+	mxInitBusy						: BOOL;
+	
+(* Vars *)
+	mxInitialized					: BOOL;
+	
+	mrActModPos						: LREAL;
+END_VAR
+VAR
+(* State vars *)
+	miCycleState					: INT :=0;
+	miCycleOldstate					: INT :=0;
+	mxCycleTransitionState			: BOOL := FALSE;
+	sCycleStateText					: STRING;
+	exCycleTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	CycleTimeout					: TON;
+	CycleTimeOutUpFlank				: R_TRIG;
+	mxCycleTimeoutEnable			: BOOL;
+	CycleTime						: REAL;
+	mxCycleHasError					: BOOL;
+	miStopState						: INT;
+	mxStartCycle					: BOOL;
+	mxStopCycle						: BOOL;
+	mxStopDirect					: BOOL;
+	
+	miInitState						: INT	:=0;
+	miInitOldstate					: INT	:=0;
+	mxInitTransitionState			: BOOL	:= FALSE;
+	sInitStateText					: STRING;
+	exInitTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	InitTimeout						: TON;
+	InitTimeOutUpFlank				: R_TRIG;
+	mxInitTimeoutEnable				: BOOL;
+	InitTime						: REAL;
+	mxInitHasError					: BOOL;
+	mxStartInit						: BOOL;
+	mxStopInit						: BOOL;
+	
+	(* Objects *)
+	Belt							 : FB_NcAxis;
+
+	mrSetpointPosition				: LREAL;
+	mrActPosBeltSaved				: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+Cycle();
+Init();
+Objects();
+
+mrActModPos:= Belt.axAxis.NcToPlc.ModuloActPos;]]></ST>
+    </Implementation>
+    <Action Name="Cycle" Id="{b4e2cb85-ce3e-448c-9156-64b284d91ddb}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
+(*State text*)
+sCycleStateText:=sCycleStateTextDef[miCycleState];
+(*Timeout Watchdog for Statemachine*)
+mxCycleTimeoutEnable:=NOT (miCycleState=0) AND NOT mxReset;
+
+CycleTimeout(IN:=mxCycleTimeoutEnable, PT:=tCycleStateTimeouts[miCycleState] );
+CycleTimeOutUpFlank(CLK:=CycleTimeout.Q );
+miCycleOldstate:=miCycleState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF CycleTimeOutUpFlank.Q THEN
+	exCycleTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetCycleState THEN
+	mxResetCycleState:= FALSE;
+	miCycleState:=0;
+	miCycleOldstate:=miCycleState;
+	mxCycleTransitionState:=FALSE;
+
+	mxInitialized:= FALSE;
+	mxStartCycle:= FALSE;
+	mxStopCycle:= FALSE;
+	mxStopDirect:= FALSE;
+	Belt.M_Stop();
+	
+END_IF
+
+(*Definition State has Error*)
+mxCycleHasError:=FALSE;
+
+(*Cycle State's*)
+CASE miCycleState OF
+	0:
+	(*
+		- wait for startcycle
+		- Move belt with velo
+  
+	*)
+		IF mxStartCycle THEN
+			mxStartCycle:= FALSE;
+
+			miCycleState:= 1;
+		END_IF	
+
+	(* Move belt *)
+	1:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			mrActPosBeltSaved:= Belt.ActPosition;		
+	
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSE
+			Belt.M_MoveVelocity(Velocity:= MachParameters.VelocityAuto, Direction:= MC_Positive_Direction);
+		END_IF
+
+	(* Stop Cycle, stop belt after x mm*)
+	20:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF Belt.ActPosition > mrActPosBeltSaved + 5000 THEN
+			Belt.M_Stop();
+			
+			miCycleState:= 21;
+		ELSE
+			Belt.M_MoveVelocity(Velocity:= MachParameters.VelocityAuto, Direction:= MC_Positive_Direction);
+		END_IF
+
+	21:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF NOT Belt.axStatus.Moving OR Belt.axStatus.StandStill THEN
+			
+			miCycleState:= 0;			
+		END_IF
+
+	(* Stop Direct *)
+	25:
+		mxInitialized:= FALSE;
+		mxStartCycle:= FALSE;
+		mxStopCycle:= FALSE;
+		mxStopDirect:= FALSE;
+		
+		Belt.M_Stop();
+
+		miCycleState:= 0;
+END_CASE
+
+mxCycleBusy:= miCycleState<>0;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Error" Id="{4b843070-c32e-4e94-909c-b2ec4b0f02b6}">
+      <Implementation>
+        <ST><![CDATA[
+
+(*************************************************************************************************)
+mxErrorInit:= FALSE;
+mxErrorStopinPos:= Belt.ErrorStop;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Init" Id="{b9fc5455-7ced-4252-a7f2-7e8a2a02f29e}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxInitTransitionState:=(miInitState<>miInitOldstate);
+(*State text*)
+sInitStateText:=sInitStateTextDef[miInitState];
+(*Timeout Watchdog for Statemachine*)
+mxInitTimeoutEnable:=NOT (miInitState=0)  AND NOT mxReset;
+
+InitTimeout(IN:=mxInitTimeoutEnable  , PT:=tInitStateTimeouts[miInitState] );
+InitTimeOutUpFlank(CLK:=InitTimeout.Q );
+miInitOldstate:=miInitState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF InitTimeOutUpFlank.Q THEN
+	exInitTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetInitState THEN
+	mxResetInitState:=FALSE;
+	miInitState:=0;
+	miInitOldstate:=miInitState;
+	mxInitTransitionState:=FALSE;
+	
+	mxInitialized:= FALSE;
+	mxStartInit:= FALSE;
+	mxStopInit:= FALSE;
+		
+END_IF
+
+(*Definition State has Error*)
+mxInitHasError:=FALSE;
+
+(*Init State's*)
+CASE miInitState OF
+	0:
+
+	(* 
+		- Wait for start int
+		- Empty belt	
+	*)
+		IF mxStartInit THEN
+			mxStartInit:= FALSE;
+			mxInitialized:= FALSE;
+
+			mrSetpointPosition:= Belt.ActPosition + 1000;
+			
+			miInitState:= 1;
+		END_IF
+
+	(* Move, empty belt*)
+	1:
+		IF mxStopInit THEN
+			mxStopInit:= FALSE;
+			
+			miInitState:= 10;
+		ELSIF Belt.M_MoveAbsolute(Position:= mrSetpointPosition, Velocity:= MachParameters.VelocityAuto) THEN
+			mxInitialized:= TRUE;
+
+			miInitState:= 0;
+		END_IF
+
+	(* Stop Init *)
+	10:
+		mxInitialized:= FALSE;
+		mxStartInit:= FALSE;
+		mxStopInit:= FALSE;
+		
+		Belt.M_Stop();
+		
+		miInitState:= 0;
+			
+END_CASE
+
+mxInitBusy:= miInitState<>0;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_StartCycle" Id="{8856c7ab-21a6-495f-9259-f7b3144f553f}">
+      <Declaration><![CDATA[METHOD M_StartCycle
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT mxCycleBusy THEN
+	mxStartCycle:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StartInit" Id="{07e6dfab-bdc1-4744-bb3a-075da4d4af8e}">
+      <Declaration><![CDATA[METHOD M_StartInit
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT mxInitBusy THEN
+	mxStartInit:= TRUE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycle" Id="{28f51c37-9eb2-466a-9200-d8531abecf71}">
+      <Declaration><![CDATA[METHOD M_StopCycle
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN 
+	mxStopCycle:= TRUE; 
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopDirect" Id="{d998a62d-7ea7-4143-ab81-f1631a5e4166}">
+      <Declaration><![CDATA[METHOD M_StopDirect
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxStopDirect:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopInit" Id="{9f266e66-023d-4a2b-8cf2-8dc47cd53205}">
+      <Declaration><![CDATA[METHOD M_StopInit
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxInitBusy THEN 
+	mxStopInit:= TRUE; 
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="Objects" Id="{038fd741-a8c6-4fa4-90db-02b38cbe1423}">
+      <Implementation>
+        <ST><![CDATA[
+Belt(
+	mxEnable:= NOT mxEmergency, 
+	mxInhibit:= FALSE, 
+	mxAutoMode:= mxAutoMode, 
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency, 
+	mxSimulation:= , 
+	mxFirstCycle:= , 
+	mxResetCycle:= , 
+	mxDisable_Positive:= FALSE, 
+	mxDisable_Negative:= FALSE, 
+	mxBlockHMI:= , 
+	mrOverride:= 100.0, 
+	mrVelocityManual:= MachParameters.VelocityManual, 
+	SysParameters:= SysParameters.Belt,
+	mxCycleBusy=> , 
+	mxRunning=> , 
+	Errors=> Errors.NCAxisError, 
+	Error=> , 
+	ErrorStop=> , 
+	axStatus=> , 
+	ActPosition=> , 
+	ActVelocity=> , 
+	axAxis=> );
+]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_OutfeedConveyor">
+      <LineId Id="115" Count="3" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.Cycle">
+      <LineId Id="10" Count="21" />
+      <LineId Id="526" Count="0" />
+      <LineId Id="560" Count="0" />
+      <LineId Id="556" Count="1" />
+      <LineId Id="564" Count="0" />
+      <LineId Id="558" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="37" Count="3" />
+      <LineId Id="44" Count="2" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="523" Count="0" />
+      <LineId Id="479" Count="0" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="57" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="525" Count="0" />
+      <LineId Id="500" Count="0" />
+      <LineId Id="504" Count="0" />
+      <LineId Id="519" Count="3" />
+      <LineId Id="506" Count="0" />
+      <LineId Id="508" Count="0" />
+      <LineId Id="544" Count="1" />
+      <LineId Id="524" Count="0" />
+      <LineId Id="514" Count="0" />
+      <LineId Id="510" Count="0" />
+      <LineId Id="512" Count="0" />
+      <LineId Id="511" Count="0" />
+      <LineId Id="513" Count="0" />
+      <LineId Id="546" Count="0" />
+      <LineId Id="224" Count="0" />
+      <LineId Id="414" Count="4" />
+      <LineId Id="532" Count="0" />
+      <LineId Id="531" Count="0" />
+      <LineId Id="280" Count="0" />
+      <LineId Id="561" Count="2" />
+      <LineId Id="263" Count="0" />
+      <LineId Id="533" Count="5" />
+      <LineId Id="543" Count="0" />
+      <LineId Id="542" Count="0" />
+      <LineId Id="540" Count="0" />
+      <LineId Id="265" Count="0" />
+      <LineId Id="541" Count="0" />
+      <LineId Id="264" Count="0" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="273" Count="1" />
+      <LineId Id="272" Count="0" />
+      <LineId Id="554" Count="0" />
+      <LineId Id="552" Count="0" />
+      <LineId Id="518" Count="0" />
+      <LineId Id="275" Count="0" />
+      <LineId Id="267" Count="0" />
+      <LineId Id="53" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.Error">
+      <LineId Id="41" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="5" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.Init">
+      <LineId Id="32" Count="20" />
+      <LineId Id="203" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="205" Count="0" />
+      <LineId Id="201" Count="1" />
+      <LineId Id="55" Count="7" />
+      <LineId Id="176" Count="2" />
+      <LineId Id="182" Count="0" />
+      <LineId Id="180" Count="0" />
+      <LineId Id="92" Count="1" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="188" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="199" Count="0" />
+      <LineId Id="187" Count="0" />
+      <LineId Id="193" Count="0" />
+      <LineId Id="195" Count="1" />
+      <LineId Id="194" Count="0" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="145" Count="0" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="117" Count="0" />
+      <LineId Id="206" Count="2" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="198" Count="0" />
+      <LineId Id="115" Count="1" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="80" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.M_StartCycle">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.M_StartInit">
+      <LineId Id="6" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.M_StopCycle">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.M_StopDirect">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.M_StopInit">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_OutfeedConveyor.Objects">
+      <LineId Id="38" Count="13" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="52" Count="7" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

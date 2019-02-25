@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_HydraulicCilinderMachPar" Id="{b115db40-7762-4e31-977f-69cac07ddc57}">
+    <Declaration><![CDATA[TYPE ST_HydraulicCilinderMachPar :
+STRUCT
+	MainOilPressure : REAL;
+	MainFlowPressure: REAL;
+	Hysteresis		: REAL := 10.0;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

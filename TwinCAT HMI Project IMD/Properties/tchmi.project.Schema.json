@@ -1,0 +1,108 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Symbol_Of_String": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:general#/definitions/String"
+          }
+        }
+      ]
+    },
+    "Symbol_Of_Symbol": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/Symbol"
+          }
+        }
+      ]
+    },
+    "DataType": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "title": "Data type",
+      "description": "Select a datatype"
+    },
+    "KremerIOtextblock": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\KremerIOtextblock.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/KremerIOtextblock"
+    },
+    "Calculator": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Calculator.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Calculator"
+    },
+    "DoorView": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\DoorView.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/DoorView"
+    },
+    "General_Keyboard": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\General_Keyboard.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/General_Keyboard"
+    },
+    "Kremer_Light_Green": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Light_Green.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Light_Green"
+    },
+    "Kremer_Square_Light": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Square_Light.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Square_Light"
+    },
+    "Kremer_Time": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Time.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Time"
+    },
+    "KremerAlarmLight": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\KremerAlarmLight.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/KremerAlarmLight"
+    },
+    "Login_Form": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Login_Form.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Login_Form"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_SpraybarErrors" Id="{7714b2e4-7067-45cb-8cc2-6c847501c321}">
+    <Declaration><![CDATA[TYPE ST_SpraybarErrors :
+STRUCT
+	NCAxisError						: ST_NcAxis_Errors;
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

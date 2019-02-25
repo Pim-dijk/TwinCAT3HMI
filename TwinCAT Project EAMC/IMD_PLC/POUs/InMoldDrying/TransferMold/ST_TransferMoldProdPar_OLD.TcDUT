@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_TransferMoldProdPar_OLD" Id="{84626452-5f9f-4860-9f13-7023cd09a8b6}">
+    <Declaration><![CDATA[TYPE ST_TransferMoldProdPar_OLD :
+STRUCT
+	PositionTransferSlow				: REAL;	(* Transfer slow *)
+	PositionTransferCreep				: REAL;	(* Transfer Creep*)
+
+	PositionTransferStopA				: REAL;	(* Transfer stop, At Mold B *)
+	PositionTransferStopB				: REAL;	(* Transfer stop, At Mold A *)
+	PositionTransferOpen				: REAL;	(* Transfer Open, just above the bottom mold *)
+
+	
+	
+	PositionDownSlow					: REAL; (* Slow down to forming mold *)
+	PositionDownCreep					: REAL;
+	PositionDownStop					: REAL; (* Down stop at forming mold *)
+	
+	PositionDownOpen					: REAL; (* Down open, just above the pond *)
+
+	
+
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

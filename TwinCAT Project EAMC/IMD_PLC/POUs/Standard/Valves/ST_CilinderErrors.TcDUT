@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_CilinderErrors" Id="{8b308a83-769f-4351-b450-8ab896b73c02}">
+    <Declaration><![CDATA[TYPE ST_CilinderErrors :
+STRUCT
+	Cilinder					: BOOL;(* Check sensor/cilinder *)
+	CilinderSlow_IN				: BOOL;(* Cilinder slow in *)
+	CilinderSlow_OUT			: BOOL;(* Cilinder slow out *)
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

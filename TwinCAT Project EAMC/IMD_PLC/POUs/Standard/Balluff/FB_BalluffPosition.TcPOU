@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_BalluffPosition" Id="{904ffdb5-4a0f-47a4-83f0-51f51cdb2384}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_BalluffPosition
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	Error	: BOOL;
+	Position: REAL;
+	Temperature	: REAL;
+END_VAR
+VAR
+	Magnet AT %I* : ST_BalluffMagnet;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error:= (Magnet.PosAboveWorkAreaHighLimit<>0) OR (Magnet.PosBelowWorkAreaLowLimit<>0) OR (Magnet.PosMarkerFailure<>0);
+Position:= DINT_TO_REAL(Magnet.Position)/1000.0;]]></ST>
+    </Implementation>
+    <LineIds Name="FB_BalluffPosition">
+      <LineId Id="14" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

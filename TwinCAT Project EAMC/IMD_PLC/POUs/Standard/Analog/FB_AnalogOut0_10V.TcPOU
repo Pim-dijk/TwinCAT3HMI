@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_AnalogOut0_10V" Id="{3f2e3f66-2671-4139-8e47-c690c7bde4e3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AnalogOut0_10V
+VAR_INPUT
+	EngInput				: REAL;
+	EngLowLimit				: REAL; (*Low limit*)
+	EngUpperLimit 			: REAL; (*Upper limit*)
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	VOut 					: REAL;
+	RawOut 					AT %Q* : INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[VOut		:= 10/(EngUpperLimit-EngLowLimit)*(EngInput--EngLowLimit);
+RawOut		:= REAL_TO_INT(32767.0/(EngUpperLimit-EngLowLimit)*(EngInput--EngLowLimit));
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_AnalogOut0_10V">
+      <LineId Id="22" Count="1" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

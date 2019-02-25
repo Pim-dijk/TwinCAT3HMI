@@ -1,0 +1,28 @@
+﻿{
+  "function": {
+    "name": "GetNameFromSymbol",
+    "displayName": "GetNameFromSymbol",
+    "visible": true,
+    "category": "",
+    "waitMode": "Synchronous",
+    "injectContextObject": false,
+    "description": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "arguments": [
+      {
+        "name": "Symbol",
+        "displayName": "Symbol",
+        "type": "tchmi:framework#/definitions/Symbol",
+        "description": "Pass in Symbol you want to get the name of",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      }
+    ]
+  },
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/FunctionDescription.Schema.json"
+}

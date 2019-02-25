@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_TransferMoldMachPar" Id="{c84dae27-b8fb-4a3b-9317-af6675ebfd6f}">
+    <Declaration><![CDATA[TYPE ST_TransferMoldMachPar :
+STRUCT
+
+	PositionUpStop						: REAL;	(* Up *)
+	PositionUpSlow						: REAL;	(* Slow up *)
+	PositionUpCreep						: REAL;
+	
+// To Forming	
+	PositionDownSlow					: REAL; (* Slow down to forming mold *)
+	PositionDownCreep					: REAL;
+	UpCreepSpeed						: REAL; (* Transfer Creep speed*)
+	UpSlowSpeed							: REAL;	(* Transfer Slow speed*)
+	UpNormalSpeed						: REAL; (* Transfer Normal speed*)
+	DownSpeed							: REAL; 
+	DownSpeedSlow						: REAL;
+	DownSpeedCreep						: REAL;
+	DownOpenSpeed						: REAL; (* Down open, just above the pond *)
+
+// To bottommold
+	PositionTransferSlow				: REAL;	(* Transfer slow *)
+	PositionTransferCreep				: REAL;	(* Transfer Creep position*)	
+	UpCreepSpeedToBm					: REAL; (* Transfer Creep speed*)
+	UpSlowSpeedToBm						: REAL;	(* Transfer Slow speed*)
+	UpNormalSpeedToBm					: REAL; (* Transfer Normal speed*)
+	DownSpeedToBm						: REAL; 
+	DownSpeedSlowToBm					: REAL;
+	DownSpeedCreepToBm					: REAL;
+	DownOpenSpeedToBm					: REAL; (* Down open, just above the pond *)
+	
+	PositionStartFormingProcess			: REAL;
+	TransferTimeClosed					: TIME;	// Time the transfermold is closed on the bottommold.
+	
+	PosDownStartVacOffset				: REAL; // Offset voor vacuum valve to open (above forming).
+	PosTrStopVacOffset					: REAL; // Offset on the transferposition (above bottomM) for stopping vacuum
+	PosTrStartBlowOffOffset				: REAL; // Offset on the transferposition (above bottomM) for opening blow-off
+	PosTrStopBlowOffOffset				: REAL; // Offset on the transferposition (above bottomM) for closing blow-off
+	
+	PositionOffsetZero					: REAL;
+	PositionOffsetSlowRange				: REAL;
+	PositionOffsetAlarm					: REAL;
+
+	PositionPhyscialMeasured			: REAL;
+	PositionPhysicalMeasuredOld			: REAL;
+	PhysicalOffsetPos					: REAL;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

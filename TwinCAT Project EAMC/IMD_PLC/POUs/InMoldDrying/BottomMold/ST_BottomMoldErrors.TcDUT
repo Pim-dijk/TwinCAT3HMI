@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_BottomMoldErrors" Id="{f9ec1a16-91de-4c02-8083-c7d7796adbbc}">
+    <Declaration><![CDATA[TYPE ST_BottomMoldErrors :
+STRUCT
+	VacuumSection						: ARRAY [1..GVL.MaxNrOfVacSectTakeOutUnit] OF BOOL;
+	HorizontalCilinder					: ST_CilinderErrors;
+	VerticalCilinder					: ST_CilinderErrors;
+
+	Hydraulic							: ST_HydraulicErrors;
+	HeatingZone 						: ARRAY [1..6] OF ST_HeatingZoneErrors;
+	
+	HorizontalAxis						: ST_NcAxis_Errors;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

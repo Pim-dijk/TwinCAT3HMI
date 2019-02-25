@@ -1,0 +1,22 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-bind_boolean",
+      "displayName": "Bind_Boolean",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Bind_Boolean",
+      "propertySetterName": "setBind_Boolean",
+      "propertyGetterName": "getBind_Boolean"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

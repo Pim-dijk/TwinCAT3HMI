@@ -1,0 +1,512 @@
+﻿{
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/TchmiConfig.Schema.json",
+  "basePath": "./Libraries",
+  "locale": "en-US",
+  "scaleMode": "None",
+  "startupView": "Desktop.view",
+  "tcHmiServer": {
+    "websocketIntervalTime": 500,
+    "websocketTimeout": 5000,
+    "websocketSubscriptionMode": "Change"
+  },
+  "activeTheme": "Kremer",
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Base/Style.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": []
+    },
+    "Kremer": {
+      "resources": [
+        {
+          "name": "Themes/Kremer/Kremer.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Kremer/Style.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": []
+    }
+  },
+  "dependencyFiles": [
+    {
+      "name": "Fonts/Fonts.css",
+      "description": "",
+      "type": "Stylesheet"
+    }
+  ],
+  "userControls": [
+    {
+      "url": "UserControls/Calculator.usercontrol"
+    },
+    {
+      "url": "UserControls/DoorView.usercontrol"
+    },
+    {
+      "url": "UserControls/General_Keyboard.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_Light_Green.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_Square_Light.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_Time.usercontrol"
+    },
+    {
+      "url": "UserControls/KremerAlarmLight.usercontrol"
+    },
+    {
+      "url": "UserControls/Login_Form.usercontrol"
+    }
+  ],
+  "content": [
+    {
+      "url": "Content/Alarms.content",
+      "preload": false
+    },
+    {
+      "url": "Content/General.content",
+      "preload": false
+    },
+    {
+      "url": "Content/Main.content",
+      "preload": false
+    }
+  ],
+  "views": [
+    {
+      "url": "Desktop.view",
+      "preload": false
+    },
+    {
+      "url": "Login.view",
+      "preload": false
+    }
+  ],
+  "userFunctions": [
+    {
+      "url": "Scripts/ConvertTimeToInt.js"
+    },
+    {
+      "url": "Scripts/GetNameFromSymbol.js"
+    },
+    {
+      "url": "Scripts/GetSymbolStringFromSymbol.js"
+    },
+    {
+      "url": "Scripts/WriteToSymbol_INT.js"
+    },
+    {
+      "url": "Scripts/WriteToSymbol_REAL.js"
+    }
+  ],
+  "symbols": {
+    "internal": {
+      "Color_Green": {
+        "value": {
+          "color": "rgba(0, 255, 10, 1)"
+        },
+        "type": "tchmi:framework#/definitions/Color",
+        "persist": false,
+        "readonly": false
+      },
+      "Color_Red": {
+        "value": {
+          "color": "rgba(255, 0, 0, 1)"
+        },
+        "type": "tchmi:framework#/definitions/Color",
+        "persist": false,
+        "readonly": false
+      },
+      "TempSymbolName": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "CalcName": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      }
+    }
+  },
+  "trigger": null,
+  "actionTemplates": [
+    {
+      "name": "Hide_Calculator",
+      "description": "Hide the calculator out of view",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%Calculator_1::Top%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/MeasurementValue",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "100"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%Calculator_1::TopUnit%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+            "value": "%"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%Calculator_1::Visibility%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Hidden"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%Calculator_1::Zindex%/ctrl%",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "value": -1000
+          },
+          "asyncWait": true
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "name": "Show_Keyboard",
+      "description": "Display the keyboard in the middle of the screen",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::Top%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/MeasurementValue",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/MeasurementValue",
+            "value": 10.0
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::TopUnit%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+            "value": "%"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Visible"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::Zindex%/ctrl%",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "value": 1000
+          },
+          "asyncWait": true
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "name": "Hide_Keyboard",
+      "description": "Hides the keyboard out of the viewport",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::Zindex%/ctrl%",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "value": -1000
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Hidden"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::Top%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/MeasurementValue",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/MeasurementValue",
+            "value": 100.0
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%General_Keyboard_3::TopUnit%/ctrl%",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+            "value": "%"
+          },
+          "asyncWait": true
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "name": "SetButtonState_Blue",
+      "description": "Change the color of the button depending on boolean state",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "Condition",
+          "active": true,
+          "expressions": [
+            {
+              "compare1": {
+                "objectType": "Symbol",
+                "symbolExpression": "%tp%Boolean%/tp%"
+              },
+              "compare2": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:general#/definitions/BOOL",
+                "value": true
+              },
+              "compareOperator": "==",
+              "logic": null
+            }
+          ],
+          "true": [
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%tp%TargetButton::BackgroundColor%/tp%",
+              "valueType": "tchmi:framework#/definitions/Color",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "color": "rgba(0, 0, 255, 1)"
+                }
+              },
+              "asyncWait": true
+            },
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%tp%TargetButton::TextColor%/tp%",
+              "valueType": "tchmi:framework#/definitions/SolidColor",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/SolidColor",
+                "value": {
+                  "color": "rgba(255, 255, 0, 1)"
+                }
+              },
+              "asyncWait": true
+            }
+          ],
+          "false": [
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%tp%TargetButton::BackgroundColor%/tp%",
+              "valueType": "tchmi:framework#/definitions/Color",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/SolidColor",
+                "value": null
+              },
+              "asyncWait": true
+            },
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%tp%TargetButton::TextColor%/tp%",
+              "valueType": "tchmi:framework#/definitions/SolidColor",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/SolidColor",
+                "value": null
+              },
+              "asyncWait": true
+            }
+          ],
+          "asyncWait": true
+        }
+      ],
+      "parameters": [
+        {
+          "name": "TargetButton",
+          "type": "tchmi:framework#/definitions/TcHmiButton",
+          "description": ""
+        },
+        {
+          "name": "Boolean",
+          "type": "tchmi:general#/definitions/BOOL",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "IOField_SetActive",
+      "description": "Give a visual representation of which IO field is active",
+      "category": "Action Templates",
+      "actions": [],
+      "parameters": [
+        {
+          "name": "ObjectSender",
+          "type": "tchmi:framework#/definitions/TcHmiTextblock",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "Show_Calculator",
+      "description": "Display the calculator in the middle of the screen",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%tp%ThisControl::Top%/tp%",
+          "valueType": "tchmi:framework#/definitions/MeasurementValue",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/MeasurementValue",
+            "value": 25.0
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%tp%ThisControl::Visibility%/tp%",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Visible"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%tp%ThisControl::Zindex%/tp%",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "value": 1000
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%tp%ThisControl::SymbolToWriteTo%/tp%",
+          "valueType": "tchmi:project#/definitions/Calculator",
+          "value": {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%TempSymbolName%/i%"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%tp%ThisControl::Self%/tp%",
+          "valueType": "tchmi:project#/definitions/Calculator",
+          "value": {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%CalcName%/i%"
+          },
+          "asyncWait": true
+        }
+      ],
+      "parameters": [
+        {
+          "name": "ThisControl",
+          "type": "tchmi:project#/definitions/Calculator",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "languages": {
+    "en-US": "Localization\\en-US.localization",
+    "nl": "Localization\\nl-NL.localization"
+  },
+  "creatorSettings": {
+    "viewport": {
+      "defaultWidth": 1024,
+      "defaultHeight": 768
+    }
+  }
+}

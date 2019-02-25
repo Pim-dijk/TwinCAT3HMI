@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_GantryProdPar" Id="{9869e799-f671-4a1f-a0ab-0f8d1e6b503b}">
+    <Declaration><![CDATA[TYPE ST_GantryProdPar :
+STRUCT
+	PositionHorizontalPickup			: LREAL;
+	PositionHorizontalDropOff			: LREAL;
+	PositionVerticalPickup				: LREAL;
+	PositionVerticalDropOff				: LREAL;
+	
+	BlowOffTime							: TIME;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

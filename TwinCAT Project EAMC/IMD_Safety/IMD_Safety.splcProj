@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Crc="476178959" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{e6186552-edc7-41c0-a276-968bae71b3b3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TwinCAT3SafePlcProject</RootNamespace>
+    <AssemblyName>TwinCAT3SafePlcProject</AssemblyName>
+    <FileUpgradeFlags />
+    <UpgradeBackupLocation />
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetSystem>EL6900</TargetSystem>
+    <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
+    <Worker>engineer</Worker>
+    <IntProjName>Untitled1</IntProjName>
+    <SPlcProjVersion>1.2.0.0</SPlcProjVersion>
+    <NextSdsId>224</NextSdsId>
+    <Name>IMD_Safety</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="TwinSafeGroup1\Alias Devices\600A10 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A11 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A12 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A13 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A14 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A16CH2_HydroPumpFeedback.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A16CH5_PulpPumpFeedBack.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A18CH16_ReboTechFeedback.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A5 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A6 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A7 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\600A8 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\610A20 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\610A21 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\AX 5805 A-Conveyer AND B-SprayBar.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\AX 5805 Gantry B.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\AX 5805 Gantry A.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\BoschRexrothFB.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 1.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 2.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 3.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 4.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 5.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 6.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\DoorZoneActive 7.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\EDMSafetyZone 1.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\EDMSafetyZone 2.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\EDMSafetyZone 3.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\EDMSafetyZone 4.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\EDMSafetyZone 5.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\HydraulicPump_Q.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\MCC02_600A2 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\MCC02_600A3 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\MCC02_600A4 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\MCC02_FB.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\PondHydroPump_Q.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A11 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A12 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A13 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A16 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A17 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A20 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A21 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A22 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A23 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A24 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A25 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\RIO_600A26 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\TSCOM_Error.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\TSFB_Error.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\TSOut_Error.sds" />
+    <None Include="TwinSafeGroup1\TwinSafeGroup1.sal" />
+    <None Include="TwinSafeGroup1\TwinSafeGroup1.sal.diagram">
+      <DependentUpon>TwinSafeGroup1\TwinSafeGroup1.sal</DependentUpon>
+      <Visible>false</Visible>
+    </None>
+    <None Include="TargetSystemConfig.xml">
+      <Visible>false</Visible>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TwinSafeGroup1" />
+    <Folder Include="TwinSafeGroup1\Alias Devices" />
+    <None Include="TwinSafeGroup1\Alias Devices\ErrorAcknowledgement.sds" />
+  </ItemGroup>
+</Project>

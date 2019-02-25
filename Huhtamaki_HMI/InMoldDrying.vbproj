@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6858FFFF-F71A-4678-A7FE-34FEC32714EF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>InMoldDrying.My.MyApplication</StartupObject>
+    <RootNamespace>InMoldDrying</RootNamespace>
+    <AssemblyName>InMoldDrying</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ApplicationIcon>Resources\KREMER.ICO</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <ManifestCertificateThumbprint>18902A38770BBBA2465856A70957532ADCC26C03</ManifestCertificateThumbprint>
+    <ManifestKeyFile>InlineAutomationHMI_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\SiemensPortal\Desktop\HMIpub\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>InMoldDrying.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>InMoldDrying.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.ECTOPOLOGYLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.ECTOPOLOGYLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ECTOPOLOGYLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.ECTOPOLOGYLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.TCatSysManagerLib, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.TCatSysManagerLib.dll</HintPath>
+    </Reference>
+    <Reference Include="KremerControlsWin32, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>Lib\KremerControlsWin32.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="KremerLicWin32, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\KremerLicWin32.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TeeChart, Version=2.0.2652.22325, Culture=neutral, PublicKeyToken=9c8126276c77bdb7, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TwincatControlWin32, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Forms\frmAlarm.Designer.vb">
+      <DependentUpon>frmAlarm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAlarm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCleanScreen.Designer.vb">
+      <DependentUpon>frmCleanScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCleanScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHisAlarm.Designer.vb">
+      <DependentUpon>frmHisAlarm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHisAlarm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLangSel.Designer.vb">
+      <DependentUpon>frmLangSel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLangSel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProdSel.Designer.vb">
+      <DependentUpon>frmProdSel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProdSel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsers.Designer.vb">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Kremer_HMI.vb" />
+    <Compile Include="Modules\LanguageDB.vb" />
+    <Compile Include="Modules\Password.vb" />
+    <Compile Include="Modules\ProductDB.vb" />
+    <Compile Include="Modules\UserDB.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\AlarmsSub.Designer.vb">
+      <DependentUpon>AlarmsSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\AlarmsSub.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\HisAlarmsSub.Designer.vb">
+      <DependentUpon>HisAlarmsSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\HisAlarmsSub.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Manual.Designer.vb">
+      <DependentUpon>ConveyorBelt_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Overview.Designer.vb">
+      <DependentUpon>ConveyorBelt_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Settings.Designer.vb">
+      <DependentUpon>ConveyorBelt_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot.Designer.vb">
+      <DependentUpon>DryingMoldDetail_Bot.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.Designer.vb">
+      <DependentUpon>DryingMoldDetail_Bot_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Manual.Designer.vb">
+      <DependentUpon>DryingMold_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings2.Designer.vb">
+      <DependentUpon>DryingMold_Settings2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings.Designer.vb">
+      <DependentUpon>DryingMold_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.Designer.vb">
+      <DependentUpon>DryingMoldDetail_Top_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Manual.Designer.vb">
+      <DependentUpon>Gantry_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Overview.Designer.vb">
+      <DependentUpon>Gantry_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Settings.Designer.vb">
+      <DependentUpon>Gantry_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Settings.Designer.vb">
+      <DependentUpon>MachinePond_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\ProductForming_Overview.Designer.vb">
+      <DependentUpon>ProductForming_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\ProductForming_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Manual.Designer.vb">
+      <DependentUpon>TakeOutUnit_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Overview.Designer.vb">
+      <DependentUpon>TakeOutUnit_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Settings.Designer.vb">
+      <DependentUpon>TakeOutUnit_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings.Designer.vb">
+      <DependentUpon>TransferMold_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings2.Designer.vb">
+      <DependentUpon>TransferMold_Settings2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Manual.Designer.vb">
+      <DependentUpon>Spraybar_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Manual.Designer.vb">
+      <DependentUpon>MachinePond_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Settings.Designer.vb">
+      <DependentUpon>Spraybar_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Overview.Designer.vb">
+      <DependentUpon>MachinePond_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\General.Designer.vb">
+      <DependentUpon>General.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\General.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Overview.Designer.vb">
+      <DependentUpon>TransferMold_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Overview.Designer.vb">
+      <DependentUpon>Spraybar_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Manual.Designer.vb">
+      <DependentUpon>TransferMold_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.Designer.vb">
+      <DependentUpon>DryingMoldDetail_Top.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Overview.Designer.vb">
+      <DependentUpon>Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\Product.Designer.vb">
+      <DependentUpon>Product.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\Product.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\Settings.Designer.vb">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\Trend.Designer.vb">
+      <DependentUpon>Trend.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\GeneralSubs\Trend.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Overview.Designer.vb">
+      <DependentUpon>DryingMold_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\CilinderTimes\CT.Designer.vb">
+      <DependentUpon>CT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\CilinderTimes\CT.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\EtherCatTopology.Designer.vb">
+      <DependentUpon>EtherCatTopology.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\EtherCatTopology.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\I2T_Settings\I2T_Settings.Designer.vb">
+      <DependentUpon>I2T_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\I2T_Settings\I2T_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\Init.Designer.vb">
+      <DependentUpon>Init.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\Init.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_BottomMolds.Designer.vb">
+      <DependentUpon>IO_BottomMolds.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_BottomMolds.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_Overview.Designer.vb">
+      <DependentUpon>IO_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_ProductForming.Designer.vb">
+      <DependentUpon>IO_ProductForming.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_ProductForming.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_Hydraulics.Designer.vb">
+      <DependentUpon>IO_Hydraulics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_Hydraulics.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_ProductHandling.Designer.vb">
+      <DependentUpon>IO_ProductHandling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_ProductHandling.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_TransferMold.Designer.vb">
+      <DependentUpon>IO_TransferMold.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_TransferMold.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_TopMolds.Designer.vb">
+      <DependentUpon>IO_TopMolds.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\IO\IO_TopMolds.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\Sequence.Designer.vb">
+      <DependentUpon>Sequence.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\Sequence.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\SequenceInit.Designer.vb">
+      <DependentUpon>SequenceInit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\SequenceInit.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\Service.Designer.vb">
+      <DependentUpon>Service.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\Service.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\Settings\ServiceSetings.Designer.vb">
+      <DependentUpon>ServiceSetings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\Settings\ServiceSetings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\Settings\ServiceSetings2.Designer.vb">
+      <DependentUpon>ServiceSetings2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\Settings\ServiceSetings2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\Service\ZeroAbsEnc\ZeroAbsEncoder.Designer.vb">
+      <DependentUpon>ZeroAbsEncoder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Service\ZeroAbsEnc\ZeroAbsEncoder.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAlarm.resx">
+      <DependentUpon>frmAlarm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCleanScreen.resx">
+      <DependentUpon>frmCleanScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHisAlarm.resx">
+      <DependentUpon>frmHisAlarm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLangSel.resx">
+      <DependentUpon>frmLangSel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProdSel.resx">
+      <DependentUpon>frmProdSel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUsers.resx">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\GeneralSubs\AlarmsSub.resx">
+      <DependentUpon>AlarmsSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\GeneralSubs\HisAlarmsSub.resx">
+      <DependentUpon>HisAlarmsSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Manual.resx">
+      <DependentUpon>ConveyorBelt_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Overview.resx">
+      <DependentUpon>ConveyorBelt_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Settings.resx">
+      <DependentUpon>ConveyorBelt_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot.resx">
+      <DependentUpon>DryingMoldDetail_Bot.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.resx">
+      <DependentUpon>DryingMoldDetail_Bot_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Manual.resx">
+      <DependentUpon>DryingMold_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Settings2.resx">
+      <DependentUpon>DryingMold_Settings2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Settings.resx">
+      <DependentUpon>DryingMold_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.resx">
+      <DependentUpon>DryingMoldDetail_Top_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\Gantry\Gantry_Manual.resx">
+      <DependentUpon>Gantry_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\Gantry\Gantry_Overview.resx">
+      <DependentUpon>Gantry_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\Gantry\Gantry_Settings.resx">
+      <DependentUpon>Gantry_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Settings.resx">
+      <DependentUpon>MachinePond_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\ProductForming_Overview.resx">
+      <DependentUpon>ProductForming_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Manual.resx">
+      <DependentUpon>TakeOutUnit_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Overview.resx">
+      <DependentUpon>TakeOutUnit_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Settings.resx">
+      <DependentUpon>TakeOutUnit_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Settings.resx">
+      <DependentUpon>TransferMold_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Settings2.resx">
+      <DependentUpon>TransferMold_Settings2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Manual.resx">
+      <DependentUpon>Spraybar_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Manual.resx">
+      <DependentUpon>MachinePond_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Settings.resx">
+      <DependentUpon>Spraybar_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Overview.resx">
+      <DependentUpon>MachinePond_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\GeneralSubs\General.resx">
+      <DependentUpon>General.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Overview.resx">
+      <DependentUpon>TransferMold_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Overview.resx">
+      <DependentUpon>Spraybar_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Manual.resx">
+      <DependentUpon>TransferMold_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.resx">
+      <DependentUpon>DryingMoldDetail_Top.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\Overview.resx">
+      <DependentUpon>Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\GeneralSubs\Product.resx">
+      <DependentUpon>Product.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\GeneralSubs\Settings.resx">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\GeneralSubs\Trend.resx">
+      <DependentUpon>Trend.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Overview.resx">
+      <DependentUpon>DryingMold_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\CilinderTimes\CT.resx">
+      <DependentUpon>CT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\EtherCatTopology.resx">
+      <DependentUpon>EtherCatTopology.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\I2T_Settings\I2T_Settings.resx">
+      <DependentUpon>I2T_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\Init.resx">
+      <DependentUpon>Init.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_BottomMolds.resx">
+      <DependentUpon>IO_BottomMolds.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_Overview.resx">
+      <DependentUpon>IO_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_ProductForming.resx">
+      <DependentUpon>IO_ProductForming.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_Hydraulics.resx">
+      <DependentUpon>IO_Hydraulics.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_ProductHandling.resx">
+      <DependentUpon>IO_ProductHandling.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_TransferMold.resx">
+      <DependentUpon>IO_TransferMold.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\IO\IO_TopMolds.resx">
+      <DependentUpon>IO_TopMolds.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\Sequence.resx">
+      <DependentUpon>Sequence.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\SequenceInit.resx">
+      <DependentUpon>SequenceInit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\Service.resx">
+      <DependentUpon>Service.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\Settings\ServiceSetings.resx">
+      <DependentUpon>ServiceSetings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\Settings\ServiceSetings2.resx">
+      <DependentUpon>ServiceSetings2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Service\ZeroAbsEnc\ZeroAbsEncoder.resx">
+      <DependentUpon>ZeroAbsEncoder.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Excel\Dutch.sqlce" />
+    <None Include="Excel\English.sqlce" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\KREMER_DB.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Product_DB.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\User_DB.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Top_Dryingmold_B_side.PNG" />
+    <None Include="Resources\Top_Dryingmold_A_side.png" />
+    <None Include="Resources\Take_out_Bside_side.PNG" />
+    <None Include="Resources\Take_out_Aside_side.PNG" />
+    <None Include="Resources\Transfermold.PNG" />
+    <None Include="Resources\Spraybar_Formingmolds_Machinepond.PNG" />
+    <None Include="Resources\Overview.png" />
+    <None Include="Lib\AxInterop.ECTOPOLOGYLib.dll" />
+    <None Include="Lib\EcTopology.dll" />
+    <None Include="Lib\Interop.TCatSysManagerLib.dll" />
+    <None Include="Lib\KremerLicWin32.dll" />
+    <None Include="Lib\System.Data.SqlServerCe.dll" />
+    <None Include="Lib\TeeChart.dll" />
+    <None Include="Lib\TwinCAT.Ads.dll" />
+    <None Include="Lib\TwincatControlWin32.dll" />
+    <None Include="Lib\TwincatLIBWin32.dll" />
+    <None Include="My Project\app.manifest" />
+    <Content Include="KremerErrorCodes.txt" />
+    <Content Include="Lib\KremerControlsWin32.dll" />
+    <None Include="Resources\Gantry - A-side side.PNG" />
+    <None Include="Resources\Gantry - B-side side.PNG" />
+    <Content Include="Resources\HUT_Small_Logo_RGB.png" />
+    <Content Include="Resources\KREMER.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

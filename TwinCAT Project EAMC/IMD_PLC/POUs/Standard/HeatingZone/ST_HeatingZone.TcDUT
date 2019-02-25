@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_HeatingZone" Id="{02d2add8-664f-4575-bc15-bd684027db2f}">
+    <Declaration><![CDATA[TYPE ST_HeatingZone :
+STRUCT
+	mxEnableZone 			: BOOL;
+	mxZoneActive 			: BOOL;
+	nrOfSteps				: INT	:= 1;
+	LowLimitSP				: REAL  :=130;
+	WaitTimeAfterStepReached: TIME := T#30S;
+	
+	TempErrorRaise			: REAL := 1.0;
+	TimeErrorCheckinterval	: TIME := T#15S; 
+
+	
+	PWM_Parameters			: ST_CTRL_PWM_OUT_PARAMS;
+	PIDTempZone 			: ST_PIDSettings;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

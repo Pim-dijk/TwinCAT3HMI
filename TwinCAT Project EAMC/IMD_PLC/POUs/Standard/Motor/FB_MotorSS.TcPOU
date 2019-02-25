@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_MotorSS" Id="{b20ca05e-69ff-4e29-8685-d8d4740b4b85}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MotorSS
+VAR_INPUT
+	mxReset							: BOOL;
+	mxEmergency						: BOOL;
+	mxAutoMode						: BOOL;
+	mxDisableManualAutoTrigger		: BOOL := FALSE; // If this bit is enabled, the outputs status is not changed when change from/to automode happens
+END_VAR
+VAR_OUTPUT
+(*Errors*)
+	Errors							: ST_MotorSSErrors;
+	mxErrorInit						: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
+	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
+
+(* State vars *)
+	mxCycleBusy						: BOOL;
+	mxInitBusy						: BOOL;
+	
+(* Vars *)
+	mxInitialized					: BOOL;
+	IsRunning						: BOOL;
+	
+END_VAR
+VAR
+	ixSSFailure						AT %I* : BOOL;
+	ixMaintenance					AT %I* : BOOL;
+	ixIsRunning						AT %I* : BOOL;
+	Q								AT %Q* : BOOL;
+	
+	Hmi_On							: BOOL;
+	RT_AutoMode						: R_TRIG;
+	SR_ErrorMaintenance				: SR;
+	SR_ErrorSS: SR;
+	mxTest: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+
+(* Reset hmi when switched to automode*)
+RT_AutoMode(CLK:= mxAutoMode);
+
+// if manual mode becomes active, the manualmode (hmi) is over written by its current state.
+// this ensures that the motor keeps running when it was running and is switched to manual. 
+IF RT_AutoMode.Q AND NOT mxDisableManualAutoTrigger THEN Hmi_On:= Q; END_IF	
+
+(* Manual control *)
+//IF NOT mxAutoMode THEN Q:= Hmi_On; END_IF
+
+IsRunning:= ixIsRunning;]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{39c869b0-65f4-4174-8537-f95e2b9012f5}">
+      <Implementation>
+        <ST><![CDATA[SR_ErrorSS(SET1:= NOT ixSSFailure, RESET:= mxReset, Q1=> Errors.SofstarterFailure);
+SR_ErrorMaintenance(SET1:= NOT ixMaintenance, RESET:= mxReset, Q1=> Errors.Maintenance);
+
+(******************************************************************************************************)
+mxErrorStopinPos:= FALSE;
+mxErrorInit:= Errors.SofstarterFailure OR Errors.Maintenance;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_Init" Id="{9146aba4-af4c-4129-aa40-52e0a7480043}">
+      <Declaration><![CDATA[METHOD M_Init
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+Q:= FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Start" Id="{69ca9b2d-67b8-41f7-9e3c-eaf24c12c6ef}">
+      <Declaration><![CDATA[METHOD M_Start : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:=TRUE;
+
+(* Return Value *)
+M_Start:= Q;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Stop" Id="{e5e835ea-6bec-447d-938f-57f36bf517a4}">
+      <Declaration><![CDATA[METHOD M_Stop : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:= FALSE;
+
+(* Return Value *)
+M_Stop:= NOT Q;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_MotorSS">
+      <LineId Id="22" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="220" Count="1" />
+      <LineId Id="223" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotorSS.Error">
+      <LineId Id="4" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="7" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotorSS.M_Init">
+      <LineId Id="6" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotorSS.M_Start">
+      <LineId Id="6" Count="0" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotorSS.M_Stop">
+      <LineId Id="13" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

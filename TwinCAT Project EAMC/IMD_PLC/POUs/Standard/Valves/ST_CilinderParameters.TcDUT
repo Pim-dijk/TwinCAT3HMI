@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_CilinderParameters" Id="{f39f76f9-24e0-43a3-8a24-de6a74c857fc}">
+    <Declaration><![CDATA[TYPE ST_CilinderParameters :
+STRUCT
+	T_GuardTimeError				: TIME:=T#500MS;
+	T_GuardTimeWarning_IN			: TIME:=T#100MS;
+	T_GuardTimeWarning_OUT			: TIME:=T#100MS;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

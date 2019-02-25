@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_ProductFormingSysPar" Id="{0fa36756-1fc5-4780-8798-ca87c84f4194}">
+    <Declaration><![CDATA[TYPE ST_ProductFormingSysPar :
+STRUCT
+	SprayBar				: ST_NcAxis_SysPar;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

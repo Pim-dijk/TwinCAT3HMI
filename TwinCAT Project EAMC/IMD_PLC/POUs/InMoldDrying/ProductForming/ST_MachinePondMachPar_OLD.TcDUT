@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_MachinePondMachPar_OLD" Id="{d780a3df-1716-4a05-a2d3-fcdca4873ed2}">
+    <Declaration><![CDATA[TYPE ST_MachinePondMachPar_OLD :
+STRUCT
+	PositionUpStop						: REAL;
+	PositionUpSlow						: REAL;
+	PositionDownSlow					: REAL;
+	PositionDownStop					: REAL;
+	PondUpWaitTime						: TIME;
+	FeedingPulpTime						: TIME;
+	PositionOffsetZero					: REAL;
+	PositionOffsetSlowRange				: REAL;
+	PositionOffsetAlarm					: REAL;
+	
+	PositionPhyscialMeasured				: REAL;
+	PositionPhysicalMeasuredOld				: REAL;
+	PhysicalOffsetPos						: REAL;
+
+	Hydraulic							: ST_HydraulicErrors;
+	FeedingPulp							: ST_CilinderParameters;
+	Drain								: ST_CilinderParameters;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

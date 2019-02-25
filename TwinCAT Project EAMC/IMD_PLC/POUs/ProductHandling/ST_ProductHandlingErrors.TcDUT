@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_ProductHandlingErrors" Id="{692a10bd-bbeb-433c-9e2b-b943db3be211}">
+    <Declaration><![CDATA[TYPE ST_ProductHandlingErrors :
+STRUCT
+	RH_HorMovingVertNotAtTranspPos_A	: BOOL; (* RedHot SafetyRule, Horizontal is moving when vertical is not at transport position *)
+	RH_HorMovingVertNotAtTranspPos_B	: BOOL; (* RedHot SafetyRule, Horizontal is moving when vertical is not at transport position *)
+	RH_VertMovingHorNotInPos_A			: BOOL;	(* RedHot SafetyRule, Vertical is moving when horizontal is not at pick or drop position *)
+	RH_VertMovingHorNotInPos_B			: BOOL;	(* RedHot SafetyRule, Vertical is moving when horizontal is not at pick or drop position *)
+
+	Gantry_A							: ST_GantryErrors;
+	Gantry_B							: ST_GantryErrors;
+	OutfeedConveyor						: ST_OutfeedConveyorErrors;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

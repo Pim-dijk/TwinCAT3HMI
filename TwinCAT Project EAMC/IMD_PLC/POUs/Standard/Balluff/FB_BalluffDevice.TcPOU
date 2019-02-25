@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_BalluffDevice" Id="{50e9963e-f967-4f7e-8612-bce89c89f3ed}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_BalluffDevice
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	Error	: BOOL;
+	Position: REAL;
+	Temperature	: REAL;
+END_VAR
+VAR
+	Device	AT %I* : ST_BalluffDevice;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error:= (Device.ErrorRegister<>0);
+Temperature:= INT_TO_REAL(Device.Temperature);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_BalluffDevice">
+      <LineId Id="14" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

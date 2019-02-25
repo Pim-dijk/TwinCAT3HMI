@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_PIDCtrl" Id="{f332c49a-c9c8-40d3-8166-a58a9bf04fc9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PIDCtrl
+VAR
+	EU_Factor		: REAL; 			// Normalizing factor from EU-range (SP and PV) to 0-100 range 
+	OUT_Factor		: REAL; 			// Normalizing factor from OUT-range to 0-100 range	
+	LMN				: REAL;
+	
+	//PV_EXT			: REAL; 			// Process value 		
+	PV_PID			: REAL;	
+	PV_ACT			: REAL;
+	
+	HMI_SetpointBtn	: BOOL;
+	HMI_AutoBtn		: BOOL;
+	HMI_OutputBtn	: BOOL;
+	
+	
+	//HMI_SetpointBtnState	: BOOL;
+	//HMI_AutoBtnState		: BOOL;
+	//HMI_OutputBtnState	: BOOL;
+
+	RT_AutoBtnState: R_TRIG;
+	RT_SetpointBtnState: R_TRIG;
+	RT_OutBtnState: R_TRIG;
+
+	FT_IL_ON: F_TRIG;
+END_VAR
+VAR_INPUT	
+	PV_EXT			: REAL; 			// Process value 	
+	PID_ON			: BOOL;				// switches the internal PID to operational mode or not.		
+END_VAR
+VAR_OUTPUT
+	OUT_ACT			: REAL;
+	OUT_PID			: REAL;
+END_VAR
+VAR_IN_OUT
+	PID			: FB_PID_CP;			// Beckhoff PID controller															
+//	SP_MAN		: REAL; 				// Setpoint manual				 					
+//	OUT_MAN		: REAL; 				// Output manual 	
+	Parameters: ST_PIDSettings;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[RT_AutoBtnState(CLK:= HMI_AutoBtn);
+RT_SetpointBtnState(CLK:= HMI_SetpointBtn);
+RT_OutBtnState(CLK:= HMI_OutputBtn);
+
+LMN		:= PID.LMN;
+OUT_PID	:= PID.LMN;
+
+(* Factor normering van EU range (SP en PV) naar 0-100 range		*)
+IF (Parameters.EU_HLM - Parameters.EU_LLM) = 0 THEN
+EU_Factor := 1.0;
+ELSE
+EU_Factor := 100.0 / (Parameters.EU_HLM - Parameters.EU_LLM);
+END_IF
+
+
+(* Setpoint					 										*)
+
+//IF Status.Auto_Btn OR Status.M_Output_Btn
+IF Parameters.AutoState OR Parameters.OutState THEN
+	IF PID_ON
+		THEN PID.SP_INT := (Parameters.SP_AUTO - Parameters.EU_LLM) * EU_Factor;
+	END_IF
+
+Parameters.SP_MAN := PID.SP / EU_Factor + Parameters.EU_LLM;
+END_IF
+
+IF Parameters.SetpointState THEN
+
+	IF Parameters.SP_MAN < Parameters.SP_LLM_EXT
+		THEN Parameters.SP_MAN := Parameters.SP_LLM_EXT;
+	END_IF
+
+	IF Parameters.SP_MAN > Parameters.SP_HLM_EXT
+		THEN Parameters.SP_MAN := Parameters.SP_HLM_EXT;
+	END_IF
+
+PID.SP_INT := (Parameters.SP_MAN - Parameters.EU_LLM) * EU_Factor;
+END_IF
+
+
+Parameters.SP_PID := PID.SP / EU_Factor + Parameters.EU_LLM;
+
+PID.SP_ROC := Parameters.SP_ROC_EXT * EU_Factor ;
+
+
+PID.SP_LLM := (Parameters.SP_LLM_EXT - Parameters.EU_LLM) * EU_Factor;
+PID.SP_HLM := (Parameters.SP_HLM_EXT - Parameters.EU_LLM) * EU_Factor;
+
+
+(* Process Value					 										*)
+
+PID.PV_IN := (PV_EXT - Parameters.EU_LLM) * EU_Factor;
+
+IF Parameters.PV_TMLAG > 0.0
+THEN
+	PID.PV_TMLAG := Parameters.PV_TMLAG;
+ELSE
+	PID.PV_TMLAG := 0.0;
+END_IF
+
+(* Deadband					 										*)
+
+IF Parameters.DEADBAND > 0.0
+THEN
+	PID.DEADBAND := Parameters.DEADBAND * EU_Factor;
+ELSE
+	PID.DEADBAND := 0.0;
+END_IF
+
+(* Linear reduction of I component in the innerwindow				*)
+IF Parameters.fI_Innerwindow > 0.0
+THEN
+	PID.fI_InnerWindow := Parameters.fI_Innerwindow * EU_Factor;
+ELSE
+	PID.fI_InnerWindow := 0.0;
+END_IF
+
+
+(* Output															*)
+
+(* Calculate Feedforward action	*)
+Parameters.OUT_FF := Parameters.FF_GAIN * Parameters.FF_SIGNAL;
+
+IF (Parameters.Out_MAX - Parameters.OUT_MIN) = 0 THEN
+	OUT_Factor := 1.0;
+ELSE
+	OUT_Factor := 100.0 / (Parameters.Out_MAX - Parameters.OUT_MIN);
+END_IF
+IF NOT PID_ON
+	AND NOT Parameters.SetpointState
+	AND NOT Parameters.IL_ON
+	AND NOT Parameters.OutState
+THEN
+PID.ManValue := 0.0;
+END_IF
+
+FT_IL_ON(CLK:=Parameters.IL_ON);
+
+IF Parameters.IL_ON
+	AND NOT Parameters.OutState
+THEN
+//PID.SP_INT := (PV_EXT - Parameters.EU_LLM) * EU_Factor;
+PID.ManValue := Parameters.OUT_IL;
+END_IF
+
+IF FT_IL_ON.Q THEN
+	PID.ManValue := Parameters.OUT_IL;
+	PID.SP_INT := (PV_EXT - Parameters.EU_LLM) * EU_Factor;
+END_IF
+
+
+IF Parameters.OutState THEN
+	IF Parameters.Out_MAN < Parameters.OUT_LLM_EXT THEN
+		Parameters.Out_MAN := Parameters.OUT_LLM_EXT;
+	END_IF
+
+	IF Parameters.Out_MAN > Parameters.OUT_HLM_EXT THEN
+		Parameters.Out_MAN := Parameters.OUT_HLM_EXT;
+	END_IF
+(* Fot bumpless transfer *)
+PID.SP_INT := (PV_EXT - Parameters.EU_LLM) * EU_Factor;
+
+PID.ManValue := (Parameters.Out_MAN - Parameters.OUT_FF - Parameters.OUT_MIN) * OUT_Factor;
+END_IF
+
+IF NOT Parameters.OutState THEN
+Parameters.Out_MAN := (LMN + Parameters.OUT_FF)/ OUT_Factor + Parameters.OUT_MIN;
+END_IF
+
+IF NOT Parameters.RAUT_OP
+	THEN LMN := 0.0;
+END_IF
+
+
+
+(* If Feedforward active, add feedforward to output and adjust boundaries of PID	*)
+IF OUT_Factor >0 THEN
+OUT_ACT := (LMN + Parameters.OUT_FF)/ OUT_Factor + Parameters.OUT_MIN;
+END_IF
+PID.LMN_LLM := (Parameters.OUT_LLM_EXT - Parameters.OUT_FF - Parameters.OUT_MIN) * OUT_Factor;
+PID.LMN_HLM := (Parameters.OUT_HLM_EXT - Parameters.OUT_FF - Parameters.OUT_MIN) * OUT_Factor;
+
+PID.LMN_ROC_UP := Parameters.Out_ROC_UP * OUT_Factor;
+PID.LMN_ROC_DOWN := Parameters.Out_ROC_DOWN * OUT_Factor;
+
+(* Output manual on					 										*)
+
+PID.Man_On := Parameters.IL_ON OR Parameters.OutState;
+
+(* Write PID parameters *)
+
+PID.Kp 	:= 	Parameters.P;
+PID.Tn 	:= 	Parameters.I;
+PID.Tv 	:= 	Parameters.D;
+PID.Td	:=  Parameters.Dtime;
+PV_PID	:=	PID.PV;
+PV_ACT	:=	(PID.PV/EU_Factor) + Parameters.EU_LLM;
+
+PID.Invers	:= Parameters.INVERTED;
+
+(* Status visualisation of limitation of output, ROC-out active *)
+//Status.ROC_ACT	:= PID.FB_PID.bSync;
+
+
+// this was at the top
+
+// Commented out beenen stuff
+
+IF RT_AutoBtnState.Q THEN
+	Parameters.AutoState := TRUE;	
+	Parameters.SetpointState := FALSE;
+	Parameters.OutState:=FALSE;
+END_IF
+
+IF RT_SetpointBtnState.Q THEN
+	Parameters.AutoState := FALSE;	
+	Parameters.SetpointState := TRUE;
+	Parameters.OutState:=FALSE;
+END_IF
+
+IF RT_OutBtnState.Q THEN
+	Parameters.AutoState := FALSE;	
+	Parameters.SetpointState := FALSE;
+	Parameters.OutState:=TRUE;
+END_IF
+
+
+// Low cutoff (make parameter.
+IF Out_PID < Parameters.LowCutOff THEN
+	OUT_PID := 0;
+END_IF
+
+IF OUT_PID > Parameters.HighCutOff AND Parameters.HighCutOff <> 0 THEN
+	OUT_PID := Parameters.HighCutOff;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_PIDCtrl">
+      <LineId Id="1236" Count="1" />
+      <LineId Id="1239" Count="0" />
+      <LineId Id="1234" Count="0" />
+      <LineId Id="588" Count="0" />
+      <LineId Id="854" Count="0" />
+      <LineId Id="675" Count="13" />
+      <LineId Id="690" Count="5" />
+      <LineId Id="697" Count="68" />
+      <LineId Id="1297" Count="0" />
+      <LineId Id="1302" Count="0" />
+      <LineId Id="766" Count="2" />
+      <LineId Id="1294" Count="0" />
+      <LineId Id="769" Count="1" />
+      <LineId Id="1295" Count="0" />
+      <LineId Id="1303" Count="0" />
+      <LineId Id="1306" Count="0" />
+      <LineId Id="1304" Count="1" />
+      <LineId Id="1296" Count="0" />
+      <LineId Id="771" Count="1" />
+      <LineId Id="774" Count="0" />
+      <LineId Id="776" Count="3" />
+      <LineId Id="781" Count="8" />
+      <LineId Id="791" Count="6" />
+      <LineId Id="1125" Count="1" />
+      <LineId Id="798" Count="26" />
+      <LineId Id="969" Count="2" />
+      <LineId Id="973" Count="2" />
+      <LineId Id="1193" Count="0" />
+      <LineId Id="1248" Count="0" />
+      <LineId Id="1251" Count="1" />
+      <LineId Id="1196" Count="0" />
+      <LineId Id="1199" Count="1" />
+      <LineId Id="1246" Count="0" />
+      <LineId Id="1253" Count="1" />
+      <LineId Id="1202" Count="0" />
+      <LineId Id="1205" Count="1" />
+      <LineId Id="1247" Count="0" />
+      <LineId Id="1255" Count="1" />
+      <LineId Id="1209" Count="0" />
+      <LineId Id="1194" Count="0" />
+      <LineId Id="1348" Count="1" />
+      <LineId Id="1345" Count="2" />
+      <LineId Id="1388" Count="3" />
+      <LineId Id="972" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

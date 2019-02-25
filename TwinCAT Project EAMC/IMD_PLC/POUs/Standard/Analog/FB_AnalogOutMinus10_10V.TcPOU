@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_AnalogOutMinus10_10V" Id="{7ee8714f-a885-4551-b11b-baadb9a13286}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AnalogOutMinus10_10V
+VAR_INPUT
+	EngInput			: REAL;
+	EngMin			: REAL; (* Lower limit Engineering units*)
+	EngMax 			: REAL; (* Upper limit Engineering units*)
+	RHSR_Blocked 	: BOOL; // Indicates whether this part is free to move (operate).
+END_VAR
+VAR_OUTPUT
+	VOut 			: REAL;
+	RawOut 			: INT;
+END_VAR
+VAR
+	Input			: REAL;
+
+	qwOutput			AT %Q*: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Input:= LIMIT(EngMin, EngInput, EngMax);
+
+IF EngMin <> 0 AND Engmax <> 0 THEN (* Check if min max <> 0, prevent division by zero *)
+	IF Input > 0 THEN (* + 10 Volt part *)
+		RawOut:= REAL_TO_INT(32767.0 * (Input / EngMax));
+		VOut:= 10 * (RawOut/32767.0);
+	ELSIF Input < 0 THEN (* - 10 Volt part *)
+		RawOut:= -1 * REAL_TO_INT(32767.0 * (Input/EngMin));
+		VOut:= 10 * (RawOut/32767.0);
+	ELSE
+		RawOut:=0;
+		VOut:= 0;
+	END_IF
+END_IF
+
+IF NOT RHSR_Blocked THEN
+	qwOutput:= RawOut;
+ELSE
+	qwOutput := 0;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_AnalogOutMinus10_10V">
+      <LineId Id="23" Count="13" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="55" Count="2" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

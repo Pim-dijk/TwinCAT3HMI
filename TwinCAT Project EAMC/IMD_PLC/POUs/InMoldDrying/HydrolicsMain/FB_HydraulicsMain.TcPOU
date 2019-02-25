@@ -1,0 +1,841 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_HydraulicsMain" Id="{3981de64-156d-4ad8-80a2-78d705ffb77f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_HydraulicsMain
+VAR CONSTANT
+	sCycleStateTextDef: ARRAY[0..20]  OF STRING :=	
+		['State 0: Wait for Start',
+		'State 1: Check Oil temperature and oil levels and Check all valves are in de-energised state',
+		'State 2: When pump is running start the cooler and filterpump',
+		'State 3: When pumps are running open circulation valve',
+		'State 4: Check ciruclation valve is open, open Accumlator valve',
+		'State 5: Check if Accu valve is open, and wait 15s',
+		'State 6: Open the blocking valve',
+		'State 7: Check if the blocking valve is open, and if pressure > x',
+		'State 8: Main Hydraulics running',
+		'State 9: Check if all analog valves are in the safe state',
+		'State 10: Close presurize pumpvalve, stop cooling fan and filtermotor',
+		'State 11: Close blocking valve and stop pump',
+		'State 12: Spare',
+		'State 13: [Paused: Close blocking valve]',
+		'State 14: [Paused: Awaiting Restart]',
+		'State 15: [Stopped Direct]'];
+	
+	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
+		T#10S];
+
+	sInitStateTextDef: ARRAY[0..10] OF STRING :=
+		['State 0: Wait for Init Start',
+		'State 1: Await pressure relief',
+		'State 2: Move up',
+		'State 3: Description Init State 3',
+		'State 4: Description Init State 4',
+		'State 5: Description Init State 5',
+		'State 6: Description Init State 6',
+		'State 7: Description Init State 7',
+		'State 8: Description Init State 8',
+		'State 9: Description Init State 9',
+		'State 10: Stop init state'];
+
+	tInitStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S
+		,T#10S];
+END_VAR
+VAR_INPUT
+	mxReset								: BOOL;	(*Reset Error*)
+	mxEmergency							: BOOL; // Used when a emergency stop button was pushed.
+	mxDoorOpened						: BOOL;	// Used when a door was opened in the system
+	mxAutoMode							: BOOL; (* TRUE = Automode *)
+	PlcCycleTime						: REAL;
+	
+	
+	
+	(*State vars*)
+	mxResetCycleState					: BOOL;
+	mxResetInitState					: BOOL;
+END_VAR
+VAR_IN_OUT
+	MachineParameters					: ST_HydraulicsMainMachPar;
+END_VAR
+VAR_OUTPUT
+(*Errors*)
+	Errors								: ST_HydraulicsMainErrors;
+	mxErrorInit							: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
+	mxErrorStopinPos					: BOOL;		(* Error, stop in position. Only reset neccesary *)
+	
+	(* State vars *)
+	mxCycleBusy							: BOOL;
+	mxInitbusy							: BOOL;
+	mxCycleInPause						: BOOL;
+(* Vars *)
+	mxInitialized						: BOOL;
+	
+	mxHydraulicsReady					: BOOL;
+END_VAR
+VAR
+	(* State vars *)
+	miCycleState					: INT :=0;
+	miCycleOldstate					: INT :=0;
+	mxCycleTransitionState			: BOOL := FALSE;
+	sCycleStateText					: STRING;
+	exCycleTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	CycleTimeout					: TON;
+	CycleTimeOutUpFlank				: R_TRIG;
+	mxCycleTimeoutEnable			: BOOL;
+	CycleTime						: REAL;
+	mxCycleHasError					: BOOL;
+	miStopState						: INT;
+	mxStartCycle					: BOOL;
+	mxStopCycle						: BOOL;
+	mxStopDirect					: BOOL;
+	mxStopCycleEmpty				: BOOL;
+	
+	miInitState						: INT	:=0;
+	miInitOldstate					: INT	:=0;
+	mxInitTransitionState			: BOOL	:= FALSE;
+	sInitStateText					: STRING;
+	exInitTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	InitTimeout						: TON;
+	InitTimeOutUpFlank				: R_TRIG;
+	mxInitTimeoutEnable				: BOOL;
+	InitTime						: REAL;
+	mxInitHasError					: BOOL;
+	mxStartInit						: BOOL;
+	mxStopInit						: BOOL;	
+
+	ixHydraulicsMcc24vError				AT %I*: BOOL;
+	ixCabinetCoolerError				At %I*: BOOL;
+	
+	ixTemperatureSwitch40c				AT %I*: BOOL;
+	ixTemperatureSwitch55c				AT %I*: BOOL;
+	ixTemperatureSwitchTooHigh			AT %I*: BOOL;
+	
+	ixPressureFilterAt75				AT %I*: BOOL;
+	ixPressureFilterAt100				AT %I*: BOOL;
+	
+	ixAuxFilterAt75						AT %I*: BOOL;
+	ixAuxFilterAt100					AT %I*: BOOL;
+	
+	ixOilLvlTooLow						AT %I*: BOOL;
+	ixOilLvlLow							AT %I*: BOOL;
+	
+	FT_AutoMode							: F_TRIG;
+	
+	(* Objects *)
+	HydraulicPump						: FB_MotorSS;
+	FilterMotor							: FB_Motor;
+	CoolingFan							: FB_Motor;
+	
+	PressurizePumpValve					: FB_MonoValveNoFdbck;
+	AccuDrainValve						: FB_MonoValveNoFdbck;
+	IsolationValve						: FB_MonoValveNoFdbck;
+	
+	OilTemperature						: FB_AnalogIn4_20mA;
+	MainSystemPressure					: FB_AnalogIn4_20mA;
+	
+	HmiForceCool						: BOOL;
+	FT_ForceCool						: F_TRIG;
+	T_DelayOpenBlockingValve			: TON;
+	SR_TempTooHigh						: SR;
+	SR_LevelTooLow						: SR;
+	SR_Filter100Dirty					: SR;
+	SR_AuxFilter100Dirty				: SR;
+	SR_Filter75DirtyWarning				: SR;
+	SR_AuxFilter75DirtyWarning			: SR;
+
+	SR_CabinetCoolerError				: SR;
+	SR_HydraulicsMcc24VError			: SR;
+	RT_Doorsopenend						: R_TRIG;	// Used to produce a situation that is safe when doors are openend, but is also quick in restarting the machine
+	
+	mxTest1								: BOOL;
+	T_DepresurizePump					: TON;
+	RT_OilCoolerOn						: R_TRIG;
+	FT_OilCoolerOff						: F_TRIG;
+	FT_Emergency						: F_Trig;
+	
+	mxTest5: BOOL;
+	RT_EmergencyStop: R_TRIG;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Cycle();
+Error();
+Objects();
+
+// If both emergencies become zero, recheck if cooler needs to run.
+FT_Emergency(CLK:=mxEmergency OR mxDoorOpened);
+RT_OilCoolerOn(CLK:=ixTemperatureSwitch55c);
+FT_OilCoolerOff (CLK:=ixTemperatureSwitch40c);
+
+IF ((RT_OilCoolerOn.q) OR (FT_Emergency.Q AND ixTemperatureSwitch55c)) AND NOT CoolingFan.IsRunning THEN
+	CoolingFan.M_Start();
+END_IF
+
+IF FT_OilCoolerOff.q AND CoolingFan.IsRunning THEN
+	CoolingFan.M_Stop();
+END_IF
+]]></ST>
+    </Implementation>
+    <Action Name="Cycle" Id="{c3cff216-476b-49a2-8b2f-6e28d426d6e6}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
+(*State text*)
+sCycleStateText:=sCycleStateTextDef[miCycleState];
+(*Timeout Watchdog for Statemachine*)
+mxCycleTimeoutEnable:=NOT (miCycleState=0) AND NOT mxReset;
+
+CycleTimeout(IN:=mxCycleTimeoutEnable  , PT:=tCycleStateTimeouts[miCycleState] );
+CycleTimeOutUpFlank(CLK:=CycleTimeout.Q );
+miCycleOldstate:=miCycleState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF CycleTimeOutUpFlank.Q THEN
+	exCycleTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetCycleState THEN
+	mxResetCycleState:= FALSE;
+	mxInitialized := FALSE;
+		
+	miCycleState:=0;
+	mxCycleTransitionState:=FALSE;
+
+	mxStartCycle:= FALSE;
+	mxStopCycle:= FALSE;
+	mxStopDirect:=FALSE;
+	mxStopcycleEmpty:=False;
+	
+	HydraulicPump.M_Stop();
+	CoolingFan.M_Stop();
+	FilterMotor.M_Stop();
+	AccuDrainValve.M_Off();
+	IsolationValve.M_Off();
+	PressurizePumpValve.M_Off();
+END_IF
+
+mxCycleHasError:=FALSE;
+
+T_DelayOpenBlockingValve(PT:= T#15S);
+T_DepresurizePump(PT:=T#2S);
+
+mxHydraulicsReady:= miCycleState=8;
+
+
+(*Cycle State's*)
+CASE miCycleState OF
+
+	0:	// Idle state/Wait for start
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			miCycleState:= 0;
+			mxStopCycle:=FALSE;
+		ELSIF mxStartCycle THEN		
+			miCycleState:= 1;
+			mxStartCycle:=FALSE;
+			mxStopCycleEmpty:=FALSE;
+		END_IF	
+
+	1:	// Check oil temperature and oil levels	and valves Start main pump
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF ixTemperatureSwitchTooHigh AND ixOilLvlTooLow AND NOT PressurizePumpValve.mxIsOn THEN			
+			HydraulicPump.M_Start();
+			miCycleState:= 2;
+		END_IF
+
+	2:	//When pump is running, start cooler and filterpump 	
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF HydraulicPump.IsRunning THEN			
+			FilterMotor.M_Start();
+			miCycleState:= 3;
+		END_IF
+
+	3:	//When pumps are running open the Pressurize valve 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;			
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF FilterMotor.IsRunning THEN					
+			PressurizePumpValve.M_On();
+			miCycleState:= 4;
+		END_IF
+	
+	4:	// When circulation valve is open, open accumulator valve
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF PressurizePumpValve.mxIsOn THEN			
+			AccuDrainValve.M_On();
+			miCycleState:= 5;
+		END_IF
+	
+	5:	//Check if accuValve is open and wait for 15s 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF AccuDrainValve.mxIsOn THEN			
+			T_DelayOpenBlockingValve.IN:=TRUE;
+			miCycleState:= 6;
+		END_IF
+		
+	6:	//Open blocking valve
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;	
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF T_DelayOpenBlockingValve.Q THEN				
+			T_DelayOpenBlockingValve.IN:=FALSE;
+			IsolationValve.M_On();
+			miCycleState:= 7;
+		END_IF
+		
+	7:	// Check if blocking valve is open and main pressure is > X 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF IsolationValve.mxIsOn AND (MainSystemPressure.EngFilt > 240.0) THEN			
+			miCycleState:= 8;
+		END_IF
+		
+	8: // State of main hydraulics is running, wait in this step for stop.	
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		
+		// Stopping the cycle CMD.
+		ELSIF mxStopCycleEmpty THEN
+			mxStopCycleEmpty:=FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 9;
+		END_IF
+		
+	9:	// Check if all analog valves are in safe state. (not controlled)
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF (MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.SafePosReached AND 
+			Main.InMoldDrying.TopMoldB.HydraulicCilinder.SafePosReached AND 
+			Main.InMoldDrying.TransferMold.HydraulicCilinder.SafePosReached) THEN
+			PressurizePumpValve.M_Off();	// Pomp vrijschakelen
+			CoolingFan.M_Stop();
+			FilterMotor.M_Stop();
+			
+			T_DepresurizePump.IN := TRUE;
+			
+			miCycleState:=10;
+		END_IF
+		
+	10:	// Check if pressurise pump valve, coolingfan / filtermotor are stopped/closed -> Open isolation and drain valve
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF NOT PressurizePumpValve.mxIsOn AND NOT CoolingFan.IsRunning AND NOT FilterMotor.IsRunning AND T_DepresurizePump.Q THEN
+			T_DepresurizePump.IN := FALSE;	
+			IsolationValve.M_Off();
+			AccuDrainValve.M_Off();
+			micycleState:=11;
+		END_IF
+		
+	11:	// Check if isolationvalve and accudrain valve have stopped -> stop pump
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF NOT IsolationValve.mxIsOn AND NOT AccuDrainValve.mxIsOn THEN	
+			HydraulicPump.M_Stop();
+			miCycleState:=0;
+		END_IF
+		
+	13:	// Stop cycle, wait for start 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSE
+ 			IsolationValve.M_Off();		// Switch off the isolation valve in rest mode (rest of hydraulics keep functioning as normal).
+			miCycleState:=14;
+		END_IF
+		
+	14: // Pause cycle step.			// in rest.
+		IF mxStopDirect OR MAIN.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.SafePositionValveNotReached OR
+		Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.SafePositionValveNotReached OR
+		Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.SafePositionValveNotReached THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStartCycle THEN
+			mxStopCycle:=FALSE;
+			mxStartCycle:=FALSE;
+ 			IsolationValve.M_on();		// At restart, open valve again.
+			miCycleState:=miStopState;
+		ELSIF mxStopCycleEmpty THEN		// At pause stop rest of hydraulics.
+			mxStopcycleEmpty:=FALSE;
+			miCycleState := 9;
+		END_IF
+
+	15:	// Stop Direct
+		mxStartCycle:= FALSE;
+		mxStopCycle:= FALSE;
+		mxStopCycleEmpty:=FALSE;
+		mxInitialized:= FALSE;
+		
+		HydraulicPump.M_Stop();
+		CoolingFan.M_Stop();
+		FilterMotor.M_Stop();
+		
+		IsolationValve.M_Off();
+		PressurizePumpValve.M_Off();
+		AccuDrainValve.M_Off();		
+		
+		miCycleState:= 0;
+END_CASE
+
+mxCycleBusy:= miCycleState<>0;
+mxCycleInPause := miCycleState=14;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Error" Id="{fdad504a-67ea-46f2-be61-4d24b55ec8c0}">
+      <Implementation>
+        <ST><![CDATA[
+SR_TempTooHigh(SET1:=NOT ixTemperatureSwitchTooHigh, RESET:=mxReset , Q1=>Errors.OilTemperatureTooHigh);
+SR_LevelTooLow(SET1:=NOT ixOilLvlTooLow, Reset:=mxReset, Q1=>Errors.OilLevelTooLow);
+
+SR_Filter100Dirty(SET1:=NOT ixPressureFilterAt100, RESET:=mxReset, Q1=>Errors.Filter100Dirty);
+SR_AuxFilter100Dirty(SET1:=NOT ixAuxFilterAt100, RESET:=mxReset, Q1=>Errors.AuxFilter100Dirty);
+
+SR_Filter75DirtyWarning(SET1:=ixPressureFilterAt75, RESET:=mxReset, Q1=>Errors.Filter75Dirty);
+SR_AuxFilter75DirtyWarning(SET1:=ixAuxFilterAt75, RESET:=mxReset, Q1=>Errors.AuxFilter75Dirty);
+
+SR_CabinetCoolerError(SET1:= NOT ixCabinetCoolerError, Reset:=mxReset, Q1=>);
+
+SR_HydraulicsMcc24VError(SET1:= NOT ixHydraulicsMcc24vError, Reset:=mxReset, Q1=>);
+
+
+RT_Doorsopenend(CLK:=mxDoorOpened);
+RT_EmergencyStop(CLK:=mxEmergency);
+
+IF RT_Doorsopenend.Q THEN
+	M_StopCycle();
+END_IF
+
+IF RT_EmergencyStop.Q THEN
+	M_StopDirect();
+END_IF
+
+
+
+(**********************************************************************************************************)
+mxErrorStopinPos:= HydraulicPump.mxErrorStopinPos OR FilterMotor.mxErrorStopinPos OR CoolingFan.mxErrorStopinPos;
+
+mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFilter100Dirty OR Errors.OilLevelTooLow OR
+				Errors.OilTemperatureTooHigh OR FilterMotor.mxErrorInit OR CoolingFan.mxErrorInit;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_StartCycle" Id="{23c82821-bb4b-42f7-b56a-4ec9995d96cf}">
+      <Declaration><![CDATA[METHOD M_StartCycle : BOOL]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF NOT mxCycleBusy OR mxCycleInPause THEN
+	mxStartCycle:= TRUE;	
+	mxStopCycle:=False;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycle" Id="{7bf68905-085e-4b1f-81f6-4006fb1101d3}">
+      <Declaration><![CDATA[METHOD M_StopCycle : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF mxCycleBusy THEN 
+	mxStopCycle:= TRUE; 
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycleEmpty" Id="{e3cc7dc4-d945-4e94-adea-d2238685669b}">
+      <Declaration><![CDATA[METHOD M_StopCycleEmpty : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF mxCycleBusy THEN 
+	mxStopCycleEmpty:= TRUE; 
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopDirect" Id="{9e8558f0-e4fa-4bb7-8256-f18c40d3f5ef}">
+      <Declaration><![CDATA[METHOD M_StopDirect
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxStopDirect:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopInit" Id="{70b250cf-0b9a-4fa7-93bb-6dc13ce4e146}">
+      <Declaration><![CDATA[METHOD M_StopInit
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[;]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="Objects" Id="{63170b63-f4cd-4429-ac1b-df5e730ad407}">
+      <Implementation>
+        <ST><![CDATA[OilTemperature(
+	EngLowLimit:= -25, 
+	EngUpperLimit:= 100); (* In °C *)
+
+PressurizePumpValve(
+	mxReset:= mxReset, 
+	mxEmergency:=mxEmergency , 
+	mxAutoMode:=mxAutoMode , 
+	RHSR_Blocked:= , 
+	SlowValveIsInverted:= , 
+	mxDisableManualAutoTrigger:=TRUE,
+	mxIsOn=> );
+	
+	
+	// special situation, on door opened keep the accu drain valve openend.
+AccuDrainValve(
+	mxReset:= mxReset, 
+	mxEmergency:= mxDoorOpened, 
+	mxAutoMode:=mxAutoMode , 
+	RHSR_Blocked:= , 
+	SlowValveIsInverted:= , 
+	mxDisableManualAutoTrigger:=TRUE,
+	mxIsOn=> );
+	
+IsolationValve(
+	mxReset:= mxReset, 
+	mxEmergency:=mxEmergency , 
+	mxAutoMode:=mxAutoMode , 
+	RHSR_Blocked:= , 
+	SlowValveIsInverted:= , 
+	mxDisableManualAutoTrigger:=TRUE,
+	mxIsOn=> );
+	
+HydraulicPump(
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency,
+	mxAutoMode:= mxAutoMode,
+	mxDisableManualAutoTrigger:=TRUE,
+	Errors=> Errors.HydraulicPump);
+	
+FilterMotor(
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency, 
+	mxAutoMode:= mxAutoMode, 
+	mxDisableManualAutoTrigger:=TRUE,
+	Errors=>Errors.FilterMotor);
+	
+CoolingFan(
+	mxReset:= mxReset, 
+	mxEmergency:= mxEmergency,
+	mxAutoMode:= mxAutoMode,
+	mxDisableManualAutoTrigger:=TRUE,
+	Errors=> Errors.Coolingfan);
+	
+MainSystemPressure(
+	EngLowLimit:=0, 
+	EngUpperLimit:=315, 
+	maOut=> , 
+	EngUnits=> , 
+	EngFilt=> , 
+	OverRange=> , 
+	UnderRange=> );]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_HydraulicsMain">
+      <LineId Id="403" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="679" Count="0" />
+      <LineId Id="710" Count="0" />
+      <LineId Id="693" Count="0" />
+      <LineId Id="695" Count="1" />
+      <LineId Id="685" Count="0" />
+      <LineId Id="687" Count="2" />
+      <LineId Id="682" Count="0" />
+      <LineId Id="690" Count="2" />
+      <LineId Id="704" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.Cycle">
+      <LineId Id="2" Count="20" />
+      <LineId Id="24" Count="4" />
+      <LineId Id="654" Count="0" />
+      <LineId Id="529" Count="6" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="44" Count="1" />
+      <LineId Id="53" Count="1" />
+      <LineId Id="643" Count="0" />
+      <LineId Id="604" Count="0" />
+      <LineId Id="631" Count="1" />
+      <LineId Id="55" Count="2" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="320" Count="0" />
+      <LineId Id="322" Count="0" />
+      <LineId Id="324" Count="1" />
+      <LineId Id="328" Count="0" />
+      <LineId Id="603" Count="0" />
+      <LineId Id="334" Count="0" />
+      <LineId Id="340" Count="0" />
+      <LineId Id="602" Count="0" />
+      <LineId Id="661" Count="0" />
+      <LineId Id="341" Count="0" />
+      <LineId Id="78" Count="1" />
+      <LineId Id="342" Count="1" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="349" Count="1" />
+      <LineId Id="352" Count="2" />
+      <LineId Id="494" Count="0" />
+      <LineId Id="357" Count="1" />
+      <LineId Id="102" Count="2" />
+      <LineId Id="359" Count="0" />
+      <LineId Id="361" Count="0" />
+      <LineId Id="365" Count="1" />
+      <LineId Id="368" Count="2" />
+      <LineId Id="496" Count="0" />
+      <LineId Id="373" Count="1" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="121" Count="1" />
+      <LineId Id="375" Count="0" />
+      <LineId Id="377" Count="0" />
+      <LineId Id="381" Count="1" />
+      <LineId Id="384" Count="2" />
+      <LineId Id="497" Count="0" />
+      <LineId Id="389" Count="1" />
+      <LineId Id="145" Count="0" />
+      <LineId Id="147" Count="1" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="393" Count="0" />
+      <LineId Id="397" Count="1" />
+      <LineId Id="400" Count="2" />
+      <LineId Id="499" Count="0" />
+      <LineId Id="405" Count="1" />
+      <LineId Id="169" Count="0" />
+      <LineId Id="171" Count="1" />
+      <LineId Id="407" Count="0" />
+      <LineId Id="409" Count="0" />
+      <LineId Id="413" Count="1" />
+      <LineId Id="416" Count="3" />
+      <LineId Id="421" Count="1" />
+      <LineId Id="188" Count="0" />
+      <LineId Id="190" Count="1" />
+      <LineId Id="423" Count="0" />
+      <LineId Id="425" Count="0" />
+      <LineId Id="429" Count="1" />
+      <LineId Id="432" Count="2" />
+      <LineId Id="502" Count="0" />
+      <LineId Id="633" Count="0" />
+      <LineId Id="437" Count="1" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="211" Count="1" />
+      <LineId Id="439" Count="0" />
+      <LineId Id="441" Count="0" />
+      <LineId Id="445" Count="1" />
+      <LineId Id="448" Count="2" />
+      <LineId Id="453" Count="1" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="230" Count="1" />
+      <LineId Id="455" Count="0" />
+      <LineId Id="457" Count="0" />
+      <LineId Id="461" Count="1" />
+      <LineId Id="464" Count="1" />
+      <LineId Id="647" Count="1" />
+      <LineId Id="644" Count="0" />
+      <LineId Id="649" Count="0" />
+      <LineId Id="645" Count="1" />
+      <LineId Id="470" Count="0" />
+      <LineId Id="546" Count="1" />
+      <LineId Id="549" Count="1" />
+      <LineId Id="552" Count="2" />
+      <LineId Id="556" Count="1" />
+      <LineId Id="585" Count="0" />
+      <LineId Id="588" Count="1" />
+      <LineId Id="591" Count="0" />
+      <LineId Id="590" Count="0" />
+      <LineId Id="595" Count="0" />
+      <LineId Id="640" Count="2" />
+      <LineId Id="634" Count="0" />
+      <LineId Id="558" Count="0" />
+      <LineId Id="561" Count="3" />
+      <LineId Id="566" Count="2" />
+      <LineId Id="570" Count="1" />
+      <LineId Id="592" Count="0" />
+      <LineId Id="656" Count="0" />
+      <LineId Id="596" Count="0" />
+      <LineId Id="598" Count="0" />
+      <LineId Id="636" Count="0" />
+      <LineId Id="572" Count="4" />
+      <LineId Id="578" Count="2" />
+      <LineId Id="582" Count="1" />
+      <LineId Id="599" Count="0" />
+      <LineId Id="601" Count="0" />
+      <LineId Id="637" Count="0" />
+      <LineId Id="584" Count="0" />
+      <LineId Id="559" Count="0" />
+      <LineId Id="491" Count="0" />
+      <LineId Id="503" Count="1" />
+      <LineId Id="506" Count="1" />
+      <LineId Id="610" Count="0" />
+      <LineId Id="609" Count="0" />
+      <LineId Id="510" Count="0" />
+      <LineId Id="621" Count="1" />
+      <LineId Id="630" Count="0" />
+      <LineId Id="662" Count="1" />
+      <LineId Id="623" Count="2" />
+      <LineId Id="657" Count="0" />
+      <LineId Id="650" Count="0" />
+      <LineId Id="627" Count="1" />
+      <LineId Id="651" Count="0" />
+      <LineId Id="653" Count="0" />
+      <LineId Id="652" Count="0" />
+      <LineId Id="629" Count="0" />
+      <LineId Id="492" Count="0" />
+      <LineId Id="272" Count="1" />
+      <LineId Id="511" Count="0" />
+      <LineId Id="658" Count="0" />
+      <LineId Id="512" Count="0" />
+      <LineId Id="516" Count="0" />
+      <LineId Id="617" Count="1" />
+      <LineId Id="620" Count="0" />
+      <LineId Id="619" Count="0" />
+      <LineId Id="616" Count="0" />
+      <LineId Id="612" Count="2" />
+      <LineId Id="520" Count="0" />
+      <LineId Id="285" Count="2" />
+      <LineId Id="655" Count="0" />
+      <LineId Id="536" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.Error">
+      <LineId Id="21" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="46" Count="1" />
+      <LineId Id="49" Count="1" />
+      <LineId Id="52" Count="3" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="4" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StartCycle">
+      <LineId Id="9" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StopCycle">
+      <LineId Id="6" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StopCycleEmpty">
+      <LineId Id="6" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StopDirect">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StopInit">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.Objects">
+      <LineId Id="92" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="120" Count="4" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="125" Count="1" />
+      <LineId Id="154" Count="1" />
+      <LineId Id="127" Count="5" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="133" Count="2" />
+      <LineId Id="142" Count="4" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="87" Count="1" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="105" Count="3" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="63" Count="1" />
+      <LineId Id="73" Count="1" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="95" Count="8" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

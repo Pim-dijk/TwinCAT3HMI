@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_MotorErrors" Id="{1581b68a-99bb-410b-98e9-0fa667bf4c5d}">
+    <Declaration><![CDATA[TYPE ST_MotorErrors :
+STRUCT	
+	Thermal					: BOOL;
+	Maintenance				: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

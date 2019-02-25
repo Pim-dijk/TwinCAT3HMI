@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_ProductHandlingMachPar" Id="{948cd65e-9bb0-4941-be00-ae54532153c6}">
+    <Declaration><![CDATA[TYPE ST_ProductHandlingMachPar :
+STRUCT
+	GantryA						: ST_GantryMachPar;
+	GantryB						: ST_GantryMachPar;
+	OutfeedConveyor				: ST_OutfeedConveyorMachPar;
+	CommisioningMode 			: BOOL	:= FALSE;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

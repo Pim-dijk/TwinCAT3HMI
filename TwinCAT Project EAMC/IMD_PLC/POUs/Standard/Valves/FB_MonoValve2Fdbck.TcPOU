@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_MonoValve2Fdbck" Id="{ae231ce3-bf6e-48a3-b633-2b28707f9985}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MonoValve2Fdbck
+VAR_INPUT
+	mxReset						: BOOL;	(*Reset Error*)
+	mxEmergency					: BOOL;
+	mxAutoMode					: BOOL; (* TRUE = Automode *)
+	mxCheckCilinder				: BOOL:= TRUE;
+END_VAR
+VAR_IN_OUT
+	MachParameters					: ST_CilinderParameters;
+END_VAR
+VAR_OUTPUT
+	mxIsIn						: BOOL;
+	mxIsOut						: BOOL;
+	mxIsOpen					: BOOL;
+	mxIsClosed					: BOOL;
+	Errors						: ST_CilinderErrors;
+	
+	mxErrorInit: BOOL;
+	mxErrorStopInPos: BOOL;
+
+END_VAR
+VAR
+	Check						: FB_CheckCilinder;
+	
+	QxIn	 					AT %Q*: BOOL;
+	QxOut						AT %Q*: BOOL;
+	IxIsIn						AT %I*: BOOL;
+	IxIsOut						AT %I*: BOOL;
+
+	mxHMI_In					: BOOL;
+	mxHMI_Out					: BOOL;
+	mxHMI_Open					: BOOL;
+	mxHMI_Close					: BOOL;
+	RT_HMI_In					: R_TRIG;
+	RT_HMI_Out					: R_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+
+RT_HMI_In(CLK:= NOT mxAutoMode AND (mxHMI_In OR mxHMI_Open));
+RT_HMI_Out(CLK:= NOT mxAutoMode AND (mxHMI_Out OR mxHMI_Close));
+
+(* Manual *)
+IF RT_HMI_In.Q THEN M_In(); END_IF
+IF RT_HMI_Out.Q THEN M_Out(); END_IF
+
+(* Reset Outputs *)
+
+//IF IxIsIn THEN QxIn:= FALSE; END_IF
+//IF IxIsOut THEN QxOut:= FALSE; END_IF
+
+(* Status *)
+mxIsIn:= mxIsOpen:= IxIsIn;
+mxIsOut:= mxIsClosed:= IxIsOut;
+]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{444b5aa2-3aac-444b-a9db-851af2497481}">
+      <Implementation>
+        <ST><![CDATA[Check(
+	MoveCilOut:= qxOut,
+	MoveCilin:= qxIn,
+	CheckCilinder:= mxCheckCilinder,
+	SensorOut:=  mxIsOut OR mxIsClosed, // mx closed and open omgedraaid (20180528 -> Bateu*)
+	SensorIn:= mxIsIn OR mxIsOpen,
+	TimMax:= MachParameters.T_GuardTimeError,
+	mxReset:= mxReset,
+	ErrorCilinder=> Errors.Cilinder,
+	ErrorCilinderOut=> ,
+	ErrorCilinderIn=> ,
+	ErrorEndNotReached=> ,
+	ErrorSensorSwitched=> ,
+	Time_Cil_Out=> ,
+	Time_Cil_In=> );
+
+(* Too slow errors, only messages *)
+Errors.CilinderSlow_IN	:=	mxCheckCilinder AND (Check.Time_Cil_In > MachParameters.T_GuardTimeWarning_IN);
+Errors.CilinderSlow_OUT	:=	mxCheckCilinder AND (Check.Time_Cil_Out > MachParameters.T_GuardTimeWarning_OUT);
+
+(**********************************************************************************************************)
+mxErrorStopinPos:= FALSE;
+mxErrorInit:= Errors.Cilinder;]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_Close" Id="{897686ad-d0de-4130-9957-b7072f2a9322}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Close: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[QxIn:= FALSE;
+
+(* Return value *)
+M_Close:= IxIsOut;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_In" Id="{7708f0f3-01bd-46bf-b7d6-b544f332ecd6}">
+      <Declaration><![CDATA[METHOD PUBLIC M_In : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+QxIn:= TRUE;
+
+
+(* Return value *)
+M_In:= IxIsIn;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Open" Id="{08d829a9-2753-4d24-8e1c-d6b0789b2cf0}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Open : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+QxIn:= TRUE;
+
+
+(* Return value *)
+M_Open:= IxIsIn;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Out" Id="{dc6562de-57a0-4294-b7aa-8205df3eb374}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Out: BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[QxIn:= FALSE;
+
+(* Return value *)
+M_Out:= IxIsOut;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_MonoValve2Fdbck">
+      <LineId Id="172" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="28" Count="1" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="30" Count="2" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="117" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValve2Fdbck.Error">
+      <LineId Id="23" Count="18" />
+      <LineId Id="19" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValve2Fdbck.M_Close">
+      <LineId Id="31" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValve2Fdbck.M_In">
+      <LineId Id="27" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValve2Fdbck.M_Open">
+      <LineId Id="31" Count="4" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValve2Fdbck.M_Out">
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

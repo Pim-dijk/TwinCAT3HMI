@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_IMDErrors" Id="{48b04381-5551-47f0-9525-a9ce400b5607}">
+    <Declaration><![CDATA[TYPE ST_IMDErrors :
+STRUCT
+
+	RH_TrMoldIsMovingBoMoldANotInPos	: BOOL; (* RedHot SafetyRule, Transfermold is moving, Bottom Mold A not in position *)
+	RH_TrMoldIsMovingBoMoldBNotInPos	: BOOL; (* RedHot SafetyRule, Transfermold is moving, Bottom Mold B not in position *)
+	RH_TrMoldIsMovingSprayBNotInPos		: BOOL; (* RedHot SafetyRule, Transfermold is moving, spray bar not in position *)
+	RH_ToMoldAIsMovingBoMoldANotInPos	: BOOL; (* RedHot SafetyRule, Topmold A is moving, Bottom Mold A not in position *)
+	RH_ToMoldBIsMovingBoMoldBNotInPos	: BOOL; (* RedHot SafetyRule, Topmold B is moving, Bottom Mold B not in position *)
+	RH_BoMoldAIsMovingTrMoldNotInPos	: BOOL; (* RedHot SafetyRule, Bottommold A is moving, Transfermold not in position *)
+	RH_BoMoldBIsMovingTrMoldNotInPos	: BOOL; (* RedHot SafetyRule, Bottommold B is moving, Transfermold not in position *)
+	RH_BoMoldAIsMovingToMoldANotInPos	: BOOL; (* RedHot SafetyRule, Bottommold A is moving, Topmold A not in position *)
+	RH_BoMoldBIsMovingToMoldBNotInPos	: BOOL; (* RedHot SafetyRule, Bottommold B is moving, Topmold B not in position *)
+	RH_TaOutHorAIsMovingVertIsNotDown	: BOOL; (* RedHot SafetyRule, Takeout unit Horizontal A is moving, Vertical not in position*)
+	RH_TaOutHorBIsMovingVertIsNotDown	: BOOL; (* RedHot SafetyRule, Takeout unit Horizontal A is moving, Vertical not in position*)
+	RH_BotMoldAToCoolForTrMDown			: BOOL; (* RedHot SafetyRule, BottomoldA temperature not high enough, and transfer moving down*)
+	RH_BotMoldBToCoolForTrMDown			: BOOL; (* RedHot SafetyRule, BottomoldB temperature not high enough, and transfer moving down*)
+	
+	(* In Auto mode and in Manual Mode. Closing not possible *)
+	TempDiffTopBottomTooHigh_SideA		: BOOL; (* Temp Difference Top/Bottom > 20 °C (use average temp)*) 	
+	TempDiffTopBottomTooHigh_SideB		: BOOL; (* Temp Difference Top/Bottom > 20 °C (use average temp)*) 	
+	
+	TempDeviationToHighA				: ARRAY[1..6] OF BOOL;
+	TempDeviationToHighB				: ARRAY[1..6] OF BOOL;
+	
+	ProcessTimeToLongA					: BOOL;
+	ProcessTimeToLongB					: BOOL;
+	
+	DryingTimeToLongA					: BOOL;
+	DryingTimeToLongB					: BOOL;
+	
+	TopMoldA							: ST_TopMoldErrors;
+	TopMoldB							: ST_TopMoldErrors;
+	BottomMoldA							: ST_BottomMoldErrors;
+	BottomMoldB							: ST_BottomMoldErrors;
+	TransferMold						: ST_TransferMoldErrors;
+	ProductForming						: ST_ProductFormingErrors;
+	HydraulicMain						: ST_HydraulicsMainErrors;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

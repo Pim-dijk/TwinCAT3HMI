@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_NcAxis_Parameters_XX" Id="{aee9ad9c-4e80-476a-a753-843d05e6c764}">
+    <Declaration><![CDATA[TYPE ST_NcAxis_Parameters_XX :
+STRUCT
+	VelocityAuto		:	LREAL;	(*Automatic speed*)
+	VelocityManual		:	LREAL; 	(*manual speed*)
+	VelocityInit		:	LREAL;	(*init speed*)
+	HomePosition		:	LREAL;	(*Homing position*)
+	Acceleration		:	LREAL;  (*Acceleration speed*)
+	Deceleration		:	LREAL;  (*Deceleration speed*)
+	DecelerationStop	:	LREAL:=1000;	(*Deceleration *)	
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

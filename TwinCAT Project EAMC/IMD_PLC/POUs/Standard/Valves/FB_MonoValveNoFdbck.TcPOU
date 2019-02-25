@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_MonoValveNoFdbck" Id="{fdef83b1-5abe-4175-ad3a-6cd97dfe8f31}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MonoValveNoFdbck
+VAR_INPUT
+	mxReset						: BOOL;	(*Reset Error*)
+	mxEmergency					: BOOL;
+	mxAutoMode					: BOOL; (* TRUE = Automode *)
+	RHSR_Blocked				: BOOL := FALSE;
+	SlowValveIsInverted			: BOOL := FALSE;
+	mxDisableManualAutoTrigger	: BOOL := FALSE;
+END_VAR
+VAR_OUTPUT
+	mxIsOn						: BOOL;
+END_VAR
+VAR
+	Q	 						AT %Q*: BOOL;
+	
+	mxHMI_On					: BOOL;
+	RT_HMI_On					: R_TRIG;
+	RT_HMI_Off					: R_TRIG;
+	RT_AutoMode					: R_TRIG;
+	FT_AutoMode					: F_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[RT_HMI_On(CLK:=mxHMI_On);
+RT_HMI_Off(CLK:=NOT mxHMI_On);
+RT_AutoMode(CLK:= mxAutoMode);
+FT_AutoMode(CLK:= mxAutoMode);
+
+IF (RT_HMI_On.Q AND NOT mxAutoMode) AND NOT RHSR_Blocked THEN M_On(); END_IF
+IF ((RT_HMI_Off.Q AND NOT mxAutoMode) OR ((RT_AutoMode.Q OR FT_AutoMode.Q) AND NOT mxDisableManualAutoTrigger)) OR RHSR_Blocked THEN M_Off(); END_IF
+
+IF NOT SlowValveIsInverted THEN
+mxIsOn:= Q; 
+ELSE
+mxIsOn:= NOT Q;
+END_IF]]></ST>
+    </Implementation>
+    <Method Name="M_Off" Id="{ee90f7a6-a4fd-420c-b03d-20bc6731d09f}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Off : BOOL
+
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:=SlowValveIsInverted;
+
+(* Return Value *)
+M_Off:= TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_On" Id="{ba4083be-5226-4309-a818-33518847ed83}">
+      <Declaration><![CDATA[METHOD PUBLIC M_On : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Q:=NOT SlowValveIsInverted;
+
+(* Return Value *)
+M_On:= TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_MonoValveNoFdbck">
+      <LineId Id="28" Count="1" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="92" Count="2" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValveNoFdbck.M_Off">
+      <LineId Id="6" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MonoValveNoFdbck.M_On">
+      <LineId Id="10" Count="1" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
