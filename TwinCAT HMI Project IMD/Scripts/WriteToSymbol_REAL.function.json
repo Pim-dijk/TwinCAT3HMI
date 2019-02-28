@@ -5,17 +5,28 @@
     "visible": true,
     "category": "",
     "waitMode": "Synchronous",
-    "injectContextObject": false,
+    "injectContextObject": true,
     "description": "",
     "returnValue": {
-      "type": "tchmi:general#/definitions/String"
+      "type": "tchmi:general#/definitions/REAL"
     },
     "arguments": [
       {
-        "name": "Symbolstring",
-        "displayName": "Symbolstring",
+        "name": "ctx",
+        "displayName": "ctx",
+        "type": "tchmi:framework#/definitions/ContextReference",
+        "description": "Context Reference",
+        "defaultValue": "",
+        "required": true,
+        "bindable": false,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "SymbolString",
+        "displayName": "SymbolString",
         "type": "tchmi:general#/definitions/String",
-        "description": "This is an important Parameter which does... This text is used in a tooltip.",
+        "description": "The Symbol to write the value to",
         "defaultValue": "",
         "required": true,
         "bindable": true,
@@ -23,10 +34,10 @@
         "asReference": false
       },
       {
-        "name": "TextElement",
-        "displayName": "TextElement",
+        "name": "KeyboardString",
+        "displayName": "KeyboardString",
         "type": "tchmi:general#/definitions/String",
-        "description": "",
+        "description": "The keyboard control itself",
         "defaultValue": "",
         "required": true,
         "bindable": true,

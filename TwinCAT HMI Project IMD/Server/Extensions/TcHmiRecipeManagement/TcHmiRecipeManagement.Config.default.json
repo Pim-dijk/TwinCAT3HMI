@@ -1,4 +1,220 @@
 {
-    "recipeList": {},
-    "recipeTypeList": {}
+    "recipeList": {
+        "TestRecipe": {
+            "recipeTypeName": "TestRecipeType",
+            "values": {
+                "Gantry A - Vertical dropoff position": 15,
+                "Gantry A - Vertical pickup position": 11,
+                "Gantry B - Vertical dropoff position": 14,
+                "Gantry B - Vertical pickup position": 13,
+                "Top molds - A-position down stop": 7,
+                "Top molds - A-position open": 9,
+                "Top molds - B-position down stop": 8,
+                "Top molds - B-position open": 10,
+                "Transfermold to bottommold - Position to release bottommold A": 6,
+                "Transfermold to bottommold - Position transfer stop A": 4,
+                "Transfermold to bottommold - Position transfer stop B": 5,
+                "Transfermold to bottommold - Transfermold-Position transfer open": 3,
+                "Transfermold to forming - Position down open": 2,
+                "Transfermold to forming - Position down stop": 1
+            }
+        },
+        "TestRecipe2": {
+            "recipeTypeName": "TestRecipeType",
+            "values": {
+                "Gantry A - Vertical dropoff position": 3,
+                "Gantry A - Vertical pickup position": 4,
+                "Gantry B - Vertical dropoff position": 1,
+                "Gantry B - Vertical pickup position": 2,
+                "Top molds - A-position down stop": 8,
+                "Top molds - A-position open": 6,
+                "Top molds - B-position down stop": 7,
+                "Top molds - B-position open": 5,
+                "Transfermold to bottommold - Position to release bottommold A": 9,
+                "Transfermold to bottommold - Position transfer stop A": 11,
+                "Transfermold to bottommold - Position transfer stop B": 10,
+                "Transfermold to bottommold - Transfermold-Position transfer open": 12,
+                "Transfermold to forming - Position down open": 13,
+                "Transfermold to forming - Position down stop": 14
+            }
+        }
+    },
+    "recipeTypeList": {
+        "TestRecipeType": {
+            "members": {
+                "Gantry A - Vertical dropoff position": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 11,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.ProductHandling.GantryA.PositionVerticalDropOff",
+                    "unit": "mm"
+                },
+                "Gantry A - Vertical pickup position": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 10,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.ProductHandling.GantryA.PositionVerticalPickup",
+                    "unit": "mm"
+                },
+                "Gantry B - Vertical dropoff position": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 13,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.ProductHandling.GantryB.PositionVerticalDropOff",
+                    "unit": "mm"
+                },
+                "Gantry B - Vertical pickup position": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 12,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.ProductHandling.GantryB.PositionVerticalPickup",
+                    "unit": "mm"
+                },
+                "Top molds - A-position down stop": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 6,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownStop",
+                    "unit": "mm"
+                },
+                "Top molds - A-position open": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 8,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen",
+                    "unit": "mm"
+                },
+                "Top molds - B-position down stop": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 7,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldB.PositionDownStop",
+                    "unit": "mm"
+                },
+                "Top molds - B-position open": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 9,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldB.PositionDownOpen",
+                    "unit": "mm"
+                },
+                "Transfermold to bottommold - Position to release bottommold A": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 5,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.ReleaseBmMovementOffset",
+                    "unit": "mm"
+                },
+                "Transfermold to bottommold - Position transfer stop A": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 3,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionTransferStopA",
+                    "unit": "mm"
+                },
+                "Transfermold to bottommold - Position transfer stop B": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 4,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionTransferStopB",
+                    "unit": "mm"
+                },
+                "Transfermold to bottommold - Transfermold-Position transfer open": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 2,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionTransferOpen",
+                    "unit": "mm"
+                },
+                "Transfermold to forming - Position down open": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 1,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionDownOpen",
+                    "unit": "mm"
+                },
+                "Transfermold to forming - Position down stop": {
+                    "defaultValue": 0.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 0,
+                    "schema": {
+                        "maximum": 5000.0,
+                        "minimum": -5000.0
+                    },
+                    "symbol": "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionDownStop",
+                    "unit": "mm"
+                }
+            },
+            "options": {
+                "enabled": "None"
+            },
+            "recipeTypeNames": []
+        }
+    }
 }

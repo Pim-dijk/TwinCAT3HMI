@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="MAIN" Id="{147bab3f-acfd-4acf-8d8e-a76750ccc81a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -246,6 +246,7 @@ Blink();
 Error();
 Objects();
 OEEE();
+TimeAnddDate();
 
 // 					R_Trigs.					//
 RT_StartHydraulics(CLK:= mxHMI_StartHydraulics);
@@ -593,6 +594,7 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
       <LineId Id="3669" Count="0" />
       <LineId Id="1567" Count="2" />
       <LineId Id="5261" Count="1" />
+      <LineId Id="7143" Count="0" />
       <LineId Id="5265" Count="0" />
       <LineId Id="1570" Count="0" />
       <LineId Id="5722" Count="0" />

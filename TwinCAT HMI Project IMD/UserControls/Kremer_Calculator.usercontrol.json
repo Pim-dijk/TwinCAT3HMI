@@ -1,0 +1,75 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-value",
+      "displayName": "Value",
+      "visible": true,
+      "type": "tchmi:general#/definitions/REAL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Value",
+      "propertySetterName": "setValue",
+      "propertyGetterName": "getValue"
+    },
+    {
+      "name": "data-tchmi-symboltowriteto",
+      "displayName": "SymbolToWriteTo",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SymbolToWriteTo",
+      "propertySetterName": "setSymbolToWriteTo",
+      "propertyGetterName": "getSymbolToWriteTo"
+    },
+    {
+      "name": "data-tchmi-self",
+      "displayName": "Self",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Control",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Self",
+      "propertySetterName": "setSelf",
+      "propertyGetterName": "getSelf"
+    },
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
+    }
+  ],
+  "virtualRights": [
+    {
+      "name": "SpecialPermission",
+      "description": "Use this as a special permission",
+      "displayName": "SpecialPermission",
+      "visible": true,
+      "defaultValueInternal": true
+    }
+  ],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

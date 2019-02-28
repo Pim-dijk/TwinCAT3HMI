@@ -1976,6 +1976,166 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TopMoldA::PositionDownOpen",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TopMoldA::PositionDownStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldB.PositionDownOpen": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TopMoldB::PositionDownOpen",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TopMoldB.PositionDownStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TopMoldB::PositionDownStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionDownOpen": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TransferMold::PositionDownOpen",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionDownStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TransferMold::PositionDownStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionTransferOpen": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TransferMold::PositionTransferOpen",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionTransferStopA": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TransferMold::PositionTransferStopA",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.PositionTransferStopB": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TransferMold::PositionTransferStopB",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.InMoldDrying.TransferMold.ReleaseBmMovementOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::InMoldDrying::TransferMold::ReleaseBmMovementOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.ProductHandling.GantryA.BlowOffTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::ProductHandling::GantryA::BlowOffTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.ProductHandling.GantryA.PositionVerticalDropOff": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::ProductHandling::GantryA::PositionVerticalDropOff",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.ProductHandling.GantryA.PositionVerticalPickup": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::ProductHandling::GantryA::PositionVerticalPickup",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.ProductHandling.GantryB.BlowOffTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::ProductHandling::GantryB::BlowOffTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.ProductHandling.GantryB.PositionVerticalDropOff": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::ProductHandling::GantryB::PositionVerticalDropOff",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductPar.ProductHandling.GantryB.PositionVerticalPickup": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductPar::ProductHandling::GantryB::PositionVerticalPickup",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.mxAutoMode": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2076,6 +2236,56 @@
             "MAPPING": "PLC1::MAIN::mxHMI_StopState",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.localDay": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::localDay",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.localHours": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::localHours",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.localMinutes": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::localMinutes",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.localMonth": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::localMonth",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.localYear": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::localYear",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
             },
             "USEMAPPING": true
         },

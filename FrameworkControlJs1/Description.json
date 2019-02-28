@@ -88,7 +88,19 @@
     }
   ],
   "attributeCategories": [],
-  "functions": [],
+  "functions": [
+    {
+      "name": "myCustomFunction",
+      "displayName": "customFunction",
+      "visible": true,
+      "description": "This is a sample for a function that can be called.",
+      "category": "Actions",
+      "params": [],
+      "type": null,
+      "heritable": false,
+      "searchTerms": []
+    }
+  ],
   "events": [],
   "dataTypes": [
     {

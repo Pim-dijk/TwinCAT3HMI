@@ -1,0 +1,54 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": false,
+      "defaultValueInternal": false,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
+    },
+    {
+      "name": "data-tchmi-fontsize",
+      "displayName": "FontSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "FontSize",
+      "propertySetterName": "setFontSize",
+      "propertyGetterName": "getFontSize"
+    },
+    {
+      "name": "data-tchmi-thiscontrol",
+      "displayName": "ThisControl",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Control",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ThisControl",
+      "propertySetterName": "setThisControl",
+      "propertyGetterName": "getThisControl"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

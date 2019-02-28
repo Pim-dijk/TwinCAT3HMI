@@ -4747,6 +4747,17 @@ External Setpoint Generation:
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.ixResetImdBack</Name>
+							<Comment>
+								<![CDATA[ NON Operator side/Back ]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixDoorReqImdBack</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.L1</Name>
 							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
 						</Var>
@@ -4764,17 +4775,6 @@ External Setpoint Generation:
 								<![CDATA[ couple to zones in Safety programm FB outputs ]]>
 							</Comment>
 							<Type GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}">ARRAY [1..7] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetImdBack</Name>
-							<Comment>
-								<![CDATA[ NON Operator side/Back ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqImdBack</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixEmStopImdBack</Name>
@@ -19552,10 +19552,8 @@ Bit1: Value bigger/equal Limit2]]>
 		<OwnerA Name="TIID^Device 2 (EtherCAT)">
 			<OwnerB Name="TIID^Device 2 (EtherCAT)^MCC01_2_610A1 (EK1100)^610A2 (EK1122)^Drive A-Belt / B-Spraybar (AX5201-0000-0203)^SprayBar_Belt (AX5805)">
 				<Link VarA="MCC01_600A1 (EK1100)^600A4_TwinsafeController (EL6900)^ConnectionInputs^Message_215 TxPDO" VarB="Module 1 (Safety Process Data, 2 axis)^Outputs (Controlword)^FSOE"/>
-				<Link VarA="MCC01_600A1 (EK1100)^600A4_TwinsafeController (EL6900)^ConnectionOutputs^Message_215 RxPDO" VarB="Module 1 (Safety Process Data, 2 axis)^Inputs (Statusword)^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 2 (EtherCAT)^MCC01_2_610A1 (EK1100)^610A2 (EK1122)^Drive Gantry A (AX5203-0000-0203)^GantryA (AX5805)">
-				<Link VarA="MCC01_600A1 (EK1100)^600A4_TwinsafeController (EL6900)^ConnectionInputs^Message_213 TxPDO" VarB="Module 1 (Safety Process Data, 2 axis)^Outputs (Controlword)^FSOE"/>
 				<Link VarA="MCC01_600A1 (EK1100)^600A4_TwinsafeController (EL6900)^ConnectionOutputs^Message_213 RxPDO" VarB="Module 1 (Safety Process Data, 2 axis)^Inputs (Statusword)^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 2 (EtherCAT)^MCC01_2_610A1 (EK1100)^610A2 (EK1122)^Drive Gantry B (AX5203-0000-0203)^GantryB (AX5805)">
@@ -19623,6 +19621,8 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="MCC01_600A1 (EK1100)^600A4_TwinsafeController (EL6900)^StandardOutputs^Standard In Var 192" VarB="Channel 5^Chan5"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 2 (EtherCAT)^MCC01_600A1 (EK1100)^600A4_TwinsafeController (EL6900)">
+				<Link VarA="MCC01_2_610A1 (EK1100)^610A2 (EK1122)^Drive A-Belt / B-Spraybar (AX5201-0000-0203)^SprayBar_Belt (AX5805)^Module 1 (Safety Process Data, 2 axis)^Inputs (Statusword)^FSOE" VarB="ConnectionOutputs^Message_215 RxPDO"/>
+				<Link VarA="MCC01_2_610A1 (EK1100)^610A2 (EK1122)^Drive Gantry A (AX5203-0000-0203)^GantryA (AX5805)^Module 1 (Safety Process Data, 2 axis)^Outputs (Controlword)^FSOE" VarB="ConnectionInputs^Message_213 TxPDO"/>
 				<Link VarA="MCC01_2_610A1 (EK1100)^610A2 (EK1122)^Drive Gantry B (AX5203-0000-0203)^GantryB (AX5805)^Module 1 (Safety Process Data, 2 axis)^Inputs (Statusword)^FSOE" VarB="ConnectionOutputs^Message_214 RxPDO"/>
 				<Link VarA="MCC01_2_610A1 (EK1100)^610A2 (EK1122)^EJBox (EP9128-0021)^RIO_600A1 (EK1100)^RIO_600A11 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_128 TxPDO"/>
 				<Link VarA="MCC01_2_610A1 (EK1100)^610A2 (EK1122)^EJBox (EP9128-0021)^RIO_600A1 (EK1100)^RIO_600A12 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_129 TxPDO"/>

@@ -60,6 +60,10 @@
                     _super.call(this, element, pcElement, attrs);
 
                 }
+
+                function myCustomFunction() {
+                    alert("My custom function called this alert!");
+                }
                 /** 
                 * @description Is called during control initialize phase before attribute setter are called based on initial html dom values. 
                 * @returns {void}

@@ -1,0 +1,217 @@
+﻿<div id="LanguageSelect" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%">
+
+<div id="TcHmi_Combobox_Language-Select" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Select" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-top="31.8" data-tchmi-top-unit="%" data-tchmi-width="95.8" data-tchmi-width-unit="%" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="5" data-tchmi-bottom="37.8" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-src-data="%f%GetRegisteredLocales();%/f%" data-tchmi-data-height="30" data-tchmi-drop-down-font-size="%pp%FontSize%/pp%" data-tchmi-drop-down-font-weight="Bold">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Select Language" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="68.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiButton_31" data-tchmi-type="tchmi-button" data-tchmi-height="32.4" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Activate" data-tchmi-top="65.6" data-tchmi-top-unit="%" data-tchmi-width="96.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_31.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "SetLocale",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmi_Combobox_Language-Select::SelectedText%/ctrl%"
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Visible%/pp%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(132, 132, 132, 1)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(112, 110, 110, 1)",
+      "stop": "20.11%"
+    },
+    {
+      "color": "rgba(232, 227, 227, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+<div id="TcHmiButton_32" data-tchmi-type="tchmi-button" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left-unit="px" data-tchmi-text="X" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-right-unit="%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_32.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Visible%/pp%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%Visible%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Visible%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Collapsed"
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "LanguageSelect.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Visible%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Collapsed"
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>

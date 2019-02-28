@@ -211,7 +211,7 @@
     "actions": [
       {
         "objectType": "WriteToSymbol",
-        "active": true,
+        "active": false,
         "symbolExpression": "%ctrl%Language_Container::Top%/ctrl%",
         "valueType": "tchmi:framework#/definitions/MeasurementValue",
         "value": {
@@ -223,13 +223,25 @@
       },
       {
         "objectType": "WriteToSymbol",
-        "active": true,
+        "active": false,
         "symbolExpression": "%ctrl%Language_Container::Visibility%/ctrl%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Visibility",
           "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%LanguageSelect_1::Visible%/ctrl%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
         },
         "asyncWait": true
       }
@@ -323,7 +335,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_27" data-tchmi-type="tchmi-textblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="139" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s% + ' %'%/f%" data-tchmi-top="128" data-tchmi-top-unit="px" data-tchmi-width="99" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="13" data-tchmi-text-font-weight="Normal" data-tchmi-text-horizontal-alignment="Right">
+<div id="TcHmiTextblock_27" data-tchmi-type="tchmi-textblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="139" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s% + ' %'%/f%" data-tchmi-top="124" data-tchmi-top-unit="px" data-tchmi-width="99" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="13" data-tchmi-text-font-weight="Normal" data-tchmi-text-horizontal-alignment="Right">
 
 
 
@@ -339,7 +351,7 @@
     "actions": [
       {
         "objectType": "WriteToSymbol",
-        "active": true,
+        "active": false,
         "symbolExpression": "%i%TempSymbolName%/i%",
         "valueType": "tchmi:general#/definitions/String",
         "value": {
@@ -350,7 +362,7 @@
       },
       {
         "objectType": "WriteToSymbol",
-        "active": true,
+        "active": false,
         "symbolExpression": "%i%CalcName%/i%",
         "valueType": "tchmi:general#/definitions/String",
         "value": {
@@ -361,7 +373,7 @@
       },
       {
         "objectType": "ActionTemplate",
-        "active": true,
+        "active": false,
         "templateName": "Show_Calculator",
         "fnParams": [
           {
@@ -370,6 +382,45 @@
           }
         ],
         "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": false,
+        "symbolExpression": "%ctrl%Calculator_1::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "ActionTemplate",
+        "active": true,
+        "templateName": "Calculator",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Calculator_1%/ctrl%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s%"
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var sym = new TcHmi.Symbol(\"%i%TempSymbolName%/i%\");\nvar symVal = sym.read();\nconsole.log(symVal);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
       }
     ]
   }
@@ -589,7 +640,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_37" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="104" data-tchmi-left-unit="px" data-tchmi-text="NONE" data-tchmi-top="324" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="20" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_37" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="104" data-tchmi-left-unit="px" data-tchmi-text="No Product loaded" data-tchmi-top="324" data-tchmi-top-unit="px" data-tchmi-width="264" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="20" data-tchmi-text-font-weight="Bold">
 
 </div>
 
@@ -740,14 +791,6 @@
 
 </div>
 
-<div id="Kremer_Light_Green_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light_Green.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Light_Green_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light_Green.usercontrol" data-tchmi-top="61" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-bind_boolean="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank02%/s%">
-
-</div>
-
 <div id="TcHmiTextblock_52" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="668" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.ProductForming.TankLevel01.EngUnits%/s% + ' %'%/f%" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center">
 
 
@@ -760,7 +803,7 @@
 
 </div>
 
-<div id="KremerAlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt75%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%">
+<div id="KremerAlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt75%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt75%/s%">
 
 
 
@@ -768,39 +811,39 @@
 
 </div>
 
-<div id="KremerAlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt100%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%">
+<div id="KremerAlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt100%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt100%/s%">
 
 </div>
 
-<div id="KremerAlarmLight_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="170" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt75%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%">
+<div id="KremerAlarmLight_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="170" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt75%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt75%/s%">
 
 </div>
 
-<div id="KremerAlarmLight_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;#FF737373&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%">
+<div id="KremerAlarmLight_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;#FF737373&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100%/s%">
 
 </div>
 
-<div id="KremerAlarmLight_5" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%">
+<div id="KremerAlarmLight_5" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-visible="True" data-tchmi-value="False">
 
 </div>
 
-<div id="KremerAlarmLight_6" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="250" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%">
+<div id="KremerAlarmLight_6" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="250" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-visible="True" data-tchmi-value="True">
 
 </div>
 
-<div id="KremerAlarmLight_7" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="309" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch40c%/s%">
+<div id="KremerAlarmLight_7" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="309" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch40c%/s%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch40c%/s%">
 
 </div>
 
-<div id="KremerAlarmLight_8" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="335" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch55c%/s%">
+<div id="KremerAlarmLight_8" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="335" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch55c%/s%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch55c%/s%">
 
 </div>
 
-<div id="KremerAlarmLight_9" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="361" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitchTooHigh%/s%">
+<div id="KremerAlarmLight_9" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="361" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(255,0,0,1)&quot;}'%/f%" data-tchmi-signalbool="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitchTooHigh%/s%" data-tchmi-visible="True" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitchTooHigh%/s%">
 
 </div>
 
-<div id="Language_Container" data-tchmi-type="tchmi-container" data-tchmi-height="160" data-tchmi-height-unit="px" data-tchmi-left="40" data-tchmi-left-unit="%" data-tchmi-top="110" data-tchmi-top-unit="%" data-tchmi-width="170" data-tchmi-width-unit="px" data-tchmi-visibility="Hidden" data-tchmi-zindex="1000">
+<div id="Language_Container" data-tchmi-type="tchmi-container" data-tchmi-height="160" data-tchmi-height-unit="px" data-tchmi-left="39.4" data-tchmi-left-unit="%" data-tchmi-top="118.7" data-tchmi-top-unit="%" data-tchmi-width="170" data-tchmi-width-unit="px" data-tchmi-visibility="Hidden" data-tchmi-zindex="1000">
 
 <div id="TcHmiTextblock_54" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="Select Language" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="20" data-tchmi-text-font-weight="Bold" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-width-mode="Parent" data-tchmi-right="5">
 
@@ -952,6 +995,18 @@
   "bottom": "Solid"
 }
 </script>
+</div>
+
+<div id="KremerAlarmLight_10" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank01%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(0,255,0,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%">
+
+</div>
+
+<div id="KremerAlarmLight_11" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="642" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/KremerAlarmLight.usercontrol" data-tchmi-top="61" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank02%/s%" data-tchmi-coloron="%f%'{&quot;color&quot;:&quot;rgba(0,255,0,1)&quot;}'%/f%" data-tchmi-coloroff="%f%'{&quot;color&quot;:&quot;rgba(115,115,115,1)&quot;}'%/f%">
+
+</div>
+
+<div id="LanguageSelect_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="142" data-tchmi-height-unit="px" data-tchmi-left="271" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/LanguageSelect.usercontrol" data-tchmi-top="31.7" data-tchmi-top-unit="%" data-tchmi-visible="False" data-tchmi-width="277" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-thiscontrol="%ctrl%LanguageSelect_1%/ctrl%" data-tchmi-visibility="Visible">
+
 </div>
 
 </div>

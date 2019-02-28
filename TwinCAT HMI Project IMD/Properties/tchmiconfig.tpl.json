@@ -51,13 +51,16 @@
   ],
   "userControls": [
     {
-      "url": "UserControls/Calculator.usercontrol"
-    },
-    {
       "url": "UserControls/DoorView.usercontrol"
     },
     {
       "url": "UserControls/General_Keyboard.usercontrol"
+    },
+    {
+      "url": "UserControls/IOField.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_Calculator.usercontrol"
     },
     {
       "url": "UserControls/Kremer_Light_Green.usercontrol"
@@ -70,6 +73,9 @@
     },
     {
       "url": "UserControls/KremerAlarmLight.usercontrol"
+    },
+    {
+      "url": "UserControls/LanguageSelect.usercontrol"
     },
     {
       "url": "UserControls/Login_Form.usercontrol"
@@ -86,6 +92,14 @@
     },
     {
       "url": "Content/Main.content",
+      "preload": false
+    },
+    {
+      "url": "Content/Recipe.content",
+      "preload": false
+    },
+    {
+      "url": "Content/TestAllTheThingsHere.content",
       "preload": false
     }
   ],
@@ -114,6 +128,24 @@
     },
     {
       "url": "Scripts/WriteToSymbol_REAL.js"
+    },
+    {
+      "url": "Scripts/Recipes/UpdateDatagridFromTarget.js"
+    },
+    {
+      "url": "Scripts/Recipes/ListRecipesAsReferenceArray.js"
+    },
+    {
+      "url": "Scripts/Recipes/ConvertRecipeToDatagrid.js"
+    },
+    {
+      "url": "Scripts/Recipes/ConvertDatagridToRecipe.js"
+    },
+    {
+      "url": "Scripts/Recipes/DeleteRecipe.js"
+    },
+    {
+      "url": "Scripts/Recipes/GetActiveRecipes.js"
     }
   ],
   "symbols": {
@@ -143,6 +175,18 @@
       "CalcName": {
         "value": "",
         "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "MinValue": {
+        "value": -5000.0,
+        "type": "tchmi:general#/definitions/REAL",
+        "persist": false,
+        "readonly": false
+      },
+      "MaxValue": {
+        "value": 5000.0,
+        "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       }
@@ -434,44 +478,8 @@
         {
           "objectType": "WriteToSymbol",
           "active": true,
-          "symbolExpression": "%tp%ThisControl::Top%/tp%",
-          "valueType": "tchmi:framework#/definitions/MeasurementValue",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/MeasurementValue",
-            "value": 25.0
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%tp%ThisControl::Visibility%/tp%",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/Visibility",
-            "value": "Visible"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%tp%ThisControl::Zindex%/tp%",
-          "valueType": "tchmi:general#/definitions/UDINT",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/UDINT",
-            "value": 1000
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%tp%ThisControl::SymbolToWriteTo%/tp%",
-          "valueType": "tchmi:project#/definitions/Calculator",
+          "symbolExpression": "%tp%The Calculator::SymbolToWriteTo%/tp%",
+          "valueType": "tchmi:general#/definitions/String",
           "value": {
             "objectType": "Symbol",
             "symbolExpression": "%i%TempSymbolName%/i%"
@@ -481,8 +489,8 @@
         {
           "objectType": "WriteToSymbol",
           "active": true,
-          "symbolExpression": "%tp%ThisControl::Self%/tp%",
-          "valueType": "tchmi:project#/definitions/Calculator",
+          "symbolExpression": "%tp%The Calculator::Self%/tp%",
+          "valueType": "tchmi:general#/definitions/String",
           "value": {
             "objectType": "Symbol",
             "symbolExpression": "%i%CalcName%/i%"
@@ -492,17 +500,67 @@
       ],
       "parameters": [
         {
-          "name": "ThisControl",
+          "name": "The Calculator",
           "type": "tchmi:project#/definitions/Calculator",
+          "description": "The calculator control that is to be displayed"
+        }
+      ]
+    },
+    {
+      "name": "Calculator",
+      "description": "Show the calculator and bind the symbol to it",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%i%TempSymbolName%/i%",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": {
+            "objectType": "FunctionExpression",
+            "functionExpression": "GetSymbolStringFromSymbol(%tp%Symbol%/tp%)"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%i%CalcName%/i%",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": {
+            "objectType": "FunctionExpression",
+            "functionExpression": "GetNameFromSymbol(%tp%Calculator Control%/tp%)"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%tp%Calculator Control::Visibility%/tp%",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Visible"
+          },
+          "asyncWait": true
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Calculator Control",
+          "type": "tchmi:framework#/definitions/Control",
+          "description": ""
+        },
+        {
+          "name": "Symbol",
+          "type": "tchmi:framework#/definitions/Symbol",
           "description": ""
         }
       ]
     }
   ],
-  "languages": {
-    "en-US": "Localization\\en-US.localization",
-    "nl": "Localization\\nl-NL.localization"
-  },
+  "languages": {},
   "creatorSettings": {
     "viewport": {
       "defaultWidth": 1024,

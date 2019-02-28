@@ -1,0 +1,11 @@
+﻿<div id="TestAllTheThingsHere" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="600" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600">
+
+    <div id="Calculator_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="368" data-tchmi-height-unit="px" data-tchmi-left="573" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="217" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Calculator_3%/ctrl%" data-tchmi-symboltowriteto="%s%PLC1.MAIN.InMoldDrying.TransferLateTime%/s%" data-tchmi-visible="True" data-tchmi-visibility="Collapsed" data-tchmi-zindex="1000">
+
+    </div>
+
+    <div id="IOField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="202" data-tchmi-width-unit="px" data-tchmi-valuemin="-500" data-tchmi-valuemax="500" data-tchmi-fontsize="18" data-tchmi-attribute="ms" data-tchmi-keyboard="%ctrl%Calculator_3%/ctrl%" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-visibility="Visible" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
+
+    </div>
+
+</div>

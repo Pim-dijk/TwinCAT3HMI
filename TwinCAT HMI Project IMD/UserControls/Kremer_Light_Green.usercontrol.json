@@ -1,8 +1,8 @@
 ﻿{
   "parameters": [
     {
-      "name": "data-tchmi-bind_boolean",
-      "displayName": "Bind_Boolean",
+      "name": "data-tchmi-value",
+      "displayName": "Value",
       "visible": true,
       "type": "tchmi:general#/definitions/BOOL",
       "category": "",
@@ -11,9 +11,26 @@
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "Bind_Boolean",
-      "propertySetterName": "setBind_Boolean",
-      "propertyGetterName": "getBind_Boolean"
+      "propertyName": "Value",
+      "propertySetterName": "setValue",
+      "propertyGetterName": "getValue"
+    },
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
     }
   ],
   "virtualRights": [],

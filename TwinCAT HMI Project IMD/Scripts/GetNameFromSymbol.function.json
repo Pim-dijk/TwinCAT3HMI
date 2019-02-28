@@ -6,7 +6,7 @@
     "category": "",
     "waitMode": "Synchronous",
     "injectContextObject": false,
-    "description": "",
+    "description": "Get the name of a Symbol without the '%s%%/s%' tags",
     "returnValue": {
       "type": "tchmi:general#/definitions/String"
     },

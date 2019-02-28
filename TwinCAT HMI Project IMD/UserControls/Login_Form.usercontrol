@@ -3,18 +3,6 @@
      data-tchmi-width="270" data-tchmi-height="193" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiTextbox" data-tchmi-type="tchmi-textbox" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="38" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
-{
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
-}
-</script>
-
-</div>
-
 <div id="TcHmiTextbox_1" data-tchmi-type="tchmi-textbox" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="101" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
@@ -71,6 +59,18 @@
   }
 ]
 </script>
+</div>
+
+<div id="TcHmiCombobox" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Select" data-tchmi-height="32" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="41" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-text="%f%ListRecipesAsReferenceArray(%s%TcHmiRecipeManagement.Config::recipeList%/s%)%/f%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
 </div>
 
 </div>

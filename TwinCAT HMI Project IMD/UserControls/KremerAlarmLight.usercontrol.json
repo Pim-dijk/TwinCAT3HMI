@@ -1,8 +1,8 @@
 ﻿{
   "parameters": [
     {
-      "name": "data-tchmi-signalbool",
-      "displayName": "SignalBool",
+      "name": "data-tchmi-value",
+      "displayName": "Value",
       "visible": true,
       "type": "tchmi:general#/definitions/BOOL",
       "category": "",
@@ -11,9 +11,9 @@
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "SignalBool",
-      "propertySetterName": "setSignalBool",
-      "propertyGetterName": "getSignalBool"
+      "propertyName": "Value",
+      "propertySetterName": "setValue",
+      "propertyGetterName": "getValue"
     },
     {
       "name": "data-tchmi-coloron",
@@ -44,6 +44,23 @@
       "propertyName": "ColorOff",
       "propertySetterName": "setColorOff",
       "propertyGetterName": "getColorOff"
+    },
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
     }
   ],
   "virtualRights": [],

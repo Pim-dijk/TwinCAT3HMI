@@ -1,0 +1,39 @@
+﻿{
+  "function": {
+    "name": "GetActiveRecipes",
+    "displayName": "GetActiveRecipes",
+    "visible": true,
+    "category": "Recipe",
+    "waitMode": "Synchronous",
+    "injectContextObject": true,
+    "description": "Returns the active recipe to a text control",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "arguments": [
+      {
+        "name": "ctx",
+        "displayName": "ctx",
+        "type": "tchmi:framework#/definitions/ContextReference",
+        "description": "Context Reference",
+        "defaultValue": "",
+        "required": true,
+        "bindable": false,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "TargetControl",
+        "displayName": "Target Control",
+        "type": "tchmi:framework#/definitions/Control",
+        "description": "The controll where the name(s) of the active recipes are to be shown",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      }
+    ]
+  },
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/FunctionDescription.Schema.json"
+}

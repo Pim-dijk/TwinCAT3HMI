@@ -9,15 +9,18 @@
 
 (function (TcHmi) {
 
-    var WriteToSymbol_REAL = function (Symbolstring,TextElement) {
+    var WriteToSymbol_REAL = function (ctx,SymbolString,KeyboardString) {
 
         console.log("Symbol: ");
-        console.log(Symbolstring);
-        console.log(TextElement + '.TcHmiTextbox_calc');
+        console.log(SymbolString);
+        console.log("CalcTextbox: ");
+        console.log(KeyboardString + '.TcHmiTextbox_calc');
 
         //console.log(Symbolstring.__symbol.__expression.__expression);
-        var textbox = TcHmi.Controls.get(TextElement + '.TcHmiTextbox_calc');
+        var textbox = TcHmi.Controls.get(KeyboardString + '.TcHmiTextbox_calc');
         var text = parseFloat(textbox.getText());
+
+        console.log(text);
 
         //TcHmi.Symbol.write(Symbolstring, TcHmi.SymbolType.Server, text, function (data) {
         //    if (data.error === TcHmi.Errors.NONE) {
@@ -32,7 +35,7 @@
         //});
 
         // Create new Symbol object from string, and write the value to it
-        var symbol = new TcHmi.Symbol(Symbolstring);
+        var symbol = new TcHmi.Symbol(SymbolString);
         symbol.write(text, function (data) {
             if (data.error === TcHmi.Errors.NONE) {
                 // Handle success... 

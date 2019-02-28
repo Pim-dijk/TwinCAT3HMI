@@ -6,7 +6,7 @@
     "category": "",
     "waitMode": "Synchronous",
     "injectContextObject": false,
-    "description": "",
+    "description": "Convert a TIME value to miliseconds",
     "returnValue": {
       "type": "tchmi:general#/definitions/String"
     },

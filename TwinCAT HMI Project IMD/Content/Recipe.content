@@ -1,0 +1,388 @@
+﻿<div id="Recipe" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="436" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600">
+
+<div id="TcHmiTextblock_SelectRecipe_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Selected recipe:" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiTextblock_NewRecipeName_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="New recipe name:" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiCombobox_RecipeList" data-tchmi-type="tchmi-combobox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-combobox-text="Select recipe" data-tchmi-src-data="%f%ListRecipesAsReferenceArray(%s%TcHmiRecipeManagement.Config::recipeList%/s%);%/f%" data-tchmi-tooltip="Select a recipe from the list of recipes.">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextbox_Recipe-New-Name" data-tchmi-type="tchmi-textbox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-text="NewRecipe" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-tooltip="Fill in a name, which should be used in case a new recipe is added.">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+
+<div id="TcHmiButton_TeachAsNew_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="360" data-tchmi-left-unit="px" data-tchmi-text="Teach as new recipe" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the current values from the target and then saved into a new recipe with the defined name.">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_TeachAsNew_31.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TeachAsNewRecipe",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmiTextbox_Recipe-New-Name::Text%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": ""
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_Activate_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="360" data-tchmi-left-unit="px" data-tchmi-text="Activate recipe" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are written to the target.">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_Activate_31.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ActivateRecipe",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
+          }
+        ],
+        "asyncWait": true,
+        "success": [
+          {
+            "objectType": "JavaScript",
+            "active": true,
+            "sourceLines": [
+              "console.log(\"Great succes\");"
+            ],
+            "injectContextObject": false,
+            "asyncWait": true,
+            "waitMode": "Synchronous"
+          }
+        ],
+        "error": [
+          {
+            "objectType": "JavaScript",
+            "active": true,
+            "sourceLines": [
+              "console.log(\"Nope!\");"
+            ],
+            "injectContextObject": false,
+            "asyncWait": true,
+            "waitMode": "Synchronous"
+          }
+        ]
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_Update_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="500" data-tchmi-left-unit="px" data-tchmi-text="Save recipe" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the values of the third column of the datagrid.">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_Update_31.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertDatagridToRecipe",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%TcHmiDatagrid_RecipeView%/ctrl%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_ReadValuesFromTarget_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="597" data-tchmi-left-unit="px" data-tchmi-text="Read online values" data-tchmi-top="110" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values in the third column of the datagrid are updated with the current values from the target.">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_ReadValuesFromTarget_31.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "UpdateDatagridFromTarget",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%TcHmiDatagrid_RecipeView%/ctrl%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_Delete_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="640" data-tchmi-left-unit="px" data-tchmi-text="Delete selected recipe" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The selected recipe is deleted in case there is more than one recipe available in the list.">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_Delete_31.onPressed",
+    "actions": [
+      {
+        "objectType": "Comment",
+        "comment": "The condition is added to check, whether there is more than one recipe available. Only in this case the selected recipe can be deleted. Otherwise,\r\nif the last recipe is deleted, it would not be possible to create new recipes within the client anymore."
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "FunctionExpression",
+              "functionExpression": "%ctrl%TcHmiCombobox_RecipeList::SrcData%/ctrl%.length"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "1"
+            },
+            "compareOperator": ">",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "Comment",
+            "comment": "The setting 'Wait for completion' (right click on the function) is deactivated for the DeleteRecipe function,\r\nbecause the attribute 'SelectedIndex' of the TcHmiCombobox_RecipeList has to be reset via the\r\nWriteToSymbol function, before the execution of the DeleteRecipe function has been finished. Otherwise\r\nthe TcHmiDatagrid_RecipeView would request the members of the already deleted recipe."
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "DeleteRecipe",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
+              }
+            ],
+            "asyncWait": false
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedIndex%/ctrl%",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/UDINT",
+              "value": null
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiKeyboard_1" data-tchmi-type="tchmi-keyboard" data-tchmi-height="266" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout="Numpad" data-tchmi-left="587" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="213" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
+{
+  "top": 10,
+  "topUnit": "px",
+  "right": 10,
+  "rightUnit": "px",
+  "bottom": 10,
+  "bottomUnit": "px",
+  "left": 10,
+  "leftUnit": "px"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-key-padding" type="application/json">
+{
+  "top": 4,
+  "topUnit": "px",
+  "right": 4,
+  "rightUnit": "px",
+  "bottom": 4,
+  "bottomUnit": "px",
+  "left": 4,
+  "leftUnit": "px"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-additional-key-backdrop-padding" type="application/json">
+{
+  "top": 10,
+  "topUnit": "px",
+  "right": 10,
+  "rightUnit": "px",
+  "bottom": 10,
+  "bottomUnit": "px",
+  "left": 10,
+  "leftUnit": "px"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+</div>
+
+<div id="TcHmiDatagrid_RecipeView" data-tchmi-type="tchmi-datagrid" data-tchmi-height="316" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px"    data-tchmi-top="110" data-tchmi-top-unit="px" data-tchmi-width="577" data-tchmi-width-unit="px" data-tchmi-show-row-numbers="False">
+<script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
+[
+  {
+    "name": "memberName",
+    "label": "Member Name",
+    "control": "TextBlock",
+    "width": 73,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": true,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "format": null
+  },
+  {
+    "name": "value",
+    "label": "Member Value",
+    "control": "TextBlock",
+    "width": 10,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": true,
+    "minWidth": 70,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": false,
+    "horizontalAlignment": "Center",
+    "verticalAlignment": "Center",
+    "format": null
+  },
+  {
+    "name": "newValue",
+    "label": "New Value",
+    "control": "TextBox",
+    "width": 10,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 70,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": true,
+    "horizontalAlignment": "Center",
+    "verticalAlignment": "Center",
+    "format": null
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+{
+  "left": 3,
+  "leftUnit": "px",
+  "right": 3,
+  "rightUnit": "px",
+  "top": 0,
+  "topUnit": "px",
+  "bottom": 0,
+  "bottomUnit": "px"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%TcHmiRecipeManagement.Config::recipeList%/s%",
+    "actions": [
+      {
+        "objectType": "CreateBinding",
+        "active": true,
+        "sourceExpression": "%f%ConvertRecipeToDataGrid(%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%)%/f%",
+        "target": {
+          "objectType": "ControlAttributeBindingTarget",
+          "attributeExpression": "%ctrl%TcHmiDatagrid_RecipeView::SrcData%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+</div>

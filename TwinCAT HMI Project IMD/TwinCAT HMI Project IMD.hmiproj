@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10102</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10103</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -92,6 +92,12 @@
     <Content Include="Content\Main.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\Recipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\TestAllTheThingsHere.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Localization\nl-NL.localization">
       <SubType>Content</SubType>
     </Content>
@@ -119,6 +125,42 @@
     <Content Include="Scripts\GetSymbolStringFromSymbol.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\Recipes\ConvertDatagridToRecipe.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\ConvertDatagridToRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\ConvertRecipeToDatagrid.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\ConvertRecipeToDatagrid.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\DeleteRecipe.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\DeleteRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\GetActiveRecipes.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\GetActiveRecipes.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\ListRecipesAsReferenceArray.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\ListRecipesAsReferenceArray.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\UpdateDatagridFromTarget.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Recipes\UpdateDatagridFromTarget.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\WriteToSymbol_INT.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -137,10 +179,10 @@
     <Content Include="Themes\Kremer\Style.css">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Calculator.usercontrol">
+    <Content Include="UserControls\Kremer_Calculator.usercontrol">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Calculator.usercontrol.json">
+    <Content Include="UserControls\Kremer_Calculator.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\DoorView.usercontrol">
@@ -153,6 +195,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\General_Keyboard.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\KremerAlarmLight.usercontrol">
@@ -179,6 +227,12 @@
     <Content Include="UserControls\Kremer_Time.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\LanguageSelect.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\LanguageSelect.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\Login_Form.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -194,6 +248,7 @@
     <Folder Include="Imports\Videos" />
     <Folder Include="Localization" />
     <Folder Include="Content" />
+    <Folder Include="Scripts\Recipes" />
     <Folder Include="UserControls" />
     <Folder Include="Scripts" />
     <Folder Include="Server\Extensions\ADS" />
@@ -439,7 +494,14 @@
     <TcHmiReference Include="5c0cd14a-c92b-4320-aa6e-3a1dab1ea1af">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlJs1/FrameworkControlJs1.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
+    </TcHmiReference>
+    <TcHmiReference Include="ec55be3d-dbc7-4773-9864-e617d138c500">
+      <Type>FrameworkRefSolution</Type>
+      <RelativePath>TestFrameworkControl/TestFrameworkControl.csproj</RelativePath>
+      <Domain>
+      </Domain>
     </TcHmiReference>
   </ItemGroup>
 </Project>

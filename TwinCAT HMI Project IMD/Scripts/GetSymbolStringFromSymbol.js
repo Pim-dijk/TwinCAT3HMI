@@ -10,7 +10,7 @@
 (function (TcHmi) {
 
     var GetSymbolStringFromSymbol = function (Symbol) {
-        var symbolExpression = Symbol.__symbol.__expression.__expression;
+        var symbolExpression = Symbol.__symbol.__expression.__expression; // Get the Symbol as a string value eg: "%s%SymbolName%/s%"
         return symbolExpression; 
     };
     
