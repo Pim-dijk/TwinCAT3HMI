@@ -139,7 +139,7 @@
 
 </div>
 
-<div id="TcHmiButton_19" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%l%24%/l%" data-tchmi-top="387" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiButton_19" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%l%24%/l%" data-tchmi-top="386" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 
 
@@ -345,84 +345,6 @@
   {
     "event": "",
     "actions": []
-  },
-  {
-    "event": "TcHmiTextblock_27.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": false,
-        "symbolExpression": "%i%TempSymbolName%/i%",
-        "valueType": "tchmi:general#/definitions/String",
-        "value": {
-          "objectType": "FunctionExpression",
-          "functionExpression": "GetSymbolStringFromSymbol(%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s%);"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": false,
-        "symbolExpression": "%i%CalcName%/i%",
-        "valueType": "tchmi:general#/definitions/String",
-        "value": {
-          "objectType": "FunctionExpression",
-          "functionExpression": "GetNameFromSymbol(%ctrl%Calculator_1%/ctrl%);"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "ActionTemplate",
-        "active": false,
-        "templateName": "Show_Calculator",
-        "fnParams": [
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%ctrl%Calculator_1%/ctrl%"
-          }
-        ],
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": false,
-        "symbolExpression": "%ctrl%Calculator_1::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "ActionTemplate",
-        "active": true,
-        "templateName": "Calculator",
-        "fnParams": [
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Calculator_1%/ctrl%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s%"
-          }
-        ],
-        "asyncWait": true
-      },
-      {
-        "objectType": "JavaScript",
-        "active": true,
-        "sourceLines": [
-          "var sym = new TcHmi.Symbol(\"%i%TempSymbolName%/i%\");\nvar symVal = sym.read();\nconsole.log(symVal);"
-        ],
-        "injectContextObject": false,
-        "asyncWait": true,
-        "waitMode": "Synchronous"
-      }
-    ]
   }
 ]
 </script>

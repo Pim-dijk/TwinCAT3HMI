@@ -111,6 +111,14 @@
       "frameworkUserControlConfig": "UserControls\\Login_Form.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/Login_Form"
+    },
+    "ucDateTime": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ucDateTime"
     }
   }
 }

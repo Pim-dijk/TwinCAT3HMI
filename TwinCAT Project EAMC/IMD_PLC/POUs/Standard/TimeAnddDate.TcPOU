@@ -9,6 +9,9 @@ VAR
 	localYear				: INT;
 	localMinutes			: INT;
 	localHours				: INT;
+	unixTime				: UnixTimestamp;
+	timestampSeconds		: ULINT;
+	timestampMilliseconds	: ULINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -17,12 +20,19 @@ localDay := UINT_TO_INT(localSystemTime.systemTime.wDay);
 localMonth := UINT_TO_INT(localSystemTime.systemTime.wMonth);
 localYear := UINT_TO_INT(localSystemTime.systemTime.wYear);
 localMinutes := UINT_TO_INT(localSystemTime.systemTime.wMinute);
-localHours := UINT_TO_INT(localSystemTime.systemTime.wHour);]]></ST>
+localHours := UINT_TO_INT(localSystemTime.systemTime.wHour);
+
+unixTime();
+timestampSeconds := unixTime.seconds;
+timestampMilliseconds := unixTime.milliseconds;]]></ST>
     </Implementation>
     <LineIds Name="TimeAnddDate">
       <LineId Id="5" Count="0" />
       <LineId Id="9" Count="1" />
       <LineId Id="15" Count="2" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="49" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>

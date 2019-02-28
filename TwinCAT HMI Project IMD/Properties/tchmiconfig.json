@@ -79,6 +79,9 @@
     },
     {
       "url": "UserControls/Login_Form.usercontrol"
+    },
+    {
+      "url": "UserControls/ucDateTime.usercontrol"
     }
   ],
   "content": [
@@ -560,7 +563,10 @@
       ]
     }
   ],
-  "languages": {},
+  "languages": {
+    "en-US": "Localization\\en-US.localization",
+    "nl": "Localization\\nl-NL.localization"
+  },
   "creatorSettings": {
     "viewport": {
       "defaultWidth": 1024,

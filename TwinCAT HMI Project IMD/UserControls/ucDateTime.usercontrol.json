@@ -1,0 +1,54 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-symbol",
+      "displayName": "Symbol",
+      "visible": true,
+      "type": "tchmi:general#/definitions/ULINT",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Symbol",
+      "propertySetterName": "setSymbol",
+      "propertyGetterName": "getSymbol"
+    },
+    {
+      "name": "data-tchmi-fontsize",
+      "displayName": "FontSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "FontSize",
+      "propertySetterName": "setFontSize",
+      "propertyGetterName": "getFontSize"
+    },
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

@@ -22,7 +22,688 @@
     ],
     "DEFAULTLOCALE": "en",
     "DEFAULTUSERGROUP": "__SystemUsers",
-    "DEFINITIONS": {},
+    "DEFINITIONS": {
+        "PLC1.PVOID": {
+            "type": "null"
+        },
+        "PLC1.Tc2_Standard.R_TRIG": {
+            "properties": {
+                "CLK": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "M": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Q": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Standard.TON": {
+            "properties": {
+                "ET": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "IN": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "M": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PT": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "Q": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "StartTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_System.ADSRDWRTEX": {
+            "properties": {
+                "BUSY": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "COUNT_R": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "DESTADDR": {
+                    "$ref": "#/definitions/PLC1.PVOID"
+                },
+                "ERR": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERRID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "IDXGRP": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "IDXOFFS": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "NETID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "PORT": {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                },
+                "READLEN": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "SRCADDR": {
+                    "$ref": "#/definitions/PLC1.PVOID"
+                },
+                "TMOUT": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "WRITELEN": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "WRTRD": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_System.ADSREAD": {
+            "properties": {
+                "BUSY": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "DESTADDR": {
+                    "$ref": "#/definitions/PLC1.PVOID"
+                },
+                "ERR": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERRID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "IDXGRP": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "IDXOFFS": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "LEN": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "NETID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "PORT": {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                },
+                "READ": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "TMOUT": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_System.ADSWRITE": {
+            "properties": {
+                "BUSY": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERR": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERRID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "IDXGRP": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "IDXOFFS": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "LEN": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "NETID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "PORT": {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                },
+                "SRCADDR": {
+                    "$ref": "#/definitions/PLC1.PVOID"
+                },
+                "TMOUT": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "WRITE": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_System.FW_GetCpuCounter": {
+            "properties": {
+                "dwCpuCntHi": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "dwCpuCntLo": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_System.GETCPUCOUNTER": {
+            "properties": {
+                "cpuCntHiDW": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "cpuCntLoDW": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "fbGetCpuCounter": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.FW_GetCpuCounter"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.E_TimeZoneID": {
+            "allOf": [
+                {
+                    "enum": [
+                        -1,
+                        0,
+                        1,
+                        2
+                    ],
+                    "options": [
+                        {
+                            "label": "eTimeZoneID_Invalid",
+                            "value": -1
+                        },
+                        {
+                            "label": "eTimeZoneID_Unknown",
+                            "value": 0
+                        },
+                        {
+                            "label": "eTimeZoneID_Standard",
+                            "value": 1
+                        },
+                        {
+                            "label": "eTimeZoneID_Daylight",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        },
+        "PLC1.Tc2_Utilities.FB_GetTimeZoneInformation": {
+            "properties": {
+                "bBusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bExecute": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fbAdsRead": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.ADSREAD"
+                },
+                "fbTrigger": {
+                    "$ref": "#/definitions/PLC1.Tc2_Standard.R_TRIG"
+                },
+                "nErrID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "res": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.ST_AmsGetTimeZoneInformation"
+                },
+                "sNetID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "state": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "tTimeout": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tzID": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.E_TimeZoneID"
+                },
+                "tzInfo": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.ST_TimeZoneInformation"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.FB_LocalSystemTime": {
+            "properties": {
+                "bEnable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bNotSup": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bValid": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "dwCycle": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        {
+                            "maximum": 86400.0,
+                            "minimum": 1.0
+                        }
+                    ]
+                },
+                "dwOpt": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "fbNT": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.NT_GetTime"
+                },
+                "fbRTC": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.RTC_EX2"
+                },
+                "fbSET": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.NT_SetTimeToRTCTime"
+                },
+                "fbTZ": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.FB_GetTimeZoneInformation"
+                },
+                "nSync": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "rtrig": {
+                    "$ref": "#/definitions/PLC1.Tc2_Standard.R_TRIG"
+                },
+                "sNetID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "state": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "systemTime": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.TIMESTRUCT"
+                },
+                "tTimeout": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "timer": {
+                    "$ref": "#/definitions/PLC1.Tc2_Standard.TON"
+                },
+                "tzID": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.E_TimeZoneID"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.FB_RegQueryValue": {
+            "properties": {
+                "bBusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bExecute": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "cbBuff": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "cbData": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "cbRead": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "fbAdsRdWrtEx": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.ADSRDWRTEX"
+                },
+                "fbTrigger": {
+                    "$ref": "#/definitions/PLC1.Tc2_Standard.R_TRIG"
+                },
+                "nErrId": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "s1Len": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "s2Len": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "sNetId": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "sSubKey": {
+                    "allOf": [
+                        {
+                            "maxLength": 255
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "sValName": {
+                    "allOf": [
+                        {
+                            "maxLength": 255
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "state": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "tTimeOut": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tmpBuff": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.ST_HKeySrvRead"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.NT_GetTime": {
+            "properties": {
+                "BUSY": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERR": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERRID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "NETID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "START": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "TIMESTR": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.TIMESTRUCT"
+                },
+                "TMOUT": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "fbAdsRead": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.ADSREAD"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.NT_SetTimeToRTCTime": {
+            "properties": {
+                "BUSY": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERR": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ERRID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "NETID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "SET": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "TMOUT": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "bInit": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bTmp": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "fbAdsWrite": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.ADSWRITE"
+                },
+                "fbRegQuery": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.FB_RegQueryValue"
+                },
+                "fbTrigger": {
+                    "$ref": "#/definitions/PLC1.Tc2_Standard.R_TRIG"
+                },
+                "numOfCPUs": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "state": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.RTC_EX2": {
+            "properties": {
+                "CDT": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.TIMESTRUCT"
+                },
+                "CMICRO": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "EN": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PDT": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.TIMESTRUCT"
+                },
+                "PMICRO": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "Q": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "currTick": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "dateTime": {
+                    "$ref": "tchmi:general#/definitions/DATE_AND_TIME"
+                },
+                "fbGetCpuCounter": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.GETCPUCOUNTER"
+                },
+                "nanoDiff": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "nanoRest": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "oldTick": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "risingEdge": {
+                    "$ref": "#/definitions/PLC1.Tc2_Standard.R_TRIG"
+                },
+                "secDiff": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.ST_AmsGetTimeZoneInformation": {
+            "properties": {
+                "apiResult": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "tzInfo": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.ST_TimeZoneInformation"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.ST_HKeySrvRead": {
+            "properties": {
+                "sSub": {
+                    "allOf": [
+                        {
+                            "maxLength": 255
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "sVal": {
+                    "allOf": [
+                        {
+                            "maxLength": 255
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.ST_TimeZoneInformation": {
+            "properties": {
+                "bias": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "daylightBias": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "daylightDate": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.TIMESTRUCT"
+                },
+                "daylightName": {
+                    "allOf": [
+                        {
+                            "maxLength": 31
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "standardBias": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "standardDate": {
+                    "$ref": "#/definitions/PLC1.Tc2_Utilities.TIMESTRUCT"
+                },
+                "standardName": {
+                    "allOf": [
+                        {
+                            "maxLength": 31
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_Utilities.TIMESTRUCT": {
+            "properties": {
+                "wDay": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wDayOfWeek": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wHour": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wMilliseconds": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wMinute": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wMonth": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wSecond": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wYear": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                }
+            },
+            "type": "object"
+        }
+    },
     "DEFLATECOMPRESSIONLEVEL": 5,
     "DISCOVERY": 2,
     "ENDPOINTS": [
@@ -2286,6 +2967,26 @@
             "MAPPING": "PLC1::TimeAnddDate::localYear",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.timestampMilliseconds": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::timestampMilliseconds",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/ULINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.TimeAnddDate.timestampSeconds": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::TimeAnddDate::timestampSeconds",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/ULINT"
             },
             "USEMAPPING": true
         },
