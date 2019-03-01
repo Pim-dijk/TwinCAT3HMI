@@ -71,7 +71,7 @@
 
 <div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px">
 
-<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="500" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-target-content="Content/TestAllTheThingsHere.content" data-tchmi-scrolling="No">
+<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="500" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="-53" data-tchmi-target-content="Content/TestAllTheThingsHere.content" data-tchmi-scrolling="No">
 
 
 
@@ -99,11 +99,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.HMI.sUserName%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getCurrentUser();%/f%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="195" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
 
 </div>
 
-<div id="TcHmiTextblock_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.HMI.miUserLevel%/s%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getGroupsOfCurrentUser().join(', ');%/f%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="195" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
 
 </div>
 
@@ -121,7 +121,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_7" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="308" data-tchmi-left-unit="px" data-tchmi-text="GodMode / commisioningMode active" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="372" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="14" data-tchmi-text-vertical-alignment="Top">
+<div id="TcHmiTextblock_7" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="443" data-tchmi-left-unit="px" data-tchmi-text="GodMode / commisioningMode active" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="14" data-tchmi-text-vertical-alignment="Top">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -389,7 +389,7 @@
 
 </div>
 
-<div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="390" data-tchmi-height-unit="px" data-tchmi-left="271" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="121" data-tchmi-top-unit="px" data-tchmi-width="267" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%">
+<div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="274" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="136" data-tchmi-top-unit="px" data-tchmi-width="219" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
@@ -407,7 +407,7 @@
 </script>
 </div>
 
-<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="99" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="610" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Hidden">
+<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="272" data-tchmi-height-unit="px" data-tchmi-left="44" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="268" data-tchmi-top-unit="px" data-tchmi-width="690" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Collapsed">
 
 </div>
 

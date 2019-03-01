@@ -60,19 +60,16 @@
       "url": "UserControls/IOField.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_Button.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_Calculator.usercontrol"
     },
     {
-      "url": "UserControls/Kremer_Light_Green.usercontrol"
-    },
-    {
-      "url": "UserControls/Kremer_Square_Light.usercontrol"
+      "url": "UserControls/Kremer_Light.usercontrol"
     },
     {
       "url": "UserControls/Kremer_Time.usercontrol"
-    },
-    {
-      "url": "UserControls/KremerAlarmLight.usercontrol"
     },
     {
       "url": "UserControls/LanguageSelect.usercontrol"
@@ -159,7 +156,7 @@
         },
         "type": "tchmi:framework#/definitions/Color",
         "persist": false,
-        "readonly": false
+        "readonly": true
       },
       "Color_Red": {
         "value": {
@@ -167,7 +164,7 @@
         },
         "type": "tchmi:framework#/definitions/Color",
         "persist": false,
-        "readonly": false
+        "readonly": true
       },
       "TempSymbolName": {
         "value": "",
@@ -192,10 +189,18 @@
         "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
+      },
+      "Color_Grey": {
+        "value": {
+          "color": "rgba(117, 117, 117, 1)"
+        },
+        "type": "tchmi:framework#/definitions/Color",
+        "persist": false,
+        "readonly": true
       }
     }
   },
-  "trigger": null,
+  "trigger": [],
   "actionTemplates": [
     {
       "name": "Hide_Calculator",

@@ -1,19 +1,51 @@
 ﻿{
   "parameters": [
     {
-      "name": "data-tchmi-senderobject",
-      "displayName": "SenderObject",
+      "name": "data-tchmi-symboltowriteto",
+      "displayName": "SymbolToWriteTo",
       "visible": true,
-      "type": "tchmi:framework#/definitions/TcHmiTextblock",
+      "type": "tchmi:framework#/definitions/Symbol",
       "category": "",
       "description": "",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "SenderObject",
-      "propertySetterName": "setSenderObject",
-      "propertyGetterName": "getSenderObject"
+      "propertyName": "SymbolToWriteTo",
+      "propertySetterName": "setSymbolToWriteTo",
+      "propertyGetterName": "getSymbolToWriteTo"
+    },
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
+    },
+    {
+      "name": "data-tchmi-self",
+      "displayName": "Self",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Control",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Self",
+      "propertySetterName": "setSelf",
+      "propertyGetterName": "getSelf"
     }
   ],
   "virtualRights": [],

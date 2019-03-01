@@ -2,8 +2,8 @@
     "USERS": {
         "TestUser": {
             "ENABLED": true,
-            "PASSWORD": "a5af1194a6066b12a1d27e70b58db371210a3d9de04c44071738f06dd207117e",
-            "SALT": "PHEaN79+E4Up+zZDd2KF5lWxTCBz7SvmnKrWHTCaIFAqnUL/tB6zGNt1CHTtJ8Ij96ydKdVP2osxGv9uqtYDAA=="
+            "PASSWORD": "d1c54264fd34f29506b66d8d9e53062bfcbcb5479da3f7a0032de2e58a535c87",
+            "SALT": "7WgahXKYTDkt9T5tgZ1n3gWjva/dfIgq8UCBm0IJzo/SJ/8h4CrD/TBOZcMDUEV+LOwnRSVNeeGFxeTe63WmAA=="
         },
         "__SystemAdministrator": {
             "ENABLED": false,

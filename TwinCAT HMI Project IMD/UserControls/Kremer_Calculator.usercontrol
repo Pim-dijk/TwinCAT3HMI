@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-zindex="100">
 
-<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="70" data-tchmi-height-unit="%" data-tchmi-label-font-size="14" data-tchmi-layout="Calculator" data-tchmi-left="3" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="28.8" data-tchmi-top-unit="%" data-tchmi-width="94" data-tchmi-width-unit="%" data-tchmi-fixed-target="TcHmiTextbox_calc" data-tchmi-release-sticky-keys-manually="False" data-tchmi-right="3" data-tchmi-right-unit="%" data-tchmi-bottom="16.2" data-tchmi-bottom-unit="%" data-tchmi-zindex="5">
+<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="70" data-tchmi-height-unit="%" data-tchmi-label-font-size="14" data-tchmi-layout="Calculator" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="28.8" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-fixed-target="TcHmiTextbox_calc" data-tchmi-release-sticky-keys-manually="False" data-tchmi-right="0" data-tchmi-right-unit="%" data-tchmi-bottom="16.2" data-tchmi-bottom-unit="%" data-tchmi-zindex="5">
 <script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
 {
   "top": 10,
@@ -69,16 +69,6 @@
         ],
         "true": [
           {
-            "objectType": "JavaScript",
-            "active": false,
-            "sourceLines": [
-              "var symbol = new TcHmi.Symbol('%pp%Value%/pp%');\nvar textBox = TcHmi.Controls.get('TcHmiTextbox_calc');\nvar textBoxValue;\nif(textBox !== undefined){\n\ttextBoxValue = textBox.getText();\n\tsymbol.write(textBoxValue, function(date){\n\t\tif(data.error === TcHmi.Error.NONE){\n\t\t\t// success here\n\t\t} else {\n\t\t\t// errror here\n\t\t}\t\t\t\n\t});\n};"
-            ],
-            "injectContextObject": false,
-            "asyncWait": true,
-            "waitMode": "Synchronous"
-          },
-          {
             "objectType": "WriteToSymbol",
             "active": true,
             "symbolExpression": "%pp%Value%/pp%",
@@ -143,7 +133,9 @@
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Color",
-                  "value": null
+                  "value": {
+                    "color": "None"
+                  }
                 },
                 "asyncWait": true
               },
@@ -158,7 +150,7 @@
                   },
                   {
                     "objectType": "Symbol",
-                    "symbolExpression": "%i%CalcName%/i%"
+                    "symbolExpression": "%pp%Value%/pp%"
                   }
                 ],
                 "asyncWait": true
@@ -233,7 +225,7 @@
   "color": "rgba(183, 183, 183, 1)"
 }
 </script>
-<div id="TcHmiTextbox_calc" data-tchmi-type="tchmi-textbox" data-tchmi-height="17" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-top="13.0" data-tchmi-top-unit="%" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-text-font-size="50" data-tchmi-right="5" data-tchmi-right-unit="%">
+<div id="TcHmiTextbox_calc" data-tchmi-type="tchmi-textbox" data-tchmi-height="15" data-tchmi-height-unit="%" data-tchmi-left="3" data-tchmi-left-unit="%" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="94" data-tchmi-width-unit="%" data-tchmi-text-font-size="50" data-tchmi-right="3" data-tchmi-right-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -282,7 +274,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_5" data-tchmi-type="tchmi-button" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-text="X" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="3" data-tchmi-right-unit="%">
+<div id="TcHmiButton_5" data-tchmi-type="tchmi-button" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-text="X" data-tchmi-top="3" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="3" data-tchmi-right-unit="%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -290,6 +282,20 @@
   {
     "event": "TcHmiButton_5.onPressed",
     "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiTextbox_calc::BorderColor%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Color",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SolidColor",
+          "value": {
+            "color": "None"
+          }
+        },
+        "asyncWait": true
+      },
       {
         "objectType": "WriteToSymbol",
         "active": true,
@@ -324,5 +330,9 @@
 
 
 
+
+<div id="TcHmiTextblock_65" data-tchmi-type="tchmi-textblock" data-tchmi-height="12" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="%f%'( '+%i%MinValue%/i% + ' / ' + %i%MaxValue%/i% + ' )'%/f%" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="70" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
+
+</div>
 
 </div>

@@ -1,9 +1,9 @@
 ﻿<div id="DoorView" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
-     data-tchmi-width="334" data-tchmi-height="284" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiRectangle_1" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_1" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -17,7 +17,7 @@
 
 </div>
 
-<div id="TcHmiRectangle_2" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_2" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -31,7 +31,7 @@
 
 </div>
 
-<div id="TcHmiRectangle_3" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="35" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_3" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -45,7 +45,7 @@
 
 </div>
 
-<div id="TcHmiRectangle_6" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="140" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_6" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="80.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -59,7 +59,7 @@
 
 </div>
 
-<div id="TcHmiRectangle_7" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="140" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_7" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="80.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -73,35 +73,7 @@
 
 </div>
 
-<div id="Kremer_Square_Light_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="151" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="83" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_5" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="38" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_6" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="54" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_7" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="45" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="TcHmiRectangle_9" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="70" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_9" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="40.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -115,19 +87,7 @@
 
 </div>
 
-<div id="Kremer_Square_Light_8" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_9" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="73" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="Kremer_Square_Light_10" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="89" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="TcHmiRectangle_10" data-tchmi-type="tchmi-rectangle" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="105" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_10" data-tchmi-type="tchmi-rectangle" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="60.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -141,24 +101,244 @@
 
 </div>
 
-<div id="Kremer_Square_Light_11" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="115" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
+<div id="Kremer_Light_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="86.4" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exGantryB_BackDoor%/s%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
 </div>
 
-<div id="Kremer_Square_Light_12" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="108" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
+<div id="Kremer_Light_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="5.9" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exGantryA_BackDoor%/s%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
 </div>
 
-<div id="Kremer_Square_Light_13" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="124" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
+<div id="Kremer_Light_5" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="92.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="59.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exGantryB_FrontDoorRight%/s%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
 </div>
 
-<div id="Kremer_Square_Light_14" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="161" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="69" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
+<div id="Kremer_Light_6" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="51.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exGantryB_FrontDoorLeft%/s%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
 </div>
 
-<div id="Kremer_Square_Light_15" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="161" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Square_Light.usercontrol" data-tchmi-top="86" data-tchmi-top-unit="px" data-tchmi-width="14" data-tchmi-width-unit="px">
+<div id="Kremer_Light_7" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="59.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exGantryA_FrontDoorLeft%/s%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_8" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="76.8" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exGantryA_FrontDoorRight%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_9" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="26.4" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="90.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdFrontDoorLeft%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_10" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="46.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="90.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdFrontDoorMiddle%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_11" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="66.1" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="90.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdFrontDoorRight%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_12" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="21.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdBackDoorLeft1%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_13" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="31.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdBackDoorLeft2%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_14" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="41.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdBackDoorMiddle3%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_15" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="92.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="76.7" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdBackDoorMiddle4%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_16" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="61.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdBackDoorRight5%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_17" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-left="71.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="50.0" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="8" data-tchmi-width-unit="%" data-tchmi-shape="Rectangle" data-tchmi-symbol="%s%PLC1.MAIN.Errors.exImdBackDoorRight6%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(219, 3, 3, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(40, 202, 0, 1)"
+}
+</script>
 </div>
 
 </div>

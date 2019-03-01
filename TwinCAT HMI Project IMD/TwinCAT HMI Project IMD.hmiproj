@@ -179,6 +179,12 @@
     <Content Include="Themes\Kremer\Style.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\Kremer_Button.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Button.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\Kremer_Calculator.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -203,22 +209,10 @@
     <Content Include="UserControls\IOField.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\KremerAlarmLight.usercontrol">
+    <Content Include="UserControls\Kremer_Light.usercontrol">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\KremerAlarmLight.usercontrol.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Light_Green.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Light_Green.usercontrol.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Square_Light.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Square_Light.usercontrol.json">
+    <Content Include="UserControls\Kremer_Light.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_Time.usercontrol">
