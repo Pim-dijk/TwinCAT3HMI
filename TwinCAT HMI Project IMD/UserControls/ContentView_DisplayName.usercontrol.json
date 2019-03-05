@@ -1,0 +1,38 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-fontsize",
+      "displayName": "FontSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "",
+      "defaultValueInternal": 18,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "FontSize",
+      "propertySetterName": "setFontSize",
+      "propertyGetterName": "getFontSize"
+    },
+    {
+      "name": "data-tchmi-regioncontent",
+      "displayName": "RegionContent",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "RegionContent",
+      "propertySetterName": "setRegionContent",
+      "propertyGetterName": "getRegionContent"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

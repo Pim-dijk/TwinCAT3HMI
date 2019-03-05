@@ -31,3 +31,8 @@ html {
     font-style: normal;
     font-weight: normal;
 }
+
+@font-face {
+    font-family: Helvetica;
+    src: url(../../Fonts/HelveticaNeueLTStd-Bd.otf);
+} 

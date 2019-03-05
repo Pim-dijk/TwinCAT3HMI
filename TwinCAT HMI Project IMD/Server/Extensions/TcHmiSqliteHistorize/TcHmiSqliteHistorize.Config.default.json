@@ -1,5 +1,12 @@
 {
-    "historizedSymbolList": {},
+    "historizedSymbolList": {
+        "PLC1.MAIN.linetrendOutput": {
+            "interval": "PT0.5S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 10000
+        }
+    },
     "inMemory": false,
     "mode": 3
 }

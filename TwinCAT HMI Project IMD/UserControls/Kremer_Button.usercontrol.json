@@ -22,6 +22,8 @@
       "type": "tchmi:general#/definitions/String",
       "category": "",
       "description": "",
+      "defaultValue": "text",
+      "defaultValueInternal": "",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -53,7 +55,7 @@
       "visible": true,
       "type": "tchmi:general#/definitions/INT",
       "category": "",
-      "description": "",
+      "description": "If not set, theme value will be used",
       "defaultValue": 14,
       "defaultValueInternal": 14,
       "requiredOnCompile": false,
@@ -63,6 +65,21 @@
       "propertyName": "FontSize",
       "propertySetterName": "setFontSize",
       "propertyGetterName": "getFontSize"
+    },
+    {
+      "name": "data-tchmi-fontfamily",
+      "displayName": "FontFamily",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/FontFamily",
+      "category": "",
+      "description": "If not set, theme value will be used",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "FontFamily",
+      "propertySetterName": "setFontFamily",
+      "propertyGetterName": "getFontFamily"
     },
     {
       "name": "data-tchmi-visible",
@@ -103,6 +120,12 @@
       "type": "tchmi:framework#/definitions/Color",
       "category": "Colors",
       "description": "",
+      "defaultValue": {
+        "color": "rgba(227, 227, 227, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(227, 227, 227, 1)"
+      },
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -133,6 +156,12 @@
       "type": "tchmi:framework#/definitions/Color",
       "category": "Colors",
       "description": "",
+      "defaultValue": {
+        "color": "rgba(0, 0, 0, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(0, 0, 0, 1)"
+      },
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -144,5 +173,5 @@
   ],
   "virtualRights": [],
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
-  "description": ""
+  "description": "Button with 4 different operation types and configurable colors and font styling"
 }

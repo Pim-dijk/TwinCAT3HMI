@@ -22,6 +22,12 @@
       "type": "tchmi:framework#/definitions/Color",
       "category": "Colors",
       "description": "",
+      "defaultValue": {
+        "color": "rgba(0, 255, 0, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(0, 255, 0, 1)"
+      },
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -37,6 +43,12 @@
       "type": "tchmi:framework#/definitions/Color",
       "category": "Colors",
       "description": "",
+      "defaultValue": {
+        "color": "rgba(117, 117, 117, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(117, 117, 117, 1)"
+      },
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -52,6 +64,8 @@
       "type": "tchmi:project#/definitions/Shape",
       "category": "",
       "description": "",
+      "defaultValue": "Ellipse",
+      "defaultValueInternal": "Ellipse",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": false,

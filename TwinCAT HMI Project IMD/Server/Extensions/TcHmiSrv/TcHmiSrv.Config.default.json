@@ -2817,6 +2817,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.linetrendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::linetrendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.mxAutoMode": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",

@@ -51,6 +51,24 @@
         "Continuous"
       ]
     },
+    "Textbox_DataType": {
+      "type": "string",
+      "title": "Textbox data type",
+      "description": "The data type for the textbox",
+      "enum": [
+        "Input",
+        "Output",
+        "In/Output"
+      ]
+    },
+    "ContentView_DisplayName": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\ContentView_DisplayName.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ContentView_DisplayName"
+    },
     "DoorView": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -99,6 +117,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_Light"
     },
+    "Kremer_PopupMessage": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_PopupMessage.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_PopupMessage"
+    },
     "Kremer_Time": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -114,14 +140,6 @@
       "frameworkUserControlConfig": "UserControls\\LanguageSelect.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/LanguageSelect"
-    },
-    "Login_Form": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Login_Form.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Login_Form"
     },
     "ucDateTime": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",

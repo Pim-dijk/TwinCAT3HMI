@@ -331,12 +331,6 @@
     <Compile Include="POUs\Standard\NC_Axis\ST_NcAxis_SysPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Standard\TimeAnddDate.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\Standard\UnixTimestamp.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\Standard\Valves\FB_MonoValve2Fdbck.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -358,6 +352,12 @@
     <Compile Include="POUs\ST_Errors.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\TestingForHMI\TimeAnddDate.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\TestingForHMI\UnixTimestamp.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\TestStuff.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -374,6 +374,7 @@
     <Folder Include="POUs\InMoldDrying\ProductForming" />
     <Folder Include="POUs\InMoldDrying\TopMold" />
     <Folder Include="POUs\InMoldDrying\TransferMold" />
+    <Folder Include="POUs\TestingForHMI" />
     <Folder Include="POUs\ProductHandling" />
     <Folder Include="POUs\Standard\Balluff" />
     <Folder Include="POUs\Standard\HeatingZone\PID" />
@@ -422,6 +423,10 @@
       <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_Utilities</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_EventLogger">
+      <DefaultResolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_EventLogger</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc3_Module">
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
@@ -436,6 +441,11 @@
     <Content Include="ClassDiagram.TcCD">
       <SubType>Content</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderResolution Include="Tc3_EventLogger">
+      <Resolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</Resolution>
+    </PlaceholderResolution>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

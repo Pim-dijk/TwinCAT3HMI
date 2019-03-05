@@ -51,6 +51,9 @@
   ],
   "userControls": [
     {
+      "url": "UserControls/ContentView_DisplayName.usercontrol"
+    },
+    {
       "url": "UserControls/DoorView.usercontrol"
     },
     {
@@ -69,19 +72,23 @@
       "url": "UserControls/Kremer_Light.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_PopupMessage.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_Time.usercontrol"
     },
     {
       "url": "UserControls/LanguageSelect.usercontrol"
     },
     {
-      "url": "UserControls/Login_Form.usercontrol"
-    },
-    {
       "url": "UserControls/ucDateTime.usercontrol"
     }
   ],
   "content": [
+    {
+      "url": "Content/subFolder/SubfolderScreen.content",
+      "preload": false
+    },
     {
       "url": "Content/Alarms.content",
       "preload": false
@@ -100,6 +107,10 @@
     },
     {
       "url": "Content/TestAllTheThingsHere.content",
+      "preload": false
+    },
+    {
+      "url": "Content/TrendView.content",
       "preload": false
     }
   ],

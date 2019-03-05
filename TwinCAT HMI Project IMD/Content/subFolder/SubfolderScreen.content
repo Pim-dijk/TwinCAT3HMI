@@ -1,0 +1,15 @@
+﻿<div id="SubfolderScreen" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="640">
+
+<div id="TcHmiTextbox" data-tchmi-type="tchmi-textbox" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="A content screen that's in a subfolder" data-tchmi-top="249" data-tchmi-top-unit="px" data-tchmi-width="90" data-tchmi-width-unit="%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+
+</div>

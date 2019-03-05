@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiTextblock_60" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%f%%pp%Value%/pp% + ' ' + %pp%Attribute%/pp% %/f%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_60" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%f%if(%pp%DataType%/pp% == &quot;Input&quot;) { &quot;&quot; } else {%pp%Value%/pp% + ' ' + %pp%Attribute%/pp%}%/f%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="px" data-tchmi-border-width="%f%if(%pp%Border%/pp%){ '{  &quot;left&quot;: 1,  &quot;right&quot;: 1,  &quot;top&quot;: 1,  &quot;bottom&quot;: 1,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}' } else { '{  &quot;left&quot;: 0,  &quot;right&quot;: 0,  &quot;top&quot;: 0,  &quot;bottom&quot;: 0,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}'  }%/f%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -12,58 +12,80 @@
     "event": "TcHmiTextblock_60.onPressed",
     "actions": [
       {
-        "objectType": "JavaScript",
+        "objectType": "Condition",
         "active": true,
-        "sourceLines": [
-          "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\nvar value = readValue.__symbol.__expression.__expression;\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success                  \t\t\n  \t} else {\n    \t// on error          \t\t\n\t}\n});"
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%DataType%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:project#/definitions/Textbox_DataType",
+              "value": "Output"
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
         ],
-        "injectContextObject": false,
-        "asyncWait": true,
-        "waitMode": "Synchronous"
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%i%CalcName%/i%",
-        "valueType": "tchmi:general#/definitions/String",
-        "value": {
-          "objectType": "Symbol",
-          "symbolExpression": "%pp%Keyboard::id%/pp%"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%i%MaxValue%/i%",
-        "valueType": "tchmi:general#/definitions/REAL",
-        "value": {
-          "objectType": "Symbol",
-          "symbolExpression": "%pp%ValueMax%/pp%"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%i%MinValue%/i%",
-        "valueType": "tchmi:general#/definitions/REAL",
-        "value": {
-          "objectType": "Symbol",
-          "symbolExpression": "%pp%ValueMin%/pp%"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
+        "false": [
+          {
+            "objectType": "JavaScript",
+            "active": true,
+            "sourceLines": [
+              "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\nvar value = readValue.__symbol.__expression.__expression;\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success                  \t\t\n  \t} else {\n    \t// on error          \t\t\n\t}\n});"
+            ],
+            "injectContextObject": false,
+            "asyncWait": true,
+            "waitMode": "Synchronous"
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%CalcName%/i%",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Keyboard::id%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%MaxValue%/i%",
+            "valueType": "tchmi:general#/definitions/REAL",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ValueMax%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%MinValue%/i%",
+            "valueType": "tchmi:general#/definitions/REAL",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ValueMin%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          }
+        ],
         "asyncWait": true
       }
     ]
@@ -83,18 +105,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
-{
-  "left": 1,
-  "right": 1,
-  "top": 1,
-  "bottom": 1,
-  "leftUnit": "px",
-  "rightUnit": "px",
-  "topUnit": "px",
-  "bottomUnit": "px"
-}
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
 {

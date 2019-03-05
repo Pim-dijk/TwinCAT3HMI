@@ -23,6 +23,12 @@
   },
   {
     "columnName": "text"
+  },
+  {
+    "columnName": "timeAndDateConfirmed"
+  },
+  {
+    "columnName": "timeAndDateCleared"
   }
 ]
 </script>

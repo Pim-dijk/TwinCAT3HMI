@@ -85,31 +85,7 @@
             "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
           }
         ],
-        "asyncWait": true,
-        "success": [
-          {
-            "objectType": "JavaScript",
-            "active": true,
-            "sourceLines": [
-              "console.log(\"Great succes\");"
-            ],
-            "injectContextObject": false,
-            "asyncWait": true,
-            "waitMode": "Synchronous"
-          }
-        ],
-        "error": [
-          {
-            "objectType": "JavaScript",
-            "active": true,
-            "sourceLines": [
-              "console.log(\"Nope!\");"
-            ],
-            "injectContextObject": false,
-            "asyncWait": true,
-            "waitMode": "Synchronous"
-          }
-        ]
+        "asyncWait": true
       }
     ]
   }
@@ -140,7 +116,45 @@
             "symbolExpression": "%ctrl%TcHmiCombobox_RecipeList::SelectedValue%/ctrl%"
           }
         ],
-        "asyncWait": true
+        "asyncWait": true,
+        "error": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%Kremer_PopupMessage_1::Message%/ctrl%",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "Recipe update failed, values possibly out of range."
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%Kremer_PopupMessage_1::Visibility%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%Kremer_PopupMessage_1::Self%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "value": {
+              "objectType": "Symbol",
+              "valueType": "tchmi:framework#/definitions/Control",
+              "symbolExpression": "%ctrl%Kremer_PopupMessage_1%/ctrl%"
+            },
+            "asyncWait": true
+          }
+        ]
       }
     ]
   }
@@ -302,7 +316,7 @@
     "control": "TextBlock",
     "width": 73,
     "widthUnit": "%",
-    "resize": false,
+    "resize": true,
     "sortable": true,
     "minWidth": 100,
     "minWidthUnit": "px",
@@ -337,7 +351,7 @@
     "width": 10,
     "widthUnit": "%",
     "resize": false,
-    "sortable": false,
+    "sortable": true,
     "minWidth": 70,
     "minWidthUnit": "px",
     "cellBackground": null,
@@ -380,9 +394,36 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "TcHmiDatagrid_RecipeView.onPressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var activeField = TcHmi.Controls.get('TcHmiDatagrid_RecipeView');\nconsole.log(activeField);\nvar column = activeField.__selectedCell.columnIndex;\nvar row = activeField.__selectedCell.rowIndex;\nconsole.log(\"Column: \" + column + \" Row: \" + row);\nvar data = activeField.__srcData[row];\nconsole.log(data);\n//Overbodig, kan niet de range van een veld ophalen via een recipe,\n// dus kan ook geen terugkoppeling geven op een specifiek veld."
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
   }
 ]
 </script>
+</div>
+
+<div id="Kremer_PopupMessage_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="198" data-tchmi-height-unit="px" data-tchmi-left="248" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_PopupMessage.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="317" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-message="Testmessage" data-tchmi-visibility="Collapsed">
+
+</div>
+
+<div id="TcHmiTextblock_68" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="500" data-tchmi-left-unit="px" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
+
+
+
+
+
 </div>
 
 </div>

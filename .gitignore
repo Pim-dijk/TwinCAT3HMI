@@ -332,3 +332,4 @@ ASALocalRun/
 # TwinCAT engineering
 .engineering_servers/
 .engineering_servers/TwinCAT HMI Project IMD/tchmi.project.Schema.json
+*.db

@@ -19,7 +19,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Select Language" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="68.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Select Language" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="68.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="">
 
 </div>
 
@@ -121,7 +121,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var language = \"\";\nvar languages = [];\nlanguage = TcHmi.Locale.get();\nlanguages = TcHmi.Locale.getRegisteredLocales();\nvar index = 0;\nfor(var i = 0; i < languages.length; i++){\n\tif(language == languages[i]){\t\n\t\tindex = i;\n\t}\n}\n\nvar symbol = new TcHmi.Symbol('%pp%SelectedIndex%/pp%');\nsymbol.write(index);\nconsole.log(\"We got attached!\");"
+          "var language = \"\";\nvar languages = [];\nlanguage = TcHmi.Locale.get();\nlanguages = TcHmi.Locale.getRegisteredLocales();\nvar index = 0;\nfor(var i = 0; i < languages.length; i++){\n\tif(language == languages[i]){\t\n\t\tindex = i;\n\t}\n}\n\nvar symbol = new TcHmi.Symbol('%pp%SelectedIndex%/pp%');\nsymbol.write(index);"
         ],
         "injectContextObject": false,
         "asyncWait": true,

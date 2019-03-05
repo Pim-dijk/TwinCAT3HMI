@@ -281,12 +281,42 @@
 </script>
 
 <script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
-[]
+[
+  {
+    "accessright": "operate",
+    "group": "TestGroup",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "observe",
+    "group": "TestGroup",
+    "permission": "Deny"
+  }
+]
 </script>
 </div>
 
-<div id="TcHmiButton_25" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="684" data-tchmi-left-unit="px" data-tchmi-text="Close HMI" data-tchmi-top="387" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiButton_25" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="684" data-tchmi-left-unit="px" data-tchmi-text="%l%28%/l%" data-tchmi-top="387" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "operate",
+    "group": "TestGroup",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "observe",
+    "group": "TestGroup",
+    "permission": "Allow"
+  }
+]
+</script>
 </div>
 
 <div id="TcHmiTextblock_21" data-tchmi-type="tchmi-textblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="State:" data-tchmi-top="72" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="13" data-tchmi-text-font-weight="Bold">
@@ -747,7 +777,7 @@
 
 </div>
 
-<div id="Kremer_Light_21" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="643" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank01%/s%">
+<div id="Kremer_Light_21" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="643" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="35" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank01%/s%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
@@ -763,7 +793,7 @@
 </script>
 </div>
 
-<div id="Kremer_Light_22" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="643" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="62" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank02%/s%">
+<div id="Kremer_Light_22" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="643" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="61" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.ixPulpTank02%/s%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
@@ -827,7 +857,7 @@
 </script>
 </div>
 
-<div id="Kremer_Light_26" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="643" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100%/s%">
+<div id="Kremer_Light_26" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="643" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="195" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100%/s%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
