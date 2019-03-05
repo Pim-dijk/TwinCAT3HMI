@@ -86,6 +86,9 @@
     <Content Include="Content\Alarms.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\subFolder\SubfolderScreen.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\General.content">
       <SubType>Content</SubType>
     </Content>
@@ -96,6 +99,15 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\TestAllTheThingsHere.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\TrendView.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\HelveticaNeueLTStd-Bd.otf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\HelveticaNeueLTStd-BdCn.otf">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Localization\nl-NL.localization">
@@ -179,6 +191,18 @@
     <Content Include="Themes\Kremer\Style.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\ContentView_DisplayName.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\ContentView_DisplayName.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Button.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Button.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\Kremer_Calculator.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -203,22 +227,16 @@
     <Content Include="UserControls\IOField.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\KremerAlarmLight.usercontrol">
+    <Content Include="UserControls\Kremer_Light.usercontrol">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\KremerAlarmLight.usercontrol.json">
+    <Content Include="UserControls\Kremer_Light.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Kremer_Light_Green.usercontrol">
+    <Content Include="UserControls\Kremer_PopupMessage.usercontrol">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Kremer_Light_Green.usercontrol.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Square_Light.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Square_Light.usercontrol.json">
+    <Content Include="UserControls\Kremer_PopupMessage.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_Time.usercontrol">
@@ -233,12 +251,6 @@
     <Content Include="UserControls\LanguageSelect.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Login_Form.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Login_Form.usercontrol.json">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="UserControls\ucDateTime.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -246,6 +258,7 @@
       <SubType>Content</SubType>
     </Content>
     <Folder Include=".hmipkgs" />
+    <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />

@@ -1,0 +1,89 @@
+﻿<div id="TrendView" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="436">
+
+<div id="TcHmiTrendLineChart" data-tchmi-type="tchmi-trend-line-chart"   data-tchmi-end="Latest" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-start="PT10M" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Time" data-tchmi-x-sub-tick-steps="10" data-tchmi-y-sub-tick-steps="4" data-tchmi-interval="500" data-tchmi-show-menu-bar="True" data-tchmi-show-x-axis="True" data-tchmi-x-show-labels="True" data-tchmi-x-main-tick-steps="2" data-tchmi-y-main-tick-steps="10" data-tchmi-show-grid="True" data-tchmi-grid-show-horizontal-lines="True" data-tchmi-grid-show-vertical-lines="True" data-tchmi-grid-line-style="Dotted" data-tchmi-subgrid-show-horizontal-lines="False" data-tchmi-subgrid-show-vertical-lines="False">
+<script data-tchmi-target-attribute="data-tchmi-x-label-font-color" type="application/json">
+{
+  "color": "#4794da"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-x-axis-color" type="application/json">
+{
+  "color": "#4794da"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-x-axis-name-font-color" type="application/json">
+{
+  "color": "#4794da"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
+[
+  {
+    "id": 1,
+    "position": "Left",
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 15.0,
+    "showLabels": true,
+    "showAxisName": true,
+    "axisName": "Value",
+    "axisNameFontFamily": "",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "decimalPlaces": 3,
+    "unit": "",
+    "autoScaling": true,
+    "labelFontColor": {
+      "color": "rgba(71, 146, 218, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    }
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-grid-background-color" type="application/json">
+{
+  "color": "#f2f2f2"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-grid-line-color" type="application/json">
+{
+  "color": "#4794da"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-subgrid-line-color" type="application/json">
+{
+  "color": "#4794da"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-line-graph-descriptions" type="application/json">
+[
+  {
+    "yAxisId": 1,
+    "lineWidth": 1,
+    "pointDot": true,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(71, 146, 218, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotInStopMode": true,
+    "symbol": "PLC1.MAIN.linetrendOutput"
+  }
+]
+</script>
+</div>
+
+</div>

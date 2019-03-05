@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcEventSources Version="2"><Source><GUID>{92F04E0E-5776-4155-A390-5B8AC28BCE25}</GUID><Name LcId="1043">Mijn event klasse voor testen</Name><Name LcId="1033">My Event Class for testing</Name><Event><Id>1</Id><Message LcId="1033">The text for my first event (Param = { 0 })</Message></Event></Source></TcEventSources>

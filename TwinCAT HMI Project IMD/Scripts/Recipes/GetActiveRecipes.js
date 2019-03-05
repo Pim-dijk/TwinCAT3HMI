@@ -16,16 +16,29 @@
 
             return;    // We are running async so the return value is not used
         }
-        var activeRecipe = "";
+        var activeRecipe;
         TcHmi.Server.RecipeManagement.getActiveRecipes (function (data) {
             if (data.error === TcHmi.Errors.NONE) {
                 console.log(data);
                 activeRecipe = data.recipeList;
+                TargetControl.setText(activeRecipe);
+                ctx.success(activeRecipe);
+
+                return;
             } else {
                 // Error
+                ctx.error(data.error, {
+                    code: data.error,
+                    message: TcHmi.Errors[data.error],
+                    reason: 'Function: ConvertDatagridToRecipe, Recipe ' + recipeReference + ' update failed',
+                    domain: 'Function',
+                    errors: (data.details ? [data.details] : undefined)
+                });
+
+                return;
             }
         });
-        TargetControl.setText(activeRecipe);
+
         return; 
     };
     

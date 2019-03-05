@@ -1,1 +1,28 @@
-﻿[]
+﻿[
+  {
+    "isNew": false,
+    "profileName": "TestProfile",
+    "publishMode": "TcHmi",
+    "targetDirectory": "",
+    "server": null,
+    "sitePath": null,
+    "destinationUrl": null,
+    "passiveMode": true,
+    "savePassword": true,
+    "deleteAllFilesBeforePublish": true,
+    "deleteExtensionDataBeforePublish": true,
+    "abortOnErrors": true,
+    "userName": null,
+    "encryptedPassword": null,
+    "tcHmiServerHost": "127.0.0.1",
+    "tcHmiServerPort": "1020",
+    "socketTimeout": "45",
+    "tcHmiUseTLS": true,
+    "tcHmiServerUserName": "__SystemAdministrator",
+    "encryptedTcHmiServerPassword": "j65iE1GnjsLaJ2fT7ps3CQ==",
+    "tcHmiDestinationUrl": "https://127.0.0.1:1020",
+    "publishConfiguration": "remote",
+    "tcHmiSavePassword": true,
+    "tcHmiIgnoreCertificateErrors": true
+  }
+]

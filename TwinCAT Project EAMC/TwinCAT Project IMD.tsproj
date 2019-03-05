@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
+	<Translations>
+		<Text TxtId="My Event Class for testing">
+			<Text LcId="1043">
+				<![CDATA[Mijn event klasse voor testen]]>
+			</Text>
+		</Text>
+		<Text TxtId="This is a comment for my first event.">
+			<Text LcId="1043">
+				<![CDATA[Het commentaar bij mijn eerste event]]>
+			</Text>
+		</Text>
+	</Translations>
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -1673,6 +1685,27 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
+			<Name GUID="{92F04E0E-5776-4155-A390-5B8AC28BCE25}" PersistentType="true">MyEventClass</Name>
+			<DisplayName TxtId="">
+				<![CDATA[My Event Class for testing]]>
+			</DisplayName>
+			<EventId>
+				<Name Id="1">MyFirstEvent</Name>
+				<DisplayName TxtId="">
+					<![CDATA[The text for my first event (Param = { 0 })]]>
+				</DisplayName>
+				<Comment TxtId="">
+					<![CDATA[This is a comment for my first event.]]>
+				</Comment>
+				<Severity>Info</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{669C0330-005A-4E14-BDDC-D2671B17D4C8}"/>
+				<Hide GUID="{B4102F69-99B1-42F9-AB37-FD5F1053A19A}"/>
+				<Hide GUID="{E87F70AB-D1C2-49D2-B07E-EC20071D1CA6}"/>
+			</Hides>
+		</DataType>
+		<DataType>
 			<Name GUID="{85DC3E7A-8ADA-435B-9479-25573909A7DB}" Namespace="AX5000" TcBaseType="true">E_AX5000_P_0275_ActiveFeedbackAndMemory</Name>
 			<BitSize>8</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -1756,6 +1789,16 @@ External Setpoint Generation:
 			<Settings MaxCpus="2">
 				<Cpu CpuId="1" BaseTime="2500"/>
 			</Settings>
+			<Licenses>
+				<Target>
+					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
+					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
+					<ManualSelect>{2752D285-16AD-4E89-AE6C-80E72784D264}</ManualSelect>
+					<ManualSelect>{E8CE55B5-3125-49FB-B21B-4CB7A751D68B}</ManualSelect>
+					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
+					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
+				</Target>
+			</Licenses>
 			<Tasks>
 				<Task Id="2" Priority="20" CycleTime="100000" AmsPort="350">
 					<Name>PlcTask</Name>
@@ -4758,6 +4801,10 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.ixResetGantryA_Front</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.L1</Name>
 							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
 						</Var>
@@ -4845,10 +4892,6 @@ External Setpoint Generation:
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
 							</Comment>
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetGantryA_Front</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixDoorReqGantryA_Front</Name>

@@ -3,6 +3,18 @@
   <POU Name="MAIN" Id="{147bab3f-acfd-4acf-8d8e-a76750ccc81a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	(* Testing for new HMI*)
+	fbEventlogged							: FB_TcEventLogger;
+	fbAlarm									: FB_TcAlarm;
+	fbMessage								: FB_TcMessage;
+	bInit									: BOOL := TRUE;
+	testMessage								: STRING := 'TestParam';
+	linetrendOutput							: REAL := 3;
+	linetrendMin							: REAL := 0.0;
+	linetrendMax							: REAL := 15.0;
+	linetrendRising							: BOOL := TRUE;
+	(* 				end of testing 				*)
+	
 	mxReset									: BOOL;
 	mxEmergency								: BOOL;
 	mxAutoMode								: BOOL; (* "1" = Auto, "0" = Manual *)
@@ -237,7 +249,34 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// 					Object Calls				//
+      <ST><![CDATA[// 					Testing here				//
+IF bInit THEN
+	bInit := FALSE;
+	fbMessage.CreateEx(TC_Events.MyEventClass.MyFirstEvent, 0);
+END_IF
+
+IF mxAutoMode THEN
+	mxAutoMode := FALSE;
+	fbMessage.ipArguments.Clear().AddString(testMessage);
+	fbMessage.Send(0);
+END_IF
+
+IF linetrendRising THEN
+	IF linetrendOutput < linetrendMax THEN
+		linetrendOutput := linetrendOutput + 0.01;
+	ELSE
+		linetrendRising := FALSE;
+	END_IF
+ELSE
+	IF linetrendOutput > linetrendMin THEN
+		linetrendOutput := linetrendOutput - 0.01;
+	ELSE
+		linetrendRising := TRUE;
+	END_IF
+END_IF
+
+
+// 					Object Calls				//
 FB_GetCurTaskIdx();
 mxFirstCycle:= _TaskInfo[FB_GetCurTaskIdx.index].FirstCycle;
 PlcCycleTime:= UDINT_TO_REAL(_TaskInfo[FB_GetCurTaskIdx.index].CycleTime/10000);
@@ -589,6 +628,25 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
       </Implementation>
     </Action>
     <LineIds Name="MAIN">
+      <LineId Id="7382" Count="0" />
+      <LineId Id="7394" Count="0" />
+      <LineId Id="7396" Count="0" />
+      <LineId Id="7398" Count="0" />
+      <LineId Id="7397" Count="0" />
+      <LineId Id="7389" Count="0" />
+      <LineId Id="7388" Count="0" />
+      <LineId Id="7393" Count="0" />
+      <LineId Id="7399" Count="0" />
+      <LineId Id="7390" Count="1" />
+      <LineId Id="7646" Count="0" />
+      <LineId Id="7644" Count="0" />
+      <LineId Id="7651" Count="0" />
+      <LineId Id="7653" Count="0" />
+      <LineId Id="7655" Count="4" />
+      <LineId Id="7661" Count="3" />
+      <LineId Id="7660" Count="0" />
+      <LineId Id="7386" Count="0" />
+      <LineId Id="7383" Count="0" />
       <LineId Id="6671" Count="0" />
       <LineId Id="1565" Count="1" />
       <LineId Id="3669" Count="0" />

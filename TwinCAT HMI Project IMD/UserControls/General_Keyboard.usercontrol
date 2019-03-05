@@ -1,9 +1,9 @@
 ﻿<div id="General_Keyboard_2" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
-     data-tchmi-width="600" data-tchmi-height="300" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
-     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value">
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-min-width="400">
 
-<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="251" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout="EN-US_QWERTY_compact" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="87" data-tchmi-top-unit="px" data-tchmi-width="590" data-tchmi-width-unit="px" data-tchmi-right="196" data-tchmi-width-mode="Value" data-tchmi-bottom="5" data-tchmi-height-mode="Parent" data-tchmi-fixed-target="TcHmiTextbox_keyboard">
+<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-label-font-size="14" data-tchmi-layout="EN-US_QWERTY_compact" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-right="0" data-tchmi-width-mode="Value" data-tchmi-bottom="0" data-tchmi-height-mode="Parent" data-tchmi-fixed-target="TcHmiTextbox_keyboard" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%">
 <script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
 {
   "top": 10,
@@ -54,14 +54,14 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%ctrl%General_Keyboard_3::Zindex%/ctrl%"
+              "symbolExpression": "%pp%Self::Visibility%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/UDINT",
-              "value": 0
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
             },
-            "compareOperator": ">",
+            "compareOperator": "==",
             "logic": null
           }
         ],
@@ -136,10 +136,15 @@
                 "asyncWait": true
               },
               {
-                "objectType": "ActionTemplate",
+                "objectType": "WriteToSymbol",
                 "active": true,
-                "templateName": "Hide_Keyboard",
-                "fnParams": [],
+                "symbolExpression": "%pp%Self::Visibility%/pp%",
+                "valueType": "tchmi:framework#/definitions/Visibility",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Collapsed"
+                },
                 "asyncWait": true
               }
             ],
@@ -166,9 +171,15 @@
   }
 ]
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
 </div>
 
-<div id="TcHmiTextbox_keyboard" data-tchmi-type="tchmi-textbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Value" data-tchmi-right="5">
+<div id="TcHmiTextbox_keyboard" data-tchmi-type="tchmi-textbox" data-tchmi-height="18" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="85" data-tchmi-width-unit="%" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="12">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -183,10 +194,10 @@
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
-  "color": "rgba(0, 0, 0, 1)"
+  "color": "rgba(183, 183, 183, 1)"
 }
 </script>
-<div id="TcHmiButton_16" data-tchmi-type="tchmi-button" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="550" data-tchmi-left-unit="px" data-tchmi-text="X" data-tchmi-top="7" data-tchmi-top-unit="px" data-tchmi-width="45" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiButton_16" data-tchmi-type="tchmi-button" data-tchmi-height="10" data-tchmi-height-unit="%" data-tchmi-text="X" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="%" data-tchmi-right="2" data-tchmi-min-width="40" data-tchmi-min-height="40">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -195,10 +206,15 @@
     "event": "TcHmiButton_16.onPressed",
     "actions": [
       {
-        "objectType": "ActionTemplate",
+        "objectType": "WriteToSymbol",
         "active": true,
-        "templateName": "Hide_Keyboard",
-        "fnParams": [],
+        "symbolExpression": "%pp%Self::Visibility%/pp%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
         "asyncWait": true
       }
     ]

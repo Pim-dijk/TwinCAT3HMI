@@ -4,11 +4,11 @@
     "displayName": "GetActiveRecipes",
     "visible": true,
     "category": "Recipe",
-    "waitMode": "Synchronous",
+    "waitMode": "Asynchronous",
     "injectContextObject": true,
     "description": "Returns the active recipe to a text control",
     "returnValue": {
-      "type": "tchmi:general#/definitions/String"
+      "type": "tchmi:server#/definitions/recipe"
     },
     "arguments": [
       {

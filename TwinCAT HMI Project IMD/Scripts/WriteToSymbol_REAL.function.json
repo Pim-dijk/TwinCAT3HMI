@@ -34,10 +34,10 @@
         "asReference": false
       },
       {
-        "name": "KeyboardString",
-        "displayName": "KeyboardString",
-        "type": "tchmi:general#/definitions/String",
-        "description": "The keyboard control itself",
+        "name": "Value",
+        "displayName": "Value",
+        "type": "tchmi:general#/definitions/REAL",
+        "description": "The value to write to the symbol",
         "defaultValue": "",
         "required": true,
         "bindable": true,

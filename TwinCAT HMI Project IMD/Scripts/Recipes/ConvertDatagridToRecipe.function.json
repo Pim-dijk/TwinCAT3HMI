@@ -8,7 +8,7 @@
     "injectContextObject": true,
     "description": "Parses the datagrid and updates the recipe",
     "returnValue": {
-      "type": "tchmi:general#/definitions/Number"
+      "type": "tchmi:general#/definitions/String"
     },
     "arguments": [
       {

@@ -32,6 +32,43 @@
       "title": "Data type",
       "description": "Select a datatype"
     },
+    "Shape": {
+      "type": "string",
+      "title": "Shape of Light",
+      "enum": [
+        "Ellipse",
+        "Rectangle"
+      ]
+    },
+    "ButtonType": {
+      "type": "string",
+      "title": "Type",
+      "description": "The type of button (Toggle, Set/Reset, Continuous)",
+      "enum": [
+        "Toggle",
+        "Set",
+        "Reset",
+        "Continuous"
+      ]
+    },
+    "Textbox_DataType": {
+      "type": "string",
+      "title": "Textbox data type",
+      "description": "The data type for the textbox",
+      "enum": [
+        "Input",
+        "Output",
+        "In/Output"
+      ]
+    },
+    "ContentView_DisplayName": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\ContentView_DisplayName.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ContentView_DisplayName"
+    },
     "DoorView": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -56,6 +93,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/IOField"
     },
+    "Kremer_Button": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Button.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Button"
+    },
     "Kremer_Calculator": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -64,21 +109,21 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_Calculator"
     },
-    "Kremer_Light_Green": {
+    "Kremer_Light": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Light_Green.usercontrol.json",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Light.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Light_Green"
+      "id": "tchmi:project#/definitions/Kremer_Light"
     },
-    "Kremer_Square_Light": {
+    "Kremer_PopupMessage": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Square_Light.usercontrol.json",
+      "frameworkUserControlConfig": "UserControls\\Kremer_PopupMessage.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Square_Light"
+      "id": "tchmi:project#/definitions/Kremer_PopupMessage"
     },
     "Kremer_Time": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
@@ -88,14 +133,6 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_Time"
     },
-    "KremerAlarmLight": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\KremerAlarmLight.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/KremerAlarmLight"
-    },
     "LanguageSelect": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -103,14 +140,6 @@
       "frameworkUserControlConfig": "UserControls\\LanguageSelect.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/LanguageSelect"
-    },
-    "Login_Form": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Login_Form.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Login_Form"
     },
     "ucDateTime": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
