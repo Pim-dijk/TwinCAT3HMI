@@ -125,14 +125,6 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_PopupMessage"
     },
-    "Kremer_Time": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Time.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Time"
-    },
     "LanguageSelect": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",

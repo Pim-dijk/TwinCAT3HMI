@@ -86,6 +86,15 @@
     <Content Include="Content\Alarms.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Manual.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\subFolder\SubfolderScreen.content">
       <SubType>Content</SubType>
     </Content>
@@ -239,12 +248,6 @@
     <Content Include="UserControls\Kremer_PopupMessage.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Kremer_Time.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\Kremer_Time.usercontrol.json">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="UserControls\LanguageSelect.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -258,6 +261,9 @@
       <SubType>Content</SubType>
     </Content>
     <Folder Include=".hmipkgs" />
+    <Folder Include="Content\SubContent" />
+    <Folder Include="Content\SubContent\MachineParts" />
+    <Folder Include="Content\SubContent\MachineParts\ConveyorBelt" />
     <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />
@@ -513,14 +519,12 @@
     <TcHmiReference Include="5c0cd14a-c92b-4320-aa6e-3a1dab1ea1af">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlJs1/FrameworkControlJs1.csproj</RelativePath>
-      <Domain>
-      </Domain>
+      <Domain></Domain>
     </TcHmiReference>
     <TcHmiReference Include="ec55be3d-dbc7-4773-9864-e617d138c500">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>TestFrameworkControl/TestFrameworkControl.csproj</RelativePath>
-      <Domain>
-      </Domain>
+      <Domain></Domain>
     </TcHmiReference>
   </ItemGroup>
 </Project>

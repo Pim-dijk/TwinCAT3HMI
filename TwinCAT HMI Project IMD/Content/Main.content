@@ -1534,7 +1534,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "General.content"
+          "value": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Overview.content"
         },
         "asyncWait": true
       }

@@ -4,8 +4,11 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	(* Testing for new HMI*)
+	hr										: HRESULT;
+	fbEvent									: FB_TcEvent;
 	fbEventlogged							: FB_TcEventLogger;
 	fbAlarm									: FB_TcAlarm;
+	alarmIsRaised							: BOOL;
 	fbMessage								: FB_TcMessage;
 	bInit									: BOOL := TRUE;
 	testMessage								: STRING := 'TestParam';
@@ -13,6 +16,7 @@ VAR
 	linetrendMin							: REAL := 0.0;
 	linetrendMax							: REAL := 15.0;
 	linetrendRising							: BOOL := TRUE;
+	listenerBase							: FB_ListenerBase;
 	(* 				end of testing 				*)
 	
 	mxReset									: BOOL;
@@ -250,28 +254,33 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[// 					Testing here				//
+listenerBase.Execute();
+
 IF bInit THEN
 	bInit := FALSE;
-	fbMessage.CreateEx(TC_Events.MyEventClass.MyFirstEvent, 0);
+	fbAlarm.CreateEx(TC_Events.MyEventClass.MyFirstAlarm, TRUE, 0);
 END_IF
 
 IF mxAutoMode THEN
 	mxAutoMode := FALSE;
-	fbMessage.ipArguments.Clear().AddString(testMessage);
-	fbMessage.Send(0);
+	fbAlarm.Raise(0);
 END_IF
 
-IF linetrendRising THEN
-	IF linetrendOutput < linetrendMax THEN
-		linetrendOutput := linetrendOutput + 0.01;
-	ELSE
-		linetrendRising := FALSE;
-	END_IF
+IF alarmIsRaised THEN
+	// dont do anything
 ELSE
-	IF linetrendOutput > linetrendMin THEN
-		linetrendOutput := linetrendOutput - 0.01;
+	IF linetrendRising THEN
+		IF linetrendOutput < linetrendMax THEN
+			linetrendOutput := linetrendOutput + 0.01;
+		ELSE
+			linetrendRising := FALSE;
+		END_IF
 	ELSE
-		linetrendRising := TRUE;
+		IF linetrendOutput > linetrendMin THEN
+			linetrendOutput := linetrendOutput - 0.01;
+		ELSE
+			linetrendRising := TRUE;
+		END_IF
 	END_IF
 END_IF
 
@@ -629,22 +638,25 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
     </Action>
     <LineIds Name="MAIN">
       <LineId Id="7382" Count="0" />
+      <LineId Id="7921" Count="1" />
       <LineId Id="7394" Count="0" />
       <LineId Id="7396" Count="0" />
       <LineId Id="7398" Count="0" />
-      <LineId Id="7397" Count="0" />
+      <LineId Id="7923" Count="0" />
       <LineId Id="7389" Count="0" />
       <LineId Id="7388" Count="0" />
       <LineId Id="7393" Count="0" />
-      <LineId Id="7399" Count="0" />
       <LineId Id="7390" Count="1" />
-      <LineId Id="7646" Count="0" />
+      <LineId Id="7941" Count="1" />
+      <LineId Id="7946" Count="0" />
+      <LineId Id="7944" Count="0" />
       <LineId Id="7644" Count="0" />
       <LineId Id="7651" Count="0" />
       <LineId Id="7653" Count="0" />
       <LineId Id="7655" Count="4" />
       <LineId Id="7661" Count="3" />
       <LineId Id="7660" Count="0" />
+      <LineId Id="7945" Count="0" />
       <LineId Id="7386" Count="0" />
       <LineId Id="7383" Count="0" />
       <LineId Id="6671" Count="0" />

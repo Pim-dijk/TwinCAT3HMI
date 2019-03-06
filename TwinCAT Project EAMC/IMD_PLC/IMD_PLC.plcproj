@@ -352,6 +352,12 @@
     <Compile Include="POUs\ST_Errors.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\TestingForHMI\Event_Listener.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\TestingForHMI\FB_ListenerTest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\TestingForHMI\TimeAnddDate.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     <PlaceholderResolution Include="Tc3_EventLogger">
       <Resolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
+  </ItemGroup>
+  <ItemGroup>
+    <PinnedGlobalDataType Include="ST_MyEventClass" />
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

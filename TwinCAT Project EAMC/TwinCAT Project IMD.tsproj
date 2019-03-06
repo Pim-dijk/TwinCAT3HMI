@@ -1685,7 +1685,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{92F04E0E-5776-4155-A390-5B8AC28BCE25}" PersistentType="true">MyEventClass</Name>
+			<Name GUID="{FF780200-3AED-4DF2-9F5E-D78DA6F26947}" PersistentType="true">MyEventClass</Name>
 			<DisplayName TxtId="">
 				<![CDATA[My Event Class for testing]]>
 			</DisplayName>
@@ -1699,10 +1699,18 @@ External Setpoint Generation:
 				</Comment>
 				<Severity>Info</Severity>
 			</EventId>
+			<EventId>
+				<Name Id="2">MyFirstAlarm</Name>
+				<DisplayName TxtId="">
+					<![CDATA[MyEventClassEvent2_DisplayText]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
 			<Hides>
 				<Hide GUID="{669C0330-005A-4E14-BDDC-D2671B17D4C8}"/>
 				<Hide GUID="{B4102F69-99B1-42F9-AB37-FD5F1053A19A}"/>
 				<Hide GUID="{E87F70AB-D1C2-49D2-B07E-EC20071D1CA6}"/>
+				<Hide GUID="{92F04E0E-5776-4155-A390-5B8AC28BCE25}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -1791,12 +1799,11 @@ External Setpoint Generation:
 			</Settings>
 			<Licenses>
 				<Target>
-					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
 					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
+					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
 					<ManualSelect>{2752D285-16AD-4E89-AE6C-80E72784D264}</ManualSelect>
-					<ManualSelect>{E8CE55B5-3125-49FB-B21B-4CB7A751D68B}</ManualSelect>
-					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
 					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
+					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
 				</Target>
 			</Licenses>
 			<Tasks>
@@ -4783,13 +4790,6 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixEmStopImdFront</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.ixResetImdBack</Name>
 							<Comment>
 								<![CDATA[ NON Operator side/Back ]]>
@@ -4797,11 +4797,14 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixDoorReqImdBack</Name>
-							<Type>BOOL</Type>
+							<Name>MAIN.ixEmStopImdFront</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixResetGantryA_Front</Name>
+							<Name>MAIN.ixDoorReqImdBack</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -4892,6 +4895,10 @@ External Setpoint Generation:
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
 							</Comment>
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryA_Front</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixDoorReqGantryA_Front</Name>

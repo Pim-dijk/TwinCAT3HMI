@@ -3,7 +3,7 @@
         "TestRecipe": {
             "recipeTypeName": "TestRecipeType",
             "values": {
-                "Gantry A - Vertical dropoff position": 15,
+                "Gantry A - Vertical dropoff position": 5000,
                 "Gantry A - Vertical pickup position": 11,
                 "Gantry B - Vertical dropoff position": 14,
                 "Gantry B - Vertical pickup position": 13,

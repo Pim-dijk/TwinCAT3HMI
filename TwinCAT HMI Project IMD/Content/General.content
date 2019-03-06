@@ -290,7 +290,7 @@
   {
     "accessright": "observe",
     "group": "TestGroup",
-    "permission": "Deny"
+    "permission": "Allow"
   }
 ]
 </script>

@@ -75,9 +75,6 @@
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
     },
     {
-      "url": "UserControls/Kremer_Time.usercontrol"
-    },
-    {
       "url": "UserControls/LanguageSelect.usercontrol"
     },
     {
@@ -85,6 +82,18 @@
     }
   ],
   "content": [
+    {
+      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Settings.content",
+      "preload": false
+    },
     {
       "url": "Content/subFolder/SubfolderScreen.content",
       "preload": false
@@ -162,19 +171,15 @@
   "symbols": {
     "internal": {
       "Color_Green": {
-        "value": {
-          "color": "rgba(0, 255, 10, 1)"
-        },
+        "value": "{\r\n  \"color\": \"rgba(0, 255, 10, 1)\"\r\n}",
         "type": "tchmi:framework#/definitions/Color",
-        "persist": false,
+        "persist": true,
         "readonly": true
       },
       "Color_Red": {
-        "value": {
-          "color": "rgba(255, 0, 0, 1)"
-        },
+        "value": "{\r\n  \"color\": \"rgba(255, 0, 0, 1)\"\r\n}",
         "type": "tchmi:framework#/definitions/Color",
-        "persist": false,
+        "persist": true,
         "readonly": true
       },
       "TempSymbolName": {
@@ -190,23 +195,21 @@
         "readonly": false
       },
       "MinValue": {
-        "value": -5000.0,
+        "value": "-5000",
         "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       },
       "MaxValue": {
-        "value": 5000.0,
+        "value": "5000",
         "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       },
       "Color_Grey": {
-        "value": {
-          "color": "rgba(117, 117, 117, 1)"
-        },
+        "value": "{\r\n  \"color\": \"rgba(117, 117, 117, 1)\"\r\n}",
         "type": "tchmi:framework#/definitions/Color",
-        "persist": false,
+        "persist": true,
         "readonly": true
       }
     }

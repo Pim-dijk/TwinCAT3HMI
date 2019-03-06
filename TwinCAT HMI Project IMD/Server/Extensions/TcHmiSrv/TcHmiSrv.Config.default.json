@@ -2274,6 +2274,19 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.HMI.AlarmWord1": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord1",
+            "OPTIONS": {
+                "comment": " General "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.HMI.miUserLevel": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -3933,7 +3946,6 @@
     "VIDEOSEGMENTSIZE": 1048576,
     "VIRTUALDIRECTORIES": {
         "/": "..\\..\\TwinCAT HMI Project IMD",
-        "/framework": "..\\..\\..\\..\\..\\..\\..\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\Infrastructure\\TcHmiFramework\\1.10.1171.0",
-        "/framework/Controls/Custom/FrameworkControlJs1": "..\\..\\FrameworkControlJs1"
+        "/framework": "..\\..\\..\\..\\..\\..\\..\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\Infrastructure\\TcHmiFramework\\1.10.1171.0"
     }
 }

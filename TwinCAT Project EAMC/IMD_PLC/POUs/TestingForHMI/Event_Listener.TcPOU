@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="Event_Listener" Id="{557c767d-437c-4e1b-8ea2-0e28629919b1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Event_Listener EXTENDS FB_ListenerBase
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	sJsonAttribute : STRING (10000);	
+	hr : HRESULT;
+	
+	nCntMessagesSent : INT;
+	nCntAlarmsRaised : INT;
+	nCntAlarmsConfirmed : INT;
+	nCntAlarmsCleared : INT;
+	
+	//text retrieval of message
+	fbRequestEventText : FB_RequestEventText;
+	{attribute 'TcEncoding':='UTF-8'}
+	sLastMessageText : STRING;
+	bReqText : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Execute" Id="{39f9c2a5-ab39-4546-be43-6992f41e147b}">
+      <Declaration><![CDATA[METHOD Execute : HRESULT
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Execute := SUPER^.Execute(); //retrieve events
+
+//retrieve the text of a message
+IF 	bReqText AND fbRequestEventText.bError THEN 
+	sLastMessageText := 'Error';
+	bReqText := FALSE; 
+ELSIF bReqText AND NOT  fbRequestEventText.bBusy THEN
+	fbRequestEventText.GetString(sLastMessageText, SIZEOF(sLastMessageText));
+	bReqText := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="OnAlarmCleared" Id="{e597da0e-0e69-4914-9fca-7e402a2c6aa9}">
+      <Declaration><![CDATA[METHOD OnAlarmCleared
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="OnAlarmConfirmed" Id="{9ef40bd9-c98c-419d-b6db-2b02aa1c32e3}">
+      <Declaration><![CDATA[METHOD OnAlarmConfirmed
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[nCntAlarmsConfirmed := nCntAlarmsConfirmed + 1;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="OnAlarmRaised" Id="{c2f0f5b8-0a93-43bf-a7d0-bbe70b0c3004}">
+      <Declaration><![CDATA[METHOD OnAlarmRaised
+VAR_INPUT
+	fbEvent : REFERENCE TO FB_TcEvent;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[hr := fbEvent.GetJsonAttribute(sJsonAttribute, SIZEOF(sJsonAttribute));]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="OnMessageSent" Id="{7c9f4a3c-e1ee-4422-97be-64623f192bb9}">
+      <Declaration><![CDATA[METHOD OnMessageSent
+VAR_INPUT
+	fbEvent : REFERENCE TO FB_TcEvent;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[hr := fbEvent.GetJsonAttribute(sJsonAttribute, SIZEOF(sJsonAttribute));
+nCntMessagesSent := nCntMessagesSent + 1;
+
+fbRequestEventText.Request(eventClass:=fbEvent.EventClass, nEventId:=fbEvent.nEventId, nLangId:=1033, ipArgs:=fbEvent.ipArguments );
+bReqText := TRUE;
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="Event_Listener">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="Event_Listener.Execute">
+      <LineId Id="6" Count="8" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="Event_Listener.OnAlarmCleared">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="Event_Listener.OnAlarmConfirmed">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="Event_Listener.OnAlarmRaised">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="Event_Listener.OnMessageSent">
+      <LineId Id="7" Count="4" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

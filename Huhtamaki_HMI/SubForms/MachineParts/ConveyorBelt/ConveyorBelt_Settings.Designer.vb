@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ConveyorBelt_Settings
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ConveyorBelt_Settings
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Btn_Overview = New KremerControlsWin32.KremerButton()
@@ -159,7 +159,7 @@ Partial Class ConveyorBelt_Settings
         Me.IO_ConManVelo.AuditSource = "KremerIoField"
         Me.IO_ConManVelo.BackColor = System.Drawing.Color.White
         Me.IO_ConManVelo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_ConManVelo.Data = 0.0R
+        Me.IO_ConManVelo.Data = 0R
         Me.IO_ConManVelo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ConManVelo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ConManVelo.InitialValue = True
@@ -193,7 +193,7 @@ Partial Class ConveyorBelt_Settings
         Me.IO_ConAutoVelo.AuditSource = "KremerIoField"
         Me.IO_ConAutoVelo.BackColor = System.Drawing.Color.White
         Me.IO_ConAutoVelo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_ConAutoVelo.Data = 0.0R
+        Me.IO_ConAutoVelo.Data = 0R
         Me.IO_ConAutoVelo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ConAutoVelo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ConAutoVelo.InitialValue = True
@@ -273,5 +273,4 @@ Partial Class ConveyorBelt_Settings
     Friend WithEvents IO_ConManVelo As KremerControlsWin32.KremerIoField
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents mxAutoMode As KremerControlsWin32.KremerVariable
-
 End Class
