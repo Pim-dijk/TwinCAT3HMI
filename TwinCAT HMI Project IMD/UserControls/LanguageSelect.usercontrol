@@ -19,17 +19,17 @@
 
 </div>
 
-<div id="TcHmiTextblock_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Select Language" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="68.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="">
+<div id="TcHmiTextblock_language" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Select Language" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="68.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="">
 
 </div>
 
-<div id="TcHmiButton_31" data-tchmi-type="tchmi-button" data-tchmi-height="32.4" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Activate" data-tchmi-top="65.6" data-tchmi-top-unit="%" data-tchmi-width="96.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%">
+<div id="TcHmiButton_activate" data-tchmi-type="tchmi-button" data-tchmi-height="32.4" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Activate" data-tchmi-top="65.6" data-tchmi-top-unit="%" data-tchmi-width="96.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "TcHmiButton_31.onPressed",
+    "event": "TcHmiButton_activate.onPressed",
     "actions": [
       {
         "objectType": "Function",
@@ -81,13 +81,13 @@
   ]
 }
 </script>
-<div id="TcHmiButton_32" data-tchmi-type="tchmi-button" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left-unit="px" data-tchmi-text="X" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-right-unit="%">
+<div id="TcHmiButton_close" data-tchmi-type="tchmi-button" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left-unit="px" data-tchmi-text="X" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-right-unit="%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "TcHmiButton_32.onPressed",
+    "event": "TcHmiButton_close.onPressed",
     "actions": [
       {
         "objectType": "WriteToSymbol",

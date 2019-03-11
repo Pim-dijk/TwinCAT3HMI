@@ -67,7 +67,7 @@
   {
     "yAxisId": 1,
     "lineWidth": 1,
-    "pointDot": true,
+    "pointDot": false,
     "pointDotRadius": 3,
     "pointDotStrokeWidth": 1,
     "lineColor": {

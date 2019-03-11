@@ -1,21 +1,6 @@
 ﻿{
   "parameters": [
     {
-      "name": "data-tchmi-symboltowriteto",
-      "displayName": "SymbolToWriteTo",
-      "visible": true,
-      "type": "tchmi:framework#/definitions/Symbol",
-      "category": "",
-      "description": "",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": true,
-      "propertyName": "SymbolToWriteTo",
-      "propertySetterName": "setSymbolToWriteTo",
-      "propertyGetterName": "getSymbolToWriteTo"
-    },
-    {
       "name": "data-tchmi-visible",
       "displayName": "Visible",
       "visible": true,

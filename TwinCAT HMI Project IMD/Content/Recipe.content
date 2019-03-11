@@ -20,18 +20,6 @@
 
 </div>
 
-<div id="TcHmiTextbox_Recipe-New-Name" data-tchmi-type="tchmi-textbox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-text="NewRecipe" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-tooltip="Fill in a name, which should be used in case a new recipe is added.">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
-{
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
-}
-</script>
-
-</div>
-
 <div id="TcHmiButton_TeachAsNew_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="360" data-tchmi-left-unit="px" data-tchmi-text="Teach as new recipe" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the current values from the target and then saved into a new recipe with the defined name.">
 
 
@@ -402,7 +390,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var activeField = TcHmi.Controls.get('TcHmiDatagrid_RecipeView');\nconsole.log(activeField);\nvar column = activeField.__selectedCell.columnIndex;\nvar row = activeField.__selectedCell.rowIndex;\nconsole.log(\"Column: \" + column + \" Row: \" + row);\nvar data = activeField.__srcData[row];\nconsole.log(data);\n//Overbodig, kan niet de range van een veld ophalen via een recipe,\n// dus kan ook geen terugkoppeling geven op een specifiek veld."
+          "var activeField = TcHmi.Controls.get('TcHmiDatagrid_RecipeView');\nconsole.log(activeField);\nvar column = activeField.__selectedCell.columnIndex;\nvar row = activeField.__selectedCell.rowIndex;\nconsole.log(\"Column: \" + column + \" Row: \" + row);\nvar data = activeField.__srcData[row];\nconsole.log(data);\n//Overbodig, kan niet de range van een veld ophalen via een recipe,\n// dus kan ook geen terugkoppeling geven op een specifiek veld\n// voordat de waarde opgeslagen wordt."
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -418,11 +406,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_68" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="500" data-tchmi-left-unit="px" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
+<div id="General_Keyboard_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="331" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-self="%ctrl%General_Keyboard_4%/ctrl%">
 
+</div>
 
-
-
+<div id="TextInputField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TextInputField.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="14" data-tchmi-keyboard="%ctrl%General_Keyboard_4%/ctrl%" data-tchmi-placeholdertext="Recipe name here...">
 
 </div>
 

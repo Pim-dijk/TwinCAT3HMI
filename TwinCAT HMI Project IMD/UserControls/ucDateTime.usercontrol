@@ -21,7 +21,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var symbol = new TcHmi.Symbol('%pp%DateTime%/pp%');\nsetInterval(function(){symbol.write(Date.now());}, 1000);"
+          "var dateTime = new TcHmi.Symbol('%pp%DateTime%/pp%');\nvar offset = new TcHmi.Symbol('%pp%TimeOffset%/pp%');\nsetInterval(function(){dateTime.write(Date.now()); offset.write((new Date().getTimezoneOffset() * 60000));}, 1000);"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -40,7 +40,7 @@
         "valueType": "tchmi:general#/definitions/String",
         "value": {
           "objectType": "FunctionExpression",
-          "functionExpression": "ToDateTimeString(Date.now());"
+          "functionExpression": "ToDateTimeString(new Date((%pp%DateTime%/pp% - (%pp%TimeOffset%/pp%))))"
         },
         "asyncWait": true
       }

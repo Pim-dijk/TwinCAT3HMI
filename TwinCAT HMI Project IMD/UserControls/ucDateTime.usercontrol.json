@@ -19,8 +19,8 @@
       "name": "data-tchmi-datetime",
       "displayName": "DateTime",
       "visible": true,
-      "type": "tchmi:general#/definitions/String",
-      "category": "None",
+      "type": "tchmi:general#/definitions/ULINT",
+      "category": "Do Not Modify",
       "description": "",
       "requiredOnCompile": false,
       "readOnly": false,
@@ -29,6 +29,21 @@
       "propertyName": "DateTime",
       "propertySetterName": "setDateTime",
       "propertyGetterName": "getDateTime"
+    },
+    {
+      "name": "data-tchmi-timeoffset",
+      "displayName": "TimeOffset",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "Do Not Modify",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TimeOffset",
+      "propertySetterName": "setTimeOffset",
+      "propertyGetterName": "getTimeOffset"
     }
   ],
   "virtualRights": [],

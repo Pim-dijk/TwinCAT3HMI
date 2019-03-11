@@ -15,7 +15,7 @@
         "name": "Time",
         "displayName": "Time",
         "type": "tchmi:general#/definitions/String",
-        "description": "This is an important Parameter which does... This text is used in a tooltip.",
+        "description": "A string representing a TIME symbol (t#{0}s)",
         "defaultValue": "",
         "required": true,
         "bindable": true,

@@ -78,6 +78,9 @@
       "url": "UserControls/LanguageSelect.usercontrol"
     },
     {
+      "url": "UserControls/TextInputField.usercontrol"
+    },
+    {
       "url": "UserControls/ucDateTime.usercontrol"
     }
   ],
@@ -107,6 +110,10 @@
       "preload": false
     },
     {
+      "url": "Content/Kremer_Alarms.content",
+      "preload": false
+    },
+    {
       "url": "Content/Main.content",
       "preload": false
     },
@@ -126,10 +133,6 @@
   "views": [
     {
       "url": "Desktop.view",
-      "preload": false
-    },
-    {
-      "url": "Login.view",
       "preload": false
     }
   ],
@@ -166,18 +169,25 @@
     },
     {
       "url": "Scripts/Recipes/GetActiveRecipes.js"
+    },
+    {
+      "url": "Scripts/WriteToSymbol_String.js"
     }
   ],
   "symbols": {
     "internal": {
       "Color_Green": {
-        "value": "{\r\n  \"color\": \"rgba(0, 255, 10, 1)\"\r\n}",
+        "value": {
+          "color": "rgba(0, 255, 10, 1)"
+        },
         "type": "tchmi:framework#/definitions/Color",
         "persist": true,
         "readonly": true
       },
       "Color_Red": {
-        "value": "{\r\n  \"color\": \"rgba(255, 0, 0, 1)\"\r\n}",
+        "value": {
+          "color": "rgba(255, 0, 0, 1)"
+        },
         "type": "tchmi:framework#/definitions/Color",
         "persist": true,
         "readonly": true
@@ -195,19 +205,21 @@
         "readonly": false
       },
       "MinValue": {
-        "value": "-5000",
+        "value": -5000.0,
         "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       },
       "MaxValue": {
-        "value": "5000",
+        "value": 5000.0,
         "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       },
       "Color_Grey": {
-        "value": "{\r\n  \"color\": \"rgba(117, 117, 117, 1)\"\r\n}",
+        "value": {
+          "color": "rgba(117, 117, 117, 1)"
+        },
         "type": "tchmi:framework#/definitions/Color",
         "persist": true,
         "readonly": true

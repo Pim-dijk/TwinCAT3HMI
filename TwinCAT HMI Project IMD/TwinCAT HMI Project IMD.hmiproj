@@ -86,6 +86,9 @@
     <Content Include="Content\Alarms.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\Kremer_Alarms.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Manual.content">
       <SubType>Content</SubType>
     </Content>
@@ -123,9 +126,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Localization\nl-NL.tpl.localization">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Login.view">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\ConvertTimeToInt.function.json">
@@ -194,6 +194,12 @@
     <Content Include="Scripts\WriteToSymbol_REAL.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\WriteToSymbol_String.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\WriteToSymbol_String.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Themes\Kremer\Kremer.theme">
       <SubType>Content</SubType>
     </Content>
@@ -252,6 +258,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\LanguageSelect.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\TextInputField.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\TextInputField.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\ucDateTime.usercontrol">

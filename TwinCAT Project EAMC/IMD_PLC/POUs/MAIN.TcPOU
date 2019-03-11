@@ -4,10 +4,16 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	(* Testing for new HMI*)
+	setAlarm1								: BOOL;
+	setAlarm2								: BOOL;
+	fbSource								: FB_TcSourceInfo;
+	raiseAlarm								: FB_RaiseAlarm;
+	eventTest								: FB_ListenerTest;
 	hr										: HRESULT;
 	fbEvent									: FB_TcEvent;
 	fbEventlogged							: FB_TcEventLogger;
 	fbAlarm									: FB_TcAlarm;
+	fbAlarm2								: FB_TcAlarm;
 	alarmIsRaised							: BOOL;
 	fbMessage								: FB_TcMessage;
 	bInit									: BOOL := TRUE;
@@ -16,6 +22,7 @@ VAR
 	linetrendMin							: REAL := 0.0;
 	linetrendMax							: REAL := 15.0;
 	linetrendRising							: BOOL := TRUE;
+	linetrendX								: REAL;
 	listenerBase							: FB_ListenerBase;
 	(* 				end of testing 				*)
 	
@@ -254,35 +261,62 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[// 					Testing here				//
-listenerBase.Execute();
-
-IF bInit THEN
-	bInit := FALSE;
-	fbAlarm.CreateEx(TC_Events.MyEventClass.MyFirstAlarm, TRUE, 0);
+eventTest();
+IF setAlarm2 THEN
+	raiseAlarm(raiseAlarm:= setAlarm2);
+	setAlarm2 := FALSE;
+ELSE 
+	raiseAlarm(raiseAlarm:= FALSE);
 END_IF
 
-IF mxAutoMode THEN
-	mxAutoMode := FALSE;
-	fbAlarm.Raise(0);
-END_IF
-
-IF alarmIsRaised THEN
-	// dont do anything
-ELSE
-	IF linetrendRising THEN
-		IF linetrendOutput < linetrendMax THEN
-			linetrendOutput := linetrendOutput + 0.01;
-		ELSE
-			linetrendRising := FALSE;
-		END_IF
-	ELSE
-		IF linetrendOutput > linetrendMin THEN
-			linetrendOutput := linetrendOutput - 0.01;
-		ELSE
-			linetrendRising := TRUE;
-		END_IF
+IF fbAlarm.bRaised THEN
+	// This alarm is raised
+	IF fbAlarm.eConfirmationState = 0 THEN // NotSupported
+		// State is not supported
+	END_IF
+	IF fbAlarm.eConfirmationState = 1 THEN // NotRequired
+		// A confirmation is not required
+	END_IF
+	IF fbAlarm.eConfirmationState = 2 THEN // WaitForConfirmation
+		// Alarm is not yet confirmed
+	END_IF
+	IF fbAlarm.eConfirmationState = 3 THEN // Confirmed
+		// Alarm has been confirmed
+		fbAlarm.Clear(0, TRUE);
+	END_IF
+	IF fbAlarm.eConfirmationState = 4 THEN // Reset
+		// Alarm has been reset
 	END_IF
 END_IF
+
+IF setAlarm1 THEN
+	setAlarm1 := FALSE;
+	fbSource.Clear();
+	fbSource.sName := 'My custom source';
+	fbSource.nId := 99;
+	fbAlarm.CreateEx(TC_Events.MyEventClass.MyFirstAlarm, TRUE, fbSource);
+	fbAlarm.Raise(0);	
+END_IF
+
+linetrendOutput := SIN(linetrendX);
+linetrendX := linetrendX + 0.01;
+
+(*
+IF linetrendRising THEN
+	IF linetrendOutput < linetrendMax THEN
+		linetrendOutput := linetrendOutput + 0.01;
+	ELSE
+		linetrendRising := FALSE;
+	END_IF
+ELSE
+	IF linetrendOutput > linetrendMin THEN
+		linetrendOutput := linetrendOutput - 0.01;
+	ELSE
+		linetrendRising := TRUE;
+	END_IF
+END_IF
+*)
+// 					End of testing 				//
 
 
 // 					Object Calls				//
@@ -638,26 +672,39 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
     </Action>
     <LineIds Name="MAIN">
       <LineId Id="7382" Count="0" />
-      <LineId Id="7921" Count="1" />
-      <LineId Id="7394" Count="0" />
-      <LineId Id="7396" Count="0" />
-      <LineId Id="7398" Count="0" />
-      <LineId Id="7923" Count="0" />
-      <LineId Id="7389" Count="0" />
-      <LineId Id="7388" Count="0" />
-      <LineId Id="7393" Count="0" />
-      <LineId Id="7390" Count="1" />
-      <LineId Id="7941" Count="1" />
-      <LineId Id="7946" Count="0" />
+      <LineId Id="7921" Count="0" />
+      <LineId Id="8245" Count="0" />
+      <LineId Id="8507" Count="1" />
+      <LineId Id="8765" Count="1" />
+      <LineId Id="8506" Count="0" />
+      <LineId Id="8246" Count="0" />
+      <LineId Id="8224" Count="1" />
+      <LineId Id="8241" Count="2" />
+      <LineId Id="8236" Count="2" />
+      <LineId Id="8227" Count="4" />
+      <LineId Id="8244" Count="0" />
+      <LineId Id="8232" Count="3" />
+      <LineId Id="8226" Count="0" />
+      <LineId Id="8197" Count="0" />
+      <LineId Id="8196" Count="0" />
+      <LineId Id="8201" Count="0" />
+      <LineId Id="8218" Count="2" />
+      <LineId Id="8198" Count="0" />
+      <LineId Id="8200" Count="0" />
+      <LineId Id="8199" Count="0" />
+      <LineId Id="8770" Count="1" />
+      <LineId Id="8775" Count="0" />
       <LineId Id="7944" Count="0" />
       <LineId Id="7644" Count="0" />
+      <LineId Id="8774" Count="0" />
       <LineId Id="7651" Count="0" />
       <LineId Id="7653" Count="0" />
       <LineId Id="7655" Count="4" />
       <LineId Id="7661" Count="3" />
       <LineId Id="7660" Count="0" />
-      <LineId Id="7945" Count="0" />
-      <LineId Id="7386" Count="0" />
+      <LineId Id="8773" Count="0" />
+      <LineId Id="8769" Count="0" />
+      <LineId Id="8768" Count="0" />
       <LineId Id="7383" Count="0" />
       <LineId Id="6671" Count="0" />
       <LineId Id="1565" Count="1" />

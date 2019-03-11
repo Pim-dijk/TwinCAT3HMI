@@ -133,6 +133,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/LanguageSelect"
     },
+    "TextInputField": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\TextInputField.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/TextInputField"
+    },
     "ucDateTime": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -140,6 +148,63 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
+    },
+    "alarmGroup": {
+      "properties": {
+        "tag": {
+          "type": "number",
+          "title": "Tag"
+        },
+        "text": {
+          "type": "string",
+          "title": "Text"
+        }
+      },
+      "type": "object",
+      "title": "Alarm Group"
+    },
+    "alarmReason": {
+      "properties": {
+        "BackColor": {
+          "$ref": "tchmi:general#/definitions/Object",
+          "title": "Background Color"
+        },
+        "ForeColor": {
+          "$ref": "tchmi:general#/definitions/Object",
+          "title": "Foreground Color"
+        },
+        "TypeNr": {
+          "type": "number",
+          "title": "Type Number"
+        }
+      },
+      "type": "object",
+      "title": "Alarm Reason"
+    },
+    "alarmWord": {
+      "properties": {
+        "AlarmBeginNr": {
+          "type": "number",
+          "title": "Alarm Begin Number"
+        },
+        "Data": {
+          "type": "number",
+          "title": "Data"
+        },
+        "Group": {
+          "$ref": "tchmi:project#/definitions/alarmGroup",
+          "title": "Group"
+        },
+        "KremerAlarmTypes": {
+          "definitions": {
+            "alarmType": {
+              "$ref": "tchmi:project#/definitions/alarmReason"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "title": "Alarm Word"
     }
   }
 }

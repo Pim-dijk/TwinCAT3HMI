@@ -2287,6 +2287,19 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.HMI.AlarmWord2": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord2",
+            "OPTIONS": {
+                "comment": " General "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.HMI.miUserLevel": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2938,6 +2951,29 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::mxHMI_StopState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.setAlarm1": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::setAlarm1",
+            "OPTIONS": {
+                "comment": " Testing for new HMI"
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.setAlarm2": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::setAlarm2",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -3848,6 +3884,17 @@
     "THREADPOOLSIZE": 12,
     "UPLOADTIMEOUT": "PT5S",
     "USERGROUPS": {
+        "Guest": {
+            "ENABLED": true,
+            "FILEACCESS": 1,
+            "FILES": {},
+            "SYMBOLACCESS": 1,
+            "SYMBOLS": {
+                "IsAuthRequired": 3,
+                "ListUsers": 3,
+                "Login": 3
+            }
+        },
         "TestGroup": {
             "ENABLED": true,
             "FILEACCESS": 3,
@@ -3917,6 +3964,14 @@
     },
     "USERGROUPUSERS": {
         "TcHmiUserManagement": {
+            "Guest": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT1M",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemUsers",
+                    "Guest"
+                ],
+                "USERGROUPUSERS_LOCALE": "nl"
+            },
             "TestUser": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
                 "USERGROUPUSERS_GROUPS": [

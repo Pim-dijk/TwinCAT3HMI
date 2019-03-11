@@ -1685,7 +1685,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{FF780200-3AED-4DF2-9F5E-D78DA6F26947}" PersistentType="true">MyEventClass</Name>
+			<Name GUID="{3C0F9F4C-0AAF-48BD-857D-B30F9E59BD3B}" PersistentType="true">MyEventClass</Name>
 			<DisplayName TxtId="">
 				<![CDATA[My Event Class for testing]]>
 			</DisplayName>
@@ -1706,11 +1706,19 @@ External Setpoint Generation:
 				</DisplayName>
 				<Severity>Critical</Severity>
 			</EventId>
+			<EventId>
+				<Name Id="3">MySecondAlarm</Name>
+				<DisplayName TxtId="">
+					<![CDATA[This is my second alarm display text]]>
+				</DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
 			<Hides>
 				<Hide GUID="{669C0330-005A-4E14-BDDC-D2671B17D4C8}"/>
 				<Hide GUID="{B4102F69-99B1-42F9-AB37-FD5F1053A19A}"/>
 				<Hide GUID="{E87F70AB-D1C2-49D2-B07E-EC20071D1CA6}"/>
 				<Hide GUID="{92F04E0E-5776-4155-A390-5B8AC28BCE25}"/>
+				<Hide GUID="{FF780200-3AED-4DF2-9F5E-D78DA6F26947}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -4790,13 +4798,6 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixResetImdBack</Name>
-							<Comment>
-								<![CDATA[ NON Operator side/Back ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.ixEmStopImdFront</Name>
 							<Comment>
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
@@ -4804,7 +4805,18 @@ External Setpoint Generation:
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.ixResetImdBack</Name>
+							<Comment>
+								<![CDATA[ NON Operator side/Back ]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.ixDoorReqImdBack</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryA_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -4895,10 +4907,6 @@ External Setpoint Generation:
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
 							</Comment>
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetGantryA_Front</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixDoorReqGantryA_Front</Name>

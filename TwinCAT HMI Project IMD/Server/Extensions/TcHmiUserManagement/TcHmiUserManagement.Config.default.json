@@ -1,5 +1,10 @@
 {
     "USERS": {
+        "Guest": {
+            "ENABLED": true,
+            "PASSWORD": "91b705b2b6ba42c1feab8418c233feb7aeadbe57e7bc46b5450ddba5b995346e",
+            "SALT": "3x3ZLdFs5ImuKiDlMXtNu1bCCNIErTn59922z0PYsWqISZs5mRFGuUX5xpVxe1RF6Y4gQtIKLbiLck6Fn/k/AA=="
+        },
         "TestUser": {
             "ENABLED": true,
             "PASSWORD": "d1c54264fd34f29506b66d8d9e53062bfcbcb5479da3f7a0032de2e58a535c87",

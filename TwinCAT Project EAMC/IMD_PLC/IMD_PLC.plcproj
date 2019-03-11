@@ -358,6 +358,9 @@
     <Compile Include="POUs\TestingForHMI\FB_ListenerTest.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\TestingForHMI\FB_RaiseAlarm.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\TestingForHMI\TimeAnddDate.TcPOU">
       <SubType>Code</SubType>
     </Compile>

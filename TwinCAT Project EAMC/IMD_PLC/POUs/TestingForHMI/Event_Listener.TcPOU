@@ -46,29 +46,43 @@ END_IF]]></ST>
     <Method Name="OnAlarmCleared" Id="{e597da0e-0e69-4914-9fca-7e402a2c6aa9}">
       <Declaration><![CDATA[METHOD OnAlarmCleared
 VAR_INPUT
-END_VAR
-]]></Declaration>
+	fbEvent : REFERENCE TO FB_TcEvent;
+END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[]]></ST>
+        <ST><![CDATA[nCntAlarmsCleared := nCntAlarmsCleared + 1;]]></ST>
       </Implementation>
     </Method>
     <Method Name="OnAlarmConfirmed" Id="{9ef40bd9-c98c-419d-b6db-2b02aa1c32e3}">
       <Declaration><![CDATA[METHOD OnAlarmConfirmed
 VAR_INPUT
+	fbEvent : REFERENCE TO FB_TcEvent;
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[nCntAlarmsConfirmed := nCntAlarmsConfirmed + 1;]]></ST>
+        <ST><![CDATA[nCntAlarmsConfirmed := nCntAlarmsConfirmed + 1;
+fbEvent;]]></ST>
       </Implementation>
     </Method>
     <Method Name="OnAlarmRaised" Id="{c2f0f5b8-0a93-43bf-a7d0-bbe70b0c3004}">
       <Declaration><![CDATA[METHOD OnAlarmRaised
 VAR_INPUT
-	fbEvent : REFERENCE TO FB_TcEvent;
+	fbEvent: REFERENCE TO FB_TcEvent;
 END_VAR
-]]></Declaration>
+VAR
+	str1 : STRING;
+	str2 : STRING := 'My custom source';
+END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[hr := fbEvent.GetJsonAttribute(sJsonAttribute, SIZEOF(sJsonAttribute));]]></ST>
+        <ST><![CDATA[hr := fbEvent.GetJsonAttribute(sJsonAttribute, SIZEOF(sJsonAttribute));
+nCntAlarmsRaised := nCntAlarmsRaised + 1;
+//IF fbEvent.EqualsTo(TC_Events.MyEventClass.MySecondAlarm) THEN
+	// Event that got raised is my 2nd alarm
+//END_IF
+
+str1 := fbEvent.ipSourceInfo.sName;
+IF str1 = str2 THEN
+	// This is my even source
+END_IF]]></ST>
       </Implementation>
     </Method>
     <Method Name="OnMessageSent" Id="{7c9f4a3c-e1ee-4422-97be-64623f192bb9}">
@@ -98,9 +112,14 @@ bReqText := TRUE;
     </LineIds>
     <LineIds Name="Event_Listener.OnAlarmConfirmed">
       <LineId Id="5" Count="0" />
+      <LineId Id="11" Count="0" />
     </LineIds>
     <LineIds Name="Event_Listener.OnAlarmRaised">
       <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="14" Count="2" />
     </LineIds>
     <LineIds Name="Event_Listener.OnMessageSent">
       <LineId Id="7" Count="4" />

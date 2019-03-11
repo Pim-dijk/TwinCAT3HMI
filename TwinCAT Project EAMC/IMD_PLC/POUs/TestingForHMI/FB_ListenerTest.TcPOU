@@ -31,11 +31,13 @@ IF bRemoveListener THEN
 	fbMessageListener.Unsubscribe();
 END_IF 
 
-fbMessageListener.Execute(); // retrieve messages and its texts]]></ST>
+fbMessageListener.Execute(); // retrieve messages and its texts
+]]></ST>
     </Implementation>
     <LineIds Name="FB_ListenerTest">
       <LineId Id="18" Count="12" />
       <LineId Id="9" Count="0" />
+      <LineId Id="46" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

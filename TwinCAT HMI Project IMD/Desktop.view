@@ -235,7 +235,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/Alarms.content"
+          "value": "Content/Kremer_Alarms.content"
         },
         "asyncWait": true
       }
