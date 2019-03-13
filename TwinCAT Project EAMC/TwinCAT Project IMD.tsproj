@@ -11,29 +11,14 @@
 				<![CDATA[Het commentaar bij mijn eerste event]]>
 			</Text>
 		</Text>
-		<Text TxtId="Error on balluf">
-			<Text LcId="1043">
-				<![CDATA[Error op balluf]]>
-			</Text>
-		</Text>
 		<Text TxtId="An error occured with the balluf">
 			<Text LcId="1043">
 				<![CDATA[Er is een error opgetreden met de balluf]]>
 			</Text>
 		</Text>
-		<Text TxtId="Position Error">
-			<Text LcId="1043">
-				<![CDATA[Positie error]]>
-			</Text>
-		</Text>
 		<Text TxtId="A position error occured">
 			<Text LcId="1043">
 				<![CDATA[Een positie fout is opgetreden]]>
-			</Text>
-		</Text>
-		<Text TxtId="Is moving without activation">
-			<Text LcId="1043">
-				<![CDATA[Beweegt zonder activatie]]>
 			</Text>
 		</Text>
 		<Text TxtId="Something is moving without activation">
@@ -1812,14 +1797,14 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{6320B0B8-BB25-409E-8AC1-D85DD5A09A95}" PersistentType="true">Kremer_Events</Name>
+			<Name GUID="{68A21C7A-FC3F-44A1-99CB-6209EFF1DF8D}" PersistentType="true">Kremer_Events</Name>
 			<DisplayName TxtId="">
 				<![CDATA[Kremer Events]]>
 			</DisplayName>
 			<EventId>
 				<Name Id="1">BallufError</Name>
 				<DisplayName TxtId="">
-					<![CDATA[Error on balluf]]>
+					<![CDATA[{0} - Error on balluf]]>
 				</DisplayName>
 				<Comment TxtId="">
 					<![CDATA[An error occured with the balluf]]>
@@ -1829,7 +1814,7 @@ External Setpoint Generation:
 			<EventId>
 				<Name Id="2">PositionError</Name>
 				<DisplayName TxtId="">
-					<![CDATA[Position Error]]>
+					<![CDATA[{0} - Position Error]]>
 				</DisplayName>
 				<Comment TxtId="">
 					<![CDATA[A position error occured]]>
@@ -1839,7 +1824,7 @@ External Setpoint Generation:
 			<EventId>
 				<Name Id="3">IsMovingWithoutActivation</Name>
 				<DisplayName TxtId="">
-					<![CDATA[Is moving without activation]]>
+					<![CDATA[{0} - Is moving without activation]]>
 				</DisplayName>
 				<Comment TxtId="">
 					<![CDATA[Something is moving without activation]]>
@@ -1849,6 +1834,10 @@ External Setpoint Generation:
 			<Hides>
 				<Hide GUID="{22E1C742-05BB-41D2-9DF9-E88259AAF6E2}"/>
 				<Hide GUID="{71530F19-CF47-462F-A4A1-F1CF4C1F1C53}"/>
+				<Hide GUID="{6320B0B8-BB25-409E-8AC1-D85DD5A09A95}"/>
+				<Hide GUID="{4168EEB9-C36F-42A6-8296-AB3C015FAFE1}"/>
+				<Hide GUID="{02A753DD-7093-4548-A6D8-21E69B2FD471}"/>
+				<Hide GUID="{B992ABBF-0DF9-4105-8B49-36A981AE45B0}"/>
 			</Hides>
 		</DataType>
 	</DataTypes>
@@ -1877,11 +1866,11 @@ External Setpoint Generation:
 			</Settings>
 			<Licenses>
 				<Target>
-					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
 					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
+					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
 					<ManualSelect>{2752D285-16AD-4E89-AE6C-80E72784D264}</ManualSelect>
-					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
 					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
+					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
 				</Target>
 			</Licenses>
 			<Tasks>

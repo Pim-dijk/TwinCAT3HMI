@@ -4,10 +4,6 @@
     <Declaration><![CDATA[FUNCTION_BLOCK FB_HydraulicCilinderAnalog
 
 VAR_INPUT
-(* The string that holds the source data *)
-	fbSourceName					: STRING;
-	fbSourceID						: UDINT;
-
 	mxReset							: BOOL;	(*Reset Error*)
 	mxEmergency						: BOOL;
 	mxAutoMode						: BOOL; (* TRUE = Automode *)
@@ -50,11 +46,12 @@ VAR_OUTPUT
 END_VAR
 VAR
 (* Testing new HMI alarms *)	
+	_eventSourceName				: STRING;
+	_eventSourceInfo				: FB_TcSourceInfo;
 	_initializeEvents				: BOOL := TRUE;
 	_PositionError 					: FB_TcAlarm;
 	_IsMovingWithoutActivationError	: FB_TcAlarm;
-	_BallufError 					: FB_TcAlarm;
-	_eventSourceInfo				: FB_TcSourceInfo;	
+	_BallufError 					: FB_TcAlarm;	
 
 	RodSidePressure					: FB_AnalogIn4_20mA;
 	BottomSidePressure				: FB_AnalogIn4_20mA;
@@ -146,20 +143,23 @@ SafePosReached:= ixEndSwitchA AND ixEndSwitchB;]]></ST>
         <ST><![CDATA[(* Initialize the alarms at the start *)
 IF _initializeEvents THEN
 	_initializeEvents := FALSE;
-	_eventSourceInfo.Clear();
-	_eventSourceInfo.sName := fbSourceName;
-	_eventSourceInfo.nId := fbSourceID;
-	_PositionError.CreateEx(TC_Events.Kremer_Events.PositionError, TRUE, _eventSourceInfo);
-	_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.IsMovingWithoutActivation, TRUE, _eventSourceInfo);
-	_BallufError.CreateEx(TC_Events.Kremer_Events.BallufError, TRUE, _eventSourceInfo);
+	_eventSourceName := _eventSourceInfo.sName;
+	_PositionError.CreateEx(TC_Events.Kremer_Events.PositionError, TRUE, 0);
+	_PositionError.ipArguments.Clear().AddString(_eventSourceName);
+	_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.IsMovingWithoutActivation, TRUE, 0);
+	_IsMovingWithoutActivationError.ipArguments.Clear().AddString(_eventSourceName);
+	_BallufError.CreateEx(TC_Events.Kremer_Events.BallufError, TRUE, 0);
+	_BallufError.ipArguments.Clear().AddString(_eventSourceName);
 END_IF
 
 Errors.BallufError:= HydraulicPos.Error;
 (* Raise the alarm *)
 IF Errors.BallufError THEN
 	_BallufError.Raise(0);
+	_IsMovingWithoutActivationError.Raise(0);
+	_PositionError.Raise(0);
 ELSE
-	IF _BallufError.eConfirmationState = 3 AND mxReset THEN (* If the alarm has been confirmed, clear it*)
+	IF _BallufError.eConfirmationState = 3 THEN (* If the alarm has been confirmed, clear it*)
 		_BallufError.Clear(0, FALSE);
 	END_IF
 END_IF
@@ -422,15 +422,22 @@ HydraulicPos();]]></ST>
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.Error">
-      <LineId Id="84" Count="2" />
-      <LineId Id="92" Count="2" />
-      <LineId Id="87" Count="2" />
+      <LineId Id="84" Count="1" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="99" Count="0" />
       <LineId Id="82" Count="0" />
       <LineId Id="80" Count="0" />
       <LineId Id="43" Count="0" />
       <LineId Id="76" Count="0" />
       <LineId Id="75" Count="0" />
       <LineId Id="77" Count="0" />
+      <LineId Id="103" Count="1" />
       <LineId Id="90" Count="0" />
       <LineId Id="96" Count="2" />
       <LineId Id="78" Count="0" />
