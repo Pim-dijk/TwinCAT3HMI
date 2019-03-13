@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10104</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10105</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -128,6 +128,18 @@
     <Content Include="Localization\nl-NL.tpl.localization">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\Conversion\Convert32bitIntToBinary.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Conversion\Convert32bitIntToBinary.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ConvertAlarmWordsToDataGrid.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ConvertAlarmWordsToDataGrid.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\ConvertTimeToInt.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -180,6 +192,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\Recipes\UpdateDatagridFromTarget.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ToDateTimeStringFunction.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ToDateTimeStringFunction.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\WriteToSymbol_INT.function.json">
@@ -285,6 +303,7 @@
     <Folder Include="Imports\Videos" />
     <Folder Include="Localization" />
     <Folder Include="Content" />
+    <Folder Include="Scripts\Conversion" />
     <Folder Include="Scripts\Recipes" />
     <Folder Include="UserControls" />
     <Folder Include="Scripts" />

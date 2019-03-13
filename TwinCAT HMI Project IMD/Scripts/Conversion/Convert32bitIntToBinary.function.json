@@ -1,0 +1,28 @@
+﻿{
+  "function": {
+    "name": "Convert32bitIntToBinary",
+    "displayName": "Convert32bitIntToBinary",
+    "visible": true,
+    "category": "",
+    "waitMode": "Synchronous",
+    "injectContextObject": false,
+    "description": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "arguments": [
+      {
+        "name": "Number",
+        "displayName": "Number",
+        "type": "tchmi:general#/definitions/DINT",
+        "description": "The DINT input value",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      }
+    ]
+  },
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/FunctionDescription.Schema.json"
+}

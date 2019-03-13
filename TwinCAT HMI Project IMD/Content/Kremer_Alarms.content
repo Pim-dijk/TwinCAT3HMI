@@ -1,17 +1,17 @@
 ﻿<div id="Kremer_Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="436">
 
-<div id="TcHmiDatagrid" data-tchmi-type="tchmi-datagrid" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px"    data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px">
+<div id="TcHmiDatagrid_alarmView" data-tchmi-type="tchmi-datagrid" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px"    data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
 [
   {
     "name": "Test1",
     "label": "ID",
     "control": "TextBlock",
-    "width": 50,
+    "width": 35,
     "widthUnit": "px",
-    "resize": true,
-    "sortable": false,
-    "minWidth": 50,
+    "resize": false,
+    "sortable": true,
+    "minWidth": 35,
     "minWidthUnit": "px",
     "cellBackground": null,
     "textColor": null,
@@ -22,13 +22,13 @@
   },
   {
     "name": "Test2",
-    "label": "Type",
+    "label": "Time",
     "control": "TextBlock",
-    "width": 70,
+    "width": 150,
     "widthUnit": "px",
-    "resize": true,
+    "resize": false,
     "sortable": true,
-    "minWidth": 70,
+    "minWidth": 50,
     "minWidthUnit": "px",
     "cellBackground": null,
     "textColor": null,
@@ -41,11 +41,11 @@
     "name": "Test3",
     "label": "Source",
     "control": "TextBlock",
-    "width": 70,
+    "width": 50,
     "widthUnit": "px",
     "resize": true,
-    "sortable": false,
-    "minWidth": 70,
+    "sortable": true,
+    "minWidth": 50,
     "minWidthUnit": "px",
     "cellBackground": null,
     "textColor": null,
@@ -58,10 +58,10 @@
     "name": "Test4",
     "label": "Text",
     "control": "TextBlock",
-    "width": 500,
+    "width": 515,
     "widthUnit": "px",
     "resize": true,
-    "sortable": false,
+    "sortable": true,
     "minWidth": 150,
     "minWidthUnit": "px",
     "cellBackground": null,
@@ -87,6 +87,652 @@
 }
 </script>
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiDatagrid_alarmView.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "// Target to send the data to\nvar target = TcHmi.Controls.get('TcHmiDatagrid_alarmView');\n// Get the locale information\nvar timeZone = TcHmi.Locale.get();\n// Create date object with current date time\nvar date = new Date(); \n// Convert the date object to local time object\nvar dateTimeString = date.toLocaleString(timeZone);\n// The Array that holds the alarms\nvar json = [];\nvar AlarmWordList = new TcHmi.Symbol('%i%AlarmWordList%/i%');\nvar allAlarms = AlarmWordList.read();\n//console.log(allAlarms);\nvar count = 0;\nvar length = Object.keys(allAlarms).length;\n//console.log(length);\n\nvar alarmDBSymbol = new TcHmi.Symbol('%i%AlarmDB%/i%');\nvar alarmDB = {};\nalarmDB = alarmDBSymbol.read();\nconsole.log(\"The alarm DB\");\nconsole.log(JSON.stringify(alarmDB));\n\n$.each(allAlarms, function(key, value){\n\t// Read the server side symbol alarm value\n\tTcHmi.Symbol.readEx2(value, function(data){\n \t\tcount++;\n \t\t//console.log(count);\n\t\tif(data.error === 0){\n\t \t\t// Get server symbol value, write to internal value\n\t\t\tvar serverValue = data.value;\n\t\t\tvar symbol = new TcHmi.Symbol(key);\n\t\t\tvar result = symbol.read();\n\t\t\t//console.log(result);\n\t\t\tresult.Data = serverValue;\n\t\t\tsymbol.write(result);\n\t\t\t//console.log(result);\n\t\t\t//var resultAfter =  symbol.read();\n\t\t\t\n\t\t\t\n\t\t\t// Convert the DINT value to Binary\n\t\t\tvar offset = result.AlarmBeginNr;\n\t\t\t//console.log(offset);\n\t\t\tvar dint = serverValue;\n\t\t\tvar binary = convertToBin(dint);\n\t\t\tfunction convertToBin(dint) {\n\t        // nMask must be between -2147483648 and 2147483647\n\t        for (var nFlag = 0, nShifted = dint, sMask = \"\"; nFlag < 32;\n\t            nFlag++ , sMask += String(nShifted >>> 31), nShifted <<= 1);\n\t        \treturn sMask;\n\t    \t};\n\t\t\t\n\t\t\t// Turn the string into an Array\n\t\t\t// Reverse the array, to get the correct order\t\t\n\t\t\tvar binArray = binary.split(\"\");\n\t\t\t//console.log(binArray);\n\t\t\tbinArray.reverse();\n\t\t\t//console.log(binArray);\n\t\t\t\n\t\t\t// Read out all the alarms from the list\n\t\t\tvar alarmList = new TcHmi.Symbol('%i%AlarmMessageList%/i%');\n\t\t\tvar alarmStrings = alarmList.read();\n\t\t\tvar jsonEntry = {};\n\t\t\t//console.log(jsonEntry);\n\t\t\t//return;\n\t\t\t// Loop through array and if it's 1, get the correct alarm message for it\n\t\t\tfor(var i = 0; i < binArray.length; i++){\n\t\t\t\tvar exists = false;\n\t\t\t\tvar x = 0;                \n\t\t\t\tx = (i + offset);\n                if(doesExistInDB(x)){\n\t\t\t\t\texists = true;\n\t\t\t\t\tconsole.log(\"Already exists! - \" + x);\n\t\t\t\t};\n\t\t\t\tif(!exists){\n\t\t\t\t\tif(binArray[i] == '1'){\n\t\t\t\t\t\t// 1\n\t\t\t\t\t\t//console.log(\"index: \" + i + \" - offset: \" + offset);\n\t\t\t\t\t\t//console.log((i + offset));\n\t\t\t\t\t\t//console.log(alarmStrings[(i + offset)]);\n\t\t\t\t\t\tjsonEntry['Test1'] = (i + offset);\n\t\t\t\t\t\tjsonEntry['Test2'] = dateTimeString;\n\t\t\t\t\t\tjsonEntry['Test3'] = result.AlarmGroup.text;\n\t\t\t\t\t\tjsonEntry['Test4'] = alarmStrings[(i + offset)];\t\n\t\t\t\t\t\t//console.log(\"jsonEntry\")\t\t\t\t\t;\n\t\t\t\t\t\t//console.log(jsonEntry);\n\t\t\t\t\t\t//json[(i + offset)] = jsonEntry;\n                        json.push(jsonEntry);\n                        console.log(\"Adding to alarmDB\");\n\t\t\t\t\t\talarmDB[(i + offset)] = jsonEntry;\n\t\t\t\t\t\tjsonEntry = {};\n\t\t\t\t\t\t//console.log(\"json\");\n\t\t\t\t\t\t//console.log(json);\n\t\t\t\t\t} \n\t\t\t\t} if(exists == true && (binArray[i] == '0')){\n\t\t\t\t\t// 0\n\t\t\t\t\t//console.log(\"index: \" + i + \" - offset: \" + offset);\n\t\t\t\t\t//console.log((i + offset));\t\t\t\t\n\t\t\t\t\t//console.log(alarmStrings[(i + offset)]);\n\t\t\t\t\tconsole.log(\"Remove entry here\");\n\t\t\t\t\tdelete alarmDB[(i + offset)];\n\t\t\t\t}\n\t\t\t};\n\t\t\t\n\t\t\t// Check if the end of the AlarmWordList\n\t\t\t// If so, write to target control\n\t\t\tif(count >= length) {\n                $.each(alarmDB, function(key, value){\n                    json.push(value);\n                });\n\t\t\t\ttarget.setSrcData(json);\n\t\t\t\t// Write to alarmDB\n\t\t\t\tconsole.log(alarmDBSymbol);\n\t\t\t\talarmDBSymbol.write(alarmDB, function(data){\n\t\t\t        if (data.error === TcHmi.Errors.NONE) {\n\t\t\t            // Handle success... \n\t\t\t            console.log(data);\n\t\t\t        } else {\n\t\t\t            // Handle error... \n\t\t\t            console.log(data);\n\t\t\t        }\n\t\t\t    });\n\t\t\t} else {\n\t\t\t\t//console.log(\"Not final count yet!\")\t;\n\t\t\t}\n\t\t} else {\n\t\t\tconsole.log(data.error);\n\t\t}\t                     \t\n\t});\n});\n// Write the data to the target\n//console.log(json);\n//target.setSrcData(json);\n\nfunction doesExistInDB(index){\n\tif(alarmDB[index] != undefined) {\n\t\treturn true;\n\t} else {\n\t\treturn false;\t\n\t}\n};\n\n//$.each(result, function(key, value){\n\t//console.log(key + ' - ' + value);      \t\n//});"
+        ],
+        "injectContextObject": true,
+        "asyncWait": true,
+        "waitMode": "Asynchronous"
+      },
+      {
+        "objectType": "Comment",
+        "comment": "Convert the Date object to local datetime string format and set text to localized values, leaving the AlarmDB unchanged"
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "// Convert datetime to current selected locale for display\n// set the message to the current locale string\n// Does NOT alter the AlarmDB\n\n// Target to send the data to\nvar target = TcHmi.Controls.get('TcHmiDatagrid_alarmView');\n// Get the locale information\nvar timeZone = TcHmi.Locale.get();\n// The Array that holds the alarms\nvar json = [];\n// List of alarm words\nvar AlarmWordList = new TcHmi.Symbol('%i%AlarmWordList%/i%');\nvar allAlarms = AlarmWordList.read();\n\nvar count = 0;\nvar length = Object.keys(allAlarms).length;\n\n// Locally stored alarms\nvar alarmDBSymbol = new TcHmi.Symbol('%i%AlarmDB%/i%');\nvar alarmDB = {};\nalarmDB = alarmDBSymbol.read();\n// List of alarm messages\nvar alarmList = new TcHmi.Symbol('%i%AlarmMessageList%/i%');\nvar alarmStrings = alarmList.read();\n\n// foreach registered alarm, convert the time and message to the set locale\n$.each(alarmDB, function(key, value){\n\t// make new Date object with the datetime from the alarm entry\n\tvar dateTime = new Date(value.Test2);\n\t// convert it to the local format\n\tvar localDateTime = dateTime.toLocaleString(timeZone);\n\t// set the new value\n\tvalue.Test2 = localDateTime;\n\t// set the message to the local value\n\tvalue.Test4 = alarmStrings[timeZone][value.Test1];\n\t// add it to the array\n\tjson.push(value);\n});\n// send the array to the data target\ntarget.setSrcData(json);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ],
+    "displayName": ""
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord1%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord2%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord3%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord4%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord5%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord6%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord7%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord8%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord9%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord10%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord11%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord12%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord13%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord14%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord15%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord16%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord17%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord18%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord19%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.HMI.AlarmWord20%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": false,
+        "fn": "ConvertAlarmWordsToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmWordList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+[
+  {
+    "name": "Test2",
+    "order": "Descending"
+  }
+]
+</script>
 </div>
 
 </div>

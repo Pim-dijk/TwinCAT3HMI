@@ -2275,7 +2275,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord1": {
-            "ACCESS": 3,
+            "ACCESS": 1,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord1",
@@ -2287,13 +2287,247 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.HMI.AlarmWord10": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord10",
+            "OPTIONS": {
+                "comment": " BottomMold A "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord11": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord11",
+            "OPTIONS": {
+                "comment": " BottomMold B "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord12": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord12",
+            "OPTIONS": {
+                "comment": " BottomMold B "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord13": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord13",
+            "OPTIONS": {
+                "comment": " BottomMold B "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord14": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord14",
+            "OPTIONS": {
+                "comment": " BottomMold B "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord15": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord15",
+            "OPTIONS": {
+                "comment": " TransferMold "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord16": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord16",
+            "OPTIONS": {
+                "comment": " TransferMold "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord17": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord17",
+            "OPTIONS": {
+                "comment": " ProductForming "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord18": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord18",
+            "OPTIONS": {
+                "comment": " ProductForming "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord19": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord19",
+            "OPTIONS": {
+                "comment": " ProductForming "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.HMI.AlarmWord2": {
-            "ACCESS": 3,
+            "ACCESS": 1,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord2",
             "OPTIONS": {
                 "comment": " General "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord20": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord20",
+            "OPTIONS": {
+                "comment": " ProductForming "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord3": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord3",
+            "OPTIONS": {
+                "comment": " TopMold A "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord4": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord4",
+            "OPTIONS": {
+                "comment": " TopMold A "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord5": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord5",
+            "OPTIONS": {
+                "comment": " TopMold B "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord6": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord6",
+            "OPTIONS": {
+                "comment": " TopMold B "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord7": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord7",
+            "OPTIONS": {
+                "comment": " BottomMold A "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord8": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord8",
+            "OPTIONS": {
+                "comment": " BottomMold A "
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.AlarmWord9": {
+            "ACCESS": 1,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::AlarmWord9",
+            "OPTIONS": {
+                "comment": " BottomMold A "
             },
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/DINT"
@@ -2307,6 +2541,16 @@
             "MAPPING": "PLC1::HMI::miUserLevel",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.mxReset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::mxReset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },

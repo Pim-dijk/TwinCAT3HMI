@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="FB_InMoldDrying" Id="{468792ab-e555-460c-9ab2-66f765da9e4f}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_InMoldDrying
 (* Objects 
@@ -1265,6 +1265,8 @@ END_IF
       <Implementation>
         <ST><![CDATA[
 TopMoldA(
+	fbSourceName:= 'MAIN.InMoldDrying.TopMoldA.Hydraulic',
+	fbSourceId:= 33,
 	mxReset:= mxReset,
 	mxEmergency:= mxEmergency[8],
 	mxDoorsOpened:= mxEmergency[2] OR mxEmergency[3],
@@ -1278,6 +1280,8 @@ TopMoldA(
 	Errors=> Errors.TopMoldA);
 
 TopMoldB(
+	fbSourceName:= 'MAIN.InMoldDrying.TopMoldB.Hydraulic',
+	fbSourceId:= 34,
 	mxReset:= mxReset,
 	mxEmergency:= mxEmergency[8],
 	mxDoorsOpened:=mxEmergency[3] OR mxEmergency[4],
@@ -1706,11 +1710,15 @@ HydraulicsMain(
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.Objects">
-      <LineId Id="262" Count="2" />
+      <LineId Id="262" Count="1" />
+      <LineId Id="403" Count="1" />
+      <LineId Id="264" Count="0" />
       <LineId Id="396" Count="0" />
       <LineId Id="265" Count="2" />
       <LineId Id="375" Count="0" />
-      <LineId Id="269" Count="7" />
+      <LineId Id="269" Count="6" />
+      <LineId Id="405" Count="1" />
+      <LineId Id="276" Count="0" />
       <LineId Id="397" Count="0" />
       <LineId Id="277" Count="2" />
       <LineId Id="376" Count="0" />

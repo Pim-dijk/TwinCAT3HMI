@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="FB_TopMold" Id="{2e250e61-b76c-4394-b65d-3dcc6d70421f}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_TopMold
 VAR CONSTANT
@@ -54,6 +54,9 @@ VAR CONSTANT
 END_VAR
 
 VAR_INPUT
+	fbSourceName					: STRING;
+	fbSourceID						: UDINT;
+
 	mxReset							: BOOL;	(*Reset Error*)
 	mxEmergency						: BOOL;
 	mxDoorsOpened					: BOOL;
@@ -633,6 +636,8 @@ END_IF
       <Implementation>
         <ST><![CDATA[(* Object Calls *)
 HydraulicCilinder(
+	fbSourceName:= fbSourceName,
+	fbSourceID:= fbSourceId,
 	mxReset:= mxReset, 
 	mxEmergency:= mxEmergency OR mxDoorsOpened, 
 	mxAutoMode:= mxAutoMode, 
@@ -960,6 +965,8 @@ HeatingZone[6](
     <LineIds Name="FB_TopMold.Objects">
       <LineId Id="2" Count="0" />
       <LineId Id="10" Count="0" />
+      <LineId Id="143" Count="0" />
+      <LineId Id="145" Count="0" />
       <LineId Id="14" Count="2" />
       <LineId Id="51" Count="0" />
       <LineId Id="53" Count="1" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="HMI" Id="{8c1b33ce-9977-4558-a527-7556af87d9de}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM HMI
 VAR_OUTPUT
@@ -40,6 +40,7 @@ VAR
 
 	mxAutoMode: BOOL;
 
+	mx_TestAlarm: BOOL;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[Error();
@@ -95,7 +96,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*29*)Alarmword1.28:=Main.Errors.ex24VoltError1;
 (*30*)Alarmword1.29:=Main.Errors.ex24VoltError2;
 (*31*)Alarmword1.30:=Main.Errors.exAtteptedStartWithNoProduct;
-(*32*)Alarmword2.31:=FALSE;
+(*32*)Alarmword1.31:=mx_TestAlarm;
 
 (*33*)Alarmword2.0:= Main.InMoldDrying.Errors.HydraulicMain.HydraulicPump.SofstarterFailure;
 (*34*)Alarmword2.1:= Main.InMoldDrying.Errors.HydraulicMain.HydraulicPump.Maintenance;

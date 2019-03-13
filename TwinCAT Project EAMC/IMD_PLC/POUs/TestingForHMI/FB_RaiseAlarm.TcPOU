@@ -22,7 +22,8 @@ END_IF
 IF fbAlarm1.eConfirmationState = 3 THEN // Waiting for confirmation
 	hr1 := fbAlarm1.Clear(0, FALSE); // Veranderd de state niet van Confirmed naar cleared. de state blijft Confirmed
 	hr2 := fbAlarm1.Release();  // Zet de state naar NotSupported (0)
-END_IF]]></ST>
+END_IF
+]]></ST>
     </Implementation>
     <LineIds Name="FB_RaiseAlarm">
       <LineId Id="9" Count="0" />
@@ -34,6 +35,7 @@ END_IF]]></ST>
       <LineId Id="40" Count="0" />
       <LineId Id="45" Count="0" />
       <LineId Id="27" Count="0" />
+      <LineId Id="57" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
