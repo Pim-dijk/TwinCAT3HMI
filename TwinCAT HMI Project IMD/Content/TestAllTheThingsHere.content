@@ -336,4 +336,28 @@
 </script>
 </div>
 
+<div id="TcHmiTextblock_75" data-tchmi-type="tchmi-textblock" data-tchmi-height="136" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="525" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiTextblock_75.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "//$.each(TcHmi.Server.Events, function(key, value){\t\n//   \tconsole.log(key + ' - ' + value);\n//});\n\n// filter for unconfirmed alarms\n var filter = [\n     {\n         path: 'type',\n         comparator: '==',\n         value: TcHmi.Server.Events.Type.Alarm\n     },\n     {\n         logic: 'AND'\n     },\n     {\n         path: 'timeConfirmed',\n         comparator: '==',\n         value: new Date(null)\n     }\n ];\n \n var myAlarms = [];\n \n // function to handle list of events\n function consumeEventList(data) {\n     if (data.error === TcHmi.Errors.NONE) {\n         myAlarms = data.events;\n     }\n     else {\n         myAlarms = [];\n     }\n }\n \n // function to handle new and changed incoming events\n function consumeEventSubscription(data) {\n     if (data.error !== TcHmi.Errors.NONE) {\n         return;\n     }\n     if (data.removedByFilter) {\n         myAlarms = myAlarms.filter(function (alarm) {\n             return alarm.id !== data.event.id;\n         });\n     }\n     else if (data.changeType === TcHmi.Server.Events.ChangeType.AlarmRaised) {\n         myAlarms.push(data.event);\n     }\n     else {\n         for (var i = 0; i < myAlarms.length; i++) {\n             if (myAlarms[i].id === data.event.id) {\n                 myAlarms[i] = data.event;\n                 break;\n             }\n         }\n     }\n }\n \n // register a consumer to receive events\n var destroyFunction = TcHmi.Server.Events.registerConsumer(filter, {\n     list: consumeEventList,\n     subscription: consumeEventSubscription\n });\n \n console.log(myAlarms);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
 </div>

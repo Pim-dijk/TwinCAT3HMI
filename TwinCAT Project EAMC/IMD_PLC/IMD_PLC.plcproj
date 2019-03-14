@@ -373,6 +373,9 @@
     <Compile Include="RecipeManager.TcRMO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VISUs\GlobalTextList.TcGTLO">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />

@@ -46,8 +46,10 @@ VAR_OUTPUT
 END_VAR
 VAR
 (* Testing new HMI alarms *)	
+	_eventBase						: FB_TcEventBase;	
 	_eventSourceName				: STRING;
 	_eventSourceInfo				: FB_TcSourceInfo;
+	_asyncResult					: FB_AsyncStrResult;
 	_initializeEvents				: BOOL := TRUE;
 	_PositionError 					: FB_TcAlarm;
 	_IsMovingWithoutActivationError	: FB_TcAlarm;
@@ -150,14 +152,20 @@ IF _initializeEvents THEN
 	_IsMovingWithoutActivationError.ipArguments.Clear().AddString(_eventSourceName);
 	_BallufError.CreateEx(TC_Events.Kremer_Events.BallufError, TRUE, 0);
 	_BallufError.ipArguments.Clear().AddString(_eventSourceName);
+	(* F_GetEventText(19, _BallufError, _asyncResult);
+	IF NOT _asyncResult.bBusy AND NOT _asyncResult.bError THEN 
+		_asyncResult.GetString(_eventSourceName, SIZEOF(_eventSourceName));
+		_BallufError.ipArguments.Clear().AddString(_eventSourceName);
+	END_IF *)
+	_BallufError.SetJsonAttribute('{ "color":"argb(255, 255, 104, 1)" }');
 END_IF
 
 Errors.BallufError:= HydraulicPos.Error;
 (* Raise the alarm *)
 IF Errors.BallufError THEN
 	_BallufError.Raise(0);
-	_IsMovingWithoutActivationError.Raise(0);
-	_PositionError.Raise(0);
+	(* _IsMovingWithoutActivationError.Raise(0);
+	_PositionError.Raise(0); *)
 ELSE
 	IF _BallufError.eConfirmationState = 3 THEN (* If the alarm has been confirmed, clear it*)
 		_BallufError.Clear(0, FALSE);
@@ -430,7 +438,13 @@ HydraulicPos();]]></ST>
       <LineId Id="88" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="89" Count="0" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="109" Count="0" />
       <LineId Id="99" Count="0" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="113" Count="0" />
       <LineId Id="82" Count="0" />
       <LineId Id="80" Count="0" />
       <LineId Id="43" Count="0" />
