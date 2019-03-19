@@ -61,94 +61,6 @@
         "In/Output"
       ]
     },
-    "ContentView_DisplayName": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\ContentView_DisplayName.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/ContentView_DisplayName"
-    },
-    "DoorView": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\DoorView.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/DoorView"
-    },
-    "General_Keyboard": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\General_Keyboard.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/General_Keyboard"
-    },
-    "IOField": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\IOField.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/IOField"
-    },
-    "Kremer_Button": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Button.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Button"
-    },
-    "Kremer_Calculator": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Calculator.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Calculator"
-    },
-    "Kremer_Light": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Light.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Light"
-    },
-    "Kremer_PopupMessage": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_PopupMessage.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_PopupMessage"
-    },
-    "LanguageSelect": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\LanguageSelect.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/LanguageSelect"
-    },
-    "TextInputField": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\TextInputField.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/TextInputField"
-    },
-    "ucDateTime": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/ucDateTime"
-    },
     "alarmGroup": {
       "properties": {
         "tag": {
@@ -221,6 +133,118 @@
           }
         }
       ]
+    },
+    "ContentView_DisplayName": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\ContentView_DisplayName.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ContentView_DisplayName"
+    },
+    "DoorView": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\DoorView.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/DoorView"
+    },
+    "General_Keyboard": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\General_Keyboard.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/General_Keyboard"
+    },
+    "IOField": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\IOField.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/IOField"
+    },
+    "Kremer_Button": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Button.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Button"
+    },
+    "Kremer_Calculator": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Calculator.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Calculator"
+    },
+    "Kremer_ConfirmDelete": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_ConfirmDelete.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_ConfirmDelete"
+    },
+    "Kremer_EditUser": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_EditUser.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_EditUser"
+    },
+    "Kremer_Light": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Light.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Light"
+    },
+    "Kremer_PopupMessage": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_PopupMessage.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_PopupMessage"
+    },
+    "Kremer_UserManagement": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_UserManagement.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_UserManagement"
+    },
+    "LanguageSelect": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\LanguageSelect.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/LanguageSelect"
+    },
+    "TextInputField": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\TextInputField.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/TextInputField"
+    },
+    "ucDateTime": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ucDateTime"
     }
   }
 }

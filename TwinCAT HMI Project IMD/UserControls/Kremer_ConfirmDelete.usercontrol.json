@@ -1,0 +1,56 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-message",
+      "displayName": "Message",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "defaultValue": "Are you sure?",
+      "defaultValueInternal": "Are you sure?",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Message",
+      "propertySetterName": "setMessage",
+      "propertyGetterName": "getMessage"
+    },
+    {
+      "name": "data-tchmi-fontsize",
+      "displayName": "FontSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "",
+      "defaultValue": 16,
+      "defaultValueInternal": 16,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "FontSize",
+      "propertySetterName": "setFontSize",
+      "propertyGetterName": "getFontSize"
+    },
+    {
+      "name": "data-tchmi-self",
+      "displayName": "Self",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Control",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Self",
+      "propertySetterName": "setSelf",
+      "propertyGetterName": "getSelf"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

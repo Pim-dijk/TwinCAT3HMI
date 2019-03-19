@@ -148,7 +148,7 @@
   "color": "rgba(183, 183, 183, 1)"
 }
 </script>
-<div id="TcHmiButton_16" data-tchmi-type="tchmi-button" data-tchmi-height="2.0" data-tchmi-height-unit="%" data-tchmi-text="X" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="%" data-tchmi-right="2" data-tchmi-min-width="40" data-tchmi-min-height="40">
+<div id="TcHmiButton_16" data-tchmi-type="tchmi-button" data-tchmi-height="2.0" data-tchmi-height-unit="%" data-tchmi-text="X" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="%" data-tchmi-right="2" data-tchmi-min-width="40" data-tchmi-min-height="25" data-tchmi-max-height="40" data-tchmi-max-width="60">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">

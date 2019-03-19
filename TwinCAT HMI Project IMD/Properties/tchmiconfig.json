@@ -69,10 +69,19 @@
       "url": "UserControls/Kremer_Calculator.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_ConfirmDelete.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_EditUser.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_Light.usercontrol"
     },
     {
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_UserManagement.usercontrol"
     },
     {
       "url": "UserControls/LanguageSelect.usercontrol"
@@ -128,6 +137,10 @@
     {
       "url": "Content/TrendView.content",
       "preload": false
+    },
+    {
+      "url": "Content/UserManagement.content",
+      "preload": false
     }
   ],
   "views": [
@@ -181,6 +194,9 @@
     },
     {
       "url": "Scripts/ConvertAlarmWordsToDataGrid.js"
+    },
+    {
+      "url": "Scripts/ConvertAlarmDBToDataGrid.js"
     }
   ],
   "symbols": {
@@ -1933,6 +1949,12 @@
         "value": {},
         "type": "tchmi:general#/definitions/Object",
         "persist": true,
+        "readonly": false
+      },
+      "ConfirmDeleteUser": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
         "readonly": false
       }
     }

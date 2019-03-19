@@ -5,6 +5,11 @@
             "PASSWORD": "91b705b2b6ba42c1feab8418c233feb7aeadbe57e7bc46b5450ddba5b995346e",
             "SALT": "3x3ZLdFs5ImuKiDlMXtNu1bCCNIErTn59922z0PYsWqISZs5mRFGuUX5xpVxe1RF6Y4gQtIKLbiLck6Fn/k/AA=="
         },
+        "Henkie123": {
+            "ENABLED": true,
+            "PASSWORD": "84ebf295149258bdcd585f9faeeb0a03d60b158024aca66d181359824d3acd3a",
+            "SALT": "f1c3Qz2QaBhmtj8LlopB4HktcFm2syt2fr1FSNd5/AhcV03s/PTdQZmHSXg2A7TYxJHQ4QwdZ5vdT8cSqHt9AA=="
+        },
         "TestUser": {
             "ENABLED": true,
             "PASSWORD": "d1c54264fd34f29506b66d8d9e53062bfcbcb5479da3f7a0032de2e58a535c87",

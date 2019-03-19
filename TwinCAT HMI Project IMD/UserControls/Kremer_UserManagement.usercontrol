@@ -1,0 +1,336 @@
+﻿<div id="Kremer_UserManagement" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiDatagrid_1" data-tchmi-type="tchmi-datagrid" data-tchmi-height="100.0" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px"    data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="76.0" data-tchmi-width-unit="%">
+<script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
+[
+  {
+    "name": "name",
+    "label": "Username",
+    "control": "TextBlock",
+    "width": 150,
+    "widthUnit": "px",
+    "resize": true,
+    "sortable": true,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "format": null
+  },
+  {
+    "name": "group",
+    "label": "UserGroup",
+    "control": "TextBlock",
+    "width": 250,
+    "widthUnit": "px",
+    "resize": true,
+    "sortable": true,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "format": null
+  },
+  {
+    "name": "locale",
+    "label": "Locale",
+    "control": "TextBlock",
+    "width": 50,
+    "widthUnit": "px",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 50,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "format": null
+  },
+  {
+    "name": "enabled",
+    "label": "Enabled",
+    "control": "CheckBox",
+    "width": 50,
+    "widthUnit": "px",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 50,
+    "minWidthUnit": "px",
+    "cellBackground": null,
+    "textColor": null,
+    "editable": true,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "format": null
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+{
+  "left": 3,
+  "leftUnit": "px",
+  "right": 3,
+  "rightUnit": "px",
+  "top": 0,
+  "topUnit": "px",
+  "bottom": 0,
+  "bottomUnit": "px"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiDatagrid_1.onDataChanged",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\n\nvar data = grid.getSelectedRowValue();\n\n// Remove the user\nif(data.delete) {\n\tTcHmi.Server.UserManagement.removeUser (\n    data.name, \n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            // Success\n            console.log('Removed user');\n        } else {\n            // Error\n        }\n    });\t\n}\n\n// Update the user\nTcHmi.Server.UserManagement.updateUser(\n    data.name, \n    {\n        enabled: data.enabled\n    },\n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            // Success\n            console.log('Updated user successfully');\n        } else {\n            // Error\n        }\n    }\n);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_UserManagement.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "// var target = TcHmi.Controls.get('TcHmiDatagrid_1');\n\n// var targetArray = [];\n\n// TcHmi.Server.UserManagement.listUsers(function(data) {\n//     if (data.error === TcHmi.Errors.NONE) {\n//         console.log(data.userDetails);\n//         $.each(data.userDetails, function(key, user){\n// \t\t\tvar userData = {};\n// \t\t\tuserData['name'] = key;\n// \t\t\tvar groups = [];\n// \t\t\t$.each(user.groups, function(key, value){\n// \t       \t\tvar groupEntry = [];\n// \t\t\t\tgroupEntry['text'] = value;\n// \t\t\t\tgroupEntry['value'] = value;\n// \t\t\t\t//groups.push(groupEntry);\n// \t\t\t\tgroups.push(value);\n// \t        });\n// \t\t\tuserData['group'] = groups;\n// \t\t\tuserData['locale'] = user.locale;\n// \t\t\tuserData['enabled'] = user.enabled;\n// \t\t\t//userData['group'] = JSON.stringify(user.groups);\n// \t\t\ttargetArray.push(userData);\n//        });\n//        target.setSrcData(targetArray);\n       \n//     } else {\n//         // Error\n//         console.log(data.error);\n//     }\n// });\n\nTcHmi.EventProvider.raise('fillUserDataGrid', 'TcHmiDatagrid_1');"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ],
+    "displayName": ""
+  },
+  {
+    "event": "%i%ConfirmDeleteUser%/i%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%ConfirmDeleteUser%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%ConfirmDeleteUser%/i%",
+            "valueType": "tchmi:general#/definitions/BOOL",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": false
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "JavaScript",
+            "active": true,
+            "sourceLines": [
+              "var usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar username = usernameSymbol.read();\n\n// Delete user\nTcHmi.Server.UserManagement.removeUser (\n    username, \n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            // Success\n            console.log(data);\n\t\t\t// Reload the list\n\t\t\tTcHmi.EventProvider.raise('fillUserDataGrid', 'TcHmiDatagrid_1');\n        } else {\n            // Error\n            console.log(data);\n        }\n    }\n);\n"
+            ],
+            "injectContextObject": false,
+            "asyncWait": true,
+            "waitMode": "Synchronous"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+<div id="TcHmiButton_41" data-tchmi-type="tchmi-button" data-tchmi-height="10.0" data-tchmi-height-unit="%" data-tchmi-text="New user" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="20.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="10" data-tchmi-min-height="45" data-tchmi-max-width="125">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_41.onPressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "//symbols to store data in\nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar groupIndexSymbol = new TcHmi.Symbol('%pp%GroupIndex%/pp%');\nvar langIndexSymbol = new TcHmi.Symbol('%pp%LangIndex%/pp%'); \nvar enabledSymbol = new TcHmi.Symbol('%pp%Enabled%/pp%');\nvar modeSymbol = new TcHmi.Symbol('%pp%Mode%/pp%');\n\nusernameSymbol.write('');\ngroupIndexSymbol.write(-1);\nlangIndexSymbol.write(-1);\nenabledSymbol.write(false);\nmodeSymbol.write(false);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_EditUser_2::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_42" data-tchmi-type="tchmi-button" data-tchmi-height="10.0" data-tchmi-height-unit="%" data-tchmi-text="Edit user" data-tchmi-top="70" data-tchmi-top-unit="px" data-tchmi-width="20.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="10" data-tchmi-min-height="45" data-tchmi-max-width="125">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_42.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%ctrl%TcHmiDatagrid_1::SelectedRowIndex%/ctrl%"
+            },
+            "compare2": {
+              "objectType": "FunctionExpression",
+              "functionExpression": "null"
+            },
+            "compareOperator": "!=",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%Kremer_EditUser_2::Visibility%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "JavaScript",
+            "active": true,
+            "sourceLines": [
+              "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\nvar locales = TcHmi.Locale.getRegisteredLocales();\n\n//symbols to store data in\nvar groupIndexSymbol = new TcHmi.Symbol('%pp%GroupIndex%/pp%');\nvar groupNameSymbol = new TcHmi.Symbol('%pp%GroupName%/pp%');\nvar langIndexSymbol = new TcHmi.Symbol('%pp%LangIndex%/pp%'); \nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar enabledSymbol = new TcHmi.Symbol('%pp%Enabled%/pp%');\nvar modeSymbol = new TcHmi.Symbol('%pp%Mode%/pp%');\n\n// Force a refresh of the value if the same user was clicked after changing the name\nusernameSymbol.write('');\n\nvar rowValue = grid.getSelectedRowValue();\n//console.log(grid.getSelectedRowIndex());\n\n// Check if a row is selected\nif(rowValue != null){\n\tvar username = rowValue['name'];\n\tvar groupIndex = 0;\n\tvar langIndex = 0;\n\tvar enabled = rowValue['enabled'];\n\t//console.log(rowValue);\n\t\n\tTcHmi.Server.UserManagement.listUserGroups(function(data) {\n\t    if (data.error === TcHmi.Errors.NONE) {\n   \t\t\t//console.log(data.groupDetailsList);\n       \t\tvar found = false;\n\t        $.each(data.groupDetailsList, function(groupKey, groupValue){\n                if(found){\n\t\t\t\t\treturn;\n   \t\t       \t};\n\t\t\t\t$.each(rowValue.group, function(key, value){\n\t                //console.log(\"value from server: \" + groupKey);\n\t       \t       \t//console.log(\"value from list: \" + value);\n\t\t\t\t\tif(groupKey === value){\n\t       \t       \t\tgroupNameSymbol.write(groupKey);\n\t       \t       \t\t//console.log(groupKey);\n\t\t\t\t\t\tfound = true;\t                \t\n                \t\treturn;\n\t\t   \t       \t}\n\t\t\t\t});\n   \t\t       \tif(!found){\n\t\t\t\t\tgroupIndex++;\n   \t\t       \t};\n\t\t\t});\n\t    } else {\n\t        // Error\n\t    }\n\t    //console.log(groupIndex);\n\t    groupIndexSymbol.write(groupIndex);\n\t});\n\t\n\tfor(var i = 0; i < Object.keys(locales).length; i++){\n\t\tif(locales[i] === rowValue.locale){\n\t\t\tlangIndex = i;\n\t\t};\n\t};\n\t//console.log(langIndex);\t\n\tlangIndexSymbol.write(langIndex);\n\tusernameSymbol.write(username);\n\tenabledSymbol.write(enabled);\n\tmodeSymbol.write(true);\n};"
+            ],
+            "injectContextObject": false,
+            "asyncWait": true,
+            "waitMode": "Synchronous"
+          }
+        ],
+        "asyncWait": true
+      }
+    ],
+    "displayName": ""
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_43" data-tchmi-type="tchmi-button" data-tchmi-height="10.2" data-tchmi-height-unit="%" data-tchmi-text="Delete user" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-width="20.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right="10" data-tchmi-max-width="125" data-tchmi-min-height="45">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_43.onPressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\n\n//symbols to store data in\nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\n\n// Force a refresh of the value if the same user was clicked after changing the name\nusernameSymbol.write('');\n\nvar rowValue = grid.getSelectedRowValue();\n\n// Check if a row is selected\nif(rowValue != null){\n\tvar username = rowValue['name'];\n\tusernameSymbol.write(username);\n};"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_ConfirmDelete_1::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%ConfirmDeleteUser%/i%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_EditUser_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="58.4" data-tchmi-height-unit="%" data-tchmi-left="34.6" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_EditUser.usercontrol" data-tchmi-top="9.6" data-tchmi-top-unit="%" data-tchmi-width="37.4" data-tchmi-width-unit="%" data-tchmi-max-width="350" data-tchmi-visibility="Collapsed" data-tchmi-username="%pp%Username%/pp%" data-tchmi-group="%pp%GroupIndex%/pp%" data-tchmi-language="%pp%LangIndex%/pp%" data-tchmi-enabled="%pp%Enabled%/pp%" data-tchmi-this="%ctrl%Kremer_EditUser_2%/ctrl%" data-tchmi-languageindex="%pp%LangIndex%/pp%" data-tchmi-groupindex="%pp%GroupIndex%/pp%" data-tchmi-mode="%pp%Mode%/pp%" data-tchmi-max-height="350" data-tchmi-min-width="150" data-tchmi-min-height="200" data-tchmi-keyboard="%pp%Keyboard%/pp%" data-tchmi-groupname="%pp%GroupName%/pp%">
+
+</div>
+
+<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="18" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-left="27.4" data-tchmi-left-unit="%" data-tchmi-message="%f%'Are you sure you want to delete the user:' + %pp%Username%/pp% + '?';%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-top="24.0" data-tchmi-top-unit="%" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Collapsed">
+
+</div>
+
+</div>

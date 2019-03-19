@@ -30,7 +30,12 @@
     "columnName": "timeAndDateRaised"
   },
   {
-    "columnName": "text"
+    "columnName": "text",
+    "width": 440,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "timeConfirmed"
   }
 ]
 </script>
@@ -71,7 +76,7 @@
 
 <div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-visibility="Visible">
 
-<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
+<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
 
 
 
@@ -441,7 +446,7 @@
 </script>
 </div>
 
-<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="272" data-tchmi-height-unit="px" data-tchmi-left="44" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="268" data-tchmi-top-unit="px" data-tchmi-width="690" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Collapsed">
+<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="272" data-tchmi-height-unit="px" data-tchmi-left="44" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="268" data-tchmi-top-unit="px" data-tchmi-width="690" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Collapsed" data-tchmi-self="%ctrl%General_Keyboard_3%/ctrl%">
 
 </div>
 
@@ -479,6 +484,20 @@
           }
         ],
         "asyncWait": true
+      },
+      {
+        "objectType": "Comment",
+        "comment": "Load the custom alarmview that handles the PLC Native alarms, with localization for time and messages"
+      },
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "//$.each(TcHmi.Server.Events, function(key, value){\t\n//   \tconsole.log(key + ' - ' + value);\n//});\n\n// Target datagrid\nvar target = TcHmi.Controls.get('TcHmiDatagrid');\n\nvar timeZone = TcHmi.Locale.get();\n\n// filter for unconfirmed alarms\nconsole.log(\"Creating Filter...\");\n var filter = [\n     {\n         path: 'type',\n         comparator: '==',\n         value: TcHmi.Server.Events.Type.Alarm\n     },\n     {\n         logic: 'AND'\n     },\n     {\n         path: 'timeConfirmed',\n         comparator: '==',\n         value: new Date(null)\n     }\n ];\n \n var myAlarms = [];\n var targetArray = [];\n \n // function to handle list of events\n function consumeEventList(data) {\n     console.log(\"Consuming the event...\");\n     console.log(data);\n     if (data.error === TcHmi.Errors.NONE) {\n         myAlarms = data.events;\n         convertArraytoTargetArray(myAlarms);\n     }\n     else {\n         myAlarms = [];\n     }\n }\n \n // function to handle new and changed incoming events\n function consumeEventSubscription(data) {\n     console.log(\"Consuming the event subscription...\");\n     console.log(data);\n     if (data.error !== TcHmi.Errors.NONE) {\n         return;\n     }\n     if (data.removedByFilter) {\n         myAlarms = myAlarms.filter(function (alarm) {\n             return alarm.id !== data.event.id;\n         });\n     }\n     else if (data.changeType === TcHmi.Server.Events.ChangeType.AlarmRaised) {\n         myAlarms.push(data.event);\n     }\n     else {\n         for (var i = 0; i < myAlarms.length; i++) {\n             if (myAlarms[i].id === data.event.id) {\n                 myAlarms[i] = data.event;\n                 break;\n             }\n         }\n     }\n     convertArraytoTargetArray(myAlarms);\n }\n \n // register a consumer to receive events\n var destroyFunction = TcHmi.Server.Events.registerConsumer(filter, {\n     list: consumeEventList,\n     subscription: consumeEventSubscription\n });\n \n function convertArraytoTargetArray(alarmArray){\n \tconsole.log('Converting to target array');\n\t$.each(alarmArray, function(key, alarm){\n       \t//console.log(alarm);\n\t\tvar alarmEntry = {};\n\t\tvar valid = validateJson(alarm.text) ? true : false;\n\t\tvar text = validateJson(alarm.text) ? JSON.parse(alarm.text) : alarm.text;\n\t\talarmEntry['text'] = valid ? text[timeZone] : text;\n\t\talarmEntry['id'] = alarm.params.eventId;\n        var dateTime = new Date(alarm.timeRaised);\n\t\talarmEntry['timeRaised'] = dateTime.toLocaleString(timeZone);\n\t\tvar timeConfirmed;\n\t\tif(new Date(alarm.timeConfirmed).getTime() == 0) {\n\t\t\ttimeConfirmed = null;\t\n\t\t} else {\n\t\t\ttimeConfirmed = new Date(alarm.timeConfirmed).toLocaleString(timeZone);\n\t\t}\n\t\talarmEntry['timeConfirmed'] = timeConfirmed; \n\t\ttargetArray.push(alarmEntry);\n\t\t//console.log(targetArray);\n\t}); \n\ttarget.setSrcData(targetArray);\t\n };\n \n function validateJson(str){\n\ttry {\n\t\tJSON.parse(str);\n \t} catch(e) {\n\t\treturn false;\n \t}\n \treturn true;\n }\n "
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
       }
     ]
   },

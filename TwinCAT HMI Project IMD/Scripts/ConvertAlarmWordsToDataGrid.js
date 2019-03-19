@@ -9,8 +9,8 @@
 
 (function (TcHmi) {
 
-    var ConvertAlarmWordsToDataGrid = function (TargetControl, AlarmWordList, AlarmMessageList, AlarmDB) {
-        console.log("Calling js function: " + new Date());
+    var ConvertAlarmWordsToDataGrid = function (TargetControl,AlarmWordList,AlarmMessageList,AlarmDB) {
+        //console.log("Calling js function: " + new Date());
 
         // Target to send the data to
         var target = TcHmi.Controls.get(TargetControl);
@@ -21,7 +21,7 @@
         // Convert the date object to local time object
         var dateTimeString = date.toLocaleString(timeZone);
         // The Array that holds the alarms
-        var json = [];
+        //var json = [];
         var allAlarms = AlarmWordList;
         var count = 0;
         var length = Object.keys(allAlarms).length;
@@ -97,16 +97,16 @@
                             }
                         });
 
-                        // Write each value from alarmDB to json
-                        $.each(alarmDB, function (key, value) {
-                            var dateTime = new Date(value.Test2);
-                            var localeDateTime = dateTime.toLocaleString(timeZone);
-                            value.Test2 = localeDateTime;
-                            value.Test4 = alarmStrings[timeZone][value.Test1];
-                            json.push(value);
-                        });
-                        // set json as data for the target
-                        target.setSrcData(json);
+                        //// Write each value from alarmDB to json
+                        //$.each(alarmDB, function (key, value) {
+                        //    var dateTime = new Date(value.Test2);
+                        //    var localeDateTime = dateTime.toLocaleString(timeZone);
+                        //    value.Test2 = localeDateTime;
+                        //    value.Test4 = alarmStrings[timeZone][value.Test1];
+                        //    json.push(value);
+                        //});
+                        //// set json as data for the target
+                        //target.setSrcData(json);
                     }
                 } else {
                     console.log(data.error);

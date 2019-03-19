@@ -4209,10 +4209,18 @@
     "USERGROUPUSERS": {
         "TcHmiUserManagement": {
             "Guest": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT1M",
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT10M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemUsers",
                     "Guest"
+                ],
+                "USERGROUPUSERS_LOCALE": "nl"
+            },
+            "Henkie123": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT10M",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemUsers",
+                    "TestGroup"
                 ],
                 "USERGROUPUSERS_LOCALE": "nl"
             },

@@ -1,0 +1,94 @@
+﻿<div id="Kremer_ConfirmDelete" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiButton_46" data-tchmi-type="tchmi-button" data-tchmi-height="24.6" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Confirm" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right-unit="%" data-tchmi-right="5" data-tchmi-bottom-unit="%" data-tchmi-bottom="5">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_46.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Self::Visibility%/pp%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%ConfirmDeleteUser%/i%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiTextblock_75" data-tchmi-type="tchmi-textblock" data-tchmi-height="61.8" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="%pp%Message%/pp%" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
+
+
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(229, 229, 229, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(209, 209, 209, 1)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(171, 171, 171, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 2,
+  "right": 2,
+  "top": 2,
+  "bottom": 2,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+</div>

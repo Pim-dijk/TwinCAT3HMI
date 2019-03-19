@@ -109,16 +109,73 @@
       },
       {
         "objectType": "JavaScript",
-        "active": true,
+        "active": false,
         "sourceLines": [
-          "// Convert datetime to current selected locale for display\n// set the message to the current locale string\n// Does NOT alter the AlarmDB\n\n// Target to send the data to\nvar target = TcHmi.Controls.get('TcHmiDatagrid_alarmView');\n// Get the locale information\nvar timeZone = TcHmi.Locale.get();\n// The Array that holds the alarms\nvar json = [];\n// List of alarm words\nvar AlarmWordList = new TcHmi.Symbol('%i%AlarmWordList%/i%');\nvar allAlarms = AlarmWordList.read();\n\nvar count = 0;\nvar length = Object.keys(allAlarms).length;\n\n// Locally stored alarms\nvar alarmDBSymbol = new TcHmi.Symbol('%i%AlarmDB%/i%');\nvar alarmDB = {};\nalarmDB = alarmDBSymbol.read();\n// List of alarm messages\nvar alarmList = new TcHmi.Symbol('%i%AlarmMessageList%/i%');\nvar alarmStrings = alarmList.read();\n\n// foreach registered alarm, convert the time and message to the set locale\n$.each(alarmDB, function(key, value){\n\t// make new Date object with the datetime from the alarm entry\n\tvar dateTime = new Date(value.Test2);\n\t// convert it to the local format\n\tvar localDateTime = dateTime.toLocaleString(timeZone);\n\t// set the new value\n\tvalue.Test2 = localDateTime;\n\t// set the message to the local value\n\tvalue.Test4 = alarmStrings[timeZone][value.Test1];\n\t// add it to the array\n\tjson.push(value);\n});\n// send the array to the data target\ntarget.setSrcData(json);"
+          "// Convert datetime to current selected locale for display\n// set the message to the current locale string\n// Does NOT alter the AlarmDB\n\n// Target to send the data to\nvar target = TcHmi.Controls.get('TcHmiDatagrid_alarmView');\n// Get the locale information\nvar timeZone = TcHmi.Locale.get();\n// The Array that holds the alarms\nvar json = [];\n// Locally stored alarms\nvar alarmDBSymbol = new TcHmi.Symbol('%i%AlarmDB%/i%');\nvar alarmDB = {};\nalarmDB = alarmDBSymbol.read();\n// List of alarm messages\nvar alarmList = new TcHmi.Symbol('%i%AlarmMessageList%/i%');\nvar alarmStrings = alarmList.read();\n\n// foreach registered alarm, convert the time and message to the set locale\n$.each(alarmDB, function(key, value){\n\t// make new Date object with the datetime from the alarm entry\n\tvar dateTime = new Date(value.Test2);\n\t// convert it to the local format\n\tvar localDateTime = dateTime.toLocaleString(timeZone);\n\t// set the new value\n\tvalue.Test2 = localDateTime;\n\t// set the message to the local value\n\tvalue.Test4 = alarmStrings[timeZone][value.Test1];\n\t// add it to the array\n\tjson.push(value);\n});\n// send the array to the data target\ntarget.setSrcData(json);"
         ],
         "injectContextObject": false,
         "asyncWait": true,
         "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmDBToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          }
+        ],
+        "asyncWait": true
       }
     ],
     "displayName": ""
+  },
+  {
+    "event": "%i%AlarmDB%/i%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "// Convert datetime to current selected locale for display\n// set the message to the current locale string\n// Does NOT alter the AlarmDB\n\n// Target to send the data to\nvar target = TcHmi.Controls.get('TcHmiDatagrid_alarmView');\n// Get the locale information\nvar timeZone = TcHmi.Locale.get();\n// The Array that holds the alarms\nvar json = [];\n// Locally stored alarms\nvar alarmDBSymbol = new TcHmi.Symbol('%i%AlarmDB%/i%');\nvar alarmDB = {};\nalarmDB = alarmDBSymbol.read();\n// List of alarm messages\nvar alarmList = new TcHmi.Symbol('%i%AlarmMessageList%/i%');\nvar alarmStrings = alarmList.read();\n\n// foreach registered alarm, convert the time and message to the set locale\n$.each(alarmDB, function(key, value){\n\t// make new Date object with the datetime from the alarm entry\n\tvar dateTime = new Date(value.Test2);\n\t// convert it to the local format\n\tvar localDateTime = dateTime.toLocaleString(timeZone);\n\t// set the new value\n\tvalue.Test2 = localDateTime;\n\t// set the message to the local value\n\tvalue.Test4 = alarmStrings[timeZone][value.Test1];\n\t// add it to the array\n\tjson.push(value);\n});\n// send the array to the data target\ntarget.setSrcData(json);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "ConvertAlarmDBToDataGrid",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
+            "value": "TcHmiDatagrid_alarmView"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmDB%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "symbolExpression": "%i%AlarmMessageList%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>

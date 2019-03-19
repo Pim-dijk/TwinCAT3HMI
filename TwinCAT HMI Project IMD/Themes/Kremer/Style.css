@@ -36,3 +36,7 @@ html {
     font-family: Helvetica;
     src: url(../../Fonts/HelveticaNeueLTStd-Bd.otf);
 } 
+
+.tchmi-class-error {
+    border: 2px solid red !important;
+}

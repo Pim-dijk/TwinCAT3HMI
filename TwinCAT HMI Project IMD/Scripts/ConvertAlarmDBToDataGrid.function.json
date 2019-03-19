@@ -1,0 +1,50 @@
+﻿{
+  "function": {
+    "name": "ConvertAlarmDBToDataGrid",
+    "displayName": "ConvertAlarmDBToDataGrid",
+    "visible": true,
+    "category": "",
+    "waitMode": "Synchronous",
+    "injectContextObject": false,
+    "description": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "arguments": [
+      {
+        "name": "Target",
+        "displayName": "Target",
+        "type": "tchmi:general#/definitions/String",
+        "description": "Target control that will display the data",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "AlarmDB",
+        "displayName": "AlarmDB",
+        "type": "tchmi:general#/definitions/Object",
+        "description": "List with all active alarms",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "AlarmMessageList",
+        "displayName": "AlarmMessageList",
+        "type": "tchmi:general#/definitions/Object",
+        "description": "List of all alarm messages",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      }
+    ]
+  },
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/FunctionDescription.Schema.json"
+}

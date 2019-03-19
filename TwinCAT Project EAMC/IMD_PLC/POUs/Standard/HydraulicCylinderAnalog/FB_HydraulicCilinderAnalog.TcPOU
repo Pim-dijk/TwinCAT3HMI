@@ -48,12 +48,13 @@ VAR
 (* Testing new HMI alarms *)	
 	_eventBase						: FB_TcEventBase;	
 	_eventSourceName				: STRING;
+	_translatedString				: STRING;
 	_eventSourceInfo				: FB_TcSourceInfo;
 	_asyncResult					: FB_AsyncStrResult;
 	_initializeEvents				: BOOL := TRUE;
 	_PositionError 					: FB_TcAlarm;
 	_IsMovingWithoutActivationError	: FB_TcAlarm;
-	_BallufError 					: FB_TcAlarm;	
+	_BallufError 					: FB_TcAlarm;
 
 	RodSidePressure					: FB_AnalogIn4_20mA;
 	BottomSidePressure				: FB_AnalogIn4_20mA;
@@ -151,13 +152,21 @@ IF _initializeEvents THEN
 	_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.IsMovingWithoutActivation, TRUE, 0);
 	_IsMovingWithoutActivationError.ipArguments.Clear().AddString(_eventSourceName);
 	_BallufError.CreateEx(TC_Events.Kremer_Events.BallufError, TRUE, 0);
-	_BallufError.ipArguments.Clear().AddString(_eventSourceName);
-	(* F_GetEventText(19, _BallufError, _asyncResult);
+	
+	_BallufError.RequestEventText(19, _translatedString, SIZEOF(_translatedString));
+	_BallufError.RequestEventClassName(19, _translatedString, SIZEOF(_translatedString));
+	
+	(* _BallufError.ipArguments.Clear().AddString(_eventSourceName); *)
+	
+	(* 
+	F_GetEventText(19, _BallufError, _asyncResult);
 	IF NOT _asyncResult.bBusy AND NOT _asyncResult.bError THEN 
 		_asyncResult.GetString(_eventSourceName, SIZEOF(_eventSourceName));
 		_BallufError.ipArguments.Clear().AddString(_eventSourceName);
-	END_IF *)
-	_BallufError.SetJsonAttribute('{ "color":"argb(255, 255, 104, 1)" }');
+	END_IF 
+	*)
+	
+	(* _BallufError.SetJsonAttribute('{ "jsonKey":"jsonValue" }'); *)
 END_IF
 
 Errors.BallufError:= HydraulicPos.Error;
@@ -438,12 +447,17 @@ HydraulicPos();]]></ST>
       <LineId Id="88" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="89" Count="0" />
+      <LineId Id="122" Count="0" />
+      <LineId Id="120" Count="1" />
       <LineId Id="112" Count="0" />
+      <LineId Id="123" Count="0" />
       <LineId Id="111" Count="0" />
+      <LineId Id="114" Count="1" />
       <LineId Id="106" Count="0" />
       <LineId Id="109" Count="0" />
       <LineId Id="99" Count="0" />
       <LineId Id="108" Count="0" />
+      <LineId Id="118" Count="1" />
       <LineId Id="113" Count="0" />
       <LineId Id="82" Count="0" />
       <LineId Id="80" Count="0" />

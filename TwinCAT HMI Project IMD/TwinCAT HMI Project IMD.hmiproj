@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10105</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10106</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -83,6 +83,9 @@
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <Target Name="Clean" DependsOnTargets="BaseClean" />
   <ItemGroup>
+    <Content Include="code-behind\scripts.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\Alarms.content">
       <SubType>Content</SubType>
     </Content>
@@ -116,6 +119,9 @@
     <Content Include="Content\TrendView.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\UserManagement.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Fonts\HelveticaNeueLTStd-Bd.otf">
       <SubType>Content</SubType>
     </Content>
@@ -132,6 +138,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\Conversion\Convert32bitIntToBinary.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ConvertAlarmDBToDataGrid.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ConvertAlarmDBToDataGrid.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\ConvertAlarmWordsToDataGrid.function.json">
@@ -260,6 +272,18 @@
     <Content Include="UserControls\IOField.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\Kremer_ConfirmDelete.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_ConfirmDelete.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_EditUser.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_EditUser.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\Kremer_Light.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -270,6 +294,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_PopupMessage.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_UserManagement.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_UserManagement.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\LanguageSelect.usercontrol">
@@ -303,6 +333,7 @@
     <Folder Include="Imports\Videos" />
     <Folder Include="Localization" />
     <Folder Include="Content" />
+    <Folder Include="code-behind" />
     <Folder Include="Scripts\Conversion" />
     <Folder Include="Scripts\Recipes" />
     <Folder Include="UserControls" />
@@ -550,12 +581,14 @@
     <TcHmiReference Include="5c0cd14a-c92b-4320-aa6e-3a1dab1ea1af">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlJs1/FrameworkControlJs1.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
     <TcHmiReference Include="ec55be3d-dbc7-4773-9864-e617d138c500">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>TestFrameworkControl/TestFrameworkControl.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
   </ItemGroup>
 </Project>
