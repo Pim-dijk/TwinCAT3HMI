@@ -11,6 +11,14 @@
 				<![CDATA[Het commentaar bij mijn eerste event]]>
 			</Text>
 		</Text>
+		<Text TxtId="{ &quot;nl&quot; : &quot;Balluf Fout&quot;, &quot;en-US&quot;: &quot;Balluf Error&quot;  }">
+			<Text LcId="1033">
+				<![CDATA[Balluf Error]]>
+			</Text>
+			<Text LcId="1043">
+				<![CDATA[Balluf Fout]]>
+			</Text>
+		</Text>
 		<Text TxtId="An error occured with the balluf">
 			<Text LcId="1043">
 				<![CDATA[Er is een error opgetreden met de balluf]]>
@@ -1737,51 +1745,6 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{A4472776-D1CF-43ED-8142-0E9EF507CFE1}" PersistentType="true">Kremer_Events</Name>
-			<DisplayName TxtId="">
-				<![CDATA[Kremer Events]]>
-			</DisplayName>
-			<EventId>
-				<Name Id="1">BallufError</Name>
-				<DisplayName TxtId="">
-					<![CDATA[{ "nl" : "Balluf Fout", "en-US": "Balluf Error"  }]]>
-				</DisplayName>
-				<Comment TxtId="">
-					<![CDATA[An error occured with the balluf]]>
-				</Comment>
-				<Severity>Error</Severity>
-			</EventId>
-			<EventId>
-				<Name Id="2">PositionError</Name>
-				<DisplayName TxtId="">
-					<![CDATA[{0} - Position Error]]>
-				</DisplayName>
-				<Comment TxtId="">
-					<![CDATA[A position error occured]]>
-				</Comment>
-				<Severity>Error</Severity>
-			</EventId>
-			<EventId>
-				<Name Id="3">IsMovingWithoutActivation</Name>
-				<DisplayName TxtId="">
-					<![CDATA[{0} - Is moving without activation]]>
-				</DisplayName>
-				<Comment TxtId="">
-					<![CDATA[Something is moving without activation]]>
-				</Comment>
-				<Severity>Critical</Severity>
-			</EventId>
-			<Hides>
-				<Hide GUID="{22E1C742-05BB-41D2-9DF9-E88259AAF6E2}"/>
-				<Hide GUID="{71530F19-CF47-462F-A4A1-F1CF4C1F1C53}"/>
-				<Hide GUID="{6320B0B8-BB25-409E-8AC1-D85DD5A09A95}"/>
-				<Hide GUID="{4168EEB9-C36F-42A6-8296-AB3C015FAFE1}"/>
-				<Hide GUID="{02A753DD-7093-4548-A6D8-21E69B2FD471}"/>
-				<Hide GUID="{B992ABBF-0DF9-4105-8B49-36A981AE45B0}"/>
-				<Hide GUID="{68A21C7A-FC3F-44A1-99CB-6209EFF1DF8D}"/>
-			</Hides>
-		</DataType>
-		<DataType>
 			<Name GUID="{85DC3E7A-8ADA-435B-9479-25573909A7DB}" Namespace="AX5000" TcBaseType="true">E_AX5000_P_0275_ActiveFeedbackAndMemory</Name>
 			<BitSize>8</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -1841,6 +1804,52 @@ External Setpoint Generation:
 				<Hide GUID="{B6598B95-DC2C-454C-9B12-DE628B32D897}"/>
 			</Hides>
 		</DataType>
+		<DataType>
+			<Name GUID="{3A2BCAE8-D52B-4532-BB1A-FC76A159E67E}" PersistentType="true">Kremer_Events</Name>
+			<DisplayName TxtId="">
+				<![CDATA[Kremer Events]]>
+			</DisplayName>
+			<EventId>
+				<Name Id="1">BallufError</Name>
+				<DisplayName TxtId="">
+					<![CDATA[{ "nl" : "Balluf Fout", "en-US": "Balluf Error"  }]]>
+				</DisplayName>
+				<Comment TxtId="">
+					<![CDATA[An error occured with the balluf]]>
+				</Comment>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="2">PositionError</Name>
+				<DisplayName TxtId="">
+					<![CDATA[{0} - Position Error]]>
+				</DisplayName>
+				<Comment TxtId="">
+					<![CDATA[A position error occured]]>
+				</Comment>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="3">IsMovingWithoutActivation</Name>
+				<DisplayName TxtId="">
+					<![CDATA[{0} - Is moving without activation]]>
+				</DisplayName>
+				<Comment TxtId="">
+					<![CDATA[Something is moving without activation]]>
+				</Comment>
+				<Severity>Critical</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{22E1C742-05BB-41D2-9DF9-E88259AAF6E2}"/>
+				<Hide GUID="{71530F19-CF47-462F-A4A1-F1CF4C1F1C53}"/>
+				<Hide GUID="{6320B0B8-BB25-409E-8AC1-D85DD5A09A95}"/>
+				<Hide GUID="{4168EEB9-C36F-42A6-8296-AB3C015FAFE1}"/>
+				<Hide GUID="{02A753DD-7093-4548-A6D8-21E69B2FD471}"/>
+				<Hide GUID="{B992ABBF-0DF9-4105-8B49-36A981AE45B0}"/>
+				<Hide GUID="{68A21C7A-FC3F-44A1-99CB-6209EFF1DF8D}"/>
+				<Hide GUID="{A4472776-D1CF-43ED-8142-0E9EF507CFE1}"/>
+			</Hides>
+		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
@@ -1867,11 +1876,11 @@ External Setpoint Generation:
 			</Settings>
 			<Licenses>
 				<Target>
-					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
 					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
+					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
 					<ManualSelect>{2752D285-16AD-4E89-AE6C-80E72784D264}</ManualSelect>
-					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
 					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
+					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
 				</Target>
 			</Licenses>
 			<Tasks>

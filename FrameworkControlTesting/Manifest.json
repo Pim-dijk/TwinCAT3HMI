@@ -1,0 +1,63 @@
+﻿{
+  "metadata": {
+    "industrialField": "",
+    "packageType": "FrameworkExtPrj",
+    "id": "FrameworkControlTesting",
+    "version": "1.0.0.0",
+    "guid": "2b21ef41-40c6-4658-9b4f-44c40ef94fd1",
+    "configurationName": "",
+    "platformName": "",
+    "creationTime": 1553175888,
+    "authors": "",
+    "owners": "",
+    "summary": "",
+    "licenseUrl": "",
+    "projectUrl": "",
+    "iconUrl": "",
+    "requireLicenseAcceptance": false,
+    "description": "",
+    "releaseNotes": "",
+    "copyright": "",
+    "tags": "",
+    "dependencies": [],
+    "references": []
+  },
+  "files": [
+    {
+      "target": "Description.json"
+    },
+    {
+      "target": "Source.js"
+    },
+    {
+      "target": "Style.css"
+    },
+    {
+      "target": "Template.html"
+    },
+    {
+      "target": "Icons\\16x16.png"
+    },
+    {
+      "target": "Icons\\24x24.png"
+    },
+    {
+      "target": "Icons\\32x32.png"
+    },
+    {
+      "target": "Icons\\64x64.png"
+    },
+    {
+      "target": "Schema\\ControlDescription.Schema.json"
+    },
+    {
+      "target": "Schema\\TypeDefinitions\\FrameworkControlTesting.Schema.json"
+    },
+    {
+      "target": "Themes\\Base\\Style.css"
+    }
+  ],
+  "symbols": [],
+  "flags": {},
+  "fileformat": 1
+}

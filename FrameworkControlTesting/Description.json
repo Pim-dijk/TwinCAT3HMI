@@ -1,0 +1,170 @@
+﻿{
+  "$schema": "./Schema/ControlDescription.Schema.json",
+  "name": "framework-control-testing",
+  "classNamespace": "TcHmi.Controls.Custom",
+  "className": "FrameworkControlTesting",
+  "displayName": "FrameworkControlTesting",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "tchmi-control",
+  "uses": [],
+  "description": "This description text will be used as a Tooltip in Visual Studio.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "Icons/24x24.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "name": "Icons/32x32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "Icons/64x64.png",
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "dependencyFiles": [
+    {
+      "name": "Source.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-type",
+      "displayName": "",
+      "propertyName": "type",
+      "propertySetterName": "",
+      "propertyGetterName": "getType",
+      "visible": false,
+      "type": "tchmi:framework#/definitions/ControlType",
+      "category": "None",
+      "description": "Type of the control.",
+      "requiredOnCompile": true,
+      "readOnly": true,
+      "bindable": false,
+      "heritable": false,
+      "defaultValue": "framework-control-testing",
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-buttonValue",
+      "displayName": "Button Value",
+      "propertyName": "buttonValue",
+      "propertySetterName": "setButtonValue",
+      "propertyGetterName": "getButtonValue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Boolean",
+      "category": "Parameters",
+      "description": "Type of the control.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": false,
+      "defaultValue": false,
+      "defaultValueInternal": ""
+    },
+    {
+      "name": "data-tchmi-textValue",
+      "displayName": "Text Value",
+      "propertyName": "textValue",
+      "propertySetterName": "setTextValue",
+      "propertyGetterName": "getTextValue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Parameters",
+      "description": "Text of the control textbox.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "heritable": false,
+      "defaultValue": false,
+      "defaultValueInternal": ""
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [
+    {
+      "name": "myCustomFunction",
+      "displayName": "myCustomFunction",
+      "visible": true,
+      "description": "This is a sample for a function that can be called.",
+      "category": "Actions",
+      "params": [
+        {
+          "name": "functionParameter1",
+          "displayName": "functionParameter1",
+          "description": "This is a sample for a function parameter.",
+          "type": "tchmi:general#/definitions/Number",
+          "visible": true
+        },
+        {
+          "name": "functionParameter2",
+          "displayName": "functionParameter2",
+          "description": "This is a sample for a function parameter.",
+          "type": "tchmi:general#/definitions/Boolean",
+          "visible": true
+        }
+      ],
+      "type": null,
+      "heritable": false,
+      "searchTerms": []
+    }
+  ],
+  "events": [
+    {
+      "name": ".onMyCustomEvent",
+      "displayName": ".onMyCustomEvent",
+      "visible": true,
+      "displayPriority": 30,
+      "category": "Control",
+      "description": "This is a sample for a framework control event.",
+      "heritable": true,
+      "allowsPreventDefault": false
+    }
+  ],
+  "dataTypes": [
+    {
+      "name": "tchmi:framework#/definitions/FrameworkControlTesting",
+      "schema": "Schema/TypeDefinitions/FrameworkControlTesting.Schema.json"
+    }
+  ]
+}

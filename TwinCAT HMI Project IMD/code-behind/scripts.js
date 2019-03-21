@@ -19,7 +19,7 @@
     });
 
     var userDataGrid = TcHmi.EventProvider.register('fillUserDataGrid', function (e, data) {
-        console.log("This is my code behind function...");
+        //console.log("This is my code behind function...");
         var target = TcHmi.Controls.get(data);
         //console.log(data);
         //console.log(target);
@@ -28,7 +28,8 @@
 
         TcHmi.Server.UserManagement.listUsers(function (data) {
             if (data.error === TcHmi.Errors.NONE) {
-                console.log(data.userDetails);
+                console.log("Userlist data... ");
+                console.log(data);
                 $.each(data.userDetails, function (key, user) {
                     var userData = {};
                     userData['name'] = key;
@@ -43,6 +44,7 @@
                     userData['group'] = groups;
                     userData['locale'] = user.locale;
                     userData['enabled'] = user.enabled;
+                    userData['autoLogout'] = user.autoLogout;
                     //userData['group'] = JSON.stringify(user.groups);
                     targetArray.push(userData);
                 });
@@ -50,10 +52,11 @@
 
             } else {
                 // Error
-                console.log(data.error);
+                console.log(data);
             }
         });
-        // destory function, making it a 1 time use function
+
+        // destorys this function, making it a 1 time use function
         //userDataGrid();
     });
 

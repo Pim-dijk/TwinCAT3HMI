@@ -16,6 +16,21 @@
       "propertyGetterName": "getUsername"
     },
     {
+      "name": "data-tchmi-password",
+      "displayName": "Password",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Password",
+      "propertySetterName": "setPassword",
+      "propertyGetterName": "getPassword"
+    },
+    {
       "name": "data-tchmi-groupindex",
       "displayName": "GroupIndex",
       "visible": true,
@@ -119,6 +134,21 @@
       "propertyName": "DeleteConfirmed",
       "propertySetterName": "setDeleteConfirmed",
       "propertyGetterName": "getDeleteConfirmed"
+    },
+    {
+      "name": "data-tchmi-autologout",
+      "displayName": "AutoLogout",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "AutoLogout",
+      "propertySetterName": "setAutoLogout",
+      "propertyGetterName": "getAutoLogout"
     }
   ],
   "virtualRights": [],

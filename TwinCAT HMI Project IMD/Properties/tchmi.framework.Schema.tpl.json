@@ -4503,6 +4503,13 @@
           }
         }
       ]
+    },
+    "FrameworkControlTesting": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "framework-control-testing",
+      "frameworkControlNamespace": "TcHmi.Controls.Custom"
     }
   }
 }

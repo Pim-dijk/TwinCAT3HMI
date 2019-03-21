@@ -13,18 +13,6 @@
         }
       ]
     },
-    "Symbol_Of_Symbol": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:framework#/definitions/Symbol"
-          }
-        }
-      ]
-    },
     "DataType": {
       "type": "array",
       "minItems": 2,

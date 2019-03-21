@@ -158,13 +158,12 @@ IF _initializeEvents THEN
 	
 	(* _BallufError.ipArguments.Clear().AddString(_eventSourceName); *)
 	
-	(* 
+	
 	F_GetEventText(19, _BallufError, _asyncResult);
 	IF NOT _asyncResult.bBusy AND NOT _asyncResult.bError THEN 
 		_asyncResult.GetString(_eventSourceName, SIZEOF(_eventSourceName));
 		_BallufError.ipArguments.Clear().AddString(_eventSourceName);
 	END_IF 
-	*)
 	
 	(* _BallufError.SetJsonAttribute('{ "jsonKey":"jsonValue" }'); *)
 END_IF
@@ -457,7 +456,7 @@ HydraulicPos();]]></ST>
       <LineId Id="109" Count="0" />
       <LineId Id="99" Count="0" />
       <LineId Id="108" Count="0" />
-      <LineId Id="118" Count="1" />
+      <LineId Id="119" Count="0" />
       <LineId Id="113" Count="0" />
       <LineId Id="82" Count="0" />
       <LineId Id="80" Count="0" />

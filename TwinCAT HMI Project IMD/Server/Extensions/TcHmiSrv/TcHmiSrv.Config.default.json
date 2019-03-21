@@ -4208,36 +4208,36 @@
     },
     "USERGROUPUSERS": {
         "TcHmiUserManagement": {
-            "Guest": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT10M",
-                "USERGROUPUSERS_GROUPS": [
-                    "__SystemUsers",
-                    "Guest"
-                ],
-                "USERGROUPUSERS_LOCALE": "nl"
-            },
-            "Henkie123": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT10M",
+            "CreatedFromHMI": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT50M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemUsers",
                     "TestGroup"
                 ],
                 "USERGROUPUSERS_LOCALE": "nl"
             },
-            "TestUser": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
+            "Guest": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT25M",
                 "USERGROUPUSERS_GROUPS": [
-                    "TestGroup",
-                    "__SystemUsers"
+                    "__SystemUsers",
+                    "TestGroup"
                 ],
                 "USERGROUPUSERS_LOCALE": "nl"
             },
+            "Henk123": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT1M",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemUsers",
+                    "TestGroup"
+                ],
+                "USERGROUPUSERS_LOCALE": "en-US"
+            },
             "__SystemAdministrator": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT10M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemAdministrators"
                 ],
-                "USERGROUPUSERS_LOCALE": "en"
+                "USERGROUPUSERS_LOCALE": "en-US"
             },
             "__SystemGuest": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
@@ -4253,6 +4253,7 @@
     "VIDEOSEGMENTSIZE": 1048576,
     "VIRTUALDIRECTORIES": {
         "/": "..\\..\\TwinCAT HMI Project IMD",
-        "/framework": "..\\..\\..\\..\\..\\..\\..\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\Infrastructure\\TcHmiFramework\\1.10.1171.0"
+        "/framework": "..\\..\\..\\..\\..\\..\\..\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\Infrastructure\\TcHmiFramework\\1.10.1171.0",
+        "/framework/Controls/Custom/FrameworkControlTesting": "..\\..\\FrameworkControlTesting"
     }
 }

@@ -578,6 +578,12 @@
     <Folder Include="Themes\Kremer\" />
   </ItemGroup>
   <ItemGroup>
+    <TcHmiReference Include="2b21ef41-40c6-4658-9b4f-44c40ef94fd1">
+      <Type>FrameworkRefSolution</Type>
+      <RelativePath>FrameworkControlTesting/FrameworkControlTesting.csproj</RelativePath>
+      <Domain>
+      </Domain>
+    </TcHmiReference>
     <TcHmiReference Include="5c0cd14a-c92b-4320-aa6e-3a1dab1ea1af">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlJs1/FrameworkControlJs1.csproj</RelativePath>

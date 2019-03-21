@@ -1,0 +1,25 @@
+﻿/* theme depended control css. */
+
+/* Styles for the main element */
+.framework-control-testing
+{
+    
+}
+
+.framework-control-testing button {
+    color: red;
+}
+
+.framework-control-testing .testClass {
+    background-color: blue;
+}
+
+.framework-control-testing .buttonHigh {
+    background-color: black;
+    color: white;
+}
+
+.framework-control-testing .buttonLow{
+    background-color: white;
+    color: black;
+}
