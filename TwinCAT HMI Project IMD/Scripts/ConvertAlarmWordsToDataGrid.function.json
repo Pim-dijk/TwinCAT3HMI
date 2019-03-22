@@ -3,7 +3,7 @@
     "name": "ConvertAlarmWordsToDataGrid",
     "displayName": "ConvertAlarmWordsToDataGrid",
     "visible": true,
-    "category": "",
+    "category": "Kremer",
     "waitMode": "Synchronous",
     "injectContextObject": false,
     "description": "",

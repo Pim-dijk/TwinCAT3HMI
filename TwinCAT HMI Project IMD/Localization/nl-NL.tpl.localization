@@ -10,7 +10,6 @@
     "7": "Tijdstempel",
     "8": "Melding",
     "9": "Ingelogd:",
-    "10": "Niveau:",
     "11": "Overzicht aktuele alarmen",
     "12": "RESET",
     "13": "TERUG",
@@ -799,7 +798,8 @@
     "796": "Spare796",
     "797": "Spare797",
     "798": "Spare798",
-    "799": "Spare799"
+    "799": "Spare799",
+    "Group": "Groep:"
   },
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/LocalizationDescription.Schema.json"
 }

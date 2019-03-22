@@ -1,4 +1,4 @@
-﻿<div id="TestAllTheThingsHere" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="446" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600">
+﻿<div id="TestAllTheThingsHere" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600">
 
     <div id="Calculator_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="573" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="217" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Calculator_3%/ctrl%" data-tchmi-symboltowriteto="%s%PLC1.MAIN.InMoldDrying.TransferLateTime%/s%" data-tchmi-visible="True" data-tchmi-visibility="Collapsed" data-tchmi-zindex="1000">
 

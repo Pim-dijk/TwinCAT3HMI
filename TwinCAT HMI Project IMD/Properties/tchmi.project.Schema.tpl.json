@@ -122,6 +122,18 @@
         }
       ]
     },
+    "Symbol_Of_Symbol": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/Symbol"
+          }
+        }
+      ]
+    },
     "ContentView_DisplayName": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -241,18 +253,6 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
-    },
-    "Symbol_Of_Symbol": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:framework#/definitions/Symbol"
-          }
-        }
-      ]
     }
   }
 }

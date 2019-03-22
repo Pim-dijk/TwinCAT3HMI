@@ -3,7 +3,7 @@
     "name": "ConvertAlarmDBToDataGrid",
     "displayName": "ConvertAlarmDBToDataGrid",
     "visible": true,
-    "category": "",
+    "category": "Kremer",
     "waitMode": "Synchronous",
     "injectContextObject": false,
     "description": "",

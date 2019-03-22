@@ -76,7 +76,7 @@
 
 <div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-visibility="Visible">
 
-<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
+<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
 
 
 
@@ -100,7 +100,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_1" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="168" data-tchmi-left-unit="px" data-tchmi-text="%l%10%/l%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_1" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="168" data-tchmi-left-unit="px" data-tchmi-text="%l%Group%/l%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 

@@ -1,6 +1,6 @@
-﻿<div id="Kremer_Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="436">
+﻿<div id="Kremer_Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiDatagrid_alarmView" data-tchmi-type="tchmi-datagrid" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px"    data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px">
+<div id="TcHmiDatagrid_alarmView" data-tchmi-type="tchmi-datagrid" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px"    data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
 [
   {

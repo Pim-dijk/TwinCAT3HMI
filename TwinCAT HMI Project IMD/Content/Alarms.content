@@ -1,4 +1,4 @@
-﻿<div id="Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="436">
+﻿<div id="Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
 <div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="True" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="630" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
@@ -40,10 +40,6 @@
   }
 ]
 </script>
-
-</div>
-
-<div id="TcHmiButton_38" data-tchmi-type="tchmi-button" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="670" data-tchmi-left-unit="px" data-tchmi-text="Clear all???" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="121" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 </div>
 

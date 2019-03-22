@@ -140,10 +140,6 @@
     {
       "url": "Content/TrendView.content",
       "preload": false
-    },
-    {
-      "url": "Content/UserManagement.content",
-      "preload": false
     }
   ],
   "views": [
@@ -199,10 +195,10 @@
       "url": "Scripts/ConvertAlarmWordsToDataGrid.js"
     },
     {
-      "url": "Scripts/ConvertAlarmDBToDataGrid.js"
+      "url": "Scripts/CleanScreen.js"
     },
     {
-      "url": "Scripts/CleanScreen.js"
+      "url": "Scripts/ConvertAlarmDBToDataGrid.js"
     }
   ],
   "symbols": {

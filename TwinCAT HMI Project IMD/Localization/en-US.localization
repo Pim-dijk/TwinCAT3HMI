@@ -12,7 +12,6 @@
     "7": "Timestamp",
     "8": "Message",
     "9": "Logged in:",
-    "10": "Level:",
     "11": "Overview Actual Alarms",
     "12": "RESET",
     "13": "BACK",
@@ -801,7 +800,8 @@
     "796": "Spare796",
     "797": "Spare797",
     "798": "Spare798",
-    "799": "Spare799"
+    "799": "Spare799",
+    "Group": "Group:"
   },
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/LocalizationDescription.Schema.json"
 }

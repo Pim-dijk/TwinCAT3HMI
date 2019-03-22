@@ -3,7 +3,7 @@
     "name": "Convert32bitIntToBinary",
     "displayName": "Convert32bitIntToBinary",
     "visible": true,
-    "category": "",
+    "category": "Data Conversion",
     "waitMode": "Synchronous",
     "injectContextObject": false,
     "description": "",

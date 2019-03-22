@@ -119,9 +119,6 @@
     <Content Include="Content\TrendView.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\UserManagement.content">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Fonts\HelveticaNeueLTStd-Bd.otf">
       <SubType>Content</SubType>
     </Content>

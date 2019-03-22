@@ -3,7 +3,7 @@
     "name": "CleanScreen",
     "displayName": "CleanScreen",
     "visible": true,
-    "category": "",
+    "category": "Kremer",
     "waitMode": "Synchronous",
     "injectContextObject": false,
     "description": "",

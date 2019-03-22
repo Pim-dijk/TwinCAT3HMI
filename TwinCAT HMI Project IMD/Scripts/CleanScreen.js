@@ -10,18 +10,11 @@
 (function (TcHmi) {
 
     var CleanScreen = function (TimeToRun,ControlTargetID,TargetSymbol) {
-        //if (!TimeLeftSymbol) { // Symbol
-        //    // Stop (not abort) with null (binding without a value) or empty string
-        //    ctx.success();
-
-        //    return;    // We are running async so the return value is not used
-        //}
 
         //console.log(TimeToRun);
         //console.log(ControlTargetID);
-        console.log(TargetSymbol);
-
-
+        //console.log(TargetSymbol);
+        
         var timeLeft = TimeToRun;
 
         var TimeLeftSymbol = new TcHmi.Symbol(TargetSymbol.__symbol.__expression.__expression);
