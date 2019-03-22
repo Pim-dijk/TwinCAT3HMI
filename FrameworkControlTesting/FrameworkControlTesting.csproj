@@ -114,11 +114,12 @@
       </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Label="TwinCatHMI">
+    <TcHmiTargetFramework>$(TargetFrameworkVersion)</TcHmiTargetFramework>
   </PropertyGroup>
   <Target Name="AfterBuild">
-    <TcHmiMSBuildPkgMgt.TcHmiBuild TaskAction="Pack" OutputPath="$(TargetDir)" ProjectName="$(ProjectName)" ProjectGuid="$(ProjectGuid)" ProjectDirectory="$(ProjectDir)" ProjectType="4">
-    </TcHmiMSBuildPkgMgt.TcHmiBuild>
+    <TcHmiMSBuildPkgMgt.TcHmiBuild TaskAction="Pack" OutputPath="$(TargetDir)" ProjectName="$(ProjectName)" ProjectGuid="$(ProjectGuid)" ProjectDirectory="$(ProjectDir)" ProjectType="4"></TcHmiMSBuildPkgMgt.TcHmiBuild>
   </Target>
 </Project>

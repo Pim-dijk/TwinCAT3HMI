@@ -166,6 +166,21 @@
       "propertyName": "AutoLogout",
       "propertySetterName": "setAutoLogout",
       "propertyGetterName": "getAutoLogout"
+    },
+    {
+      "name": "data-tchmi-usermanagementcontrol",
+      "displayName": "UserManagementControl",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "UserManagementControl",
+      "propertySetterName": "setUserManagementControl",
+      "propertyGetterName": "getUserManagementControl"
     }
   ],
   "virtualRights": [],

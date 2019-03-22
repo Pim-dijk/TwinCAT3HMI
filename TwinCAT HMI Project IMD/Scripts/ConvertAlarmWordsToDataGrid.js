@@ -96,17 +96,6 @@
                                 console.log(data);
                             }
                         });
-
-                        //// Write each value from alarmDB to json
-                        //$.each(alarmDB, function (key, value) {
-                        //    var dateTime = new Date(value.Test2);
-                        //    var localeDateTime = dateTime.toLocaleString(timeZone);
-                        //    value.Test2 = localeDateTime;
-                        //    value.Test4 = alarmStrings[timeZone][value.Test1];
-                        //    json.push(value);
-                        //});
-                        //// set json as data for the target
-                        //target.setSrcData(json);
                     }
                 } else {
                     console.log(data.error);

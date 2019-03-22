@@ -702,6 +702,121 @@
                 }
             },
             "type": "object"
+        },
+        "folderRecipeType": {
+            "additionalProperties": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/recipeType"
+                    },
+                    {
+                        "$ref": "#/definitions/folderRecipeType"
+                    }
+                ]
+            },
+            "hidden": true,
+            "type": "object"
+        },
+        "recipeType": {
+            "additionalProperties": false,
+            "properties": {
+                "members": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "comment": {
+                                        "default": "",
+                                        "type": "string"
+                                    },
+                                    "defaultValue": {},
+                                    "enabled": {
+                                        "default": false,
+                                        "type": "boolean"
+                                    },
+                                    "group": {
+                                        "default": "",
+                                        "type": "string"
+                                    },
+                                    "order": {
+                                        "type": "integer"
+                                    },
+                                    "schema": {
+                                        "$ref": "tchmi:server#/definitions/schemaRef"
+                                    },
+                                    "symbol": {
+                                        "default": "",
+                                        "type": "string"
+                                    },
+                                    "unit": {
+                                        "default": "",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "symbol",
+                                    "defaultValue"
+                                ],
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "enabled": {
+                                        "default": true,
+                                        "type": "boolean"
+                                    },
+                                    "group": {
+                                        "default": "",
+                                        "type": "string"
+                                    },
+                                    "order": {
+                                        "type": "integer"
+                                    },
+                                    "recipeType": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "recipeType"
+                                ],
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                },
+                "options": {
+                    "additionalProperties": {},
+                    "properties": {
+                        "comment": {
+                            "default": "",
+                            "type": "string"
+                        },
+                        "enabled": {
+                            "enum": [
+                                "None",
+                                "Disabled"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "recipeTypeNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "uniqueItems": true
+                }
+            },
+            "required": [
+                "members"
+            ],
+            "type": "object"
+        },
+        "server#/definitions/schemaRef": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "default": {}
         }
     },
     "DEFLATECOMPRESSIONLEVEL": 5,
@@ -1420,6 +1535,16 @@
                     ],
                     "type": "object"
                 }
+            },
+            "USEMAPPING": true
+        },
+        "Config.recipeTypeList": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "TcHmiRecipeManagement",
+            "MAPPING": "Config::recipeTypeList",
+            "SCHEMA": {
+                "$ref": "#/definitions/folderRecipeType"
             },
             "USEMAPPING": true
         },
@@ -4217,7 +4342,7 @@
                 "USERGROUPUSERS_LOCALE": "nl"
             },
             "Guest": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT25M",
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT35M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemUsers",
                     "TestGroup"

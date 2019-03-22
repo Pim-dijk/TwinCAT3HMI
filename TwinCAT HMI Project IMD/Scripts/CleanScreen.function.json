@@ -1,0 +1,50 @@
+﻿{
+  "function": {
+    "name": "CleanScreen",
+    "displayName": "CleanScreen",
+    "visible": true,
+    "category": "",
+    "waitMode": "Synchronous",
+    "injectContextObject": false,
+    "description": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "arguments": [
+      {
+        "name": "TimeToRun",
+        "displayName": "TimeToRun",
+        "type": "tchmi:general#/definitions/INT",
+        "description": "How many seconds the overlay should be visible for",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "ControlTargetID",
+        "displayName": "ControlTargetID",
+        "type": "tchmi:general#/definitions/String",
+        "description": "The ID of the target control",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "TargetSymbol",
+        "displayName": "TargetSymbol",
+        "type": "tchmi:project#/definitions/Symbol_Of_Symbol",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": true
+      }
+    ]
+  },
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/FunctionDescription.Schema.json"
+}

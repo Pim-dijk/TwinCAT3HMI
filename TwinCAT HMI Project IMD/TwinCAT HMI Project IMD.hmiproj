@@ -134,6 +134,12 @@
     <Content Include="Localization\nl-NL.tpl.localization">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\CleanScreen.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CleanScreen.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\Conversion\Convert32bitIntToBinary.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -270,6 +276,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\IOField.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_CleanScreen.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_CleanScreen.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_ConfirmDelete.usercontrol">

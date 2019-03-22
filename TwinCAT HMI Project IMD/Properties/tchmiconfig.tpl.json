@@ -69,6 +69,9 @@
       "url": "UserControls/Kremer_Calculator.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_CleanScreen.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_ConfirmDelete.usercontrol"
     },
     {
@@ -197,6 +200,9 @@
     },
     {
       "url": "Scripts/ConvertAlarmDBToDataGrid.js"
+    },
+    {
+      "url": "Scripts/CleanScreen.js"
     }
   ],
   "symbols": {

@@ -232,7 +232,7 @@
                         // implement function logic with the evaluation of the parameters here
                         console.log('This is my custom function!');
                         console.log(functionParameter1);
-                        console.log(functionParameter2);S
+                        console.log(functionParameter2);
                     }
 
                 };

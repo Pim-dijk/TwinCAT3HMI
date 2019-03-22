@@ -47,7 +47,7 @@
     "width": 75,
     "widthUnit": "px",
     "resize": false,
-    "sortable": false,
+    "sortable": true,
     "minWidth": 50,
     "minWidthUnit": "px",
     "cellBackground": null,
@@ -77,7 +77,7 @@
   {
     "name": "autoLogout",
     "label": "Auto Logout",
-    "control": "TextBox",
+    "control": "TextBlock",
     "width": 75,
     "widthUnit": "px",
     "resize": true,
@@ -342,7 +342,7 @@
 </script>
 </div>
 
-<div id="Kremer_EditUser_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="58.4" data-tchmi-height-unit="%" data-tchmi-left="17.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_EditUser.usercontrol" data-tchmi-top="9.4" data-tchmi-top-unit="%" data-tchmi-width="79.4" data-tchmi-width-unit="%" data-tchmi-max-width="500" data-tchmi-visibility="Collapsed" data-tchmi-username="%pp%Username%/pp%" data-tchmi-group="%pp%GroupIndex%/pp%" data-tchmi-language="%pp%LangIndex%/pp%" data-tchmi-enabled="%pp%Enabled%/pp%" data-tchmi-this="%ctrl%Kremer_EditUser_2%/ctrl%" data-tchmi-languageindex="%pp%LangIndex%/pp%" data-tchmi-groupindex="%pp%GroupIndex%/pp%" data-tchmi-mode="%pp%Mode%/pp%" data-tchmi-max-height="350" data-tchmi-min-width="150" data-tchmi-min-height="200" data-tchmi-keyboard="%pp%Keyboard%/pp%" data-tchmi-groupname="%pp%GroupName%/pp%" data-tchmi-password="%pp%Password%/pp%" data-tchmi-autologout="%pp%AutoLogout%/pp%">
+<div id="Kremer_EditUser_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="58.4" data-tchmi-height-unit="%" data-tchmi-left="17.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_EditUser.usercontrol" data-tchmi-top="9.4" data-tchmi-top-unit="%" data-tchmi-width="79.4" data-tchmi-width-unit="%" data-tchmi-max-width="500" data-tchmi-visibility="Collapsed" data-tchmi-username="%pp%Username%/pp%" data-tchmi-group="%pp%GroupIndex%/pp%" data-tchmi-language="%pp%LangIndex%/pp%" data-tchmi-enabled="%pp%Enabled%/pp%" data-tchmi-this="%ctrl%Kremer_EditUser_2%/ctrl%" data-tchmi-languageindex="%pp%LangIndex%/pp%" data-tchmi-groupindex="%pp%GroupIndex%/pp%" data-tchmi-mode="%pp%Mode%/pp%" data-tchmi-max-height="350" data-tchmi-min-width="150" data-tchmi-min-height="200" data-tchmi-keyboard="%pp%Keyboard%/pp%" data-tchmi-groupname="%pp%GroupName%/pp%" data-tchmi-password="%pp%Password%/pp%" data-tchmi-autologout="%pp%AutoLogout%/pp%" data-tchmi-usermanagementcontrol="%pp%This::id%/pp%">
 
 </div>
 

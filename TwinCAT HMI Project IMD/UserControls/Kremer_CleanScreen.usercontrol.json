@@ -1,0 +1,69 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-startbool",
+      "displayName": "StartBool",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "Do Not Set",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "StartBool",
+      "propertySetterName": "setStartBool",
+      "propertyGetterName": "getStartBool"
+    },
+    {
+      "name": "data-tchmi-timetorun",
+      "displayName": "TimeToRun",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "How long the overlay should be displayed",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TimeToRun",
+      "propertySetterName": "setTimeToRun",
+      "propertyGetterName": "getTimeToRun"
+    },
+    {
+      "name": "data-tchmi-this",
+      "displayName": "This",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Control",
+      "category": "",
+      "description": "Binding to this control instance",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "This",
+      "propertySetterName": "setThis",
+      "propertyGetterName": "getThis"
+    },
+    {
+      "name": "data-tchmi-timeleft",
+      "displayName": "TimeLeft",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "Do Not Set",
+      "description": "",
+      "defaultValue": 0,
+      "defaultValueInternal": 0,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TimeLeft",
+      "propertySetterName": "setTimeLeft",
+      "propertyGetterName": "getTimeLeft"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}
