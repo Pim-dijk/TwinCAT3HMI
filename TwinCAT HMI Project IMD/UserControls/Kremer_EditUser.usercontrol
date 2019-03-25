@@ -3,56 +3,6 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiTextbox_2" data-tchmi-type="tchmi-textbox" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%Username%/pp%" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-placeholder="Username" data-tchmi-visibility="%f%if(%pp%Mode%/pp%) {'Collapsed'} else {'Visible'};%/f%">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
-{
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
-}
-</script>
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiTextbox_2.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
-        "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "TcHmiTextbox_2.onTextChanged",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiTextbox_2::ClassNames%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ClassNameList",
-        "value": {
-          "objectType": "FunctionExpression",
-          "functionExpression": "[]"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-</div>
-
 <div id="TcHmiCombobox" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Group" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-data-height="50" data-tchmi-selected-index="%pp%GroupIndex%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
@@ -133,7 +83,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var visibleSymbol = new TcHmi.Symbol('%pp%Visible%/pp%');\n\nvar parentNameSymbol =  new TcHmi.Symbol('%pp%UserManagementControl%/pp%');\nvar parentName = parentNameSymbol.read();\n\nvar modeSymbol = new TcHmi.Symbol('%pp%Mode%/pp%');\nvar mode = modeSymbol.read();\n\nvar oldNameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar nameControl = TcHmi.Controls.get('TcHmiTextbox_2');\nvar passwordControl = TcHmi.Controls.get('TcHmiTextbox_3');\nvar groupControl = TcHmi.Controls.get('TcHmiCombobox');\nvar langControl = TcHmi.Controls.get('TcHmiCombobox_1');\nvar oldGroupIndexSymbol = new TcHmi.Symbol('%pp%GroupIndex%/pp%');\nvar oldEnabledSymbol = new TcHmi.Symbol('%pp%Enabled%/pp%');\nvar oldGroupNameSymbol = new TcHmi.Symbol('%pp%GroupName%/pp%');\nvar autoLogoutControl = TcHmi.Controls.get('TcHmiTextbox_4');\n\n\nvar oldName = oldNameSymbol.read();\nvar newUsername = nameControl.getText();\nvar newPassword = passwordControl.getText();\nvar newLang = langControl.getSelectedText();\nvar newGroupIndex = groupControl.getGridRowIndex();\nvar newGroup = groupControl.getSelectedText();\nvar oldGroupIndex = oldGroupIndexSymbol.read();\nvar oldEnabled = oldEnabledSymbol.read();\nvar oldGroupName = oldGroupNameSymbol.read();\nvar autoLogout = autoLogoutControl.getText();\n\n//console.log(\"Group names:\");\n//console.log(newGroup);\n//console.log(oldGroupName);\nvar removeGroup;\n\nif(mode){\n\t// Update\n\tif(newGroup === oldGroupName){\n\t\tnewGroup = undefined;\n\t\tremovegroup = undefined;\t\t\n\t} else {\n\t\tnewGroup = [groupControl.getSelectedText()];\n\t\tremoveGroup = [oldGroupName]; \n\t};\n\tconsole.log(\"new Group\");\n\tconsole.log(newGroup);\n\t\n\tif(newUsername == ''){\t\n\t\tnameControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tnameControl.setClassNames('[]');\t\n\t}\n\tif(autoLogout == ''){\n\t\tautoLogoutControl.setClassNames('[\"error\"]');\t\n\t} else {\n\t\tautoLogoutControl.setClassNames('[]');\n\t}\n\tif(newUsername != '' && autoLogout != ''){\n\t\t// reset error class\n\t\tnameControl.setClassNames('[]');\n\t\tTcHmi.Server.UserManagement.updateUser(\n\t\t    oldName, \n\t\t    {\n\t\t\t\tdomain: \"TcHmiUserManagement\",\n\t\t\t\tenabled: oldEnabled,\n\t\t\t\tlocale: newLang,\n\t\t\t\tautoLogout: autoLogout,\n\t\t\t\tnewName: newUsername,\n\t\t\t\taddGroups: newGroup,\n\t\t\t\tremoveGroups: removeGroup\t\t\t\t\n\t\t    },\n\t\t    function(data) {\n\t\t        if (data.error === TcHmi.Errors.NONE) {\n\t\t            // Success\n\t\t            console.log(data);\n\t\t            TcHmi.EventProvider.raise('fillUserDataGrid', parentName + '.TcHmiDatagrid_1');\n\t\t\t\t\tpasswordControl.setText('');\t\t            \n\t\t            visibleSymbol.write(false);\n\t\t        } else {\n\t\t            // Error\n\t\t            console.log(data);\n\t\t            TcHmi.EventProvider.raise('fillUserDataGrid', parentName + '.TcHmiDatagrid_1');\n\t\t        }\n\t\t    }\n\t\t);\n\t}\n} else {\n\t// Create\n\t// set error class or respective empty field\n\tif(newUsername == ''){\n\t\t//nameControl.setBorderStyle('{ \"left\": \"Solid\", \"top\": \"Solid\", \"right\": \"Solid\", \"bottom\": \"Solid\" }');\n\t\t//nameControl.setBorderWidth('{ \"left\": \"2\", \"top\": \"2\", \"right\": \"2\", \"bottom\": \"2\" }');\n\t\t//nameControl.setBorderColor('{ \"color\": \"rgba(255, 0, 0, 1)\" }');\t\n\t\tnameControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tnameControl.setClassNames('[]');\n\t};\n\tif(newPassword == ''){\n\t\t//passwordControl.setBorderStyle('{ \"left\": \"Solid\", \"top\": \"Solid\", \"right\": \"Solid\", \"bottom\": \"Solid\" }');\n\t\t//passwordControl.setBorderWidth('{ \"left\": \"2\", \"top\": \"2\", \"right\": \"2\", \"bottom\": \"2\" }');\n\t\t//passwordControl.setBorderColor('{ \"color\": \"rgba(255, 0, 0, 1)\" }');\n\t\tpasswordControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tpasswordControl.setClassNames('[]');\n\t};\n\tif(newGroup == null){\n\t\tgroupControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tgroupControl.setClassNames('[]');\n\t};\n\tif(newLang == null){\n\t\tlangControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tlangControl.setClassNames('[]');\n\t};\n\tif(autoLogout == ''){\n\t\tautoLogoutControl.setClassNames('[\"error\"]');\t\n\t} else {\n\t\tautoLogoutControl.setClassNames('[]');\n\t}\n\tconsole.log(newUsername + newPassword + newGroup + newLang);\n\t// If both name and password are set, save it\n\tif(newUsername != '' && newPassword != '' && newGroup != null && newLang != null && autoLogout != ''){\n\t\t//passwordControl.setBorderStyle('{ \"left\": \"None\", \"top\": \"None\", \"right\": \"None\", \"bottom\": \"None\" }');\n\t\t//nameControl.setBorderStyle('{ \"left\": \"None\", \"top\": \"None\", \"right\": \"None\", \"bottom\": \"None\" }');\n\t\tTcHmi.Server.UserManagement.addUserEx(\n\t\t    newUsername, \n\t\t    newPassword, \n\t\t    {groups: [newGroup], enabled: true, locale: newLang},\n\t\t    {timeout: 2000},\n\t\t    function(data) {\n\t\t        if (data.error === TcHmi.Errors.NONE) {\n\t\t            // Success\n\t\t            console.log('User created');\n\t\t            TcHmi.EventProvider.raise('fillUserDataGrid', parentName + '.TcHmiDatagrid_1');\n\t\t\t\t\tpasswordControl.setText('');\t\t            \n\t\t            visibleSymbol.write(false);\n\t\t        } else {\n\t\t            // Error\n\t\t            console.log('User failed to create');\n\t\t        }\n\t\t    }\n\t\t);\n\t\t\n\t\t\n\t}\n}"
+          "var visibleSymbol = new TcHmi.Symbol('%pp%Visible%/pp%');\n\nvar parentNameSymbol =  new TcHmi.Symbol('%pp%UserManagementControl%/pp%');\nvar parentName = parentNameSymbol.read();\n\nvar modeSymbol = new TcHmi.Symbol('%pp%Mode%/pp%');\nvar mode = modeSymbol.read();\n\nvar oldNameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar nameControl = TcHmi.Controls.get('TcHmiTextbox_2');\nvar passwordControl = TcHmi.Controls.get('TcHmiTextbox_3');\nvar groupControl = TcHmi.Controls.get('TcHmiCombobox');\nvar langControl = TcHmi.Controls.get('TcHmiCombobox_1');\nvar oldGroupIndexSymbol = new TcHmi.Symbol('%pp%GroupIndex%/pp%');\nvar oldEnabledSymbol = new TcHmi.Symbol('%pp%Enabled%/pp%');\nvar oldGroupNameSymbol = new TcHmi.Symbol('%pp%GroupName%/pp%');\nvar autoLogoutControl = TcHmi.Controls.get('TcHmiTextbox_4');\n\n\nvar oldName = oldNameSymbol.read();\nvar newUsername = nameControl.getText();\nvar newPassword = passwordControl.getText();\nvar autoLogout = autoLogoutControl.getText();\nvar newLang = langControl.getSelectedText();\nvar newGroupIndex = groupControl.getGridRowIndex();\nvar newGroup = groupControl.getSelectedText();\nvar oldGroupIndex = oldGroupIndexSymbol.read();\nvar oldEnabled = oldEnabledSymbol.read();\nvar oldGroupName = oldGroupNameSymbol.read();\n\n//console.log(\"Group names:\");\n//console.log(newGroup);\n//console.log(oldGroupName);\nvar removeGroup;\n\nif(mode){\n\t// Update\n\tif(newGroup === oldGroupName){\n\t\tnewGroup = undefined;\n\t\tremovegroup = undefined;\t\t\n\t} else {\n\t\tnewGroup = [groupControl.getSelectedText()];\n\t\tremoveGroup = [oldGroupName]; \n\t};\n\tconsole.log(\"new Group\");\n\tconsole.log(newGroup);\n\t\n\tif(autoLogout == ''){\n\t\tautoLogoutControl.setClassNames('[\"error\"]');\t\n\t} else {\n\t\tautoLogoutControl.setClassNames('[]');\n\t}\n\tif(autoLogout != ''){\n\t\t// reset error class\n\t\tnameControl.setClassNames('[]');\n\t\tTcHmi.Server.UserManagement.updateUser(\n\t\t    oldName, \n\t\t    {\n\t\t\t\tdomain: \"TcHmiUserManagement\",\n\t\t\t\tenabled: oldEnabled,\n\t\t\t\tlocale: newLang,\n\t\t\t\tautoLogout: autoLogout,\n\t\t\t\taddGroups: newGroup,\n\t\t\t\tremoveGroups: removeGroup\t\t\t\t\n\t\t    },\n\t\t    function(data) {\n\t\t        if (data.error === TcHmi.Errors.NONE) {\n\t\t            // Success\n\t\t            console.log(data);\n\t\t            TcHmi.EventProvider.raise('fillUserDataGrid', parentName + '.TcHmiDatagrid_1');\n\t\t\t\t\tpasswordControl.setText('');\t\t            \n\t\t            visibleSymbol.write(false);\n\t\t        } else {\n\t\t            // Error\n\t\t            console.log(data);\n\t\t            TcHmi.EventProvider.raise('fillUserDataGrid', parentName + '.TcHmiDatagrid_1');\n\t\t        }\n\t\t    }\n\t\t);\n\t}\n} else {\n\t// Create\n\t// set error class or respective empty field\n\tif(newUsername == ''){\n\t\t//nameControl.setBorderStyle('{ \"left\": \"Solid\", \"top\": \"Solid\", \"right\": \"Solid\", \"bottom\": \"Solid\" }');\n\t\t//nameControl.setBorderWidth('{ \"left\": \"2\", \"top\": \"2\", \"right\": \"2\", \"bottom\": \"2\" }');\n\t\t//nameControl.setBorderColor('{ \"color\": \"rgba(255, 0, 0, 1)\" }');\t\n\t\tnameControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tnameControl.setClassNames('[]');\n\t};\n\tif(newPassword == ''){\n\t\t//passwordControl.setBorderStyle('{ \"left\": \"Solid\", \"top\": \"Solid\", \"right\": \"Solid\", \"bottom\": \"Solid\" }');\n\t\t//passwordControl.setBorderWidth('{ \"left\": \"2\", \"top\": \"2\", \"right\": \"2\", \"bottom\": \"2\" }');\n\t\t//passwordControl.setBorderColor('{ \"color\": \"rgba(255, 0, 0, 1)\" }');\n\t\tpasswordControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tpasswordControl.setClassNames('[]');\n\t};\n\tif(newGroup == null){\n\t\tgroupControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tgroupControl.setClassNames('[]');\n\t};\n\tif(newLang == null){\n\t\tlangControl.setClassNames('[\"error\"]');\n\t} else {\n\t\tlangControl.setClassNames('[]');\n\t};\n\tif(autoLogout == ''){\n\t\tautoLogoutControl.setClassNames('[\"error\"]');\t\n\t} else {\n\t\tautoLogoutControl.setClassNames('[]');\n\t}\n\tconsole.log(newUsername + newPassword + newGroup + newLang);\n\t// If both name and password are set, save it\n\tif(newUsername != '' && newPassword != '' && newGroup != null && newLang != null && autoLogout != ''){\n\t\t//passwordControl.setBorderStyle('{ \"left\": \"None\", \"top\": \"None\", \"right\": \"None\", \"bottom\": \"None\" }');\n\t\t//nameControl.setBorderStyle('{ \"left\": \"None\", \"top\": \"None\", \"right\": \"None\", \"bottom\": \"None\" }');\n\t\tTcHmi.Server.UserManagement.addUserEx(\n\t\t    newUsername, \n\t\t    newPassword, \n\t\t    {groups: [newGroup], enabled: true, locale: newLang},\n\t\t    {timeout: 2000},\n\t\t    function(data) {\n\t\t        if (data.error === TcHmi.Errors.NONE) {\n\t\t            // Success\n\t\t            console.log('User created');\n\t\t            TcHmi.EventProvider.raise('fillUserDataGrid', parentName + '.TcHmiDatagrid_1');\n\t\t\t\t\tpasswordControl.setText('');\t\t            \n\t\t            visibleSymbol.write(false);\n\t\t        } else {\n\t\t            // Error\n\t\t            console.log('User failed to create');\n\t\t        }\n\t\t    }\n\t\t);\n\t\t\n\t\t\n\t}\n}"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -275,16 +225,57 @@
 </script>
 </div>
 
-<div id="TcHmiTextbox_3" data-tchmi-type="tchmi-textbox" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%Password%/pp%" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-placeholder="Password">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
-{
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
-}
+<div id="TcHmiTextblock_76" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="Name" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_77" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Password" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_78" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Group" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_79" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Language" data-tchmi-top="62.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextbox_10" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%Username%/pp%" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16" data-tchmi-text-font-weight="Bold" data-tchmi-visibility="%f%if(%pp%Mode%/pp%) {'Visible'} else {'Collapsed'};%/f%" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiTextblock_82" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Auto Logout" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextbox_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(181, 181, 181, 1)"
+    },
+    "offsetX": null,
+    "offsetXUnit": "px",
+    "offsetY": null,
+    "offsetYUnit": "px",
+    "inset": true,
+    "blur": 4.0,
+    "blurUnit": "px",
+    "spread": 1.0,
+    "spreadUnit": "px"
+  }
+]
 </script>
 
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -294,7 +285,29 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
+        "symbolExpression": "%i%TargetTextBox%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "Symbol",
+          "symbolExpression": "%ctrl%TcHmiTextbox_3::id%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%General_Keyboard_3::CurrentText%/ctrl%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "Symbol",
+          "symbolExpression": "%ctrl%TcHmiTextbox_3::Text%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
           "objectType": "StaticValue",
@@ -302,12 +315,7 @@
           "value": "Visible"
         },
         "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "TcHmiTextbox_3.onTextChanged",
-    "actions": [
+      },
       {
         "objectType": "WriteToSymbol",
         "active": true,
@@ -325,40 +333,33 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_76" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="Name" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextbox_4" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%"  data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text="%pp%AutoLogout%/pp%">
 
-</div>
 
-<div id="TcHmiTextblock_77" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Password" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="TcHmiTextblock_78" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Group" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="TcHmiTextblock_79" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Language" data-tchmi-top="62.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="TcHmiTextblock_81" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%Username%/pp%" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16" data-tchmi-text-font-weight="Bold" data-tchmi-visibility="%f%if(%pp%Mode%/pp%) {'Visible'} else {'Collapsed'};%/f%" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="TcHmiTextblock_82" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Auto Logout" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="TcHmiTextbox_4" data-tchmi-type="tchmi-textbox" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%AutoLogout%/pp%" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-placeholder="Auto Logout time">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
-{
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
-}
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(181, 181, 181, 1)"
+    },
+    "offsetX": null,
+    "offsetXUnit": "px",
+    "offsetY": null,
+    "offsetYUnit": "px",
+    "inset": true,
+    "blur": 4.0,
+    "blurUnit": "px",
+    "spread": 1.0,
+    "spreadUnit": "px"
+  }
+]
 </script>
 
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -368,7 +369,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
+        "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
           "objectType": "StaticValue",
@@ -376,12 +377,18 @@
           "value": "Visible"
         },
         "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "TcHmiTextbox_4.onTextChanged",
-    "actions": [
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%TargetTextBox%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "Symbol",
+          "symbolExpression": "%ctrl%TcHmiTextbox_4::id%/ctrl%"
+        },
+        "asyncWait": true
+      },
       {
         "objectType": "WriteToSymbol",
         "active": true,
@@ -390,6 +397,101 @@
         "value": {
           "objectType": "FunctionExpression",
           "functionExpression": "[]"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%General_Keyboard_3::CurrentText%/ctrl%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "Symbol",
+          "symbolExpression": "%ctrl%TcHmiTextbox_4::Text%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiTextbox_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%"  data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="%f%if(%pp%Mode%/pp%) {'Collapsed'} else {'Visible'};%/f%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(181, 181, 181, 1)"
+    },
+    "offsetX": null,
+    "offsetXUnit": "px",
+    "offsetY": null,
+    "offsetYUnit": "px",
+    "inset": true,
+    "blur": 4.0,
+    "blurUnit": "px",
+    "spread": 1.0,
+    "spreadUnit": "px"
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiTextbox_2.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%TargetTextBox%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "Symbol",
+          "symbolExpression": "%ctrl%TcHmiTextbox_2::id%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiTextbox_2::ClassNames%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ClassNameList",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "[]"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%General_Keyboard_3::CurrentText%/ctrl%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "Symbol",
+          "symbolExpression": "%ctrl%TcHmiTextbox_2::Text%/ctrl%"
         },
         "asyncWait": true
       }

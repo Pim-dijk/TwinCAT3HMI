@@ -4334,12 +4334,12 @@
     "USERGROUPUSERS": {
         "TcHmiUserManagement": {
             "CreatedFromHMI": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT50M",
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT15M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemUsers",
-                    "TestGroup"
+                    "Guest"
                 ],
-                "USERGROUPUSERS_LOCALE": "nl"
+                "USERGROUPUSERS_LOCALE": "en-US"
             },
             "Guest": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT35M",

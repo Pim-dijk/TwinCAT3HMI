@@ -63,6 +63,9 @@
       "url": "UserControls/IOField.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_AlarmLight.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_Button.usercontrol"
     },
     {
@@ -1956,6 +1959,12 @@
       "ConfirmDeleteUser": {
         "value": false,
         "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
+        "readonly": false
+      },
+      "TargetTextBox": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
         "persist": false,
         "readonly": false
       }

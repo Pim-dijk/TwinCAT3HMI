@@ -10,11 +10,7 @@
 (function (TcHmi) {
 
     var CleanScreen = function (TimeToRun,ControlTargetID,TargetSymbol) {
-
-        //console.log(TimeToRun);
-        //console.log(ControlTargetID);
-        //console.log(TargetSymbol);
-        
+                
         var timeLeft = TimeToRun;
 
         var TimeLeftSymbol = new TcHmi.Symbol(TargetSymbol.__symbol.__expression.__expression);

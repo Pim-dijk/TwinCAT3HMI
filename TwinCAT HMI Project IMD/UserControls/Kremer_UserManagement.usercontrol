@@ -278,7 +278,7 @@
             "objectType": "JavaScript",
             "active": true,
             "sourceLines": [
-              "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\nvar locales = TcHmi.Locale.getRegisteredLocales();\n\n//symbols to store data in\nvar groupIndexSymbol = new TcHmi.Symbol('%pp%GroupIndex%/pp%');\nvar groupNameSymbol = new TcHmi.Symbol('%pp%GroupName%/pp%');\nvar langIndexSymbol = new TcHmi.Symbol('%pp%LangIndex%/pp%'); \nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar passwordSymbol = new TcHmi.Symbol('%pp%Password%/pp%');\nvar enabledSymbol = new TcHmi.Symbol('%pp%Enabled%/pp%');\nvar modeSymbol = new TcHmi.Symbol('%pp%Mode%/pp%');\nvar autoLogoutSymbol = new TcHmi.Symbol('%pp%AutoLogout%/pp%');\n\n// Force a refresh of the value if the same user was clicked after changing the name\nusernameSymbol.write('');\npasswordSymbol.write('reset');\n\nvar rowValue = grid.getSelectedRowValue();\n//console.log(grid.getSelectedRowIndex());\n\n// Check if a row is selected\nif(rowValue != null){\n\tvar username = rowValue['name'];\n\tvar groupIndex = 0;\n\tvar langIndex = 0;\n\tvar enabled = rowValue['enabled'];\n\tvar logoutTime = rowValue['autoLogout'];\n\t//console.log(rowValue);\n\t\n\tTcHmi.Server.UserManagement.listUserGroups(function(data) {\n\t    if (data.error === TcHmi.Errors.NONE) {\n   \t\t\t//console.log(data.groupDetailsList);\n       \t\tvar found = false;\n\t        $.each(data.groupDetailsList, function(groupKey, groupValue){\n                if(found){\n\t\t\t\t\treturn;\n   \t\t       \t};\n\t\t\t\t$.each(rowValue.group, function(key, value){\n\t                //console.log(\"value from server: \" + groupKey);\n\t       \t       \t//console.log(\"value from list: \" + value);\n\t\t\t\t\tif(groupKey === value){\n\t       \t       \t\tgroupNameSymbol.write(groupKey);\n\t       \t       \t\t//console.log(groupKey);\n\t\t\t\t\t\tfound = true;\t                \t\n                \t\treturn;\n\t\t   \t       \t}\n\t\t\t\t});\n   \t\t       \tif(!found){\n\t\t\t\t\tgroupIndex++;\n   \t\t       \t};\n\t\t\t});\n\t    } else {\n\t        // Error\n\t    }\n\t    //console.log(groupIndex);\n\t    groupIndexSymbol.write(groupIndex);\n\t});\n\t\n\tfor(var i = 0; i < Object.keys(locales).length; i++){\n\t\tif(locales[i] === rowValue.locale){\n\t\t\tlangIndex = i;\n\t\t};\n\t};\n\t//console.log(langIndex);\t\n\tlangIndexSymbol.write(langIndex);\n\tusernameSymbol.write(username);\n\tpasswordSymbol.write('');\n\tenabledSymbol.write(enabled);\n\tmodeSymbol.write(true);\n\tautoLogoutSymbol.write(logoutTime);\n};"
+              "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\nvar locales = TcHmi.Locale.getRegisteredLocales();\n\n//symbols to store data in\nvar groupIndexSymbol = new TcHmi.Symbol('%pp%GroupIndex%/pp%');\nvar groupNameSymbol = new TcHmi.Symbol('%pp%GroupName%/pp%');\nvar langIndexSymbol = new TcHmi.Symbol('%pp%LangIndex%/pp%'); \nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\nvar passwordSymbol = new TcHmi.Symbol('%pp%Password%/pp%');\nvar enabledSymbol = new TcHmi.Symbol('%pp%Enabled%/pp%');\nvar modeSymbol = new TcHmi.Symbol('%pp%Mode%/pp%');\nvar autoLogoutSymbol = new TcHmi.Symbol('%pp%AutoLogout%/pp%');\n\n// Force a refresh of the value\nusernameSymbol.write('');\npasswordSymbol.write('reset');\n\nvar rowValue = grid.getSelectedRowValue();\n\n// Check if a row is selected\nif(rowValue != null){\n\tvar username = rowValue['name'];\n\tvar groupIndex = 0;\n\tvar langIndex = 0;\n\tvar enabled = rowValue['enabled'];\n\tvar logoutTime = rowValue['autoLogout'];\n\t//console.log(rowValue);\n\t\n\tTcHmi.Server.UserManagement.listUserGroups(function(data) {\n\t    if (data.error === TcHmi.Errors.NONE) {\n   \t\t\t//console.log(data.groupDetailsList);\n       \t\tvar found = false;\n\t        $.each(data.groupDetailsList, function(groupKey, groupValue){\n                if(found){\n\t\t\t\t\treturn;\n   \t\t       \t};\n\t\t\t\t$.each(rowValue.group, function(key, value){\n\t                //console.log(\"value from server: \" + groupKey);\n\t       \t       \t//console.log(\"value from list: \" + value);\n\t\t\t\t\tif(groupKey === value){\n\t       \t       \t\tgroupNameSymbol.write(groupKey);\n\t       \t       \t\t//console.log(groupKey);\n\t\t\t\t\t\tfound = true;\t                \t\n                \t\treturn;\n\t\t   \t       \t}\n\t\t\t\t});\n   \t\t       \tif(!found){\n\t\t\t\t\tgroupIndex++;\n   \t\t       \t};\n\t\t\t});\n\t    } else {\n\t        // Error\n\t    }\n\t    //console.log(groupIndex);\n\t    groupIndexSymbol.write(groupIndex);\n\t});\n\t\n\tfor(var i = 0; i < Object.keys(locales).length; i++){\n\t\tif(locales[i] === rowValue.locale){\n\t\t\tlangIndex = i;\n\t\t};\n\t};\n\t//console.log(langIndex);\t\n\tlangIndexSymbol.write(langIndex);\n\tusernameSymbol.write(username);\n\tpasswordSymbol.write('');\n\tenabledSymbol.write(enabled);\n\tmodeSymbol.write(true);\n\tautoLogoutSymbol.write(logoutTime);\n};"
             ],
             "injectContextObject": false,
             "asyncWait": true,
@@ -306,34 +306,55 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\n\n//symbols to store data in\nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\n\n// Force a refresh of the value if the same user was clicked after changing the name\nusernameSymbol.write('');\n\nvar rowValue = grid.getSelectedRowValue();\n\n// Check if a row is selected\nif(rowValue != null){\n\tvar username = rowValue['name'];\n\tusernameSymbol.write(username);\n};"
+          "var grid = TcHmi.Controls.get('TcHmiDatagrid_1');\n\n//symbols to store data in\nvar usernameSymbol = new TcHmi.Symbol('%pp%Username%/pp%');\n\n// Force a refresh of the value if the same user was clicked after changing the name\nusernameSymbol.write('');\n\nvar rowValue = grid.getSelectedRowValue();\n\n// Check if a row is selected\nif(rowValue != null){\n\tvar username = rowValue['name'];\n\tusernameSymbol.write(username);\n} else {\n\tusernameSymbol.write('');\n};"
         ],
         "injectContextObject": false,
         "asyncWait": true,
         "waitMode": "Synchronous"
       },
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Condition",
         "active": true,
-        "symbolExpression": "%ctrl%Kremer_ConfirmDelete_1::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%i%ConfirmDeleteUser%/i%",
-        "valueType": "tchmi:general#/definitions/BOOL",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/BOOL",
-          "value": false
-        },
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Username%/pp%"
+            },
+            "compare2": {
+              "objectType": "FunctionExpression",
+              "functionExpression": "''"
+            },
+            "compareOperator": "!=",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%Kremer_ConfirmDelete_1::Visibility%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%ConfirmDeleteUser%/i%",
+            "valueType": "tchmi:general#/definitions/BOOL",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": false
+            },
+            "asyncWait": true
+          }
+        ],
         "asyncWait": true
       }
     ]
@@ -346,7 +367,7 @@
 
 </div>
 
-<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="18" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-left="27.4" data-tchmi-left-unit="%" data-tchmi-message="%f%'Are you sure you want to delete the user:' + %pp%Username%/pp% + '?';%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-top="24.0" data-tchmi-top-unit="%" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Collapsed">
+<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="18" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-left="27.4" data-tchmi-left-unit="%" data-tchmi-message="%f%'Are you sure you want to delete the user: ' + %pp%Username%/pp% + ' ?';%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-top="24.0" data-tchmi-top-unit="%" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Collapsed">
 
 </div>
 

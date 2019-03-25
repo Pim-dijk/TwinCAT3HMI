@@ -1,0 +1,117 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-symbollight",
+      "displayName": "SymbolLight",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SymbolLight",
+      "propertySetterName": "setSymbolLight",
+      "propertyGetterName": "getSymbolLight"
+    },
+    {
+      "name": "data-tchmi-symbolalarm",
+      "displayName": "SymbolAlarm",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SymbolAlarm",
+      "propertySetterName": "setSymbolAlarm",
+      "propertyGetterName": "getSymbolAlarm"
+    },
+    {
+      "name": "data-tchmi-shape",
+      "displayName": "Shape",
+      "visible": true,
+      "type": "tchmi:project#/definitions/Shape",
+      "category": "",
+      "description": "",
+      "defaultValue": "Ellipse",
+      "defaultValueInternal": "Ellipse",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Shape",
+      "propertySetterName": "setShape",
+      "propertyGetterName": "getShape"
+    },
+    {
+      "name": "data-tchmi-coloronlight",
+      "displayName": "ColorOnLight",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "Colors",
+      "description": "",
+      "defaultValue": {
+        "color": "rgba(0, 255, 0, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(0, 255, 0, 1)"
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ColorOnLight",
+      "propertySetterName": "setColorOnLight",
+      "propertyGetterName": "getColorOnLight"
+    },
+    {
+      "name": "data-tchmi-colorofflight",
+      "displayName": "ColorOffLight",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "Colors",
+      "description": "",
+      "defaultValue": {
+        "color": "rgba(117, 117, 117, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(117, 117, 117, 1)"
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ColorOffLight",
+      "propertySetterName": "setColorOffLight",
+      "propertyGetterName": "getColorOffLight"
+    },
+    {
+      "name": "data-tchmi-coloronalarm",
+      "displayName": "ColorOnAlarm",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "Colors",
+      "description": "",
+      "defaultValue": {
+        "color": "rgba(255, 0, 0, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(255, 0, 0, 1)"
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ColorOnAlarm",
+      "propertySetterName": "setColorOnAlarm",
+      "propertyGetterName": "getColorOnAlarm"
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

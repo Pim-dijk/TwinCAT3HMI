@@ -1,0 +1,412 @@
+﻿<div id="Kremer_AlarmLight" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiEllipse_4" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiPolygon_1" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_AlarmLight.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%SymbolAlarm%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "Condition",
+            "active": true,
+            "expressions": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%SymbolLight%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "true": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOnLight%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOnLight%/pp%"
+                },
+                "asyncWait": true
+              }
+            ],
+            "false": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOffLight%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOffLight%/pp%"
+                },
+                "asyncWait": true
+              }
+            ],
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var alarmSymbol = new TcHmi.Symbol('%pp%SymbolAlarm%/pp%');\nvar alarm = alarmSymbol.read();\n\nvar lightSymbol = new TcHmi.Symbol('%pp%SymbolLight%/pp%');\nvar light = lightSymbol.read();\n\nvar alarmOnSymbol = new TcHmi.Symbol('%pp%ColorOnAlarm%/pp%');\nvar alarmOn = alarmOnSymbol.read();\n\nvar alarmOffSymbol = new TcHmi.Symbol('%pp%ColorOffLight%/pp%');\nvar alarmOff = alarmOffSymbol.read();\n\nvar lightOnSymbol = new TcHmi.Symbol('%pp%ColorOnLight%/pp%');\nvar lightOn = lightOnSymbol.read();\n\nvar Square = TcHmi.Controls.get('TcHmiPolygon_1');\nvar Ellipse = TcHmi.Controls.get('TcHmiEllipse_4');\n\nvar interval = setInterval(blink, 1000);\n\nvar On = false;\n\nfunction blink() {\n\talarm = alarmSymbol.read();\n\tlight = lightSymbol.read();\n\tif(alarm){\n\t\tif(!On){\n\t\tOn = true;\n\t\tSquare.setFillColor(alarmOn);\n\t\tEllipse.setFillColor(alarmOn);\n\t\t} else {\n\t\t\tOn = false;\n\t\t\tif(light){\n\t\t\t\tSquare.setFillColor(lightOn);\n\t\t\t\tEllipse.setFillColor(lightOn);\n\t\t\t} else {\n\t\t\t\tSquare.setFillColor(alarmOff);\n\t\t\t\tEllipse.setFillColor(alarmOff);\n\t\t\t}\t\t\t\n\t\t}\n\t}\n}"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%pp%SymbolLight%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%SymbolAlarm%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "Condition",
+            "active": true,
+            "expressions": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%SymbolLight%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "true": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOnLight%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOnLight%/pp%"
+                },
+                "asyncWait": true
+              }
+            ],
+            "false": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOffLight%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOffLight%/pp%"
+                },
+                "asyncWait": true
+              }
+            ],
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%pp%SymbolAlarm%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%SymbolAlarm%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "Condition",
+            "active": true,
+            "expressions": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%SymbolLight%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "true": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOnLight%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOnLight%/pp%"
+                },
+                "asyncWait": true
+              }
+            ],
+            "false": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOffLight%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
+                "valueType": "tchmi:framework#/definitions/Color",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ColorOffLight%/pp%"
+                },
+                "asyncWait": true
+              }
+            ],
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "var alarmSymbol = new TcHmi.Symbol('%pp%SymbolAlarm%/pp%');\n\nvar alarmOnSymbol = new TcHmi.Symbol('%pp%ColorOnAlarm%/pp%');\nvar alarmOn = alarmOnSymbol.read();\n\nvar alarmOffSymbol = new TcHmi.Symbol('%pp%ColorOffLight%/pp%');\nvar alarmOff = alarmOffSymbol.read();\n\nvar Square = TcHmi.Controls.get('TcHmiPolygon_1');\nvar Ellipse = TcHmi.Controls.get('TcHmiEllipse_4');\n\nvar interval = setInterval(blink, 1000);\n\n\nvar On = false;\n\nfunction blink()\n\tvar alarm = alarmSymbol.read();\n\tif(alarm){\n\t\tif(!On){\n\t\tOn = true;\n\t\tSquare.setFillColor(alarmOn);\n\t\tEllipse.setFillColor(alarmOn);\n\t\t} else {\n\t\t\tOn = false;\n\t\t\tSquare.setFillColor(alarmOff);\n\t\t\tEllipse.setFillColor(alarmOff);\n\t\t}\n\t}\n}"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ],
+    "displayName": ""
+  }
+]
+</script>
+</div>

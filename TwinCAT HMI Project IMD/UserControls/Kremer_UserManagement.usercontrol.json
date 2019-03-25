@@ -16,21 +16,6 @@
       "propertyGetterName": "getUsername"
     },
     {
-      "name": "data-tchmi-password",
-      "displayName": "Password",
-      "visible": true,
-      "type": "tchmi:general#/definitions/String",
-      "category": "Do not modify",
-      "description": "",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": true,
-      "propertyName": "Password",
-      "propertySetterName": "setPassword",
-      "propertyGetterName": "getPassword"
-    },
-    {
       "name": "data-tchmi-groupindex",
       "displayName": "GroupIndex",
       "visible": true,

@@ -31,6 +31,36 @@
       "propertyName": "Self",
       "propertySetterName": "setSelf",
       "propertyGetterName": "getSelf"
+    },
+    {
+      "name": "data-tchmi-targetname",
+      "displayName": "TargetName",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TargetName",
+      "propertySetterName": "setTargetName",
+      "propertyGetterName": "getTargetName"
+    },
+    {
+      "name": "data-tchmi-currenttext",
+      "displayName": "CurrentText",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "CurrentText",
+      "propertySetterName": "setCurrentText",
+      "propertyGetterName": "getCurrentText"
     }
   ],
   "virtualRights": [],

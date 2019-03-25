@@ -1,7 +1,7 @@
 {
     "USERS": {
         "CreatedFromHMI": {
-            "ENABLED": false,
+            "ENABLED": true,
             "PASSWORD": "a2d9a5c807b6f36c261f7c3f0087d29aa0a6ca78165c6a88171dbadf1b27b2c3",
             "SALT": "vaQvgipFZVdeQycKknRfRdeDotF9b5D7ctqEqpev5NeXrtuGCZ8oBxVlIb7JaQq5hrJbxV2lyjYUcmQbHIG1AA=="
         },

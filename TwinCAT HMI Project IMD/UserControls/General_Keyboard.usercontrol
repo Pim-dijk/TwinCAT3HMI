@@ -1,9 +1,9 @@
 ﻿<div id="General_Keyboard_2" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
-     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
-     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-min-width="400">
+     data-tchmi-width="780" data-tchmi-height="300" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-min-width="400">
 
-<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-label-font-size="14" data-tchmi-layout="EN-US_QWERTY_compact" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-right="0" data-tchmi-width-mode="Value" data-tchmi-bottom="0" data-tchmi-height-mode="Parent" data-tchmi-fixed-target="" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%">
+<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="239" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout="EN-US_QWERTY_compact" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="61" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-fixed-target="TcHmiTextbox_5" data-tchmi-right-unit="px" data-tchmi-opacity="1">
 <script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
 {
   "top": 10,
@@ -113,6 +113,28 @@
             ],
             "true": [
               {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "var textBox = TcHmi.Controls.get('TcHmiTextbox_5');\nvar text = textBox.getText();\nvar targetSymbol = new TcHmi.Symbol('%i%TargetTextBox%/i%');\nvar target = TcHmi.Controls.get(targetSymbol.read());\ntarget.setText(text);"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextbox_5::Text%/ctrl%",
+                "valueType": "tchmi:general#/definitions/String",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": ""
+                },
+                "asyncWait": true
+              },
+              {
                 "objectType": "WriteToSymbol",
                 "active": true,
                 "symbolExpression": "%pp%Self::Visibility%/pp%",
@@ -148,7 +170,7 @@
   "color": "rgba(183, 183, 183, 1)"
 }
 </script>
-<div id="TcHmiButton_16" data-tchmi-type="tchmi-button" data-tchmi-height="2.0" data-tchmi-height-unit="%" data-tchmi-text="X" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="%" data-tchmi-right="2" data-tchmi-min-width="40" data-tchmi-min-height="25" data-tchmi-max-height="40" data-tchmi-max-width="60">
+<div id="TcHmiButton_16" data-tchmi-type="tchmi-button" data-tchmi-height="41" data-tchmi-height-unit="px" data-tchmi-text="X" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="63" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-right="10">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -156,6 +178,18 @@
   {
     "event": "TcHmiButton_16.onPressed",
     "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiTextbox_5::Text%/ctrl%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": null
+        },
+        "asyncWait": true
+      },
       {
         "objectType": "WriteToSymbol",
         "active": true,
@@ -172,6 +206,18 @@
   }
 ]
 </script>
+</div>
+
+<div id="TcHmiTextbox_5" data-tchmi-type="tchmi-textbox" data-tchmi-height="41" data-tchmi-height-unit="px" data-tchmi-left="24" data-tchmi-left-unit="px" data-tchmi-text="%pp%CurrentText%/pp%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="673" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
 </div>
 
 </div>

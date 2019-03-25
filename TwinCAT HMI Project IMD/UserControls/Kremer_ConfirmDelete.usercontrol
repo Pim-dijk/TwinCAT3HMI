@@ -91,4 +91,30 @@
   "bottom": "Solid"
 }
 </script>
+<div id="TcHmiButton_47" data-tchmi-type="tchmi-button" data-tchmi-height="10.6" data-tchmi-height-unit="%" data-tchmi-left="77.8" data-tchmi-left-unit="%" data-tchmi-text="X" data-tchmi-top="1.6" data-tchmi-top-unit="%" data-tchmi-width="20.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_47.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Self::Visibility%/pp%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
 </div>
