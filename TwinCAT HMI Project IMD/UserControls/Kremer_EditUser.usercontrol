@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiCombobox" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Group" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-data-height="50" data-tchmi-selected-index="%pp%GroupIndex%/pp%">
+<div id="TcHmiCombobox" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Group" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-data-height="50" data-tchmi-selected-index="%pp%GroupIndex%/pp%" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -38,7 +38,7 @@
 </script>
 </div>
 
-<div id="TcHmiCombobox_1" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Select Language" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="62.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-src-data="%f%GetRegisteredLocales();%/f%" data-tchmi-selected-index="%pp%LanguageIndex%/pp%" data-tchmi-data-height="50" data-tchmi-max-list-height="100">
+<div id="TcHmiCombobox_1" data-tchmi-type="tchmi-combobox" data-tchmi-combobox-text="Select Language" data-tchmi-height="13" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="62.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-src-data="%f%GetRegisteredLocales();%/f%" data-tchmi-selected-index="%pp%LanguageIndex%/pp%" data-tchmi-data-height="50" data-tchmi-max-list-height="100" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -71,7 +71,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_44" data-tchmi-type="tchmi-button" data-tchmi-height="21.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="%f%%pp%Mode%/pp%? 'Update' : 'Create'%/f%" data-tchmi-top="77.0" data-tchmi-top-unit="%" data-tchmi-width="96.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+<div id="TcHmiButton_44" data-tchmi-type="tchmi-button" data-tchmi-height="21.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="%f%%pp%Mode%/pp%? 'Update' : 'Create'%/f%" data-tchmi-top="77.0" data-tchmi-top-unit="%" data-tchmi-width="96.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -225,19 +225,19 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_76" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="Name" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_76" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="Name" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
-<div id="TcHmiTextblock_77" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Password" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_77" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Password" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
-<div id="TcHmiTextblock_78" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Group" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_78" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Group" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
-<div id="TcHmiTextblock_79" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Language" data-tchmi-top="62.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_79" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Language" data-tchmi-top="62.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
@@ -245,11 +245,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_82" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Auto Logout" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_82" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Auto Logout" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
-<div id="TcHmiTextbox_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextbox_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%" data-tchmi-top="17.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
@@ -333,7 +333,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextbox_4" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%"  data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text="%pp%AutoLogout%/pp%">
+<div id="TcHmiTextbox_4" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%"  data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="78.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text="%pp%AutoLogout%/pp%" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
@@ -417,7 +417,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextbox_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%"  data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="%f%if(%pp%Mode%/pp%) {'Collapsed'} else {'Visible'};%/f%">
+<div id="TcHmiTextbox_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="20.0" data-tchmi-left-unit="%"  data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="60.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="%f%if(%pp%Mode%/pp%) {'Collapsed'} else {'Visible'};%/f%" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">

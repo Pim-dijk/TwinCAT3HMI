@@ -149,6 +149,23 @@
       "propertyName": "This",
       "propertySetterName": "setThis",
       "propertyGetterName": "getThis"
+    },
+    {
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
     }
   ],
   "virtualRights": [],

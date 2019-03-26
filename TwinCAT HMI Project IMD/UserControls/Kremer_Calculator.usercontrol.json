@@ -52,6 +52,8 @@
       "type": "tchmi:general#/definitions/BOOL",
       "category": "",
       "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,

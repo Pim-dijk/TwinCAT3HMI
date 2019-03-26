@@ -22,6 +22,8 @@
       "type": "tchmi:general#/definitions/INT",
       "category": "",
       "description": "",
+      "defaultValue": 14,
+      "defaultValueInternal": 14,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,

@@ -416,6 +416,35 @@
 
 <div id="TcHmiTextblock_83" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="500" data-tchmi-left-unit="px" data-tchmi-text="%s%TcHmiRecipeManagement.GetActiveRecipes%/s%" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiTextblock_83.onPressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Server.RecipeManagement.getActiveRecipes (",
+          "\n    function(data) {",
+          "\n        if (data.error === TcHmi.Errors.NONE) {",
+          "\n            console.log(data.recipeList);",
+          "\n        } else {",
+          "\n            // Error",
+          "\n            console.log(data);",
+          "\n        }",
+          "\n    }",
+          "\n);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 </div>

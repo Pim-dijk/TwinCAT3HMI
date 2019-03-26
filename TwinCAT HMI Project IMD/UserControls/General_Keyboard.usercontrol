@@ -1,7 +1,7 @@
 ﻿<div id="General_Keyboard_2" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
      data-tchmi-width="780" data-tchmi-height="300" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
-     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-min-width="400">
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-min-width="400" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, 'Collapsed');%/f%">
 
 <div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="239" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout="EN-US_QWERTY_compact" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="61" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-fixed-target="TcHmiTextbox_5" data-tchmi-right-unit="px" data-tchmi-opacity="1">
 <script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">

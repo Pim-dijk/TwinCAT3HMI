@@ -475,11 +475,11 @@
 </script>
 </div>
 
-<div id="Kremer_AlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="168" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbollight="False" data-tchmi-symbolalarm="False">
+<div id="Kremer_AlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="168" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbollight="False" data-tchmi-symbolalarm="False" data-tchmi-visible="True">
 
 </div>
 
-<div id="Kremer_AlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Rectangle" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="278" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbolalarm="False" data-tchmi-symbollight="True">
+<div id="Kremer_AlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Rectangle" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="203" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbolalarm="False" data-tchmi-symbollight="True">
 
 </div>
 

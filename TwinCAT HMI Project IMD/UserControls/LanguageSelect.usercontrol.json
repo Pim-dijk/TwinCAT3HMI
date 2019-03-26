@@ -24,6 +24,8 @@
       "type": "tchmi:general#/definitions/INT",
       "category": "",
       "description": "",
+      "defaultValue": 14,
+      "defaultValueInternal": 14,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -61,21 +63,6 @@
       "propertyName": "SelectedIndex",
       "propertySetterName": "setSelectedIndex",
       "propertyGetterName": "getSelectedIndex"
-    },
-    {
-      "name": "data-tchmi-fontfamily",
-      "displayName": "FontFamily",
-      "visible": true,
-      "type": "tchmi:framework#/definitions/FontFamily",
-      "category": "",
-      "description": "",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": true,
-      "propertyName": "FontFamily",
-      "propertySetterName": "setFontFamily",
-      "propertyGetterName": "getFontFamily"
     }
   ],
   "virtualRights": [],
