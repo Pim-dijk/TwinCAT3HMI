@@ -119,13 +119,12 @@
       },
       {
         "objectType": "Function",
-        "active": true,
+        "active": false,
         "fn": "ConvertAlarmDBToDataGrid",
         "fnParams": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
+            "objectType": "Symbol",
+            "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
           },
           {
             "objectType": "Symbol",

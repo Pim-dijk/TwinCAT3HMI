@@ -202,6 +202,9 @@
     },
     {
       "url": "Scripts/ConvertAlarmDBToDataGrid.js"
+    },
+    {
+      "url": "Scripts/UpdateAlarmDBForAlarmWord.js"
     }
   ],
   "symbols": {
@@ -1965,6 +1968,12 @@
       "TargetTextBox": {
         "value": "",
         "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "Initialized": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
         "persist": false,
         "readonly": false
       }

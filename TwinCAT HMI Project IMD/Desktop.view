@@ -74,9 +74,9 @@
 
 </div>
 
-<div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="436" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-visibility="Visible">
+<div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-visibility="Visible">
 
-<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="-1" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
+<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
 
 
 
@@ -461,6 +461,18 @@
     "event": "Desktop.onAttached",
     "actions": [
       {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%Initialized%/i%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      },
+      {
         "objectType": "Function",
         "active": true,
         "fn": "ConvertAlarmWordsToDataGrid",
@@ -506,7 +518,7 @@
     "actions": [
       {
         "objectType": "Function",
-        "active": true,
+        "active": false,
         "fn": "ConvertAlarmWordsToDataGrid",
         "fnParams": [
           {
@@ -525,6 +537,52 @@
           {
             "objectType": "Symbol",
             "symbolExpression": "%i%AlarmDB%/i%"
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord1%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord1%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -535,26 +593,47 @@
     "event": "%s%PLC1.HMI.AlarmWord2%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord2%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord2%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -565,26 +644,47 @@
     "event": "%s%PLC1.HMI.AlarmWord3%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord3%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord3%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -595,26 +695,47 @@
     "event": "%s%PLC1.HMI.AlarmWord4%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord4%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord4%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -625,26 +746,47 @@
     "event": "%s%PLC1.HMI.AlarmWord5%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord5%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord5%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -655,26 +797,47 @@
     "event": "%s%PLC1.HMI.AlarmWord6%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord6%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord6%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -685,26 +848,47 @@
     "event": "%s%PLC1.HMI.AlarmWord7%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord7%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord7%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -715,26 +899,47 @@
     "event": "%s%PLC1.HMI.AlarmWord8%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord8%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord8%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -745,26 +950,47 @@
     "event": "%s%PLC1.HMI.AlarmWord9%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord9%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord9%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -775,26 +1001,47 @@
     "event": "%s%PLC1.HMI.AlarmWord10%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord10%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord10%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -805,26 +1052,47 @@
     "event": "%s%PLC1.HMI.AlarmWord11%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord11%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord11%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -835,26 +1103,47 @@
     "event": "%s%PLC1.HMI.AlarmWord12%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord12%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord12%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -865,26 +1154,47 @@
     "event": "%s%PLC1.HMI.AlarmWord13%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord13%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord13%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -895,26 +1205,47 @@
     "event": "%s%PLC1.HMI.AlarmWord14%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord14%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord14%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -925,26 +1256,47 @@
     "event": "%s%PLC1.HMI.AlarmWord15%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord15%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord15%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -955,26 +1307,47 @@
     "event": "%s%PLC1.HMI.AlarmWord16%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord16%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord16%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -985,26 +1358,47 @@
     "event": "%s%PLC1.HMI.AlarmWord17%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord17%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord17%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -1015,26 +1409,47 @@
     "event": "%s%PLC1.HMI.AlarmWord18%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord18%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord18%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -1045,26 +1460,47 @@
     "event": "%s%PLC1.HMI.AlarmWord19%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord19%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord19%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -1075,26 +1511,47 @@
     "event": "%s%PLC1.HMI.AlarmWord20%/s%",
     "actions": [
       {
-        "objectType": "Function",
+        "objectType": "Condition",
         "active": true,
-        "fn": "ConvertAlarmWordsToDataGrid",
-        "fnParams": [
+        "expressions": [
           {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/TcHmiDatagrid",
-            "value": "TcHmiDatagrid_alarmView"
-          },
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%Initialized%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
           {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmWordList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmMessageList%/i%"
-          },
-          {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%AlarmDB%/i%"
+            "objectType": "Function",
+            "active": true,
+            "fn": "UpdateAlarmDBForAlarmWord",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%s%PLC1.HMI.AlarmWord20%/s%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWord20%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
           }
         ],
         "asyncWait": true

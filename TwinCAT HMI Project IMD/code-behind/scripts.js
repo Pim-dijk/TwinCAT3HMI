@@ -28,13 +28,20 @@
 
         TcHmi.Server.UserManagement.listUsers(function (data) {
             if (data.error === TcHmi.Errors.NONE) {
-                console.log("Userlist data... ");
-                console.log(data);
+                //console.log("Userlist data... ");
+                //console.log(data);
                 $.each(data.userDetails, function (key, user) {
+                    if (key.startsWith('__')) {
+                        //console.log('Username starts with "__"');
+                        return;
+                    }
                     var userData = {};
                     userData['name'] = key;
                     var groups = [];
                     $.each(user.groups, function (key, value) {
+                        if (value.startsWith('__')) {
+                            return;
+                        }
                         var groupEntry = [];
                         groupEntry['text'] = value;
                         groupEntry['value'] = value;

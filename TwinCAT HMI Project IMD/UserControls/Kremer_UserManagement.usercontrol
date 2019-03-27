@@ -367,7 +367,7 @@
 
 </div>
 
-<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="18" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-left="27.4" data-tchmi-left-unit="%" data-tchmi-message="%f%'Are you sure you want to delete the user: ' + %pp%Username%/pp% + ' ?';%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-top="24.0" data-tchmi-top-unit="%" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Collapsed">
+<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="16" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-left="27.4" data-tchmi-left-unit="%" data-tchmi-message="%f%'Are you sure you want to delete the following user? \n\n ' + %pp%Username%/pp%;%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-top="24.0" data-tchmi-top-unit="%" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-visible="True">
 
 </div>
 

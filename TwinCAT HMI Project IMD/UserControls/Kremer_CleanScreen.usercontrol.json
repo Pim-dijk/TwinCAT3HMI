@@ -22,6 +22,8 @@
       "type": "tchmi:general#/definitions/INT",
       "category": "",
       "description": "How long the overlay should be displayed",
+      "defaultValue": 30,
+      "defaultValueInternal": 30,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,

@@ -1,9 +1,9 @@
 {
     "USERS": {
         "CreatedFromHMI": {
-            "ENABLED": true,
-            "PASSWORD": "a2d9a5c807b6f36c261f7c3f0087d29aa0a6ca78165c6a88171dbadf1b27b2c3",
-            "SALT": "vaQvgipFZVdeQycKknRfRdeDotF9b5D7ctqEqpev5NeXrtuGCZ8oBxVlIb7JaQq5hrJbxV2lyjYUcmQbHIG1AA=="
+            "ENABLED": false,
+            "PASSWORD": "3218250ab734958a38b2d078c61bbd3cfae9b82676d1302c563dce049e3ef72e",
+            "SALT": "WEKmccJ5DZno5XyRoyWvjoI1+B4QDp04IxrusGK6M3jgl4UBIogoH+hq6lyl8eHZ5ZwPlcweW4sn4O3oWiRtAA=="
         },
         "Guest": {
             "ENABLED": true,

@@ -9,8 +9,8 @@
 
 (function (TcHmi) {
 
-    var ConvertAlarmWordsToDataGrid = function (TargetControl,AlarmWordList,AlarmMessageList,AlarmDB) {
-        //console.log("Calling js function: " + new Date());
+    var ConvertAlarmWordsToDataGrid = function (ctx,TargetControl,AlarmWordList,AlarmMessageList,AlarmDB) {
+        console.log("Checking all alarmwords and storing them in the alarmDB");
 
         // Target to send the data to
         var target = TcHmi.Controls.get(TargetControl);
@@ -30,6 +30,7 @@
         var alarmDB = alarmDBSymbol.read();
         // uncomment to reset the DB
         //alarmDB = {};
+        //console.log(allAlarms);
 
         $.each(allAlarms, function (key, value) {
             // Read the server side symbol alarm value
@@ -67,9 +68,9 @@
                             exists = true;
                         };
                         if (!exists) {
-                            //console.log("This one doesn't exists yet!");
                             if (binArray[i] === '1') {
                                 // 1
+                                //console.log("This one doesn't exist yet!");
                                 jsonEntry['Test1'] = (i + offset);
                                 jsonEntry['Test2'] = date;
                                 jsonEntry['Test3'] = result.AlarmGroup.text;
@@ -86,19 +87,37 @@
                     // Check if we are at the end of the AlarmWordList
                     // If so, write to target control
                     if (count >= length) {
-                        
+                        console.log(alarmDB);
                         // Write to alarmDB Symbol
                         alarmDBSymbol.write(alarmDB, function (data) {
                             if (data.error === TcHmi.Errors.NONE) {
                                 // Handle success... 
+                                var initializedSymbol = new TcHmi.Symbol('%i%Initialized%/i%');
+                                initializedSymbol.write(true);
+                                ctx.success();
+                                return;
                             } else {
                                 // Handle error... 
-                                console.log(data);
+                                ctx.error(data.error, {
+                                    code: data.error,
+                                    message: TcHmi.Errors[data.error],
+                                    reason: 'Function: ConvertAlarmWordsToDataGrid, failed to write to alarmDB',
+                                    domain: 'Function',
+                                    errors: (data.details ? [data.details] : undefined)
+                                });
+                                return;
                             }
                         });
                     }
                 } else {
-                    console.log(data.error);
+                    ctx.error(data.error, {
+                        code: data.error,
+                        message: TcHmi.Errors[data.error],
+                        reason: 'Function: ConvertAlarmWordsToDataGrid, failed to read server symbol',
+                        domain: 'Function',
+                        errors: (data.details ? [data.details] : undefined)
+                    });
+                    return;
                 }
             });
         });
