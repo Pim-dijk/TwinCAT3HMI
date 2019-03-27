@@ -48,6 +48,21 @@
       "propertyName": "Visible",
       "propertySetterName": "setVisible",
       "propertyGetterName": "getVisible"
+    },
+    {
+      "name": "data-tchmi-text",
+      "displayName": "Text",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Text",
+      "propertySetterName": "setText",
+      "propertyGetterName": "getText"
     }
   ],
   "virtualRights": [],

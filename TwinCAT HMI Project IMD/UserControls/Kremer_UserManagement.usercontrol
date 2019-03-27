@@ -363,12 +363,56 @@
 </script>
 </div>
 
-<div id="Kremer_EditUser_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="58.4" data-tchmi-height-unit="%" data-tchmi-left="17.0" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_EditUser.usercontrol" data-tchmi-top="9.4" data-tchmi-top-unit="%" data-tchmi-width="79.4" data-tchmi-width-unit="%" data-tchmi-max-width="500" data-tchmi-visibility="Collapsed" data-tchmi-username="%pp%Username%/pp%" data-tchmi-group="%pp%GroupIndex%/pp%" data-tchmi-language="%pp%LangIndex%/pp%" data-tchmi-enabled="%pp%Enabled%/pp%" data-tchmi-this="%ctrl%Kremer_EditUser_2%/ctrl%" data-tchmi-languageindex="%pp%LangIndex%/pp%" data-tchmi-groupindex="%pp%GroupIndex%/pp%" data-tchmi-mode="%pp%Mode%/pp%" data-tchmi-max-height="350" data-tchmi-min-width="150" data-tchmi-min-height="200" data-tchmi-keyboard="%pp%Keyboard%/pp%" data-tchmi-groupname="%pp%GroupName%/pp%" data-tchmi-password="%pp%Password%/pp%" data-tchmi-autologout="%pp%AutoLogout%/pp%" data-tchmi-usermanagementcontrol="%pp%This::id%/pp%">
+<div id="Kremer_EditUser_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="58.4" data-tchmi-height-unit="%" data-tchmi-target-user-control="UserControls/Kremer_EditUser.usercontrol" data-tchmi-width="79.4" data-tchmi-width-unit="%" data-tchmi-max-width="500" data-tchmi-visibility="Visible" data-tchmi-username="%pp%Username%/pp%" data-tchmi-group="%pp%GroupIndex%/pp%" data-tchmi-language="%pp%LangIndex%/pp%" data-tchmi-enabled="%pp%Enabled%/pp%" data-tchmi-this="%ctrl%Kremer_EditUser_2%/ctrl%" data-tchmi-languageindex="%pp%LangIndex%/pp%" data-tchmi-groupindex="%pp%GroupIndex%/pp%" data-tchmi-mode="%pp%Mode%/pp%" data-tchmi-max-height="350" data-tchmi-min-width="150" data-tchmi-min-height="200" data-tchmi-keyboard="%pp%Keyboard%/pp%" data-tchmi-groupname="%pp%GroupName%/pp%" data-tchmi-password="%pp%Password%/pp%" data-tchmi-autologout="%pp%AutoLogout%/pp%" data-tchmi-usermanagementcontrol="%pp%This::id%/pp%" data-tchmi-class-names="%f%['center'];%/f%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_EditUser_2.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_EditUser_2::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="16" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-left="27.4" data-tchmi-left-unit="%" data-tchmi-message="%f%'Are you sure you want to delete the following user? \n\n ' + %pp%Username%/pp%;%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-top="24.0" data-tchmi-top-unit="%" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-visible="True">
+<div id="Kremer_ConfirmDelete_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fontsize="16" data-tchmi-height="197" data-tchmi-height-unit="px" data-tchmi-message="%f%'Are you sure you want to delete the following user? \n\n ' + %pp%Username%/pp%;%/f%" data-tchmi-target-user-control="UserControls/Kremer_ConfirmDelete.usercontrol" data-tchmi-width="243" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_ConfirmDelete_1%/ctrl%" data-tchmi-visibility="Visible" data-tchmi-visible="True" data-tchmi-class-names="%f%['center'];%/f%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_ConfirmDelete_1.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_ConfirmDelete_1::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 </div>

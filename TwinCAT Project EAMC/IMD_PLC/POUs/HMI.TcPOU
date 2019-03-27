@@ -46,7 +46,7 @@ END_VAR]]></Declaration>
       <ST><![CDATA[Error();
 
 T_HmiReset(IN:=mxReset,PT:=T#500MS);
-IF T_HmiReset.Q THEN mxReset:=FALSE; END_IF
+IF T_HmiReset.Q THEN mxReset:=FALSE; AlarmWord1 := 0; END_IF
 
 (********************************************************************
 Automatically Logout after 10 minutes

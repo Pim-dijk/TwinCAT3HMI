@@ -6,7 +6,7 @@
      data-tchmi-min-height="100" data-tchmi-min-height-unit="%"
      data-tchmi-background-image="Images/Background.png"
      data-tchmi-background-image-height="100" data-tchmi-background-image-width="100"
-     data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600" data-tchmi-height="600" data-tchmi-width="800">
+     data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600" data-tchmi-height="600" data-tchmi-width="800" data-tchmi-class-names="%f%['parent'];%/f%">
 
 <div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
@@ -428,7 +428,7 @@
 
 </div>
 
-<div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="274" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="136" data-tchmi-top-unit="px" data-tchmi-width="219" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%">
+<div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-width="219" data-tchmi-width-unit="px" data-tchmi-visibility="Visible" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%" data-tchmi-class-names="%f%['center'];%/f%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
@@ -444,10 +444,56 @@
   }
 ]
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Calculator_1.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Calculator_1::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Collapsed" data-tchmi-self="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-visible="True">
+<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Visible" data-tchmi-self="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-visible="True">
 
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "General_Keyboard_3.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 <div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="443" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
@@ -562,7 +608,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -580,6 +626,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -613,7 +683,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -631,6 +701,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -664,7 +758,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -682,6 +776,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -715,7 +833,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -733,6 +851,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -766,7 +908,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -784,6 +926,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -817,7 +983,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -835,6 +1001,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -868,7 +1058,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -886,6 +1076,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -919,7 +1133,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -937,6 +1151,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -970,7 +1208,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -988,6 +1226,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1021,7 +1283,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1039,6 +1301,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1072,7 +1358,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1090,6 +1376,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1123,7 +1433,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1141,6 +1451,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1174,7 +1508,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1192,6 +1526,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1225,7 +1583,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1243,6 +1601,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1276,7 +1658,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1294,6 +1676,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1327,7 +1733,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1345,6 +1751,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1378,7 +1808,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1396,6 +1826,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1429,7 +1883,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1447,6 +1901,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1480,7 +1958,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1498,6 +1976,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true
@@ -1531,7 +2033,7 @@
         "true": [
           {
             "objectType": "Function",
-            "active": true,
+            "active": false,
             "fn": "UpdateAlarmDBForAlarmWord",
             "fnParams": [
               {
@@ -1549,6 +2051,30 @@
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmMessageList%/i%"
+              }
+            ],
+            "asyncWait": true
+          },
+          {
+            "objectType": "Function",
+            "active": true,
+            "fn": "ConvertAlarmWordsToDataGrid",
+            "fnParams": [
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmWordList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmMessageList%/i%"
+              },
+              {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%AlarmDB%/i%"
               }
             ],
             "asyncWait": true

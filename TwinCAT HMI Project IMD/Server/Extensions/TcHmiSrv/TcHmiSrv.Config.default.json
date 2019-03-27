@@ -4350,7 +4350,7 @@
                 "USERGROUPUSERS_LOCALE": "nl"
             },
             "Henk123": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "PT1M",
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT10M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemUsers",
                     "TestGroup"

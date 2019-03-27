@@ -17,7 +17,9 @@
         }
         // Build a flat array out of the recursive object
         var result = [];
-        
+
+        console.log(recipeList);
+
         // Checks recursive all properties of the recipe folder and remember recipes
         var iterateRecipes = function (currentPath, recipeFolder) {
             for (var subPath in recipeFolder) {

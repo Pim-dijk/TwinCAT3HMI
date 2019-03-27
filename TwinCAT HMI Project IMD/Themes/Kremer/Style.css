@@ -40,3 +40,14 @@ html {
 .tchmi-class-error {
     border: 2px solid red !important;
 }
+
+.tchmi-class-parent {
+    position: relative;
+}
+
+.tchmi-class-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -18,6 +18,8 @@
 }
 </script>
 
+
+
 </div>
 
 <div id="TcHmiButton_TeachAsNew_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="360" data-tchmi-left-unit="px" data-tchmi-text="Teach as new recipe" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the current values from the target and then saved into a new recipe with the defined name.">
@@ -39,7 +41,7 @@
           },
           {
             "objectType": "Symbol",
-            "symbolExpression": "%ctrl%TcHmiTextbox_Recipe-New-Name::Text%/ctrl%"
+            "symbolExpression": "%ctrl%TextInputField_1::Text%/ctrl%"
           },
           {
             "objectType": "StaticValue",
@@ -402,8 +404,30 @@
 </script>
 </div>
 
-<div id="Kremer_PopupMessage_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="198" data-tchmi-height-unit="px" data-tchmi-left="248" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_PopupMessage.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="317" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-message="Testmessage" data-tchmi-visibility="Collapsed">
+<div id="Kremer_PopupMessage_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="141" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_PopupMessage.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="282" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-message="Testmessage" data-tchmi-visibility="Visible" data-tchmi-class-names="%f%['center'];%/f%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_PopupMessage_1.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_PopupMessage_1::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 <div id="General_Keyboard_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="331" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-self="%ctrl%General_Keyboard_4%/ctrl%">
@@ -426,16 +450,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "TcHmi.Server.RecipeManagement.getActiveRecipes (",
-          "\n    function(data) {",
-          "\n        if (data.error === TcHmi.Errors.NONE) {",
-          "\n            console.log(data.recipeList);",
-          "\n        } else {",
-          "\n            // Error",
-          "\n            console.log(data);",
-          "\n        }",
-          "\n    }",
-          "\n);"
+          "TcHmi.Server.RecipeManagement.getActiveRecipes (\n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            console.log(data.recipeList);\n        } else {\n            // Error\n            console.log(data);\n        }\n    }\n);"
         ],
         "injectContextObject": false,
         "asyncWait": true,

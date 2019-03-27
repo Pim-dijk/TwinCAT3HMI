@@ -324,15 +324,51 @@
     "event": "TcHmiButton_22.onPressed",
     "actions": [
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Condition",
         "active": true,
-        "symbolExpression": "%ctrl%LanguageSelect_1::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%ctrl%LanguageSelect_1::Visibility%/ctrl%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%LanguageSelect_1::Visibility%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Collapsed"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%LanguageSelect_1::Visibility%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Visibility",
+              "value": "Visible"
+            },
+            "asyncWait": true
+          }
+        ],
         "asyncWait": true
       }
     ]
@@ -505,7 +541,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_27" data-tchmi-type="tchmi-textblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="139" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s% + ' %'%/f%" data-tchmi-top="124" data-tchmi-top-unit="px" data-tchmi-width="99" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="13" data-tchmi-text-font-weight="Normal" data-tchmi-text-horizontal-alignment="Right">
+<div id="TcHmiTextblock_27" data-tchmi-type="tchmi-textblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="139" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.HydraulicValve.EngInput%/s% + ' %'%/f%" data-tchmi-top="128" data-tchmi-top-unit="px" data-tchmi-width="99" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="13" data-tchmi-text-font-weight="Normal" data-tchmi-text-horizontal-alignment="Right">
 
 
 
@@ -915,7 +951,7 @@
 
 </div>
 
-<div id="LanguageSelect_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="142" data-tchmi-height-unit="px" data-tchmi-left="261" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/LanguageSelect.usercontrol" data-tchmi-top="29.4" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="277" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-thiscontrol="%ctrl%LanguageSelect_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-zindex="750">
+<div id="LanguageSelect_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="142" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/LanguageSelect.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-visible="True" data-tchmi-width="277" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-thiscontrol="%ctrl%LanguageSelect_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-zindex="750" data-tchmi-class-names="%f%['center'];%/f%">
 
 </div>
 
