@@ -1922,11 +1922,11 @@ External Setpoint Generation:
 			</Settings>
 			<Licenses>
 				<Target>
-					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
 					<ManualSelect>{94C87B69-26C2-4677-9F7E-27E770C481BE}</ManualSelect>
+					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
 					<ManualSelect>{2752D285-16AD-4E89-AE6C-80E72784D264}</ManualSelect>
-					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
 					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
+					<ManualSelect>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</ManualSelect>
 				</Target>
 			</Licenses>
 			<Tasks>

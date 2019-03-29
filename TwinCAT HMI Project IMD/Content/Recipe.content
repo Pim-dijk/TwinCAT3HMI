@@ -8,7 +8,7 @@
 
 </div>
 
-<div id="TcHmiCombobox_RecipeList" data-tchmi-type="tchmi-combobox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-combobox-text="Select recipe" data-tchmi-src-data="%f%ListRecipesAsReferenceArray(%s%TcHmiRecipeManagement.Config::recipeList%/s%);%/f%" data-tchmi-tooltip="Select a recipe from the list of recipes.">
+<div id="TcHmiCombobox_RecipeList" data-tchmi-type="tchmi-combobox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-combobox-text="Select recipe" data-tchmi-src-data="%f%ListRecipesAsReferenceArray(%s%TcHmiRecipeManagement.Config::recipeList%/s%);%/f%" data-tchmi-tooltip="Select a recipe from the list of recipes." data-tchmi-drop-down-horizontal-alignment="Left" data-tchmi-data-height="35" data-tchmi-drop-down-font-size="14" data-tchmi-text-font-size="14">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -382,21 +382,6 @@
           "attributeExpression": "%ctrl%TcHmiDatagrid_RecipeView::SrcData%/ctrl%"
         },
         "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "TcHmiDatagrid_RecipeView.onPressed",
-    "actions": [
-      {
-        "objectType": "JavaScript",
-        "active": true,
-        "sourceLines": [
-          "var activeField = TcHmi.Controls.get('TcHmiDatagrid_RecipeView');\nconsole.log(activeField);\nvar column = activeField.__selectedCell.columnIndex;\nvar row = activeField.__selectedCell.rowIndex;\nconsole.log(\"Column: \" + column + \" Row: \" + row);\nvar data = activeField.__srcData[row];\nconsole.log(data);\n//Overbodig, kan niet de range van een veld ophalen via een recipe,\n// dus kan ook geen terugkoppeling geven op een specifiek veld\n// voordat de waarde opgeslagen wordt."
-        ],
-        "injectContextObject": false,
-        "asyncWait": true,
-        "waitMode": "Synchronous"
       }
     ]
   }
