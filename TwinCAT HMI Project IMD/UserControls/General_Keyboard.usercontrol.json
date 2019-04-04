@@ -1,21 +1,34 @@
 ﻿{
   "parameters": [
     {
-      "name": "data-tchmi-visible",
-      "displayName": "Visible",
+      "name": "data-tchmi-targetname",
+      "displayName": "TargetName",
       "visible": true,
-      "type": "tchmi:general#/definitions/BOOL",
-      "category": "",
+      "type": "tchmi:general#/definitions/String",
+      "category": "Do not modify",
       "description": "",
-      "defaultValue": true,
-      "defaultValueInternal": true,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "Visible",
-      "propertySetterName": "setVisible",
-      "propertyGetterName": "getVisible"
+      "propertyName": "TargetName",
+      "propertySetterName": "setTargetName",
+      "propertyGetterName": "getTargetName"
+    },
+    {
+      "name": "data-tchmi-currenttext",
+      "displayName": "CurrentText",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Do not modify",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "CurrentText",
+      "propertySetterName": "setCurrentText",
+      "propertyGetterName": "getCurrentText"
     },
     {
       "name": "data-tchmi-self",
@@ -33,34 +46,21 @@
       "propertyGetterName": "getSelf"
     },
     {
-      "name": "data-tchmi-targetname",
-      "displayName": "TargetName",
+      "name": "data-tchmi-visible",
+      "displayName": "Visible",
       "visible": true,
-      "type": "tchmi:general#/definitions/String",
+      "type": "tchmi:general#/definitions/BOOL",
       "category": "",
       "description": "",
+      "defaultValue": true,
+      "defaultValueInternal": true,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "TargetName",
-      "propertySetterName": "setTargetName",
-      "propertyGetterName": "getTargetName"
-    },
-    {
-      "name": "data-tchmi-currenttext",
-      "displayName": "CurrentText",
-      "visible": true,
-      "type": "tchmi:general#/definitions/String",
-      "category": "",
-      "description": "",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": true,
-      "propertyName": "CurrentText",
-      "propertySetterName": "setCurrentText",
-      "propertyGetterName": "getCurrentText"
+      "propertyName": "Visible",
+      "propertySetterName": "setVisible",
+      "propertyGetterName": "getVisible"
     }
   ],
   "virtualRights": [],

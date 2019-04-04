@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10110</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10111</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -101,6 +101,24 @@
     <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Settings.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot\DryingMoldDetails_Bottom.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\Gantry\Gantry_Manual.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\Gantry\Gantry_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\Gantry\Gantry_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\subFolder\SubfolderScreen.content">
       <SubType>Content</SubType>
     </Content>
@@ -129,6 +147,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Localization\nl-NL.tpl.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\BooleanToEnum.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\BooleanToEnum.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\CleanScreen.function.json">
@@ -171,6 +195,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetSymbolStringFromSymbol.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\InsertParamToSymbolString.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\InsertParamToSymbolString.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\Recipes\ConvertDatagridToRecipe.function.json">
@@ -345,6 +375,10 @@
     <Folder Include="Content\SubContent" />
     <Folder Include="Content\SubContent\MachineParts" />
     <Folder Include="Content\SubContent\MachineParts\ConveyorBelt" />
+    <Folder Include="Content\SubContent\MachineParts\DryingMold" />
+    <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot" />
+    <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Top" />
+    <Folder Include="Content\SubContent\MachineParts\Gantry" />
     <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />

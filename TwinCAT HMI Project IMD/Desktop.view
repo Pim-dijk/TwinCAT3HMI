@@ -8,7 +8,7 @@
      data-tchmi-background-image-height="100" data-tchmi-background-image-width="100"
      data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600" data-tchmi-height="600" data-tchmi-width="800" data-tchmi-class-names="%f%['parent'];%/f%">
 
-<div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
+<div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="-10" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {
@@ -496,7 +496,7 @@
 </script>
 </div>
 
-<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="443" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
+<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="443" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%f%%ctrl%TcHmiRegion::TargetContent%/ctrl% + %i%strMoldSide%/i%;%/f%">
 
 </div>
 
@@ -523,11 +523,6 @@
         "active": true,
         "fn": "ConvertAlarmWordsToDataGrid",
         "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "TcHmiDatagrid_alarmView"
-          },
           {
             "objectType": "Symbol",
             "symbolExpression": "%i%AlarmWordList%/i%"
@@ -557,7 +552,8 @@
         "asyncWait": true,
         "waitMode": "Synchronous"
       }
-    ]
+    ],
+    "displayName": ""
   },
   {
     "event": "%s%PLC1.HMI.AlarmWord1%/s%",

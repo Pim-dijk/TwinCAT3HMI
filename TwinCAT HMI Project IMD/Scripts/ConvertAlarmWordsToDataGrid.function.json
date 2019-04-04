@@ -16,20 +16,9 @@
         "displayName": "ctx",
         "type": "tchmi:framework#/definitions/ContextReference",
         "description": "Context Reference",
-        "defaultValue": null,
-        "required": true,
-        "bindable": false,
-        "restParameter": false,
-        "asReference": false
-      },
-      {
-        "name": "TargetControl",
-        "displayName": "TargetControl",
-        "type": "tchmi:general#/definitions/String",
-        "description": "The DataGrid control that will display the data (ID as string, NOT symbol Binding)",
         "defaultValue": "",
         "required": true,
-        "bindable": true,
+        "bindable": false,
         "restParameter": false,
         "asReference": false
       },

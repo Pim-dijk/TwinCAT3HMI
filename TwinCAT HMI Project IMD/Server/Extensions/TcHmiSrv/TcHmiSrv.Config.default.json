@@ -2839,6 +2839,266 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.0.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[0]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.0.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[0]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.1.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[1]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.1.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[1]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.2.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[2]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.2.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[2]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.3.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[3]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.3.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[3]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.4.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[4]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.4.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[4]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.5.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[5]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HeatingZone.5.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HeatingZone[5]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.Vacuum.Q": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::Vacuum::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.0.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[0]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.0.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[0]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.1.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[1]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.1.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[1]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.2.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[2]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.2.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[2]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.3.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[3]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.3.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[3]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.4.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[4]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.4.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[4]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.5.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[5]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.5.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HeatingZone[5]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.Vacuum.Q": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::Vacuum::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2919,6 +3179,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.MachParameters.TopMoldA.HeatingZone0.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::HeatingZone[0]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.ProductForming.TankLevel01.EngUnits": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2972,6 +3242,136 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.0.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[0]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.0.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[0]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.1.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[1]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.1.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[1]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.2.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[2]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.2.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[2]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.3.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[3]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.3.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[3]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.4.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[4]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.4.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[4]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.5.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[5]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.5.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HeatingZone[5]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.BottomSidePressure.EngFilt": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::BottomSidePressure::EngFilt",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.HydraulicValve.EngInput": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2982,11 +3382,161 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.RodSidePressure.EngFilt": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::RodSidePressure::EngFilt",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.0.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[0]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.0.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[0]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.1.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[1]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.1.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[1]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.2.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[2]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.2.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[2]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.3.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[3]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.3.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[3]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.4.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[4]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.4.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[4]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.5.FB_Heating_Controller.OUT_PID": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[5]::FB_Heating_Controller::OUT_PID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.5.FB_Heating_Controller.PV_ACT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HeatingZone[5]::FB_Heating_Controller::PV_ACT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.BottomSidePressure.EngFilt": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::BottomSidePressure::EngFilt",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.HydraulicValve.EngInput": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::HydraulicValve::EngInput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.RodSidePressure.EngFilt": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::RodSidePressure::EngFilt",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/REAL"
             },
@@ -3037,6 +3587,156 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::EnableEamcSideB",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::HeatingZone[1]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.2.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::HeatingZone[2]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.3.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::HeatingZone[3]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.4.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::HeatingZone[4]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.5.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::HeatingZone[5]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[0]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[1]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.2.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[2]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.3.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[3]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.4.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[4]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.5.PIDTempZone.SP_AUTO_TOTAL": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[5]::PIDTempZone::SP_AUTO_TOTAL",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.ProductHandling.OutfeedConveyor.VelocityAuto": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::OutfeedConveyor::VelocityAuto",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.ProductHandling.OutfeedConveyor.VelocityManual": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::OutfeedConveyor::VelocityManual",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.HMI_Backward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::Belt::HMI_Backward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.HMI_Forward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::Belt::HMI_Forward",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },

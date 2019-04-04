@@ -113,6 +113,30 @@
       "preload": false
     },
     {
+      "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetails_Bottom.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/Gantry/Gantry_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/Gantry/Gantry_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/Gantry/Gantry_Settings.content",
+      "preload": false
+    },
+    {
       "url": "Content/subFolder/SubfolderScreen.content",
       "preload": false
     },
@@ -205,6 +229,12 @@
     },
     {
       "url": "Scripts/UpdateAlarmDBForAlarmWord.js"
+    },
+    {
+      "url": "Scripts/BooleanToEnum.js"
+    },
+    {
+      "url": "Scripts/InsertParamToSymbolString.js"
     }
   ],
   "symbols": {
@@ -1974,6 +2004,42 @@
       "Initialized": {
         "value": false,
         "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
+        "readonly": false
+      },
+      "_IsASide": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
+        "persist": true,
+        "readonly": false
+      },
+      "strMoldSide": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": true,
+        "readonly": false
+      },
+      "RegionText": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "tempValue": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
+        "readonly": false
+      },
+      "_IsTopSide": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
+        "readonly": false
+      },
+      "MoldNr": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
         "persist": false,
         "readonly": false
       }

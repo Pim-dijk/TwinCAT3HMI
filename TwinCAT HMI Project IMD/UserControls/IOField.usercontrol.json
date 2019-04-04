@@ -21,7 +21,7 @@
       "visible": true,
       "type": "tchmi:general#/definitions/REAL",
       "category": "",
-      "description": "A default value to display while not running",
+      "description": "The (symbol) value to display",
       "defaultValueInternal": 0.0,
       "requiredOnCompile": false,
       "readOnly": false,
@@ -54,6 +54,8 @@
       "type": "tchmi:general#/definitions/REAL",
       "category": "",
       "description": "",
+      "defaultValue": -5000.0,
+      "defaultValueInternal": -5000.0,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -69,6 +71,8 @@
       "type": "tchmi:general#/definitions/REAL",
       "category": "",
       "description": "",
+      "defaultValue": 5000.0,
+      "defaultValueInternal": 5000.0,
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
@@ -159,6 +163,42 @@
       "propertyName": "Border",
       "propertySetterName": "setBorder",
       "propertyGetterName": "getBorder"
+    },
+    {
+      "name": "data-tchmi-background",
+      "displayName": "Background",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "Colors",
+      "description": "",
+      "defaultValue": {
+        "color": "rgba(255, 255, 255, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(255, 255, 255, 1)"
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Background",
+      "propertySetterName": "setBackground",
+      "propertyGetterName": "getBackground"
+    },
+    {
+      "name": "data-tchmi-textcolor",
+      "displayName": "TextColor",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "Colors",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TextColor",
+      "propertySetterName": "setTextColor",
+      "propertyGetterName": "getTextColor"
     }
   ],
   "virtualRights": [],

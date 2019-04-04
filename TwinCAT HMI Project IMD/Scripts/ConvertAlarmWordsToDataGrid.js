@@ -9,11 +9,9 @@
 
 (function (TcHmi) {
 
-    var ConvertAlarmWordsToDataGrid = function (ctx,TargetControl,AlarmWordList,AlarmMessageList,AlarmDB) {
+    var ConvertAlarmWordsToDataGrid = function (ctx,AlarmWordList,AlarmMessageList,AlarmDB) {
         console.log("Checking all alarmwords and storing them in the alarmDB");
-
-        // Target to send the data to
-        var target = TcHmi.Controls.get(TargetControl);
+        
         // Get the locale information
         var timeZone = TcHmi.Locale.get();
         // Create date object with current date time
@@ -40,10 +38,15 @@
                     // Get server symbol value, write to internal value
                     var serverValue = data.value;
                     var symbol = new TcHmi.Symbol(key);
-                    var result = symbol.read();
+                    var symbolResult = symbol.read();
+                    var result = JSON.parse(symbolResult); // Convert the object to JSON
+                    // If the value hasn't changed, return
+                    if ((serverValue === 0 && count < length) || (serverValue === result.Data && count < length)) {
+                        console.log("Result hasn't changed or is '0'");
+                        return;
+                    }
                     result.Data = serverValue;
                     symbol.write(result);
-
 
                     // Convert the DINT value to Binary
                     var offset = result.AlarmBeginNr;
@@ -87,7 +90,7 @@
                     // Check if we are at the end of the AlarmWordList
                     // If so, write to target control
                     if (count >= length) {
-                        console.log(alarmDB);
+                        //console.log(alarmDB);
                         // Write to alarmDB Symbol
                         alarmDBSymbol.write(alarmDB, function (data) {
                             if (data.error === TcHmi.Errors.NONE) {

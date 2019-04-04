@@ -36,7 +36,7 @@
             // make new Date object with the datetime from the alarm entry
             var dateTime = new Date(value.Test2);
             // convert it to the local format
-            var localDateTime = dateTime.toLocaleString(timeZone);
+            var localDateTime = dateTime.toLocaleString([timeZone, 'en-GB']);
             // set the new value
             value.Test2 = localDateTime;
             // set the message to the local value

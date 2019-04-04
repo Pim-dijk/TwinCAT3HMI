@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiTextblock_72" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_72" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text="%i%RegionText%/i%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -15,7 +15,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var symbol = new TcHmi.Symbol('%pp%RegionContent%/pp%');\nvar symbolValue = symbol.read();\nvar name = symbolValue.split('.');\nvar displayName = name[0].split('/');\nvar length = displayName.length;\nvar textbox = TcHmi.Controls.get('TcHmiTextblock_72');\ntextbox.setText(displayName[(length - 1)]);"
+          "var regionText = new TcHmi.Symbol('%i%RegionText%/i%');\n\nvar symbol = new TcHmi.Symbol('%pp%RegionContent%/pp%');\nvar symbolValue = symbol.read();\nvar name = symbolValue.split('.');\nvar displayName = name[0].split('/');\nvar length = displayName.length;\n//var textbox = TcHmi.Controls.get('TcHmiTextblock_72');\n//var text = displayName[(length -1)] + ' ' + addition;\n//textbox.setText(text);\nregionText.write(displayName[(length -1)]);"
         ],
         "injectContextObject": false,
         "asyncWait": true,

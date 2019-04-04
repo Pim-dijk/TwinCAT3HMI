@@ -26,6 +26,8 @@ Partial Class DryingMold_Overview
         Me.KrConnector = New TwincatControlWin32.KremerConnector(Me.components)
         Me.VarCollector = New KremerControlsWin32.KremerVariableCollector(Me.components)
         Me.mxAutomode = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.VacuumActive = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.KL_Vac = New KremerControlsWin32.KremerLight()
         Me.BottomSide = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_BotSide = New KremerControlsWin32.KremerIoField(Me.components)
         Me.RodSide = New KremerControlsWin32.KremerVariable(Me.components)
@@ -38,8 +40,6 @@ Partial Class DryingMold_Overview
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.KL_Vac = New KremerControlsWin32.KremerLight()
-        Me.VacuumActive = New KremerControlsWin32.KremerVariable(Me.components)
         Me.SuspendLayout()
         '
         'KrConnector
@@ -62,6 +62,29 @@ Partial Class DryingMold_Overview
         Me.mxAutomode.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
         Me.mxAutomode.VariableName = "MAIN.mxAutomode"
         '
+        'VacuumActive
+        '
+        Me.VacuumActive.BindControl = Me.KL_Vac
+        Me.VacuumActive.BindProperty = "Data"
+        Me.VacuumActive.Data = Nothing
+        Me.VacuumActive.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.VacuumActive.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.VacuumActive.VariableName = "MAIN.InMoldDrying.Bottom[Position1].Vacuum.Q"
+        '
+        'KL_Vac
+        '
+        Me.KL_Vac.ColorOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.KL_Vac.ColorOn = System.Drawing.Color.Lime
+        Me.KL_Vac.Data = False
+        Me.KL_Vac.Line = True
+        Me.KL_Vac.LineSize = 1
+        Me.KL_Vac.Location = New System.Drawing.Point(181, 317)
+        Me.KL_Vac.Name = "KL_Vac"
+        Me.KL_Vac.Size = New System.Drawing.Size(24, 24)
+        Me.KL_Vac.TabIndex = 434
+        Me.KL_Vac.Text = "KremerLight1"
+        Me.KL_Vac.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
         'BottomSide
         '
         Me.BottomSide.BindControl = Me.IO_BotSide
@@ -77,12 +100,12 @@ Partial Class DryingMold_Overview
         Me.IO_BotSide.AuditEnabled = False
         Me.IO_BotSide.AuditMessage = "KremerIoField changed:"
         Me.IO_BotSide.AuditSource = "KremerIoField"
-        Me.IO_BotSide.Data = 0.0R
+        Me.IO_BotSide.Data = 0R
         Me.IO_BotSide.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_BotSide.InitialValue = True
         Me.IO_BotSide.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_BotSide.Location = New System.Drawing.Point(718, 78)
-        Me.IO_BotSide.LowerBound = 0.0R
+        Me.IO_BotSide.LowerBound = 0R
         Me.IO_BotSide.Name = "IO_BotSide"
         Me.IO_BotSide.OutputFormat = "0.0 Bar"
         Me.IO_BotSide.Size = New System.Drawing.Size(71, 15)
@@ -108,12 +131,12 @@ Partial Class DryingMold_Overview
         Me.IO_RodSide.AuditEnabled = False
         Me.IO_RodSide.AuditMessage = "KremerIoField changed:"
         Me.IO_RodSide.AuditSource = "KremerIoField"
-        Me.IO_RodSide.Data = 0.0R
+        Me.IO_RodSide.Data = 0R
         Me.IO_RodSide.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_RodSide.InitialValue = True
         Me.IO_RodSide.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_RodSide.Location = New System.Drawing.Point(718, 62)
-        Me.IO_RodSide.LowerBound = 0.0R
+        Me.IO_RodSide.LowerBound = 0R
         Me.IO_RodSide.Name = "IO_RodSide"
         Me.IO_RodSide.OutputFormat = "0.0 Bar"
         Me.IO_RodSide.Size = New System.Drawing.Size(71, 15)
@@ -236,29 +259,6 @@ Partial Class DryingMold_Overview
         Me.Label5.TabIndex = 435
         Me.Label5.Tag = ""
         Me.Label5.Text = "Vacuum active"
-        '
-        'KL_Vac
-        '
-        Me.KL_Vac.ColorOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.KL_Vac.ColorOn = System.Drawing.Color.Lime
-        Me.KL_Vac.Data = False
-        Me.KL_Vac.Line = True
-        Me.KL_Vac.LineSize = 1
-        Me.KL_Vac.Location = New System.Drawing.Point(181, 317)
-        Me.KL_Vac.Name = "KL_Vac"
-        Me.KL_Vac.Size = New System.Drawing.Size(24, 24)
-        Me.KL_Vac.TabIndex = 434
-        Me.KL_Vac.Text = "KremerLight1"
-        Me.KL_Vac.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'VacuumActive
-        '
-        Me.VacuumActive.BindControl = Me.KL_Vac
-        Me.VacuumActive.BindProperty = "Data"
-        Me.VacuumActive.Data = Nothing
-        Me.VacuumActive.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.VacuumActive.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.VacuumActive.VariableName = "MAIN.InMoldDrying.Bottom[Position1].Vacuum.Q"
         '
         'DryingMold_Overview
         '
