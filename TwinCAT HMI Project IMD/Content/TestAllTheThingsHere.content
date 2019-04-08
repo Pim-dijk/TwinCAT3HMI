@@ -6,7 +6,7 @@
 
 </div>
 
-    <div id="IOField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-valuemin="-500" data-tchmi-valuemax="500" data-tchmi-attribute="ms" data-tchmi-keyboard="%ctrl%Calculator_3%/ctrl%" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-visibility="Visible" data-tchmi-datatype="In/Output" data-tchmi-border="True" data-tchmi-fontsize="18" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
+    <div id="IOField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-valuemin="-500" data-tchmi-valuemax="500" data-tchmi-attribute="ms" data-tchmi-keyboard="%ctrl%Calculator_3%/ctrl%" data-tchmi-visibility="Visible" data-tchmi-datatype="In/Output" data-tchmi-border="True" data-tchmi-fontsize="18" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
 
     </div>
 
@@ -459,76 +459,7 @@
 
 </div>
 
-<div id="TcHmiTextbox_11" data-tchmi-type="tchmi-textbox" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="125" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-top="259" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
-{
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
-}
-</script>
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiTextbox_11.onTextChanged",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%",
-        "valueType": "tchmi:general#/definitions/REAL",
-        "value": {
-          "objectType": "Symbol",
-          "symbolExpression": "%ctrl%TcHmiTextbox_11::Text%/ctrl%"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-</div>
-
-<div id="TcHmiKeyboard_2" data-tchmi-type="tchmi-keyboard" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout="Numpad" data-tchmi-left="330" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-width="256" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
-{
-  "top": 10,
-  "topUnit": "px",
-  "right": 10,
-  "rightUnit": "px",
-  "bottom": 10,
-  "bottomUnit": "px",
-  "left": 10,
-  "leftUnit": "px"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-key-padding" type="application/json">
-{
-  "top": 4,
-  "topUnit": "px",
-  "right": 4,
-  "rightUnit": "px",
-  "bottom": 4,
-  "bottomUnit": "px",
-  "left": 4,
-  "leftUnit": "px"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-additional-key-backdrop-padding" type="application/json">
-{
-  "top": 10,
-  "topUnit": "px",
-  "right": 10,
-  "rightUnit": "px",
-  "bottom": 10,
-  "bottomUnit": "px",
-  "left": 10,
-  "leftUnit": "px"
-}
-</script>
+<div id="IOField_Direct_59" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="18" data-tchmi-attribute="attr" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-keyboard="%ctrl%TcHmiKeyboard_2%/ctrl%" data-tchmi-datatype="In/Output">
 
 </div>
 

@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiTextblock_IOField" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="px" data-tchmi-border-width="%f%if(%pp%Border%/pp%){ '{  &quot;left&quot;: 1,  &quot;right&quot;: 1,  &quot;top&quot;: 1,  &quot;bottom&quot;: 1,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}' } else { '{  &quot;left&quot;: 0,  &quot;right&quot;: 0,  &quot;top&quot;: 0,  &quot;bottom&quot;: 0,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}'  }%/f%" data-tchmi-background-color="%pp%Background%/pp%" data-tchmi-text-color="%pp%TextColor%/pp%" data-tchmi-text="%f%if(%pp%DataType%/pp%  == &quot;Input&quot;) { &quot;&quot; } else { %pp%Value%/pp% + ' ' + %pp%Attribute%/pp% }%/f%">
+<div id="TcHmiTextblock_IOField" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="px" data-tchmi-border-width="%f%if(%pp%Border%/pp%){ '{  &quot;left&quot;: 1,  &quot;right&quot;: 1,  &quot;top&quot;: 1,  &quot;bottom&quot;: 1,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}' } else { '{  &quot;left&quot;: 0,  &quot;right&quot;: 0,  &quot;top&quot;: 0,  &quot;bottom&quot;: 0,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}'  }%/f%" data-tchmi-background-color="%pp%Background%/pp%" data-tchmi-text-color="%pp%TextColor%/pp%" data-tchmi-text="%f%if( %pp%DataType%/pp% == &quot;Input&quot;) { &quot;&quot; } else { %pp%Value%/pp%  + ' ' + %pp%Attribute%/pp% }%/f%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -38,7 +38,7 @@
             "objectType": "JavaScript",
             "active": true,
             "sourceLines": [
-              "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\n//console.log(\"...\");\n//console.log(readValue);\nvar value = readValue.__symbol.__expression.__expression;\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success\n\t\t//console.log(\"Success\");\t\t\n  \t} else {\n    \t// on error\n\t\tconsole.log(data);    \t\n\t}\n});"
+              "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\nconsole.log(\"...\");\nconsole.log(readValue);\nvar value = readValue.__symbol.__expression.__expression;\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success\n\t\t//console.log(\"Success\");\t\t\n  \t} else {\n    \t// on error\n\t\tconsole.log(data);    \t\n\t}\n});"
             ],
             "injectContextObject": false,
             "asyncWait": true,
@@ -91,25 +91,6 @@
           }
         ],
         "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "%pp%Symbol%/pp%",
-    "actions": [
-      {
-        "objectType": "Comment",
-        "comment": "Read out the value from the symbol and write it to the Value Parameter"
-      },
-      {
-        "objectType": "JavaScript",
-        "active": false,
-        "sourceLines": [
-          "console.log(\"Updating value from symbol\");\nvar readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\n//var readString = readValue.__symbol.__expression.__expression;\nconsole.log(\"Symbol value\");\nconsole.log(readValue);\nTcHmi.Symbol.readEx2(readString, function (data) {\n    if (data.error === TcHmi.Errors.NONE) {\n        // Handle result value... \n        var value = data.value; \n        console.log(\"New Value\");\n        console.log(value); \n        var writeSymbol = new TcHmi.Symbol('%pp%Value%/pp%');\n\t\twriteSymbol.write(value, function(data) {\n\t\t\tif(data.error === TcHmi.Errors.NONE){\n\t\t\t\t// on success\n\t\t\t\tconsole.log(\"Success\");\n\t\t  \t} else {\n\t\t    \t// on error\n\t\t\t\tconsole.log(data);\n\t\t\t}\n\t\t});\n    } else {\n        // Handle error... \n    }\n});\n\n"
-        ],
-        "injectContextObject": false,
-        "asyncWait": true,
-        "waitMode": "Synchronous"
       }
     ]
   }

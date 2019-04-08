@@ -281,6 +281,12 @@
     <Content Include="UserControls\ContentView_DisplayName.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\IOField_Direct.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Direct.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\Kremer_AlarmLight.usercontrol">
       <SubType>Content</SubType>
     </Content>

@@ -9,48 +9,15 @@
 
 (function (TcHmi) {
 
-    var InsertParamToSymbolString = function (Symbol,Param1,Param2) {
-        var symbol = '%s%';
-        var value;
-        //console.log(Symbol);
-        var newSymbol = Symbol.replace('[1]', Param1);
-        //console.log(newSymbol);
-        var finalSymbol = newSymbol.replace('[2]', Param2);
-        //console.log(finalSymbol);
-        symbol += finalSymbol;
-        symbol += '%/s%';
+    var InsertParamToSymbolString = function (Symbol,Params) {
+        var symbol = '%s%' + Symbol + '%/s%';
 
+        for (var i = 0; i < Params.length; i++) {
+            var temp = symbol.replace('[' + i + ']', Params[i]);
+            symbol = temp;
+        }
         console.log(symbol);
-
-        //var readSymbol = new TcHmi.Symbol(symbol);
-        //console.log(readSymbol);
-        //readSymbol.readEx(function (data) {
-        //    if (data.error === TcHmi.Errors.NONE) {
-        //        // Handle result value... 
-        //        value = data.value;
-        //        console.log(value);
-
-        //        return value;
-        //    } else {
-        //        // Handle error... 
-        //        console.log(data);
-
-        //        return -1;
-        //    }
-        //});
-
-        TcHmi.Symbol.readEx2(symbol, function (data) {
-            if (data.error === TcHmi.Errors.NONE) {
-                // Handle result value... 
-                value = data.value;
-                console.log(value);
-                return value;
-            } else {
-                // Handle error... 
-                console.log(data);
-                return -1;
-            }
-        });
+        return symbol;
     };
     
     TcHmi.Functions.registerFunction('InsertParamToSymbolString', InsertParamToSymbolString);

@@ -63,6 +63,9 @@
       "url": "UserControls/IOField.usercontrol"
     },
     {
+      "url": "UserControls/IOField_Direct.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_AlarmLight.usercontrol"
     },
     {
@@ -2037,7 +2040,7 @@
         "persist": false,
         "readonly": false
       },
-      "MoldNr": {
+      "_SetNumber": {
         "value": "",
         "type": "tchmi:general#/definitions/String",
         "persist": false,

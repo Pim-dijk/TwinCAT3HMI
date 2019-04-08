@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-zindex="100">
 
-<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="70" data-tchmi-height-unit="%" data-tchmi-label-font-size="14" data-tchmi-layout="Calculator" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="28.8" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-fixed-target="TcHmiTextbox_calc" data-tchmi-release-sticky-keys-manually="False" data-tchmi-right="0" data-tchmi-right-unit="%" data-tchmi-bottom="16.2" data-tchmi-bottom-unit="%" data-tchmi-zindex="5">
+<div id="TcHmiKeyboard" data-tchmi-type="tchmi-keyboard" data-tchmi-height="70" data-tchmi-height-unit="%" data-tchmi-label-font-size="14" data-tchmi-layout="Calculator" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="28.8" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-release-sticky-keys-manually="False" data-tchmi-right="0" data-tchmi-right-unit="%" data-tchmi-bottom="16.2" data-tchmi-bottom-unit="%" data-tchmi-zindex="5" data-tchmi-fixed-target="TcHmiTextbox_calc">
 <script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
 {
   "top": 10,
