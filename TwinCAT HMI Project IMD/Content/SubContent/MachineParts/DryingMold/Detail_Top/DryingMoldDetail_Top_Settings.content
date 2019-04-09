@@ -1,0 +1,679 @@
+﻿<div id="DryingMoldDetail_Top_Settings" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+
+<div id="TcHmiTextblock_170" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-text="TcHmiTextblock_170" data-tchmi-top="408" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiTextblock_170.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%_IsASide%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "SwitchCase",
+            "active": true,
+            "compare": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%_SetNumber%/i%"
+            },
+            "cases": [
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "0"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "A side | Top | Nr.0"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "1"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "A side | Top | Nr.1"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "2"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "A side | Top | Nr.2"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "3"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "A side | Top | Nr.3"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "4"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "A side | Top | Nr.4"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "5"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "A side | Top | Nr.5"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              }
+            ],
+            "caseDefault": {
+              "actions": []
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "SwitchCase",
+            "active": true,
+            "compare": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%_SetNumber%/i%"
+            },
+            "cases": [
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "0"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "B side | Top | Nr.0"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "1"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "B side | Top | Nr.1"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "2"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "B side | Top | Nr.2"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "3"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "B side | Top | Nr.3"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "4"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "B side | Top | Nr.4"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              },
+              {
+                "caseValue": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "5"
+                },
+                "actions": [
+                  {
+                    "objectType": "WriteToSymbol",
+                    "active": true,
+                    "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/String",
+                      "value": "B side | Top | Nr.5"
+                    },
+                    "asyncWait": true
+                  }
+                ]
+              }
+            ],
+            "caseDefault": {
+              "actions": []
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_88" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Overview" data-tchmi-top="379" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_88.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiTextblock_171" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="PID controller TOP mold" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_14" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="780" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_172" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="32" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_60" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="32" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500">
+
+</div>
+
+<div id="TcHmiLine_15" data-tchmi-type="tchmi-line" data-tchmi-height="413" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="5" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="413">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_173" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="101" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiTextblock_174" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="543" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="101" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiTextblock_175" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="667" data-tchmi-left-unit="px" data-tchmi-text="OUT" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="101" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_16" data-tchmi-type="tchmi-line" data-tchmi-height="314" data-tchmi-height-unit="px" data-tchmi-left="531" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="4" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="314">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiLine_17" data-tchmi-type="tchmi-line" data-tchmi-height="314" data-tchmi-height-unit="px" data-tchmi-left="654" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="4" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="314">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="IOField_Direct_61" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="54" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s">
+
+</div>
+
+<div id="TcHmiTextblock_176" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Ti" data-tchmi-top="54" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_62" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="76" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s">
+
+</div>
+
+<div id="TcHmiTextblock_177" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Tv" data-tchmi-top="76" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_63" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s">
+
+</div>
+
+<div id="TcHmiTextblock_178" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Td" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiTextblock_179" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="1st order filter" data-tchmi-top="120" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_64" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="120" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s">
+
+</div>
+
+<div id="IOField_Direct_65" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C">
+
+</div>
+
+<div id="TcHmiTextblock_180" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Deadband" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_66" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C/s">
+
+</div>
+
+<div id="TcHmiTextblock_181" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="ROC. limit setpoint" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_67" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="186" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%/s">
+
+</div>
+
+<div id="TcHmiTextblock_182" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="ROC. limit OUT up" data-tchmi-top="186" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiTextblock_183" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="ROC. limit OUT down" data-tchmi-top="208" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="208" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%/s">
+
+</div>
+
+<div id="IOField_Direct_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%">
+
+</div>
+
+<div id="TcHmiTextblock_184" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Output minimum" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500">
+
+</div>
+
+<div id="TcHmiTextblock_185" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Output maximum" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C">
+
+</div>
+
+<div id="TcHmiTextblock_186" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Setpoint minimum" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiTextblock_187" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Setpoint maximum" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C">
+
+</div>
+
+<div id="IOField_Direct_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%">
+
+</div>
+
+<div id="TcHmiTextblock_188" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Low cut-off filter" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="340" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%">
+
+</div>
+
+<div id="TcHmiTextblock_189" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="High cut-off filter" data-tchmi-top="340" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="362" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500">
+
+</div>
+
+<div id="TcHmiTextblock_190" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Number of setpoint steps (Start-up)" data-tchmi-top="362" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_76" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="ms">
+
+</div>
+
+<div id="TcHmiTextblock_191" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Wait time after SP-step reached" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_Direct_77" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="406" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="ms">
+
+</div>
+
+<div id="TcHmiTextblock_192" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="PWM minimal period time" data-tchmi-top="406" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Button_29" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Auto" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="Kremer_Button_30" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Setpoint Manual" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="Kremer_Button_31" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Out" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_Direct_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="50" data-tchmi-attribute="°C">
+
+</div>
+
+<div id="IOField_Direct_79" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="50" data-tchmi-attribute="°C">
+
+</div>
+
+<div id="IOField_Direct_80" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="50" data-tchmi-attribute="%">
+
+</div>
+
+<div id="IOField_58" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="338" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-border_color" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(0, 0, 0, 1)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(255, 255, 255, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+
+</div>
+
+<div id="Kremer_LinearGauge_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-maxrange="250" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-value="50" data-tchmi-width="100" data-tchmi-width-unit="px">
+
+</div>
+
+<div id="Kremer_LinearGauge_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-value="50" data-tchmi-width="100" data-tchmi-width-unit="px">
+
+</div>
+
+<div id="Kremer_LinearGauge_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-value="50" data-tchmi-width="100" data-tchmi-width-unit="px">
+
+</div>
+
+<div id="Kremer_Calculator_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="298" data-tchmi-height-unit="px" data-tchmi-left="111" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator_Direct.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="174" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_Calculator_3%/ctrl%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Calculator_3.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_Calculator_3::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+</div>

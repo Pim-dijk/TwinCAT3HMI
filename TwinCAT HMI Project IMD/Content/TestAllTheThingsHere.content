@@ -459,7 +459,15 @@
 
 </div>
 
-<div id="IOField_Direct_59" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="18" data-tchmi-attribute="attr" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-keyboard="%ctrl%TcHmiKeyboard_2%/ctrl%" data-tchmi-datatype="In/Output">
+<div id="IOField_Direct_59" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="18" data-tchmi-attribute="°C/s" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-keyboard="%ctrl%Kremer_Calculator_2%/ctrl%" data-tchmi-datatype="In/Output" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000">
+
+</div>
+
+<div id="Kremer_LinearGauge_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="218" data-tchmi-height-unit="px" data-tchmi-left="254" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="135" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-value="50" data-tchmi-width="85" data-tchmi-width-unit="px">
+
+</div>
+
+<div id="IOField_Direct_81" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="18" data-tchmi-left-unit="px" data-tchmi-maxvalue="5000" data-tchmi-minvalue="-5000" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="317" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
 
 </div>
 

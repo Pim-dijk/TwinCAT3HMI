@@ -4986,7 +4986,7 @@
             "ENABLED": true,
             "FILEACCESS": 0,
             "FILES": {},
-            "SYMBOLACCESS": 0,
+            "SYMBOLACCESS": 1,
             "SYMBOLS": {
                 "GetCurrentUser": 3,
                 "IsAuthRequired": 3,
@@ -5002,7 +5002,7 @@
             "FILES": {
                 "/Config": 1
             },
-            "SYMBOLACCESS": 0,
+            "SYMBOLACCESS": 1,
             "SYMBOLS": {
                 "ConfirmAlarm": 3,
                 "CreateEvent": 3,
@@ -5045,7 +5045,8 @@
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT35M",
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemUsers",
-                    "Guest"
+                    "Guest",
+                    "__SystemGuests"
                 ],
                 "USERGROUPUSERS_LOCALE": "nl"
             },

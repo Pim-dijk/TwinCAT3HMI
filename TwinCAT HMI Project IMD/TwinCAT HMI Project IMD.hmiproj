@@ -104,7 +104,13 @@
     <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot\DryingMoldDetails_Bottom.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold Overview.content">
@@ -281,6 +287,12 @@
     <Content Include="UserControls\ContentView_DisplayName.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\Kremer_Calculator_Direct.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Calculator_Direct.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\IOField_Direct.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -345,6 +357,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_Light.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_LinearGauge.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_LinearGauge.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_PopupMessage.usercontrol">

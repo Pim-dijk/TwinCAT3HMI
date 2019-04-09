@@ -75,6 +75,9 @@
       "url": "UserControls/Kremer_Calculator.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_Calculator_Direct.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_CleanScreen.usercontrol"
     },
     {
@@ -85,6 +88,9 @@
     },
     {
       "url": "UserControls/Kremer_Light.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_LinearGauge.usercontrol"
     },
     {
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
@@ -116,11 +122,19 @@
       "preload": false
     },
     {
+      "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetail_Bot_Settings.content",
+      "preload": false
+    },
+    {
       "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetails_Bottom.content",
       "preload": false
     },
     {
       "url": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top_Settings.content",
       "preload": false
     },
     {
@@ -2029,8 +2043,8 @@
         "readonly": false
       },
       "tempValue": {
-        "value": false,
-        "type": "tchmi:general#/definitions/BOOL",
+        "value": 0.0,
+        "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       },
@@ -2043,6 +2057,12 @@
       "_SetNumber": {
         "value": "",
         "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "backup_Value": {
+        "value": 0.0,
+        "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
       }

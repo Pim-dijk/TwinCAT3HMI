@@ -198,6 +198,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_Calculator"
     },
+    "Kremer_Calculator_Direct": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_Calculator_Direct.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_Calculator_Direct"
+    },
     "Kremer_CleanScreen": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -229,6 +237,14 @@
       "frameworkUserControlConfig": "UserControls\\Kremer_Light.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_Light"
+    },
+    "Kremer_LinearGauge": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_LinearGauge.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_LinearGauge"
     },
     "Kremer_PopupMessage": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",

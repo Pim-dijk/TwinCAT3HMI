@@ -1,0 +1,49 @@
+﻿<div id="Kremer_LinearGauge" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiLinearGauge_3" data-tchmi-type="tchmi-linear-gauge" data-tchmi-base-animation-time="1000" data-tchmi-height="89.2" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-show-labels="True" data-tchmi-show-ticks="False" data-tchmi-show-value-text="False" data-tchmi-start-from-zero="True" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-value="%pp%Value%/pp%" data-tchmi-min-value="%pp%MinRange%/pp%" data-tchmi-max-value="%pp%MaxRange%/pp%" data-tchmi-unit="%pp%Unit%/pp%" data-tchmi-orientation="Vertical" data-tchmi-label-range="%f%(%pp%MaxRange%/pp% - %pp%MinRange%/pp%) / 2;%/f%" data-tchmi-unit-orientation="Horizontal">
+
+<script data-tchmi-target-attribute="data-tchmi-value-format" type="application/json">
+{
+  "objectType": "Function",
+  "active": true,
+  "fn": "GaugeValueFormatter",
+  "fnParams": [
+    {
+      "objectType": "StaticValue",
+      "valueType": "tchmi:general#/definitions/Number",
+      "value": 1.0
+    }
+  ]
+}
+</script>
+
+
+
+
+
+
+</div>
+
+<div id="TcHmiTextblock_193" data-tchmi-type="tchmi-textblock" data-tchmi-height="10.8" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%%pp%Value%/pp% + ' ' + %pp%Unit%/pp%%/f%" data-tchmi-top="89.2" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(236, 236, 236, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiLine_18" data-tchmi-type="tchmi-line" data-tchmi-height="1.4" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="1" data-tchmi-top="89.2" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-x1="0" data-tchmi-x2="500" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+</div>

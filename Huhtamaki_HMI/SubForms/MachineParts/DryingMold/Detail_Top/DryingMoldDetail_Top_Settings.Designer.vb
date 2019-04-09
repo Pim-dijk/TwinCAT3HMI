@@ -198,7 +198,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.AutoBtn.Data = Nothing
         Me.AutoBtn.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.AutoBtn.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AutoBtn.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.HMI_" & _
+        Me.AutoBtn.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.HMI_" &
     "AutoBtn"
         '
         'BtnAuto
@@ -236,7 +236,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.AutoBtnState.Data = Nothing
         Me.AutoBtnState.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.AutoBtnState.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AutoBtnState.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.AutoBtnState.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".AutoState"
         '
         'SetpointBtn
@@ -246,7 +246,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SetpointBtn.Data = Nothing
         Me.SetpointBtn.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.SetpointBtn.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SetpointBtn.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.HMI_" & _
+        Me.SetpointBtn.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.HMI_" &
     "SetpointBtn"
         '
         'BtnSetpoint
@@ -283,7 +283,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SetpointBtnState.Data = Nothing
         Me.SetpointBtnState.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.SetpointBtnState.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SetpointBtnState.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SetpointBtnState.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SetpointState"
         '
         'OutputBtn
@@ -293,7 +293,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OutputBtn.Data = Nothing
         Me.OutputBtn.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.OutputBtn.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OutputBtn.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.HMI_" & _
+        Me.OutputBtn.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.HMI_" &
     "OutputBtn"
         '
         'BtnOut
@@ -330,7 +330,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OutputBtnState.Data = Nothing
         Me.OutputBtnState.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.OutputBtnState.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OutputBtnState.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.OutputBtnState.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".OutState"
         '
         'SP_MAN
@@ -340,7 +340,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_MAN.Data = Nothing
         Me.SP_MAN.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_MAN.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_MAN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_MAN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_MAN"
         '
         'IO_SPHand
@@ -351,7 +351,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_SPHand.AuditSource = "KremerIoField"
         Me.IO_SPHand.BackColor = System.Drawing.Color.White
         Me.IO_SPHand.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_SPHand.Data = 0.0R
+        Me.IO_SPHand.Data = 0R
         Me.IO_SPHand.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_SPHand.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_SPHand.InitialValue = True
@@ -375,7 +375,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_AUTO_TOTAL.Data = Nothing
         Me.SP_AUTO_TOTAL.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_AUTO_TOTAL.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_AUTO_TOTAL.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_AUTO_TOTAL.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_AUTO_TOTAL"
         '
         'BAR_SP
@@ -387,7 +387,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.BAR_SP.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.BAR_SP.FillLevel = 50.0!
         Me.BAR_SP.FillMaximum = 250.0!
-        Me.BAR_SP.FillMinimum = 0.0!
+        Me.BAR_SP.FillMinimum = 0!
         Me.BAR_SP.Line = True
         Me.BAR_SP.LineColor = System.Drawing.Color.Black
         Me.BAR_SP.LineColorOn = System.Drawing.Color.Black
@@ -407,7 +407,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_AUTO_TOTAL2.Data = Nothing
         Me.SP_AUTO_TOTAL2.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_AUTO_TOTAL2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_AUTO_TOTAL2.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_AUTO_TOTAL2.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_AUTO_TOTAL"
         '
         'IO_SP_AUTO
@@ -418,7 +418,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_SP_AUTO.AuditSource = "KremerIoField"
         Me.IO_SP_AUTO.BackColor = System.Drawing.Color.White
         Me.IO_SP_AUTO.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_SP_AUTO.Data = 0.0R
+        Me.IO_SP_AUTO.Data = 0R
         Me.IO_SP_AUTO.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_SP_AUTO.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_SP_AUTO.InitialValue = True
@@ -442,7 +442,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_Act.Data = Nothing
         Me.SP_Act.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_Act.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_Act.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_Act.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_AUTO"
         '
         'IO_SP_ACT
@@ -451,12 +451,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_SP_ACT.AuditEnabled = False
         Me.IO_SP_ACT.AuditMessage = "KremerIoField changed:"
         Me.IO_SP_ACT.AuditSource = "KremerIoField"
-        Me.IO_SP_ACT.Data = 0.0R
+        Me.IO_SP_ACT.Data = 0R
         Me.IO_SP_ACT.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_SP_ACT.InitialValue = True
         Me.IO_SP_ACT.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_SP_ACT.Location = New System.Drawing.Point(432, 246)
-        Me.IO_SP_ACT.LowerBound = 0.0R
+        Me.IO_SP_ACT.LowerBound = 0R
         Me.IO_SP_ACT.Name = "IO_SP_ACT"
         Me.IO_SP_ACT.OutputFormat = "0.00°C"
         Me.IO_SP_ACT.Size = New System.Drawing.Size(100, 21)
@@ -474,7 +474,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.PV_ACT.Data = Nothing
         Me.PV_ACT.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.PV_ACT.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PV_ACT.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.PV_E" & _
+        Me.PV_ACT.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.PV_E" &
     "XT"
         '
         'BAR_PV
@@ -486,7 +486,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.BAR_PV.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.BAR_PV.FillLevel = 50.0!
         Me.BAR_PV.FillMaximum = 100.0!
-        Me.BAR_PV.FillMinimum = 0.0!
+        Me.BAR_PV.FillMinimum = 0!
         Me.BAR_PV.Line = True
         Me.BAR_PV.LineColor = System.Drawing.Color.Black
         Me.BAR_PV.LineColorOn = System.Drawing.Color.Black
@@ -506,7 +506,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.PV_ACT2.Data = Nothing
         Me.PV_ACT2.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.PV_ACT2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PV_ACT2.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.PV_E" & _
+        Me.PV_ACT2.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.PV_E" &
     "XT"
         '
         'IO_PVACT
@@ -515,12 +515,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_PVACT.AuditEnabled = False
         Me.IO_PVACT.AuditMessage = "KremerIoField changed:"
         Me.IO_PVACT.AuditSource = "KremerIoField"
-        Me.IO_PVACT.Data = 0.0R
+        Me.IO_PVACT.Data = 0R
         Me.IO_PVACT.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_PVACT.InitialValue = True
         Me.IO_PVACT.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_PVACT.Location = New System.Drawing.Point(555, 246)
-        Me.IO_PVACT.LowerBound = 0.0R
+        Me.IO_PVACT.LowerBound = 0R
         Me.IO_PVACT.Name = "IO_PVACT"
         Me.IO_PVACT.OutputFormat = "0.00°C"
         Me.IO_PVACT.Size = New System.Drawing.Size(100, 21)
@@ -538,7 +538,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OutACT.Data = Nothing
         Me.OutACT.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OutACT.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OutACT.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.OUT_" & _
+        Me.OutACT.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.OUT_" &
     "PID"
         '
         'BAR_CV
@@ -550,7 +550,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.BAR_CV.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.BAR_CV.FillLevel = 50.0!
         Me.BAR_CV.FillMaximum = 100.0!
-        Me.BAR_CV.FillMinimum = 0.0!
+        Me.BAR_CV.FillMinimum = 0!
         Me.BAR_CV.Line = True
         Me.BAR_CV.LineColor = System.Drawing.Color.Black
         Me.BAR_CV.LineColorOn = System.Drawing.Color.Black
@@ -570,7 +570,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OutAct2.Data = Nothing
         Me.OutAct2.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OutAct2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OutAct2.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.OUT_" & _
+        Me.OutAct2.VariableName = "MAIN.InMoldDrying.[Position1].HeatingZone[[Position2]].FB_Heating_Controller.OUT_" &
     "PID"
         '
         'IO_OUTACT
@@ -579,12 +579,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_OUTACT.AuditEnabled = False
         Me.IO_OUTACT.AuditMessage = "KremerIoField changed:"
         Me.IO_OUTACT.AuditSource = "KremerIoField"
-        Me.IO_OUTACT.Data = 0.0R
+        Me.IO_OUTACT.Data = 0R
         Me.IO_OUTACT.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_OUTACT.InitialValue = True
         Me.IO_OUTACT.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_OUTACT.Location = New System.Drawing.Point(676, 246)
-        Me.IO_OUTACT.LowerBound = 0.0R
+        Me.IO_OUTACT.LowerBound = 0R
         Me.IO_OUTACT.Name = "IO_OUTACT"
         Me.IO_OUTACT.OutputFormat = "0.00 '%'"
         Me.IO_OUTACT.Size = New System.Drawing.Size(100, 21)
@@ -602,7 +602,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.P.Data = Nothing
         Me.P.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.P.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.P.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.P.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".P"
         '
         'IO_Gain
@@ -613,7 +613,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_Gain.AuditSource = "KremerIoField"
         Me.IO_Gain.BackColor = System.Drawing.Color.White
         Me.IO_Gain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_Gain.Data = 0.0R
+        Me.IO_Gain.Data = 0R
         Me.IO_Gain.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_Gain.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Gain.InitialValue = True
@@ -637,7 +637,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.I.Data = Nothing
         Me.I.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.I.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.I.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.I.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".I"
         '
         'IO_Ti
@@ -648,7 +648,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_Ti.AuditSource = "KremerIoField"
         Me.IO_Ti.BackColor = System.Drawing.Color.White
         Me.IO_Ti.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_Ti.Data = 0.0R
+        Me.IO_Ti.Data = 0R
         Me.IO_Ti.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_Ti.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Ti.InitialValue = True
@@ -672,7 +672,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.D.Data = Nothing
         Me.D.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.D.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.D.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.D.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".D"
         '
         'IO_Tv
@@ -683,13 +683,13 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_Tv.AuditSource = "KremerIoField"
         Me.IO_Tv.BackColor = System.Drawing.Color.White
         Me.IO_Tv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_Tv.Data = 0.0R
+        Me.IO_Tv.Data = 0R
         Me.IO_Tv.DataType = KremerControlsWin32.KremerIoField.NumDataType.REAL
         Me.IO_Tv.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Tv.InitialValue = True
         Me.IO_Tv.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_Tv.Location = New System.Drawing.Point(306, 71)
-        Me.IO_Tv.LowerBound = 0.0R
+        Me.IO_Tv.LowerBound = 0R
         Me.IO_Tv.Name = "IO_Tv"
         Me.IO_Tv.OutputFormat = "0.000 s"
         Me.IO_Tv.Size = New System.Drawing.Size(100, 22)
@@ -707,7 +707,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.Dt.Data = Nothing
         Me.Dt.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.Dt.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.Dt.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.Dt.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".Dtime"
         '
         'IO_Td
@@ -718,13 +718,13 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_Td.AuditSource = "KremerIoField"
         Me.IO_Td.BackColor = System.Drawing.Color.White
         Me.IO_Td.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_Td.Data = 0.0R
+        Me.IO_Td.Data = 0R
         Me.IO_Td.DataType = KremerControlsWin32.KremerIoField.NumDataType.REAL
         Me.IO_Td.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Td.InitialValue = True
         Me.IO_Td.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_Td.Location = New System.Drawing.Point(306, 93)
-        Me.IO_Td.LowerBound = 0.0R
+        Me.IO_Td.LowerBound = 0R
         Me.IO_Td.Name = "IO_Td"
         Me.IO_Td.OutputFormat = "0.000 s"
         Me.IO_Td.Size = New System.Drawing.Size(100, 22)
@@ -742,7 +742,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.DEADBAND.Data = Nothing
         Me.DEADBAND.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.DEADBAND.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.DEADBAND.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.DEADBAND.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".DEADBAND"
         '
         'IO_Deadband
@@ -753,7 +753,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_Deadband.AuditSource = "KremerIoField"
         Me.IO_Deadband.BackColor = System.Drawing.Color.White
         Me.IO_Deadband.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_Deadband.Data = 0.0R
+        Me.IO_Deadband.Data = 0R
         Me.IO_Deadband.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_Deadband.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Deadband.InitialValue = True
@@ -777,7 +777,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_ROC_EXT.Data = Nothing
         Me.SP_ROC_EXT.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_ROC_EXT.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_ROC_EXT.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_ROC_EXT.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_ROC_EXT"
         '
         'IO_ROC_Limit_SP
@@ -788,7 +788,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_ROC_Limit_SP.AuditSource = "KremerIoField"
         Me.IO_ROC_Limit_SP.BackColor = System.Drawing.Color.White
         Me.IO_ROC_Limit_SP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_ROC_Limit_SP.Data = 0.0R
+        Me.IO_ROC_Limit_SP.Data = 0R
         Me.IO_ROC_Limit_SP.DataType = KremerControlsWin32.KremerIoField.NumDataType.REAL
         Me.IO_ROC_Limit_SP.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ROC_Limit_SP.InitialValue = True
@@ -812,7 +812,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OUT_ROC_UP.Data = Nothing
         Me.OUT_ROC_UP.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OUT_ROC_UP.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OUT_ROC_UP.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.OUT_ROC_UP.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".OUT_ROC_UP"
         '
         'IO_ROC_Limit_Out_Up
@@ -823,7 +823,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_ROC_Limit_Out_Up.AuditSource = "KremerIoField"
         Me.IO_ROC_Limit_Out_Up.BackColor = System.Drawing.Color.White
         Me.IO_ROC_Limit_Out_Up.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_ROC_Limit_Out_Up.Data = 0.0R
+        Me.IO_ROC_Limit_Out_Up.Data = 0R
         Me.IO_ROC_Limit_Out_Up.DataType = KremerControlsWin32.KremerIoField.NumDataType.REAL
         Me.IO_ROC_Limit_Out_Up.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ROC_Limit_Out_Up.InitialValue = True
@@ -847,7 +847,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OUT_ROC_DOWN.Data = Nothing
         Me.OUT_ROC_DOWN.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OUT_ROC_DOWN.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OUT_ROC_DOWN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.OUT_ROC_DOWN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".OUT_ROC_DOWN"
         '
         'IO_ROC_Limit_OutDown
@@ -858,7 +858,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_ROC_Limit_OutDown.AuditSource = "KremerIoField"
         Me.IO_ROC_Limit_OutDown.BackColor = System.Drawing.Color.White
         Me.IO_ROC_Limit_OutDown.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_ROC_Limit_OutDown.Data = 0.0R
+        Me.IO_ROC_Limit_OutDown.Data = 0R
         Me.IO_ROC_Limit_OutDown.DataType = KremerControlsWin32.KremerIoField.NumDataType.REAL
         Me.IO_ROC_Limit_OutDown.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ROC_Limit_OutDown.InitialValue = True
@@ -882,7 +882,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OUT_MIN.Data = Nothing
         Me.OUT_MIN.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OUT_MIN.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OUT_MIN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.OUT_MIN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".OUT_LLM_EXT"
         '
         'IO_OutMin
@@ -893,7 +893,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_OutMin.AuditSource = "KremerIoField"
         Me.IO_OutMin.BackColor = System.Drawing.Color.White
         Me.IO_OutMin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_OutMin.Data = 0.0R
+        Me.IO_OutMin.Data = 0R
         Me.IO_OutMin.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_OutMin.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_OutMin.InitialValue = True
@@ -917,7 +917,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OUT_MAX.Data = Nothing
         Me.OUT_MAX.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OUT_MAX.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OUT_MAX.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.OUT_MAX.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".OUT_HLM_EXT"
         '
         'IO_OutMax
@@ -928,7 +928,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_OutMax.AuditSource = "KremerIoField"
         Me.IO_OutMax.BackColor = System.Drawing.Color.White
         Me.IO_OutMax.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_OutMax.Data = 0.0R
+        Me.IO_OutMax.Data = 0R
         Me.IO_OutMax.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_OutMax.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_OutMax.InitialValue = True
@@ -952,7 +952,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_MIN.Data = Nothing
         Me.SP_MIN.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_MIN.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_MIN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_MIN.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_LLM_EXT"
         '
         'IO_SetpointMin
@@ -963,7 +963,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_SetpointMin.AuditSource = "KremerIoField"
         Me.IO_SetpointMin.BackColor = System.Drawing.Color.White
         Me.IO_SetpointMin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_SetpointMin.Data = 0.0R
+        Me.IO_SetpointMin.Data = 0R
         Me.IO_SetpointMin.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_SetpointMin.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_SetpointMin.InitialValue = True
@@ -987,7 +987,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SP_MAX.Data = Nothing
         Me.SP_MAX.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.SP_MAX.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.SP_MAX.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.SP_MAX.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_HLM_EXT"
         '
         'IO_SetpointMax
@@ -998,7 +998,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_SetpointMax.AuditSource = "KremerIoField"
         Me.IO_SetpointMax.BackColor = System.Drawing.Color.White
         Me.IO_SetpointMax.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_SetpointMax.Data = 0.0R
+        Me.IO_SetpointMax.Data = 0R
         Me.IO_SetpointMax.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_SetpointMax.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_SetpointMax.InitialValue = True
@@ -1022,7 +1022,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OUTManVal.Data = Nothing
         Me.OUTManVal.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.OUTManVal.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.OUTManVal.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.OUTManVal.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".OUT_MAN"
         '
         'IO_OUTHAND
@@ -1033,7 +1033,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_OUTHAND.AuditSource = "KremerIoField"
         Me.IO_OUTHAND.BackColor = System.Drawing.Color.White
         Me.IO_OUTHAND.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_OUTHAND.Data = 0.0R
+        Me.IO_OUTHAND.Data = 0R
         Me.IO_OUTHAND.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_OUTHAND.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_OUTHAND.InitialValue = True
@@ -1057,7 +1057,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.CalcSteps.Data = Nothing
         Me.CalcSteps.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.CalcSteps.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.CalcSteps.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.CalcSteps.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".SP_AUTO"
         '
         'IO_CalcStep
@@ -1068,7 +1068,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_CalcStep.AuditSource = "KremerIoField"
         Me.IO_CalcStep.BackColor = System.Drawing.SystemColors.Control
         Me.IO_CalcStep.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_CalcStep.Data = 0.0R
+        Me.IO_CalcStep.Data = 0R
         Me.IO_CalcStep.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.IO_CalcStep.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_CalcStep.InitialValue = True
@@ -1102,7 +1102,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_NrOfSteps.AuditSource = "KremerIoField"
         Me.IO_NrOfSteps.BackColor = System.Drawing.Color.White
         Me.IO_NrOfSteps.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_NrOfSteps.Data = 0.0R
+        Me.IO_NrOfSteps.Data = 0R
         Me.IO_NrOfSteps.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_NrOfSteps.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_NrOfSteps.InitialValue = True
@@ -1126,7 +1126,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.PwmPeriod.Data = Nothing
         Me.PwmPeriod.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
         Me.PwmPeriod.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PwmPeriod.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PWM_Paramet" & _
+        Me.PwmPeriod.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PWM_Paramet" &
     "ers.tPWMPeriod"
         '
         'IO_PWMperiod
@@ -1137,7 +1137,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_PWMperiod.AuditSource = "KremerIoField"
         Me.IO_PWMperiod.BackColor = System.Drawing.Color.White
         Me.IO_PWMperiod.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_PWMperiod.Data = 0.0R
+        Me.IO_PWMperiod.Data = 0R
         Me.IO_PWMperiod.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_PWMperiod.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_PWMperiod.InitialValue = True
@@ -1161,7 +1161,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.PVlag.Data = Nothing
         Me.PVlag.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
         Me.PVlag.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PVlag.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" & _
+        Me.PVlag.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].PIDTempZone" &
     ".PV_TMLAG"
         '
         'IO_1SteOrder
@@ -1172,7 +1172,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_1SteOrder.AuditSource = "KremerIoField"
         Me.IO_1SteOrder.BackColor = System.Drawing.Color.White
         Me.IO_1SteOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_1SteOrder.Data = 0.0R
+        Me.IO_1SteOrder.Data = 0R
         Me.IO_1SteOrder.DataType = KremerControlsWin32.KremerIoField.NumDataType.DINT
         Me.IO_1SteOrder.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_1SteOrder.InitialValue = True
@@ -1196,7 +1196,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.WaitTimeStep.Data = Nothing
         Me.WaitTimeStep.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
         Me.WaitTimeStep.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.WaitTimeStep.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].WaitTimeAft" & _
+        Me.WaitTimeStep.VariableName = "MAIN.InMoldDrying.MachParameters.[Position1].HeatingZone[[Position2]].WaitTimeAft" &
     "erStepReached"
         '
         'IO_StepTimeReached
@@ -1207,7 +1207,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.IO_StepTimeReached.AuditSource = "KremerIoField"
         Me.IO_StepTimeReached.BackColor = System.Drawing.Color.White
         Me.IO_StepTimeReached.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_StepTimeReached.Data = 0.0R
+        Me.IO_StepTimeReached.Data = 0R
         Me.IO_StepTimeReached.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_StepTimeReached.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_StepTimeReached.InitialValue = True
@@ -1425,12 +1425,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OutBarIO_MIN.AuditEnabled = False
         Me.OutBarIO_MIN.AuditMessage = "KremerIoField changed:"
         Me.OutBarIO_MIN.AuditSource = "KremerIoField"
-        Me.OutBarIO_MIN.Data = 0.0R
+        Me.OutBarIO_MIN.Data = 0R
         Me.OutBarIO_MIN.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.OutBarIO_MIN.InitialValue = True
         Me.OutBarIO_MIN.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.OutBarIO_MIN.Location = New System.Drawing.Point(670, 207)
-        Me.OutBarIO_MIN.LowerBound = 0.0R
+        Me.OutBarIO_MIN.LowerBound = 0R
         Me.OutBarIO_MIN.Name = "OutBarIO_MIN"
         Me.OutBarIO_MIN.OutputFormat = "00.0 '%'"
         Me.OutBarIO_MIN.Size = New System.Drawing.Size(52, 21)
@@ -1447,12 +1447,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.PVBarIO_MIN.AuditEnabled = False
         Me.PVBarIO_MIN.AuditMessage = "KremerIoField changed:"
         Me.PVBarIO_MIN.AuditSource = "KremerIoField"
-        Me.PVBarIO_MIN.Data = 0.0R
+        Me.PVBarIO_MIN.Data = 0R
         Me.PVBarIO_MIN.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.PVBarIO_MIN.InitialValue = True
         Me.PVBarIO_MIN.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.PVBarIO_MIN.Location = New System.Drawing.Point(552, 207)
-        Me.PVBarIO_MIN.LowerBound = 0.0R
+        Me.PVBarIO_MIN.LowerBound = 0R
         Me.PVBarIO_MIN.Name = "PVBarIO_MIN"
         Me.PVBarIO_MIN.OutputFormat = "0.0°C"
         Me.PVBarIO_MIN.Size = New System.Drawing.Size(52, 21)
@@ -1469,12 +1469,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.OutBarIO_MAX.AuditEnabled = False
         Me.OutBarIO_MAX.AuditMessage = "KremerIoField changed:"
         Me.OutBarIO_MAX.AuditSource = "KremerIoField"
-        Me.OutBarIO_MAX.Data = 0.0R
+        Me.OutBarIO_MAX.Data = 0R
         Me.OutBarIO_MAX.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.OutBarIO_MAX.InitialValue = True
         Me.OutBarIO_MAX.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.OutBarIO_MAX.Location = New System.Drawing.Point(670, 40)
-        Me.OutBarIO_MAX.LowerBound = 0.0R
+        Me.OutBarIO_MAX.LowerBound = 0R
         Me.OutBarIO_MAX.Name = "OutBarIO_MAX"
         Me.OutBarIO_MAX.OutputFormat = "00.0 '%'"
         Me.OutBarIO_MAX.Size = New System.Drawing.Size(52, 21)
@@ -1491,12 +1491,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.PVBarIO_MAX.AuditEnabled = False
         Me.PVBarIO_MAX.AuditMessage = "KremerIoField changed:"
         Me.PVBarIO_MAX.AuditSource = "KremerIoField"
-        Me.PVBarIO_MAX.Data = 0.0R
+        Me.PVBarIO_MAX.Data = 0R
         Me.PVBarIO_MAX.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.PVBarIO_MAX.InitialValue = True
         Me.PVBarIO_MAX.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.PVBarIO_MAX.Location = New System.Drawing.Point(552, 39)
-        Me.PVBarIO_MAX.LowerBound = 0.0R
+        Me.PVBarIO_MAX.LowerBound = 0R
         Me.PVBarIO_MAX.Name = "PVBarIO_MAX"
         Me.PVBarIO_MAX.OutputFormat = "0.0°C"
         Me.PVBarIO_MAX.Size = New System.Drawing.Size(52, 21)
@@ -1513,12 +1513,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SPBarIO_MAX.AuditEnabled = False
         Me.SPBarIO_MAX.AuditMessage = "KremerIoField changed:"
         Me.SPBarIO_MAX.AuditSource = "KremerIoField"
-        Me.SPBarIO_MAX.Data = 0.0R
+        Me.SPBarIO_MAX.Data = 0R
         Me.SPBarIO_MAX.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.SPBarIO_MAX.InitialValue = True
         Me.SPBarIO_MAX.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.SPBarIO_MAX.Location = New System.Drawing.Point(419, 39)
-        Me.SPBarIO_MAX.LowerBound = 0.0R
+        Me.SPBarIO_MAX.LowerBound = 0R
         Me.SPBarIO_MAX.Name = "SPBarIO_MAX"
         Me.SPBarIO_MAX.OutputFormat = "0.0°C"
         Me.SPBarIO_MAX.Size = New System.Drawing.Size(52, 21)
@@ -1535,12 +1535,12 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.SPBarIO_MIN.AuditEnabled = False
         Me.SPBarIO_MIN.AuditMessage = "KremerIoField changed:"
         Me.SPBarIO_MIN.AuditSource = "KremerIoField"
-        Me.SPBarIO_MIN.Data = 0.0R
+        Me.SPBarIO_MIN.Data = 0R
         Me.SPBarIO_MIN.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.SPBarIO_MIN.InitialValue = True
         Me.SPBarIO_MIN.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.SPBarIO_MIN.Location = New System.Drawing.Point(416, 207)
-        Me.SPBarIO_MIN.LowerBound = 0.0R
+        Me.SPBarIO_MIN.LowerBound = 0R
         Me.SPBarIO_MIN.Name = "SPBarIO_MIN"
         Me.SPBarIO_MIN.OutputFormat = "0.0°C"
         Me.SPBarIO_MIN.Size = New System.Drawing.Size(52, 21)
@@ -1609,7 +1609,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.KremerIoField2.AuditSource = "KremerIoField"
         Me.KremerIoField2.BackColor = System.Drawing.Color.White
         Me.KremerIoField2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.KremerIoField2.Data = 0.0R
+        Me.KremerIoField2.Data = 0R
         Me.KremerIoField2.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.KremerIoField2.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KremerIoField2.InitialValue = True
@@ -1644,7 +1644,7 @@ Partial Class DryingMoldDetail_Top_Settings
         Me.KremerIoField1.AuditSource = "KremerIoField"
         Me.KremerIoField1.BackColor = System.Drawing.Color.White
         Me.KremerIoField1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.KremerIoField1.Data = 0.0R
+        Me.KremerIoField1.Data = 0R
         Me.KremerIoField1.DataType = KremerControlsWin32.KremerIoField.NumDataType.INT
         Me.KremerIoField1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KremerIoField1.InitialValue = True
