@@ -19,6 +19,22 @@
 				<![CDATA[Balluf Fout]]>
 			</Text>
 		</Text>
+		<Text TxtId="{0} - Position Error">
+			<Text LcId="1033">
+				<![CDATA[Position Error]]>
+			</Text>
+			<Text LcId="1043">
+				<![CDATA[Positie Fout]]>
+			</Text>
+		</Text>
+		<Text TxtId="{0} - Is moving without activation">
+			<Text LcId="1033">
+				<![CDATA[Is moving without activation]]>
+			</Text>
+			<Text LcId="1043">
+				<![CDATA[Beweegt zonder activatie]]>
+			</Text>
+		</Text>
 		<Text TxtId="An error occured with the balluf">
 			<Text LcId="1043">
 				<![CDATA[Er is een error opgetreden met de balluf]]>
@@ -1745,7 +1761,7 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{FFE06721-B1E7-41F0-B223-3CF78533AB21}" PersistentType="true">Kremer_Events</Name>
+			<Name GUID="{0A0226D7-1BD4-4F1C-B839-3C5CF108F055}" PersistentType="true">Kremer_Events</Name>
 			<DisplayName TxtId="">
 				<![CDATA[Kremer Events]]>
 			</DisplayName>
@@ -1789,6 +1805,7 @@ External Setpoint Generation:
 				<Hide GUID="{68A21C7A-FC3F-44A1-99CB-6209EFF1DF8D}"/>
 				<Hide GUID="{A4472776-D1CF-43ED-8142-0E9EF507CFE1}"/>
 				<Hide GUID="{3A2BCAE8-D52B-4532-BB1A-FC76A159E67E}"/>
+				<Hide GUID="{FFE06721-B1E7-41F0-B223-3CF78533AB21}"/>
 			</Hides>
 		</DataType>
 		<DataType>

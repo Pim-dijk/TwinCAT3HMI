@@ -672,94 +672,6 @@
               <v n="ARGBElementColor">0</v>
               <v n="ZOrder">0U</v>
             </o>
-            <v>147bab3f-acfd-4acf-8d8e-a76750ccc81a</v>
-            <o>
-              <v n="DocumenationName">"MAIN"</v>
-              <n n="AttributeTrigger" />
-              <v n="ExcludedFromBuild">false</v>
-              <v n="PropertiesLoaded">false</v>
-              <d n="Properties" t="Hashtable" />
-              <l n="AttributesArray" t="ArrayList" cet="UMLElementAttribute">
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"mxReset"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"BOOL"</v>
-                  <v n="AttributeParent">{147bab3f-acfd-4acf-8d8e-a76750ccc81a}</v>
-                  <v n="AttributeObjectGuid">{0f89f209-60d2-4695-8352-c947f56f9d3b}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"EAMC"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_EAMC"</v>
-                  <v n="AttributeParent">{147bab3f-acfd-4acf-8d8e-a76750ccc81a}</v>
-                  <v n="AttributeObjectGuid">{7832406c-0cbd-40dc-99dd-0f3893a55800}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-              </l>
-              <v n="PropertyID">-1</v>
-              <v n="MethodsLoaded">false</v>
-              <d n="MethodList" t="Hashtable" />
-              <v n="MethodID">-1</v>
-              <v n="ActivityID">-1</v>
-              <v n="IecObjectSemantic">1</v>
-              <d n="MethodStereotypContainer" t="Hashtable" />
-              <o n="ElementVisualisation" t="ClassElementVisualisation">
-                <v n="ShowAttributes">false</v>
-                <v n="ShowMethods">false</v>
-                <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
-                <v n="ColumnIndex">0</v>
-                <v n="RowIndex">0</v>
-                <v n="RepresentedElement">1</v>
-                <v n="IsElementVisible">true</v>
-                <v n="TopPosition">42</v>
-                <v n="LeftPosition">10</v>
-                <v n="WidthValue">100</v>
-                <v n="MinWidthValue">0</v>
-                <v n="Height">75</v>
-                <v n="MinHeight">0</v>
-                <v n="AutomaticLayout">true</v>
-                <d n="DockingPoints" t="Hashtable" />
-              </o>
-              <n n="StereotypeContainer" />
-              <v n="LibraryPath">""</v>
-              <v n="HasGraphicalRepresentation">true</v>
-              <v n="bIsVisualisationChanged">false</v>
-              <v n="IsType" t="UMLType">UMLClassElement</v>
-              <v n="_MaxDoCycleCalls" t="Int16">32767</v>
-              <v n="DefaultCellSizeX">70</v>
-              <v n="DefaultCellSizeY">47</v>
-              <v n="IsDocumentation">false</v>
-              <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ParsedMethods">false</v>
-              <v n="ParsedProperties">false</v>
-              <v n="GeneratorId">0</v>
-              <v n="UserDefined">true</v>
-              <v n="ElementID">1</v>
-              <v n="ElementObjectGuid">{147bab3f-acfd-4acf-8d8e-a76750ccc81a}</v>
-              <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ReplacewithImage">false</v>
-              <v n="AutomaticLayout">true</v>
-              <v n="PositionCounter">1L</v>
-              <v n="UMLPosition">-1L</v>
-              <v n="IsModified">false</v>
-              <v n="ARGBElementColor">0</v>
-              <v n="ZOrder">0U</v>
-            </o>
             <v>d780a3df-1716-4a05-a2d3-fcdca4873ed2</v>
             <o>
               <v n="DocumenationName">"ST_MachinePondMachPar"</v>
@@ -2228,6 +2140,243 @@
               <v n="ARGBElementColor">0</v>
               <v n="ZOrder">0U</v>
             </o>
+            <v>60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd</v>
+            <o>
+              <v n="DocumenationName">"FB_EAMC"</v>
+              <n n="AttributeTrigger" />
+              <v n="ExcludedFromBuild">false</v>
+              <v n="PropertiesLoaded">false</v>
+              <d n="Properties" t="Hashtable" />
+              <l n="AttributesArray" t="ArrayList" cet="UMLElementAttribute">
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"TopMoldA"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_TopMold"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{4fecbb0e-bd46-4c07-bcb9-3c6a3abf4ff6}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"TopMoldB"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_TopMold"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{b13cc4e8-8500-4c7c-9526-b0d856a938e3}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"BottomMoldA"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_BottomMold"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{a9ba39b2-8541-4e5d-9b5b-893c5b6ee1cb}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"BottomMoldB"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_BottomMold"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{84ce75b7-9f9f-440d-8c03-36ed657dd77e}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"TransferMold"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_TransferMold"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{5ff9b0d1-5c88-4962-a4f7-5c3f4a911646}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"ProductForming"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_ProductForming"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{e8117926-c5cc-442a-b225-0ab42c9265e8}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"HydrolicsMain"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_HydrolicsMain"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{aa531df9-2cf6-4c88-91cb-23373aa249c4}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"miCycleState"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"INT"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{95cba3d4-1d6a-43e5-bbfa-c575a1543d74}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">true</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"mxReset"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"BOOL"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{28aef92f-9bba-463b-bc2e-36ad38f9c371}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">true</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"Errors"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"ST_EAMCErrors"</v>
+                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="AttributeObjectGuid">{79c40446-6641-4afe-b1a1-da10707fe175}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+              </l>
+              <v n="PropertyID">-1</v>
+              <v n="MethodsLoaded">false</v>
+              <d n="MethodList" t="Hashtable" ckt="Guid" cvt="UMLElementMethod">
+                <v>b957ad57-e792-419c-803f-5840ee93c6fe</v>
+                <o>
+                  <v n="MethodName">"Cycle_Init"</v>
+                  <v n="MethodBreakPointActive">false</v>
+                  <v n="MethodReturnType">""</v>
+                  <l n="MethodParameter" t="ArrayList" />
+                  <v n="MethodParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="MethodObjectGuid">{b957ad57-e792-419c-803f-5840ee93c6fe}</v>
+                  <v n="MethodStereotype">"action"</v>
+                  <v n="MethodParameterLength">20</v>
+                  <v n="MethodParameterTooLong">false</v>
+                </o>
+                <v>fd2addb0-f20c-4f03-ae0d-6de9505ddca4</v>
+                <o>
+                  <v n="MethodName">"Cycle"</v>
+                  <v n="MethodBreakPointActive">false</v>
+                  <v n="MethodReturnType">""</v>
+                  <l n="MethodParameter" t="ArrayList" />
+                  <v n="MethodParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="MethodObjectGuid">{fd2addb0-f20c-4f03-ae0d-6de9505ddca4}</v>
+                  <v n="MethodStereotype">"action"</v>
+                  <v n="MethodParameterLength">20</v>
+                  <v n="MethodParameterTooLong">false</v>
+                </o>
+                <v>8facbfd4-2074-472b-bb4e-fff19b2dd12b</v>
+                <o>
+                  <v n="MethodName">"Objects"</v>
+                  <v n="MethodBreakPointActive">false</v>
+                  <v n="MethodReturnType">""</v>
+                  <l n="MethodParameter" t="ArrayList" />
+                  <v n="MethodParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+                  <v n="MethodObjectGuid">{8facbfd4-2074-472b-bb4e-fff19b2dd12b}</v>
+                  <v n="MethodStereotype">"action"</v>
+                  <v n="MethodParameterLength">20</v>
+                  <v n="MethodParameterTooLong">false</v>
+                </o>
+              </d>
+              <v n="MethodID">-1</v>
+              <v n="ActivityID">-1</v>
+              <v n="IecObjectSemantic">2</v>
+              <d n="MethodStereotypContainer" t="Hashtable" />
+              <o n="ElementVisualisation" t="ClassElementVisualisation">
+                <v n="ShowAttributes">false</v>
+                <v n="ShowMethods">false</v>
+                <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
+                <v n="ColumnIndex">1</v>
+                <v n="RowIndex">4</v>
+                <v n="RepresentedElement">19</v>
+                <v n="IsElementVisible">true</v>
+                <v n="TopPosition">794</v>
+                <v n="LeftPosition">346</v>
+                <v n="WidthValue">100</v>
+                <v n="MinWidthValue">0</v>
+                <v n="Height">71</v>
+                <v n="MinHeight">0</v>
+                <v n="AutomaticLayout">true</v>
+                <d n="DockingPoints" t="Hashtable" />
+              </o>
+              <n n="StereotypeContainer" />
+              <v n="LibraryPath">""</v>
+              <v n="HasGraphicalRepresentation">true</v>
+              <v n="bIsVisualisationChanged">false</v>
+              <v n="IsType" t="UMLType">UMLClassElement</v>
+              <v n="_MaxDoCycleCalls" t="Int16">32767</v>
+              <v n="DefaultCellSizeX">70</v>
+              <v n="DefaultCellSizeY">47</v>
+              <v n="IsDocumentation">false</v>
+              <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ParsedMethods">false</v>
+              <v n="ParsedProperties">false</v>
+              <v n="GeneratorId">0</v>
+              <v n="UserDefined">true</v>
+              <v n="ElementID">19</v>
+              <v n="ElementObjectGuid">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
+              <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ReplacewithImage">false</v>
+              <v n="AutomaticLayout">true</v>
+              <v n="PositionCounter">1L</v>
+              <v n="UMLPosition">-1L</v>
+              <v n="IsModified">false</v>
+              <v n="ARGBElementColor">0</v>
+              <v n="ZOrder">0U</v>
+            </o>
             <v>50e9963e-f967-4f7e-8612-bce89c89f3ed</v>
             <o>
               <v n="DocumenationName">"FB_BalluffDevice"</v>
@@ -3218,6 +3367,94 @@
               <v n="UserDefined">true</v>
               <v n="ElementID">52</v>
               <v n="ElementObjectGuid">{c7b35cd2-c85b-41cf-a2bc-4c1d8293d9ab}</v>
+              <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ReplacewithImage">false</v>
+              <v n="AutomaticLayout">true</v>
+              <v n="PositionCounter">1L</v>
+              <v n="UMLPosition">-1L</v>
+              <v n="IsModified">false</v>
+              <v n="ARGBElementColor">0</v>
+              <v n="ZOrder">0U</v>
+            </o>
+            <v>f8ccd033-1c00-4e64-9fe7-2ff9f7159657</v>
+            <o>
+              <v n="DocumenationName">"ST_TopMoldProdPar"</v>
+              <n n="AttributeTrigger" />
+              <v n="ExcludedFromBuild">false</v>
+              <v n="PropertiesLoaded">false</v>
+              <d n="Properties" t="Hashtable" />
+              <l n="AttributesArray" t="ArrayList" cet="UMLElementAttribute">
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"PositionDownSlow"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"REAL"</v>
+                  <v n="AttributeParent">{f8ccd033-1c00-4e64-9fe7-2ff9f7159657}</v>
+                  <v n="AttributeObjectGuid">{8cabf76d-05fc-432e-9ee1-6bd32ec56dae}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"PositionDownStop"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"REAL"</v>
+                  <v n="AttributeParent">{f8ccd033-1c00-4e64-9fe7-2ff9f7159657}</v>
+                  <v n="AttributeObjectGuid">{36fbbb8a-22a9-49ba-ad57-92d43c9a3b06}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+              </l>
+              <v n="PropertyID">-1</v>
+              <v n="MethodsLoaded">false</v>
+              <d n="MethodList" t="Hashtable" />
+              <v n="MethodID">-1</v>
+              <v n="ActivityID">-1</v>
+              <v n="IecObjectSemantic">6</v>
+              <d n="MethodStereotypContainer" t="Hashtable" />
+              <o n="ElementVisualisation" t="ClassElementVisualisation">
+                <v n="ShowAttributes">false</v>
+                <v n="ShowMethods">false</v>
+                <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
+                <v n="ColumnIndex">3</v>
+                <v n="RowIndex">5</v>
+                <v n="RepresentedElement">26</v>
+                <v n="IsElementVisible">true</v>
+                <v n="TopPosition">982</v>
+                <v n="LeftPosition">1018</v>
+                <v n="WidthValue">144</v>
+                <v n="MinWidthValue">0</v>
+                <v n="Height">68</v>
+                <v n="MinHeight">0</v>
+                <v n="AutomaticLayout">true</v>
+                <d n="DockingPoints" t="Hashtable" />
+              </o>
+              <n n="StereotypeContainer" />
+              <v n="LibraryPath">""</v>
+              <v n="HasGraphicalRepresentation">true</v>
+              <v n="bIsVisualisationChanged">false</v>
+              <v n="IsType" t="UMLType">UMLStructElement</v>
+              <v n="_MaxDoCycleCalls" t="Int16">32767</v>
+              <v n="DefaultCellSizeX">81</v>
+              <v n="DefaultCellSizeY">57</v>
+              <v n="IsDocumentation">false</v>
+              <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ParsedMethods">false</v>
+              <v n="ParsedProperties">false</v>
+              <v n="GeneratorId">0</v>
+              <v n="UserDefined">true</v>
+              <v n="ElementID">26</v>
+              <v n="ElementObjectGuid">{f8ccd033-1c00-4e64-9fe7-2ff9f7159657}</v>
               <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
@@ -6943,9 +7180,9 @@
               <v n="ARGBElementColor">0</v>
               <v n="ZOrder">0U</v>
             </o>
-            <v>f8ccd033-1c00-4e64-9fe7-2ff9f7159657</v>
+            <v>147bab3f-acfd-4acf-8d8e-a76750ccc81a</v>
             <o>
-              <v n="DocumenationName">"ST_TopMoldProdPar"</v>
+              <v n="DocumenationName">"MAIN"</v>
               <n n="AttributeTrigger" />
               <v n="ExcludedFromBuild">false</v>
               <v n="PropertiesLoaded">false</v>
@@ -6958,11 +7195,11 @@
                   <v n="isInoutVar">false</v>
                   <v n="isLocalVar">true</v>
                   <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"PositionDownSlow"</v>
+                  <v n="AttribtueName">"mxReset"</v>
                   <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"REAL"</v>
-                  <v n="AttributeParent">{f8ccd033-1c00-4e64-9fe7-2ff9f7159657}</v>
-                  <v n="AttributeObjectGuid">{8cabf76d-05fc-432e-9ee1-6bd32ec56dae}</v>
+                  <v n="AttributeReturnType">"BOOL"</v>
+                  <v n="AttributeParent">{147bab3f-acfd-4acf-8d8e-a76750ccc81a}</v>
+                  <v n="AttributeObjectGuid">{0f89f209-60d2-4695-8352-c947f56f9d3b}</v>
                   <v n="AttributeStereotype">""</v>
                 </o>
                 <o>
@@ -6972,11 +7209,11 @@
                   <v n="isInoutVar">false</v>
                   <v n="isLocalVar">true</v>
                   <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"PositionDownStop"</v>
+                  <v n="AttribtueName">"EAMC"</v>
                   <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"REAL"</v>
-                  <v n="AttributeParent">{f8ccd033-1c00-4e64-9fe7-2ff9f7159657}</v>
-                  <v n="AttributeObjectGuid">{36fbbb8a-22a9-49ba-ad57-92d43c9a3b06}</v>
+                  <v n="AttributeReturnType">"FB_EAMC"</v>
+                  <v n="AttributeParent">{147bab3f-acfd-4acf-8d8e-a76750ccc81a}</v>
+                  <v n="AttributeObjectGuid">{7832406c-0cbd-40dc-99dd-0f3893a55800}</v>
                   <v n="AttributeStereotype">""</v>
                 </o>
               </l>
@@ -6985,21 +7222,21 @@
               <d n="MethodList" t="Hashtable" />
               <v n="MethodID">-1</v>
               <v n="ActivityID">-1</v>
-              <v n="IecObjectSemantic">6</v>
+              <v n="IecObjectSemantic">1</v>
               <d n="MethodStereotypContainer" t="Hashtable" />
               <o n="ElementVisualisation" t="ClassElementVisualisation">
                 <v n="ShowAttributes">false</v>
                 <v n="ShowMethods">false</v>
                 <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
-                <v n="ColumnIndex">3</v>
-                <v n="RowIndex">5</v>
-                <v n="RepresentedElement">26</v>
+                <v n="ColumnIndex">0</v>
+                <v n="RowIndex">0</v>
+                <v n="RepresentedElement">1</v>
                 <v n="IsElementVisible">true</v>
-                <v n="TopPosition">982</v>
-                <v n="LeftPosition">1018</v>
-                <v n="WidthValue">144</v>
+                <v n="TopPosition">42</v>
+                <v n="LeftPosition">10</v>
+                <v n="WidthValue">100</v>
                 <v n="MinWidthValue">0</v>
-                <v n="Height">68</v>
+                <v n="Height">75</v>
                 <v n="MinHeight">0</v>
                 <v n="AutomaticLayout">true</v>
                 <d n="DockingPoints" t="Hashtable" />
@@ -7008,18 +7245,204 @@
               <v n="LibraryPath">""</v>
               <v n="HasGraphicalRepresentation">true</v>
               <v n="bIsVisualisationChanged">false</v>
-              <v n="IsType" t="UMLType">UMLStructElement</v>
+              <v n="IsType" t="UMLType">UMLClassElement</v>
               <v n="_MaxDoCycleCalls" t="Int16">32767</v>
-              <v n="DefaultCellSizeX">81</v>
-              <v n="DefaultCellSizeY">57</v>
+              <v n="DefaultCellSizeX">70</v>
+              <v n="DefaultCellSizeY">47</v>
               <v n="IsDocumentation">false</v>
               <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ParsedMethods">false</v>
               <v n="ParsedProperties">false</v>
               <v n="GeneratorId">0</v>
               <v n="UserDefined">true</v>
-              <v n="ElementID">26</v>
-              <v n="ElementObjectGuid">{f8ccd033-1c00-4e64-9fe7-2ff9f7159657}</v>
+              <v n="ElementID">1</v>
+              <v n="ElementObjectGuid">{147bab3f-acfd-4acf-8d8e-a76750ccc81a}</v>
+              <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ReplacewithImage">false</v>
+              <v n="AutomaticLayout">true</v>
+              <v n="PositionCounter">1L</v>
+              <v n="UMLPosition">-1L</v>
+              <v n="IsModified">false</v>
+              <v n="ARGBElementColor">0</v>
+              <v n="ZOrder">0U</v>
+            </o>
+            <v>696ef212-8dad-48c1-b23b-38fa575ac7c4</v>
+            <o>
+              <v n="DocumenationName">"FB_TransferMold"</v>
+              <n n="AttributeTrigger" />
+              <v n="ExcludedFromBuild">false</v>
+              <v n="PropertiesLoaded">false</v>
+              <d n="Properties" t="Hashtable" />
+              <l n="AttributesArray" t="ArrayList" cet="UMLElementAttribute">
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"HydrolicCilinder"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_HydrolicCilinder"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{0d2bd42b-34f0-4714-b569-e42185eb4284}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"Vacuum"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_MonoValveNoFdbck"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{0f6c8b7b-1ad2-4580-a8e4-7e2571dd5b45}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">true</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"BlowOff"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"FB_MonoValveNoFdbck"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{2cfe5b3a-f6e0-4c46-ab39-db58b2679067}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">true</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"mxReset"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"BOOL"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{d7a474b5-a5c4-4d3d-a851-c4c5ebd7878c}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">true</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"Errors"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"ST_TransferMoldErrors"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{5aebb1dd-7bab-4d38-ade2-d2c358f226e8}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">true</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"mxErrorInit"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"BOOL"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{1b530645-ac13-4255-8e83-6f466a1d1d13}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">true</v>
+                  <v n="isInoutVar">false</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"mxErrorStopinPos"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"BOOL"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{6711f86b-c5d4-4fec-9400-2c70aee1be19}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">true</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"ProdParameters"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"ST_TransferMoldProdPar"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{67de02bf-dcbc-4593-b58a-e7eae768d2e3}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+                <o>
+                  <v n="bIsAttribute">true</v>
+                  <v n="isInputVar">false</v>
+                  <v n="isOutputVar">false</v>
+                  <v n="isInoutVar">true</v>
+                  <v n="isLocalVar">false</v>
+                  <v n="bIsMethod">false</v>
+                  <v n="AttribtueName">"MachParameters"</v>
+                  <v n="AttributeConstraint">""</v>
+                  <v n="AttributeReturnType">"ST_TransferMoldMachPar"</v>
+                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
+                  <v n="AttributeObjectGuid">{36cbea89-3101-4fc6-890b-186e167c8f80}</v>
+                  <v n="AttributeStereotype">""</v>
+                </o>
+              </l>
+              <v n="PropertyID">-1</v>
+              <v n="MethodsLoaded">false</v>
+              <d n="MethodList" t="Hashtable" />
+              <v n="MethodID">-1</v>
+              <v n="ActivityID">-1</v>
+              <v n="IecObjectSemantic">2</v>
+              <d n="MethodStereotypContainer" t="Hashtable" />
+              <o n="ElementVisualisation" t="ClassElementVisualisation">
+                <v n="ShowAttributes">false</v>
+                <v n="ShowMethods">false</v>
+                <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
+                <v n="ColumnIndex">0</v>
+                <v n="RowIndex">1</v>
+                <v n="RepresentedElement">3</v>
+                <v n="IsElementVisible">true</v>
+                <v n="TopPosition">230</v>
+                <v n="LeftPosition">10</v>
+                <v n="WidthValue">125</v>
+                <v n="MinWidthValue">0</v>
+                <v n="Height">58</v>
+                <v n="MinHeight">0</v>
+                <v n="AutomaticLayout">true</v>
+                <d n="DockingPoints" t="Hashtable" />
+              </o>
+              <n n="StereotypeContainer" />
+              <v n="LibraryPath">""</v>
+              <v n="HasGraphicalRepresentation">true</v>
+              <v n="bIsVisualisationChanged">false</v>
+              <v n="IsType" t="UMLType">UMLClassElement</v>
+              <v n="_MaxDoCycleCalls" t="Int16">32767</v>
+              <v n="DefaultCellSizeX">70</v>
+              <v n="DefaultCellSizeY">47</v>
+              <v n="IsDocumentation">false</v>
+              <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
+              <v n="ParsedMethods">false</v>
+              <v n="ParsedProperties">false</v>
+              <v n="GeneratorId">0</v>
+              <v n="UserDefined">true</v>
+              <v n="ElementID">3</v>
+              <v n="ElementObjectGuid">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
               <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
@@ -7284,192 +7707,6 @@
               <v n="ARGBElementColor">0</v>
               <v n="ZOrder">0U</v>
             </o>
-            <v>696ef212-8dad-48c1-b23b-38fa575ac7c4</v>
-            <o>
-              <v n="DocumenationName">"FB_TransferMold"</v>
-              <n n="AttributeTrigger" />
-              <v n="ExcludedFromBuild">false</v>
-              <v n="PropertiesLoaded">false</v>
-              <d n="Properties" t="Hashtable" />
-              <l n="AttributesArray" t="ArrayList" cet="UMLElementAttribute">
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"HydrolicCilinder"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_HydrolicCilinder"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{0d2bd42b-34f0-4714-b569-e42185eb4284}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"Vacuum"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_MonoValveNoFdbck"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{0f6c8b7b-1ad2-4580-a8e4-7e2571dd5b45}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"BlowOff"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_MonoValveNoFdbck"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{2cfe5b3a-f6e0-4c46-ab39-db58b2679067}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">true</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"mxReset"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"BOOL"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{d7a474b5-a5c4-4d3d-a851-c4c5ebd7878c}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">true</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"Errors"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"ST_TransferMoldErrors"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{5aebb1dd-7bab-4d38-ade2-d2c358f226e8}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">true</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"mxErrorInit"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"BOOL"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{1b530645-ac13-4255-8e83-6f466a1d1d13}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">true</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"mxErrorStopinPos"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"BOOL"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{6711f86b-c5d4-4fec-9400-2c70aee1be19}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">true</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"ProdParameters"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"ST_TransferMoldProdPar"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{67de02bf-dcbc-4593-b58a-e7eae768d2e3}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">true</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"MachParameters"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"ST_TransferMoldMachPar"</v>
-                  <v n="AttributeParent">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-                  <v n="AttributeObjectGuid">{36cbea89-3101-4fc6-890b-186e167c8f80}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-              </l>
-              <v n="PropertyID">-1</v>
-              <v n="MethodsLoaded">false</v>
-              <d n="MethodList" t="Hashtable" />
-              <v n="MethodID">-1</v>
-              <v n="ActivityID">-1</v>
-              <v n="IecObjectSemantic">2</v>
-              <d n="MethodStereotypContainer" t="Hashtable" />
-              <o n="ElementVisualisation" t="ClassElementVisualisation">
-                <v n="ShowAttributes">false</v>
-                <v n="ShowMethods">false</v>
-                <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
-                <v n="ColumnIndex">0</v>
-                <v n="RowIndex">1</v>
-                <v n="RepresentedElement">3</v>
-                <v n="IsElementVisible">true</v>
-                <v n="TopPosition">230</v>
-                <v n="LeftPosition">10</v>
-                <v n="WidthValue">125</v>
-                <v n="MinWidthValue">0</v>
-                <v n="Height">58</v>
-                <v n="MinHeight">0</v>
-                <v n="AutomaticLayout">true</v>
-                <d n="DockingPoints" t="Hashtable" />
-              </o>
-              <n n="StereotypeContainer" />
-              <v n="LibraryPath">""</v>
-              <v n="HasGraphicalRepresentation">true</v>
-              <v n="bIsVisualisationChanged">false</v>
-              <v n="IsType" t="UMLType">UMLClassElement</v>
-              <v n="_MaxDoCycleCalls" t="Int16">32767</v>
-              <v n="DefaultCellSizeX">70</v>
-              <v n="DefaultCellSizeY">47</v>
-              <v n="IsDocumentation">false</v>
-              <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ParsedMethods">false</v>
-              <v n="ParsedProperties">false</v>
-              <v n="GeneratorId">0</v>
-              <v n="UserDefined">true</v>
-              <v n="ElementID">3</v>
-              <v n="ElementObjectGuid">{696ef212-8dad-48c1-b23b-38fa575ac7c4}</v>
-              <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ReplacewithImage">false</v>
-              <v n="AutomaticLayout">true</v>
-              <v n="PositionCounter">1L</v>
-              <v n="UMLPosition">-1L</v>
-              <v n="IsModified">false</v>
-              <v n="ARGBElementColor">0</v>
-              <v n="ZOrder">0U</v>
-            </o>
             <v>904ffdb5-4a0f-47a4-83f0-51f51cdb2384</v>
             <o>
               <v n="DocumenationName">"FB_BalluffPosition"</v>
@@ -7575,243 +7812,6 @@
               <v n="UserDefined">true</v>
               <v n="ElementID">9</v>
               <v n="ElementObjectGuid">{904ffdb5-4a0f-47a4-83f0-51f51cdb2384}</v>
-              <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ReplacewithImage">false</v>
-              <v n="AutomaticLayout">true</v>
-              <v n="PositionCounter">1L</v>
-              <v n="UMLPosition">-1L</v>
-              <v n="IsModified">false</v>
-              <v n="ARGBElementColor">0</v>
-              <v n="ZOrder">0U</v>
-            </o>
-            <v>60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd</v>
-            <o>
-              <v n="DocumenationName">"FB_EAMC"</v>
-              <n n="AttributeTrigger" />
-              <v n="ExcludedFromBuild">false</v>
-              <v n="PropertiesLoaded">false</v>
-              <d n="Properties" t="Hashtable" />
-              <l n="AttributesArray" t="ArrayList" cet="UMLElementAttribute">
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"TopMoldA"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_TopMold"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{4fecbb0e-bd46-4c07-bcb9-3c6a3abf4ff6}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"TopMoldB"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_TopMold"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{b13cc4e8-8500-4c7c-9526-b0d856a938e3}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"BottomMoldA"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_BottomMold"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{a9ba39b2-8541-4e5d-9b5b-893c5b6ee1cb}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"BottomMoldB"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_BottomMold"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{84ce75b7-9f9f-440d-8c03-36ed657dd77e}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"TransferMold"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_TransferMold"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{5ff9b0d1-5c88-4962-a4f7-5c3f4a911646}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"ProductForming"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_ProductForming"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{e8117926-c5cc-442a-b225-0ab42c9265e8}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"HydrolicsMain"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"FB_HydrolicsMain"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{aa531df9-2cf6-4c88-91cb-23373aa249c4}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">true</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"miCycleState"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"INT"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{95cba3d4-1d6a-43e5-bbfa-c575a1543d74}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">true</v>
-                  <v n="isOutputVar">false</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"mxReset"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"BOOL"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{28aef92f-9bba-463b-bc2e-36ad38f9c371}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-                <o>
-                  <v n="bIsAttribute">true</v>
-                  <v n="isInputVar">false</v>
-                  <v n="isOutputVar">true</v>
-                  <v n="isInoutVar">false</v>
-                  <v n="isLocalVar">false</v>
-                  <v n="bIsMethod">false</v>
-                  <v n="AttribtueName">"Errors"</v>
-                  <v n="AttributeConstraint">""</v>
-                  <v n="AttributeReturnType">"ST_EAMCErrors"</v>
-                  <v n="AttributeParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="AttributeObjectGuid">{79c40446-6641-4afe-b1a1-da10707fe175}</v>
-                  <v n="AttributeStereotype">""</v>
-                </o>
-              </l>
-              <v n="PropertyID">-1</v>
-              <v n="MethodsLoaded">false</v>
-              <d n="MethodList" t="Hashtable" ckt="Guid" cvt="UMLElementMethod">
-                <v>b957ad57-e792-419c-803f-5840ee93c6fe</v>
-                <o>
-                  <v n="MethodName">"Cycle_Init"</v>
-                  <v n="MethodBreakPointActive">false</v>
-                  <v n="MethodReturnType">""</v>
-                  <l n="MethodParameter" t="ArrayList" />
-                  <v n="MethodParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="MethodObjectGuid">{b957ad57-e792-419c-803f-5840ee93c6fe}</v>
-                  <v n="MethodStereotype">"action"</v>
-                  <v n="MethodParameterLength">20</v>
-                  <v n="MethodParameterTooLong">false</v>
-                </o>
-                <v>fd2addb0-f20c-4f03-ae0d-6de9505ddca4</v>
-                <o>
-                  <v n="MethodName">"Cycle"</v>
-                  <v n="MethodBreakPointActive">false</v>
-                  <v n="MethodReturnType">""</v>
-                  <l n="MethodParameter" t="ArrayList" />
-                  <v n="MethodParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="MethodObjectGuid">{fd2addb0-f20c-4f03-ae0d-6de9505ddca4}</v>
-                  <v n="MethodStereotype">"action"</v>
-                  <v n="MethodParameterLength">20</v>
-                  <v n="MethodParameterTooLong">false</v>
-                </o>
-                <v>8facbfd4-2074-472b-bb4e-fff19b2dd12b</v>
-                <o>
-                  <v n="MethodName">"Objects"</v>
-                  <v n="MethodBreakPointActive">false</v>
-                  <v n="MethodReturnType">""</v>
-                  <l n="MethodParameter" t="ArrayList" />
-                  <v n="MethodParent">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
-                  <v n="MethodObjectGuid">{8facbfd4-2074-472b-bb4e-fff19b2dd12b}</v>
-                  <v n="MethodStereotype">"action"</v>
-                  <v n="MethodParameterLength">20</v>
-                  <v n="MethodParameterTooLong">false</v>
-                </o>
-              </d>
-              <v n="MethodID">-1</v>
-              <v n="ActivityID">-1</v>
-              <v n="IecObjectSemantic">2</v>
-              <d n="MethodStereotypContainer" t="Hashtable" />
-              <o n="ElementVisualisation" t="ClassElementVisualisation">
-                <v n="ShowAttributes">false</v>
-                <v n="ShowMethods">false</v>
-                <a n="DockingPopulation" cet="Int32">AAAAAAAAAAAAAAAAAAAAAA==</a>
-                <v n="ColumnIndex">1</v>
-                <v n="RowIndex">4</v>
-                <v n="RepresentedElement">19</v>
-                <v n="IsElementVisible">true</v>
-                <v n="TopPosition">794</v>
-                <v n="LeftPosition">346</v>
-                <v n="WidthValue">100</v>
-                <v n="MinWidthValue">0</v>
-                <v n="Height">71</v>
-                <v n="MinHeight">0</v>
-                <v n="AutomaticLayout">true</v>
-                <d n="DockingPoints" t="Hashtable" />
-              </o>
-              <n n="StereotypeContainer" />
-              <v n="LibraryPath">""</v>
-              <v n="HasGraphicalRepresentation">true</v>
-              <v n="bIsVisualisationChanged">false</v>
-              <v n="IsType" t="UMLType">UMLClassElement</v>
-              <v n="_MaxDoCycleCalls" t="Int16">32767</v>
-              <v n="DefaultCellSizeX">70</v>
-              <v n="DefaultCellSizeY">47</v>
-              <v n="IsDocumentation">false</v>
-              <v n="Area">{00000000-0000-0000-0000-000000000000}</v>
-              <v n="ParsedMethods">false</v>
-              <v n="ParsedProperties">false</v>
-              <v n="GeneratorId">0</v>
-              <v n="UserDefined">true</v>
-              <v n="ElementID">19</v>
-              <v n="ElementObjectGuid">{60fb4f9e-595b-4ec0-8963-7b2dba7bf0fd}</v>
               <v n="ParentGuid">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ContainerGuid">{00000000-0000-0000-0000-000000000000}</v>
               <v n="ShowedStereotype">{00000000-0000-0000-0000-000000000000}</v>

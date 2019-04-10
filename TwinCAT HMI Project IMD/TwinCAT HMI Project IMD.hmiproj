@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10111</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10118</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -104,16 +104,13 @@
     <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot\DryingMoldDetails_Bottom.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.content">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.content">
+    <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold Overview.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold Overview.content">
+    <Content Include="Content\SubContent\MachineParts\DryingMold\PID_Settings\DryingMoldDetail_PID_Settings.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\MachineParts\Gantry\Gantry_Manual.content">
@@ -189,6 +186,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\ConvertTimeToInt.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateBindingPIDControllerSettings.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateBindingPIDControllerSettings.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetNameFromSymbol.function.json">
@@ -402,6 +405,7 @@
     <Folder Include="Content\SubContent\MachineParts\DryingMold" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Top" />
+    <Folder Include="Content\SubContent\MachineParts\DryingMold\PID_Settings" />
     <Folder Include="Content\SubContent\MachineParts\Gantry" />
     <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />

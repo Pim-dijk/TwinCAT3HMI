@@ -122,10 +122,6 @@
       "preload": false
     },
     {
-      "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetail_Bot_Settings.content",
-      "preload": false
-    },
-    {
       "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetails_Bottom.content",
       "preload": false
     },
@@ -134,7 +130,7 @@
       "preload": false
     },
     {
-      "url": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top_Settings.content",
+      "url": "Content/SubContent/MachineParts/DryingMold/PID_Settings/DryingMoldDetail_PID_Settings.content",
       "preload": false
     },
     {
@@ -252,6 +248,9 @@
     },
     {
       "url": "Scripts/InsertParamToSymbolString.js"
+    },
+    {
+      "url": "Scripts/CreateBindingPIDControllerSettings.js"
     }
   ],
   "symbols": {
@@ -2065,323 +2064,17 @@
         "type": "tchmi:general#/definitions/REAL",
         "persist": false,
         "readonly": false
+      },
+      "TempTargetIDString": {
+        "value": "undefined",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
       }
     }
   },
   "trigger": [],
   "actionTemplates": [
-    {
-      "name": "Hide_Calculator",
-      "description": "Hide the calculator out of view",
-      "category": "Action Templates",
-      "actions": [
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%Calculator_1::Top%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/MeasurementValue",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "100"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%Calculator_1::TopUnit%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/MeasurementUnit",
-            "value": "%"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%Calculator_1::Visibility%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/Visibility",
-            "value": "Hidden"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%Calculator_1::Zindex%/ctrl%",
-          "valueType": "tchmi:general#/definitions/UDINT",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/UDINT",
-            "value": -1000
-          },
-          "asyncWait": true
-        }
-      ],
-      "parameters": []
-    },
-    {
-      "name": "Show_Keyboard",
-      "description": "Display the keyboard in the middle of the screen",
-      "category": "Action Templates",
-      "actions": [
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::Top%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/MeasurementValue",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/MeasurementValue",
-            "value": 10.0
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::TopUnit%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/MeasurementUnit",
-            "value": "%"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/Visibility",
-            "value": "Visible"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::Zindex%/ctrl%",
-          "valueType": "tchmi:general#/definitions/UDINT",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/UDINT",
-            "value": 1000
-          },
-          "asyncWait": true
-        }
-      ],
-      "parameters": []
-    },
-    {
-      "name": "Hide_Keyboard",
-      "description": "Hides the keyboard out of the viewport",
-      "category": "Action Templates",
-      "actions": [
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::Zindex%/ctrl%",
-          "valueType": "tchmi:general#/definitions/UDINT",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/UDINT",
-            "value": -1000
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/Visibility",
-            "value": "Hidden"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::Top%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/MeasurementValue",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/MeasurementValue",
-            "value": 100.0
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%ctrl%General_Keyboard_3::TopUnit%/ctrl%",
-          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
-          "value": {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:framework#/definitions/MeasurementUnit",
-            "value": "%"
-          },
-          "asyncWait": true
-        }
-      ],
-      "parameters": []
-    },
-    {
-      "name": "SetButtonState_Blue",
-      "description": "Change the color of the button depending on boolean state",
-      "category": "Action Templates",
-      "actions": [
-        {
-          "objectType": "Condition",
-          "active": true,
-          "expressions": [
-            {
-              "compare1": {
-                "objectType": "Symbol",
-                "symbolExpression": "%tp%Boolean%/tp%"
-              },
-              "compare2": {
-                "objectType": "StaticValue",
-                "valueType": "tchmi:general#/definitions/BOOL",
-                "value": true
-              },
-              "compareOperator": "==",
-              "logic": null
-            }
-          ],
-          "true": [
-            {
-              "objectType": "WriteToSymbol",
-              "active": true,
-              "symbolExpression": "%tp%TargetButton::BackgroundColor%/tp%",
-              "valueType": "tchmi:framework#/definitions/Color",
-              "value": {
-                "objectType": "StaticValue",
-                "valueType": "tchmi:framework#/definitions/Color",
-                "value": {
-                  "color": "rgba(0, 0, 255, 1)"
-                }
-              },
-              "asyncWait": true
-            },
-            {
-              "objectType": "WriteToSymbol",
-              "active": true,
-              "symbolExpression": "%tp%TargetButton::TextColor%/tp%",
-              "valueType": "tchmi:framework#/definitions/SolidColor",
-              "value": {
-                "objectType": "StaticValue",
-                "valueType": "tchmi:framework#/definitions/SolidColor",
-                "value": {
-                  "color": "rgba(255, 255, 0, 1)"
-                }
-              },
-              "asyncWait": true
-            }
-          ],
-          "false": [
-            {
-              "objectType": "WriteToSymbol",
-              "active": true,
-              "symbolExpression": "%tp%TargetButton::BackgroundColor%/tp%",
-              "valueType": "tchmi:framework#/definitions/Color",
-              "value": {
-                "objectType": "StaticValue",
-                "valueType": "tchmi:framework#/definitions/SolidColor",
-                "value": null
-              },
-              "asyncWait": true
-            },
-            {
-              "objectType": "WriteToSymbol",
-              "active": true,
-              "symbolExpression": "%tp%TargetButton::TextColor%/tp%",
-              "valueType": "tchmi:framework#/definitions/SolidColor",
-              "value": {
-                "objectType": "StaticValue",
-                "valueType": "tchmi:framework#/definitions/SolidColor",
-                "value": null
-              },
-              "asyncWait": true
-            }
-          ],
-          "asyncWait": true
-        }
-      ],
-      "parameters": [
-        {
-          "name": "TargetButton",
-          "type": "tchmi:framework#/definitions/TcHmiButton",
-          "description": ""
-        },
-        {
-          "name": "Boolean",
-          "type": "tchmi:general#/definitions/BOOL",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "IOField_SetActive",
-      "description": "Give a visual representation of which IO field is active",
-      "category": "Action Templates",
-      "actions": [],
-      "parameters": [
-        {
-          "name": "ObjectSender",
-          "type": "tchmi:framework#/definitions/TcHmiTextblock",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "Show_Calculator",
-      "description": "Display the calculator in the middle of the screen",
-      "category": "Action Templates",
-      "actions": [
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%tp%The Calculator::SymbolToWriteTo%/tp%",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%TempSymbolName%/i%"
-          },
-          "asyncWait": true
-        },
-        {
-          "objectType": "WriteToSymbol",
-          "active": true,
-          "symbolExpression": "%tp%The Calculator::Self%/tp%",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": {
-            "objectType": "Symbol",
-            "symbolExpression": "%i%CalcName%/i%"
-          },
-          "asyncWait": true
-        }
-      ],
-      "parameters": [
-        {
-          "name": "The Calculator",
-          "type": "tchmi:project#/definitions/Calculator",
-          "description": "The calculator control that is to be displayed"
-        }
-      ]
-    },
     {
       "name": "Calculator",
       "description": "Show the calculator and bind the symbol to it",
@@ -2431,6 +2124,179 @@
         {
           "name": "Symbol",
           "type": "tchmi:framework#/definitions/Symbol",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "CreateDynamicBinding",
+      "description": "Symbol to bind to with params {0}, {1}, etc and the IOField control to write to",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "JavaScript",
+          "active": false,
+          "sourceLines": [
+            "var symbolI = new TcHmi.Symbol('%i%TempTargetIDString%/i%');\nvar symbolP = new TcHmi.Symbol('%pp%Control%/pp%');\nsymbol.write(symbolP.read());"
+          ],
+          "injectContextObject": false,
+          "asyncWait": true,
+          "waitMode": "Synchronous"
+        },
+        {
+          "objectType": "Condition",
+          "active": true,
+          "expressions": [
+            {
+              "compare1": {
+                "objectType": "Symbol",
+                "symbolExpression": "%i%_IsASide%/i%"
+              },
+              "compare2": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:general#/definitions/BOOL",
+                "value": true
+              },
+              "compareOperator": "==",
+              "logic": null
+            }
+          ],
+          "true": [
+            {
+              "objectType": "Condition",
+              "active": true,
+              "expressions": [
+                {
+                  "compare1": {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%i%_IsTopSide%/i%"
+                  },
+                  "compare2": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/BOOL",
+                    "value": true
+                  },
+                  "compareOperator": "==",
+                  "logic": null
+                }
+              ],
+              "true": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "%i%TempSymbolName%/i%",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": {
+                    "objectType": "FunctionExpression",
+                    "functionExpression": "FormatString(%tp%SymbolString%/tp%, 'Top', 'A', %i%_SetNumber%/i%);"
+                  },
+                  "asyncWait": true
+                }
+              ],
+              "false": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "%i%TempSymbolName%/i%",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": {
+                    "objectType": "FunctionExpression",
+                    "functionExpression": "FormatString(%tp%SymbolString%/tp%, 'Bottom', 'A', %i%_SetNumber%/i%);"
+                  },
+                  "asyncWait": true
+                }
+              ],
+              "asyncWait": true
+            }
+          ],
+          "false": [
+            {
+              "objectType": "Condition",
+              "active": true,
+              "expressions": [
+                {
+                  "compare1": {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%i%_IsTopSide%/i%"
+                  },
+                  "compare2": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/BOOL",
+                    "value": true
+                  },
+                  "compareOperator": "==",
+                  "logic": null
+                }
+              ],
+              "true": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "%i%TempSymbolName%/i%",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": {
+                    "objectType": "FunctionExpression",
+                    "functionExpression": "FormatString(%tp%SymbolString%/tp%, 'Top', 'B', %i%_SetNumber%/i%);"
+                  },
+                  "asyncWait": true
+                }
+              ],
+              "false": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "%i%TempSymbolName%/i%",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": {
+                    "objectType": "FunctionExpression",
+                    "functionExpression": "FormatString(%tp%SymbolString%/tp%, 'Bottom', 'B', %i%_SetNumber%/i%);"
+                  },
+                  "asyncWait": true
+                }
+              ],
+              "asyncWait": true
+            }
+          ],
+          "asyncWait": true
+        },
+        {
+          "objectType": "Function",
+          "active": true,
+          "fn": "CreateBindingIOField",
+          "fnParams": [
+            {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "%i%TempSymbolName%/i%"
+            },
+            {
+              "objectType": "Symbol",
+              "valueType": "tchmi:framework#/definitions/Control",
+              "symbolExpression": "%tp%Control%/tp%"
+            }
+          ],
+          "asyncWait": true
+        },
+        {
+          "objectType": "JavaScript",
+          "active": false,
+          "sourceLines": [
+            "var controlSymbol = new TcHmi.Symbol('%i%TempTargetIDString%/i%');\nconsole.log(\"controlSymbol:\");\nconsole.log(controlSymbol);\nvar controlValue = controlSymbol.read();\nconsole.log(\"controlValue:\");\nconsole.log(controlValue);\nvar control = TcHmi.Controls.get(controlValue);\nconsole.log(control);\nvar symbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nconsole.log(symbol.read());\nvar value = '%s%' + symbol.read() + '%/s%';\nconsole.log(value);\nif(control){\n    TcHmi.Binding.createEx(value, 'setValue', control);\n}\nconsole.log(\"Binding created!\");"
+          ],
+          "injectContextObject": false,
+          "asyncWait": true,
+          "waitMode": "Synchronous"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "SymbolString",
+          "type": "tchmi:general#/definitions/String",
+          "description": ""
+        },
+        {
+          "name": "Control",
+          "type": "tchmi:general#/definitions/String",
           "description": ""
         }
       ]

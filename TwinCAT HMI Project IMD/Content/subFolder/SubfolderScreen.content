@@ -1,15 +1,39 @@
 ﻿<div id="SubfolderScreen" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiTextbox" data-tchmi-type="tchmi-textbox" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="A content screen that's in a subfolder" data-tchmi-top="191" data-tchmi-top-unit="px" data-tchmi-width="90" data-tchmi-width-unit="%">
-<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+<div id="Kremer_Light_35" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="351" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="152" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
 {
-  "top": 3,
-  "right": 3,
-  "bottom": 3,
-  "left": 3
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
 }
 </script>
 
 </div>
 
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "SubfolderScreen.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.EventProvider.raise('moveElementToMousePos');"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
 </div>

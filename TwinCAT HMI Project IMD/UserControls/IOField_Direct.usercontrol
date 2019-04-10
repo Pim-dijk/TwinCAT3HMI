@@ -59,16 +59,16 @@
     "event": "TcHmiTextbox_28.onPressed",
     "actions": [
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "JavaScript",
         "active": true,
-        "symbolExpression": "%ctrl%TcHmiTextbox_28::Text%/ctrl%",
-        "valueType": "tchmi:general#/definitions/String",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": "1337"
-        },
-        "asyncWait": true
+        "sourceLines": [
+          "var symbol = new TcHmi.Symbol('%pp%Value%/pp%');",
+          "\nconsole.log(symbol);",
+          "\nconsole.log(symbol.read());"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
       },
       {
         "objectType": "Condition",
@@ -82,7 +82,7 @@
             "compare2": {
               "objectType": "StaticValue",
               "valueType": "tchmi:project#/definitions/Textbox_DataType",
-              "value": "Input"
+              "value": "Output"
             },
             "compareOperator": "!=",
             "logic": null
