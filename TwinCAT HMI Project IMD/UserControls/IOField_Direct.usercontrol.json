@@ -4,7 +4,7 @@
       "name": "data-tchmi-value",
       "displayName": "Value",
       "visible": true,
-      "type": "tchmi:general#/definitions/REAL",
+      "type": "tchmi:general#/definitions/String",
       "category": "",
       "description": "",
       "requiredOnCompile": false,
@@ -159,6 +159,23 @@
       "propertyName": "Visible",
       "propertySetterName": "setVisible",
       "propertyGetterName": "getVisible"
+    },
+    {
+      "name": "data-tchmi-valuetype",
+      "displayName": "ValueType",
+      "visible": true,
+      "type": "tchmi:project#/definitions/IOFieldDataType",
+      "category": "",
+      "description": "",
+      "defaultValue": "REAL",
+      "defaultValueInternal": "REAL",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ValueType",
+      "propertySetterName": "setValueType",
+      "propertyGetterName": "getValueType"
     }
   ],
   "virtualRights": [],

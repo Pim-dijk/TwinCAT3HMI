@@ -14,6 +14,8 @@
         console.log(Control);
         console.log(BindToProperty);
 
+        var property = BindToProperty ? BindToProperty : "Value";
+
         var ASideSymbol = new TcHmi.Symbol('%i%_IsASide%/i%');
         var TopSideSymbol = new TcHmi.Symbol('%i%_IsTopSide%/i%');
         var ASide = ASideSymbol.read();
@@ -41,7 +43,7 @@
         console.log(value);
 
         if (Control) {
-            TcHmi.Binding.createEx(value, 'set' + BindToProperty, Control);
+            TcHmi.Binding.createEx(value, 'set' + property, Control);
         }
 
     };

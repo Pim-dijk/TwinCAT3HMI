@@ -285,6 +285,15 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
+    },
+    "IOFieldDataType": {
+      "type": "string",
+      "title": "Data type for IOField",
+      "enum": [
+        "REAL",
+        "STRING",
+        "TIME"
+      ]
     }
   }
 }
