@@ -1,6 +1,6 @@
-﻿<div id="DryingMoldDetail_Top" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+﻿<div id="DryingMoldDetail_Top" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439" data-tchmi-zindex="1">
 
-<div id="TcHmiRectangle_29" data-tchmi-type="tchmi-rectangle" data-tchmi-height="235" data-tchmi-height-unit="px" data-tchmi-left="56" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="43" data-tchmi-top-unit="px" data-tchmi-width="689" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_30" data-tchmi-type="tchmi-rectangle" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="18" data-tchmi-top-unit="px" data-tchmi-width="300" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(160, 160, 160, 1)"
@@ -14,21 +14,7 @@
 
 </div>
 
-<div id="TcHmiRectangle_30" data-tchmi-type="tchmi-rectangle" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="18" data-tchmi-top-unit="px" data-tchmi-width="300" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
-{
-  "color": "rgba(160, 160, 160, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-</div>
-
-<div id="TcHmiButton_56" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Overview" data-tchmi-top="379" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiButton_56" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Overview" data-tchmi-top="379" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -54,7 +40,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_95" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Init Cycles" data-tchmi-top="295" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_95" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Init Cycles" data-tchmi-top="295" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -64,7 +50,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_31" data-tchmi-type="tchmi-rectangle" data-tchmi-height="108" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="680" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_31" data-tchmi-type="tchmi-rectangle" data-tchmi-height="108" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="680" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -78,7 +64,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_96" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold:" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14">
+<div id="TcHmiTextblock_96" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold:" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -88,7 +74,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_97" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="212" data-tchmi-left-unit="px" data-tchmi-text="State" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14">
+<div id="TcHmiTextblock_97" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="212" data-tchmi-left-unit="px" data-tchmi-text="State" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -98,11 +84,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_Active_Top_0" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
-
-</div>
-
-<div id="TcHmiButton_PID_Top_0" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
+<div id="TcHmiButton_PID_Top_0" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 
 
@@ -142,7 +124,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_32" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_32" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(238, 238, 238, 1)"
@@ -156,7 +138,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_98" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_98" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -166,7 +148,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_99" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_99" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -176,7 +158,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_100" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_100" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -186,7 +168,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_SP0" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="117" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsASide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL%/s%,%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%">
+<div id="IMD_Top_SP0" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="117" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ?%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL%/s%:%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL%/s%%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -203,7 +185,7 @@
 
 </div>
 
-<div id="IMD_Top_PV0" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="117" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IMD_Top_PV0" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="117" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.0.FB_Heating_Controller.PV_ACT%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.0.FB_Heating_Controller.PV_ACT%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -218,7 +200,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_Out0" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="117" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IMD_Top_Out0" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="117" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.0.FB_Heating_Controller.OUT_PID%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.0.FB_Heating_Controller.OUT_PID%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -233,11 +215,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_59" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
-
-</div>
-
-<div id="TcHmiButton_60" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
+<div id="TcHmiButton_60" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -275,7 +253,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_33" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_33" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(238, 238, 238, 1)"
@@ -289,7 +267,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_101" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_101" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -299,7 +277,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_102" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_102" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -309,7 +287,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_103" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_103" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -319,7 +297,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_SP1" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="227" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsTopSide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL%/s%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%">
+<div id="IMD_Top_SP1" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="227" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL%/s% : %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL%/s%;%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -332,9 +310,29 @@
   "color": "rgba(0, 0, 255, 1)"
 }
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IMD_Top_SP1.onAttached",
+    "actions": [
+      {
+        "objectType": "CreateBinding",
+        "active": false,
+        "sourceExpression": "%f%ConvertBooleanToEnum(%i%_IsASide%/i% , %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL%/s% , %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.1.PIDTempZone.SP_AUTO_TOTAL%/s%);%/f%",
+        "target": {
+          "objectType": "ControlAttributeBindingTarget",
+          "attributeExpression": "%ctrl%IMD_Top_SP1::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_12" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="227" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_12" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="227" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.1.FB_Heating_Controller.PV_ACT%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.1.FB_Heating_Controller.PV_ACT%/s%;  %/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -349,7 +347,7 @@
 </script>
 </div>
 
-<div id="IOField_13" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="227" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_13" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="227" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.1.FB_Heating_Controller.OUT_PID%/s%: %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.1.FB_Heating_Controller.OUT_PID%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -364,11 +362,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_61" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
-
-</div>
-
-<div id="TcHmiButton_62" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
+<div id="TcHmiButton_62" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -406,7 +400,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_34" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_34" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(238, 238, 238, 1)"
@@ -420,7 +414,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_104" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_104" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -430,7 +424,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_105" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_105" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -440,7 +434,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_106" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_106" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -450,7 +444,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_SP2" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="337" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsTopSide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.2.PIDTempZone.SP_AUTO_TOTAL%/s%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.2.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%">
+<div id="IMD_Top_SP2" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="337" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsASide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.2.PIDTempZone.SP_AUTO_TOTAL%/s%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.2.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -465,7 +459,7 @@
 </script>
 </div>
 
-<div id="IOField_15" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="337" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_15" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="337" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.2.FB_Heating_Controller.PV_ACT%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.2.FB_Heating_Controller.PV_ACT%/s%;%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -480,7 +474,7 @@
 </script>
 </div>
 
-<div id="IOField_16" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="337" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_16" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="337" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.2.FB_Heating_Controller.OUT_PID%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.2.FB_Heating_Controller.OUT_PID%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -495,11 +489,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_63" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
-
-</div>
-
-<div id="TcHmiButton_64" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
+<div id="TcHmiButton_64" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -537,7 +527,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_35" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_35" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(238, 238, 238, 1)"
@@ -551,7 +541,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_107" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_107" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -561,7 +551,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_108" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_108" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -571,7 +561,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_109" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_109" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -581,7 +571,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_SP3" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="446" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsTopSide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.3.PIDTempZone.SP_AUTO_TOTAL%/s%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.3.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%">
+<div id="IMD_Top_SP3" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="446" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i%?%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.3.PIDTempZone.SP_AUTO_TOTAL%/s%: %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.3.PIDTempZone.SP_AUTO_TOTAL%/s%%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -596,7 +586,7 @@
 </script>
 </div>
 
-<div id="IOField_18" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="446" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_18" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="446" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.3.FB_Heating_Controller.PV_ACT%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.3.FB_Heating_Controller.PV_ACT%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -611,7 +601,7 @@
 </script>
 </div>
 
-<div id="IOField_19" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="446" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_19" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="446" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.3.FB_Heating_Controller.OUT_PID%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.3.FB_Heating_Controller.OUT_PID%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -626,11 +616,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_65" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
-
-</div>
-
-<div id="TcHmiButton_66" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
+<div id="TcHmiButton_66" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -668,7 +654,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_36" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_36" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(238, 238, 238, 1)"
@@ -682,7 +668,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_110" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_110" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -692,7 +678,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_111" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_111" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -702,7 +688,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_112" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_112" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -712,7 +698,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_SP4" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="555" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsTopSide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.4.PIDTempZone.SP_AUTO_TOTAL%/s%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.4.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%">
+<div id="IMD_Top_SP4" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="555" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.4.PIDTempZone.SP_AUTO_TOTAL%/s%:  %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.4.PIDTempZone.SP_AUTO_TOTAL%/s%%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -727,7 +713,7 @@
 </script>
 </div>
 
-<div id="IOField_21" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="555" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_21" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="555" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.4.FB_Heating_Controller.PV_ACT%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.4.FB_Heating_Controller.PV_ACT%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -742,7 +728,7 @@
 </script>
 </div>
 
-<div id="IOField_22" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="555" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_22" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="555" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.4.FB_Heating_Controller.OUT_PID%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.4.FB_Heating_Controller.OUT_PID%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -757,11 +743,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_67" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
-
-</div>
-
-<div id="TcHmiButton_68" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="1">
+<div id="TcHmiButton_68" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -799,7 +781,7 @@
 </script>
 </div>
 
-<div id="TcHmiRectangle_37" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_37" data-tchmi-type="tchmi-rectangle" data-tchmi-height="176" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(238, 238, 238, 1)"
@@ -813,7 +795,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_113" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_113" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="SP" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -823,7 +805,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_114" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_114" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="PV" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -833,7 +815,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_115" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_115" data-tchmi-type="tchmi-textblock" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
 
 
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -843,7 +825,7 @@
 </script>
 </div>
 
-<div id="IMD_Top_SP5" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="662" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%ConvertBooleanToEnum(%i%_IsTopSide%/i%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.5.PIDTempZone.SP_AUTO_TOTAL%/s%, %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.5.PIDTempZone.SP_AUTO_TOTAL%/s%)%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%">
+<div id="IMD_Top_SP5" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="In/Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="662" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i%? %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.HeatingZone.5.PIDTempZone.SP_AUTO_TOTAL%/s%: %s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.5.PIDTempZone.SP_AUTO_TOTAL%/s%%/f%" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -858,7 +840,7 @@
 </script>
 </div>
 
-<div id="IOField_24" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="662" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_24" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="662" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.5.FB_Heating_Controller.PV_ACT%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.5.FB_Heating_Controller.PV_ACT%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -873,7 +855,7 @@
 </script>
 </div>
 
-<div id="IOField_25" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="662" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_25" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="17" data-tchmi-height-unit="px" data-tchmi-left="662" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="179" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="48" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-value="%f%%i%_IsASide%/i% ? %s%PLC1.MAIN.InMoldDrying.TopMoldA.HeatingZone.5.FB_Heating_Controller.OUT_PID%/s% : %s%PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.5.FB_Heating_Controller.OUT_PID%/s%%/f%" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -895,49 +877,81 @@
     "event": "DryingMoldDetail_Top.onAttached",
     "actions": [
       {
-        "objectType": "Condition",
+        "objectType": "WriteToSymbol",
         "active": true,
-        "expressions": [
+        "symbolExpression": "%i%_IsTopSide%/i%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "FormatString('Drying mold {0}-Side {1} overview', %i%_IsASide%/i% ? 'A' : 'B', %i%_IsTopSide%/i% ? 'Top' : 'Bottom');"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+<div id="Kremer_Button_32" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_32.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateDryingMoldButtonBinding",
+        "fnParams": [
           {
-            "compare1": {
-              "objectType": "Symbol",
-              "symbolExpression": "%i%_IsASide%/i%"
-            },
-            "compare2": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/BOOL",
-              "value": true
-            },
-            "compareOperator": "==",
-            "logic": null
-          }
-        ],
-        "true": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%RegionText%/i%",
+            "objectType": "StaticValue",
             "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Drying mold A-side top overview"
-            },
-            "asyncWait": true
-          }
-        ],
-        "false": [
+            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.0.mxZoneActive"
+          },
           {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%RegionText%/i%",
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_32%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
             "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Drying mold B-side top overview"
-            },
-            "asyncWait": true
+            "value": "Symbol"
           }
         ],
         "asyncWait": true
@@ -946,4 +960,310 @@
   }
 ]
 </script>
+</div>
+
+<div id="Kremer_Button_33" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_33.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateDryingMoldButtonBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.1.mxZoneActive"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_33%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Symbol"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_34" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="299" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_34.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateDryingMoldButtonBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.2.mxZoneActive"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_34%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Symbol"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_35" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_35.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateDryingMoldButtonBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.3.mxZoneActive"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_35%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Symbol"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_36" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="517" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_36.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateDryingMoldButtonBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.4.mxZoneActive"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_36%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Symbol"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_37" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_37.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateDryingMoldButtonBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.5.mxZoneActive"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_37%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Symbol"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiRectangle_48" data-tchmi-type="tchmi-rectangle" data-tchmi-height="235" data-tchmi-height-unit="px" data-tchmi-left="59" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="43" data-tchmi-top-unit="px" data-tchmi-width="689" data-tchmi-width-unit="px" data-tchmi-zindex="0">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(160, 160, 160, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
 </div>

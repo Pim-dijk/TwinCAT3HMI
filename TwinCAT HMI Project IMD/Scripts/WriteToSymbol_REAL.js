@@ -23,6 +23,8 @@
                 //console.log(data.error);
             }
         });
+        symbol.destroy();
+        symbol = null;
     };
     
     TcHmi.Functions.registerFunction('WriteToSymbol_REAL', WriteToSymbol_REAL);

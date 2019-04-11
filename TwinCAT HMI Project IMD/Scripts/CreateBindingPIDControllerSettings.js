@@ -42,6 +42,13 @@
         value += "%/s%";
         console.log(value);
 
+        ASideSymbol.destroy();
+        ASideSymbol = null;
+        TopSideSymbol.destroy();
+        TopSideSymbol = null;
+        numberSymbol.destroy();
+        numberSymbol = null;
+
         if (Control) {
             TcHmi.Binding.createEx(value, 'set' + property, Control);
         }

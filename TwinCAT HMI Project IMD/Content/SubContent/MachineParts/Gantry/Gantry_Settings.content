@@ -7,51 +7,14 @@
     "event": "Gantry_Settings.onAttached",
     "actions": [
       {
-        "objectType": "Condition",
+        "objectType": "WriteToSymbol",
         "active": true,
-        "expressions": [
-          {
-            "compare1": {
-              "objectType": "Symbol",
-              "symbolExpression": "%i%_IsASide%/i%"
-            },
-            "compare2": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/BOOL",
-              "value": true
-            },
-            "compareOperator": "==",
-            "logic": null
-          }
-        ],
-        "true": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%RegionText%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Gantry A side settings"
-            },
-            "asyncWait": true
-          }
-        ],
-        "false": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%RegionText%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Gantry B side settings"
-            },
-            "asyncWait": true
-          }
-        ],
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "FormatString('Gantry side {0} Settings', %i%_IsASide%/i% ? 'A' : 'B');"
+        },
         "asyncWait": true
       }
     ]
@@ -136,25 +99,7 @@
 
 </div>
 
-<div id="IOField_44" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuemax="2000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm/s">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
-
-</div>
-
 <div id="TcHmiTextblock_139" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="IOField_45" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuemax="2000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm/s">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
 
 </div>
 
@@ -162,25 +107,7 @@
 
 </div>
 
-<div id="IOField_46" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuemax="2000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
-
-</div>
-
 <div id="TcHmiTextblock_141" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Transport position" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="IOField_47" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuemax="2000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm/s">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
 
 </div>
 
@@ -188,25 +115,7 @@
 
 </div>
 
-<div id="IOField_48" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuemax="2000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm/s">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
-
-</div>
-
 <div id="TcHmiTextblock_143" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="IOField_49" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuemax="4000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
 
 </div>
 
@@ -214,38 +123,11 @@
 
 </div>
 
-<div id="IOField_50" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuemax="4000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
-
-</div>
-
 <div id="TcHmiTextblock_145" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Pickup position" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="IOField_51" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-valuemax="4000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
-
-</div>
-
 <div id="TcHmiTextblock_146" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Drop off position" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="IOField_52" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="16" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="210" data-tchmi-top-unit="px" data-tchmi-valuemax="4000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-keyboard="%ctrl%Calculator_1%/ctrl%" data-tchmi-attribute="mm">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
 
 </div>
 
@@ -406,6 +288,42 @@
   "color": "None"
 }
 </script>
+
+</div>
+
+<div id="IOField_Direct_82" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+
+</div>
+
+<div id="IOField_Direct_83" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+
+</div>
+
+<div id="IOField_Direct_84" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+
+</div>
+
+<div id="IOField_Direct_85" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+
+</div>
+
+<div id="IOField_Direct_86" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+
+</div>
+
+<div id="IOField_Direct_87" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+
+</div>
+
+<div id="IOField_Direct_88" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+
+</div>
+
+<div id="IOField_Direct_89" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+
+</div>
+
+<div id="IOField_Direct_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="210" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
 
 </div>
 

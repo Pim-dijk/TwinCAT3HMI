@@ -1040,18 +1040,6 @@
           "value": true
         },
         "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%i%strMoldSide%/i%",
-        "valueType": "tchmi:general#/definitions/String",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": "MoldA"
-        },
-        "asyncWait": true
       }
     ]
   }
@@ -1275,18 +1263,6 @@
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
           "value": false
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%i%strMoldSide%/i%",
-        "valueType": "tchmi:general#/definitions/String",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": "MoldB"
         },
         "asyncWait": true
       }

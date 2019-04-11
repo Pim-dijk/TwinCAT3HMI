@@ -97,6 +97,14 @@
                                 // Handle success... 
                                 var initializedSymbol = new TcHmi.Symbol('%i%Initialized%/i%');
                                 initializedSymbol.write(true);
+
+                                alarmDBSymbol.destroy();
+                                alarmDBSymbol = null;
+                                symbol.destroy();
+                                symbol = null;
+                                initializedSymbol.destroy();
+                                initializedSymbol = null;
+
                                 ctx.success();
                                 return;
                             } else {
@@ -108,6 +116,14 @@
                                     domain: 'Function',
                                     errors: (data.details ? [data.details] : undefined)
                                 });
+
+                                alarmDBSymbol.destroy();
+                                alarmDBSymbol = null;
+                                symbol.destroy();
+                                symbol = null;
+                                initializedSymbol.destroy();
+                                initializedSymbol = null;
+
                                 return;
                             }
                         });

@@ -1,6 +1,6 @@
 ﻿<div id="DryingMoldDetail_Top_Settings" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiTextblock_170" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-text="TcHmiTextblock_170" data-tchmi-top="408" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiTextblock_170" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-text="Test" data-tchmi-top="408" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -9,8 +9,19 @@
     "event": "TcHmiTextblock_170.onAttached",
     "actions": [
       {
+        "objectType": "WriteToSymbol",
+        "active": false,
+        "symbolExpression": "%ctrl%TcHmiTextblock_170::Text%/ctrl%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "FormatString('PID settings {0}-Side {1} ({2})', %i%_IsASide%/i% ? 'A' : 'B', %i%_IsTopSide%/i% ? 'Top' : 'Bottom', %i%_SetNumber%/i%);"
+        },
+        "asyncWait": true
+      },
+      {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "expressions": [
           {
             "compare1": {
@@ -327,15 +338,51 @@
     "event": "TcHmiButton_88.onPressed",
     "actions": [
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Condition",
         "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top.content"
-        },
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%_IsTopSide%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/BOOL",
+              "value": true
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/ContentPath",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/ContentPath",
+              "value": "Content/SubContent/MachineParts/DryingMold/Detail_Top/DryingMoldDetail_Top.content"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/ContentPath",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/ContentPath",
+              "value": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetails_Bottom.content"
+            },
+            "asyncWait": true
+          }
+        ],
         "asyncWait": true
       }
     ]
@@ -1553,4 +1600,25 @@
 </script>
 </div>
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "DryingMoldDetail_Top_Settings.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "FormatString('PID settings {0}-Side {1} ({2})', %i%_IsASide%/i% ? 'A' : 'B', %i%_IsTopSide%/i% ? 'Top' : 'Bottom', %i%_SetNumber%/i%);"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

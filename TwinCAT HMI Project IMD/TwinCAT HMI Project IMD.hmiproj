@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10120</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10121</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -192,6 +192,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\CreateBindingPIDControllerSettings.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDryingMoldButtonBinding.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDryingMoldButtonBinding.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetNameFromSymbol.function.json">

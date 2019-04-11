@@ -465,4 +465,25 @@
 
 </div>
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Gantry_Manual.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "FormatString('Gantry side {0} Manual', %i%_IsASide%/i% ? 'A' : 'B');"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

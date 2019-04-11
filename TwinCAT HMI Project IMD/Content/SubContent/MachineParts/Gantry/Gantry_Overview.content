@@ -63,51 +63,14 @@
     "event": "Gantry_Overview.onAttached",
     "actions": [
       {
-        "objectType": "Condition",
+        "objectType": "WriteToSymbol",
         "active": true,
-        "expressions": [
-          {
-            "compare1": {
-              "objectType": "Symbol",
-              "symbolExpression": "%i%_IsASide%/i%"
-            },
-            "compare2": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/BOOL",
-              "value": true
-            },
-            "compareOperator": "==",
-            "logic": null
-          }
-        ],
-        "true": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%RegionText%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Gantry A side overview"
-            },
-            "asyncWait": true
-          }
-        ],
-        "false": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%RegionText%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Gantry B side overview"
-            },
-            "asyncWait": true
-          }
-        ],
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "FormatString('Gantry side {0} overview', %i%_IsASide%/i% ? 'A' : 'B');"
+        },
         "asyncWait": true
       }
     ]
