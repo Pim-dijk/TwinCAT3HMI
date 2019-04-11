@@ -47,8 +47,12 @@ Partial Class Gantry_Settings
         Me.IO_HorAutoVelo = New KremerControlsWin32.KremerIoField(Me.components)
         Me.HOR_REST_POS = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_HorRestPos = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.HOR_PICKUP_POS = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_PickUpPos = New KremerControlsWin32.KremerIoField(Me.components)
         Me.HOR_ACT_POS = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_HorActPos = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.HOR_DROP_POS = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_DropOffpos = New KremerControlsWin32.KremerIoField(Me.components)
         Me.CON_DropOffPos = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_ConDroffOffPos = New KremerControlsWin32.KremerIoField(Me.components)
         Me.EN_VAC_1 = New KremerControlsWin32.KremerVariable(Me.components)
@@ -79,11 +83,7 @@ Partial Class Gantry_Settings
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.IO_PickUpPos = New KremerControlsWin32.KremerIoField(Me.components)
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.IO_DropOffpos = New KremerControlsWin32.KremerIoField(Me.components)
-        Me.HOR_PICKUP_POS = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.HOR_DROP_POS = New KremerControlsWin32.KremerVariable(Me.components)
         Me.SuspendLayout()
         '
         'Btn_Overview
@@ -238,13 +238,13 @@ Partial Class Gantry_Settings
         Me.IO_VertManualVelo.AuditSource = "KremerIoField"
         Me.IO_VertManualVelo.BackColor = System.Drawing.Color.White
         Me.IO_VertManualVelo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_VertManualVelo.Data = 0.0R
+        Me.IO_VertManualVelo.Data = 0R
         Me.IO_VertManualVelo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_VertManualVelo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_VertManualVelo.InitialValue = True
         Me.IO_VertManualVelo.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_VertManualVelo.Location = New System.Drawing.Point(271, 39)
-        Me.IO_VertManualVelo.LowerBound = 0.0R
+        Me.IO_VertManualVelo.LowerBound = 0R
         Me.IO_VertManualVelo.Name = "IO_VertManualVelo"
         Me.IO_VertManualVelo.OutputFormat = "0.0 mm/s"
         Me.IO_VertManualVelo.Size = New System.Drawing.Size(100, 22)
@@ -272,13 +272,13 @@ Partial Class Gantry_Settings
         Me.IO_VertAutoVelo.AuditSource = "KremerIoField"
         Me.IO_VertAutoVelo.BackColor = System.Drawing.Color.White
         Me.IO_VertAutoVelo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_VertAutoVelo.Data = 0.0R
+        Me.IO_VertAutoVelo.Data = 0R
         Me.IO_VertAutoVelo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_VertAutoVelo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_VertAutoVelo.InitialValue = True
         Me.IO_VertAutoVelo.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_VertAutoVelo.Location = New System.Drawing.Point(271, 63)
-        Me.IO_VertAutoVelo.LowerBound = 0.0R
+        Me.IO_VertAutoVelo.LowerBound = 0R
         Me.IO_VertAutoVelo.Name = "IO_VertAutoVelo"
         Me.IO_VertAutoVelo.OutputFormat = "0.0 mm/s"
         Me.IO_VertAutoVelo.Size = New System.Drawing.Size(100, 22)
@@ -306,13 +306,13 @@ Partial Class Gantry_Settings
         Me.IO_VertTranspPos.AuditSource = "KremerIoField"
         Me.IO_VertTranspPos.BackColor = System.Drawing.Color.White
         Me.IO_VertTranspPos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_VertTranspPos.Data = 0.0R
+        Me.IO_VertTranspPos.Data = 0R
         Me.IO_VertTranspPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_VertTranspPos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_VertTranspPos.InitialValue = True
         Me.IO_VertTranspPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_VertTranspPos.Location = New System.Drawing.Point(271, 87)
-        Me.IO_VertTranspPos.LowerBound = 0.0R
+        Me.IO_VertTranspPos.LowerBound = 0R
         Me.IO_VertTranspPos.Name = "IO_VertTranspPos"
         Me.IO_VertTranspPos.OutputFormat = "0.0 mm"
         Me.IO_VertTranspPos.Size = New System.Drawing.Size(100, 22)
@@ -338,12 +338,12 @@ Partial Class Gantry_Settings
         Me.IO_VertActPos.AuditEnabled = False
         Me.IO_VertActPos.AuditMessage = "KremerIoField changed:"
         Me.IO_VertActPos.AuditSource = "KremerIoField"
-        Me.IO_VertActPos.Data = 0.0R
+        Me.IO_VertActPos.Data = 0R
         Me.IO_VertActPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_VertActPos.InitialValue = True
         Me.IO_VertActPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_VertActPos.Location = New System.Drawing.Point(300, 15)
-        Me.IO_VertActPos.LowerBound = 0.0R
+        Me.IO_VertActPos.LowerBound = 0R
         Me.IO_VertActPos.Name = "IO_VertActPos"
         Me.IO_VertActPos.OutputFormat = "0.0 mm"
         Me.IO_VertActPos.Size = New System.Drawing.Size(71, 21)
@@ -371,13 +371,13 @@ Partial Class Gantry_Settings
         Me.IO_HorManualVelo.AuditSource = "KremerIoField"
         Me.IO_HorManualVelo.BackColor = System.Drawing.Color.White
         Me.IO_HorManualVelo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_HorManualVelo.Data = 0.0R
+        Me.IO_HorManualVelo.Data = 0R
         Me.IO_HorManualVelo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_HorManualVelo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_HorManualVelo.InitialValue = True
         Me.IO_HorManualVelo.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_HorManualVelo.Location = New System.Drawing.Point(682, 39)
-        Me.IO_HorManualVelo.LowerBound = 0.0R
+        Me.IO_HorManualVelo.LowerBound = 0R
         Me.IO_HorManualVelo.Name = "IO_HorManualVelo"
         Me.IO_HorManualVelo.OutputFormat = "0.0 mm/s"
         Me.IO_HorManualVelo.Size = New System.Drawing.Size(100, 22)
@@ -405,13 +405,13 @@ Partial Class Gantry_Settings
         Me.IO_HorAutoVelo.AuditSource = "KremerIoField"
         Me.IO_HorAutoVelo.BackColor = System.Drawing.Color.White
         Me.IO_HorAutoVelo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_HorAutoVelo.Data = 0.0R
+        Me.IO_HorAutoVelo.Data = 0R
         Me.IO_HorAutoVelo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_HorAutoVelo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_HorAutoVelo.InitialValue = True
         Me.IO_HorAutoVelo.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_HorAutoVelo.Location = New System.Drawing.Point(682, 63)
-        Me.IO_HorAutoVelo.LowerBound = 0.0R
+        Me.IO_HorAutoVelo.LowerBound = 0R
         Me.IO_HorAutoVelo.Name = "IO_HorAutoVelo"
         Me.IO_HorAutoVelo.OutputFormat = "0.0 mm/s"
         Me.IO_HorAutoVelo.Size = New System.Drawing.Size(100, 22)
@@ -439,13 +439,13 @@ Partial Class Gantry_Settings
         Me.IO_HorRestPos.AuditSource = "KremerIoField"
         Me.IO_HorRestPos.BackColor = System.Drawing.Color.White
         Me.IO_HorRestPos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_HorRestPos.Data = 0.0R
+        Me.IO_HorRestPos.Data = 0R
         Me.IO_HorRestPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_HorRestPos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_HorRestPos.InitialValue = True
         Me.IO_HorRestPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_HorRestPos.Location = New System.Drawing.Point(682, 87)
-        Me.IO_HorRestPos.LowerBound = 0.0R
+        Me.IO_HorRestPos.LowerBound = 0R
         Me.IO_HorRestPos.Name = "IO_HorRestPos"
         Me.IO_HorRestPos.OutputFormat = "0.0 mm"
         Me.IO_HorRestPos.Size = New System.Drawing.Size(100, 22)
@@ -455,6 +455,40 @@ Partial Class Gantry_Settings
         Me.IO_HorRestPos.UpperBound = 4000.0R
         Me.IO_HorRestPos.UserInfo = Nothing
         Me.IO_HorRestPos.UserLevel = 0
+        '
+        'HOR_PICKUP_POS
+        '
+        Me.HOR_PICKUP_POS.BindControl = Me.IO_PickUpPos
+        Me.HOR_PICKUP_POS.BindProperty = "Data"
+        Me.HOR_PICKUP_POS.Data = Nothing
+        Me.HOR_PICKUP_POS.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
+        Me.HOR_PICKUP_POS.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.HOR_PICKUP_POS.VariableName = "MAIN.ProductHandling.MachParameters.[Position1].PositionHorizontalPickup"
+        '
+        'IO_PickUpPos
+        '
+        Me.IO_PickUpPos.Audit = Nothing
+        Me.IO_PickUpPos.AuditEnabled = False
+        Me.IO_PickUpPos.AuditMessage = "KremerIoField changed:"
+        Me.IO_PickUpPos.AuditSource = "KremerIoField"
+        Me.IO_PickUpPos.BackColor = System.Drawing.Color.White
+        Me.IO_PickUpPos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.IO_PickUpPos.Data = 0R
+        Me.IO_PickUpPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_PickUpPos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_PickUpPos.InitialValue = True
+        Me.IO_PickUpPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
+        Me.IO_PickUpPos.Location = New System.Drawing.Point(682, 110)
+        Me.IO_PickUpPos.LowerBound = 0R
+        Me.IO_PickUpPos.Name = "IO_PickUpPos"
+        Me.IO_PickUpPos.OutputFormat = "0.0 mm"
+        Me.IO_PickUpPos.Size = New System.Drawing.Size(100, 22)
+        Me.IO_PickUpPos.TabIndex = 422
+        Me.IO_PickUpPos.Text = "0.0 mm"
+        Me.IO_PickUpPos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_PickUpPos.UpperBound = 4000.0R
+        Me.IO_PickUpPos.UserInfo = Nothing
+        Me.IO_PickUpPos.UserLevel = 0
         '
         'HOR_ACT_POS
         '
@@ -471,12 +505,12 @@ Partial Class Gantry_Settings
         Me.IO_HorActPos.AuditEnabled = False
         Me.IO_HorActPos.AuditMessage = "KremerIoField changed:"
         Me.IO_HorActPos.AuditSource = "KremerIoField"
-        Me.IO_HorActPos.Data = 0.0R
+        Me.IO_HorActPos.Data = 0R
         Me.IO_HorActPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_HorActPos.InitialValue = True
         Me.IO_HorActPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_HorActPos.Location = New System.Drawing.Point(711, 15)
-        Me.IO_HorActPos.LowerBound = 0.0R
+        Me.IO_HorActPos.LowerBound = 0R
         Me.IO_HorActPos.Name = "IO_HorActPos"
         Me.IO_HorActPos.OutputFormat = "0.0 mm"
         Me.IO_HorActPos.Size = New System.Drawing.Size(71, 21)
@@ -486,6 +520,40 @@ Partial Class Gantry_Settings
         Me.IO_HorActPos.UpperBound = 1000.0R
         Me.IO_HorActPos.UserInfo = Nothing
         Me.IO_HorActPos.UserLevel = 0
+        '
+        'HOR_DROP_POS
+        '
+        Me.HOR_DROP_POS.BindControl = Me.IO_DropOffpos
+        Me.HOR_DROP_POS.BindProperty = "Data"
+        Me.HOR_DROP_POS.Data = Nothing
+        Me.HOR_DROP_POS.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
+        Me.HOR_DROP_POS.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.HOR_DROP_POS.VariableName = "MAIN.ProductHandling.MachParameters.[Position1].PositionHorizontalDropOff"
+        '
+        'IO_DropOffpos
+        '
+        Me.IO_DropOffpos.Audit = Nothing
+        Me.IO_DropOffpos.AuditEnabled = False
+        Me.IO_DropOffpos.AuditMessage = "KremerIoField changed:"
+        Me.IO_DropOffpos.AuditSource = "KremerIoField"
+        Me.IO_DropOffpos.BackColor = System.Drawing.Color.White
+        Me.IO_DropOffpos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.IO_DropOffpos.Data = 0R
+        Me.IO_DropOffpos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_DropOffpos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_DropOffpos.InitialValue = True
+        Me.IO_DropOffpos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
+        Me.IO_DropOffpos.Location = New System.Drawing.Point(682, 134)
+        Me.IO_DropOffpos.LowerBound = 0R
+        Me.IO_DropOffpos.Name = "IO_DropOffpos"
+        Me.IO_DropOffpos.OutputFormat = "0.0 mm"
+        Me.IO_DropOffpos.Size = New System.Drawing.Size(100, 22)
+        Me.IO_DropOffpos.TabIndex = 424
+        Me.IO_DropOffpos.Text = "0.0 mm"
+        Me.IO_DropOffpos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_DropOffpos.UpperBound = 4000.0R
+        Me.IO_DropOffpos.UserInfo = Nothing
+        Me.IO_DropOffpos.UserLevel = 0
         '
         'CON_DropOffPos
         '
@@ -504,13 +572,13 @@ Partial Class Gantry_Settings
         Me.IO_ConDroffOffPos.AuditSource = "KremerIoField"
         Me.IO_ConDroffOffPos.BackColor = System.Drawing.Color.White
         Me.IO_ConDroffOffPos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_ConDroffOffPos.Data = 0.0R
+        Me.IO_ConDroffOffPos.Data = 0R
         Me.IO_ConDroffOffPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ConDroffOffPos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ConDroffOffPos.InitialValue = True
         Me.IO_ConDroffOffPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.IO_ConDroffOffPos.Location = New System.Drawing.Point(682, 207)
-        Me.IO_ConDroffOffPos.LowerBound = 0.0R
+        Me.IO_ConDroffOffPos.LowerBound = 0R
         Me.IO_ConDroffOffPos.Name = "IO_ConDroffOffPos"
         Me.IO_ConDroffOffPos.OutputFormat = "0.0 mm"
         Me.IO_ConDroffOffPos.Size = New System.Drawing.Size(100, 22)
@@ -891,31 +959,6 @@ Partial Class Gantry_Settings
         Me.Label11.Tag = ""
         Me.Label11.Text = "Pickup position"
         '
-        'IO_PickUpPos
-        '
-        Me.IO_PickUpPos.Audit = Nothing
-        Me.IO_PickUpPos.AuditEnabled = False
-        Me.IO_PickUpPos.AuditMessage = "KremerIoField changed:"
-        Me.IO_PickUpPos.AuditSource = "KremerIoField"
-        Me.IO_PickUpPos.BackColor = System.Drawing.Color.White
-        Me.IO_PickUpPos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_PickUpPos.Data = 0.0R
-        Me.IO_PickUpPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.IO_PickUpPos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IO_PickUpPos.InitialValue = True
-        Me.IO_PickUpPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
-        Me.IO_PickUpPos.Location = New System.Drawing.Point(682, 110)
-        Me.IO_PickUpPos.LowerBound = 0.0R
-        Me.IO_PickUpPos.Name = "IO_PickUpPos"
-        Me.IO_PickUpPos.OutputFormat = "0.0 mm"
-        Me.IO_PickUpPos.Size = New System.Drawing.Size(100, 22)
-        Me.IO_PickUpPos.TabIndex = 422
-        Me.IO_PickUpPos.Text = "0.0 mm"
-        Me.IO_PickUpPos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IO_PickUpPos.UpperBound = 4000.0R
-        Me.IO_PickUpPos.UserInfo = Nothing
-        Me.IO_PickUpPos.UserLevel = 0
-        '
         'Label16
         '
         Me.Label16.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -925,49 +968,6 @@ Partial Class Gantry_Settings
         Me.Label16.TabIndex = 425
         Me.Label16.Tag = ""
         Me.Label16.Text = "Drop off position"
-        '
-        'IO_DropOffpos
-        '
-        Me.IO_DropOffpos.Audit = Nothing
-        Me.IO_DropOffpos.AuditEnabled = False
-        Me.IO_DropOffpos.AuditMessage = "KremerIoField changed:"
-        Me.IO_DropOffpos.AuditSource = "KremerIoField"
-        Me.IO_DropOffpos.BackColor = System.Drawing.Color.White
-        Me.IO_DropOffpos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.IO_DropOffpos.Data = 0.0R
-        Me.IO_DropOffpos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.IO_DropOffpos.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IO_DropOffpos.InitialValue = True
-        Me.IO_DropOffpos.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
-        Me.IO_DropOffpos.Location = New System.Drawing.Point(682, 134)
-        Me.IO_DropOffpos.LowerBound = 0.0R
-        Me.IO_DropOffpos.Name = "IO_DropOffpos"
-        Me.IO_DropOffpos.OutputFormat = "0.0 mm"
-        Me.IO_DropOffpos.Size = New System.Drawing.Size(100, 22)
-        Me.IO_DropOffpos.TabIndex = 424
-        Me.IO_DropOffpos.Text = "0.0 mm"
-        Me.IO_DropOffpos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IO_DropOffpos.UpperBound = 4000.0R
-        Me.IO_DropOffpos.UserInfo = Nothing
-        Me.IO_DropOffpos.UserLevel = 0
-        '
-        'HOR_PICKUP_POS
-        '
-        Me.HOR_PICKUP_POS.BindControl = Me.IO_PickUpPos
-        Me.HOR_PICKUP_POS.BindProperty = "Data"
-        Me.HOR_PICKUP_POS.Data = Nothing
-        Me.HOR_PICKUP_POS.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
-        Me.HOR_PICKUP_POS.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.HOR_PICKUP_POS.VariableName = "MAIN.ProductHandling.MachParameters.[Position1].PositionHorizontalPickup"
-        '
-        'HOR_DROP_POS
-        '
-        Me.HOR_DROP_POS.BindControl = Me.IO_DropOffpos
-        Me.HOR_DROP_POS.BindProperty = "Data"
-        Me.HOR_DROP_POS.Data = Nothing
-        Me.HOR_DROP_POS.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
-        Me.HOR_DROP_POS.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.HOR_DROP_POS.VariableName = "MAIN.ProductHandling.MachParameters.[Position1].PositionHorizontalDropOff"
         '
         'Gantry_Settings
         '

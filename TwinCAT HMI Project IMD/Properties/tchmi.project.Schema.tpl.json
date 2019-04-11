@@ -134,6 +134,15 @@
         }
       ]
     },
+    "IOFieldDataType": {
+      "type": "string",
+      "title": "Data type for IOField",
+      "enum": [
+        "REAL",
+        "STRING",
+        "TIME"
+      ]
+    },
     "ContentView_DisplayName": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -285,15 +294,6 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
-    },
-    "IOFieldDataType": {
-      "type": "string",
-      "title": "Data type for IOField",
-      "enum": [
-        "REAL",
-        "STRING",
-        "TIME"
-      ]
     }
   }
 }

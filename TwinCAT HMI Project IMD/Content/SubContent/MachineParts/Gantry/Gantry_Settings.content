@@ -115,7 +115,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_143" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_143" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Automatic velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
@@ -139,105 +139,10 @@
 
 </div>
 
-<div id="Kremer_Button_7" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="229" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
-{
-  "color": "rgba(200, 200, 200, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-</div>
-
-<div id="Kremer_Button_8" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="270" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
-{
-  "color": "rgba(200, 200, 200, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-</div>
-
-<div id="Kremer_Button_9" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="311" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
-{
-  "color": "rgba(200, 200, 200, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-</div>
-
-<div id="Kremer_Button_10" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
-{
-  "color": "rgba(200, 200, 200, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-</div>
-
-<div id="Kremer_Button_11" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="393" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
-<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
-{
-  "color": "rgba(200, 200, 200, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-</div>
-
 <div id="Kremer_Button_12" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="187" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
-  "color": "rgba(200, 200, 200, 1)"
+  "color": "rgba(0, 0, 255, 1)"
 }
 </script>
 <script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
@@ -251,6 +156,45 @@
 }
 </script>
 
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_12.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.0"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_12%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": null
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 <div id="TcHmiTextblock_149" data-tchmi-type="tchmi-textblock" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Vacuum section 2" data-tchmi-top="229" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
@@ -291,40 +235,653 @@
 
 </div>
 
-<div id="IOField_Direct_82" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+<div id="IOField_Direct_82" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_82.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Vert_VelocityManual"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_82%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_83" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+<div id="IOField_Direct_83" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_83.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Vert_VelocityAuto"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_83%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_84" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_Direct_84" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_84.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Vert_PositionTransport"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_84%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_85" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+<div id="IOField_Direct_85" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_85.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Hor_VelocityManual"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_85%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_86" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s">
+<div id="IOField_Direct_86" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm/s" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_86.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Hor_VelocityAuto"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_86%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_87" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_Direct_87" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_87.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Hor_PositionRest"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_87%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_88" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_Direct_88" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_88.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.PositionHorizontalPickup"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_88%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_89" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_Direct_89" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_89.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.PositionHorizontalDropOff"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_89%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
-<div id="IOField_Direct_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="210" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_Direct_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="210" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-keyboard="%ctrl%Kremer_Calculator_4%/ctrl%">
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IOField_Direct_90.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.DropOffConveyorPostion"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%IOField_Direct_90%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Value"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_44" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="229" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_44.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.1"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_44%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": ""
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_45" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="270" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_45.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.2"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_45%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": ""
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_46" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="311" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_46.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.3"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_46%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": ""
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_47" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_47.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.4"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_47%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": ""
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_48" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="393" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Button_48.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "CreateGantryBinding",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.5"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "symbolExpression": "%ctrl%Kremer_Button_48%/ctrl%"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": ""
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Calculator_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="350" data-tchmi-height-unit="px" data-tchmi-left="361" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator_Direct.usercontrol" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="225" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_Calculator_4%/ctrl%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Calculator_4.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Kremer_Calculator_4::Visibility%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 </div>

@@ -230,12 +230,12 @@ Partial Class MachinePond_Overview
         Me.ioPondPos.AuditEnabled = False
         Me.ioPondPos.AuditMessage = "KremerIoField changed:"
         Me.ioPondPos.AuditSource = "KremerIoField"
-        Me.ioPondPos.Data = 0.0R
+        Me.ioPondPos.Data = 0R
         Me.ioPondPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.ioPondPos.InitialValue = True
         Me.ioPondPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.ioPondPos.Location = New System.Drawing.Point(559, 200)
-        Me.ioPondPos.LowerBound = 0.0R
+        Me.ioPondPos.LowerBound = 0R
         Me.ioPondPos.Name = "ioPondPos"
         Me.ioPondPos.OutputFormat = "0.0 mm"
         Me.ioPondPos.Size = New System.Drawing.Size(71, 21)
@@ -261,12 +261,12 @@ Partial Class MachinePond_Overview
         Me.IO_RodSide.AuditEnabled = False
         Me.IO_RodSide.AuditMessage = "KremerIoField changed:"
         Me.IO_RodSide.AuditSource = "KremerIoField"
-        Me.IO_RodSide.Data = 0.0R
+        Me.IO_RodSide.Data = 0R
         Me.IO_RodSide.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_RodSide.InitialValue = True
         Me.IO_RodSide.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_RodSide.Location = New System.Drawing.Point(655, 95)
-        Me.IO_RodSide.LowerBound = 0.0R
+        Me.IO_RodSide.LowerBound = 0R
         Me.IO_RodSide.Name = "IO_RodSide"
         Me.IO_RodSide.OutputFormat = "0.0 Bar"
         Me.IO_RodSide.Size = New System.Drawing.Size(71, 15)
@@ -284,7 +284,7 @@ Partial Class MachinePond_Overview
         Me.BotSidePressure.Data = Nothing
         Me.BotSidePressure.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.BotSidePressure.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BotSidePressure.VariableName = "MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.BottomSidePressure.EngFilt" & _
+        Me.BotSidePressure.VariableName = "MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.BottomSidePressure.EngFilt" &
     ""
         '
         'IO_BotSide
@@ -293,12 +293,12 @@ Partial Class MachinePond_Overview
         Me.IO_BotSide.AuditEnabled = False
         Me.IO_BotSide.AuditMessage = "KremerIoField changed:"
         Me.IO_BotSide.AuditSource = "KremerIoField"
-        Me.IO_BotSide.Data = 0.0R
+        Me.IO_BotSide.Data = 0R
         Me.IO_BotSide.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_BotSide.InitialValue = True
         Me.IO_BotSide.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_BotSide.Location = New System.Drawing.Point(655, 111)
-        Me.IO_BotSide.LowerBound = 0.0R
+        Me.IO_BotSide.LowerBound = 0R
         Me.IO_BotSide.Name = "IO_BotSide"
         Me.IO_BotSide.OutputFormat = "0.0 Bar"
         Me.IO_BotSide.Size = New System.Drawing.Size(71, 15)
@@ -374,7 +374,7 @@ Partial Class MachinePond_Overview
         Me.KremerShape1.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape1.FillLevel = 100.0!
         Me.KremerShape1.FillMaximum = 100.0!
-        Me.KremerShape1.FillMinimum = 0.0!
+        Me.KremerShape1.FillMinimum = 0!
         Me.KremerShape1.Line = True
         Me.KremerShape1.LineColor = System.Drawing.Color.Black
         Me.KremerShape1.LineColorOn = System.Drawing.Color.Black
@@ -396,7 +396,7 @@ Partial Class MachinePond_Overview
         Me.KremerShape2.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape2.FillLevel = 100.0!
         Me.KremerShape2.FillMaximum = 100.0!
-        Me.KremerShape2.FillMinimum = 0.0!
+        Me.KremerShape2.FillMinimum = 0!
         Me.KremerShape2.Line = True
         Me.KremerShape2.LineColor = System.Drawing.Color.Black
         Me.KremerShape2.LineColorOn = System.Drawing.Color.Black
@@ -418,7 +418,7 @@ Partial Class MachinePond_Overview
         Me.SupplyVleft.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.SupplyVleft.FillLevel = 100.0!
         Me.SupplyVleft.FillMaximum = 100.0!
-        Me.SupplyVleft.FillMinimum = 0.0!
+        Me.SupplyVleft.FillMinimum = 0!
         Me.SupplyVleft.Line = True
         Me.SupplyVleft.LineColor = System.Drawing.Color.Black
         Me.SupplyVleft.LineColorOn = System.Drawing.Color.Black
@@ -440,7 +440,7 @@ Partial Class MachinePond_Overview
         Me.KremerShape3.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape3.FillLevel = 100.0!
         Me.KremerShape3.FillMaximum = 100.0!
-        Me.KremerShape3.FillMinimum = 0.0!
+        Me.KremerShape3.FillMinimum = 0!
         Me.KremerShape3.Line = True
         Me.KremerShape3.LineColor = System.Drawing.Color.Black
         Me.KremerShape3.LineColorOn = System.Drawing.Color.Black

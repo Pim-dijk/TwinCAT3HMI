@@ -122,6 +122,27 @@
     <Content Include="Content\SubContent\MachineParts\Gantry\Gantry_Settings.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\MachinePond\MachinePond_Manual.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\MachinePond\MachinePond_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\MachinePond\MachinePond_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\ProductForming_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\Spraybar\Spraybar_Manual.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\Spraybar\Spraybar_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\ProductForming\Spraybar\Spraybar_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\subFolder\SubfolderScreen.content">
       <SubType>Content</SubType>
     </Content>
@@ -198,6 +219,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\CreateDryingMoldButtonBinding.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateGantryBinding.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateGantryBinding.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetNameFromSymbol.function.json">
@@ -413,6 +440,9 @@
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Top" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\PID_Settings" />
     <Folder Include="Content\SubContent\MachineParts\Gantry" />
+    <Folder Include="Content\SubContent\MachineParts\ProductForming" />
+    <Folder Include="Content\SubContent\MachineParts\ProductForming\MachinePond" />
+    <Folder Include="Content\SubContent\MachineParts\ProductForming\Spraybar" />
     <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />
@@ -670,17 +700,20 @@
     <TcHmiReference Include="2b21ef41-40c6-4658-9b4f-44c40ef94fd1">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlTesting/FrameworkControlTesting.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
     <TcHmiReference Include="5c0cd14a-c92b-4320-aa6e-3a1dab1ea1af">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlJs1/FrameworkControlJs1.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
     <TcHmiReference Include="ec55be3d-dbc7-4773-9864-e617d138c500">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>TestFrameworkControl/TestFrameworkControl.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
   </ItemGroup>
 </Project>

@@ -1458,7 +1458,7 @@
 </script>
 </div>
 
-<div id="Kremer_Calculator_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="298" data-tchmi-height-unit="px" data-tchmi-left="111" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator_Direct.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="174" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_Calculator_3%/ctrl%">
+<div id="Kremer_Calculator_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="111" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator_Direct.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="175" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_Calculator_3%/ctrl%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
