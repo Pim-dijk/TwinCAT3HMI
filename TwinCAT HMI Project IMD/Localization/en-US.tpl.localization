@@ -1,8 +1,6 @@
 ﻿{
   "locale": "en-US",
   "localizedText": {
-    "Text1": "Hello World!",
-    "Text2": "I'm a localized text.",
     "1": "AUTOMATIC",
     "2": "MANUAL",
     "3": "INIT",

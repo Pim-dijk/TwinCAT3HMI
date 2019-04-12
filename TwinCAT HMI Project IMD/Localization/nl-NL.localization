@@ -1,5 +1,5 @@
 ﻿{
-  "locale": "nl",
+  "locale": "nl-NL",
   "localizedText": {
     "1": "AUTOMATISCH",
     "2": "HANDBEDIENING",
@@ -798,8 +798,8 @@
     "796": "Spare796",
     "797": "Spare797",
     "798": "Spare798",
-    "799": "Spare799",
-    "Group": "Groep:"
+    "799": "",
+    "Group": ""
   },
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/LocalizationDescription.Schema.json"
 }

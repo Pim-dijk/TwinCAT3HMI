@@ -2338,7 +2338,7 @@
   ],
   "languages": {
     "en-US": "Localization\\en-US.localization",
-    "nl": "Localization\\nl-NL.localization"
+    "nl-NL": "Localization\\nl-NL.localization"
   },
   "creatorSettings": {
     "viewport": {
