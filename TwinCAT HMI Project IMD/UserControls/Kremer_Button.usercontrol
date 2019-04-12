@@ -35,7 +35,7 @@
           {
             "objectType": "WriteToSymbol",
             "active": true,
-            "symbolExpression": "%pp%Symbol%/pp%",
+            "symbolExpression": "%pp%BindingSymbol%/pp%",
             "valueType": "tchmi:general#/definitions/BOOL",
             "value": {
               "objectType": "StaticValue",
@@ -96,7 +96,7 @@
           {
             "objectType": "WriteToSymbol",
             "active": true,
-            "symbolExpression": "%pp%Symbol%/pp%",
+            "symbolExpression": "%pp%BindingSymbol%/pp%",
             "valueType": "tchmi:general#/definitions/BOOL",
             "value": {
               "objectType": "StaticValue",
@@ -139,7 +139,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var button = new TcHmi.Symbol('%pp%ButtonType%/pp%');\nvar Type = button.read();\nvar symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar symbolValue = symbol.read();\nif(Type == \"Set\"){\n\tsymbol.write(true);\n} else if (Type == \"Reset\") {\n\tsymbol.write(false);\n} else if (Type == \"Toggle\"){\n\tif(symbolValue == true){\n\t\tsymbol.write(false);\t\n \t} else {\n\t\tsymbol.write(true);\n\t}\n}"
+          "var button = new TcHmi.Symbol('%pp%ButtonType%/pp%');\nvar Type = button.read();\nvar symbol = new TcHmi.Symbol('%pp%BindingSymbol%/pp%');\nvar symbolValue = symbol.read();\nif(Type == \"Set\"){\n\tsymbol.write(true);\n} else if (Type == \"Reset\") {\n\tsymbol.write(false);\n} else if (Type == \"Toggle\"){\n\tif(symbolValue == true){\n\t\tsymbol.write(false);\t\n \t} else {\n\t\tsymbol.write(true);\n\t}\n}"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -149,7 +149,7 @@
     "displayName": ""
   },
   {
-    "event": "%pp%Symbol%/pp%",
+    "event": "%pp%BindingSymbol%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -158,7 +158,7 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%Symbol%/pp%"
+              "symbolExpression": "%pp%BindingSymbol%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
@@ -218,6 +218,33 @@
           }
         ],
         "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "TcHmiButton_34.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%ThisControl%/pp%",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:framework#/definitions/Control",
+          "symbolExpression": "%ctrl%Kremer_Button%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramsTemp = paramSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbol();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar value = \"\";\n\nvar write = false;\n\nif(paramsTemp) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\t//console.log(paramsTemp);\n\tvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\n\tvar placeholderValue = placeholderSymbol.read();\n\t//console.log(placeholderValue);\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\t\n\tTcHmi.Binding.createEx(value, 'setSymbol', control);\n\t\n\t//cleanup\n\tplaceholderSymbol.destroy();\n\tplaceholderSymbol = null;\n\t\n\twrite = true;\n\t\n} else if(hasSymbol){\n\t// Create binding for the Value parameter, so it will monitor the value in the PLC\n\t\n\tvar Symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\n\tvar SymbolValue = Symbol.read();\n\t//console.log(SymbolValue);\n\tvalue = SymbolValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbol.destroy();\n\tSymbol = null;\n\twrite = true;\n} else {\n\t//No Symbol or SymbolWithPlaceholders was set so not doing anything\t\n}\n\nif(control && write){\n\tTcHmi.Binding.createEx(value, 'setBindingSymbol', control);\n}\n\n//cleanup\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
       }
     ]
   }

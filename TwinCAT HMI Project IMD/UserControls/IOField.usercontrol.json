@@ -16,22 +16,6 @@
       "propertyGetterName": "getSymbol"
     },
     {
-      "name": "data-tchmi-value",
-      "displayName": "Value",
-      "visible": true,
-      "type": "tchmi:general#/definitions/REAL",
-      "category": "Placeholder",
-      "description": "The (symbol) value to display",
-      "defaultValueInternal": 0.0,
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": true,
-      "propertyName": "Value",
-      "propertySetterName": "setValue",
-      "propertyGetterName": "getValue"
-    },
-    {
       "name": "data-tchmi-attribute",
       "displayName": "Attribute",
       "visible": true,
@@ -201,6 +185,22 @@
       "propertyGetterName": "getTextColor"
     },
     {
+      "name": "data-tchmi-value",
+      "displayName": "Value",
+      "visible": true,
+      "type": "tchmi:general#/definitions/REAL",
+      "category": "Placeholder",
+      "description": "The (symbol) value to display",
+      "defaultValueInternal": 0.0,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Value",
+      "propertySetterName": "setValue",
+      "propertyGetterName": "getValue"
+    },
+    {
       "name": "data-tchmi-thiscontrol",
       "displayName": "ThisControl",
       "visible": true,
@@ -216,19 +216,34 @@
       "propertyGetterName": "getThisControl"
     },
     {
-      "name": "data-tchmi-finalsymbol",
-      "displayName": "FinalSymbol",
+      "name": "data-tchmi-parameters",
+      "displayName": "Parameters",
       "visible": true,
       "type": "tchmi:general#/definitions/String",
-      "category": "z_Do_not_modify",
+      "category": "Symbol with placeholder",
       "description": "",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "FinalSymbol",
-      "propertySetterName": "setFinalSymbol",
-      "propertyGetterName": "getFinalSymbol"
+      "propertyName": "Parameters",
+      "propertySetterName": "setParameters",
+      "propertyGetterName": "getParameters"
+    },
+    {
+      "name": "data-tchmi-symbolwithplaceholder",
+      "displayName": "SymbolWithPlaceholder",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Symbol with placeholder",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SymbolWithPlaceholder",
+      "propertySetterName": "setSymbolWithPlaceholder",
+      "propertyGetterName": "getSymbolWithPlaceholder"
     }
   ],
   "virtualRights": [],
