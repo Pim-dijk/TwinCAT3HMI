@@ -31,8 +31,8 @@
       "propertyGetterName": "getCurrentText"
     },
     {
-      "name": "data-tchmi-self",
-      "displayName": "Self",
+      "name": "data-tchmi-thiscontrol",
+      "displayName": "ThisControl",
       "visible": true,
       "type": "tchmi:framework#/definitions/Control",
       "category": "",
@@ -41,9 +41,9 @@
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "Self",
-      "propertySetterName": "setSelf",
-      "propertyGetterName": "getSelf"
+      "propertyName": "ThisControl",
+      "propertySetterName": "setThisControl",
+      "propertyGetterName": "getThisControl"
     },
     {
       "name": "data-tchmi-visible",

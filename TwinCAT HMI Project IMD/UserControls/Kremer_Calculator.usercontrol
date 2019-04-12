@@ -170,7 +170,7 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%pp%Self::Visibility%/pp%",
+                "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
                 "valueType": "tchmi:framework#/definitions/Visibility",
                 "value": {
                   "objectType": "StaticValue",
@@ -289,7 +289,7 @@
         "valueType": "tchmi:framework#/definitions/Color",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/SolidColor",
+          "valueType": "tchmi:framework#/definitions/Color",
           "value": {
             "color": "None"
           }
@@ -311,7 +311,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%Self::Visibility%/pp%",
+        "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
           "objectType": "StaticValue",
@@ -335,4 +335,26 @@
 
 </div>
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Kremer_Calculator.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%ThisControl%/pp%",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:framework#/definitions/Control",
+          "symbolExpression": "%ctrl%Calculator_1%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

@@ -2086,30 +2086,4 @@
 
 </div>
 
-<div id="Kremer_Calculator_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="347" data-tchmi-height-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator_Direct.usercontrol" data-tchmi-visible="True" data-tchmi-width="222" data-tchmi-width-unit="px" data-tchmi-class-names="%f%['center']%/f%" data-tchmi-self="%ctrl%Kremer_Calculator_2%/ctrl%">
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Calculator_2.onAttached",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%Kremer_Calculator_2::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Collapsed"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-</div>
-
 </div>

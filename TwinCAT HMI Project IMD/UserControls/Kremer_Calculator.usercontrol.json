@@ -31,19 +31,19 @@
       "propertyGetterName": "getSymbolToWriteTo"
     },
     {
-      "name": "data-tchmi-self",
-      "displayName": "Self",
+      "name": "data-tchmi-thiscontrol",
+      "displayName": "ThisControl",
       "visible": true,
       "type": "tchmi:framework#/definitions/Control",
-      "category": "",
+      "category": "Do not modify",
       "description": "",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "Self",
-      "propertySetterName": "setSelf",
-      "propertyGetterName": "getSelf"
+      "propertyName": "ThisControl",
+      "propertySetterName": "setThisControl",
+      "propertyGetterName": "getThisControl"
     },
     {
       "name": "data-tchmi-visible",

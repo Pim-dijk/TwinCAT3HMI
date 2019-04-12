@@ -98,6 +98,41 @@
     "event": "TcHmiTextblock_IOField.onAttached",
     "actions": [
       {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "valueType": "tchmi:framework#/definitions/Control",
+              "symbolExpression": "%pp%Keyboard%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/Control",
+              "value": null
+            },
+            "compareOperator": "!=",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%Keyboard%/pp%",
+            "valueType": "tchmi:framework#/definitions/Control",
+            "value": {
+              "objectType": "Symbol",
+              "valueType": "tchmi:framework#/definitions/Control",
+              "symbolExpression": "%ctrl%Calculator_1%/ctrl%"
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      },
+      {
         "objectType": "WriteToSymbol",
         "active": true,
         "symbolExpression": "%pp%ThisControl%/pp%",
