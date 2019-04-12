@@ -66,7 +66,7 @@
 
 </div>
 
-<div id="TcHmiRectangle_41" data-tchmi-type="tchmi-rectangle" data-tchmi-height="235" data-tchmi-height-unit="px" data-tchmi-left="58" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="52" data-tchmi-top-unit="px" data-tchmi-width="689" data-tchmi-width-unit="px">
+<div id="TcHmiRectangle_41" data-tchmi-type="tchmi-rectangle" data-tchmi-height="235" data-tchmi-height-unit="px" data-tchmi-left="59" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="52" data-tchmi-top-unit="px" data-tchmi-width="689" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "rgba(160, 160, 160, 1)"
@@ -877,7 +877,7 @@
 </script>
 </div>
 
-<div id="Kremer_Button_38" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<div id="Kremer_Button_38" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="81" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.0.mxZoneActive" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Bottom, A' : 'Bottom, B'%/f%">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -901,41 +901,10 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_38.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateDryingMoldButtonBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.0.mxZoneActive"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_38%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
-<div id="Kremer_Button_39" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="190" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<div id="Kremer_Button_39" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="191" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Bottom, A' : 'Bottom, B'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.1.mxZoneActive">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -959,41 +928,10 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_39.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateDryingMoldButtonBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.1.mxZoneActive"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_39%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
-<div id="Kremer_Button_40" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<div id="Kremer_Button_40" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="301" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Bottom, A' : 'Bottom, B'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.2.mxZoneActive">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1017,41 +955,10 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_40.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateDryingMoldButtonBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.2.mxZoneActive"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_40%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
-<div id="Kremer_Button_41" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="409" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<div id="Kremer_Button_41" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Bottom, A' : 'Bottom, B'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.3.mxZoneActive">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1075,41 +982,10 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_41.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateDryingMoldButtonBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.3.mxZoneActive"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_41%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
-<div id="Kremer_Button_42" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="518" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<div id="Kremer_Button_42" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="519" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Bottom, A' : 'Bottom, B'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.4.mxZoneActive">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1133,41 +1009,10 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_42.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateDryingMoldButtonBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.4.mxZoneActive"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_42%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
-<div id="Kremer_Button_43" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="625" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<div id="Kremer_Button_43" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="626" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-value="Active" data-tchmi-visible="True" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Bottom, A' : 'Bottom, B'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.5.mxZoneActive">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1191,38 +1036,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_43.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateDryingMoldButtonBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.5.mxZoneActive"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_43%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 </div>

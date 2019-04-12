@@ -54,7 +54,7 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%Self::Visibility%/pp%"
+              "symbolExpression": "%pp%ThisControl::Visibility%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
@@ -137,7 +137,7 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%pp%Self::Visibility%/pp%",
+                "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
                 "valueType": "tchmi:framework#/definitions/Visibility",
                 "value": {
                   "objectType": "StaticValue",
@@ -186,14 +186,14 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/String",
-          "value": null
+          "value": ""
         },
         "asyncWait": true
       },
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%Self::Visibility%/pp%",
+        "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
           "objectType": "StaticValue",
