@@ -183,6 +183,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/IOField_Direct"
     },
+    "IOField_Final": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\IOField_Final.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/IOField_Final"
+    },
     "Kremer_AlarmLight": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",

@@ -66,6 +66,9 @@
       "url": "UserControls/IOField_Direct.usercontrol"
     },
     {
+      "url": "UserControls/IOField_Final.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_AlarmLight.usercontrol"
     },
     {
@@ -285,6 +288,9 @@
     },
     {
       "url": "Scripts/CreateGantryBinding.js"
+    },
+    {
+      "url": "Scripts/CreateDynamicBinding.js"
     }
   ],
   "symbols": {

@@ -221,6 +221,12 @@
     <Content Include="Scripts\CreateDryingMoldButtonBinding.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\CreateDynamicBinding.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDynamicBinding.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\CreateGantryBinding.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -321,6 +327,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\ContentView_DisplayName.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Final.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Final.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_Calculator_Direct.usercontrol">
