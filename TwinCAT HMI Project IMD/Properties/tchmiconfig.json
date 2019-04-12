@@ -2069,7 +2069,7 @@
         "persist": true,
         "readonly": false
       },
-      "strMoldSide": {
+      "_strAB": {
         "value": "",
         "type": "tchmi:general#/definitions/String",
         "persist": true,
@@ -2099,9 +2099,9 @@
         "persist": false,
         "readonly": false
       },
-      "backup_Value": {
-        "value": 0.0,
-        "type": "tchmi:general#/definitions/REAL",
+      "_strTopBot": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
         "persist": false,
         "readonly": false
       },

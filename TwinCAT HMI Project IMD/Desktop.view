@@ -428,7 +428,7 @@
 
 </div>
 
-<div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-width="219" data-tchmi-width-unit="px" data-tchmi-visibility="Visible" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%" data-tchmi-class-names="%f%['center'];%/f%">
+<div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-width="219" data-tchmi-width-unit="px" data-tchmi-visibility="Visible" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%" data-tchmi-class-names="%f%['center'];%/f%" data-tchmi-thiscontrol="%ctrl%Calculator_1%/ctrl%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
@@ -496,7 +496,7 @@
 </script>
 </div>
 
-<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%f%%ctrl%TcHmiRegion::TargetContent%/ctrl% + %i%strMoldSide%/i%;%/f%">
+<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
 
 </div>
 

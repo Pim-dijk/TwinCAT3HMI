@@ -10,9 +10,9 @@
 (function (TcHmi) {
 
     var CreateBindingPIDControllerSettings = function (SymbolString,Control, BindToProperty) {
-        console.log(SymbolString);
-        console.log(Control);
-        console.log(BindToProperty);
+        //console.log(SymbolString);
+        //console.log(Control);
+        //console.log(BindToProperty);
 
         var property = BindToProperty ? BindToProperty : "Value";
 
@@ -40,7 +40,7 @@
             }
         }
         value += "%/s%";
-        console.log(value);
+        //console.log(value);
 
         ASideSymbol.destroy();
         ASideSymbol = null;

@@ -336,6 +336,10 @@
 </div>
 
 
+
+
+
+
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -344,12 +348,12 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%ThisControl%/pp%",
-        "valueType": "tchmi:framework#/definitions/Control",
+        "symbolExpression": "%pp%ThisControl::Visibility%/pp%",
+        "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:framework#/definitions/Control",
-          "symbolExpression": "%ctrl%Calculator_1%/ctrl%"
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
         },
         "asyncWait": true
       }

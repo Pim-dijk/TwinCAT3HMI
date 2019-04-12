@@ -408,41 +408,8 @@
 
 </div>
 
-<div id="IOField_Direct_60" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="32" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500">
+<div id="IOField_60" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="32" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.P" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_60.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.P"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_60%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiLine_15" data-tchmi-type="tchmi-line" data-tchmi-height="413" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="5" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="413">
@@ -484,123 +451,25 @@
 
 </div>
 
-<div id="IOField_Direct_61" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="54" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s" data-tchmi-valuetype="TIME">
+<div id="IOField_61" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="54" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="s" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.I" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_61.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.I"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_61%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_176" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Ti" data-tchmi-top="54" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_62" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="76" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s" data-tchmi-valuetype="TIME">
+<div id="IOField_62" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="76" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="s" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.D">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_62.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.D"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_62%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_177" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Tv" data-tchmi-top="76" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_63" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s" data-tchmi-valuetype="TIME">
+<div id="IOField_63" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="s" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.Dtime">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_63.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.Dtime"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_63%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_178" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Td" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
@@ -611,160 +480,30 @@
 
 </div>
 
-<div id="IOField_Direct_64" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="120" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s" data-tchmi-valuetype="TIME">
+<div id="IOField_64" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="120" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="s" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.PV_TMLAG">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_64.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.PV_TMLAG"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_64%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
-<div id="IOField_Direct_65" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C">
+<div id="IOField_65" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.DEADBAND">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_65.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.DEADBAND"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_65%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_180" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Deadband" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_66" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C/s">
+<div id="IOField_66" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="°C / sec" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_ROC_EXT">
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_66.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.SP_ROC_EXT"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_66%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_181" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="ROC. limit setpoint" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_67" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="186" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%/s">
+<div id="IOField_67" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="186" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="% / sec" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.OUT_ROC_UP">
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_67.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.OUT_ROC_UP"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_67%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_182" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="ROC. limit OUT up" data-tchmi-top="186" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
@@ -775,160 +514,29 @@
 
 </div>
 
-<div id="IOField_Direct_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="208" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%/s">
+<div id="IOField_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="208" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%/s" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.OUT_ROC_DOWN">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_68.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.OUT_ROC_DOWN"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_68%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
-<div id="IOField_Direct_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%">
+<div id="IOField_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.OUT_LLM_EXT">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_69.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.OUT_LLM_EXT"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_69%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_184" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Output minimum" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="%">
+<div id="IOField_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.OUT_HLM_EXT">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_70.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.OUT_HLM_EXT"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_70%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_185" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Output maximum" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C">
+<div id="IOField_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_LLM_EXT">
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_71.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.SP_LLM_EXT"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_71%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_186" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Setpoint minimum" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
@@ -939,44 +547,11 @@
 
 </div>
 
-<div id="IOField_Direct_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="°C">
+<div id="IOField_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_HLM_EXT">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_72.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.SP_HLM_EXT"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_72%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
-<div id="IOField_Direct_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="" data-tchmi-attribute="%">
+<div id="IOField_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
 </div>
 
@@ -984,7 +559,7 @@
 
 </div>
 
-<div id="IOField_Direct_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="340" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="" data-tchmi-attribute="%">
+<div id="IOField_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="340" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
 </div>
 
@@ -992,130 +567,32 @@
 
 </div>
 
-<div id="IOField_Direct_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="362" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500">
+<div id="IOField_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="362" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_75.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.nrOfSteps"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_75%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_190" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Number of setpoint steps (Start-up)" data-tchmi-top="362" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_76" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s" data-tchmi-valuetype="TIME">
+<div id="IOField_76" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_76.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.WaitTimeAfterStepReached"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_76%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": null
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_191" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Wait time after SP-step reached" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_Direct_77" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="406" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="25000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-value="1500" data-tchmi-attribute="s" data-tchmi-valuetype="TIME">
+<div id="IOField_77" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="406" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_77.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PWM_Parameters.tPWMPeriod"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_77%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 <div id="TcHmiTextblock_192" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="PWM minimal period time" data-tchmi-top="406" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="Kremer_Button_29" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Auto" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="Kremer_Button_29" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Auto" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="PLC1.MAIN.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.FB_Heating_Controller.HMI_AutoBtn" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1133,38 +610,7 @@
 </script>
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_29.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.FB_Heating_Controller.HMI_AutoBtn"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_29%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
 {
@@ -1173,119 +619,19 @@
 </script>
 </div>
 
-<div id="IOField_Direct_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-attribute="°C">
+<div id="IOField_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_78.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.SP_AUTO_TOTAL"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_78%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ],
-    "displayName": ""
-  }
-]
-</script>
 </div>
 
-<div id="IOField_Direct_79" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-attribute="°C">
+<div id="IOField_79" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_79.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.SP_MAN"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_79%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Value"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
-<div id="IOField_Direct_80" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField_Direct.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-keyboard="%ctrl%Kremer_Calculator_3%/ctrl%" data-tchmi-attribute="%">
+<div id="IOField_80" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_Direct_80.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.OUT_MAN"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_Direct_80%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Value"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
-<div id="IOField_58" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="338" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C">
+<div id="IOField_58" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="338" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_AUTO" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -1313,38 +659,9 @@
 
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_58.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.PIDTempZone.SP_AUTO"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%IOField_58%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Value"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
+
+
 </div>
 
 <div id="Kremer_LinearGauge_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-maxrange="250" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -1458,33 +775,7 @@
 </script>
 </div>
 
-<div id="Kremer_Calculator_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="111" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Calculator_Direct.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="175" data-tchmi-width-unit="px" data-tchmi-self="%ctrl%Kremer_Calculator_3%/ctrl%">
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Calculator_3.onAttached",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%Kremer_Calculator_3::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Collapsed"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-</div>
-
-<div id="Kremer_Button_30" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Setpoint manual" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="Kremer_Button_30" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Setpoint manual" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.FB_Heating_Controller.HMI_SetpointBtn">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1502,38 +793,7 @@
 </script>
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_30.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.FB_Heating_Controller.HMI_SetpointBtn"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_30%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
 {
@@ -1542,7 +802,7 @@
 </script>
 </div>
 
-<div id="Kremer_Button_31" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Out" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="Kremer_Button_31" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="252" data-tchmi-top-unit="px" data-tchmi-value="Out" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.FB_Heating_Controller.HMI_OutputBtn">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -1560,38 +820,7 @@
 </script>
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_31.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateBindingPIDControllerSettings",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.InMoldDrying.{0}Mold{1|.1s}.HeatingZone.{2|.1d}.FB_Heating_Controller.HMI_OutputBtn"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_31%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "Symbol"
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
 {

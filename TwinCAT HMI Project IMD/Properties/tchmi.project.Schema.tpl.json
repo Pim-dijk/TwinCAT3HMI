@@ -175,13 +175,13 @@
       "type": "object",
       "id": "tchmi:project#/definitions/IOField"
     },
-    "IOField_Direct": {
+    "IOField": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\IOField_Direct.usercontrol.json",
+      "frameworkUserControlConfig": "UserControls\\IOField.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/IOField_Direct"
+      "id": "tchmi:project#/definitions/IOField"
     },
     "IOField_Final": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",

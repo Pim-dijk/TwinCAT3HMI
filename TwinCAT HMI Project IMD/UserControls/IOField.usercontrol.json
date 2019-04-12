@@ -22,7 +22,7 @@
       "type": "tchmi:general#/definitions/String",
       "category": "",
       "description": "Optional: display the type of value eg: '%' or 'ms'",
-      "defaultValueInternal": "attr",
+      "defaultValueInternal": "",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,

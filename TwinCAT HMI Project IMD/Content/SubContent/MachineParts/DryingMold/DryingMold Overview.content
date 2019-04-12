@@ -96,6 +96,18 @@
           "value": false
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_strTopBot%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Bottom"
+        },
+        "asyncWait": true
       }
     ]
   }
@@ -142,6 +154,18 @@
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
           "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_strTopBot%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Top"
         },
         "asyncWait": true
       }
