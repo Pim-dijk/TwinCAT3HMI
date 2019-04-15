@@ -143,6 +143,15 @@
     <Content Include="Content\SubContent\MachineParts\ProductForming\Spraybar\Spraybar_Settings.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\MachineParts\TakeOutUnit\TakeOutUnit_Manual.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\TakeOutUnit\TakeOutUnit_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\TakeOutUnit\TakeOutUnit_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\subFolder\SubfolderScreen.content">
       <SubType>Content</SubType>
     </Content>
@@ -446,6 +455,7 @@
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Top" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\PID_Settings" />
     <Folder Include="Content\SubContent\MachineParts\Gantry" />
+    <Folder Include="Content\SubContent\MachineParts\TakeOutUnit" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming\MachinePond" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming\Spraybar" />

@@ -3659,6 +3659,56 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.ProductForming.FeedingPulp.mxHMI_Close": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::FeedingPulp::mxHMI_Close",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.FeedingPulp.mxHMI_Open": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::FeedingPulp::mxHMI_Open",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.FlashSprayValve.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::FlashSprayValve::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.MoldBlowOff.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::MoldBlowOff::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.MoldVacuum.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::MoldVacuum::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.ActPosition": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -3679,6 +3729,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicIn.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::PondHydraulicCilinder::HydraulicIn::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicOut.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::PondHydraulicCilinder::HydraulicOut::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicPos.Position": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -3686,6 +3756,26 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::PondHydraulicCilinder::HydraulicPos::Position",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicSlow.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::PondHydraulicCilinder::HydraulicSlow::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicSlow.mxIsOn": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::PondHydraulicCilinder::HydraulicSlow::mxIsOn",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -3709,6 +3799,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.HMI_Backward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::SprayBarMotor::HMI_Backward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.HMI_Forward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::SprayBarMotor::HMI_Forward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.ProductForming.TankLevel01.EngUnits": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -3726,6 +3836,16 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::TankLevel02::EngUnits",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.WireSprayValve.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::WireSprayValve::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -3747,6 +3867,26 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::ixPulpTank02",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.mxSprayBarAtRestPosBack": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::mxSprayBarAtRestPosBack",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.mxSprayBarAtRestPosFront": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::mxSprayBarAtRestPosFront",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -7437,6 +7577,366 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::HeatingZone[5]::nrOfSteps",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.BubbleTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::BubbleTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.ClosedTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::ClosedTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.SecondVacuum": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::SecondVacuum",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.StartBlowOffAtTrPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::StartBlowOffAtTrPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.StopBlowOffAtTrPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::StopBlowOffAtTrPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.StopVacuumAtTrPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::StopVacuumAtTrPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.ThirdVacuum": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::ThirdVacuum",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.VacuumTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::FormingMold::VacuumTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.BubblingPositionOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::BubblingPositionOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulp.T_GuardTimeError": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::FeedingPulp::T_GuardTimeError",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulp.T_GuardTimeWarning_IN": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::FeedingPulp::T_GuardTimeWarning_IN",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulp.T_GuardTimeWarning_OUT": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::FeedingPulp::T_GuardTimeWarning_OUT",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulpTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::FeedingPulpTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionDownStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionDownStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionOffsetAlarm": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionOffsetAlarm",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionOffsetSlowRange": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionOffsetSlowRange",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionPhyscialMeasured": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionPhyscialMeasured",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionUpStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PositionUpStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.AutoVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::AutoVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.FlashSprayInterval": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::FlashSprayInterval",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.ManualVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::ManualVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionActualMeasured": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionActualMeasured",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionRestBack": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionRestBack",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionRestFront": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionRestFront",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStartFlashBkw": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStartFlashBkw",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStartFlashFwd": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStartFlashFwd",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStartWireBkw": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStartWireBkw",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStartWireFwd": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStartWireFwd",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStopFlashBkw": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStopFlashBkw",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStopFlashFwd": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStopFlashFwd",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStopWireBkw": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStopWireBkw",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionStopWireFwd": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionStopWireFwd",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.SprayDelayTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::SprayDelayTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.WireSprayInterval": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::WireSprayInterval",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
             },

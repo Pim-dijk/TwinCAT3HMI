@@ -1,3 +1,219 @@
 ﻿<div id="Spraybar_Manual" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
+<div id="TcHmiButton_109" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Settings" data-tchmi-top="383" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_109.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/ProductForming/Spraybar/Spraybar_Settings.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_110" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Overview" data-tchmi-top="324" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_110.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiLine_39" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="390" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="390" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_266" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Valves" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="Kremer_Button_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.WireSprayValve.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="105" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.FlashSprayValve.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_267" data-tchmi-type="tchmi-textblock" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Wire spray valve" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_268" data-tchmi-type="tchmi-textblock" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Flash spray valve" data-tchmi-top="105" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiLine_40" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-width="350" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="350" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_269" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Bar movement" data-tchmi-top="170" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="Kremer_Button_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="206" data-tchmi-top-unit="px" data-tchmi-value="Forward" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.HMI_Forward%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="206" data-tchmi-top-unit="px" data-tchmi-value="Backward" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.HMI_Backward%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_271" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="170" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="True">
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Spraybar_Manual.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Spraybar manual"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

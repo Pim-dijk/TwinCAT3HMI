@@ -1,3 +1,315 @@
 ﻿<div id="MachinePond_Manual" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
+<div id="TcHmiButton_100" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Settings" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_100.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/ProductForming/MachinePond/MachinePond_Settings.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_101" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Overview" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_101.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiLine_30" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="350" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="350" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_230" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Machine pond valves" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_31" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="390" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="390" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_231" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-text="Forming valves" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_32" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="186" data-tchmi-top-unit="px" data-tchmi-width="350" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="350" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_232" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Hydraulics" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="Kremer_Button_65" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-value="Close" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.FeedingPulp.mxHMI_Close%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_66" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-value="Open" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.FeedingPulp.mxHMI_Open%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_233" data-tchmi-type="tchmi-textblock" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Pulp feeding" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_234" data-tchmi-type="tchmi-textblock" data-tchmi-height="108" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Hydraulic cylinder" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_67" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-value="Up" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicIn.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-value="Down" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicOut.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="255" data-tchmi-top-unit="px" data-tchmi-value="Slow" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicSlow.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.MoldVacuum.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="105" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.MoldBlowOff.mxHMI_On%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(255, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_235" data-tchmi-type="tchmi-textblock" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_236" data-tchmi-type="tchmi-textblock" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-text="Blowoff valve" data-tchmi-top="105" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="TcHmiTextblock_237" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="True">
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MachinePond_Manual.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Machine pond manual"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

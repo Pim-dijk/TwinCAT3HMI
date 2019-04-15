@@ -445,27 +445,7 @@
 ]
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Calculator_1.onAttached",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%Calculator_1::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Collapsed"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Visible" data-tchmi-self="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-visible="True">

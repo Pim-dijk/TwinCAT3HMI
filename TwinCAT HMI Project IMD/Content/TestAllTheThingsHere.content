@@ -1,10 +1,10 @@
 ﻿<div id="TestAllTheThingsHere" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600">
 
-    <div id="IOField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-valuemin="-500" data-tchmi-valuemax="500" data-tchmi-attribute="ms" data-tchmi-visibility="Visible" data-tchmi-datatype="In/Output" data-tchmi-border="True" data-tchmi-fontsize="18" data-tchmi-is-enabled="True" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
+    <div id="IOField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-valuemin="-500" data-tchmi-valuemax="500" data-tchmi-attribute="s" data-tchmi-visibility="Visible" data-tchmi-datatype="In/Output" data-tchmi-border="True" data-tchmi-fontsize="18" data-tchmi-is-enabled="True" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
 
     </div>
 
-<div id="Kremer_Light_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Green%/i%" data-tchmi-coloroff="%i%Color_Grey%/i%" data-tchmi-visibility="Visible">
+<div id="Kremer_Light_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Green%/i%" data-tchmi-visibility="Visible">
 
 </div>
 
@@ -138,7 +138,7 @@
 </script>
 </div>
 
-<div id="Kremer_Light_18" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Rectangle" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Green%/i%" data-tchmi-coloroff="%i%Color_Grey%/i%" data-tchmi-visibility="Visible">
+<div id="Kremer_Light_18" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Rectangle" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Green%/i%" data-tchmi-visibility="Visible">
 
 
 <script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
@@ -150,7 +150,7 @@
 </script>
 </div>
 
-<div id="Kremer_Light_19" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="322" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Red%/i%" data-tchmi-coloroff="%i%Color_Grey%/i%" data-tchmi-visibility="Visible">
+<div id="Kremer_Light_19" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="322" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Red%/i%" data-tchmi-visibility="Visible">
 
 </div>
 
@@ -218,7 +218,7 @@
 </script>
 </div>
 
-<div id="Kremer_Light_20" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="370" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Rectangle" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Red%/i%" data-tchmi-coloroff="%i%Color_Grey%/i%" data-tchmi-visibility="Visible">
+<div id="Kremer_Light_20" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="370" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Rectangle" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Red%/i%" data-tchmi-visibility="Visible">
 
 </div>
 
@@ -340,7 +340,7 @@
 
 </div>
 
-<div id="IOField_59" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="18" data-tchmi-attribute="°C/s" data-tchmi-value="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-datatype="In/Output" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000">
+<div id="IOField_59" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="18" data-tchmi-attribute="°C/s" data-tchmi-datatype="In/Output" data-tchmi-minvalue="-1000" data-tchmi-maxvalue="1000" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-value="0">
 
 </div>
 

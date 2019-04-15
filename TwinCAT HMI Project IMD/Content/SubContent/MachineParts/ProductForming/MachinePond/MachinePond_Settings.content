@@ -26,7 +26,7 @@
 
 </div>
 
-<div id="IOField_64" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_64" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionDownStop%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -39,7 +39,7 @@
 
 </div>
 
-<div id="IOField_65" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="59" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_65" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="59" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionDownSlow%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -48,7 +48,7 @@
 
 </div>
 
-<div id="IOField_66" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_66" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionUpSlow%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -57,7 +57,7 @@
 
 </div>
 
-<div id="IOField_67" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="81" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_67" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="81" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionUpStop%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -66,7 +66,7 @@
 
 </div>
 
-<div id="IOField_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="125" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="125" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionOffsetSlowRange%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -75,7 +75,7 @@
 
 </div>
 
-<div id="IOField_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionOffsetAlarm%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -84,7 +84,7 @@
 
 </div>
 
-<div id="IOField_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="191" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-10000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="191" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-10000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.BubblingPositionOffset%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -93,7 +93,7 @@
 
 </div>
 
-<div id="IOField_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="169" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-10000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="169" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-10000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PositionPhyscialMeasured%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -134,7 +134,7 @@
 
 </div>
 
-<div id="IOField_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="281" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="281" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.StopVacuumAtTrPosOffset%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -143,11 +143,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_216" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="303" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_216" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="Start BlowOff at transfer position" data-tchmi-top="303" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="303" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="303" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.StartBlowOffAtTrPosOffset%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -156,7 +156,7 @@
 
 </div>
 
-<div id="IOField_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.StopBlowOffAtTrPosOffset%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -165,7 +165,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_217" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_217" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="Stop BlowOff at transfer position" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
@@ -200,11 +200,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_219" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_219" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Feeding pulp time" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulpTime%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -213,11 +213,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_220" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_220" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Forming mold bubble time" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_76" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_76" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.BubbleTime%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -226,11 +226,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_221" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_221" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Forming closed time" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_77" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_77" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.ClosedTime%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -239,11 +239,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_222" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="102" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_222" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="1st vacuum time (forming)" data-tchmi-top="102" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="102" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="102" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.VacuumTime%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -252,11 +252,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_223" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="124" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_223" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="2nd vacuum time" data-tchmi-top="124" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_79" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="124" data-tchmi-top-unit="px" data-tchmi-valuemax="15000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_79" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="124" data-tchmi-top-unit="px" data-tchmi-valuemax="15000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.SecondVacuum%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -265,11 +265,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_224" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="146" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_224" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="3rd vacuum time (indication)" data-tchmi-top="146" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_80" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="146" data-tchmi-top-unit="px" data-tchmi-valuemax="15000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_80" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="146" data-tchmi-top-unit="px" data-tchmi-valuemax="15000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.ThirdVacuum%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -300,11 +300,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_226" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_226" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Guard time error" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_81" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_81" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulp.T_GuardTimeError%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -313,11 +313,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_227" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="244" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_227" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Guard time warning in" data-tchmi-top="244" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_82" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="244" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_82" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="244" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulp.T_GuardTimeWarning_IN%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -326,11 +326,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_228" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Gain" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_228" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="403" data-tchmi-left-unit="px" data-tchmi-text="Guard time warning out" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_83" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms">
+<div id="IOField_83" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.FeedingPulp.T_GuardTimeWarning_OUT%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -393,4 +393,30 @@
 </script>
 </div>
 
+<div id="TcHmiTextblock_229" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="72" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="True">
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MachinePond_Settings.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Machine pond settings"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

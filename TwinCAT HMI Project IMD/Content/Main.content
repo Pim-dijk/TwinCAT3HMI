@@ -843,6 +843,18 @@
           "value": true
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_strAB%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "A"
+        },
+        "asyncWait": true
       }
     ]
   }
@@ -917,56 +929,7 @@
 
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiRectangle_18.onMouseDown",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRectangle_18::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "General.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "TcHmiRectangle_18.onMouseUp",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRectangle_18::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Hidden"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
@@ -979,6 +942,52 @@
   "topUnit": "px",
   "bottomUnit": "px"
 }
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiRectangle_18.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_IsASide%/i%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Overview.content"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_strAB%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "A"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
 </script>
 </div>
 
@@ -1327,6 +1336,18 @@
           "value": false
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_strAB%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "B"
+        },
+        "asyncWait": true
       }
     ]
   }
@@ -1349,56 +1370,7 @@
 
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiRectangle_24.onMouseDown",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRectangle_24::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "General.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "TcHmiRectangle_24.onMouseUp",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRectangle_24::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Hidden"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
@@ -1411,6 +1383,52 @@
   "topUnit": "px",
   "bottomUnit": "px"
 }
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiRectangle_24.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_IsASide%/i%",
+        "valueType": "tchmi:general#/definitions/BOOL",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_strAB%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "B"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Overview.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
 </script>
 </div>
 

@@ -136,7 +136,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/SubContent/MachineParts/ProductForming/MachinePond/MachinePond_Overview.content"
+          "value": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content"
         },
         "asyncWait": true
       }
@@ -176,7 +176,7 @@
 
 </div>
 
-<div id="IOField_61" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="184" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicPos.Position%/s%">
+<div id="IOField_61" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="184" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.HydraulicPos.Position%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -185,7 +185,7 @@
 
 </div>
 
-<div id="IOField_62" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="649" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="83" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.RodSidePressure.EngFilt%/s%">
+<div id="IOField_62" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="649" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="83" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.RodSidePressure.EngFilt%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -194,7 +194,7 @@
 
 </div>
 
-<div id="IOField_63" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="649" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="109" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.BottomSidePressure.EngFilt%/s%">
+<div id="IOField_63" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="649" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="109" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.PondHydraulicCilinder.BottomSidePressure.EngFilt%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -266,4 +266,26 @@
 
 </div>
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MachinePond_Overview.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Machine pond overview"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>

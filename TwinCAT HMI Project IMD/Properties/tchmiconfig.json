@@ -181,6 +181,18 @@
       "preload": false
     },
     {
+      "url": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Settings.content",
+      "preload": false
+    },
+    {
       "url": "Content/subFolder/SubfolderScreen.content",
       "preload": false
     },
