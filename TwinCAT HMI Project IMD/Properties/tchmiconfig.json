@@ -230,9 +230,6 @@
       "url": "Scripts/GetSymbolStringFromSymbol.js"
     },
     {
-      "url": "Scripts/WriteToSymbol_INT.js"
-    },
-    {
       "url": "Scripts/WriteToSymbol_REAL.js"
     },
     {
@@ -252,9 +249,6 @@
     },
     {
       "url": "Scripts/Recipes/GetActiveRecipes.js"
-    },
-    {
-      "url": "Scripts/WriteToSymbol_String.js"
     },
     {
       "url": "Scripts/Conversion/Convert32bitIntToBinary.js"
@@ -291,6 +285,9 @@
     },
     {
       "url": "Scripts/CreateDynamicBinding.js"
+    },
+    {
+      "url": "Scripts/WriteToSymbol_TIME.js"
     }
   ],
   "symbols": {
@@ -335,13 +332,11 @@
         "persist": false,
         "readonly": false
       },
-      "Color_Grey": {
-        "value": {
-          "color": "rgba(117, 117, 117, 1)"
-        },
-        "type": "tchmi:framework#/definitions/Color",
-        "persist": true,
-        "readonly": true
+      "TempAttribute": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
       },
       "grpMain": {
         "value": {

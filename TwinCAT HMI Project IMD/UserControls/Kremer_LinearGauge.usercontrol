@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
 
-<div id="TcHmiLinearGauge_3" data-tchmi-type="tchmi-linear-gauge" data-tchmi-base-animation-time="1000" data-tchmi-height="89.2" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-show-labels="True" data-tchmi-show-ticks="False" data-tchmi-show-value-text="False" data-tchmi-start-from-zero="True" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-value="%pp%Value%/pp%" data-tchmi-min-value="%pp%MinRange%/pp%" data-tchmi-max-value="%pp%MaxRange%/pp%" data-tchmi-unit="%pp%Unit%/pp%" data-tchmi-orientation="Vertical" data-tchmi-label-range="%f%(%pp%MaxRange%/pp% - %pp%MinRange%/pp%) / 2;%/f%" data-tchmi-unit-orientation="Horizontal">
+<div id="TcHmiLinearGauge_3" data-tchmi-type="tchmi-linear-gauge" data-tchmi-base-animation-time="1000" data-tchmi-height="89.2" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-show-labels="True" data-tchmi-show-ticks="False" data-tchmi-show-value-text="False" data-tchmi-start-from-zero="True" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-value="%pp%Value%/pp%" data-tchmi-min-value="%pp%MinRange%/pp%" data-tchmi-max-value="%pp%MaxRange%/pp%" data-tchmi-unit="%pp%Unit%/pp%" data-tchmi-orientation="Vertical" data-tchmi-label-range="%f%(%pp%MaxRange%/pp% - %pp%MinRange%/pp%) / 2;%/f%" data-tchmi-unit-orientation="Horizontal">
 
 <script data-tchmi-target-attribute="data-tchmi-value-format" type="application/json">
 {
@@ -25,6 +25,38 @@
 
 
 
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiLinearGauge_3.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%ThisControl%/pp%",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:framework#/definitions/Control",
+          "symbolExpression": "%ctrl%Kremer_LinearGauge%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramsTemp = paramSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\n\nvar value = \"\";\n\nvar write = false;\n\nif(paramsTemp) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\t//console.log(paramsTemp);\n\tvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\n\tvar placeholderValue = placeholderSymbol.read();\n\t//console.log(placeholderValue);\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempSymbolValue = tempSymbol.read();\n\t\t\tparams[i] = tempSymbolValue;\n\t\t}\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\t\n\t//cleanup\n\tplaceholderSymbol.destroy();\n\tplaceholderSymbol = null;\n\twrite = true;\n}\n\nif(control && write){\n\t//console.log(\"Writing to Value param\");\n\t//console.log(value);\n\tTcHmi.Binding.createEx(value, 'setValue', control);\n}\n\n//cleanup\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;\n"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 <div id="TcHmiTextblock_193" data-tchmi-type="tchmi-textblock" data-tchmi-height="10.8" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%%pp%Value%/pp% + ' ' + %pp%Unit%/pp%%/f%" data-tchmi-top="89.2" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">

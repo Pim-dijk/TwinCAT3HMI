@@ -175,14 +175,6 @@
       "type": "object",
       "id": "tchmi:project#/definitions/IOField"
     },
-    "IOField": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\IOField.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/IOField"
-    },
     "IOField_Final": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -302,6 +294,18 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
+    },
+    "Symbol_Of_REAL": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:general#/definitions/REAL"
+          }
+        }
+      ]
     }
   }
 }

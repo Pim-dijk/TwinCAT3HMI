@@ -10,6 +10,7 @@
 (function (TcHmi) {
 
     var WriteToSymbol_REAL = function (ctx, SymbolString, Value) {
+        //console.log(Value);
         
         // Create new Symbol object from string, and write the value to it
         var symbol = new TcHmi.Symbol(SymbolString);
