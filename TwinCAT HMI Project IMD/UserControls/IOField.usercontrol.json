@@ -243,6 +243,23 @@
       "propertyName": "SymbolWithPlaceholder",
       "propertySetterName": "setSymbolWithPlaceholder",
       "propertyGetterName": "getSymbolWithPlaceholder"
+    },
+    {
+      "name": "data-tchmi-textalign",
+      "displayName": "TextAlign",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/HorizontalAlignment",
+      "category": "",
+      "description": "",
+      "defaultValue": "Right",
+      "defaultValueInternal": "Right",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TextAlign",
+      "propertySetterName": "setTextAlign",
+      "propertyGetterName": "getTextAlign"
     }
   ],
   "virtualRights": [],

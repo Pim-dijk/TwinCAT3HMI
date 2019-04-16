@@ -143,6 +143,18 @@
         "TIME"
       ]
     },
+    "Symbol_Of_REAL": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:general#/definitions/REAL"
+          }
+        }
+      ]
+    },
     "ContentView_DisplayName": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -174,6 +186,14 @@
       "frameworkUserControlConfig": "UserControls\\IOField.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/IOField"
+    },
+    "IOField_Direct": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\IOField_Direct.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/IOField_Direct"
     },
     "IOField_Final": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
@@ -279,6 +299,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/LanguageSelect"
     },
+    "TakeOutUnit_VacuumSections": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\TakeOutUnit_VacuumSections.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/TakeOutUnit_VacuumSections"
+    },
     "TextInputField": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -294,18 +322,6 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
-    },
-    "Symbol_Of_REAL": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:general#/definitions/REAL"
-          }
-        }
-      ]
     }
   }
 }

@@ -369,7 +369,7 @@ Partial Class TakeOutUnit_Overview
         Me.KremerShape2.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape2.FillLevel = 100.0!
         Me.KremerShape2.FillMaximum = 100.0!
-        Me.KremerShape2.FillMinimum = 0.0!
+        Me.KremerShape2.FillMinimum = 0!
         Me.KremerShape2.Line = True
         Me.KremerShape2.LineColor = System.Drawing.Color.Black
         Me.KremerShape2.LineColorOn = System.Drawing.Color.Black
@@ -391,7 +391,7 @@ Partial Class TakeOutUnit_Overview
         Me.KremerShape1.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape1.FillLevel = 100.0!
         Me.KremerShape1.FillMaximum = 100.0!
-        Me.KremerShape1.FillMinimum = 0.0!
+        Me.KremerShape1.FillMinimum = 0!
         Me.KremerShape1.Line = True
         Me.KremerShape1.LineColor = System.Drawing.Color.Black
         Me.KremerShape1.LineColorOn = System.Drawing.Color.Black
@@ -461,7 +461,7 @@ Partial Class TakeOutUnit_Overview
         Me.KremerShape3.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape3.FillLevel = 100.0!
         Me.KremerShape3.FillMaximum = 100.0!
-        Me.KremerShape3.FillMinimum = 0.0!
+        Me.KremerShape3.FillMinimum = 0!
         Me.KremerShape3.Line = True
         Me.KremerShape3.LineColor = System.Drawing.Color.Black
         Me.KremerShape3.LineColorOn = System.Drawing.Color.Black
@@ -483,7 +483,7 @@ Partial Class TakeOutUnit_Overview
         Me.KremerShape4.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape4.FillLevel = 100.0!
         Me.KremerShape4.FillMaximum = 100.0!
-        Me.KremerShape4.FillMinimum = 0.0!
+        Me.KremerShape4.FillMinimum = 0!
         Me.KremerShape4.Line = True
         Me.KremerShape4.LineColor = System.Drawing.Color.Black
         Me.KremerShape4.LineColorOn = System.Drawing.Color.Black
@@ -567,7 +567,7 @@ Partial Class TakeOutUnit_Overview
         Me.KremerShape5.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape5.FillLevel = 100.0!
         Me.KremerShape5.FillMaximum = 100.0!
-        Me.KremerShape5.FillMinimum = 0.0!
+        Me.KremerShape5.FillMinimum = 0!
         Me.KremerShape5.Line = True
         Me.KremerShape5.LineColor = System.Drawing.Color.Black
         Me.KremerShape5.LineColorOn = System.Drawing.Color.Black
@@ -613,7 +613,7 @@ Partial Class TakeOutUnit_Overview
         Me.KremerShape6.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape6.FillLevel = 100.0!
         Me.KremerShape6.FillMaximum = 100.0!
-        Me.KremerShape6.FillMinimum = 0.0!
+        Me.KremerShape6.FillMinimum = 0!
         Me.KremerShape6.Line = True
         Me.KremerShape6.LineColor = System.Drawing.Color.Black
         Me.KremerShape6.LineColorOn = System.Drawing.Color.Black

@@ -105,6 +105,9 @@
       "url": "UserControls/LanguageSelect.usercontrol"
     },
     {
+      "url": "UserControls/TakeOutUnit_VacuumSections.usercontrol"
+    },
+    {
       "url": "UserControls/TextInputField.usercontrol"
     },
     {
@@ -190,6 +193,26 @@
     },
     {
       "url": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Settings.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/TransferMold/TransferMold_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/TransferMold/TransferMold_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/TransferMold/TransferMold_Settings.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/TransferMold/TransferMold_Settings2.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/Service.content",
       "preload": false
     },
     {

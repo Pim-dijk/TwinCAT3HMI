@@ -1,0 +1,196 @@
+﻿<div id="TakeOutUnit_VacuumSections" data-tchmi-type="tchmi-user-control"
+     data-tchmi-top="0" data-tchmi-left="0"
+     data-tchmi-width="380" data-tchmi-height="90" data-tchmi-width-unit="px" data-tchmi-height-unit="px"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, 'Collapsed')%/f%">
+
+
+
+    <div id="TcHmiGrid_2" data-tchmi-type="tchmi-grid" data-tchmi-height="77" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="362" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+            [
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidth": null,
+            "maxWidthUnit": "px",
+            "minWidth": null,
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidth": null,
+            "maxWidthUnit": "px",
+            "minWidth": null,
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidth": null,
+            "maxWidthUnit": "px",
+            "minWidth": null,
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidth": null,
+            "maxWidthUnit": "px",
+            "minWidth": null,
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidth": null,
+            "maxWidthUnit": "px",
+            "minWidth": null,
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidth": null,
+            "maxWidthUnit": "px",
+            "minWidth": null,
+            "minWidthUnit": "px",
+            "overflow": false
+            }
+            ]
+        </script>
+        <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+            [
+            {
+            "height": 1,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            }
+            ]
+        </script>
+
+        <div id="TcHmiTextblock_278" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="1" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
+
+        </div>
+
+        <div id="Kremer_Light_48" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-symbol="%pp%Vac1%/pp%">
+            <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+                {
+                "color": "rgba(0, 255, 0, 1)"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+                {
+                "color": "rgba(117, 117, 117, 1)"
+                }
+            </script>
+
+        </div>
+
+        <div id="TcHmiTextblock_279" data-tchmi-type="tchmi-textblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="2" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+        </div>
+
+        <div id="TcHmiTextblock_280" data-tchmi-type="tchmi-textblock" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="3" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
+
+        </div>
+
+        <div id="TcHmiTextblock_281" data-tchmi-type="tchmi-textblock" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="-1" data-tchmi-left-unit="px" data-tchmi-text="4" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+        </div>
+
+        <div id="TcHmiTextblock_282" data-tchmi-type="tchmi-textblock" data-tchmi-grid-column-index="4" data-tchmi-grid-row-index="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="5" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+        </div>
+
+        <div id="TcHmiTextblock_283" data-tchmi-type="tchmi-textblock" data-tchmi-grid-column-index="5" data-tchmi-grid-row-index="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="6" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
+
+        </div>
+
+        <div id="Kremer_Light_49" data-tchmi-type="tchmi-user-control-host" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-symbol="%pp%Vac2%/pp%">
+            <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+                {
+                "color": "rgba(0, 255, 0, 1)"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+                {
+                "color": "rgba(117, 117, 117, 1)"
+                }
+            </script>
+
+        </div>
+
+        <div id="Kremer_Light_50" data-tchmi-type="tchmi-user-control-host" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-symbol="%pp%Vac3%/pp%">
+            <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+                {
+                "color": "rgba(0, 255, 0, 1)"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+                {
+                "color": "rgba(117, 117, 117, 1)"
+                }
+            </script>
+
+        </div>
+
+        <div id="Kremer_Light_51" data-tchmi-type="tchmi-user-control-host" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-symbol="%pp%Vac4%/pp%">
+            <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+                {
+                "color": "rgba(0, 255, 0, 1)"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+                {
+                "color": "rgba(117, 117, 117, 1)"
+                }
+            </script>
+
+        </div>
+
+        <div id="Kremer_Light_52" data-tchmi-type="tchmi-user-control-host" data-tchmi-grid-column-index="4" data-tchmi-grid-row-index="0" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-symbol="%pp%Vac5%/pp%">
+            <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+                {
+                "color": "rgba(0, 255, 0, 1)"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+                {
+                "color": "rgba(117, 117, 117, 1)"
+                }
+            </script>
+
+        </div>
+
+        <div id="Kremer_Light_53" data-tchmi-type="tchmi-user-control-host" data-tchmi-grid-column-index="5" data-tchmi-grid-row-index="0" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-symbol="%pp%Vac6%/pp%">
+            <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+                {
+                "color": "rgba(0, 255, 0, 1)"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+                {
+                "color": "rgba(117, 117, 117, 1)"
+                }
+            </script>
+
+        </div>
+
+    </div>
+
+</div>

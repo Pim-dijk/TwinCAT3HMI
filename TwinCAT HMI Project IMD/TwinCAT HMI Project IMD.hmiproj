@@ -11,7 +11,7 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10122</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10123</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
     <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
@@ -150,6 +150,21 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\MachineParts\TakeOutUnit\TakeOutUnit_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\TransferMold\TransferMold_Manual.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\TransferMold\TransferMold_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\TransferMold\TransferMold_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\MachineParts\TransferMold\TransferMold_Settings2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\Service.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\subFolder\SubfolderScreen.content">
@@ -434,6 +449,12 @@
     <Content Include="UserControls\LanguageSelect.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\TakeOutUnit_VacuumSections.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\TakeOutUnit_VacuumSections.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\TextInputField.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -455,10 +476,12 @@
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Top" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\PID_Settings" />
     <Folder Include="Content\SubContent\MachineParts\Gantry" />
+    <Folder Include="Content\SubContent\MachineParts\TransferMold" />
     <Folder Include="Content\SubContent\MachineParts\TakeOutUnit" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming\MachinePond" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming\Spraybar" />
+    <Folder Include="Content\SubContent\Service" />
     <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />

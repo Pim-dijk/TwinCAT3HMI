@@ -1,80 +1,214 @@
 ﻿<div id="TakeOutUnit_Overview" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TakeOutUnit_Overview.onAttached",
-    "actions": [
-      {
+    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+        [
+        {
+        "event": "TakeOutUnit_Overview.onAttached",
+        "actions": [
+        {
         "objectType": "WriteToSymbol",
         "active": true,
         "symbolExpression": "%i%RegionText%/i%",
         "valueType": "tchmi:general#/definitions/String",
         "value": {
-          "objectType": "FunctionExpression",
-          "functionExpression": "'Takeout unit ' + %i%_strAB%/i%+ ' overview'"
+        "objectType": "FunctionExpression",
+        "functionExpression": "'Takeout unit ' + %i%_strAB%/i%+ ' overview'"
         },
         "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-<div id="TcHmiImage_9" data-tchmi-type="tchmi-image" data-tchmi-height="178" data-tchmi-height-unit="px" data-tchmi-left="155" data-tchmi-left-unit="px" data-tchmi-src="%f%%i%_IsASide%/i% ? 'Images/Take_out_Aside_side.PNG' : 'Images/Take_out_Bside_side.PNG'%/f%" data-tchmi-top="62" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px">
+        }
+        ]
+        }
+        ]
+    </script>
+    <div id="TcHmiImage_9" data-tchmi-type="tchmi-image" data-tchmi-height="178" data-tchmi-height-unit="px" data-tchmi-left="126" data-tchmi-left-unit="px" data-tchmi-src="%f%%i%_IsASide%/i% ? 'Images/Take_out_Aside_side.PNG' : 'Images/Take_out_Bside_side.PNG'%/f%" data-tchmi-top="97" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px">
+
+    </div>
+
+    <div id="TcHmiButton_115" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Manual control" data-tchmi-top="383" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+        <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+            [
+            {
+            "event": "TcHmiButton_115.onPressed",
+            "actions": [
+            {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/ContentPath",
+            "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/ContentPath",
+            "value": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Manual.content"
+            },
+            "asyncWait": true
+            }
+            ]
+            }
+            ]
+        </script>
+    </div>
+
+    <div id="TcHmiButton_116" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Settings" data-tchmi-top="323" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+        <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+            [
+            {
+            "event": "TcHmiButton_116.onPressed",
+            "actions": [
+            {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/ContentPath",
+            "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/ContentPath",
+            "value": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Settings.content"
+            },
+            "asyncWait": true
+            }
+            ]
+            }
+            ]
+        </script>
+    </div>
+
+    <div id="TcHmiPolygon_6" data-tchmi-type="tchmi-polygon" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="190" data-tchmi-left-unit="px" data-tchmi-points="100,0 100,100 0,50" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="1" data-tchmi-top="298" data-tchmi-top-unit="px" data-tchmi-width="20" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+            {
+            "color": "Black"
+            }
+        </script>
+
+    </div>
+
+    <div id="TcHmiPolygon_7" data-tchmi-type="tchmi-polygon" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="499" data-tchmi-left-unit="px" data-tchmi-points="0,0 100,50 0,100" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="1" data-tchmi-top="298" data-tchmi-top-unit="px" data-tchmi-width="20" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+            {
+            "color": "Black"
+            }
+        </script>
+
+    </div>
+
+    <div id="TcHmiPolygon_8" data-tchmi-type="tchmi-polygon" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="688" data-tchmi-left-unit="px" data-tchmi-points="0,0 100,0 50,50" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="1" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="20" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+            {
+            "color": "Black"
+            }
+        </script>
+
+    </div>
+
+    <div id="TcHmiLine_41" data-tchmi-type="tchmi-line" data-tchmi-height="75" data-tchmi-height-unit="px" data-tchmi-left="698" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="2" data-tchmi-top="148" data-tchmi-top-unit="px" data-tchmi-width="5" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="75">
+        <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+            {
+            "color": "Black"
+            }
+        </script>
+
+    </div>
+
+    <div id="TcHmiPolygon_9" data-tchmi-type="tchmi-polygon" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="688" data-tchmi-left-unit="px" data-tchmi-points="50,0 100,100 0,100" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="1" data-tchmi-top="128" data-tchmi-top-unit="px" data-tchmi-width="20" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+            {
+            "color": "Black"
+            }
+        </script>
+
+    </div>
+
+    <div id="TcHmiLine_42" data-tchmi-type="tchmi-line" data-tchmi-height="11" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="2" data-tchmi-top="308" data-tchmi-top-unit="px" data-tchmi-width="289" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="289" data-tchmi-y1="0" data-tchmi-y2="0">
+        <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+            {
+            "color": "Black"
+            }
+        </script>
+
+    </div>
+
+    <div id="Kremer_Light_38" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="155" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+            {
+            "color": "rgba(0, 255, 0, 1)"
+            }
+        </script>
+        <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+            {
+            "color": "rgba(117, 117, 117, 1)"
+            }
+        </script>
+
+    </div>
+
+    <div id="Kremer_Light_39" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="529" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+            {
+            "color": "rgba(0, 255, 0, 1)"
+            }
+        </script>
+        <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+            {
+            "color": "rgba(117, 117, 117, 1)"
+            }
+        </script>
+
+    </div>
+
+    <div id="Kremer_Light_40" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="686" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="250" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+            {
+            "color": "rgba(0, 255, 0, 1)"
+            }
+        </script>
+        <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+            {
+            "color": "rgba(117, 117, 117, 1)"
+            }
+        </script>
+
+    </div>
+
+    <div id="Kremer_Light_41" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="686" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="97" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+        <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+            {
+            "color": "rgba(0, 255, 0, 1)"
+            }
+        </script>
+        <script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+            {
+            "color": "rgba(117, 117, 117, 1)"
+            }
+        </script>
+
+    </div>
+
+<div id="TakeOutUnit_VacuumSections_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="78" data-tchmi-height-unit="px" data-tchmi-left="293" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TakeOutUnit_VacuumSections.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-vac2="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.EnableVacuumSection.1%/s%" data-tchmi-visible="%f%%i%_IsASide%/i% ? false : true%/f%" data-tchmi-width="362" data-tchmi-width-unit="px" data-tchmi-vac1="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.EnableVacuumSection.0%/s%" data-tchmi-vac3="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.EnableVacuumSection.2%/s%" data-tchmi-vac4="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.EnableVacuumSection.3%/s%" data-tchmi-vac5="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.EnableVacuumSection.4%/s%" data-tchmi-vac6="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.EnableVacuumSection.5%/s%">
 
 </div>
 
-<div id="TcHmiButton_115" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Manual control" data-tchmi-top="383" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TakeOutUnit_VacuumSections_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="78" data-tchmi-height-unit="px" data-tchmi-left="155" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TakeOutUnit_VacuumSections.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="%f%%i%_IsASide%/i% ? true : false%/f%" data-tchmi-width="362" data-tchmi-width-unit="px" data-tchmi-vac1="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.EnableVacuumSection.0%/s%" data-tchmi-vac2="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.EnableVacuumSection.1%/s%" data-tchmi-vac3="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.EnableVacuumSection.2%/s%" data-tchmi-vac4="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.EnableVacuumSection.3%/s%" data-tchmi-vac5="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.EnableVacuumSection.4%/s%" data-tchmi-vac6="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.EnableVacuumSection.5%/s%">
 
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiButton_115.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Manual.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
-<div id="TcHmiButton_116" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="695" data-tchmi-left-unit="px" data-tchmi-text="Settings" data-tchmi-top="323" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiTextblock_284" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="129" data-tchmi-left-unit="px" data-tchmi-text="Out" data-tchmi-top="328" data-tchmi-top-unit="px" data-tchmi-width="77" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
 
+</div>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiButton_116.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/SubContent/MachineParts/TakeOutUnit/TakeOutUnit_Settings.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+<div id="TcHmiTextblock_285" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="504" data-tchmi-left-unit="px" data-tchmi-text="In" data-tchmi-top="328" data-tchmi-top-unit="px" data-tchmi-width="77" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiTextblock_286" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="660" data-tchmi-left-unit="px" data-tchmi-text="Up" data-tchmi-top="61" data-tchmi-top-unit="px" data-tchmi-width="77" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiTextblock_287" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="660" data-tchmi-left-unit="px" data-tchmi-text="Down" data-tchmi-top="285" data-tchmi-top-unit="px" data-tchmi-width="77" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="18">
+
 </div>
 
 </div>
