@@ -4,7 +4,10 @@
 .framework-control-testing
 {
     overflow: hidden;
-
+    color: blue;
+    background-color: white;
+    padding: 25px;
+    font-size: 14px;
 }
 
 .framework-control-testing-template
@@ -32,3 +35,47 @@
     cursor: not-allowed;
 }
 */
+
+/* Remove default bullets */
+.framework-control-testing ul, #myUL {
+    list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+.framework-control-testing #myUL {
+    margin: 0;
+    padding: 0;
+}
+
+.framework-control-testing ul {
+    padding-left: 20px;
+}
+
+/* Style the caret/arrow */
+.framework-control-testing .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+}
+
+    /* Create the caret/arrow with a unicode, and style it */
+    .framework-control-testing .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.framework-control-testing .caret-down::before {
+    transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.framework-control-testing .nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.framework-control-testing .active {
+    display: block;
+}

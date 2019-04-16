@@ -1,0 +1,530 @@
+﻿<div id="ZeroAbsEncoder" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "ZeroAbsEncoder.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Zero absolute encoders"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+<div id="TcHmiTextblock_408" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Zero Encoder:" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_66" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_409" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="379" data-tchmi-left-unit="px" data-tchmi-text="The gates need to be open in order to &quot;Zero&quot; the Encoder. When the zeroing succeeded, the light next to the button will turn green." data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="15">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(68, 68, 68, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_410" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Gantry A Horizontal" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_107" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="84" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.HorizontalAxis.mxZeroCommand%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_148" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="160" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.ProductHandling.GantryA.Hor_PositionHome%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_411" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.ProductHandling.GantryA.HorizontalAxis.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_68" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="84" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.HorizontalAxis.SignalLightStatus%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_412" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="149" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="72" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiLine_68" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="134" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_413" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Gantry A Vertical" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_108" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="178" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VerticalAxis.mxZeroCommand%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_149" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="160" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="192" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.ProductHandling.GantryA.Vert_PositionHome%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_414" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.ProductHandling.GantryA.VerticalAxis.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_69" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="178" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VerticalAxis.SignalLightStatus%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_415" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="149" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="166" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiLine_69" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="228" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_416" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Spraybar" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_109" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="272" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.mxZeroCommand%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_150" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="160" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionHome%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_417" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_70" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="272" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.SignalLightStatus%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_418" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="149" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiLine_70" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="322" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_419" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Product conveyor" data-tchmi-top="332" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_110" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.mxZeroCommand%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_420" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="332" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_71" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="304" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.SignalLightStatus%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiLine_71" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_422" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-text="Gantry B Horizontal" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_111" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="84" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.HorizontalAxis.mxZeroCommand%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_152" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="98" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.ProductHandling.GantryB.Hor_PositionHome%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_423" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.ProductHandling.GantryB.HorizontalAxis.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_72" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="84" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.HorizontalAxis.SignalLightStatus%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_424" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="584" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="72" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiLine_72" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="134" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_425" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-text="Gantry B Vertical" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_112" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="178" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.mxZeroCommand%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_153" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="192" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.ProductHandling.GantryB.Vert_PositionHome%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_426" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.ActPosition%/s%" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_73" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="178" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.SignalLightStatus%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_427" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="584" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="166" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiLine_73" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="228" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_428" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-text="Bottommold A" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_113" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="272" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_154" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_429" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%'0.0' + ' mm'%/f%" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="272" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_430" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="584" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiLine_74" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="322" data-tchmi-top-unit="px" data-tchmi-width="345" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="345" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_431" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px" data-tchmi-text="Bottommold B" data-tchmi-top="332" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="Kremer_Button_114" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="IOField_155" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="380" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_432" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%'0.0' + ' mm'%/f%" data-tchmi-top="332" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="Kremer_Light_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(0, 62, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_433" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="584" data-tchmi-left-unit="px" data-tchmi-text="Zero position value" data-tchmi-top="354" data-tchmi-top-unit="px" data-tchmi-width="124" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="12" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+</div>

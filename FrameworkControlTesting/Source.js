@@ -69,8 +69,8 @@
                 FrameworkControlTesting.prototype.__previnit = function () {
                     /** Handle template elements. Should be done before call to __previnit of super class. */
                     this.__elementTemplateRoot = this.__element.find('.framework-control-testing-template');
-                    this.__firstButton = this.__elementTemplateRoot.find('.buttonClass');
-                    
+                    this.__myUL = this.__elementTemplateRoot.find('#myUl');
+                    this.__toggler = this.__myUL.find('.caret');
                     
                     /** Call __previnit of super class with the correct instance. */
                     _super.prototype.__previnit.call(this);
@@ -98,142 +98,28 @@
                      * Initialize everything which is only available while the control is part of the active dom.
                      */
 
-                    /**
-                    * @description Setter function for 'data-tchmi-value' attribute.
-                    * @param {Boolean} valueNew the new value or null 
-                    * @returns {void}
-                    */
-                    FrameworkControlTesting.prototype.setButtonValue = function (valueNew) {
-                        // convert the value with the value converter
-                        var convertedValue = TcHmi.ValueConverter.toBoolean(valueNew);
-
-                        // check if the converted value is valid
-                        if (convertedValue === null) {
-                            // if we have no value to set we have to fall back to the defaultValueInternal from description.json
-                            convertedValue = this.getAttributeDefaultValueInternal('Value');
-                        }
-
-                        if (tchmi_equal(convertedValue, this.__buttonValue)) {
-                            // skip processing when the value has not changed
-                            return;
-                        }
-
-                        // remember the new value
-                        this.__buttonValue = convertedValue;
-
-                        // inform the system that the function has a changed result.
-                        TcHmi.EventProvider.raise(this.__id + ".onFunctionResultChanged", ["getButtonValue"]);
-
-                        // call process function to process the new value
-                        this.__processButtonValue();
-                    };
-
-                    /**
-                    * @description Getter function for 'data-tchmi-buttonValue' attribute.
-                    * @returns {Boolean} the return value
-                    */
-                    FrameworkControlTesting.prototype.getButtonValue = function () {
-                        return this.__buttonValue;
-                    };
-
-                    /**
-                    * @description Processor function for 'data-tchmi-value' attribute.
-                    * @returns {void}
-                    */
-                    FrameworkControlTesting.prototype.__processButtonValue = function () {
-                        // process actions with Value
-                        // ...
-                        if (this.__buttonValue) {
-                            this.__firstButton.addClass("buttonHigh");
-                            this.__firstButton.removeClass("buttonLow");
-                        } else {
-                            this.__firstButton.addClass("buttonLow");
-                            this.__firstButton.removeClass("buttonHigh");
-                        }
-                    };
-
-                    /**
-                    * @description Setter function for 'data-tchmi-value' attribute.
-                    * @param {Boolean} valueNew the new value or null 
-                    * @returns {void}
-                    */
-                    FrameworkControlTesting.prototype.setTextValue = function (valueNew) {
-                        // convert the value with the value converter
-                        var convertedValue = TcHmi.ValueConverter.toString(valueNew);
-
-                        // check if the converted value is valid
-                        if (convertedValue === null) {
-                            // if we have no value to set we have to fall back to the defaultValueInternal from description.json
-                            convertedValue = this.getAttributeDefaultValueInternal('Value');
-                        }
-
-                        if (tchmi_equal(convertedValue, this.__textValue)) {
-                            // skip processing when the value has not changed
-                            return;
-                        }
-
-                        // remember the new value
-                        this.__textValue = convertedValue;
-
-                        // inform the system that the function has a changed result.
-                        TcHmi.EventProvider.raise(this.__id + ".onFunctionResultChanged", ["getTextValue"]);
-
-                        // call process function to process the new value
-                        this.__processTextValue();
-                    };
-
-                    /**
-                    * @description Getter function for 'data-tchmi-buttonValue' attribute.
-                    * @returns {Boolean} the return value
-                    */
-                    FrameworkControlTesting.prototype.getTextValue = function () {
-                        return this.__textValue;
-                    };
-
-                    /**
-                    * @description Processor function for 'data-tchmi-value' attribute.
-                    * @returns {void}
-                    */
-                    FrameworkControlTesting.prototype.__processTextValue = function () {
-                        // process actions with Value
-                        // ...
-                        
-                    };
-
-                    // Simple jQuery for when the button gets pressed
-                    this.__firstButton.on('click', function (e) {
-                        e.preventDefault();
-                        console.log("Button pressed!" + this.__buttonValue);
-                        // Doesn't fire
-                        TcHmi.EventProvider.raise(this.__id + '.onMyCustomEvent');
+                    // Give each caret a onClick function
+                    carots.bind('click', function () {
+                        console.log("Clicked the carot!");
+                        console.log($(this));
+                        $.each($(this), function (key, value) {
+                            console.log(value.parentElement.children);
+                            $.each(value.parentElement.children, function (key, value) {
+                                if (value.classList.contains("nested")) {
+                                    value.classList.toggle('active');
+                                }
+                            });
+                        });
+                        $(this)[0].classList.toggle('caret-down');
                     });
 
-                    FrameworkControlTesting.prototype.myCustomFunction = function (functionParameter1, functionParameter2) {
-                        /**
-                        * customFunction is defined in the description.json and called from outside.
-                        * The api functions are shown in the graphical user interface of the enginnering in the twincat
-                        */
-                        var convertedParameter1 = TcHmi.ValueConverter.toNumber(functionParameter1);
-                        if (convertedParameter1 === null) {
-                            // parameter is null: define what to do in this case
-
-                            // exit function call if the execution without this parameter is not possible
-                            return;
-                        }
-
-                        var convertedParameter2 = TcHmi.ValueConverter.toBoolean(functionParameter2);
-                        if (convertedParameter2 === null) {
-                            // parameter is null: define what to do in this case
-
-                            // exit function call if the execution without this parameter is not possible
-                            return;
-                        }
-
-                        // implement function logic with the evaluation of the parameters here
-                        console.log('This is my custom function!');
-                        console.log(functionParameter1);
-                        console.log(functionParameter2);
-                    }
+                    //// Simple jQuery for when the button gets pressed
+                    //this.__firstButton.on('click', function (e) {
+                    //    e.preventDefault();
+                    //    console.log("Button pressed!" + this.__buttonValue);
+                    //    // Doesn't fire
+                    //    TcHmi.EventProvider.raise(this.__id + '.onMyCustomEvent');
+                    //});
 
                 };
                 /**

@@ -164,7 +164,22 @@
     <Content Include="Content\SubContent\MachineParts\TransferMold\TransferMold_Settings2.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\Service\EtherCatTopology.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\Init.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\Sequence.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\SequenceInit.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\SubContent\Service\Service.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\ZeroAbsEnc\ZeroAbsEncoder.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\subFolder\SubfolderScreen.content">
@@ -437,6 +452,12 @@
     <Content Include="UserControls\Kremer_PopupMessage.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserControls\Kremer_Treeview.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Treeview.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserControls\Kremer_UserManagement.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -482,6 +503,11 @@
     <Folder Include="Content\SubContent\MachineParts\ProductForming\MachinePond" />
     <Folder Include="Content\SubContent\MachineParts\ProductForming\Spraybar" />
     <Folder Include="Content\SubContent\Service" />
+    <Folder Include="Content\SubContent\Service\CilinderTimes" />
+    <Folder Include="Content\SubContent\Service\I2T_Settings" />
+    <Folder Include="Content\SubContent\Service\IO" />
+    <Folder Include="Content\SubContent\Service\ZeroAbsEnc" />
+    <Folder Include="Content\SubContent\Service\Settings" />
     <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />

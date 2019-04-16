@@ -8,7 +8,7 @@
      data-tchmi-background-image-height="100" data-tchmi-background-image-width="100"
      data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600" data-tchmi-height="600" data-tchmi-width="800" data-tchmi-class-names="%f%['parent'];%/f%">
 
-<div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="-10" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
+<div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {
@@ -278,7 +278,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/TrendView.content"
+          "value": "Content/SubContent/Service/Service.content"
         },
         "asyncWait": true
       }

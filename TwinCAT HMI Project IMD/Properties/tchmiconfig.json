@@ -99,6 +99,9 @@
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_Treeview.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_UserManagement.usercontrol"
     },
     {
@@ -209,6 +212,26 @@
     },
     {
       "url": "Content/SubContent/MachineParts/TransferMold/TransferMold_Settings2.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/ZeroAbsEnc/ZeroAbsEncoder.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/EtherCatTopology.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/Init.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/Sequence.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/SequenceInit.content",
       "preload": false
     },
     {

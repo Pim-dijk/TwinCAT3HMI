@@ -3309,6 +3309,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.BottomMoldB.HeatingZone.0.FB_Heating_Controller.HMI_AutoBtn": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -3779,6 +3799,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4019,6 +4059,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.SignalLightStatus": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::SprayBarMotor::SignalLightStatus",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.SprayBarMotor.mxZeroCommand": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::SprayBarMotor::mxZeroCommand",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.ProductForming.TankLevel01.EngUnits": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4072,6 +4132,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.ProductForming.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.ProductForming.mxSprayBarAtRestPosBack": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4089,6 +4159,16 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::mxSprayBarAtRestPosFront",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
             },
             "USEMAPPING": true
         },
@@ -4482,6 +4562,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldB.HeatingZone.0.FB_Heating_Controller.HMI_AutoBtn": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4872,6 +4972,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TransferLateTime": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -5032,11 +5152,51 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TransferMold.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TransferMold::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TransferMold.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TransferMold::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.sCycleStateText": {
             "ACCESS": 2,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::sCycleStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::sInitStateText",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/STRING(80)"
             },
@@ -8357,6 +8517,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionActualMeasured",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.PositionHome": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::PositionHome",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
             },
@@ -11722,6 +11892,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryA.Hor_PositionHome": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryA::Hor_PositionHome",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.ProductHandling.GantryA.Hor_PositionRest": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -11767,6 +11947,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryA::PositionHorizontalPickup",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryA.Vert_PositionHome": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryA::Vert_PositionHome",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
             },
@@ -11872,6 +12062,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryB.Hor_PositionHome": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryB::Hor_PositionHome",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.ProductHandling.GantryB.Hor_PositionRest": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -11917,6 +12117,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryB::PositionHorizontalPickup",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryB.Vert_PositionHome": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryB::Vert_PositionHome",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
             },
@@ -12042,6 +12252,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductHandling.GantryA.HorizontalAxis.SignalLightStatus": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::HorizontalAxis::SignalLightStatus",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryA.HorizontalAxis.mxZeroCommand": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::HorizontalAxis::mxZeroCommand",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.ProductHandling.GantryA.VerticalAxis.ActPosition": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -12069,6 +12299,46 @@
             "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::VerticalAxis::HMI_Forward",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryA.VerticalAxis.SignalLightStatus": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::VerticalAxis::SignalLightStatus",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryA.VerticalAxis.mxZeroCommand": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::VerticalAxis::mxZeroCommand",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryA.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryA.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
             },
             "USEMAPPING": true
         },
@@ -12162,6 +12432,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductHandling.GantryB.HorizontalAxis.SignalLightStatus": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::HorizontalAxis::SignalLightStatus",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryB.HorizontalAxis.mxZeroCommand": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::HorizontalAxis::mxZeroCommand",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.ActPosition": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -12192,6 +12482,56 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.SignalLightStatus": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::VerticalAxis::SignalLightStatus",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.mxZeroCommand": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::VerticalAxis::mxZeroCommand",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryB.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.GantryB.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::sInitStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.ActPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::Belt::ActPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.HMI_Backward": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -12212,11 +12552,61 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.SignalLightStatus": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::Belt::SignalLightStatus",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.mxZeroCommand": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::Belt::mxZeroCommand",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.OutfeedConveyor.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.mxInitialized": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.ProductHandling.sCycleStateText": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::ProductHandling::sCycleStateText",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.sInitStateText": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::sInitStateText",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/STRING(80)"
             },
@@ -12455,6 +12845,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.mxHMI_StartInit": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::mxHMI_StartInit",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.mxHMI_Stop": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -12480,6 +12880,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::mxHMI_StopHydraulicsState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.mxHMI_StopInit": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::mxHMI_StopInit",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },

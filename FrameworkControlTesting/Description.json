@@ -85,82 +85,11 @@
       "heritable": false,
       "defaultValue": "framework-control-testing",
       "defaultValueInternal": null
-    },
-    {
-      "name": "data-tchmi-buttonValue",
-      "displayName": "Button Value",
-      "propertyName": "buttonValue",
-      "propertySetterName": "setButtonValue",
-      "propertyGetterName": "getButtonValue",
-      "visible": true,
-      "type": "tchmi:general#/definitions/Boolean",
-      "category": "Parameters",
-      "description": "Type of the control.",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": false,
-      "defaultValue": false,
-      "defaultValueInternal": ""
-    },
-    {
-      "name": "data-tchmi-textValue",
-      "displayName": "Text Value",
-      "propertyName": "textValue",
-      "propertySetterName": "setTextValue",
-      "propertyGetterName": "getTextValue",
-      "visible": true,
-      "type": "tchmi:general#/definitions/String",
-      "category": "Parameters",
-      "description": "Text of the control textbox.",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "heritable": false,
-      "defaultValue": false,
-      "defaultValueInternal": ""
     }
   ],
   "attributeCategories": [],
-  "functions": [
-    {
-      "name": "myCustomFunction",
-      "displayName": "myCustomFunction",
-      "visible": true,
-      "description": "This is a sample for a function that can be called.",
-      "category": "Actions",
-      "params": [
-        {
-          "name": "functionParameter1",
-          "displayName": "functionParameter1",
-          "description": "This is a sample for a function parameter.",
-          "type": "tchmi:general#/definitions/Number",
-          "visible": true
-        },
-        {
-          "name": "functionParameter2",
-          "displayName": "functionParameter2",
-          "description": "This is a sample for a function parameter.",
-          "type": "tchmi:general#/definitions/Boolean",
-          "visible": true
-        }
-      ],
-      "type": null,
-      "heritable": false,
-      "searchTerms": []
-    }
-  ],
-  "events": [
-    {
-      "name": ".onMyCustomEvent",
-      "displayName": ".onMyCustomEvent",
-      "visible": true,
-      "displayPriority": 30,
-      "category": "Control",
-      "description": "This is a sample for a framework control event.",
-      "heritable": true,
-      "allowsPreventDefault": false
-    }
-  ],
+  "functions": [],
+  "events": [],
   "dataTypes": [
     {
       "name": "tchmi:framework#/definitions/FrameworkControlTesting",
