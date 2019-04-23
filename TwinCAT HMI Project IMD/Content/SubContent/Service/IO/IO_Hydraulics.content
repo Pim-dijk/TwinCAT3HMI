@@ -1,0 +1,572 @@
+﻿<div id="IO_Hydraulics" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+
+<div id="TcHmiRectangle_65" data-tchmi-type="tchmi-rectangle" data-tchmi-height="393" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_491" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Hydraulics inputs" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="18">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_500" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Cabinet 24V error" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_101" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixHydraulicsMcc24vError%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_501" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Cabinet cooler error" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_102" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixCabinetCoolerError%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_502" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature switch 40c" data-tchmi-top="79" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_103" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="79" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch40c%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_503" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature switch 55c" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_104" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitch55c%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_504" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature too high" data-tchmi-top="121" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_105" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="121" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixTemperatureSwitchTooHigh%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_505" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pressure filter 75" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_106" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt75%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_506" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pressure filter 100" data-tchmi-top="163" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_107" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="163" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixPressureFilterAt100%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_507" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Aux filter 75" data-tchmi-top="184" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_108" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="184" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt75%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_508" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Aux filter 100" data-tchmi-top="205" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_109" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="205" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixAuxFilterAt100%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_509" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Oil level too low" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_110" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixOilLvlTooLow%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_510" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Oil level low" data-tchmi-top="247" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_111" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="247" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.ixOilLvlLow%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_511" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pump softstarter failure" data-tchmi-top="268" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_112" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="268" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.HydraulicPump.ixSSFailure%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_512" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pump maintenance switch" data-tchmi-top="289" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_113" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="289" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.HydraulicPump.ixMaintenance%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_513" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pump is running" data-tchmi-top="310" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_514" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Filter motor thermal" data-tchmi-top="331" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_115" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="331" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.FilterMotor.ixThermal%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_515" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Filter motor maintenance" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_116" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.FilterMotor.ixMaintenance%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_516" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Cooling motor thermal" data-tchmi-top="373" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_117" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="373" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.CoolingFan.ixThermal%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_517" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Cooling motor maint." data-tchmi-top="394" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_118" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="394" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.CoolingFan.ixMaintenance%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="Kremer_Light_119" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="310" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.HydraulicPump.ixIsRunning%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiRectangle_66" data-tchmi-type="tchmi-rectangle" data-tchmi-height="184" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_518" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-text="Hydraulic outputs" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="18">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="Kremer_Light_120" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.HydraulicPump.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_519" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Hydraulic pump" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_520" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Filter motor" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_121" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="71" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.FilterMotor.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiRectangle_67" data-tchmi-type="tchmi-rectangle" data-tchmi-height="168" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="256" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_521" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-text="Hydraulic Analog inputs" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="18">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_522" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Oil temperature" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_523" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Main system pressure" data-tchmi-top="291" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_124" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="97" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.CoolingFan.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_524" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Cooling fan" data-tchmi-top="97" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_525" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Pressurize pump valve" data-tchmi-top="122" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_125" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="122" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.PressurizePumpValve.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="Kremer_Light_126" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="149" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.AccuDrainValve.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_526" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Accu drain valve" data-tchmi-top="149" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_527" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Isolation valve" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_127" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.IsolationValve.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_528" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.OilTemperature.RawInput%/s%" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="41" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_529" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.InMoldDrying.HydraulicsMain.MainSystemPressure.RawInput%/s%" data-tchmi-top="291" data-tchmi-top-unit="px" data-tchmi-width="41" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IO_Hydraulics.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "IO Hydraulics overview"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>

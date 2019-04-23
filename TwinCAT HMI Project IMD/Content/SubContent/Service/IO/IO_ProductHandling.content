@@ -1,0 +1,773 @@
+﻿<div id="IO_ProductHandling" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+
+<div id="TcHmiRectangle_69" data-tchmi-type="tchmi-rectangle" data-tchmi-height="393" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_559" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Gantry A" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="18">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_560" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Collision sensor active" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_146" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixCollision%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_561" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="End switch horizontal front" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_147" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixEndLimitHorFront%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_562" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="End switch horizontal back" data-tchmi-top="79" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_148" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="79" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixEndLimitHorBack%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_563" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="End switch vertical up" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_149" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixEndLimitVertUp%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_567" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 1" data-tchmi-top="302" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_153" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="302" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VacuumValve.0.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_568" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 2" data-tchmi-top="323" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_569" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 3" data-tchmi-top="344" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_154" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="344" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VacuumValve.2.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_570" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 4" data-tchmi-top="365" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_155" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="365" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VacuumValve.3.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_571" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 5" data-tchmi-top="386" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_156" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="386" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VacuumValve.4.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_572" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 6" data-tchmi-top="407" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_157" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="407" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VacuumValve.5.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="Kremer_Light_158" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="323" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.VacuumValve.1.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_574" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Outputs" data-tchmi-top="283" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="16">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_575" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="End switch vertical down" data-tchmi-top="121" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_159" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="121" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixEndLimitVertDown%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_576" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 1" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_160" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixVacuumSensor.0%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_577" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 2" data-tchmi-top="163" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_161" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="163" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixVacuumSensor.1%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_578" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 3" data-tchmi-top="184" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_162" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="184" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixVacuumSensor.2%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_579" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 4" data-tchmi-top="205" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_163" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="205" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixVacuumSensor.3%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_580" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 5" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_164" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixVacuumSensor.4%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_581" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 6" data-tchmi-top="247" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_165" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="247" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryA.ixVacuumSensor.5%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiRectangle_70" data-tchmi-type="tchmi-rectangle" data-tchmi-height="393" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="37" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_582" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-text="Gantry B" data-tchmi-top="11" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="18">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_583" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Collision sensor active" data-tchmi-top="38" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_166" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="38" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixCollision%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_584" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="End switch horizontal front" data-tchmi-top="59" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_167" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="59" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixEndLimitHorFront%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_585" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="End switch horizontal back" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_168" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixEndLimitHorBack%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_586" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="End switch vertical up" data-tchmi-top="101" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_169" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="101" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixEndLimitVertUp%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_587" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 1" data-tchmi-top="303" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_170" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="303" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VacuumValve.0.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_588" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 2" data-tchmi-top="324" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiTextblock_589" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 3" data-tchmi-top="345" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_171" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="345" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VacuumValve.2.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_590" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 4" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_172" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VacuumValve.3.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_591" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 5" data-tchmi-top="387" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_173" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="387" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VacuumValve.4.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_592" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum valve 6" data-tchmi-top="408" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_174" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="408" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VacuumValve.5.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="Kremer_Light_175" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="324" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.VacuumValve.1.Q%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(0, 255, 0, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_593" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="273" data-tchmi-left-unit="px" data-tchmi-text="Outputs" data-tchmi-top="284" data-tchmi-top-unit="px" data-tchmi-width="253" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="16">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_594" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="End switch vertical down" data-tchmi-top="122" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_176" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="122" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixEndLimitVertDown%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_595" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 1" data-tchmi-top="143" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_177" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="143" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixVacuumSensor.0%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_596" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 2" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_178" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixVacuumSensor.1%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_597" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 3" data-tchmi-top="185" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_179" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="185" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixVacuumSensor.2%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_598" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 4" data-tchmi-top="206" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_180" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="206" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixVacuumSensor.3%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_599" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 5" data-tchmi-top="227" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_181" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="227" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixVacuumSensor.4%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="TcHmiTextblock_600" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="324" data-tchmi-left-unit="px" data-tchmi-text="Vacuum sensor 6" data-tchmi-top="248" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="Kremer_Light_182" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="248" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.GantryB.ixVacuumSensor.5%/s%">
+<script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-coloroff" type="application/json">
+{
+  "color": "rgba(255, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "IO_ProductHandling.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%RegionText%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "IO Product Handling overview"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>

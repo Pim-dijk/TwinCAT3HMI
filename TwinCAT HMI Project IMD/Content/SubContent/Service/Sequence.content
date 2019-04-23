@@ -133,7 +133,7 @@
 
 </div>
 
-<div id="Kremer_Button_103" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="52" data-tchmi-height-unit="px" data-tchmi-left="589" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="333" data-tchmi-top-unit="px" data-tchmi-value="Reset Cycles" data-tchmi-visible="True" data-tchmi-width="208" data-tchmi-width-unit="px">
+<div id="Kremer_Button_103" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="52" data-tchmi-height-unit="px" data-tchmi-left="589" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="333" data-tchmi-top-unit="px" data-tchmi-value="Reset Cycles" data-tchmi-visible="True" data-tchmi-width="208" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"

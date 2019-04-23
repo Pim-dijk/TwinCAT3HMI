@@ -164,10 +164,37 @@
     <Content Include="Content\SubContent\MachineParts\TransferMold\TransferMold_Settings2.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\Service\CilinderTimes\CT.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\SubContent\Service\EtherCatTopology.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\SubContent\Service\I2T_Settings\I2T_Settings.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\SubContent\Service\Init.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_BottomMolds.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_Hydraulics.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_Overview.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_ProductForming.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_ProductHandling.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_TopMolds.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\IO\IO_TransferMold.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\Service\Sequence.content">
@@ -177,6 +204,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\Service\Service.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\Settings\ServiceSettings.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\SubContent\Service\Settings\ServiceSettings2.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\Service\ZeroAbsEnc\ZeroAbsEncoder.content">

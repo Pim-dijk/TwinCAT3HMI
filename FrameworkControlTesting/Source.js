@@ -98,12 +98,15 @@
                      * Initialize everything which is only available while the control is part of the active dom.
                      */
 
+                    // Uncomment the next line to make the Treeview collapsable by the user
+                    //var caret = $('.caret');
+
                     // Give each caret a onClick function
-                    carots.bind('click', function () {
-                        console.log("Clicked the carot!");
-                        console.log($(this));
+                    caret.bind('click', function () {
+                        //console.log("Clicked the caret!");
+                        //console.log($(this));
                         $.each($(this), function (key, value) {
-                            console.log(value.parentElement.children);
+                            //console.log(value.parentElement.children);
                             $.each(value.parentElement.children, function (key, value) {
                                 if (value.classList.contains("nested")) {
                                     value.classList.toggle('active');

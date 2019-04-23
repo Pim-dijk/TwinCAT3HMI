@@ -379,7 +379,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_426" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.ActPosition%/s%" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_426" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.ProductHandling.GantryB.VerticalAxis.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
@@ -433,7 +433,7 @@
 
 </div>
 
-<div id="IOField_154" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_154" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.AxisPositionHome%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -442,11 +442,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_429" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%'0.0' + ' mm'%/f%" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_429" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.BottomMoldA.HorizontalAxis.ActPosition%/s% + ' mm'%/f%" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="Kremer_Light_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="272" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+<div id="Kremer_Light_74" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="272" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.BottomMoldA.HorizontalAxis.SignalLightStatus%/s%">
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
 {
   "color": "rgba(0, 255, 0, 1)"
@@ -477,7 +477,7 @@
 
 </div>
 
-<div id="Kremer_Button_114" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="Kremer_Button_114" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="445" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-value="Zero" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.BottomMoldB.HorizontalAxis.mxZeroCommand%/s%">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(200, 200, 200, 1)"
@@ -496,7 +496,7 @@
 
 </div>
 
-<div id="IOField_155" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="380" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm">
+<div id="IOField_155" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="595" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="380" data-tchmi-top-unit="px" data-tchmi-valuemax="2500" data-tchmi-valuemin="-2500" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.AxisPositionHome%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -505,11 +505,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_432" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-text="%f%'0.0' + ' mm'%/f%" data-tchmi-top="332" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_432" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-top="332" data-tchmi-top-unit="px" data-tchmi-width="51" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text="%f%%s%PLC1.MAIN.InMoldDrying.BottomMoldB.HorizontalAxis.ActPosition%/s% + ' mm'%/f%">
 
 </div>
 
-<div id="Kremer_Light_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px">
+<div id="Kremer_Light_75" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="739" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.BottomMoldB.HorizontalAxis.SignalLightStatus%/s%">
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
 {
   "color": "rgba(0, 255, 0, 1)"

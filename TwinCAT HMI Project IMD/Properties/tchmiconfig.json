@@ -215,6 +215,50 @@
       "preload": false
     },
     {
+      "url": "Content/SubContent/Service/CilinderTimes/CT.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/I2T_Settings/I2T_Settings.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_BottomMolds.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_Hydraulics.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_ProductForming.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_ProductHandling.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_TopMolds.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/IO/IO_TransferMold.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/Settings/ServiceSettings.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/Service/Settings/ServiceSettings2.content",
+      "preload": false
+    },
+    {
       "url": "Content/SubContent/Service/ZeroAbsEnc/ZeroAbsEncoder.content",
       "preload": false
     },
