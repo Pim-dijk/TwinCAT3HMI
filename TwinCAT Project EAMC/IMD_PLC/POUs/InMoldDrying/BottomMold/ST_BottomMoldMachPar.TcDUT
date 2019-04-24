@@ -3,14 +3,15 @@
   <DUT Name="ST_BottomMoldMachPar" Id="{8111af69-3b12-4b09-98ca-4b9949f5eb8c}">
     <Declaration><![CDATA[TYPE ST_BottomMoldMachPar :
 STRUCT
-	EnableNewTakeOut						: BOOL;
+	//EnableNewTakeOut						: BOOL;
 	PositionInStop							: REAL;
 	//PositionInSlow						: REAL;
 	PositionOutStop							: REAL;
-	PhysicalOffsetPos						: REAL;
+	//PhysicalOffsetPos						: REAL;
 	
 	StartVacAtTrPosOffset					: REAL;	// Start vacuum position at postion x of transfer (ofset)			
 	StopVacAtBmPosOffset					: REAL; // Stop vacuum at a certain bottommold pos (this is the ofset from the end)
+	StartVacBeforeDryingAtBmPosOffset		: REAL; // Start vacuum before drying
 	
 	HorizontalCilinder						: ST_CilinderParameters;
 	VerticalCilinder						: ST_CilinderParameters;
@@ -40,6 +41,9 @@ STRUCT
 	KickOffCounter							: DINT; // Counts the number of times the bottommold moved in or out.
 	GreasingVelocity						: LREAL;
 	GreasingPosition						: LREAL;
+	
+	OffsetStartBlowOff						: TIME;
+	BlowOffTime								: TIME;
 	
 END_STRUCT
 END_TYPE

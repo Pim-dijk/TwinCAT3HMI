@@ -136,7 +136,6 @@ Public Class Overview
     End Sub
 
     Private Sub BtnOutfeed_up(sender As Object, e As MouseEventArgs) Handles BtnOutfeed.MouseUp
-        frmMain.SubFormChange(frmMain.SubConveyorBelt_Overview)
         BtnTransferMold.FlatAppearance.BorderSize = 0
     End Sub
 
@@ -175,5 +174,13 @@ Public Class Overview
         End If
 
 
+    End Sub
+
+    Private Sub BTN_SpeedControl_Click(sender As Object, e As EventArgs) Handles BTN_SpeedControl.Click
+        frmMain.SubFormChange(frmMain.SubSpeedControl_Overview)
+    End Sub
+
+    Private Sub PauseState_DataChanged(sender As Object, e As EventArgs) Handles PauseState.DataChanged
+        BTN_SampleBtn.Visible = PauseState.Data ' Show button only when the machine is in a paused state
     End Sub
 End Class

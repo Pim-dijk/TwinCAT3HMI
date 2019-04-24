@@ -10,7 +10,6 @@ STRUCT
 
 	Gantry_A							: ST_GantryErrors;
 	Gantry_B							: ST_GantryErrors;
-	OutfeedConveyor						: ST_OutfeedConveyorErrors;
 	
 END_STRUCT
 END_TYPE

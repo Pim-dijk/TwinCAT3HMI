@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_CalculateMaxKO" Id="{a2680e5d-0e0c-4747-b4f9-63ada7667ec8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_CalculateMaxKO
+VAR_INPUT
+	init			: BOOL;
+	AEnabled		: BOOL;
+	BEnabled		: BOOL;
+	Value_A			: REAL;
+	Value_B			: REAL;
+	Value_Forming	: REAL;
+END_VAR
+VAR_IN_OUT
+	CLK_A 			: BOOL;
+	CLK_B 			: BOOL;
+	CLK_Forming		: BOOL;
+END_VAR
+VAR_OUTPUT
+	MaxKO			: REAL;
+END_VAR
+VAR
+	MaxKO_Array		: ARRAY [1..6] OF REAL;
+	
+	RT_CLK_A		: R_TRIG;
+	RT_CLK_B		: R_TRIG;
+	RT_CLK_Forming	: R_TRIG;
+	
+	MaxKO_OLD		: REAL;
+	i 				: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[RT_CLK_A(CLK:= CLK_A);
+RT_CLK_B(CLK:= CLK_B);
+RT_CLK_Forming(CLK:= CLK_Forming);
+
+IF init THEN
+	i := 1;
+	WHILE i <= 6 DO
+		MaxKO_Array[i] := 0;
+		i := i +1;
+	END_WHILE
+	MaxKO := 0;
+END_IF
+
+IF RT_CLK_A.Q THEN
+	CLK_A := FALSE;
+	MaxKO_Array[2] := MaxKO_Array[1];
+	MaxKO_Array[1] := Value_A;
+	IF NOT BEnabled THEN
+		MaxKO_Array[4] := MaxKO_Array[3];
+		MaxKO_Array[3] := Value_A;
+	END_IF
+END_IF
+IF RT_CLK_B.Q THEN
+	CLK_B := FALSE;
+	MaxKO_Array[4] := MaxKO_Array[3];
+	MaxKO_Array[3] := Value_B;
+	IF NOT AEnabled THEN
+		MaxKO_Array[2] := MaxKO_Array[1];
+		MaxKO_Array[1] := Value_B;
+	END_IF
+END_IF
+IF RT_CLK_Forming.Q THEN
+	CLK_Forming := FALSE;
+	MaxKO_Array[6] := MaxKO_Array[5];
+	MaxKO_Array[5] := Value_Forming;
+END_IF
+
+IF RT_CLK_A.Q OR RT_CLK_B.Q OR RT_CLK_Forming.Q  THEN
+	(*i := 1;
+	WHILE i <= 5 DO
+		IF MaxKO_Array[i] > MaxKO_Array[i+1] THEN
+			MaxKO := MaxKO_Array[i+1];
+		ELSIF MaxKO_Array[i+1] < MaxKO_OLD THEN
+			MaxKO := MaxKO_Array[i];
+		ELSE
+			MaxKO := MaxKO_OLD;
+		END_IF
+		MaxKO_OLD := MaxKo;
+		i := i+1;
+	END_WHILE*)
+	
+	MaxKO := MIN(MIN(MIN(MIN(MIN(MaxKO_Array[1],MaxKO_Array[2]),MaxKO_Array[3]),MaxKO_Array[4]),MaxKO_Array[5]),MaxKO_Array[6]);
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_CalculateMaxKO">
+      <LineId Id="27" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="93" Count="1" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="157" Count="1" />
+      <LineId Id="160" Count="0" />
+      <LineId Id="159" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="38" Count="1" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="40" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="48" Count="1" />
+      <LineId Id="122" Count="1" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="124" Count="1" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="85" Count="1" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -13,7 +13,6 @@ Public Class ZeroAbsEncoder
         InitZeroGantryBHor()
         InitZeroGantryBVert()
         InitZeroSb()
-        InitZeroPc()
         InitZeroBMA()
         InitZeroBMB()
     End Sub
@@ -60,14 +59,6 @@ Public Class ZeroAbsEncoder
         End If
     End Sub
 
-    Private Sub InitZeroPc()
-        If PC_AxDis.Data Then 'And (UserLevel.Data >= 500) Then
-            Btn_ZeroPc.Enabled = True
-        Else
-            Btn_ZeroPc.Enabled = False
-        End If
-    End Sub
-
     Private Sub InitZeroBMA()
         If BMA_AxDis.Data Then 'And (UserLevel.Data >= 500) Then
             BtnZeroBMA.Enabled = True
@@ -107,7 +98,7 @@ Public Class ZeroAbsEncoder
     End Sub
 
     Private Sub AxisDisabled_DataChanged(sender As Object, e As EventArgs) Handles GA_Hor_AxDis.DataChanged, GA_Vert_AxDis.DataChanged, GB_Hor_AxDis.DataChanged, _
-                                                                                GB_Vert_AxDis.DataChanged, SB_AxDis.DataChanged, PC_AxDis.DataChanged, BMA_AxDis.DataChanged, _
+                                                                                GB_Vert_AxDis.DataChanged, SB_AxDis.DataChanged, BMA_AxDis.DataChanged, _
                                                                                 BMB_AxDis.DataChanged
         InitControls()
     End Sub

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_ConveyorErrors" Id="{32c2723b-777b-4a73-bdcc-341715c91bd4}">
+    <Declaration><![CDATA[TYPE ST_ConveyorErrors :
+STRUCT
+	NCAxisError					: ST_NcAxis_Errors;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

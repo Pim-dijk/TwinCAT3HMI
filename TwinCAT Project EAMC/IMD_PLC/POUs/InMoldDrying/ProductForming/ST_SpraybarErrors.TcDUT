@@ -4,7 +4,8 @@
     <Declaration><![CDATA[TYPE ST_SpraybarErrors :
 STRUCT
 	NCAxisError						: ST_NcAxis_Errors;
-
+	PositionAtFrontError			: BOOL;	//Zeestra 20190222
+	PositionAtBackError				: BOOL;	//Zeestra 20190222
 END_STRUCT
 END_TYPE
 ]]></Declaration>

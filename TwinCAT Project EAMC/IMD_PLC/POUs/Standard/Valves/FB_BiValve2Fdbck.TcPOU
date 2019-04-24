@@ -120,6 +120,19 @@ QxOut:= FALSE;
 M_In:= IxIsIn;]]></ST>
       </Implementation>
     </Method>
+    <Method Name="M_In_Pressure" Id="{186dce28-0ba4-47c4-b075-e5d3483d54d5}">
+      <Declaration><![CDATA[METHOD PUBLIC M_In_Pressure : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[QxIn:= TRUE;
+QxOut:= FALSE;
+
+(* Return value *)
+M_In_Pressure:= IxIsIn;]]></ST>
+      </Implementation>
+    </Method>
     <Method Name="M_Open" Id="{63dc6af2-d7bd-48ce-b3fd-428d06b55477}">
       <Declaration><![CDATA[METHOD PUBLIC M_Open : BOOL
 VAR_INPUT
@@ -187,6 +200,13 @@ M_Out:= IxIsOut;]]></ST>
     <LineIds Name="FB_BiValve2Fdbck.M_In">
       <LineId Id="27" Count="0" />
       <LineId Id="31" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BiValve2Fdbck.M_In_Pressure">
       <LineId Id="21" Count="0" />
       <LineId Id="11" Count="0" />
       <LineId Id="17" Count="0" />

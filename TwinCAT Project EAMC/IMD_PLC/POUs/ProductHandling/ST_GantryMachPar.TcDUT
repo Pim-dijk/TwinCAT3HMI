@@ -3,27 +3,24 @@
   <DUT Name="ST_GantryMachPar" Id="{b92b963a-a1a6-4edc-beb7-46e7f395060e}">
     <Declaration><![CDATA[TYPE ST_GantryMachPar :
 STRUCT
-(* Prod par 
-	VertPickup
-	VertDropOff
-	HorPickup
-	HorDropOff
-	Blow Off *)
 	Vert_VelocityManual					: LREAL;
 	Vert_VelocityAuto					: LREAL;
 	Vert_PositionTransport				: LREAL;
 	Vert_PositionHome					: LREAL;(* Used when motor is Replaced, write this value as "position bias" in system manager NC-Axis *)
+	Vert_PickUpRestPosOffset			: LREAL; // OffsetPosition in which the gantry waits to pickup product from takeout
 	
 	Hor_VelocityManual					: LREAL;
 	Hor_VelocityAuto					: LREAL;
-	Hor_PositionRest					: LREAL;
 	Hor_PositionHome					: LREAL;(* Used when motor is Replaced, write this value as "position bias" in system manager NC-Axis *)
-
 	PositionHorizontalPickup			: LREAL;
 	PositionHorizontalDropOff			: LREAL;
-	
-	DropOffConveyorPostion				: LREAL; (* Modulo position from outfeed belt *)
+
 	EnableVacuumSection					: ARRAY [1..6] OF BOOL;
+	
+	GantryPickupTime					: TIME := T#500MS;
+	
+	SheetsProduced						: DINT;	// For OEE, total number of sheets produced by this side (A or B).
+	ProductsProduced					: DINT; // For OEE, Total number of products produced
 	
 END_STRUCT
 END_TYPE

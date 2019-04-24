@@ -16,6 +16,7 @@ STRUCT
 	FeedingPulpTime						: TIME;
 	
 	BubblingPositionOffset				: REAL;
+	PulpFeedingOffset					: REAL;
 	
 	PositionPhyscialMeasured			: REAL;
 	PositionPhysicalMeasuredOld			: REAL;

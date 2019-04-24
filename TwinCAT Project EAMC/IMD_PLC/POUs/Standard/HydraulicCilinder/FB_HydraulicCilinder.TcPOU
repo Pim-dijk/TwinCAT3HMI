@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
   <POU Name="FB_HydraulicCilinder" Id="{c6c86aa4-930e-4739-b420-f05102177278}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_HydraulicCilinder
 
 VAR_INPUT
-
-	fbSource 						: FB_TcSourceInfo;
 
 	mxReset							: BOOL;	(*Reset Error*)
 	mxEmergency						: BOOL;
@@ -45,11 +43,6 @@ VAR_OUTPUT
 	mxIsOut							: BOOL;
 END_VAR
 VAR
-(* Testing new HMI alarms *)	
-	_initializeEvents				: BOOL := TRUE;
-	_PositionError 					: FB_TcAlarm;
-	_IsMovingWithoutActivationError	: FB_TcAlarm;
-	_BallufError 					: FB_TcAlarm;
 (* State vars *)
 	miCycleState					: INT :=0;
 	miCycleOldstate					: INT :=0;
@@ -150,26 +143,13 @@ END_IF
     </Implementation>
     <Action Name="Error" Id="{35d6c9ee-1764-41d5-aa27-f4028b54cbe5}">
       <Implementation>
-        <ST><![CDATA[(* Initialize the alarms at the start *)
-IF _initializeEvents THEN
-	_initializeEvents := FALSE;
-	_PositionError.CreateEx(TC_Events.Kremer_Events.PositionError, TRUE, 0);
-	_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.IsMovingWithoutActivation, TRUE, 0);
-	_BallufError.CreateEx(TC_Events.Kremer_Events.BallufError, TRUE, 0);
-END_IF
-
-Errors.BallufError:= HydraulicPos.Error;
-(* Raise alarm *)
-IF Errors.BallufError THEN
-	_BallufError.Raise(0);
-END_IF
+        <ST><![CDATA[Errors.BallufError:= HydraulicPos.Error;
 
 (* When out of range up/down position *)
 
 	IF (mxIsVertical AND (ActPosition > (EndPositionIn + OffsetAlarmPosition) OR ActPosition < (EndPositionOut - OffsetAlarmPosition))) OR 
 		(NOT mxIsVertical AND (ActPosition < (EndPositionIn - OffsetAlarmPosition) OR ActPosition > (EndPositionOut + OffsetAlarmPosition))) THEN
 		Errors.PositionError:= TRUE;
-		_PositionError.Raise(0); (* Raise the alarm with the current timestamp *)
 	ELSIF mxReset THEN
 		Errors.PositionError:= FALSE;
 	END_IF
@@ -181,18 +161,13 @@ IF FT_ValveInOff.Q OR FT_ValveOutOff.Q THEN HydraulicStoredPosition:= ActPositio
 IF mxReset THEN
 	HydraulicStoredPosition:= ActPosition;
 	Errors.IsMovingWithoutActivation:= FALSE;
-	_IsMovingWithoutActivationError.Clear(0, FALSE);  (* Clear the alarm with the current timestamp and set the Confirmation state to Reset *)
 ELSIF NOT HydraulicIn.mxIsOn AND NOT HydraulicOut.mxIsOn AND ((HydraulicStoredPosition > (ActPosition + 10)) OR (HydraulicStoredPosition < (ActPosition - 10))) THEN
 	Errors.IsMovingWithoutActivation:= TRUE;
-	_IsMovingWithoutActivationError.Raise(0);  (* Raise the alarm with the current timestamp *)
 END_IF
 
 (***************************************************************************************)
 mxErrorStopInPos:= Errors.PositionError OR Errors.IsMovingWithoutActivation;
-mxErrorInit:= FALSE;
-
-
-]]></ST>
+mxErrorInit:= FALSE;]]></ST>
       </Implementation>
     </Action>
     <Method Name="M_Move" Id="{119284ab-35d1-4b76-b330-ad3f337c7c86}">
@@ -365,41 +340,26 @@ HydraulicPos();]]></ST>
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinder.Error">
-      <LineId Id="43" Count="0" />
-      <LineId Id="48" Count="0" />
-      <LineId Id="50" Count="0" />
-      <LineId Id="45" Count="2" />
-      <LineId Id="49" Count="0" />
-      <LineId Id="44" Count="0" />
       <LineId Id="33" Count="0" />
-      <LineId Id="65" Count="0" />
-      <LineId Id="62" Count="1" />
       <LineId Id="32" Count="0" />
-      <LineId Id="64" Count="0" />
       <LineId Id="34" Count="0" />
       <LineId Id="29" Count="0" />
       <LineId Id="38" Count="0" />
       <LineId Id="10" Count="0" />
       <LineId Id="7" Count="0" />
-      <LineId Id="60" Count="0" />
       <LineId Id="30" Count="1" />
       <LineId Id="35" Count="0" />
       <LineId Id="11" Count="1" />
       <LineId Id="14" Count="1" />
       <LineId Id="18" Count="0" />
       <LineId Id="26" Count="2" />
-      <LineId Id="66" Count="0" />
       <LineId Id="19" Count="0" />
       <LineId Id="8" Count="0" />
-      <LineId Id="61" Count="0" />
       <LineId Id="21" Count="0" />
       <LineId Id="5" Count="0" />
       <LineId Id="4" Count="0" />
       <LineId Id="2" Count="0" />
       <LineId Id="1" Count="0" />
-      <LineId Id="55" Count="0" />
-      <LineId Id="57" Count="0" />
-      <LineId Id="59" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinder.M_Move">
       <LineId Id="67" Count="0" />

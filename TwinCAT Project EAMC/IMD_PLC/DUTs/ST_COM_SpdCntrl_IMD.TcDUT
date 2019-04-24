@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_COM_SpdCntrl_IMD" Id="{76d8f7a9-4809-40e3-b506-808fbc1e2a98}">
+    <Declaration><![CDATA[TYPE ST_COM_SpdCntrl_IMD :
+STRUCT
+	StartFormingA		: BOOL;	//Speedcontrol needs the IMD to start froming for A side	
+	StartFormingB		: BOOL;	//Speedcontrol needs the IMD to start froming for B side	
+	StopForming			: BOOL;					// Speedcontrol needs the IMD to stop forming 
+	BlowOffPulseA		: ARRAY[1..4] OF BOOL;	// Blowoff pulses for A side
+	BlowOffPulseB		: ARRAY[1..4] OF BOOL;	// Blowoff pulses for B side
+	ErrSlotANotFree		: BOOL;					// Current slot for gantry A blow off was not free
+	ErrSlotBNotFree		: BOOL;					// Current slot for gantry B blow off was not free
+	Modulo				: LREAL;				// Actual modulo position of the belt  
+	SpeedInKo			: LREAL;				//Actual Speed that speedcontrol is dictating to the IMD
+	PocketA_Blocked		: BOOL;					//Pocket is occupied and gantry is not allowed to blow off
+	PocketB_Blocked		: BOOL;					//Pocket is occupied and gantry is not allowed to blow off
+	ProdParameters		: St_BlowOffProdPar;	// Needs to be changed to correct format
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

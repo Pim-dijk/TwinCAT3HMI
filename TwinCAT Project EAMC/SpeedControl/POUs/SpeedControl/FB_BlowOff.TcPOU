@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_BlowOff" Id="{06f76646-92f5-44aa-89a2-dada62bdf88f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_BlowOff
+VAR CONSTANT
+	sCycleStateTextDef: ARRAY[0..10]  OF STRING :=	
+		['State 0: Wait for Start',
+		'State 1: Calculate blowoff positions',
+		'State 2: Blow off first sheet',
+		'State 3: Blow off second sheet',
+		'State 4: Blow off third sheet',
+		'State 5: Blow off fourth sheet',
+		'State 6: Start forming','7','8','9',
+		'State 10: Slot Not Free Error'];
+	
+	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
+		[T#10S,T#10S,T#60S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
+		T#10S];
+
+END_VAR
+VAR_INPUT
+	mxResetCycleState				: BOOL;
+	mxReset							: BOOL;	(*Reset Error*)
+	mxEmergency						: BOOL;
+	mxAutoMode						: BOOL; (* TRUE = Automode *)
+	mxFirstCycle					: BOOL;
+	
+	mrActModulo						: LREAL;	//Modulo of main axis	
+	mrModuloOffset					: LREAL;
+	miSensorPitchClear				AT %I* : BOOL;
+	ProdPar							: ST_BlowOffProdPar; 
+	MachPar							: ST_BlowOffMachPar;
+	
+	COM_BlownOffProcessed			: ARRAY [1..4] OF BOOL;	
+	COM_StartFormingReady			: BOOL;
+	COM_IMD_RTO						: BOOL;
+	COM_IMD_Stopped					: BOOL;
+	COM_GantryInPos					: BOOL;
+END_VAR
+VAR_IN_OUT
+	
+END_VAR
+VAR_OUTPUT
+(*Errors*)
+	Errors							: ST_BlowOffErrors;
+	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
+
+(* State vars *)
+	mxCycleBusy						: BOOL;
+	
+(* Vars *)	
+	COM_BlowOff_Pulse				: ARRAY [1..4] OF BOOL;	
+	COM_StartForming				: BOOL;
+	COM_ErrSlotNotFree				: BOOL;
+END_VAR
+VAR
+(* State vars *)
+	miCycleState					: INT :=0;
+	miCycleOldstate					: INT :=0;
+	mxCycleTransitionState			: BOOL := FALSE;
+	sCycleStateText					: STRING;
+	exCycleTimeOut					: BOOL;		(* Timeout for the whole programcycle *)
+	CycleTimeout					: TON;
+	CycleTimeOutUpFlank				: R_TRIG;
+	mxCycleTimeoutEnable			: BOOL;
+	CycleTime						: REAL;
+	mxCycleHasError					: BOOL;
+	miStopState						: INT;
+	mxStartCycle					: BOOL;
+	mxStopCycle						: BOOL;
+	mxStopDirect					: BOOL;
+	
+(* Internal vars for calculations *)
+	BlowOff_Position				: ARRAY [1..4] OF LREAL;
+	BlowOff_ResetTimer_Sheet1		: TON;
+	BlowOff_ResetTimer_Sheet2		: TON;
+	BlowOff_ResetTimer_Sheet3		: TON;
+	BlowOff_ResetTimer_Sheet4		: TON;
+	Forming_ResetTimer				: TON;
+	ResetTime						: TIME;
+	i								: DINT;
+	mxWindowNotFree					: BOOL;
+	mrModuloPosSensor				: LREAL;
+	mrModuloPosSensorOffset			: LREAL;
+	SensorFreeError_Time			: TIME;
+	Timer_SensorFreeError			: TON;
+	RT_SensorFree					: R_TRIG;
+	RT_FormingReady					: R_TRIG;
+	mxSensorOccupied				: BOOL;
+	RT_SensorActivated				: R_TRIG;
+	mrOldModulo						: LREAL;
+	mrModuloDiffSensorActive		: LREAL;
+	RT_NewCycle: R_TRIG;
+	RT_IMD_Started: R_TRIG;
+	RT_GantryAtPos: R_TRIG;
+	mxNewCycleIMD: BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+Cycle();]]></ST>
+    </Implementation>
+    <Action Name="Cycle" Id="{d3a31a9b-77d5-4c0d-8a81-f3172fd840a4}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
+(*State text*)
+sCycleStateText:=sCycleStateTextDef[miCycleState];
+(*Timeout Watchdog for Statemachine*)
+mxCycleTimeoutEnable:=NOT (miCycleState=0) AND NOT mxReset;
+
+CycleTimeout(IN:=mxCycleTimeoutEnable, PT:=tCycleStateTimeouts[miCycleState] );
+CycleTimeOutUpFlank(CLK:=CycleTimeout.Q );
+miCycleOldstate:=miCycleState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF CycleTimeOutUpFlank.Q THEN
+	exCycleTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetCycleState THEN
+	mxResetCycleState:= FALSE;
+	miCycleState:=0;
+	miCycleOldstate:=miCycleState;
+	mxCycleTransitionState:=FALSE;
+
+	mxStartCycle:= FALSE;
+	mxStopCycle:= FALSE;
+	mxStopDirect:= FALSE;
+	COM_ErrSlotNotFree := FALSE;
+END_IF
+
+(*Blowoff times*)
+	BlowOff_ResetTimer_Sheet1(IN:=COM_BlowOff_Pulse[1], PT:=ResetTime);
+	IF BlowOff_ResetTimer_Sheet1.Q THEN
+		COM_BlowOff_Pulse[1] := FALSE;
+	END_IF
+	
+	BlowOff_ResetTimer_Sheet2(IN:=COM_BlowOff_Pulse[2], PT:=ResetTime);
+	IF BlowOff_ResetTimer_Sheet2.Q THEN
+		COM_BlowOff_Pulse[2] := FALSE;
+	END_IF
+	
+	BlowOff_ResetTimer_Sheet3(IN:=COM_BlowOff_Pulse[3], PT:=ResetTime);
+	IF BlowOff_ResetTimer_Sheet3.Q THEN
+		COM_BlowOff_Pulse[3] := FALSE;
+	END_IF
+	
+	BlowOff_ResetTimer_Sheet4(IN:=COM_BlowOff_Pulse[4], PT:=ResetTime);
+	IF BlowOff_ResetTimer_Sheet4.Q THEN
+		COM_BlowOff_Pulse[4] := FALSE;
+	END_IF	
+
+(*Forming signal to IMD*)
+	RT_IMD_Started(CLK:=COM_IMD_RTO AND NOT COM_IMD_Stopped);
+	RT_GantryAtPos(CLK:=COM_GantryInPos);
+	IF RT_IMD_Started.Q THEN
+		mxNewCycleIMD := TRUE;
+	END_IF
+	IF RT_GantryAtPos.Q THEN
+		mxNewCycleIMD := FALSE;
+	END_IF
+
+	RT_FormingReady(CLK:=COM_StartFormingReady);
+	RT_NewCycle(CLK:= miCycleState = 3);
+	IF RT_FormingReady.Q OR RT_NewCycle.Q OR NOT COM_IMD_RTO THEN
+		COM_StartForming := FALSE;
+	END_IF
+		
+	
+	
+(*Definition State has Error*)
+mxCycleHasError:=FALSE;
+
+(*Modulo position Sensor Free detection*)
+	IF (ProdPar.NrOfSheets <> 0) AND (ProdPar.SheetSize <> 0 ) THEN
+		mrModuloPosSensorOffset := ProdPar.ModuloOffsetSensorFree + (ProdPar.SheetSize/2) + (((DINT_TO_REAL(ProdPar.NrOfSheets)/2) - 0.5) * ProdPar.PitchGantry);
+	ELSE
+		mrModuloPosSensorOffset := ProdPar.ModuloOffsetSensorFree;
+	END_IF
+	
+	IF (mrModuloOffset - mrModuloPosSensorOffset) < 0 THEN
+		mrModuloPosSensor := ProdPar.Modulo + (mrModuloOffset - mrModuloPosSensorOffset);	
+	ELSE
+		mrModuloPosSensor := mrModuloOffset - mrModuloPosSensorOffset;
+	END_IF
+
+	IF mxCycleBusy THEN
+		IF (mrModuloOffset - mrModuloPosSensorOffset) < 0 THEN
+			IF (mrActModulo >= mrModuloPosSensor) OR (mrActModulo <= (mrModuloOffset - mrModuloPosSensorOffset + (ProdPar.Modulo/4))) THEN						
+				mxSensorOccupied := miSensorPitchClear;
+				//Timer_SensorFreeError.IN:= miSensorPitchClear;
+			ELSE 
+				mxSensorOccupied := FALSE;
+			END_IF
+		ELSE
+			IF (mrActModulo >= mrModuloPosSensor) AND (mrActModulo <= (mrModuloOffset - mrModuloPosSensorOffset + (ProdPar.Modulo/4))) THEN		
+				mxSensorOccupied := miSensorPitchClear;
+				//Timer_SensorFreeError.IN:= miSensorPitchClear;
+			ELSE
+				mxSensorOccupied := FALSE;
+			END_IF
+		END_IF
+	ELSE
+		//Timer_SensorFreeError.IN:= FALSE;
+		mxSensorOccupied := FALSE;
+	END_IF
+	
+	RT_SensorActivated(CLK:= mxSensorOccupied);
+	
+	IF RT_SensorActivated.Q THEN
+		mrOldModulo := mrActModulo;
+	END_IF
+	
+	IF mxSensorOccupied THEN
+		IF mrActModulo < mrOldModulo THEN
+			mrModuloDiffSensorActive := (ProdPar.Modulo - mrOldModulo) + mrActModulo;	
+		ELSE
+			mrModuloDiffSensorActive := mrActModulo - mrOldModulo;	
+		END_IF
+		IF mrModuloDiffSensorActive >= ProdPar.ModuloDetectionSensorFree THEN
+			COM_ErrSlotNotFree := TRUE;
+		END_IF 
+	ELSE
+		mrModuloDiffSensorActive := 0;
+	END_IF
+	
+	(*Timer_SensorFreeError();
+	IF Timer_SensorFreeError.Q THEN
+		Timer_SensorFreeError.IN:= FALSE;
+		COM_ErrSlotNotFree := TRUE;
+	END_IF*)	
+
+(*Cycle State's*)
+CASE miCycleState OF
+	0:	//Wait for start Cycle
+		IF mxStartCycle THEN
+			mxStartCycle:= FALSE;
+
+			miCycleState:= 1;
+			COM_ErrSlotNotFree := FALSE;
+		END_IF	
+
+	1: //Blow off first sheet
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSE
+			i := 1;
+			WHILE i <= ProdPar.NrOfSheets DO  
+				IF i > 1 THEN
+					//Calculate blowoff positions:
+					BlowOff_Position[i] := ((((ProdPar.Modulo/4)/ProdPar.NrOfSheets) - (ProdPar.PitchGantry + 1)) * (i - 1)) +  mrModuloOffset;
+				ELSE
+					BlowOff_Position[i] := mrModuloOffset;
+				END_IF
+			
+				i := i + 1;
+			END_WHILE
+
+			miCycleState := 2;
+		END_IF
+
+	2:	//Blowoff first sheet
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF COM_ErrSlotNotFree THEN
+			miCycleState := 10;
+		ELSE 
+			//Create blowoff pulse
+			IF mrActModulo >= BlowOff_Position[1] AND mrActModulo <  (BlowOff_Position[1]+10) THEN
+				COM_BlowOff_Pulse[3] := TRUE;		//MZE 20190327 	COM_BlowOff_Pulse[1] for HLU and COM_BlowOff_Pulse[3] for LoodsLanghout  		
+				miCycleState := 3; 
+			END_IF
+		END_IF
+		
+	3:	//Blowoff Second sheet
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF COM_ErrSlotNotFree THEN
+			miCycleState := 10;
+		ELSE
+			IF ProdPar.NrOfSheets >= 2 THEN 
+				//Create blowoff pulse
+				IF mrActModulo >= BlowOff_Position[2] THEN 
+					COM_BlowOff_Pulse[2] := TRUE;	
+					miCycleState := 4;
+				END_IF
+			ELSE
+				miCycleState := 6; //Go to Start Forming;
+			END_IF
+		END_IF
+	
+	4:	//Blowoff Third sheet
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF COM_ErrSlotNotFree THEN
+			miCycleState := 10;
+		ELSE
+			IF ProdPar.NrOfSheets >= 3 THEN 
+				//Create blowoff pulse
+				IF mrActModulo >= BlowOff_Position[3] THEN	
+					COM_BlowOff_Pulse[1] := TRUE;			//MZE 20190327 	COM_BlowOff_Pulse[3] for HLU and COM_BlowOff_Pulse[1] for LoodsLanghout
+					miCycleState := 5;
+				END_IF
+			ELSE
+				miCycleState := 6; //Go to Start Forming;
+			END_IF
+		END_IF
+		
+	5:	//Blowoff Fourth sheet
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF COM_ErrSlotNotFree THEN
+			miCycleState := 10;
+		ELSE
+			IF ProdPar.NrOfSheets >= 4 THEN 
+				//Create blowoff pulse
+				IF mrActModulo >= BlowOff_Position[4] THEN
+					COM_BlowOff_Pulse[4] := TRUE;
+					miCycleState := 6;
+				END_IF
+			ELSE
+				miCycleState := 6; //Go to Start Forming;
+			END_IF
+		END_IF
+		
+	6:	//Start Forming
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSE
+			IF COM_IMD_RTO AND NOT COM_IMD_Stopped THEN
+				COM_StartForming := TRUE;
+			END_IF
+			miCycleState := 2;
+		END_IF
+		
+	10:	//Error slot not free
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSE 
+			IF mrActModulo >= (mrModuloOffset + (ProdPar.Modulo/4) - 10) THEN 
+				COM_ErrSlotNotFree := FALSE; 
+				miCycleState := 2;
+			END_IF
+		END_IF
+		
+	(* Stop Cycle, stop belt after x mm*)
+	20:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSE 
+			mxStopCycle:= FALSE;
+			miCycleState:= 21;
+		END_IF
+
+	(* stopped, wait for restart*)	
+	21:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+	
+			miCycleState:= 25;
+		ELSIF mxStartCycle THEN
+			mxStartCycle := FALSE;
+			miCycleState := miStopState;
+		END_IF	
+		
+		
+	(* Stop Direct *)
+	25:
+		mxStartCycle:= FALSE;
+		mxStopCycle:= FALSE;
+		mxStopDirect:= FALSE;
+		
+		
+		miCycleState:= 0;
+END_CASE
+
+mxCycleBusy:= miCycleState<>0 AND miCycleState <>21 ;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Error" Id="{80d126c2-c21f-4703-b922-1b5a904aacc9}">
+      <Implementation>
+        <ST><![CDATA[
+
+(*************************************************************************************************)
+mxErrorStopinPos:= FALSE;
+
+	]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_StartCycle" Id="{11d0e12e-c14a-418d-9ffd-f81628aed91b}">
+      <Declaration><![CDATA[METHOD M_StartCycle
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF NOT mxCycleBusy THEN
+	mxStartCycle:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycle" Id="{5838420f-85fc-47b0-908d-6c2143e8021c}">
+      <Declaration><![CDATA[METHOD M_StopCycle
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN 
+	mxStopCycle:= TRUE; 
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopDirect" Id="{ef930fec-a28f-4dff-9140-ed161141c19b}">
+      <Declaration><![CDATA[METHOD M_StopDirect
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxStopDirect:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_BlowOff">
+      <LineId Id="109" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BlowOff.Cycle">
+      <LineId Id="366" Count="47" />
+      <LineId Id="415" Count="0" />
+      <LineId Id="700" Count="0" />
+      <LineId Id="707" Count="0" />
+      <LineId Id="709" Count="6" />
+      <LineId Id="708" Count="0" />
+      <LineId Id="701" Count="5" />
+      <LineId Id="698" Count="1" />
+      <LineId Id="420" Count="3" />
+      <LineId Id="683" Count="0" />
+      <LineId Id="686" Count="1" />
+      <LineId Id="690" Count="0" />
+      <LineId Id="689" Count="0" />
+      <LineId Id="691" Count="0" />
+      <LineId Id="424" Count="8" />
+      <LineId Id="640" Count="0" />
+      <LineId Id="644" Count="0" />
+      <LineId Id="648" Count="1" />
+      <LineId Id="434" Count="2" />
+      <LineId Id="643" Count="0" />
+      <LineId Id="645" Count="2" />
+      <LineId Id="438" Count="3" />
+      <LineId Id="650" Count="0" />
+      <LineId Id="442" Count="1" />
+      <LineId Id="651" Count="0" />
+      <LineId Id="655" Count="3" />
+      <LineId Id="663" Count="0" />
+      <LineId Id="679" Count="0" />
+      <LineId Id="664" Count="0" />
+      <LineId Id="671" Count="0" />
+      <LineId Id="676" Count="0" />
+      <LineId Id="673" Count="0" />
+      <LineId Id="672" Count="0" />
+      <LineId Id="659" Count="0" />
+      <LineId Id="677" Count="1" />
+      <LineId Id="680" Count="2" />
+      <LineId Id="654" Count="0" />
+      <LineId Id="444" Count="71" />
+      <LineId Id="665" Count="1" />
+      <LineId Id="516" Count="21" />
+      <LineId Id="667" Count="1" />
+      <LineId Id="538" Count="21" />
+      <LineId Id="669" Count="1" />
+      <LineId Id="560" Count="23" />
+      <LineId Id="693" Count="1" />
+      <LineId Id="584" Count="30" />
+      <LineId Id="626" Count="2" />
+      <LineId Id="630" Count="0" />
+      <LineId Id="639" Count="0" />
+      <LineId Id="632" Count="1" />
+      <LineId Id="638" Count="0" />
+      <LineId Id="634" Count="3" />
+      <LineId Id="615" Count="10" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BlowOff.Error">
+      <LineId Id="2" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BlowOff.M_StartCycle">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BlowOff.M_StopCycle">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_BlowOff.M_StopDirect">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
   <POU Name="HMI" Id="{8c1b33ce-9977-4558-a527-7556af87d9de}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM HMI
 VAR_OUTPUT
@@ -40,13 +40,12 @@ VAR
 
 	mxAutoMode: BOOL;
 
-	mx_TestAlarm: BOOL;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[Error();
 
 T_HmiReset(IN:=mxReset,PT:=T#500MS);
-IF T_HmiReset.Q THEN mxReset:=FALSE; AlarmWord1 := 0; END_IF
+IF T_HmiReset.Q THEN mxReset:=FALSE; END_IF
 
 (********************************************************************
 Automatically Logout after 10 minutes
@@ -96,7 +95,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*29*)Alarmword1.28:=Main.Errors.ex24VoltError1;
 (*30*)Alarmword1.29:=Main.Errors.ex24VoltError2;
 (*31*)Alarmword1.30:=Main.Errors.exAtteptedStartWithNoProduct;
-(*32*)Alarmword1.31:=mx_TestAlarm;
+(*32*)Alarmword1.31:=Main.Errors.MainAirSupplyError;
 
 (*33*)Alarmword2.0:= Main.InMoldDrying.Errors.HydraulicMain.HydraulicPump.SofstarterFailure;
 (*34*)Alarmword2.1:= Main.InMoldDrying.Errors.HydraulicMain.HydraulicPump.Maintenance;
@@ -121,7 +120,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*53*)Alarmword2.20:=Main.InMoldDrying.Errors.RH_TrMoldIsMovingSprayBNotInPos;
 (*54*)Alarmword2.21:=Main.InMoldDrying.Errors.TempDiffTopBottomTooHigh_SideA;
 (*55*)Alarmword2.22:=Main.InMoldDrying.Errors.TempDiffTopBottomTooHigh_SideB;
-(*56*)Alarmword2.23:=FALSE;
+(*56*)Alarmword2.23:=Main.InMoldDrying.Errors.RH_SprayBIsMovingTrNotClear;
 (*57*)Alarmword2.24:=Main.InMoldDrying.Errors.HydraulicMain.AuxFilter100Dirty;
 (*58*)Alarmword2.25:=Main.InMoldDrying.Errors.HydraulicMain.AuxFilter75Dirty;
 (*59*)Alarmword2.26:=Main.InMoldDrying.Errors.HydraulicMain.Filter100Dirty;
@@ -132,11 +131,11 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*64*)Alarmword2.31:=Main.InMoldDrying.Errors.HydraulicMain.OilTemperatureTooHigh;
 
 (*65*)Alarmword3.0:=Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.BallufError;
-(*66*)Alarmword3.1:=Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.PositionError;
+(*66*)Alarmword3.1:=Main.Errors.InMoldDryingErrors.TopMoldA.TmDidNotReachBmPosTimeOut;							// Added by bateu 20190326
 (*67*)Alarmword3.2:=Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.IsMovingWithoutActivation;
 (*68*)Alarmword3.3:=FALSE;//Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.RodSidePressureTooHigh;
 (*69*)Alarmword3.4:=FALSE;//Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.BotSidePressureTooHigh;
-(*70*)Alarmword3.5:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_ConnectorNotConnected AND FALSE;
+(*70*)Alarmword3.5:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_ConnectorNotConnected;// AND FALSE;
 (*71*)Alarmword3.6:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_HasWrongPosition;
 (*72*)Alarmword3.7:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_Loose;
 (*73*)Alarmword3.8:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_NotInserted;
@@ -145,8 +144,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*76*)Alarmword3.11:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_WireBreak;
 (*77*)Alarmword3.12:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].Thermal;
 (*78*)Alarmword3.13:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_TemperatureAboveMaximum;
-(*79*)Alarmword3.14:=FALSE;
-(*80*)Alarmword3.15:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_ConnectorNotConnected AND FALSE;
+(*79*)Alarmword3.14:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_TemperatureTooHighWarn;
+(*80*)Alarmword3.15:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_ConnectorNotConnected;// AND FALSE;
 (*81*)Alarmword3.16:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_HasWrongPosition;
 (*82*)Alarmword3.17:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_Loose;
 (*83*)Alarmword3.18:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_NotInserted;
@@ -155,9 +154,9 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*86*)Alarmword3.21:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_WireBreak;
 (*87*)Alarmword3.22:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].Thermal;
 (*88*)Alarmword3.23:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_TemperatureAboveMaximum;
-(*89*)Alarmword3.24:=FALSE;
-(*90*)Alarmword3.25:=FALSE;
-(*91*)Alarmword3.26:=FALSE;
+(*89*)Alarmword3.24:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_TemperatureTooHighWarn;
+(*90*)Alarmword3.25:=Main.Errors.InMoldDryingErrors.TransferMold.TrDidNotReachBMPosTimeOut;							// Added by bateu 20190326
+(*91*)Alarmword3.26:=Main.Errors.InMoldDryingErrors.TransferMold.TrDidNotReachFormingPosTimeOut;					// Added by bateu 20190326
 (*92*)Alarmword3.27:=FALSE;
 (*93*)Alarmword3.28:=FALSE;
 (*94*)Alarmword3.29:=FALSE;
@@ -173,7 +172,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*103*)Alarmword4.6:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_WireBreak;
 (*104*)Alarmword4.7:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].Thermal;
 (*105*)Alarmword4.8:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_TemperatureAboveMaximum;
-(*106*)Alarmword4.9:=FALSE;
+(*106*)Alarmword4.9:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_TemperatureTooHighWarn;
 (*107*)Alarmword4.10:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_ConnectorNotConnected;
 (*108*)Alarmword4.11:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_HasWrongPosition;
 (*109*)Alarmword4.12:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_Loose;
@@ -183,8 +182,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*113*)Alarmword4.16:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_WireBreak;
 (*114*)Alarmword4.17:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].Thermal;
 (*115*)Alarmword4.18:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_TemperatureAboveMaximum;
-(*116*)Alarmword4.19:=FALSE;
-(*117*)Alarmword4.20:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_ConnectorNotConnected AND FALSE;
+(*116*)Alarmword4.19:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_TemperatureTooHighWarn;
+(*117*)Alarmword4.20:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_ConnectorNotConnected;// AND FALSE;
 (*118*)Alarmword4.21:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_HasWrongPosition;
 (*119*)Alarmword4.22:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_Loose;
 (*120*)Alarmword4.23:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_NotInserted;
@@ -193,11 +192,11 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*123*)Alarmword4.26:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_WireBreak;
 (*124*)Alarmword4.27:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].Thermal;
 (*125*)Alarmword4.28:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_TemperatureAboveMaximum;
-(*126*)Alarmword4.29:=FALSE;
+(*126*)Alarmword4.29:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_TemperatureTooHighWarn;
 (*127*)Alarmword4.30:=FALSE;
 (*128*)Alarmword4.31:=FALSE;
 
-(*129*)Alarmword5.0:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_ConnectorNotConnected AND FALSE;
+(*129*)Alarmword5.0:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_ConnectorNotConnected;// AND FALSE;
 (*130*)Alarmword5.1:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_HasWrongPosition;
 (*131*)Alarmword5.2:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_Loose;
 (*132*)Alarmword5.3:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_NotInserted;
@@ -206,8 +205,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*135*)Alarmword5.6:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_WireBreak;
 (*136*)Alarmword5.7:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].Thermal;
 (*137*)Alarmword5.8:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_TemperatureAboveMaximum;
-(*138*)Alarmword5.9:=FALSE;
-(*139*)Alarmword5.10:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_ConnectorNotConnected AND FALSE;
+(*138*)Alarmword5.9:=Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_TemperatureTooHighWarn;
+(*139*)Alarmword5.10:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_ConnectorNotConnected;// AND FALSE;
 (*140*)Alarmword5.11:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_HasWrongPosition;
 (*141*)Alarmword5.12:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_Loose;
 (*142*)Alarmword5.13:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_NotInserted;
@@ -216,8 +215,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*145*)Alarmword5.16:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_WireBreak;
 (*146*)Alarmword5.17:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].Thermal;
 (*147*)Alarmword5.18:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_TemperatureAboveMaximum;
-(*148*)Alarmword5.19:=FALSE;
-(*149*)Alarmword5.20:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_ConnectorNotConnected AND FALSE;
+(*148*)Alarmword5.19:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_TemperatureTooHighWarn;
+(*149*)Alarmword5.20:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_ConnectorNotConnected;// AND FALSE;
 (*150*)Alarmword5.21:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_HasWrongPosition;
 (*151*)Alarmword5.22:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_Loose;
 (*152*)Alarmword5.23:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_NotInserted;
@@ -226,7 +225,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*155*)Alarmword5.26:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_WireBreak;
 (*156*)Alarmword5.27:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].Thermal;
 (*157*)Alarmword5.28:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_TemperatureAboveMaximum;
-(*158*)Alarmword5.29:=FALSE;
+(*158*)Alarmword5.29:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_TemperatureTooHighWarn;
 (*159*)Alarmword5.30:=FALSE;
 (*160*)Alarmword5.31:=FALSE;
 
@@ -239,7 +238,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*167*)Alarmword6.6:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_WireBreak;
 (*168*)Alarmword6.7:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].Thermal;
 (*169*)Alarmword6.8:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_TemperatureAboveMaximum;
-(*170*)Alarmword6.9:=FALSE;
+(*170*)Alarmword6.9:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_TemperatureTooHighWarn;
 (*171*)Alarmword6.10:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_ConnectorNotConnected;
 (*172*)Alarmword6.11:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_HasWrongPosition;
 (*173*)Alarmword6.12:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_Loose;
@@ -249,8 +248,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*177*)Alarmword6.16:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_WireBreak;
 (*178*)Alarmword6.17:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].Thermal;
 (*179*)Alarmword6.18:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_TemperatureAboveMaximum;
-(*180*)Alarmword6.19:=FALSE;
-(*181*)Alarmword6.20:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_ConnectorNotConnected AND FALSE;
+(*180*)Alarmword6.19:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_TemperatureTooHighWarn;
+(*181*)Alarmword6.20:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_ConnectorNotConnected;// AND FALSE;
 (*182*)Alarmword6.21:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_HasWrongPosition;
 (*183*)Alarmword6.22:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_Loose;
 (*184*)Alarmword6.23:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_NotInserted;
@@ -259,11 +258,11 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*187*)Alarmword6.26:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_WireBreak;
 (*188*)Alarmword6.27:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].Thermal;
 (*189*)Alarmword6.28:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_TemperatureAboveMaximum;
-(*190*)Alarmword6.29:=FALSE;
+(*190*)Alarmword6.29:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_TemperatureTooHighWarn;
 (*191*)Alarmword6.30:=FALSE;
 (*192*)Alarmword6.31:=FALSE;
 
-(*193*)Alarmword7.0:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_ConnectorNotConnected AND FALSE;
+(*193*)Alarmword7.0:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_ConnectorNotConnected;// AND FALSE;
 (*194*)Alarmword7.1:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_HasWrongPosition;
 (*195*)Alarmword7.2:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_Loose;
 (*196*)Alarmword7.3:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_NotInserted;
@@ -272,12 +271,12 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*199*)Alarmword7.6:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_WireBreak;
 (*200*)Alarmword7.7:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].Thermal;
 (*201*)Alarmword7.8:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_TemperatureAboveMaximum;
-(*202*)Alarmword7.9:=FALSE;
+(*202*)Alarmword7.9:=Main.Errors.InMoldDryingErrors.TopMoldB.TmDidNotReachBmPosTimeOut;									// Added by bateu 20190326
 (*203*)Alarmword7.10:=Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.BallufError;
 (*204*)Alarmword7.11:=Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.IsMovingWithoutActivation;
-(*205*)Alarmword7.12:=Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.PositionError;
+(*205*)Alarmword7.12:=Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_TemperatureTooHighWarn;
 (*206*)Alarmword7.13:=FALSE;
-(*207*)Alarmword7.14:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_ConnectorNotConnected AND FALSE;
+(*207*)Alarmword7.14:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_ConnectorNotConnected;// AND FALSE;
 (*208*)Alarmword7.15:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_HasWrongPosition;
 (*209*)Alarmword7.16:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_Loose;
 (*210*)Alarmword7.17:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_NotInserted;
@@ -286,8 +285,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*213*)Alarmword7.20:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_WireBreak;
 (*214*)Alarmword7.21:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].Thermal;
 (*215*)Alarmword7.22:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_TemperatureAboveMaximum;
-(*216*)Alarmword7.23:=FALSE;
-(*217*)Alarmword7.24:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_ConnectorNotConnected AND FALSE;
+(*216*)Alarmword7.23:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_TemperatureTooHighWarn;
+(*217*)Alarmword7.24:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_ConnectorNotConnected;// AND FALSE;
 (*218*)Alarmword7.25:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_HasWrongPosition;
 (*219*)Alarmword7.26:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_Loose;
 (*220*)Alarmword7.27:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_NotInserted;
@@ -297,7 +296,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*224*)Alarmword7.31:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].Thermal;
 
 (*225*)Alarmword8.0:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_TemperatureAboveMaximum;
-(*226*)Alarmword8.1:=FALSE;
+(*226*)Alarmword8.1:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_TemperatureTooHighWarn;
 (*227*)Alarmword8.2:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_ConnectorNotConnected;
 (*228*)Alarmword8.3:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_HasWrongPosition;
 (*229*)Alarmword8.4:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_Loose;
@@ -307,7 +306,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*233*)Alarmword8.8:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_WireBreak;
 (*234*)Alarmword8.9:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].Thermal;
 (*235*)Alarmword8.10:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_TemperatureAboveMaximum;
-(*236*)Alarmword8.11:=FALSE;
+(*236*)Alarmword8.11:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_TemperatureTooHighWarn;
 (*237*)Alarmword8.12:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_ConnectorNotConnected;
 (*238*)Alarmword8.13:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_HasWrongPosition;
 (*239*)Alarmword8.14:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_Loose;
@@ -317,8 +316,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*243*)Alarmword8.18:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_WireBreak;
 (*244*)Alarmword8.19:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].Thermal;
 (*245*)Alarmword8.20:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_TemperatureAboveMaximum;
-(*246*)Alarmword8.21:=FALSE;
-(*247*)Alarmword8.22:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_ConnectorNotConnected AND FALSE;
+(*246*)Alarmword8.21:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_TemperatureTooHighWarn;
+(*247*)Alarmword8.22:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_ConnectorNotConnected;// AND FALSE;
 (*248*)Alarmword8.23:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_HasWrongPosition;
 (*249*)Alarmword8.24:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_Loose;
 (*250*)Alarmword8.25:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_NotInserted;
@@ -327,9 +326,9 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*253*)Alarmword8.28:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_WireBreak;
 (*254*)Alarmword8.29:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].Thermal;
 (*255*)Alarmword8.30:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_TemperatureAboveMaximum;
-(*256*)Alarmword8.31:=FALSE;
+(*256*)Alarmword8.31:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_TemperatureTooHighWarn;
 
-(*257*)Alarmword9.0:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_ConnectorNotConnected AND FALSE;
+(*257*)Alarmword9.0:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_ConnectorNotConnected;// AND FALSE;
 (*258*)Alarmword9.1:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_HasWrongPosition;
 (*259*)Alarmword9.2:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_Loose;
 (*260*)Alarmword9.3:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_NotInserted;
@@ -338,10 +337,10 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*263*)Alarmword9.6:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_WireBreak;
 (*264*)Alarmword9.7:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].Thermal;
 (*265*)Alarmword9.8:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_TemperatureAboveMaximum;
-(*266*)Alarmword9.9:=FALSE;
+(*266*)Alarmword9.9:=Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_TemperatureTooHighWarn;
 (*267*)Alarmword9.10:=Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.BallufError;
 (*268*)Alarmword9.11:=Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.IsMovingWithoutActivation;
-(*269*)Alarmword9.12:=Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.PositionError;
+(*269*)Alarmword9.12:=FALSE;
 (*270*)Alarmword9.13:=FALSE;//Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.BotSidePressureTooHigh;
 (*271*)Alarmword9.14:=FALSE;//Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.RodSidePressureTooHigh;
 (*272*)Alarmword9.15:=FALSE;
@@ -353,7 +352,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*278*)Alarmword9.21:=FALSE;
 (*279*)Alarmword9.22:=FALSE;
 (*280*)Alarmword9.23:=FALSE;
-(*281*)Alarmword9.24:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_ConnectorNotConnected AND FALSE;
+(*281*)Alarmword9.24:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_ConnectorNotConnected;// AND FALSE;
 (*282*)Alarmword9.25:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_HasWrongPosition;
 (*283*)Alarmword9.26:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_Loose;
 (*284*)Alarmword9.27:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_NotInserted;
@@ -363,8 +362,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*288*)Alarmword9.31:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].Thermal;
 
 (*289*)Alarmword10.0:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_TemperatureAboveMaximum;
-(*290*)Alarmword10.1:=FALSE;
-(*291*)Alarmword10.2:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_ConnectorNotConnected AND FALSE;
+(*290*)Alarmword10.1:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_TemperatureTooHighWarn;
+(*291*)Alarmword10.2:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_ConnectorNotConnected;// AND FALSE;
 (*292*)Alarmword10.3:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_HasWrongPosition;
 (*293*)Alarmword10.4:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_Loose;
 (*294*)Alarmword10.5:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_NotInserted;
@@ -373,7 +372,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*297*)Alarmword10.8:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_WireBreak;
 (*298*)Alarmword10.9:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].Thermal;
 (*299*)Alarmword10.10:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_TemperatureAboveMaximum;
-(*300*)Alarmword10.11:=FALSE;
+(*300*)Alarmword10.11:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_TemperatureTooHighWarn;;
 (*301*)Alarmword10.12:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_ConnectorNotConnected;
 (*302*)Alarmword10.13:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_HasWrongPosition;
 (*303*)Alarmword10.14:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_Loose;
@@ -383,7 +382,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*307*)Alarmword10.18:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_WireBreak;
 (*308*)Alarmword10.19:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].Thermal;
 (*309*)Alarmword10.20:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_TemperatureAboveMaximum;
-(*310*)Alarmword10.21:=FALSE;
+(*310*)Alarmword10.21:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_TemperatureTooHighWarn;;
 (*311*)Alarmword10.22:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_ConnectorNotConnected;
 (*312*)Alarmword10.23:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_HasWrongPosition;
 (*313*)Alarmword10.24:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_Loose;
@@ -393,9 +392,9 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*317*)Alarmword10.28:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_WireBreak;
 (*318*)Alarmword10.29:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].Thermal;
 (*319*)Alarmword10.30:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_TemperatureAboveMaximum;
-(*320*)Alarmword10.31:=FALSE;
+(*320*)Alarmword10.31:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_TemperatureTooHighWarn;;
 
-(*321*)Alarmword11.0:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_ConnectorNotConnected AND FALSE;
+(*321*)Alarmword11.0:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_ConnectorNotConnected;// AND FALSE;
 (*322*)Alarmword11.1:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_HasWrongPosition;
 (*323*)Alarmword11.2:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_Loose;
 (*324*)Alarmword11.3:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_NotInserted;
@@ -404,8 +403,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*327*)Alarmword11.6:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_WireBreak;
 (*328*)Alarmword11.7:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].Thermal;
 (*329*)Alarmword11.8:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_TemperatureAboveMaximum;
-(*330*)Alarmword11.9:=FALSE;
-(*331*)Alarmword11.10:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_ConnectorNotConnected AND FALSE;
+(*330*)Alarmword11.9:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_TemperatureTooHighWarn;;
+(*331*)Alarmword11.10:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_ConnectorNotConnected;// AND FALSE;
 (*332*)Alarmword11.11:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_HasWrongPosition;
 (*333*)Alarmword11.12:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_Loose;
 (*334*)Alarmword11.13:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_NotInserted;
@@ -414,7 +413,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*337*)Alarmword11.16:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_WireBreak;
 (*338*)Alarmword11.17:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].Thermal;
 (*339*)Alarmword11.18:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_TemperatureAboveMaximum;
-(*340*)Alarmword11.19:=FALSE;
+(*340*)Alarmword11.19:=Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_TemperatureTooHighWarn;;
 (*341*)Alarmword11.20:=Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalCilinder.Cilinder;
 (*342*)Alarmword11.21:=Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalCilinder.CilinderSlow_IN;
 (*343*)Alarmword11.22:=Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalCilinder.CilinderSlow_OUT;
@@ -455,7 +454,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*377*)Alarmword12.24:=FALSE;
 (*378*)Alarmword12.25:=Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.BallufError;
 (*379*)Alarmword12.26:=Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.IsMovingWithoutActivation;
-(*380*)Alarmword12.27:=Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.PositionError;
+(*380*)Alarmword12.27:=FALSE;
 (*381*)Alarmword12.28:=FALSE;
 (*382*)Alarmword12.29:=FALSE;
 (*383*)Alarmword12.30:=Main.Errors.InMoldDryingErrors.RH_BotMoldAToCoolForTrMDown;
@@ -498,17 +497,17 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*418*)Alarmword14.1:=FALSE;
 (*419*)Alarmword14.2:=FALSE;
 (*420*)Alarmword14.3:=FALSE;
-(*421*)Alarmword14.4:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDriveAbsoluut;
-(*422*)Alarmword14.5:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDriveJog;
-(*423*)Alarmword14.6:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDrivePower;
-(*424*)Alarmword14.7:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDriveReset;
-(*425*)Alarmword14.8:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDriveStatus;
-(*426*)Alarmword14.9:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDriveStop;
-(*427*)Alarmword14.10:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exDriveVelocity;
-(*428*)Alarmword14.11:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exHome;
-(*429*)Alarmword14.12:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exLagError;
-(*430*)Alarmword14.13:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exReadParameter;
-(*431*)Alarmword14.14:=Main.Errors.ProductHandlingErrors.OutfeedConveyor.NCAxisError.exWriteParameter;
+(*421*)Alarmword14.4:=FALSE;
+(*422*)Alarmword14.5:=FALSE;
+(*423*)Alarmword14.6:=FALSE;
+(*424*)Alarmword14.7:=FALSE;
+(*425*)Alarmword14.8:=FALSE;
+(*426*)Alarmword14.9:=FALSE;
+(*427*)Alarmword14.10:=FALSE;
+(*428*)Alarmword14.11:=FALSE;
+(*429*)Alarmword14.12:=FALSE;
+(*430*)Alarmword14.13:=FALSE;
+(*431*)Alarmword14.14:=FALSE;
 (*432*)Alarmword14.15:=FALSE;
 (*433*)Alarmword14.16:=Main.Errors.ProductHandlingErrors.RH_HorMovingVertNotAtTranspPos_A;
 (*434*)Alarmword14.17:=Main.Errors.ProductHandlingErrors.RH_HorMovingVertNotAtTranspPos_B;
@@ -544,8 +543,8 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
 (*463*)Alarmword15.14:=Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[5];
 (*464*)Alarmword15.15:=Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[6];
 (*465*)Alarmword15.16:=FALSE;
-(*466*)Alarmword15.17:=FALSE;
-(*467*)Alarmword15.18:=FALSE;
+(*466*)Alarmword15.17:=Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.PositionAtFrontError;	//Zeestra 20190222
+(*467*)Alarmword15.18:=Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.PositionAtBackError;	//Zeestra 20190222
 (*468*)Alarmword15.19:=FALSE;
 (*469*)Alarmword15.20:=MAIN.EtherCatDiag.EtherCATLinkError;
 (*470*)Alarmword15.21:=MAIN.EtherCatDiag.EtherCATSlaveMissing;
@@ -737,60 +736,7 @@ mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR Al
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="HMI.Error">
-      <LineId Id="41" Count="6" />
-      <LineId Id="246" Count="1" />
-      <LineId Id="678" Count="5" />
-      <LineId Id="691" Count="0" />
-      <LineId Id="685" Count="5" />
-      <LineId Id="666" Count="0" />
-      <LineId Id="262" Count="7" />
-      <LineId Id="48" Count="0" />
-      <LineId Id="272" Count="0" />
-      <LineId Id="337" Count="31" />
-      <LineId Id="336" Count="0" />
-      <LineId Id="369" Count="31" />
-      <LineId Id="304" Count="0" />
-      <LineId Id="434" Count="2" />
-      <LineId Id="466" Count="0" />
-      <LineId Id="438" Count="27" />
-      <LineId Id="500" Count="32" />
-      <LineId Id="270" Count="0" />
-      <LineId Id="533" Count="1" />
-      <LineId Id="565" Count="0" />
-      <LineId Id="536" Count="28" />
-      <LineId Id="566" Count="0" />
-      <LineId Id="633" Count="1" />
-      <LineId Id="665" Count="0" />
-      <LineId Id="636" Count="28" />
-      <LineId Id="207" Count="0" />
-      <LineId Id="692" Count="30" />
-      <LineId Id="104" Count="0" />
-      <LineId Id="208" Count="0" />
-      <LineId Id="723" Count="31" />
-      <LineId Id="112" Count="0" />
-      <LineId Id="755" Count="30" />
-      <LineId Id="120" Count="0" />
-      <LineId Id="210" Count="0" />
-      <LineId Id="786" Count="19" />
-      <LineId Id="1209" Count="10" />
-      <LineId Id="817" Count="0" />
-      <LineId Id="128" Count="0" />
-      <LineId Id="1208" Count="0" />
-      <LineId Id="851" Count="63" />
-      <LineId Id="211" Count="0" />
-      <LineId Id="915" Count="31" />
-      <LineId Id="152" Count="0" />
-      <LineId Id="947" Count="31" />
-      <LineId Id="160" Count="0" />
-      <LineId Id="979" Count="31" />
-      <LineId Id="168" Count="0" />
-      <LineId Id="1043" Count="31" />
-      <LineId Id="1108" Count="31" />
-      <LineId Id="176" Count="0" />
-      <LineId Id="1141" Count="0" />
-      <LineId Id="1143" Count="31" />
-      <LineId Id="219" Count="0" />
-      <LineId Id="1175" Count="30" />
+      <LineId Id="1221" Count="657" />
       <LineId Id="1" Count="0" />
     </LineIds>
   </POU>

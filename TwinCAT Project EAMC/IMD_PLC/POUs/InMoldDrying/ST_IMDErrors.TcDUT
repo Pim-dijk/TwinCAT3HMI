@@ -7,6 +7,7 @@ STRUCT
 	RH_TrMoldIsMovingBoMoldANotInPos	: BOOL; (* RedHot SafetyRule, Transfermold is moving, Bottom Mold A not in position *)
 	RH_TrMoldIsMovingBoMoldBNotInPos	: BOOL; (* RedHot SafetyRule, Transfermold is moving, Bottom Mold B not in position *)
 	RH_TrMoldIsMovingSprayBNotInPos		: BOOL; (* RedHot SafetyRule, Transfermold is moving, spray bar not in position *)
+	RH_SprayBIsMovingTrNotClear			: BOOL;	(* RedHot safetyRule, Spraybar starts moving while transfer is still down on forming*)
 	RH_ToMoldAIsMovingBoMoldANotInPos	: BOOL; (* RedHot SafetyRule, Topmold A is moving, Bottom Mold A not in position *)
 	RH_ToMoldBIsMovingBoMoldBNotInPos	: BOOL; (* RedHot SafetyRule, Topmold B is moving, Bottom Mold B not in position *)
 	RH_BoMoldAIsMovingTrMoldNotInPos	: BOOL; (* RedHot SafetyRule, Bottommold A is moving, Transfermold not in position *)
@@ -24,12 +25,6 @@ STRUCT
 	
 	TempDeviationToHighA				: ARRAY[1..6] OF BOOL;
 	TempDeviationToHighB				: ARRAY[1..6] OF BOOL;
-	
-	ProcessTimeToLongA					: BOOL;
-	ProcessTimeToLongB					: BOOL;
-	
-	DryingTimeToLongA					: BOOL;
-	DryingTimeToLongB					: BOOL;
 	
 	TopMoldA							: ST_TopMoldErrors;
 	TopMoldB							: ST_TopMoldErrors;

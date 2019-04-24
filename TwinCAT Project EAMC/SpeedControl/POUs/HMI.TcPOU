@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="HMI" Id="{7ef32546-96f3-4c4f-9e7f-19925e8e5717}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM HMI
+VAR_OUTPUT
+	mxError		:BOOL; (*Error present*)
+END_VAR
+
+VAR
+
+(*HMI Vars*)
+	AlarmWord1 :DINT;	(* General *)
+	AlarmWord2 :DINT;	(* General *)
+	AlarmWord3 :DINT;	(* TopMold A *)
+	AlarmWord4 :DINT;	(* TopMold A *)
+	AlarmWord5 :DINT;	(* TopMold B *)
+	AlarmWord6 :DINT;	(* TopMold B *)
+	AlarmWord7 :DINT;	(* BottomMold A *)	
+	AlarmWord8 :DINT;	(* BottomMold A *)
+	AlarmWord9 :DINT;	(* BottomMold A *)
+	AlarmWord10 :DINT;	(* BottomMold A *)
+	AlarmWord11 :DINT;	(* BottomMold B *)
+	AlarmWord12 :DINT;	(* BottomMold B *)
+	AlarmWord13 :DINT;	(* BottomMold B *)
+	AlarmWord14 :DINT;	(* BottomMold B *)
+	AlarmWord15 :DINT;	(* TransferMold *)
+	AlarmWord16 :DINT;	(* TransferMold *)
+	AlarmWord17 :DINT;	(* ProductForming *)
+	AlarmWord18 :DINT;	(* ProductForming *)
+	AlarmWord19 :DINT;	(* ProductForming *)
+	AlarmWord20 :DINT;	(* ProductForming *)
+
+
+	sUserName	: STRING	:= 'NONE';
+	miUserLevel	: INT		:= 0;
+
+	mxReset		: BOOL;
+	T_HmiReset	:TON;
+	T_LogOut	: TON;
+
+	mxAutoMode: BOOL;
+
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error();
+
+T_HmiReset(IN:=mxReset,PT:=T#500MS);
+IF T_HmiReset.Q THEN mxReset:=FALSE; END_IF
+
+(********************************************************************
+Automatically Logout after 10 minutes
+********************************************************************)
+T_LogOut(IN:=miUserLevel>0,PT:=t#10m);
+IF T_LogOut.Q THEN
+	miUserLevel := 0;
+	sUserName := 'NONE';
+END_IF
+
+mxError:= AlarmWord1<>0 OR AlarmWord2<>0 OR AlarmWord3<>0 OR AlarmWord4<>0 OR AlarmWord5<>0 OR AlarmWord6<>0 OR
+			AlarmWord7<>0 OR AlarmWord8<>0 OR AlarmWord9<>0 OR AlarmWord10<>0 OR AlarmWord11<>0 OR AlarmWord12<>0 OR
+			AlarmWord13<>0 OR AlarmWord14<>0 OR AlarmWord15<>0 OR AlarmWord16<>0 OR AlarmWord17<>0 OR AlarmWord18<>0 OR
+			AlarmWord19<>0 OR AlarmWord20<>0;
+]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{eb88d914-a5ab-4fa9-8cba-154b405416b1}">
+      <Implementation>
+        <ST><![CDATA[(*1*) AlarmWord1.0:= Main.Errors.exEmergency[1]; (* Zone error *)
+(*2*) AlarmWord1.1:= Main.Errors.exEmergency[2];
+(*3*) AlarmWord1.2:= Main.Errors.exEmergency[3];
+(*4*) AlarmWord1.3:= Main.Errors.exEmergency[4];
+(*5*) AlarmWord1.4:= Main.Errors.exEmergency[5];
+(*6*) AlarmWord1.5:= Main.Errors.exEmergency[6];
+(*7*) AlarmWord1.6:= Main.Errors.exEmergency[7];
+(*8*) AlarmWord1.7:= FALSE;
+(*9*) Alarmword1.8:= FALSE;
+(*10*)Alarmword1.9:= FALSE;
+(*11*)Alarmword1.10:=FALSE;
+(*12*)Alarmword1.11:=FALSE;
+(*13*)Alarmword1.12:=FALSE;
+(*14*)Alarmword1.13:=FALSE;
+(*15*)Alarmword1.14:=FALSE;
+(*16*)Alarmword1.15:=FALSE;
+(*17*)Alarmword1.16:=FALSE;
+(*18*)Alarmword1.17:=FALSE;
+(*19*)Alarmword1.18:=FALSE;
+(*20*)Alarmword1.19:=FALSE;
+(*21*)Alarmword1.20:=FALSE;
+(*22*)Alarmword1.21:=FALSE;
+(*23*)Alarmword1.22:=FALSE;
+(*24*)Alarmword1.23:=FALSE;
+(*25*)Alarmword1.24:=FALSE;
+(*26*)Alarmword1.25:=FALSE;
+(*27*)Alarmword1.26:=FALSE;
+(*28*)Alarmword1.27:=FALSE;
+(*29*)Alarmword1.28:=FALSE;
+(*30*)Alarmword1.29:=FALSE;
+(*31*)Alarmword1.30:=FALSE;
+(*32*)Alarmword2.31:=FALSE;
+
+(*33*)Alarmword2.0:= Main.Errors.ConveyorErrors.NCAxisError.exDriveAbsoluut;
+(*34*)Alarmword2.1:= Main.Errors.ConveyorErrors.NCAxisError.exDriveJog;
+(*35*)Alarmword2.2:= Main.Errors.ConveyorErrors.NCAxisError.exDrivePower;
+(*36*)Alarmword2.3:= Main.Errors.ConveyorErrors.NCAxisError.exDriveReset;
+(*37*)Alarmword2.4:= Main.Errors.ConveyorErrors.NCAxisError.exDriveStatus;
+(*38*)Alarmword2.5:= Main.Errors.ConveyorErrors.NCAxisError.exDriveStop;
+(*39*)Alarmword2.6:= Main.Errors.ConveyorErrors.NCAxisError.exDriveVelocity;
+(*40*)Alarmword2.7:= Main.Errors.ConveyorErrors.NCAxisError.exHome;
+(*41*)Alarmword2.8:= Main.Errors.ConveyorErrors.NCAxisError.exLagError;
+(*42*)Alarmword2.9:= Main.Errors.ConveyorErrors.NCAxisError.exReadParameter;
+(*43*)Alarmword2.10:=Main.Errors.ConveyorErrors.NCAxisError.exWriteParameter;
+(*44*)Alarmword2.11:=FALSE;
+(*45*)Alarmword2.12:=FALSE;
+(*46*)Alarmword2.13:=FALSE;
+(*47*)Alarmword2.14:=FALSE;
+(*48*)Alarmword2.15:=FALSE;
+(*49*)Alarmword2.16:=FALSE;
+(*50*)Alarmword2.17:=FALSE;
+(*51*)Alarmword2.18:=FALSE;
+(*52*)Alarmword2.19:=FALSE;
+(*53*)Alarmword2.20:=FALSE;
+(*54*)Alarmword2.21:=FALSE;
+(*55*)Alarmword2.22:=FALSE;
+(*56*)Alarmword2.23:=FALSE;
+(*57*)Alarmword2.24:=FALSE;
+(*58*)Alarmword2.25:=FALSE;
+(*59*)Alarmword2.26:=FALSE;
+(*60*)Alarmword2.27:=FALSE;
+(*61*)Alarmword2.28:=FALSE;
+(*62*)Alarmword2.29:=FALSE;
+(*63*)Alarmword2.30:=FALSE;
+(*64*)Alarmword2.31:=FALSE;
+
+(*65*)Alarmword3.0:=FALSE;
+(*66*)Alarmword3.1:=FALSE;
+(*67*)Alarmword3.2:=FALSE;
+(*68*)Alarmword3.3:=FALSE;
+(*69*)Alarmword3.4:=FALSE;
+(*70*)Alarmword3.5:=FALSE;
+(*71*)Alarmword3.6:=FALSE;
+(*72*)Alarmword3.7:=FALSE;
+(*73*)Alarmword3.8:=FALSE;
+(*74*)Alarmword3.9:=FALSE;
+(*75*)Alarmword3.10:=FALSE;
+(*76*)Alarmword3.11:=FALSE;
+(*77*)Alarmword3.12:=FALSE;
+(*78*)Alarmword3.13:=FALSE;
+(*79*)Alarmword3.14:=FALSE;
+(*80*)Alarmword3.15:=FALSE;
+(*81*)Alarmword3.16:=FALSE;
+(*82*)Alarmword3.17:=FALSE;
+(*83*)Alarmword3.18:=FALSE;
+(*84*)Alarmword3.19:=FALSE;
+(*85*)Alarmword3.20:=FALSE;
+(*86*)Alarmword3.21:=FALSE;
+(*87*)Alarmword3.22:=FALSE;
+(*88*)Alarmword3.23:=FALSE;
+(*89*)Alarmword3.24:=FALSE;
+(*90*)Alarmword3.25:=FALSE;
+(*91*)Alarmword3.26:=FALSE;
+(*92*)Alarmword3.27:=FALSE;
+(*93*)Alarmword3.28:=FALSE;
+(*94*)Alarmword3.29:=FALSE;
+(*95*)Alarmword3.30:=FALSE;
+(*96*)Alarmword3.31:=FALSE;
+
+(*97*)Alarmword4.0:=FALSE; 
+(*98*)Alarmword4.1:=FALSE; 
+(*99*)Alarmword4.2:=FALSE; 
+(*100*)Alarmword4.3:=FALSE; 
+(*101*)Alarmword4.4:=FALSE; 
+(*102*)Alarmword4.5:=FALSE; 
+(*103*)Alarmword4.6:=FALSE; 
+(*104*)Alarmword4.7:=FALSE; 
+(*105*)Alarmword4.8:=FALSE; 
+(*106*)Alarmword4.9:=FALSE; 
+(*107*)Alarmword4.10:=FALSE;
+(*108*)Alarmword4.11:=FALSE;
+(*109*)Alarmword4.12:=FALSE;
+(*110*)Alarmword4.13:=FALSE;
+(*111*)Alarmword4.14:=FALSE;
+(*112*)Alarmword4.15:=FALSE;
+(*113*)Alarmword4.16:=FALSE;
+(*114*)Alarmword4.17:=FALSE;
+(*115*)Alarmword4.18:=FALSE;
+(*116*)Alarmword4.19:=FALSE;
+(*117*)Alarmword4.20:=FALSE;
+(*118*)Alarmword4.21:=FALSE;
+(*119*)Alarmword4.22:=FALSE;
+(*120*)Alarmword4.23:=FALSE;
+(*121*)Alarmword4.24:=FALSE;
+(*122*)Alarmword4.25:=FALSE;
+(*123*)Alarmword4.26:=FALSE;
+(*124*)Alarmword4.27:=FALSE;
+(*125*)Alarmword4.28:=FALSE;
+(*126*)Alarmword4.29:=FALSE;
+(*127*)Alarmword4.30:=FALSE;
+(*128*)Alarmword4.31:=FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="HMI">
+      <LineId Id="98" Count="1" />
+      <LineId Id="31" Count="1" />
+      <LineId Id="35" Count="7" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="85" Count="2" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="HMI.Error">
+      <LineId Id="41" Count="6" />
+      <LineId Id="246" Count="1" />
+      <LineId Id="678" Count="5" />
+      <LineId Id="691" Count="0" />
+      <LineId Id="685" Count="5" />
+      <LineId Id="666" Count="0" />
+      <LineId Id="262" Count="7" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="272" Count="0" />
+      <LineId Id="337" Count="31" />
+      <LineId Id="336" Count="0" />
+      <LineId Id="369" Count="31" />
+      <LineId Id="304" Count="0" />
+      <LineId Id="434" Count="2" />
+      <LineId Id="466" Count="0" />
+      <LineId Id="438" Count="26" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

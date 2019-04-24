@@ -59,7 +59,6 @@ Partial Public Class Product
         Me.ReleaseToA = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_ReleaseToBMA = New KremerControlsWin32.KremerIoField(Me.components)
         Me.ReleaseToB = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.IO_ReleaseToBMB = New KremerControlsWin32.KremerIoField(Me.components)
         Me.ioProductName = New KremerControlsWin32.KremerTextField(Me.components)
         Me.Label9 = New System.Windows.Forms.Label()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
@@ -88,8 +87,9 @@ Partial Public Class Product
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.IO_ReleaseToBMB = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ioProductId
@@ -737,7 +737,7 @@ Partial Public Class Product
         'ReleaseToA
         '
         Me.ReleaseToA.BindControl = Me.IO_ReleaseToBMA
-        Me.ReleaseToA.BindProperty = "Real"
+        Me.ReleaseToA.BindProperty = "Data"
         Me.ReleaseToA.Data = Nothing
         Me.ReleaseToA.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.ReleaseToA.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
@@ -776,31 +776,6 @@ Partial Public Class Product
         Me.ReleaseToB.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.ReleaseToB.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
         Me.ReleaseToB.VariableName = "MAIN.InMoldDrying.TransferMold.ProdParameters.ReleaseBmMovementOffset"
-        '
-        'IO_ReleaseToBMB
-        '
-        Me.IO_ReleaseToBMB.Audit = Nothing
-        Me.IO_ReleaseToBMB.AuditEnabled = False
-        Me.IO_ReleaseToBMB.AuditMessage = "KremerIoField changed:"
-        Me.IO_ReleaseToBMB.AuditSource = "KremerIoField"
-        Me.IO_ReleaseToBMB.BackColor = System.Drawing.Color.White
-        Me.IO_ReleaseToBMB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_ReleaseToBMB.Data = 0.0R
-        Me.IO_ReleaseToBMB.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.IO_ReleaseToBMB.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IO_ReleaseToBMB.InitialValue = True
-        Me.IO_ReleaseToBMB.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
-        Me.IO_ReleaseToBMB.Location = New System.Drawing.Point(294, 202)
-        Me.IO_ReleaseToBMB.LowerBound = -5000.0R
-        Me.IO_ReleaseToBMB.Name = "IO_ReleaseToBMB"
-        Me.IO_ReleaseToBMB.OutputFormat = "0.0 mm"
-        Me.IO_ReleaseToBMB.Size = New System.Drawing.Size(100, 24)
-        Me.IO_ReleaseToBMB.TabIndex = 443
-        Me.IO_ReleaseToBMB.Text = "0.0 mm"
-        Me.IO_ReleaseToBMB.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IO_ReleaseToBMB.UpperBound = 5000.0R
-        Me.IO_ReleaseToBMB.UserInfo = Nothing
-        Me.IO_ReleaseToBMB.UserLevel = 0
         '
         'ioProductName
         '
@@ -1093,16 +1068,6 @@ Partial Public Class Product
         Me.Label7.Tag = "431"
         Me.Label7.Text = "Top Mold A-Position down stop"
         '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(-2, 203)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(290, 24)
-        Me.Label1.TabIndex = 441
-        Me.Label1.Tag = ""
-        Me.Label1.Text = "Position to release bottommold B"
-        '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1111,7 +1076,44 @@ Partial Public Class Product
         Me.Label3.Size = New System.Drawing.Size(290, 24)
         Me.Label3.TabIndex = 440
         Me.Label3.Tag = ""
-        Me.Label3.Text = "Position to release bottommold A"
+        Me.Label3.Text = "Position to release bottommolds"
+        '
+        'IO_ReleaseToBMB
+        '
+        Me.IO_ReleaseToBMB.Audit = Nothing
+        Me.IO_ReleaseToBMB.AuditEnabled = False
+        Me.IO_ReleaseToBMB.AuditMessage = "KremerIoField changed:"
+        Me.IO_ReleaseToBMB.AuditSource = "KremerIoField"
+        Me.IO_ReleaseToBMB.BackColor = System.Drawing.Color.White
+        Me.IO_ReleaseToBMB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.IO_ReleaseToBMB.Data = 0.0R
+        Me.IO_ReleaseToBMB.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_ReleaseToBMB.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_ReleaseToBMB.InitialValue = True
+        Me.IO_ReleaseToBMB.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
+        Me.IO_ReleaseToBMB.Location = New System.Drawing.Point(294, 202)
+        Me.IO_ReleaseToBMB.LowerBound = -5000.0R
+        Me.IO_ReleaseToBMB.Name = "IO_ReleaseToBMB"
+        Me.IO_ReleaseToBMB.OutputFormat = "0.0 mm"
+        Me.IO_ReleaseToBMB.Size = New System.Drawing.Size(100, 24)
+        Me.IO_ReleaseToBMB.TabIndex = 443
+        Me.IO_ReleaseToBMB.Text = "0.0 mm"
+        Me.IO_ReleaseToBMB.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_ReleaseToBMB.UpperBound = 5000.0R
+        Me.IO_ReleaseToBMB.UserInfo = Nothing
+        Me.IO_ReleaseToBMB.UserLevel = 0
+        Me.IO_ReleaseToBMB.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(-2, 203)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(290, 24)
+        Me.Label1.TabIndex = 441
+        Me.Label1.Tag = ""
+        Me.Label1.Text = "Invisible but in db (remove later)"
+        Me.Label1.Visible = False
         '
         'Product
         '
@@ -1230,13 +1232,13 @@ Partial Public Class Product
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents IO_TopBOpen As KremerControlsWin32.KremerIoField
     Friend WithEvents IO_TopAOpen As KremerControlsWin32.KremerIoField
-    Friend WithEvents IO_ReleaseToBMB As KremerControlsWin32.KremerIoField
     Friend WithEvents IO_ReleaseToBMA As KremerControlsWin32.KremerIoField
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TopAOpen As KremerControlsWin32.KremerVariable
     Friend WithEvents TopBOpen As KremerControlsWin32.KremerVariable
     Friend WithEvents ReleaseToA As KremerControlsWin32.KremerVariable
     Friend WithEvents ReleaseToB As KremerControlsWin32.KremerVariable
+    Friend WithEvents IO_ReleaseToBMB As KremerControlsWin32.KremerIoField
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class
