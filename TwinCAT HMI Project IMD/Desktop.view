@@ -354,7 +354,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/subFolder/SubfolderScreen.content"
+          "value": "Content/Settings.content"
         },
         "asyncWait": true
       }

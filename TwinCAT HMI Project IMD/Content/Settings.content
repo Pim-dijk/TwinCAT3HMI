@@ -1,0 +1,111 @@
+﻿<div id="Settings" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+
+<div id="TcHmiTextblock_689" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Forming settings" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="272" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-text-font-weight="Bold">
+
+
+
+</div>
+
+<div id="TcHmiLine_94" data-tchmi-type="tchmi-line" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="400" data-tchmi-width-unit="px" data-tchmi-x1="5" data-tchmi-x2="400" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_690" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="1st vacuum time (forming)" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="267" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+
+
+
+</div>
+
+<div id="TcHmiTextblock_691" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="2nd vacuum time" data-tchmi-top="72" data-tchmi-top-unit="px" data-tchmi-width="267" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+
+
+
+</div>
+
+<div id="IOField_190" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuemax="10000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.VacuumTime%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+</div>
+
+<div id="IOField_191" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="72" data-tchmi-top-unit="px" data-tchmi-valuemax="15000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.ProductForming.FormingMold.SecondVacuum%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+</div>
+
+<div id="TcHmiLine_95" data-tchmi-type="tchmi-line" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="282" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="8" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="62">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_692" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Drying time settings" data-tchmi-top="133" data-tchmi-top-unit="px" data-tchmi-width="272" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-text-font-weight="Bold">
+
+
+
+</div>
+
+<div id="TcHmiLine_96" data-tchmi-type="tchmi-line" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="159" data-tchmi-top-unit="px" data-tchmi-width="400" data-tchmi-width-unit="px" data-tchmi-x1="5" data-tchmi-x2="400" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_693" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="A side drying time" data-tchmi-top="169" data-tchmi-top-unit="px" data-tchmi-width="267" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+
+
+
+</div>
+
+<div id="TcHmiTextblock_694" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="B side drying time" data-tchmi-top="195" data-tchmi-top-unit="px" data-tchmi-width="267" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+
+
+
+</div>
+
+<div id="IOField_192" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="169" data-tchmi-top-unit="px" data-tchmi-valuemax="120000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.DryingTime%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+</div>
+
+<div id="IOField_193" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="14" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="295" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="195" data-tchmi-top-unit="px" data-tchmi-valuemax="120000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.DryingTime%/s%">
+<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+</div>
+
+<div id="TcHmiLine_97" data-tchmi-type="tchmi-line" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="282" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="159" data-tchmi-top-unit="px" data-tchmi-width="8" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="62">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+</div>

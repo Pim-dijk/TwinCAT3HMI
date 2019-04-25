@@ -208,6 +208,36 @@
       "propertyGetterName": "getSymbolWithPlaceholder"
     },
     {
+      "name": "data-tchmi-statesymbolwithplaceholder",
+      "displayName": "StateSymbolWithPlaceholder",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Symbol with placeholders",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "StateSymbolWithPlaceholder",
+      "propertySetterName": "setStateSymbolWithPlaceholder",
+      "propertyGetterName": "getStateSymbolWithPlaceholder"
+    },
+    {
+      "name": "data-tchmi-statesymbol",
+      "displayName": "StateSymbol",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Symbol",
+      "category": "Optional",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "StateSymbol",
+      "propertySetterName": "setStateSymbol",
+      "propertyGetterName": "getStateSymbol"
+    },
+    {
       "name": "data-tchmi-bindingsymbol",
       "displayName": "BindingSymbol",
       "visible": true,
@@ -236,6 +266,21 @@
       "propertyName": "ThisControl",
       "propertySetterName": "setThisControl",
       "propertyGetterName": "getThisControl"
+    },
+    {
+      "name": "data-tchmi-bindingstatesymbol",
+      "displayName": "BindingStateSymbol",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "z_Do not modify",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "BindingStateSymbol",
+      "propertySetterName": "setBindingStateSymbol",
+      "propertyGetterName": "getBindingStateSymbol"
     }
   ],
   "virtualRights": [],

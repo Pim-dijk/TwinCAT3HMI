@@ -104,7 +104,7 @@
 </script>
 </div>
 
-<div id="Kremer_Button_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="606" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-value="Toggle" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-fontfamily="" data-tchmi-visibility="Visible">
+<div id="Kremer_Button_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="606" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-value="Toggle" data-tchmi-fontfamily="" data-tchmi-visibility="Visible" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-statesymbol="%s%PLC1.MAIN.Errors.exGantryA_BackDoor%/s%">
 
 
 
@@ -154,7 +154,7 @@
 
 </div>
 
-<div id="Kremer_Button_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Set" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="606" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-value="Set" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-fontfamily="" data-tchmi-visibility="Visible">
+<div id="Kremer_Button_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Set" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="606" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-value="Set" data-tchmi-fontfamily="" data-tchmi-visibility="Visible" data-tchmi-parameters="mxAutoMode" data-tchmi-symbolwithplaceholder="PLC1.MAIN.{0}" data-tchmi-statesymbolwithplaceholder="PLC1.MAIN.{0}">
 
 
 
@@ -252,7 +252,7 @@
 </script>
 </div>
 
-<div id="IOField_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldB.PositionDownOpen%/s%" data-tchmi-attribute="ms" data-tchmi-valuemin="-750" data-tchmi-valuemax="750" data-tchmi-fontsize="18" data-tchmi-datatype="Input" data-tchmi-border="True" data-tchmi-is-enabled="True">
+<div id="IOField_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-attribute="" data-tchmi-valuemin="-750" data-tchmi-valuemax="750" data-tchmi-fontsize="18" data-tchmi-datatype="Input" data-tchmi-border="True" data-tchmi-is-enabled="True">
 
 </div>
 
@@ -332,11 +332,11 @@
 </script>
 </div>
 
-<div id="Kremer_AlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="168" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbollight="False" data-tchmi-symbolalarm="False" data-tchmi-visible="True">
+<div id="Kremer_AlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="168" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbollight="False" data-tchmi-symbolalarm="True" data-tchmi-visible="True">
 
 </div>
 
-<div id="Kremer_AlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Rectangle" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="203" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbolalarm="False" data-tchmi-symbollight="True">
+<div id="Kremer_AlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Rectangle" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="203" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbolalarm="True" data-tchmi-symbollight="True">
 
 </div>
 
@@ -345,10 +345,6 @@
 </div>
 
 <div id="Kremer_LinearGauge_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="218" data-tchmi-height-unit="px" data-tchmi-left="254" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="135" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-value="50" data-tchmi-width="85" data-tchmi-width-unit="px">
-
-</div>
-
-<div id="IOField_81" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="18" data-tchmi-left-unit="px" data-tchmi-maxvalue="5000" data-tchmi-minvalue="-5000" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="317" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
 
 </div>
 
@@ -366,84 +362,13 @@
 
 </div>
 
-<div id="IOField_89" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="379" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%%i%_IsASide%/i% ? 'Top,A' : 'Top,   B'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.ProductPar.InMoldDrying.{0}Mold{1}.PositionDownOpen">
+<div id="IOField_249" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="55" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="304" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PausePositionUp%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
 
-</div>
-
-<div id="IOField_91" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="379" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="163" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-symbolwithplaceholder="PLC1.MAIN.ProductPar.InMoldDrying.{0}Mold{1}.PositionDownOpen">
-<script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
-{
-  "color": "rgba(255, 255, 255, 1)"
-}
-</script>
-
-
-
-
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "IOField_91.onAttached",
-    "actions": [
-      {
-        "objectType": "Condition",
-        "active": true,
-        "expressions": [
-          {
-            "compare1": {
-              "objectType": "Symbol",
-              "symbolExpression": "%i%_IsASide%/i%"
-            },
-            "compare2": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/BOOL",
-              "value": true
-            },
-            "compareOperator": "==",
-            "logic": null
-          }
-        ],
-        "true": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%IOField_91::Parameters%/ctrl%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Top,A"
-            },
-            "asyncWait": true
-          }
-        ],
-        "false": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%IOField_91::Parameters%/ctrl%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/String",
-              "value": "Top,B"
-            },
-            "asyncWait": true
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 </div>

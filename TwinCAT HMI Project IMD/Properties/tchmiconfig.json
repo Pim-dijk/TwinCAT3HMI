@@ -147,6 +147,18 @@
       "preload": false
     },
     {
+      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold_Settings.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold_Settings2.content",
+      "preload": false
+    },
+    {
       "url": "Content/SubContent/MachineParts/Gantry/Gantry_Manual.content",
       "preload": false
     },
@@ -304,6 +316,10 @@
     },
     {
       "url": "Content/Recipe.content",
+      "preload": false
+    },
+    {
+      "url": "Content/Settings.content",
       "preload": false
     },
     {

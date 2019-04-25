@@ -2463,6 +2463,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HorizontalAxis.HMI_Backward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HorizontalAxis::HMI_Backward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.HorizontalAxis.HMI_Forward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::HorizontalAxis::HMI_Forward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.BottomMoldA.HorizontalAxis.SignalLightStatus": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2508,6 +2528,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::Vacuum::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.Vacuum.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::Vacuum::mxHMI_On",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -3043,6 +3073,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HorizontalAxis.HMI_Backward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HorizontalAxis::HMI_Backward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.HorizontalAxis.HMI_Forward": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::HorizontalAxis::HMI_Forward",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.BottomMoldB.HorizontalAxis.SignalLightStatus": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -3088,6 +3138,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::Vacuum::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.Vacuum.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::Vacuum::mxHMI_On",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -3896,11 +3956,41 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopLateTimeA": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopLateTimeA",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopLateTimeB": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopLateTimeB",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldA.BlowOff.Q": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::BlowOff::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.BlowOff.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::BlowOff::mxHMI_On",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -4326,6 +4416,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ActPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ActPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.BottomSidePressure.EngFilt": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4346,6 +4446,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.HydraulicValve.EngInput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::HydraulicValve::EngInput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.HydraulicValve.qwOutput": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4353,6 +4463,66 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::HydraulicValve::qwOutput",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ManCreepDown": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ManCreepDown",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ManCreepUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ManCreepUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ManDown": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ManDown",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ManSlowDown": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ManSlowDown",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ManSlowUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ManSlowUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.ManUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::HydraulicCilinder::ManUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -4426,6 +4596,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.Vacuum.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::Vacuum::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldA.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4451,6 +4631,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::BlowOff::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.BlowOff.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::BlowOff::mxHMI_On",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -4866,6 +5056,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ActPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ActPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.BottomSidePressure.EngFilt": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -4903,6 +5103,66 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::HydraulicValve::qwOutput",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ManCreepDown": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ManCreepDown",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ManCreepUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ManCreepUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ManDown": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ManDown",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ManSlowDown": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ManSlowDown",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ManSlowUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ManSlowUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.ManUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::HydraulicCilinder::ManUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -4976,6 +5236,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.Vacuum.mxHMI_On": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::Vacuum::mxHMI_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldB.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -5001,6 +5271,26 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::TransferLateTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TransferLateTimeA": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TransferLateTimeA",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.TransferLateTimeB": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TransferLateTimeB",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/TIME"
             },
@@ -5293,6 +5583,66 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::AxisPositionHome",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.AxisVelocityAuto": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::AxisVelocityAuto",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.AxisVelocityInit": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::AxisVelocityInit",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.AxisVelocityManual": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::AxisVelocityManual",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.BlowOffTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::BlowOffTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.BottomMoldVacuumClosed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::BottomMoldVacuumClosed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.ClosedVacEnabled": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::ClosedVacEnabled",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -6826,6 +7176,66 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.OffsetStartBlowOff": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::OffsetStartBlowOff",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.PositionInStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::PositionInStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.PositionOutStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::PositionOutStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.StartVacAtTrPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::StartVacAtTrPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.StartVacBeforeDryingAtBmPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::StartVacBeforeDryingAtBmPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.StopVacAtBmPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::StopVacAtBmPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.VerticalCilinderUpDelay": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -6843,6 +7253,66 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::AxisPositionHome",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.AxisVelocityAuto": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::AxisVelocityAuto",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.AxisVelocityInit": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::AxisVelocityInit",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.AxisVelocityManual": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::AxisVelocityManual",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.BlowOffTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::BlowOffTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.BottomMoldVacuumClosed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::BottomMoldVacuumClosed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.ClosedVacEnabled": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::ClosedVacEnabled",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -8376,6 +8846,66 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.OffsetStartBlowOff": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::OffsetStartBlowOff",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.PositionInStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::PositionInStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.PositionOutStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::PositionOutStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.StartVacAtTrPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::StartVacAtTrPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.StartVacBeforeDryingAtBmPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::StartVacBeforeDryingAtBmPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.StopVacAtBmPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::StopVacAtBmPosOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.VerticalCilinderUpDelay": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -8773,6 +9303,46 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::WireSprayInterval",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.BlowOffTimeClosed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::BlowOffTimeClosed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.BlowOffToTakeOut": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::BlowOffToTakeOut",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.DryingTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::DryingTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.EnableClosedVacuum": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::EnableClosedVacuum",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10216,6 +10786,326 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.InitSpeedDownCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::InitSpeedDownCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.InitSpeedDownNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::InitSpeedDownNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.InitSpeedDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::InitSpeedDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.InitSpeedUpCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::InitSpeedUpCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.InitSpeedUpNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::InitSpeedUpNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.InitSpeedUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::InitSpeedUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.ManSpeed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::ManSpeed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.ManSpeedCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::ManSpeedCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.ManSpeedSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::ManSpeedSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PausePositionUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PausePositionUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PositionDownCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PositionDownCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PositionDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PositionDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PositionPhyscialMeasured": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PositionPhyscialMeasured",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PositionUpCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PositionUpCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PositionUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PositionUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PositionUpStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PositionUpStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PressSpeed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PressSpeed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.PressStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::PressStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedDownCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedDownCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedDownNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedDownNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedOpening": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedOpening",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedUpCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedUpCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedUpNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedUpNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.SpeedUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::SpeedUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.UseNormalSpeedProfile": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::UseNormalSpeedProfile",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.VacuumTimeClosed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::VacuumTimeClosed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldA.VacuumTimeEndDrying": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldA::VacuumTimeEndDrying",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.BlowOffTimeClosed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::BlowOffTimeClosed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.BlowOffToTakeOut": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::BlowOffToTakeOut",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.DryingTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::DryingTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.EnableClosedVacuum": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::EnableClosedVacuum",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.HeatingZone.0.PIDTempZone.AutoState": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -11653,6 +12543,286 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::HeatingZone[5]::nrOfSteps",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.InitSpeedDownCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::InitSpeedDownCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.InitSpeedDownNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::InitSpeedDownNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.InitSpeedDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::InitSpeedDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.InitSpeedUpCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::InitSpeedUpCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.InitSpeedUpNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::InitSpeedUpNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.InitSpeedUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::InitSpeedUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.ManSpeed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::ManSpeed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.ManSpeedCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::ManSpeedCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.ManSpeedSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::ManSpeedSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PausePositionUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PausePositionUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PositionDownCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PositionDownCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PositionDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PositionDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PositionPhyscialMeasured": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PositionPhyscialMeasured",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PositionUpCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PositionUpCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PositionUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PositionUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PositionUpStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PositionUpStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PressSpeed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PressSpeed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.PressStop": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::PressStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedDownCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedDownCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedDownNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedDownNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedDownSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedDownSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedOpening": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedOpening",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedUpCreep": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedUpCreep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedUpNormal": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedUpNormal",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.SpeedUpSlow": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::SpeedUpSlow",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.UseNormalSpeedProfile": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::UseNormalSpeedProfile",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.VacuumTimeClosed": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::VacuumTimeClosed",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.TopMoldB.VacuumTimeEndDrying": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TopMoldB::VacuumTimeEndDrying",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
             },
             "USEMAPPING": true
         },
@@ -14303,6 +15473,17 @@
     "THREADPOOLSIZE": 12,
     "UPLOADTIMEOUT": "PT5S",
     "USERGROUPS": {
+        "TestUserGroup": {
+            "ENABLED": true,
+            "FILEACCESS": 3,
+            "FILES": {},
+            "SYMBOLACCESS": 3,
+            "SYMBOLS": {
+                "IsAuthRequired": 3,
+                "ListUsers": 3,
+                "Login": 3
+            }
+        },
         "__SystemAdministrators": {
             "ENABLED": true,
             "FILEACCESS": 3,
@@ -14361,6 +15542,27 @@
     },
     "USERGROUPUSERS": {
         "TcHmiUserManagement": {
+            "CreatedFromHMI": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
+                "USERGROUPUSERS_GROUPS": [
+                    "TestUserGroup"
+                ],
+                "USERGROUPUSERS_LOCALE": "en"
+            },
+            "Guest": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
+                "USERGROUPUSERS_GROUPS": [
+                    "TestUserGroup"
+                ],
+                "USERGROUPUSERS_LOCALE": "en"
+            },
+            "Henk123": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
+                "USERGROUPUSERS_GROUPS": [
+                    "TestUserGroup"
+                ],
+                "USERGROUPUSERS_LOCALE": "en"
+            },
             "__SystemAdministrator": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
                 "USERGROUPUSERS_GROUPS": [

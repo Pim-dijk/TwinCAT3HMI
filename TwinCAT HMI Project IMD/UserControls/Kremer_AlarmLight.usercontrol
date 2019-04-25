@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, 'Collapsed');%/f%">
 
-<div id="TcHmiEllipse_4" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
+<div id="TcHmiEllipse_4" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -17,7 +17,7 @@
 
 </div>
 
-<div id="TcHmiPolygon_1" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%">
+<div id="TcHmiPolygon_1" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%">
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
   "color": "Black"
