@@ -1883,6 +1883,56 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ComSC.SpeedControl_IMD.ProdParameters.ModuloDetectionSensorFree": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ComSC::SpeedControl_IMD::ProdParameters::ModuloDetectionSensorFree",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ComSC.SpeedControl_IMD.ProdParameters.ModuloOffsetSensorFree": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ComSC::SpeedControl_IMD::ProdParameters::ModuloOffsetSensorFree",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ComSC.SpeedControl_IMD.ProdParameters.NrOfSheets": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ComSC::SpeedControl_IMD::ProdParameters::NrOfSheets",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ComSC.SpeedControl_IMD.ProdParameters.PitchGantry": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ComSC::SpeedControl_IMD::ProdParameters::PitchGantry",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ComSC.SpeedControl_IMD.ProdParameters.SheetSize": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ComSC::SpeedControl_IMD::ProdParameters::SheetSize",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.Errors.exGantryA_BackDoor": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -2623,11 +2673,41 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.mxHMI_MoveToGreasingPos": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::mxHMI_MoveToGreasingPos",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.BottomMoldA.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldA.mxResetBotStroke": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldA::mxResetBotStroke",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -3233,11 +3313,41 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.mxHMI_MoveToGreasingPos": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::mxHMI_MoveToGreasingPos",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.BottomMoldB.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::mxInitialized",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.BottomMoldB.mxResetBotStroke": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::BottomMoldB::mxResetBotStroke",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -3903,6 +4013,16 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::ixPulpTank02",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.ProductForming.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::ProductForming::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
             },
             "USEMAPPING": true
         },
@@ -4606,6 +4726,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldA.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldA::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldA.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -5246,6 +5376,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TopMoldB.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TopMoldB::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TopMoldB.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -5526,6 +5666,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.InMoldDrying.TransferMold.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::TransferMold::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.InMoldDrying.TransferMold.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -5543,6 +5693,16 @@
             "MAPPING": "PLC1::MAIN::InMoldDrying::TransferMold::sInitStateText",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.InMoldDrying.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::InMoldDrying::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
             },
             "USEMAPPING": true
         },
@@ -5703,6 +5863,26 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::EnableVacuumSection[5]",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.GreasingPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::GreasingPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.GreasingVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::GreasingVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
             },
             "USEMAPPING": true
         },
@@ -7176,6 +7356,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.KickOffCounter": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldA::KickOffCounter",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldA.OffsetStartBlowOff": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -7373,6 +7563,26 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::EnableVacuumSection[5]",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.GreasingPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::GreasingPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.GreasingVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::GreasingVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
             },
             "USEMAPPING": true
         },
@@ -8846,6 +9056,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.KickOffCounter": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::BottomMoldB::KickOffCounter",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.OffsetStartBlowOff": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -8931,6 +9151,56 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::MinTempAlowTransferToBot",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.MinimumTmAPosToAllowBmMove": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::MinimumTmAPosToAllowBmMove",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.MinimumTmBPosToAllowBmMove": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::MinimumTmBPosToAllowBmMove",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.MinimumTrDownSprayReleasePosRHSR": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::MinimumTrDownSprayReleasePosRHSR",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.MinimumTrUpSprayReleasePosRHSR": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::MinimumTrUpSprayReleasePosRHSR",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.MinimumTransferPosRHSR": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::MinimumTransferPosRHSR",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/REAL"
             },
@@ -9136,6 +9406,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.MachinePond.PulpFeedingOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::MachinePond::PulpFeedingOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.ProductForming.SprayBar.AutoVelocity": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -9303,6 +9583,16 @@
             "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::ProductForming::SprayBar::WireSprayInterval",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.InMoldDrying.SprayBTrCollisionOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::SprayBTrCollisionOffset",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
             },
             "USEMAPPING": true
         },
@@ -12906,6 +13196,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.InMoldDrying.TransferMold.PausePositionUp": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::InMoldDrying::TransferMold::PausePositionUp",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.InMoldDrying.TransferMold.PosDownStartVacOffset": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -13186,6 +13486,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryA.GantryPickupTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryA::GantryPickupTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.ProductHandling.GantryA.Hor_PositionHome": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -13241,6 +13551,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryA::PositionHorizontalPickup",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryA.Vert_PickUpRestPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryA::Vert_PickUpRestPosOffset",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
             },
@@ -13356,6 +13676,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryB.GantryPickupTime": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryB::GantryPickupTime",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/TIME"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.MachPar.ProductHandling.GantryB.Hor_PositionHome": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -13411,6 +13741,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryB::PositionHorizontalPickup",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.MachPar.ProductHandling.GantryB.Vert_PickUpRestPosOffset": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::MachPar::ProductHandling::GantryB::Vert_PickUpRestPosOffset",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/LREAL"
             },
@@ -13789,6 +14129,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductHandling.GantryA.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryA::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.ProductHandling.GantryA.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -14142,6 +14492,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.ProductHandling.GantryB.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::GantryB::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.ProductHandling.GantryB.mxInitialized": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -14219,6 +14579,16 @@
             "MAPPING": "PLC1::MAIN::ProductHandling::OutfeedConveyor::mxInitialized",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.ProductHandling.miInitState": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::ProductHandling::miInitState",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
             },
             "USEMAPPING": true
         },

@@ -227,9 +227,6 @@
     <Content Include="Content\SubContent\Service\ZeroAbsEnc\ZeroAbsEncoder.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\subFolder\SubfolderScreen.content">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Content\General.content">
       <SubType>Content</SubType>
     </Content>
@@ -553,7 +550,6 @@
     <Folder Include="Content\SubContent\Service\IO" />
     <Folder Include="Content\SubContent\Service\ZeroAbsEnc" />
     <Folder Include="Content\SubContent\Service\Settings" />
-    <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />

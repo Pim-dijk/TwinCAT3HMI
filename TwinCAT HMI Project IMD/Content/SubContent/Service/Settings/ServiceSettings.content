@@ -4,7 +4,7 @@
 
 </div>
 
-<div id="TcHmiLine_75" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="400" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="400" data-tchmi-y1="0" data-tchmi-y2="0">
+<div id="TcHmiLine_75" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
   "color": "Black"
@@ -13,11 +13,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_435" data-tchmi-type="tchmi-textblock" data-tchmi-height="66" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Disables all safety rules, and alows free movement of all parts. But beware, it can destroy machine parts!" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="287" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_435" data-tchmi-type="tchmi-textblock" data-tchmi-height="66" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Disables all safety rules, and alows free movement of all parts. But beware, it can destroy machine parts!" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="268" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="Kremer_Button_115" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="307" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-value="ON" data-tchmi-visible="True" data-tchmi-width="102" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.CommisioningMode%/s%">
+<div id="Kremer_Button_115" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-value="ON" data-tchmi-visible="True" data-tchmi-width="102" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.CommisioningMode%/s%">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
@@ -46,7 +46,7 @@
 
 </div>
 
-<div id="TcHmiLine_76" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="162" data-tchmi-top-unit="px" data-tchmi-width="400" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="400" data-tchmi-y1="0" data-tchmi-y2="0">
+<div id="TcHmiLine_76" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="162" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
   "color": "Black"
@@ -55,11 +55,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_437" data-tchmi-type="tchmi-textblock" data-tchmi-height="97" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Minimum temperature at which transfermold can still go into the bottomolds. Below this temperature movement is blocked by safety rule." data-tchmi-top="172" data-tchmi-top-unit="px" data-tchmi-width="287" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_437" data-tchmi-type="tchmi-textblock" data-tchmi-height="97" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Minimum temperature at which transfermold can still go into the bottomolds. Below this temperature movement is blocked by safety rule." data-tchmi-top="172" data-tchmi-top-unit="px" data-tchmi-width="268" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="IOField_156" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="182" data-tchmi-top-unit="px" data-tchmi-valuemax="400" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinTempAlowTransferToBot%/s%">
+<div id="IOField_156" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="283" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-textalign="Right" data-tchmi-top="182" data-tchmi-top-unit="px" data-tchmi-valuemax="400" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinTempAlowTransferToBot%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -72,7 +72,7 @@
 
 </div>
 
-<div id="TcHmiLine_77" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="305" data-tchmi-top-unit="px" data-tchmi-width="400" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="400" data-tchmi-y1="0" data-tchmi-y2="0">
+<div id="TcHmiLine_77" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="305" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
   "color": "Black"
@@ -81,38 +81,38 @@
 
 </div>
 
-<div id="TcHmiTextblock_439" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold A offset zero" data-tchmi-top="315" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_439" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold A offset zero" data-tchmi-top="315" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_157" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="315" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
-
-
-</div>
-
-<div id="TcHmiTextblock_440" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold B offset zero" data-tchmi-top="342" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_158" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="342" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
+<div id="IOField_157" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="275" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="315" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
 
 
 </div>
 
-<div id="TcHmiTextblock_441" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Transfermold offset Zero" data-tchmi-top="369" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_440" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold B offset zero" data-tchmi-top="338" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_159" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="369" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
+<div id="IOField_158" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="275" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="338" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
 
 
 </div>
 
-<div id="TcHmiTextblock_442" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Machine pond Position zero" data-tchmi-top="396" data-tchmi-top-unit="px" data-tchmi-width="290" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_441" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Transfermold offset Zero" data-tchmi-top="361" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_160" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="396" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
+<div id="IOField_159" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="275" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="361" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
+
+
+</div>
+
+<div id="TcHmiTextblock_442" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Machine pond Position zero" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_160" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="275" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right">
 
 
 </div>
@@ -211,6 +211,112 @@
   }
 ]
 </script>
+</div>
+
+<div id="TcHmiTextblock_802" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="RHSR Trmold and bottommold move" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_134" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_803" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="Min TR pos to move bot" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_272" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinimumTransferPosRHSR%/s%">
+
+
+</div>
+
+<div id="TcHmiTextblock_804" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="RHSR Topmold and bottommold move" data-tchmi-top="78" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_135" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="104" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_805" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="Min TMA pos to allow bot to move" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_273" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinimumTmAPosToAllowBmMove%/s%">
+
+
+</div>
+
+<div id="TcHmiTextblock_806" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="Min TMB pos to allow bot to move" data-tchmi-top="137" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_274" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="137" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinimumTmBPosToAllowBmMove%/s%">
+
+
+</div>
+
+<div id="TcHmiTextblock_807" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="RHSR Tr moves up, spraybar starts" data-tchmi-top="169" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_136" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="195" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_808" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="Min Tr pos up to release spraybar" data-tchmi-top="205" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_275" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="205" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinimumTrUpSprayReleasePosRHSR%/s%">
+
+
+</div>
+
+<div id="TcHmiTextblock_809" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="Spraybar rest back offset pos" data-tchmi-top="228" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_276" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="228" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.SprayBTrCollisionOffset%/s%">
+
+
+</div>
+
+<div id="TcHmiTextblock_810" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="RHSR Tr moves down, spraybar starts" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_137" data-tchmi-type="tchmi-line" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-width="375" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="375" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_811" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="415" data-tchmi-left-unit="px" data-tchmi-text="Min Tr pos down release spraybar" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-width="263" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="IOField_277" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="296" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-textalign="Right" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.MinimumTrDownSprayReleasePosRHSR%/s%">
+
+
 </div>
 
 </div>

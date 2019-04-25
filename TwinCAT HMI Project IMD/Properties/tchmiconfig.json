@@ -295,10 +295,6 @@
       "preload": false
     },
     {
-      "url": "Content/subFolder/SubfolderScreen.content",
-      "preload": false
-    },
-    {
       "url": "Content/Alarms.content",
       "preload": false
     },

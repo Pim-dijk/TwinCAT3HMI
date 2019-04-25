@@ -159,19 +159,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_326" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Position offset alarm" data-tchmi-top="218" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="IOField_124" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="218" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-valuemin="-10000" data-tchmi-valuemax="10000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.PositionPhyscialMeasured%/s%">
 
 </div>
 
-<div id="IOField_123" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="218" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.PositionOffsetAlarm%/s%">
-
-</div>
-
-<div id="IOField_124" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="240" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-valuemin="-10000" data-tchmi-valuemax="10000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.PositionPhyscialMeasured%/s%">
-
-</div>
-
-<div id="TcHmiTextblock_327" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Physical measured position" data-tchmi-top="240" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_327" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Physical measured position" data-tchmi-top="218" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
@@ -405,6 +397,14 @@
   "color": "None"
 }
 </script>
+
+</div>
+
+<div id="IOField_262" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="240" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.PausePositionUp%/s%">
+
+</div>
+
+<div id="TcHmiTextblock_780" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Tr up pause position" data-tchmi-top="240" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 

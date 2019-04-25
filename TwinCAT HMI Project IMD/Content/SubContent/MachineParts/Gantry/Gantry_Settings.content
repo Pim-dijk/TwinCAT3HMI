@@ -73,11 +73,11 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_137" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Vertical Axis" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20">
+<div id="TcHmiTextblock_137" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Vertical Axis" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20">
 
 </div>
 
-<div id="TcHmiTextblock_138" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Horizontal Axis" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20">
+<div id="TcHmiTextblock_138" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Horizontal Axis" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20">
 
 </div>
 
@@ -99,39 +99,35 @@
 
 </div>
 
-<div id="TcHmiTextblock_139" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_139" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="TcHmiTextblock_140" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Automatic velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="True">
+<div id="TcHmiTextblock_140" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Automatic velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="True">
 
 </div>
 
-<div id="TcHmiTextblock_141" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Transport position" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_141" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Transport position" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="TcHmiTextblock_142" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_142" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Manual velocity" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="TcHmiTextblock_143" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Automatic velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_143" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Automatic velocity" data-tchmi-top="73" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="TcHmiTextblock_144" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Rest position" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_144" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Rest position" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="TcHmiTextblock_145" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Pickup position" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_146" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Drop off position" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
-<div id="TcHmiTextblock_146" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Drop off position" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
-
-</div>
-
-<div id="TcHmiTextblock_147" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Conveyor Drop off pos" data-tchmi-top="210" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+<div id="TcHmiTextblock_147" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Gantry pickup down time" data-tchmi-top="187" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
 
 </div>
 
@@ -234,25 +230,19 @@
 
 </div>
 
-<div id="IOField_87" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Hor_PositionRest">
+<div id="IOField_87" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.PositionHorizontalPickup">
 
 
 
 </div>
 
-<div id="IOField_88" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.PositionHorizontalPickup">
+<div id="IOField_89" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.PositionHorizontalDropOff">
 
 
 
 </div>
 
-<div id="IOField_89" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.PositionHorizontalDropOff">
-
-
-
-</div>
-
-<div id="IOField_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="210" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.DropOffConveyorPostion">
+<div id="IOField_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="187" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.GantryPickupTime">
 
 
 
@@ -389,6 +379,16 @@
   "color": "rgba(255, 255, 0, 1)"
 }
 </script>
+
+
+</div>
+
+<div id="TcHmiTextblock_778" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Rest position offset" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-width="231" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">
+
+</div>
+
+<div id="IOField_260" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-maxvalue="2000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="127" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.Vert_PickUpRestPosOffset">
+
 
 
 </div>
