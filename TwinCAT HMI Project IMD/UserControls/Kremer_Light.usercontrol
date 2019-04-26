@@ -7,7 +7,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%Symbol%/pp%",
+    "event": "%pp%BindingSymbol%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -16,7 +16,7 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%Symbol%/pp%"
+              "symbolExpression": "%pp%BindingSymbol%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
@@ -83,78 +83,32 @@
     "event": "Kremer_Light.onAttached",
     "actions": [
       {
-        "objectType": "Condition",
+        "objectType": "WriteToSymbol",
         "active": true,
-        "expressions": [
-          {
-            "compare1": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%Symbol%/pp%"
-            },
-            "compare2": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/BOOL",
-              "value": true
-            },
-            "compareOperator": "==",
-            "logic": null
-          }
-        ],
-        "true": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%TcHmiEllipse_3::FillColor%/ctrl%",
-            "valueType": "tchmi:framework#/definitions/Color",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ColorOn%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%TcHmiPolygon::FillColor%/ctrl%",
-            "valueType": "tchmi:framework#/definitions/Color",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ColorOn%/pp%"
-            },
-            "asyncWait": true
-          }
-        ],
-        "false": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%TcHmiEllipse_3::FillColor%/ctrl%",
-            "valueType": "tchmi:framework#/definitions/Color",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ColorOff%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%TcHmiPolygon::FillColor%/ctrl%",
-            "valueType": "tchmi:framework#/definitions/Color",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ColorOff%/pp%"
-            },
-            "asyncWait": true
-          }
-        ],
+        "symbolExpression": "%pp%ThisControl%/pp%",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:framework#/definitions/Control",
+          "symbolExpression": "%ctrl%Kremer_Light%/ctrl%"
+        },
         "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var paramsTemp = \"\";\n\nvar pageParamSymbol = new TcHmi.Symbol('%i%_pageParameters%/i%');\nvar pageParamsSymbolValue = pageParamSymbol.read();\n\nvar paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramSymbolValue = paramSymbol.read();\n\nif(paramSymbolValue){\n\tparamsTemp = paramSymbolValue;\t\n} else if(pageParamsSymbolValue){\n    paramsTemp = pageParamsSymbolValue;\n}\n\nvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\nvar placeholderValue = placeholderSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbol();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar value = \"\";\n\nvar write = false;\n\nif(placeholderValue && !hasSymbol) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n    var params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempSymbolValue = tempSymbol.read();\n\t\t\tparams[i] = tempSymbolValue;\n\t\t}\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\twrite = true;\n\t\n} else if(hasSymbol){\n\tvar Symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\n\tvar SymbolValue = Symbol.read();\n\t//console.log(SymbolValue);\n\tvalue = SymbolValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbol.destroy();\n\tSymbol = null;\n\t\n\twrite = true;\n}\n\nif(control && write){\n\tTcHmi.Binding.createEx(value, 'setBindingSymbol', control);\t\t\n}\n\n//cleanup\npageParamSymbol.destroy();\npageParamSymbol = null;\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;\nplaceholderSymbol.destroy();\nplaceholderSymbol = null;\n"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
       }
     ]
   }
 ]
 </script>
-<div id="TcHmiEllipse_3" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%" data-tchmi-zindex="1" data-tchmi-fill-color="%pp%ColorOff%/pp%">
+<div id="TcHmiEllipse_3" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%" data-tchmi-zindex="1" data-tchmi-fill-color="%pp%ColorOff%/pp%">
 
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
@@ -164,7 +118,7 @@
 
 </div>
 
-<div id="TcHmiPolygon" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%" data-tchmi-fill-color="%pp%ColorOff%/pp%">
+<div id="TcHmiPolygon" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%" data-tchmi-fill-color="%pp%ColorOff%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
   "color": "Black"

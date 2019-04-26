@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="FB_HydraulicCilinderAnalog" Id="{f656e3fc-b3ed-42d3-a4ef-1eb76193e145}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_HydraulicCilinderAnalog
 VAR_INPUT
@@ -45,6 +45,13 @@ VAR_OUTPUT
 	mxMoveOut: BOOL;
 END_VAR
 VAR
+	/// Alarms
+	_initializeEvents				: BOOL := TRUE;
+	_PositionError 					: FB_TcAlarm;
+	_IsMovingWithoutActivationError	: FB_TcAlarm;
+	_BallufError 					: FB_TcAlarm;
+	_ipInfo							: I_TcSourceInfo;
+
 	RodSidePressure: FB_AnalogIn4_20mA;
 	BottomSidePressure: FB_AnalogIn4_20mA;
 	/// Objects 
@@ -164,7 +171,20 @@ END_IF
     </Implementation>
     <Action Name="Error" Id="{c1a8f428-ab82-4542-866b-d20534fe250f}">
       <Implementation>
-        <ST><![CDATA[Errors.BallufError:= HydraulicPos.Error;
+        <ST><![CDATA[IF _initializeEvents THEN
+	_initializeEvents := FALSE;
+	_PositionError.CreateEx(TC_Events.Kremer_Events.Top_mold_A_position_error, TRUE, 0);
+	_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.Top_mold_B_is_moving_without_activation, TRUE, 0);
+	_BallufError.CreateEx(TC_Events.Kremer_Events.Top_mold_A_error_on_balluf, TRUE, 0);
+END_IF
+
+
+Errors.BallufError:= HydraulicPos.Error;
+
+IF Errors.BallufError THEN
+	_BallufError.Raise(0);
+	_ipInfo := _BallufError.ipSourceInfo;
+END_IF
 
 // Check for a to high a pressure
 SR_RodSidePressureTooHigh(SET1:=mxIsMovingIn AND (RodSidePressure.EngFilt > MachPar.MaxRodSidePressure),Reset:=mxReset,Q1=>Errors.RodSidePressureTooHigh);
@@ -467,7 +487,16 @@ HydraulicPos();]]></ST>
       <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.Error">
-      <LineId Id="75" Count="26" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="109" Count="3" />
+      <LineId Id="102" Count="2" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="76" Count="25" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.M_Move">

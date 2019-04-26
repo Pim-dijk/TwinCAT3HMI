@@ -2219,6 +2219,12 @@
         "type": "tchmi:general#/definitions/String",
         "persist": false,
         "readonly": false
+      },
+      "_pageParameters": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
       }
     }
   },

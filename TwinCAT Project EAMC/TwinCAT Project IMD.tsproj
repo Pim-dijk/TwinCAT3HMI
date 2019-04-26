@@ -1,5 +1,675 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
+	<Translations>
+		<Text TxtId="Emergency zone 1">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 1]]>
+			</Text>
+		</Text>
+		<Text TxtId="Emergency zone 2">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 2]]>
+			</Text>
+		</Text>
+		<Text TxtId="Emergency zone 3">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 3]]>
+			</Text>
+		</Text>
+		<Text TxtId="Emergency zone 4">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 4]]>
+			</Text>
+		</Text>
+		<Text TxtId="Emergency zone 5">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 5]]>
+			</Text>
+		</Text>
+		<Text TxtId="Emergency zone 6">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 6]]>
+			</Text>
+		</Text>
+		<Text TxtId="Emergency zone 7">
+			<Text LcId="1043">
+				<![CDATA[Nood zone 7]]>
+			</Text>
+		</Text>
+		<Text TxtId="In mold drying emergency stop pressed front side"/>
+		<Text TxtId="In mold drying emergency stop pressed back side"/>
+		<Text TxtId="In mold drying door opend frontside left"/>
+		<Text TxtId="In mold drying door opened frontside middle"/>
+		<Text TxtId="In mold drying door opened frontside right"/>
+		<Text TxtId="In mold drying double door opened backside left 1"/>
+		<Text TxtId="In mold drying double door opened backside left 2"/>
+		<Text TxtId="In mold drying double door opened backside Middle 1"/>
+		<Text TxtId="In mold drying double door opened backside Middle 2"/>
+		<Text TxtId="In mold drying double door opened backside Right 1"/>
+		<Text TxtId="In mold drying double door opened backside Right 2"/>
+		<Text TxtId="Gantry A front door openend (right)"/>
+		<Text TxtId="Gantry A front door openend (left)"/>
+		<Text TxtId="Gantry A Back door openend"/>
+		<Text TxtId="Gantry B front door openend (left)"/>
+		<Text TxtId="Gantry B front door openend (right)"/>
+		<Text TxtId="Gantry B Back door openend"/>
+		<Text TxtId="Emergency stop pressed Gantry A backside"/>
+		<Text TxtId="Emergency stop pressed Gantry A Frontside"/>
+		<Text TxtId="Emergency stop pressed Gantry B Backside"/>
+		<Text TxtId="Emergency stop pressed Gantry B Frontside"/>
+		<Text TxtId="24 volt circuit in error (1)"/>
+		<Text TxtId="24 volt circuit in error (2)"/>
+		<Text TxtId="No product loaded please load a valid product first"/>
+		<Text TxtId="Main air supply has an error."/>
+		<Text TxtId="In mold drying hydraulic pump softstarter failure"/>
+		<Text TxtId="In mold drying hydraulic pump maintenance switch"/>
+		<Text TxtId="In mold drying cooling fan thermal failure"/>
+		<Text TxtId="In mold drying cooling fan maintenance switch"/>
+		<Text TxtId="In mold drying filter motor thermal"/>
+		<Text TxtId="In mold drying filter motor maintenance"/>
+		<Text TxtId="Spare39"/>
+		<Text TxtId="Css has an active error"/>
+		<Text TxtId="Both Pulp Tanks below Low Level stopping IMD"/>
+		<Text TxtId="Spare42"/>
+		<Text TxtId="RHSR - Bottom mold A moving while top mold A not in position"/>
+		<Text TxtId="RHSR - Bottom mold A moving while transfer mold A not in position"/>
+		<Text TxtId="RHSR - Bottom mold B moving while top mold B not in position"/>
+		<Text TxtId="RHSR - Bottom mold B moving while transfer mold B not in position"/>
+		<Text TxtId="RHSR - Takeout A moving while vertical cylinder is not down"/>
+		<Text TxtId="RHSR - Takeout B moving while vertical cylinder is not down"/>
+		<Text TxtId="RHSR - TopMold A moving while bottom mold A is not in position"/>
+		<Text TxtId="RHSR - TopMold B moving while bottom mold B is not in position"/>
+		<Text TxtId="RHSR - Transfermold moving while bottom mold A is not in posititon"/>
+		<Text TxtId="RHSR - Transfermold moving while bottom mold B is not in position"/>
+		<Text TxtId="RHSR - Transfermold moving while spraybar is not at one of rest positions"/>
+		<Text TxtId="Temperature difference between top and bottom mold side A to high"/>
+		<Text TxtId="Temperature difference between top and bottom mold side B to high"/>
+		<Text TxtId="Spare56"/>
+		<Text TxtId="Auxiliary filter 100% dirty"/>
+		<Text TxtId="Auxiliary filter 75% dirty"/>
+		<Text TxtId="Oil filter 100% dirty"/>
+		<Text TxtId="Oil filter 75% dirty"/>
+		<Text TxtId="Fan on MCC2 error"/>
+		<Text TxtId="24V error on MCC2"/>
+		<Text TxtId="Oil temperature too low"/>
+		<Text TxtId="Oil temperature too high"/>
+		<Text TxtId="Top mold A error on balluf"/>
+		<Text TxtId="Top mold A position error"/>
+		<Text TxtId="Top mold A timed out. (Did not reach bottommold position in time)."/>
+		<Text TxtId="Top mold A Rod side pressure too high"/>
+		<Text TxtId="Top mold A Bot side pressure too high"/>
+		<Text TxtId="Topmold A heating zone 1 connector not connected"/>
+		<Text TxtId="Topmold A heating zone 1 PT100 wrong position"/>
+		<Text TxtId="Topmold A heating zone 1 PT100 loose"/>
+		<Text TxtId="Topmold A heating zone 1 PT100 not inserted"/>
+		<Text TxtId="Topmold A heating zone 1 Temperature above setpoint"/>
+		<Text TxtId="Topmold A heating zone 1 Temperature below setpoint"/>
+		<Text TxtId="Topmold A heating zone 1 PT100 wirebreak"/>
+		<Text TxtId="Topmold A heating zone 1 Thermal"/>
+		<Text TxtId="Topmold A heating zone 1 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold A heating zone 1 temperature above 230 degree"/>
+		<Text TxtId="Topmold A heating zone 2 connector not connected"/>
+		<Text TxtId="Topmold A heating zone 2 PT100 wrong position"/>
+		<Text TxtId="Topmold A heating zone 2 PT100 loose"/>
+		<Text TxtId="Topmold A heating zone 2 PT100 not inserted"/>
+		<Text TxtId="Topmold A heating zone 2 Temperature above setpoint"/>
+		<Text TxtId="Topmold A heating zone 2 Temperature below setpoint"/>
+		<Text TxtId="Topmold A heating zone 2 PT100 wirebreak"/>
+		<Text TxtId="Topmold A heating zone 2 Thermal"/>
+		<Text TxtId="Topmold A heating zone 2 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold A heating zone 2 temperature above 230 degree"/>
+		<Text TxtId="Tranfermold timed out (did not reach bottommold position in time)."/>
+		<Text TxtId="Tranfermold timed out (did not reach forming position in time)."/>
+		<Text TxtId="Spare92"/>
+		<Text TxtId="Spare93"/>
+		<Text TxtId="Spare94"/>
+		<Text TxtId="Spare95"/>
+		<Text TxtId="Spare96"/>
+		<Text TxtId="Topmold A heating zone 3 connector not connected"/>
+		<Text TxtId="Topmold A heating zone 3 PT100 wrong position"/>
+		<Text TxtId="Topmold A heating zone 3 PT100 loose"/>
+		<Text TxtId="Topmold A heating zone 3 PT100 not inserted"/>
+		<Text TxtId="Topmold A heating zone 3 Temperature above setpoint"/>
+		<Text TxtId="Topmold A heating zone 3 Temperature below setpoint"/>
+		<Text TxtId="Topmold A heating zone 3 PT100 wirebreak"/>
+		<Text TxtId="Topmold A heating zone 3 Thermal"/>
+		<Text TxtId="Topmold A heating zone 3 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold A heating zone 3 temperature above 230 degree"/>
+		<Text TxtId="Topmold A heating zone 4 connector not connected"/>
+		<Text TxtId="Topmold A heating zone 4 PT100 wrong position"/>
+		<Text TxtId="Topmold A heating zone 4 PT100 loose"/>
+		<Text TxtId="Topmold A heating zone 4 PT100 not inserted"/>
+		<Text TxtId="Topmold A heating zone 4 Temperature above setpoint"/>
+		<Text TxtId="Topmold A heating zone 4 Temperature below setpoint"/>
+		<Text TxtId="Topmold A heating zone 4 PT100 wirebreak"/>
+		<Text TxtId="Topmold A heating zone 4 Thermal"/>
+		<Text TxtId="Topmold A heating zone 4 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold A heating zone 4 temperature above 230 degree"/>
+		<Text TxtId="Topmold A heating zone 5 connector not connected"/>
+		<Text TxtId="Topmold A heating zone 5 PT100 wrong position"/>
+		<Text TxtId="Topmold A heating zone 5 PT100 loose"/>
+		<Text TxtId="Topmold A heating zone 5 PT100 not inserted"/>
+		<Text TxtId="Topmold A heating zone 5 Temperature above setpoint"/>
+		<Text TxtId="Topmold A heating zone 5 Temperature below setpoint"/>
+		<Text TxtId="Topmold A heating zone 5 PT100 wirebreak"/>
+		<Text TxtId="Topmold A heating zone 5 Thermal"/>
+		<Text TxtId="Topmold A heating zone 5 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold A heating zone 5 temperature above 230 degree"/>
+		<Text TxtId="Spare127"/>
+		<Text TxtId="Spare128"/>
+		<Text TxtId="Topmold A heating zone 6 connector not connected"/>
+		<Text TxtId="Topmold A heating zone 6 PT100 wrong position"/>
+		<Text TxtId="Topmold A heating zone 6 PT100 loose"/>
+		<Text TxtId="Topmold A heating zone 6 PT100 not inserted"/>
+		<Text TxtId="Topmold A heating zone 6 Temperature above setpoint"/>
+		<Text TxtId="Topmold A heating zone 6 Temperature below setpoint"/>
+		<Text TxtId="Topmold A heating zone 6 PT100 wirebreak"/>
+		<Text TxtId="Topmold A heating zone 6 Thermal"/>
+		<Text TxtId="Topmold A heating zone 6 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold A heating zone 6 temperature above 230 degree"/>
+		<Text TxtId="Bottommold A heating Zone 1 connector not connected"/>
+		<Text TxtId="Bottommold A heating Zone 1 PT100 wrong position"/>
+		<Text TxtId="Bottommold A heating Zone 1 PT100 loose"/>
+		<Text TxtId="Bottommold A heating Zone 1 PT100 not inserted"/>
+		<Text TxtId="Bottommold A heating Zone 1 Temperature above setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 1 Temperature below setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 1 PT100 wirebreak"/>
+		<Text TxtId="Bottommold A heating Zone 1 Thermal"/>
+		<Text TxtId="Bottommold A heating zone 1 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottommold A heating zone 1 temperature above 230 degree"/>
+		<Text TxtId="Bottommold A heating Zone 2 connector not connected"/>
+		<Text TxtId="Bottommold A heating Zone 2 PT100 wrong position"/>
+		<Text TxtId="Bottommold A heating Zone 2 PT100 loose"/>
+		<Text TxtId="Bottommold A heating Zone 2 PT100 not inserted"/>
+		<Text TxtId="Bottommold A heating Zone 2 Temperature above setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 2 Temperature below setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 2 PT100 wirebreak"/>
+		<Text TxtId="Bottommold A heating Zone 2 Thermal"/>
+		<Text TxtId="Bottommold A heating zone 2 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottommold A heating zone 2 temperature above 230 degree"/>
+		<Text TxtId="Spare159"/>
+		<Text TxtId="Spare160"/>
+		<Text TxtId="Bottommold A heating Zone 3 connector not connected"/>
+		<Text TxtId="Bottommold A heating Zone 3 PT100 wrong position"/>
+		<Text TxtId="Bottommold A heating Zone 3 PT100 loose"/>
+		<Text TxtId="Bottommold A heating Zone 3 PT100 not inserted"/>
+		<Text TxtId="Bottommold A heating Zone 3 Temperature above setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 3 Temperature below setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 3 PT100 wirebreak"/>
+		<Text TxtId="Bottommold A heating Zone 3 Thermal"/>
+		<Text TxtId="Bottommold A heating zone 3 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottommold A heating zone 3 temperature above 230 degree"/>
+		<Text TxtId="Bottommold A heating Zone 4 connector not connected"/>
+		<Text TxtId="Bottommold A heating Zone 4 PT100 wrong position"/>
+		<Text TxtId="Bottommold A heating Zone 4 PT100 loose"/>
+		<Text TxtId="Bottommold A heating Zone 4 PT100 not inserted"/>
+		<Text TxtId="Bottommold A heating Zone 4 Temperature above setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 4 Temperature below setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 4 PT100 wirebreak"/>
+		<Text TxtId="Bottommold A heating Zone 4 Thermal"/>
+		<Text TxtId="Bottommold A heating zone 4 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottommold A heating zone 4 temperature above 230 degree"/>
+		<Text TxtId="Bottommold A heating Zone 5 connector not connected"/>
+		<Text TxtId="Bottommold A heating Zone 5 PT100 wrong position"/>
+		<Text TxtId="Bottommold A heating Zone 5 PT100 loose"/>
+		<Text TxtId="Bottommold A heating Zone 5 PT100 not inserted"/>
+		<Text TxtId="Bottommold A heating Zone 5 Temperature above setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 5 Temperature below setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 5 PT100 wirebreak"/>
+		<Text TxtId="Bottommold A heating Zone 5 Thermal"/>
+		<Text TxtId="Bottommold A heating zone 5 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottommold A heating zone 5 temperature above 230 degree"/>
+		<Text TxtId="Spare191"/>
+		<Text TxtId="Spare192"/>
+		<Text TxtId="Bottommold A heating Zone 6 connector not connected"/>
+		<Text TxtId="Bottommold A heating Zone 6 PT100 wrong position"/>
+		<Text TxtId="Bottommold A heating Zone 6 PT100 loose"/>
+		<Text TxtId="Bottommold A heating Zone 6 PT100 not inserted"/>
+		<Text TxtId="Bottommold A heating Zone 6 Temperature above setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 6 Temperature below setpoint"/>
+		<Text TxtId="Bottommold A heating Zone 6 PT100 wirebreak"/>
+		<Text TxtId="Bottommold A heating Zone 6 Thermal"/>
+		<Text TxtId="Bottommold A heating zone 6 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Top mold B timed out. (Did not reach bottommold position in time)."/>
+		<Text TxtId="Top mold B error on balluf"/>
+		<Text TxtId="Top mold B is moving without activation"/>
+		<Text TxtId="Bottommold A heating zone 6 temperature above 230 degree"/>
+		<Text TxtId="Spare206"/>
+		<Text TxtId="Topmold B heating Zone 1 connector not connected"/>
+		<Text TxtId="Topmold B heating Zone 1 PT100 wrong position"/>
+		<Text TxtId="Topmold B heating Zone 1 PT100 loose"/>
+		<Text TxtId="Topmold B heating Zone 1 PT100 not inserted"/>
+		<Text TxtId="Topmold B heating Zone 1 Temperature above setpoint"/>
+		<Text TxtId="Topmold B heating Zone 1 Temperature below setpoint"/>
+		<Text TxtId="Topmold B heating Zone 1 PT100 wirebreak"/>
+		<Text TxtId="Topmold B heating Zone 1 Thermal"/>
+		<Text TxtId="Topmold B heating zone 1 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold B heating zone 1 temperature above 230 degree"/>
+		<Text TxtId="Topmold B heating Zone 2 connector not connected"/>
+		<Text TxtId="Topmold B heating Zone 2 PT100 wrong position"/>
+		<Text TxtId="Topmold B heating Zone 2 PT100 loose"/>
+		<Text TxtId="Topmold B heating Zone 2 PT100 not inserted"/>
+		<Text TxtId="Topmold B heating Zone 2 Temperature above setpoint"/>
+		<Text TxtId="Topmold B heating Zone 2 Temperature below setpoint"/>
+		<Text TxtId="Topmold B heating Zone 2 PT100 wirebreak"/>
+		<Text TxtId="Topmold B heating Zone 2 Thermal"/>
+		<Text TxtId="Topmold B heating zone 2 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold B heating zone 2 temperature above 230 degree"/>
+		<Text TxtId="Topmold B heating Zone 3 connector not connected"/>
+		<Text TxtId="Topmold B heating Zone 3 PT100 wrong position"/>
+		<Text TxtId="Topmold B heating Zone 3 PT100 loose"/>
+		<Text TxtId="Topmold B heating Zone 3 PT100 not inserted"/>
+		<Text TxtId="Topmold B heating Zone 3 Temperature above setpoint"/>
+		<Text TxtId="Topmold B heating Zone 3 Temperature below setpoint"/>
+		<Text TxtId="Topmold B heating Zone 3 PT100 wirebreak"/>
+		<Text TxtId="Topmold B heating Zone 3 Thermal"/>
+		<Text TxtId="Topmold B heating zone 3 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold B heating zone 3 temperature above 230 degree"/>
+		<Text TxtId="Topmold B heating Zone 4 connector not connected"/>
+		<Text TxtId="Topmold B heating Zone 4 PT100 wrong position"/>
+		<Text TxtId="Topmold B heating Zone 4 PT100 loose"/>
+		<Text TxtId="Topmold B heating Zone 4 PT100 not inserted"/>
+		<Text TxtId="Topmold B heating Zone 4 Temperature above setpoint"/>
+		<Text TxtId="Topmold B heating Zone 4 Temperature below setpoint"/>
+		<Text TxtId="Topmold B heating Zone 4 PT100 wirebreak"/>
+		<Text TxtId="Topmold B heating Zone 4 Thermal"/>
+		<Text TxtId="Topmold B heating zone 4 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold B heating zone 4 temperature above 230 degree"/>
+		<Text TxtId="Topmold B heating Zone 5 connector not connected"/>
+		<Text TxtId="Topmold B heating Zone 5 PT100 wrong position"/>
+		<Text TxtId="Topmold B heating Zone 5 PT100 loose"/>
+		<Text TxtId="Topmold B heating Zone 5 PT100 not inserted"/>
+		<Text TxtId="Topmold B heating Zone 5 Temperature above setpoint"/>
+		<Text TxtId="Topmold B heating Zone 5 Temperature below setpoint"/>
+		<Text TxtId="Topmold B heating Zone 5 PT100 wirebreak"/>
+		<Text TxtId="Topmold B heating Zone 5 Thermal"/>
+		<Text TxtId="Topmold B heating zone 5 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold B heating zone 5 temperature above 230 degree"/>
+		<Text TxtId="Topmold B heating Zone 6 connector not connected"/>
+		<Text TxtId="Topmold B heating Zone 6 PT100 wrong position"/>
+		<Text TxtId="Topmold B heating Zone 6 PT100 loose"/>
+		<Text TxtId="Topmold B heating Zone 6 PT100 not inserted"/>
+		<Text TxtId="Topmold B heating Zone 6 Temperature above setpoint"/>
+		<Text TxtId="Topmold B heating Zone 6 Temperature below setpoint"/>
+		<Text TxtId="Topmold B heating Zone 6 PT100 wirebreak"/>
+		<Text TxtId="Topmold B heating Zone 6 Thermal"/>
+		<Text TxtId="Topmold B heating zone 6 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Topmold B heating zone 6 temperature above 230 degree"/>
+		<Text TxtId="Bottom mold B error on balluf"/>
+		<Text TxtId="Bottom mold B is moving without activation"/>
+		<Text TxtId="Spare269"/>
+		<Text TxtId="Top mold B Bot side pressure too high"/>
+		<Text TxtId="Top mold B Rot side pressure too high"/>
+		<Text TxtId="Spare272"/>
+		<Text TxtId="Spare273"/>
+		<Text TxtId="Spare274"/>
+		<Text TxtId="Spare275"/>
+		<Text TxtId="Spare276"/>
+		<Text TxtId="Spare277"/>
+		<Text TxtId="Spare278"/>
+		<Text TxtId="Spare279"/>
+		<Text TxtId="Spare280"/>
+		<Text TxtId="Bottom mold B heating Zone 1 connector not connected"/>
+		<Text TxtId="Bottom mold B heating Zone 1 PT100 wrong position"/>
+		<Text TxtId="Bottom mold B heating Zone 1 PT100 loose"/>
+		<Text TxtId="Bottom mold B heating Zone 1 PT100 not inserted"/>
+		<Text TxtId="Bottom mold B heating Zone 1 Temperature above setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 1 Temperature below setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 1 PT100 wirebreak"/>
+		<Text TxtId="Bottom mold B heating Zone 1 Thermal"/>
+		<Text TxtId="Bottom mold B heating zone 1 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottom mold B heating zone 1 temperature above 230 degree"/>
+		<Text TxtId="Bottom mold B heating Zone 2 connector not connected"/>
+		<Text TxtId="Bottom mold B heating Zone 2 PT100 wrong position"/>
+		<Text TxtId="Bottom mold B heating Zone 2 PT100 loose"/>
+		<Text TxtId="Bottom mold B heating Zone 2 PT100 not inserted"/>
+		<Text TxtId="Bottom mold B heating Zone 2 Temperature above setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 2 Temperature below setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 2 PT100 wirebreak"/>
+		<Text TxtId="Bottom mold B heating Zone 2 Thermal"/>
+		<Text TxtId="Bottom mold B heating zone 2 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottom mold B heating zone 2 temperature above 230 degree"/>
+		<Text TxtId="Bottom mold B heating Zone 3 connector not connected"/>
+		<Text TxtId="Bottom mold B heating Zone 3 PT100 wrong position"/>
+		<Text TxtId="Bottom mold B heating Zone 3 PT100 loose"/>
+		<Text TxtId="Bottom mold B heating Zone 3 PT100 not inserted"/>
+		<Text TxtId="Bottom mold B heating Zone 3 Temperature above setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 3 Temperature below setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 3 PT100 wirebreak"/>
+		<Text TxtId="Bottom mold B heating Zone 3 Thermal"/>
+		<Text TxtId="Bottom mold B heating zone 3 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottom mold B heating zone 3 temperature above 230 degree"/>
+		<Text TxtId="Bottom mold B heating Zone 4 connector not connected"/>
+		<Text TxtId="Bottom mold B heating Zone 4 PT100 wrong position"/>
+		<Text TxtId="Bottom mold B heating Zone 4 PT100 loose"/>
+		<Text TxtId="Bottom mold B heating Zone 4 PT100 not inserted"/>
+		<Text TxtId="Bottom mold B heating Zone 4 Temperature above setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 4 Temperature below setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 4 PT100 wirebreak"/>
+		<Text TxtId="Bottom mold B heating Zone 4 Thermal"/>
+		<Text TxtId="Bottom mold B heating zone 4 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottom mold B heating zone 4 temperature above 230 degree"/>
+		<Text TxtId="Bottom mold B heating Zone 5 connector not connected"/>
+		<Text TxtId="Bottom mold B heating Zone 5 PT100 wrong position"/>
+		<Text TxtId="Bottom mold B heating Zone 5 PT100 loose"/>
+		<Text TxtId="Bottom mold B heating Zone 5 PT100 not inserted"/>
+		<Text TxtId="Bottom mold B heating Zone 5 Temperature above setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 5 Temperature below setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 5 PT100 wirebreak"/>
+		<Text TxtId="Bottom mold B heating Zone 5 Thermal"/>
+		<Text TxtId="Bottom mold B heating zone 5 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottom mold B heating zone 5 temperature above 230 degree"/>
+		<Text TxtId="Bottom mold B heating Zone 6 connector not connected"/>
+		<Text TxtId="Bottom mold B heating Zone 6 PT100 wrong position"/>
+		<Text TxtId="Bottom mold B heating Zone 6 PT100 loose"/>
+		<Text TxtId="Bottom mold B heating Zone 6 PT100 not inserted"/>
+		<Text TxtId="Bottom mold B heating Zone 6 Temperature above setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 6 Temperature below setpoint"/>
+		<Text TxtId="Bottom mold B heating Zone 6 PT100 wirebreak"/>
+		<Text TxtId="Bottom mold B heating Zone 6 Thermal"/>
+		<Text TxtId="Bottom mold B heating zone 6 temperature above 250 degree heating element switched off"/>
+		<Text TxtId="Bottom mold B heating zone 6 temperature above 230 degree"/>
+		<Text TxtId="Takeout unit A horizontal cylinder error"/>
+		<Text TxtId="Takeout unit A horizontal cylinder timeout in"/>
+		<Text TxtId="Takeout unit A horizontal cylinder timeout out"/>
+		<Text TxtId="Takeout unit B horizontal cylinder error"/>
+		<Text TxtId="Takeout unit B horizontal cylinder timeout in"/>
+		<Text TxtId="Takeout unit B horizontal cylinder timeout out"/>
+		<Text TxtId="Takeout unit A vertical cylinder error"/>
+		<Text TxtId="Takeout unit A vertical cylinder timeout in"/>
+		<Text TxtId="Takeout unit A vertical cylinder timeout out"/>
+		<Text TxtId="Takeout unit B vertical cylinder error"/>
+		<Text TxtId="Takeout unit B vertical cylinder timeout in"/>
+		<Text TxtId="Takeout unit B vertical cylinder timeout out"/>
+		<Text TxtId="Takeout unit A error on vacuum section 1"/>
+		<Text TxtId="Takeout unit A error on vacuum section 2"/>
+		<Text TxtId="Takeout unit A error on vacuum section 3"/>
+		<Text TxtId="Takeout unit A error on vacuum section 4"/>
+		<Text TxtId="Spare357"/>
+		<Text TxtId="Spare358"/>
+		<Text TxtId="Takeout unit B error on vacuum section 1"/>
+		<Text TxtId="Takeout unit B error on vacuum section 2"/>
+		<Text TxtId="Takeout unit B error on vacuum section 3"/>
+		<Text TxtId="Takeout unit B error on vacuum section 4"/>
+		<Text TxtId="Spare363"/>
+		<Text TxtId="Spare364"/>
+		<Text TxtId="Spare365"/>
+		<Text TxtId="Spare366"/>
+		<Text TxtId="Machine pond hydraulic pump maintenance switch"/>
+		<Text TxtId="Machine pond hydraulic pump thermal error"/>
+		<Text TxtId="Spare369"/>
+		<Text TxtId="Spare370"/>
+		<Text TxtId="Spare371"/>
+		<Text TxtId="Spare372"/>
+		<Text TxtId="Machine oond pulp feeding cylinder error"/>
+		<Text TxtId="Machine pond pulp feeding cylinder timeout in"/>
+		<Text TxtId="Machine pond pulp feeding cylinder timeout out"/>
+		<Text TxtId="Spare376"/>
+		<Text TxtId="Spare377"/>
+		<Text TxtId="Transfermold error on balluf"/>
+		<Text TxtId="Transfermold is moving without activation"/>
+		<Text TxtId="Spare380"/>
+		<Text TxtId="Spare381"/>
+		<Text TxtId="Spare382"/>
+		<Text TxtId="RHSR - Bottommold A too cool for transfermold to come down"/>
+		<Text TxtId="RHSR - Bottommold B too cool for transfermold to come down"/>
+		<Text TxtId="Gantry A collision detected"/>
+		<Text TxtId="Gantry A Horizontal limit endswitch backside"/>
+		<Text TxtId="Gantry A Horizontal limit endswitch frontside"/>
+		<Text TxtId="Gantry A vertical limit endswitch down"/>
+		<Text TxtId="Gantry A vertical limit endswitch up"/>
+		<Text TxtId="Gantry A Horizontal Drive absoluut error"/>
+		<Text TxtId="Gantry A Horizontal Drive Jog error"/>
+		<Text TxtId="Gantry A Horizontal Drive power error"/>
+		<Text TxtId="Gantry A Horizontal Drive reset"/>
+		<Text TxtId="Gantry A Horizontal Drive status"/>
+		<Text TxtId="Gantry A Horizontal Drive stop error"/>
+		<Text TxtId="Gantry A Horizontal Drive velocity error"/>
+		<Text TxtId="Gantry A Horizontal Drive home error"/>
+		<Text TxtId="Gantry A Horizontal Drive lag error"/>
+		<Text TxtId="Gantry A Horizontal Drive read parameter error"/>
+		<Text TxtId="Gantry A Horizontal Drive write parameter error"/>
+		<Text TxtId="Spare401"/>
+		<Text TxtId="Gantry B collision detected"/>
+		<Text TxtId="Gantry B horizontal limit endswitch backside"/>
+		<Text TxtId="Gantry B horizontal limit endswitch frontside"/>
+		<Text TxtId="Gantry B vertical limit endswitch down"/>
+		<Text TxtId="Gantry B vertical limit endswitch up"/>
+		<Text TxtId="Gantry B Horizontal Drive absoluut error"/>
+		<Text TxtId="Gantry B Horizontal Drive Jog error"/>
+		<Text TxtId="Gantry B Horizontal Drive power error"/>
+		<Text TxtId="Gantry B Horizontal Drive reset"/>
+		<Text TxtId="Gantry B Horizontal Drive status"/>
+		<Text TxtId="Gantry B Horizontal Drive stop error"/>
+		<Text TxtId="Gantry B Horizontal Drive velocity error"/>
+		<Text TxtId="Gantry B Horizontal Drive home error"/>
+		<Text TxtId="Gantry B Horizontal Drive lag error"/>
+		<Text TxtId="Gantry B Horizontal Drive read parameter error"/>
+		<Text TxtId="Gantry B Horizontal Drive write parameter error"/>
+		<Text TxtId="Spare418"/>
+		<Text TxtId="Spare419"/>
+		<Text TxtId="Spare420"/>
+		<Text TxtId="Spare421"/>
+		<Text TxtId="Spare422"/>
+		<Text TxtId="Spare423"/>
+		<Text TxtId="Spare424"/>
+		<Text TxtId="Spare425"/>
+		<Text TxtId="Spare426"/>
+		<Text TxtId="Spare427"/>
+		<Text TxtId="Spare428"/>
+		<Text TxtId="Spare429"/>
+		<Text TxtId="Spare430"/>
+		<Text TxtId="Spare431"/>
+		<Text TxtId="Spare432"/>
+		<Text TxtId="RHSR product handling gantry A is moving horizotal while vertical not on position"/>
+		<Text TxtId="RHSR product handling gantry B is moving horizotal while vertical not on position"/>
+		<Text TxtId="RHSR product handling gantry A is moving vertical while horizontal not on position"/>
+		<Text TxtId="RHSR product handling gantry B is moving vertical while horizontal not on position"/>
+		<Text TxtId="Spraybar Drive absoluut error"/>
+		<Text TxtId="Spraybar Drive Jog error"/>
+		<Text TxtId="Spraybar Drive power error"/>
+		<Text TxtId="Spraybar Drive reset"/>
+		<Text TxtId="Spraybar Drive status"/>
+		<Text TxtId="Spraybar Drive stop error"/>
+		<Text TxtId="Spraybar Drive velocity error"/>
+		<Text TxtId="Spraybar Drive home error"/>
+		<Text TxtId="Spraybar Drive lag error"/>
+		<Text TxtId="Spraybar Drive read parameter error"/>
+		<Text TxtId="Spraybar Drive write parameter error"/>
+		<Text TxtId="Spare448"/>
+		<Text TxtId="Gantry A product lost section 1"/>
+		<Text TxtId="Gantry A product lost section 2"/>
+		<Text TxtId="Gantry A product lost section 3"/>
+		<Text TxtId="Gantry A product lost section 4"/>
+		<Text TxtId="Gantry A product lost section 5"/>
+		<Text TxtId="Gantry A product lost section 6"/>
+		<Text TxtId="Spare455"/>
+		<Text TxtId="Spare456"/>
+		<Text TxtId="Spare457"/>
+		<Text TxtId="Spare458"/>
+		<Text TxtId="Gantry B product lost section 1"/>
+		<Text TxtId="Gantry B product lost section 2"/>
+		<Text TxtId="Gantry B product lost section 3"/>
+		<Text TxtId="Gantry B product lost section 4"/>
+		<Text TxtId="Gantry B product lost section 5"/>
+		<Text TxtId="Gantry B product lost section 6"/>
+		<Text TxtId="Spare465"/>
+		<Text TxtId="Spraybar not in front rest position"/>
+		<Text TxtId="Spraybar not in back rest position"/>
+		<Text TxtId="Spare468"/>
+		<Text TxtId="Ethercat diagnosed a link error"/>
+		<Text TxtId="Ethercat diagnosed that a slave is missing"/>
+		<Text TxtId="Ethercat diagnosed a non OP state"/>
+		<Text TxtId="Ethercat diagnosed that a ethercat reset is needed"/>
+		<Text TxtId="Spare473"/>
+		<Text TxtId="TopMold A Safe position not reached"/>
+		<Text TxtId="TopMold B Safe position not reached"/>
+		<Text TxtId="Transfermold Safe position not reached"/>
+		<Text TxtId="Spare477"/>
+		<Text TxtId="Spare478"/>
+		<Text TxtId="Spare479"/>
+		<Text TxtId="Spare480"/>
+		<Text TxtId="Difference in temperature too high top/bottommold A zone 1"/>
+		<Text TxtId="Difference in temperature too high top/bottommold A zone 2"/>
+		<Text TxtId="Difference in temperature too high top/bottommold A zone 3"/>
+		<Text TxtId="Difference in temperature too high top/bottommold A zone 4"/>
+		<Text TxtId="Difference in temperature too high top/bottommold A zone 5"/>
+		<Text TxtId="Difference in temperature too high top/bottommold A zone 6"/>
+		<Text TxtId="Difference in temperature too high top/bottommold B zone 1"/>
+		<Text TxtId="Difference in temperature too high top/bottommold B zone 2"/>
+		<Text TxtId="Difference in temperature too high top/bottommold B zone 3"/>
+		<Text TxtId="Difference in temperature too high top/bottommold B zone 4"/>
+		<Text TxtId="Difference in temperature too high top/bottommold B zone 5"/>
+		<Text TxtId="Difference in temperature too high top/bottommold B zone 6"/>
+		<Text TxtId="Spare493"/>
+		<Text TxtId="Spare494"/>
+		<Text TxtId="Spare495"/>
+		<Text TxtId="Spare496"/>
+		<Text TxtId="Spare497"/>
+		<Text TxtId="Spare498"/>
+		<Text TxtId="Spare499"/>
+		<Text TxtId="Spare500"/>
+		<Text TxtId="Spare501"/>
+		<Text TxtId="Spare502"/>
+		<Text TxtId="Spare503"/>
+		<Text TxtId="Spare504"/>
+		<Text TxtId="Spare505"/>
+		<Text TxtId="Spare506"/>
+		<Text TxtId="Spare507"/>
+		<Text TxtId="Spare508"/>
+		<Text TxtId="Spare509"/>
+		<Text TxtId="Spare510"/>
+		<Text TxtId="Spare511"/>
+		<Text TxtId="Spare512"/>
+		<Text TxtId="Gantry A Vertical Drive absoluut error"/>
+		<Text TxtId="Gantry A Vertical Drive Jog error"/>
+		<Text TxtId="Gantry A Vertical Drive power error"/>
+		<Text TxtId="Gantry A Vertical Drive reset"/>
+		<Text TxtId="Gantry A Vertical Drive status"/>
+		<Text TxtId="Gantry A Vertical Drive stop error"/>
+		<Text TxtId="Gantry A Vertical Drive velocity error"/>
+		<Text TxtId="Gantry A Vertical Drive home error"/>
+		<Text TxtId="Gantry A Vertical Drive lag error"/>
+		<Text TxtId="Gantry A Vertical Drive read parameter error"/>
+		<Text TxtId="Gantry A Vertical Drive write parameter error"/>
+		<Text TxtId="Spare524"/>
+		<Text TxtId="Gantry B Vertical Drive absoluut error"/>
+		<Text TxtId="Gantry B Vertical Drive Jog error"/>
+		<Text TxtId="Gantry B Vertical Drive power error"/>
+		<Text TxtId="Gantry B Vertical Drive reset"/>
+		<Text TxtId="Gantry B Vertical Drive status"/>
+		<Text TxtId="Gantry B Vertical Drive stop error"/>
+		<Text TxtId="Gantry B Vertical Drive velocity error"/>
+		<Text TxtId="Gantry B Vertical Drive home error"/>
+		<Text TxtId="Gantry B Vertical Drive lag error"/>
+		<Text TxtId="Gantry B Vertical Drive read parameter error"/>
+		<Text TxtId="Gantry B Vertical Drive write parameter error"/>
+		<Text TxtId="Spare536"/>
+		<Text TxtId="Spare537"/>
+		<Text TxtId="Spare538"/>
+		<Text TxtId="Spare539"/>
+		<Text TxtId="Spare540"/>
+		<Text TxtId="Spare541"/>
+		<Text TxtId="Spare542"/>
+		<Text TxtId="Spare543"/>
+		<Text TxtId="Spare544"/>
+		<Text TxtId="Bottommold B Horizontal Drive absoluut error"/>
+		<Text TxtId="Bottommold B Horizontal Drive Jog error"/>
+		<Text TxtId="Bottommold B Horizontal Drive power error"/>
+		<Text TxtId="Bottommold B Horizontal Drive reset"/>
+		<Text TxtId="Bottommold B Horizontal Drive status"/>
+		<Text TxtId="Bottommold B Horizontal Drive stop error"/>
+		<Text TxtId="Bottommold B Horizontal Drive velocity error"/>
+		<Text TxtId="Bottommold B Horizontal Drive home error"/>
+		<Text TxtId="Bottommold B Horizontal Drive lag error"/>
+		<Text TxtId="Bottommold B Horizontal Drive read parameter error"/>
+		<Text TxtId="Bottommold B Horizontal Drive write parameter error"/>
+		<Text TxtId="Spare556"/>
+		<Text TxtId="Bottommold A Horizontal Drive absoluut error"/>
+		<Text TxtId="Bottommold A Horizontal Drive Jog error"/>
+		<Text TxtId="Bottommold A Horizontal Drive power error"/>
+		<Text TxtId="Bottommold A Horizontal Drive reset"/>
+		<Text TxtId="Bottommold A Horizontal Drive status"/>
+		<Text TxtId="Bottommold A Horizontal Drive stop error"/>
+		<Text TxtId="Bottommold A Horizontal Drive velocity error"/>
+		<Text TxtId="Bottommold A Horizontal Drive home error"/>
+		<Text TxtId="Bottommold A Horizontal Drive lag error"/>
+		<Text TxtId="Bottommold A Horizontal Drive read parameter error"/>
+		<Text TxtId="Bottommold A Horizontal Drive write parameter error"/>
+		<Text TxtId="Spare568"/>
+		<Text TxtId="Spare569"/>
+		<Text TxtId="Spare570"/>
+		<Text TxtId="Spare571"/>
+		<Text TxtId="Spare572"/>
+		<Text TxtId="Spare573"/>
+		<Text TxtId="Spare574"/>
+		<Text TxtId="Spare575"/>
+		<Text TxtId="Spare576"/>
+		<Text TxtId="Spare577"/>
+		<Text TxtId="Spare578"/>
+		<Text TxtId="Spare579"/>
+		<Text TxtId="Spare580"/>
+		<Text TxtId="Spare581"/>
+		<Text TxtId="Spare582"/>
+		<Text TxtId="Spare583"/>
+		<Text TxtId="Spare584"/>
+		<Text TxtId="Spare585"/>
+		<Text TxtId="Spare586"/>
+		<Text TxtId="Spare587"/>
+		<Text TxtId="Spare588"/>
+		<Text TxtId="Spare589"/>
+		<Text TxtId="Spare590"/>
+		<Text TxtId="Spare591"/>
+		<Text TxtId="Spare592"/>
+		<Text TxtId="Spare593"/>
+		<Text TxtId="Spare594"/>
+		<Text TxtId="Spare595"/>
+		<Text TxtId="Spare596"/>
+		<Text TxtId="Spare597"/>
+		<Text TxtId="Spare598"/>
+		<Text TxtId="Spare599"/>
+		<Text TxtId="Spare600"/>
+		<Text TxtId="Spare601"/>
+		<Text TxtId="Spare602"/>
+		<Text TxtId="Spare603"/>
+		<Text TxtId="Spare604"/>
+		<Text TxtId="Spare605"/>
+		<Text TxtId="Spare606"/>
+		<Text TxtId="Spare607"/>
+		<Text TxtId="Spare608"/>
+		<Text TxtId="Spare609"/>
+		<Text TxtId="Spare610"/>
+		<Text TxtId="Spare611"/>
+		<Text TxtId="Spare612"/>
+		<Text TxtId="Spare613"/>
+		<Text TxtId="Spare614"/>
+		<Text TxtId="Spare615"/>
+		<Text TxtId="Spare616"/>
+		<Text TxtId="Spare617"/>
+		<Text TxtId="Spare618"/>
+		<Text TxtId="Spare619"/>
+		<Text TxtId="Spare620"/>
+		<Text TxtId="Spare621"/>
+		<Text TxtId="Spare622"/>
+		<Text TxtId="Spare623"/>
+		<Text TxtId="Spare624"/>
+		<Text TxtId="Spare625"/>
+		<Text TxtId="Spare626"/>
+		<Text TxtId="Spare627"/>
+		<Text TxtId="Spare628"/>
+		<Text TxtId="Spare629"/>
+		<Text TxtId="Spare630"/>
+		<Text TxtId="Spare631"/>
+		<Text TxtId="Spare632"/>
+		<Text TxtId="Spare633"/>
+		<Text TxtId="Spare634"/>
+		<Text TxtId="Spare635"/>
+		<Text TxtId="Spare636"/>
+		<Text TxtId="Spare637"/>
+		<Text TxtId="Spare638"/>
+		<Text TxtId="Spare639"/>
+		<Text TxtId="Spare640"/>
+	</Translations>
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -2099,7 +2769,7 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{A9E413E4-FD09-4B64-A31A-874B048EA181}" PersistentType="true">Kremer_Events</Name>
+			<Name GUID="{3D116F95-F5C8-4DBB-B344-CB4C436B190A}" PersistentType="true">Kremer_Events</Name>
 			<DisplayName TxtId="">
 				<![CDATA[Kremer eventclass]]>
 			</DisplayName>
@@ -6585,6 +7255,7 @@ External Setpoint Generation:
 			</EventId>
 			<Hides>
 				<Hide GUID="{D006BF91-5ED4-4956-8079-7710B8272D63}"/>
+				<Hide GUID="{A9E413E4-FD09-4B64-A31A-874B048EA181}"/>
 			</Hides>
 		</DataType>
 	</DataTypes>
@@ -9688,10 +10359,6 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixResetGantryA_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.ixEmStopImdBack</Name>
 							<Comment>
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
@@ -9762,11 +10429,11 @@ External Setpoint Generation:
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixDoorReqGantryA_Front</Name>
+							<Name>MAIN.ixResetGantryA_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixResetGantryA_Back</Name>
+							<Name>MAIN.ixDoorReqGantryA_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -9775,6 +10442,10 @@ External Setpoint Generation:
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
 							</Comment>
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryA_Back</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixDoorReqGantryA_Back</Name>
@@ -9796,15 +10467,15 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixResetGantryB_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.ixEmStopGantryB_Front</Name>
 							<Comment>
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
 							</Comment>
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryB_Back</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixDoorReqGantryB_Back</Name>

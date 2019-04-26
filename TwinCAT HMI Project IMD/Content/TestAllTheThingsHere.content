@@ -332,11 +332,11 @@
 </script>
 </div>
 
-<div id="Kremer_AlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="168" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbollight="False" data-tchmi-symbolalarm="True" data-tchmi-visible="True">
+<div id="Kremer_AlarmLight_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="165" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-symbollightwithplaceholder="PLC1.MAIN.InMoldDrying.BottomMold{0}.Vacuum.Q" data-tchmi-symbolalarmwithplaceholder="PLC1.MAIN.InMoldDrying.BottomMold{0}.Vacuum.mxHMI_On" data-tchmi-parameters="B">
 
 </div>
 
-<div id="Kremer_AlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Rectangle" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="203" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbolalarm="True" data-tchmi-symbollight="True">
+<div id="Kremer_AlarmLight_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="118" data-tchmi-left-unit="px" data-tchmi-shape="Rectangle" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="203" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbollight="%s%PLC1.MAIN.InMoldDrying.BottomMoldA.Vacuum.Q%/s%" data-tchmi-symbolalarm="%s%PLC1.MAIN.InMoldDrying.BottomMoldA.Vacuum.mxHMI_On%/s%" data-tchmi-visible="True">
 
 </div>
 
@@ -348,7 +348,7 @@
 
 </div>
 
-<div id="Kremer_Light_34" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="379" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="232" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="Kremer_Light_34" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="380" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="228" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
 {
   "color": "rgba(0, 255, 0, 1)"
@@ -368,6 +368,10 @@
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
+
+</div>
+
+<div id="Kremer_AlarmLight_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="160" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_AlarmLight.usercontrol" data-tchmi-top="165" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-symbollightwithplaceholder="PLC1.MAIN.InMoldDrying.BottomMold{0}.Vacuum.Q" data-tchmi-symbolalarmwithplaceholder="PLC1.MAIN.InMoldDrying.BottomMold{0}.Vacuum.mxHMI_On"  data-tchmi-parameters="A">
 
 </div>
 

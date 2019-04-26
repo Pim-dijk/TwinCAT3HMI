@@ -16,6 +16,17 @@
           "functionExpression": "FormatString('Drying mold {0}-Side settings (1/2)', %i%_IsASide%/i% ? 'A' : 'B');"
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%_pageParameters%/i%",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "'%i%_strAB%/i%'"
+        },
+        "asyncWait": true
       }
     ]
   }
@@ -489,7 +500,7 @@
 </script>
 </div>
 
-<div id="Kremer_Button_126" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="151" data-tchmi-top-unit="px" data-tchmi-value="Enable" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.TopMold{0}.EnableClosedVacuum" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%">
+<div id="Kremer_Button_126" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="151" data-tchmi-top-unit="px" data-tchmi-value="Enable" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.TopMold{0}.EnableClosedVacuum" data-tchmi-parameters="">
 <script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
 {
   "color": "rgba(0, 0, 255, 1)"
