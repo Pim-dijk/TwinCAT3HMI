@@ -14792,6 +14792,39 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.mrHMI_ActNrOfKickoffs": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::mrHMI_ActNrOfKickoffs",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.mrHMI_DictatedKoSpeedControl": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::mrHMI_DictatedKoSpeedControl",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.mrHMI_SpeedControlModulo": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::MAIN::mrHMI_SpeedControlModulo",
+            "OPTIONS": {
+                "comment": " Speedcontrol states for hmi"
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.mxAutoMode": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",

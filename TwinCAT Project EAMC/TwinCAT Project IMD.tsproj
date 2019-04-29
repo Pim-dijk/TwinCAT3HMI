@@ -2762,7 +2762,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{63D1CA7F-9600-458B-B00B-D37E875A615D}" PersistentType="true">Kremer_Events</Name>
+			<Name GUID="{416A17DD-C9CF-4F26-A0BD-6164CC0709B3}" PersistentType="true">Kremer_Events</Name>
 			<DisplayName TxtId="">
 				<![CDATA[Kremer eventclass]]>
 			</DisplayName>
@@ -2785,7 +2785,24 @@ External Setpoint Generation:
 				<DisplayName TxtId="">
 					<![CDATA[Top mold A error on balluf]]>
 				</DisplayName>
+				<Comment TxtId="">
+					<![CDATA[This is a balluf error comment]]>
+				</Comment>
+				<DescriptionText TxtId="">
+					<![CDATA[This is the balluf error Description text.]]>
+				</DescriptionText>
+				<DescriptionUrl TxtId="">
+					<![CDATA[This is the balluf error Descrption Url]]>
+				</DescriptionUrl>
 				<Severity>Critical</Severity>
+				<CauseRemedy Idx="1">
+					<Cause TxtId="">
+						<![CDATA[The cause for ballu error]]>
+					</Cause>
+					<Remedy TxtId="">
+						<![CDATA[And the remedy for the balluf error]]>
+					</Remedy>
+				</CauseRemedy>
 			</EventId>
 			<EventId>
 				<Name Id="4">Top_mold_B_is_moving_without_activation</Name>
@@ -2841,6 +2858,7 @@ External Setpoint Generation:
 				<Hide GUID="{C63A8578-1FD5-46AE-844A-2A4295F51934}"/>
 				<Hide GUID="{9D9D7039-6C02-4AB7-B676-28CFBF4CB9EA}"/>
 				<Hide GUID="{CD9C0640-F7EC-4BB9-B967-F2590469F409}"/>
+				<Hide GUID="{63D1CA7F-9600-458B-B00B-D37E875A615D}"/>
 			</Hides>
 		</DataType>
 		<DataType>

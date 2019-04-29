@@ -20,14 +20,6 @@
       "title": "Data type",
       "description": "Select a datatype"
     },
-    "Shape": {
-      "type": "string",
-      "title": "Shape of Light",
-      "enum": [
-        "Ellipse",
-        "Rectangle"
-      ]
-    },
     "ButtonType": {
       "type": "string",
       "title": "Type",
@@ -153,6 +145,18 @@
             "$ref": "tchmi:general#/definitions/REAL"
           }
         }
+      ]
+    },
+    "Shape": {
+      "type": "string",
+      "title": "Shape of Light",
+      "enum": [
+        "Ellipse",
+        "Rectangle",
+        "Arrow_Left",
+        "Arrow_Right",
+        "Arrow_Top",
+        "Arrow_Bot"
       ]
     },
     "ContentView_DisplayName": {
@@ -282,14 +286,6 @@
       "frameworkUserControlConfig": "UserControls\\Kremer_PopupMessage.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_PopupMessage"
-    },
-    "Kremer_Treeview": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Treeview.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Treeview"
     },
     "Kremer_UserManagement": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",

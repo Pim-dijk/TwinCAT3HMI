@@ -99,9 +99,6 @@
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
     },
     {
-      "url": "UserControls/Kremer_Treeview.usercontrol"
-    },
-    {
       "url": "UserControls/Kremer_UserManagement.usercontrol"
     },
     {
@@ -118,18 +115,6 @@
     }
   ],
   "content": [
-    {
-      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Manual.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Overview.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Settings.content",
-      "preload": false
-    },
     {
       "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetails_Bottom.content",
       "preload": false
@@ -196,6 +181,18 @@
     },
     {
       "url": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/SpeedControl/SpeedControl_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/SpeedControl/SpeedControl_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/SpeedControl/SpeedControl_Settings.content",
       "preload": false
     },
     {

@@ -227,7 +227,7 @@ Partial Class SpeedControl_Overview
         Me.IO_Modulo.AuditMessage = "KremerIoField changed:"
         Me.IO_Modulo.AuditSource = "KremerIoField"
         Me.IO_Modulo.BackColor = System.Drawing.Color.Transparent
-        Me.IO_Modulo.Data = 0.0R
+        Me.IO_Modulo.Data = 0R
         Me.IO_Modulo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_Modulo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Modulo.InitialValue = True
@@ -260,7 +260,7 @@ Partial Class SpeedControl_Overview
         Me.IO_StartPos1.AuditMessage = "KremerIoField changed:"
         Me.IO_StartPos1.AuditSource = "KremerIoField"
         Me.IO_StartPos1.BackColor = System.Drawing.Color.Transparent
-        Me.IO_StartPos1.Data = 0.0R
+        Me.IO_StartPos1.Data = 0R
         Me.IO_StartPos1.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_StartPos1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_StartPos1.InitialValue = True
@@ -293,7 +293,7 @@ Partial Class SpeedControl_Overview
         Me.IO_StartPos2.AuditMessage = "KremerIoField changed:"
         Me.IO_StartPos2.AuditSource = "KremerIoField"
         Me.IO_StartPos2.BackColor = System.Drawing.Color.Transparent
-        Me.IO_StartPos2.Data = 0.0R
+        Me.IO_StartPos2.Data = 0R
         Me.IO_StartPos2.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_StartPos2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_StartPos2.InitialValue = True
@@ -326,7 +326,7 @@ Partial Class SpeedControl_Overview
         Me.IO_StartPos3.AuditMessage = "KremerIoField changed:"
         Me.IO_StartPos3.AuditSource = "KremerIoField"
         Me.IO_StartPos3.BackColor = System.Drawing.Color.Transparent
-        Me.IO_StartPos3.Data = 0.0R
+        Me.IO_StartPos3.Data = 0R
         Me.IO_StartPos3.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_StartPos3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_StartPos3.InitialValue = True
@@ -359,7 +359,7 @@ Partial Class SpeedControl_Overview
         Me.IO_StartPos4.AuditMessage = "KremerIoField changed:"
         Me.IO_StartPos4.AuditSource = "KremerIoField"
         Me.IO_StartPos4.BackColor = System.Drawing.Color.Transparent
-        Me.IO_StartPos4.Data = 0.0R
+        Me.IO_StartPos4.Data = 0R
         Me.IO_StartPos4.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_StartPos4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_StartPos4.InitialValue = True
@@ -492,7 +492,7 @@ Partial Class SpeedControl_Overview
         Me.IO_ActModulo.AuditMessage = "KremerIoField changed:"
         Me.IO_ActModulo.AuditSource = "KremerIoField"
         Me.IO_ActModulo.BackColor = System.Drawing.Color.Transparent
-        Me.IO_ActModulo.Data = 0.0R
+        Me.IO_ActModulo.Data = 0R
         Me.IO_ActModulo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ActModulo.Font = New System.Drawing.Font("Tahoma", 12.0!)
         Me.IO_ActModulo.InitialValue = True
@@ -666,7 +666,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape11.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape11.FillLevel = 100.0!
         Me.KremerShape11.FillMaximum = 100.0!
-        Me.KremerShape11.FillMinimum = 0.0!
+        Me.KremerShape11.FillMinimum = 0!
         Me.KremerShape11.Line = True
         Me.KremerShape11.LineColor = System.Drawing.Color.Black
         Me.KremerShape11.LineColorOn = System.Drawing.Color.Black
@@ -688,7 +688,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape14.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape14.FillLevel = 100.0!
         Me.KremerShape14.FillMaximum = 100.0!
-        Me.KremerShape14.FillMinimum = 0.0!
+        Me.KremerShape14.FillMinimum = 0!
         Me.KremerShape14.Line = True
         Me.KremerShape14.LineColor = System.Drawing.Color.Black
         Me.KremerShape14.LineColorOn = System.Drawing.Color.Black
@@ -790,7 +790,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape1.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape1.FillLevel = 100.0!
         Me.KremerShape1.FillMaximum = 100.0!
-        Me.KremerShape1.FillMinimum = 0.0!
+        Me.KremerShape1.FillMinimum = 0!
         Me.KremerShape1.Line = True
         Me.KremerShape1.LineColor = System.Drawing.Color.Black
         Me.KremerShape1.LineColorOn = System.Drawing.Color.Black
@@ -812,7 +812,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape2.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape2.FillLevel = 100.0!
         Me.KremerShape2.FillMaximum = 100.0!
-        Me.KremerShape2.FillMinimum = 0.0!
+        Me.KremerShape2.FillMinimum = 0!
         Me.KremerShape2.Line = True
         Me.KremerShape2.LineColor = System.Drawing.Color.Black
         Me.KremerShape2.LineColorOn = System.Drawing.Color.Black
@@ -834,7 +834,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape3.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape3.FillLevel = 100.0!
         Me.KremerShape3.FillMaximum = 100.0!
-        Me.KremerShape3.FillMinimum = 0.0!
+        Me.KremerShape3.FillMinimum = 0!
         Me.KremerShape3.Line = True
         Me.KremerShape3.LineColor = System.Drawing.Color.Black
         Me.KremerShape3.LineColorOn = System.Drawing.Color.Black
@@ -856,7 +856,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape4.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape4.FillLevel = 100.0!
         Me.KremerShape4.FillMaximum = 100.0!
-        Me.KremerShape4.FillMinimum = 0.0!
+        Me.KremerShape4.FillMinimum = 0!
         Me.KremerShape4.Line = True
         Me.KremerShape4.LineColor = System.Drawing.Color.Black
         Me.KremerShape4.LineColorOn = System.Drawing.Color.Black
@@ -878,7 +878,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape5.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape5.FillLevel = 100.0!
         Me.KremerShape5.FillMaximum = 100.0!
-        Me.KremerShape5.FillMinimum = 0.0!
+        Me.KremerShape5.FillMinimum = 0!
         Me.KremerShape5.Line = True
         Me.KremerShape5.LineColor = System.Drawing.Color.Black
         Me.KremerShape5.LineColorOn = System.Drawing.Color.Black
@@ -900,7 +900,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape6.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape6.FillLevel = 100.0!
         Me.KremerShape6.FillMaximum = 100.0!
-        Me.KremerShape6.FillMinimum = 0.0!
+        Me.KremerShape6.FillMinimum = 0!
         Me.KremerShape6.Line = True
         Me.KremerShape6.LineColor = System.Drawing.Color.Black
         Me.KremerShape6.LineColorOn = System.Drawing.Color.Black
@@ -922,7 +922,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape7.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape7.FillLevel = 100.0!
         Me.KremerShape7.FillMaximum = 100.0!
-        Me.KremerShape7.FillMinimum = 0.0!
+        Me.KremerShape7.FillMinimum = 0!
         Me.KremerShape7.Line = True
         Me.KremerShape7.LineColor = System.Drawing.Color.Black
         Me.KremerShape7.LineColorOn = System.Drawing.Color.Black
@@ -944,7 +944,7 @@ Partial Class SpeedControl_Overview
         Me.KremerShape8.FillDirection = KremerControlsWin32.KremerShape.Direction.Up
         Me.KremerShape8.FillLevel = 100.0!
         Me.KremerShape8.FillMaximum = 100.0!
-        Me.KremerShape8.FillMinimum = 0.0!
+        Me.KremerShape8.FillMinimum = 0!
         Me.KremerShape8.Line = True
         Me.KremerShape8.LineColor = System.Drawing.Color.Black
         Me.KremerShape8.LineColorOn = System.Drawing.Color.Black
@@ -1269,7 +1269,7 @@ Partial Class SpeedControl_Overview
         Me.KremerIoField1.AuditMessage = "KremerIoField changed:"
         Me.KremerIoField1.AuditSource = "KremerIoField"
         Me.KremerIoField1.BackColor = System.Drawing.Color.Transparent
-        Me.KremerIoField1.Data = 0.0R
+        Me.KremerIoField1.Data = 0R
         Me.KremerIoField1.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.KremerIoField1.Font = New System.Drawing.Font("Tahoma", 12.0!)
         Me.KremerIoField1.InitialValue = True

@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, 'Collapsed');%/f%">
 
-<div id="TcHmiButton_46" data-tchmi-type="tchmi-button" data-tchmi-height="24.6" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Confirm" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right-unit="%" data-tchmi-right="5" data-tchmi-bottom-unit="%" data-tchmi-bottom="5">
+<div id="TcHmiButton_46" data-tchmi-type="tchmi-button" data-tchmi-height="24.6" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Confirm" data-tchmi-width="44.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right-unit="%" data-tchmi-right="51.0" data-tchmi-bottom-unit="%" data-tchmi-bottom="5">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -91,13 +91,14 @@
   "bottom": "Solid"
 }
 </script>
-<div id="TcHmiButton_47" data-tchmi-type="tchmi-button" data-tchmi-height="10.6" data-tchmi-height-unit="%" data-tchmi-left="77.8" data-tchmi-left-unit="%" data-tchmi-text="X" data-tchmi-top="1.6" data-tchmi-top-unit="%" data-tchmi-width="20.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+<div id="TcHmiButton_152" data-tchmi-type="tchmi-button" data-tchmi-height="24.6" data-tchmi-height-unit="%" data-tchmi-left="51.0" data-tchmi-left-unit="%" data-tchmi-text="Cancel" data-tchmi-width="44.1" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right-unit="%" data-tchmi-right="5" data-tchmi-bottom-unit="%" data-tchmi-bottom="5">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "TcHmiButton_47.onPressed",
+    "event": "TcHmiButton_152.onPressed",
     "actions": [
       {
         "objectType": "WriteToSymbol",
