@@ -380,22 +380,7 @@
       "url": "Scripts/UpdateAlarmDBForAlarmWord.js"
     },
     {
-      "url": "Scripts/BooleanToEnum.js"
-    },
-    {
       "url": "Scripts/InsertParamToSymbolString.js"
-    },
-    {
-      "url": "Scripts/CreateBindingPIDControllerSettings.js"
-    },
-    {
-      "url": "Scripts/CreateDryingMoldButtonBinding.js"
-    },
-    {
-      "url": "Scripts/CreateGantryBinding.js"
-    },
-    {
-      "url": "Scripts/CreateDynamicBinding.js"
     },
     {
       "url": "Scripts/WriteToSymbol_TIME.js"

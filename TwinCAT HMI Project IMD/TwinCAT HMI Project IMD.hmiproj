@@ -254,12 +254,6 @@
     <Content Include="Localization\nl-NL.tpl.localization">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Scripts\BooleanToEnum.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\BooleanToEnum.js">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Scripts\CleanScreen.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -288,30 +282,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\ConvertTimeToInt.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateBindingPIDControllerSettings.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateBindingPIDControllerSettings.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateDryingMoldButtonBinding.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateDryingMoldButtonBinding.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateDynamicBinding.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateDynamicBinding.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateGantryBinding.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\CreateGantryBinding.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetNameFromSymbol.function.json">

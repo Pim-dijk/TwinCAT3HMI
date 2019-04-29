@@ -199,11 +199,6 @@ END_IF
 		_BallufError.CreateEx(TC_Events.Kremer_Events.Transfermold_error_on_balluf, TRUE, 0);
 	END_IF
 	
-	(* Create other events *)
-	
-	
-	
-	
 	(* Set the side of the machine *)	
 	(*
 	IF FIND(STR1:= _BallufError.ipSourceInfo.sName , STR2:= 'MoldA') > 0 THEN
@@ -564,7 +559,6 @@ HydraulicPos();]]></ST>
       <LineId Id="204" Count="0" />
       <LineId Id="209" Count="0" />
       <LineId Id="234" Count="0" />
-      <LineId Id="238" Count="4" />
       <LineId Id="223" Count="0" />
       <LineId Id="215" Count="2" />
       <LineId Id="226" Count="0" />

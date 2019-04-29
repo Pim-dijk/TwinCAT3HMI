@@ -152,6 +152,32 @@
             },
             "compareOperator": "==",
             "logic": null
+          },
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Attribute%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "MS"
+            },
+            "compareOperator": "==",
+            "logic": "OR"
+          },
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Attribute%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "Ms"
+            },
+            "compareOperator": "==",
+            "logic": "AND"
           }
         ],
         "true": [
