@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
 	<Translations>
+		<Text TxtId="Top mold A is moving without activation">
+			<Text LcId="1033">
+				<![CDATA[TopMold A]]>
+			</Text>
+			<Text LcId="1043">
+				<![CDATA[Bovenvorm A beweegt zonder activatie]]>
+			</Text>
+		</Text>
+		<Text TxtId="Top mold A position error">
+			<Text LcId="1043">
+				<![CDATA[Bovenvorm A positie fout]]>
+			</Text>
+		</Text>
+		<Text TxtId="Top mold A error on balluf">
+			<Text LcId="1043">
+				<![CDATA[Bovenvorm A balluf fout]]>
+			</Text>
+		</Text>
+		<Text TxtId="Top mold B is moving without activation">
+			<Text LcId="1043">
+				<![CDATA[Bovenvorm B beweegt zonder activatie]]>
+			</Text>
+		</Text>
+		<Text TxtId="Top mold B position error">
+			<Text LcId="1043">
+				<![CDATA[Bovenvorm B positie fout]]>
+			</Text>
+		</Text>
+		<Text TxtId="Top mold B error on balluf">
+			<Text LcId="1043">
+				<![CDATA[Bovenvorm B balluf fout]]>
+			</Text>
+		</Text>
+		<Text TxtId="Transfermold is moving without activation">
+			<Text LcId="1043">
+				<![CDATA[Overbrengvorm beweegt zonder activatie]]>
+			</Text>
+		</Text>
+		<Text TxtId="Transfermold position error">
+			<Text LcId="1043">
+				<![CDATA[Overbrengvorm positie fout]]>
+			</Text>
+		</Text>
+		<Text TxtId="Transfermold error on balluf">
+			<Text LcId="1043">
+				<![CDATA[Overbrengvorm balluf fout]]>
+			</Text>
+		</Text>
 		<Text TxtId="Emergency zone 1">
 			<Text LcId="1043">
 				<![CDATA[Nood zone 1]]>
@@ -234,16 +282,6 @@
 		<Text TxtId="Bottommold A heating Zone 6 Thermal"/>
 		<Text TxtId="Bottommold A heating zone 6 temperature above 250 degree heating element switched off"/>
 		<Text TxtId="Top mold B timed out. (Did not reach bottommold position in time)."/>
-		<Text TxtId="Top mold B error on balluf">
-			<Text LcId="1043">
-				<![CDATA[Bovenvorm B balluf fout]]>
-			</Text>
-		</Text>
-		<Text TxtId="Top mold B is moving without activation">
-			<Text LcId="1043">
-				<![CDATA[Bovenvorm B beweegt zonder activatie]]>
-			</Text>
-		</Text>
 		<Text TxtId="Bottommold A heating zone 6 temperature above 230 degree"/>
 		<Text TxtId="Spare206"/>
 		<Text TxtId="Topmold B heating Zone 1 connector not connected"/>
@@ -421,16 +459,6 @@
 		<Text TxtId="Machine pond pulp feeding cylinder timeout out"/>
 		<Text TxtId="Spare376"/>
 		<Text TxtId="Spare377"/>
-		<Text TxtId="Transfermold error on balluf">
-			<Text LcId="1043">
-				<![CDATA[Overbrengvorm balluf fout]]>
-			</Text>
-		</Text>
-		<Text TxtId="Transfermold is moving without activation">
-			<Text LcId="1043">
-				<![CDATA[Overbrengvorm beweegt zonder activatie]]>
-			</Text>
-		</Text>
 		<Text TxtId="Spare380"/>
 		<Text TxtId="Spare381"/>
 		<Text TxtId="Spare382"/>
@@ -695,34 +723,6 @@
 		<Text TxtId="{0} error on balluf">
 			<Text LcId="1043">
 				<![CDATA[Bovenmal {0} error op balluf]]>
-			</Text>
-		</Text>
-		<Text TxtId="Top mold A is moving without activation">
-			<Text LcId="1033">
-				<![CDATA[TopMold A]]>
-			</Text>
-			<Text LcId="1043">
-				<![CDATA[Bovenvorm A beweegt zonder activatie]]>
-			</Text>
-		</Text>
-		<Text TxtId="Top mold A position error">
-			<Text LcId="1043">
-				<![CDATA[Bovenvorm A positie fout]]>
-			</Text>
-		</Text>
-		<Text TxtId="Top mold A error on balluf">
-			<Text LcId="1043">
-				<![CDATA[Bovenvorm A balluf fout]]>
-			</Text>
-		</Text>
-		<Text TxtId="Top mold B position error">
-			<Text LcId="1043">
-				<![CDATA[Bovenvorm B positie fout]]>
-			</Text>
-		</Text>
-		<Text TxtId="Transfermold position error">
-			<Text LcId="1043">
-				<![CDATA[Overbrengvorm positie fout]]>
 			</Text>
 		</Text>
 	</Translations>
@@ -2041,6 +2041,64 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{9E9D3462-D1CA-4B59-A0F6-FE5B704F3C20}" AutoDeleteType="true">ST_BalluffMagnet</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>Position</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Speed</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PosMarkerFailure</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamState1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamState2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamState3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamState4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PosAboveWorkAreaHighLimit</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PosBelowWorkAreaLowLimit</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
 			<BitSize>48</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -2376,64 +2434,6 @@ External Setpoint Generation:
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{9E9D3462-D1CA-4B59-A0F6-FE5B704F3C20}" AutoDeleteType="true">ST_BalluffMagnet</Name>
-			<BitSize>128</BitSize>
-			<SubItem>
-				<Name>Position</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>Speed</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PosMarkerFailure</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>CamState1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>72</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>CamState2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>80</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>CamState3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>88</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>CamState4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PosAboveWorkAreaHighLimit</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>104</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PosBelowWorkAreaLowLimit</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>112</BitOffs>
-			</SubItem>
-		</DataType>
-		<DataType>
 			<Name GUID="{814D4CA6-23AB-4A31-BDE1-38BE1663073E}" AutoDeleteType="true">ST_COM_IMD_SpdCntrl</Name>
 			<BitSize>224</BitSize>
 			<SubItem>
@@ -2763,6 +2763,112 @@ External Setpoint Generation:
 				<LBound>0</LBound>
 				<Elements>7</Elements>
 			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{DA80AEC5-9FAA-4A79-9708-661E4CEACF34}" PersistentType="true">Kremer_Events</Name>
+			<DisplayName TxtId="">
+				<![CDATA[Kremer eventclass]]>
+			</DisplayName>
+			<EventId>
+				<Name Id="1">Top_mold_A_is_moving_without_activation</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Top mold A is moving without activation]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="2">Top_mold_A_position_error</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Top mold A position error]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="3">Top_mold_A_error_on_balluf</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Top mold A error on balluf]]>
+				</DisplayName>
+				<Comment TxtId="">
+					<![CDATA[This is a balluf error comment]]>
+				</Comment>
+				<DescriptionText TxtId="">
+					<![CDATA[This is the balluf error Description text.]]>
+				</DescriptionText>
+				<DescriptionUrl TxtId="">
+					<![CDATA[This is the balluf error Descrption Url]]>
+				</DescriptionUrl>
+				<Severity>Critical</Severity>
+				<CauseRemedy Idx="1">
+					<Cause TxtId="">
+						<![CDATA[The cause for ballu error]]>
+					</Cause>
+					<Remedy TxtId="">
+						<![CDATA[And the remedy for the balluf error]]>
+					</Remedy>
+				</CauseRemedy>
+			</EventId>
+			<EventId>
+				<Name Id="4">Top_mold_B_is_moving_without_activation</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Top mold B is moving without activation]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="5">Top_mold_B_position_error</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Top mold B position error]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="6">Top_mold_B_error_on_balluf</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Top mold B error on balluf]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="7">Transfermold_is_moving_without_activation</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Transfermold is moving without activation]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="8">Transfermold_position_error</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Transfermold position error]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="9">Transfermold_error_on_balluf</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Transfermold error on balluf]]>
+				</DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<Properties>
+				<Property>
+					<Name>Color</Name>
+				</Property>
+			</Properties>
+			<Hides>
+				<Hide GUID="{D006BF91-5ED4-4956-8079-7710B8272D63}"/>
+				<Hide GUID="{A9E413E4-FD09-4B64-A31A-874B048EA181}"/>
+				<Hide GUID="{3D116F95-F5C8-4DBB-B344-CB4C436B190A}"/>
+				<Hide GUID="{7D71F7C3-C506-43A3-9F82-CAEC26C02C62}"/>
+				<Hide GUID="{175FBEE3-40DA-4D53-9F58-6EA956CB8A27}"/>
+				<Hide GUID="{3A80C474-BC52-4FEA-A843-8B13F1B44CB3}"/>
+				<Hide GUID="{DD85F8DB-321D-4CAE-9152-3A09E7C42B28}"/>
+				<Hide GUID="{EFF79A95-1059-48E7-BA79-4261E7DA8027}"/>
+				<Hide GUID="{C63A8578-1FD5-46AE-844A-2A4295F51934}"/>
+				<Hide GUID="{9D9D7039-6C02-4AB7-B676-28CFBF4CB9EA}"/>
+				<Hide GUID="{CD9C0640-F7EC-4BB9-B967-F2590469F409}"/>
+				<Hide GUID="{63D1CA7F-9600-458B-B00B-D37E875A615D}"/>
+				<Hide GUID="{416A17DD-C9CF-4F26-A0BD-6164CC0709B3}"/>
+			</Hides>
 		</DataType>
 		<DataType>
 			<Name GUID="{9D9D7039-6C02-4AB7-B676-28CFBF4CB9EA}" PersistentType="true">Kremer_Events</Name>
@@ -16336,7 +16442,7 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{DA80AEC5-9FAA-4A79-9708-661E4CEACF34}" PersistentType="true">Kremer_Events</Name>
+			<Name GUID="{841FB4CC-D10B-422D-A01E-B609BB863478}" Namespace="Kremer Alarms" PersistentType="true">Kremer_Events</Name>
 			<DisplayName TxtId="">
 				<![CDATA[Kremer eventclass]]>
 			</DisplayName>
@@ -16423,6 +16529,10 @@ External Setpoint Generation:
 			<Properties>
 				<Property>
 					<Name>Color</Name>
+					<Value>Red</Value>
+					<Desc>
+						<![CDATA[A red color]]>
+					</Desc>
 				</Property>
 			</Properties>
 			<Hides>
@@ -16439,6 +16549,8 @@ External Setpoint Generation:
 				<Hide GUID="{CD9C0640-F7EC-4BB9-B967-F2590469F409}"/>
 				<Hide GUID="{63D1CA7F-9600-458B-B00B-D37E875A615D}"/>
 				<Hide GUID="{416A17DD-C9CF-4F26-A0BD-6164CC0709B3}"/>
+				<Hide GUID="{DA80AEC5-9FAA-4A79-9708-661E4CEACF34}"/>
+				<Hide GUID="{835D27DC-8BC0-463B-9C1D-A129E4CDA3E6}"/>
 			</Hides>
 		</DataType>
 	</DataTypes>
@@ -18172,778 +18284,6 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>MAIN.ProductHandling.GantryA.ixCollision</Name>
-							<Comment>
-								<![CDATA[ Vertical axis ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.ixEndLimitHorFront</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.ixEndLimitHorBack</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.ixEndLimitVertUp</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.ixEndLimitVertDown</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.HorizontalAxis.axAxis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.HorizontalAxis.iDriveRef</Name>
-							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
-							<SubVar>
-								<Name>aNetId</Name>
-								<Comment>
-									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nSlaveAddr</Name>
-								<Comment>
-									<![CDATA[ Address of the slave device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveNo</Name>
-								<Comment>
-									<![CDATA[ Drive number]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveType</Name>
-								<Comment>
-									<![CDATA[ Drive type]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VerticalAxis.axAxis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VerticalAxis.iDriveRef</Name>
-							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
-							<SubVar>
-								<Name>aNetId</Name>
-								<Comment>
-									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nSlaveAddr</Name>
-								<Comment>
-									<![CDATA[ Address of the slave device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveNo</Name>
-								<Comment>
-									<![CDATA[ Drive number]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveType</Name>
-								<Comment>
-									<![CDATA[ Drive type]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.ixVacuumSensor</Name>
-							<Type GUID="{253B2CC1-6165-9969-47FC-89F64CEC125E}">ARRAY [1..6] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.ixCollision</Name>
-							<Comment>
-								<![CDATA[ Vertical axis ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.ixEndLimitHorFront</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.ixEndLimitHorBack</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.ixEndLimitVertUp</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.ixEndLimitVertDown</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.HorizontalAxis.axAxis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.HorizontalAxis.iDriveRef</Name>
-							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
-							<SubVar>
-								<Name>aNetId</Name>
-								<Comment>
-									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nSlaveAddr</Name>
-								<Comment>
-									<![CDATA[ Address of the slave device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveNo</Name>
-								<Comment>
-									<![CDATA[ Drive number]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveType</Name>
-								<Comment>
-									<![CDATA[ Drive type]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VerticalAxis.axAxis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VerticalAxis.iDriveRef</Name>
-							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
-							<SubVar>
-								<Name>aNetId</Name>
-								<Comment>
-									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nSlaveAddr</Name>
-								<Comment>
-									<![CDATA[ Address of the slave device.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveNo</Name>
-								<Comment>
-									<![CDATA[ Drive number]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>nDriveType</Name>
-								<Comment>
-									<![CDATA[ Drive type]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.ixVacuumSensor</Name>
-							<Type GUID="{253B2CC1-6165-9969-47FC-89F64CEC125E}">ARRAY [1..6] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ComSC.SpeedControl_IMD</Name>
-							<Type GUID="{CECDCACD-CB6F-402C-99AD-47FDFF425B49}">ST_COM_SpdCntrl_IMD</Type>
-							<SubVar>
-								<Name>StartFormingA</Name>
-								<Comment>
-									<![CDATA[Speedcontrol needs the IMD to start froming for A side	]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>StartFormingB</Name>
-								<Comment>
-									<![CDATA[Speedcontrol needs the IMD to start froming for B side	]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>StopForming</Name>
-								<Comment>
-									<![CDATA[ Speedcontrol needs the IMD to stop forming ]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>BlowOffPulseA</Name>
-								<Comment>
-									<![CDATA[ Blowoff pulses for A side]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>BlowOffPulseB</Name>
-								<Comment>
-									<![CDATA[ Blowoff pulses for B side]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ErrSlotANotFree</Name>
-								<Comment>
-									<![CDATA[ Current slot for gantry A blow off was not free]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ErrSlotBNotFree</Name>
-								<Comment>
-									<![CDATA[ Current slot for gantry B blow off was not free]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>Modulo</Name>
-								<Comment>
-									<![CDATA[ Actual modulo position of the belt  ]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>SpeedInKo</Name>
-								<Comment>
-									<![CDATA[Actual Speed that speedcontrol is dictating to the IMD]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>PocketA_Blocked</Name>
-								<Comment>
-									<![CDATA[Pocket is occupied and gantry is not allowed to blow off]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>PocketB_Blocked</Name>
-								<Comment>
-									<![CDATA[Pocket is occupied and gantry is not allowed to blow off]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters</Name>
-								<Comment>
-									<![CDATA[ Needs to be changed to correct format]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^PitchGantry</Name>
-								<Comment>
-									<![CDATA[Pitch distance between sheets on gantry]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^NrOfSheets</Name>
-								<Comment>
-									<![CDATA[Amount of sheets used on IMD]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^NrOfCavities</Name>
-								<Comment>
-									<![CDATA[ The amount of cavities (products) in one sheet.]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^Modulo</Name>
-								<Comment>
-									<![CDATA[System parameter (5180)]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^ModuloOffsetSensorFree</Name>
-								<Comment>
-									<![CDATA[Offset on the modulo to start measuring if the pitch is free for dropping]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^ModuloDetectionSensorFree</Name>
-								<Comment>
-									<![CDATA[How long the sensor needs to be active before alarm/skipping blow off based on modulo length]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ProdParameters^SheetSize</Name>
-								<Comment>
-									<![CDATA[The width of a sheet]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.ix24VoltError1</Name>
-							<Comment>
-								<![CDATA[ 24Volt error]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ix24VoltError2</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.FbError</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ComErr</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.OutErr</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetImdFront</Name>
-							<Comment>
-								<![CDATA[ Operator side/Front ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqImdFront</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixEmStopImdFront</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetImdBack</Name>
-							<Comment>
-								<![CDATA[ NON Operator side/Back ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqImdBack</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixEmStopImdBack</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyFrontDoorLeft</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyFrontDoorMiddle</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyFrontDoorRight</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyBackDoorLeft1</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyBackDoorLeft2</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyBackDoorMiddle3</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyBackDoorMiddle4</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyBackDoorRight5</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyBackDoorRight6</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetGantryA_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqGantryA_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixEmStopGantryA_Front</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetGantryA_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqGantryA_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixEmStopGantryA_Back</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetGantryB_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqGantryB_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixEmStopGantryB_Front</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixResetGantryB_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixDoorReqGantryB_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixEmStopGantryB_Back</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyGantryA_FrontDoorLeft</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyGantryA_FrontDoorRight</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyGantryA_BackDoor</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyGantryB_FrontDoorLeft</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyGantryB_FrontDoorRight</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixSafetyGantryB_BackDoor</Name>
-							<Comment>
-								<![CDATA[ couple to the TwinSAFE inputs ]]>
-							</Comment>
-							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixTwinSafe_SafetyRelay</Name>
-							<Comment>
-								<![CDATA[ couple to zones in Safety programm FB outputs ]]>
-							</Comment>
-							<Type GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}">ARRAY [1..7] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iwDevID</Name>
-							<Comment>
-								<![CDATA[ Variables for the ethercat diagnosing.]]>
-							</Comment>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iwSlaveCount</Name>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iwCfgSlaveCount</Name>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iwDevState</Name>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixMainSwitchOFF</Name>
-							<Comment>
-								<![CDATA[ Variables for the UPS]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixUPS_Alarm</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixUPS_BatMode</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ixUPS_Charge</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MainAirPressureSwitch</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iAmsNetID</Name>
-							<Type GUID="{59CB7A65-AEAB-E588-EB2A-AFE112B8A9CC}">ARRAY [0..5] OF BYTE</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.L1</Name>
-							<Comment>
-								<![CDATA[ Variables for O.E.E]]>
-							</Comment>
-							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.L2</Name>
-							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.L3</Name>
-							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.RodSidePressure.RawInput</Name>
 							<Type>INT</Type>
 						</Var>
@@ -19781,420 +19121,781 @@ External Setpoint Generation:
 							<Name>MAIN.InMoldDrying.HydraulicsMain.MainSystemPressure.Status</Name>
 							<Type>BYTE</Type>
 						</Var>
-					</Vars>
-					<Vars VarGrpType="2">
-						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>MAIN.ProductHandling.GantryA.HorizontalAxis.axAxis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VerticalAxis.axAxis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.BlowOff[1].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.BlowOff[2].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.BlowOff[3].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.BlowOff[4].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.BlowOff[5].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.BlowOff[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VacuumValve[1].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VacuumValve[2].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VacuumValve[3].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VacuumValve[4].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VacuumValve[5].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryA.VacuumValve[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.HorizontalAxis.axAxis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VerticalAxis.axAxis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.BlowOff[1].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.BlowOff[2].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.BlowOff[3].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.BlowOff[4].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.BlowOff[5].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.BlowOff[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VacuumValve[1].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VacuumValve[2].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VacuumValve[3].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VacuumValve[4].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VacuumValve[5].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ProductHandling.GantryB.VacuumValve[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ComSC.IMD_SpeedControl</Name>
-							<Type GUID="{814D4CA6-23AB-4A31-BDE1-38BE1663073E}">ST_COM_IMD_SpdCntrl</Type>
-							<SubVar>
-								<Name>Stopped</Name>
-								<Comment>
-									<![CDATA[ IMD is in stopped state]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>RTO</Name>
-								<Comment>
-									<![CDATA[ IMD is Ready to Operate state]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>BlowOffProcessedA</Name>
-								<Comment>
-									<![CDATA[ signal to confirm that the blowoff has actually happend for A side]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>BlowOffProcessedB</Name>
-								<Comment>
-									<![CDATA[ signal to confirm that the blowoff has actually happend for B side]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>FormingReadyA</Name>
-								<Comment>
-									<![CDATA[ signal to confirm that the forming has actually started for A side]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>FormingReadyB</Name>
-								<Comment>
-									<![CDATA[ signal to confirm that the forming has actually started for B side]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>GantryA_Ready</Name>
-								<Comment>
-									<![CDATA[ signal that Gantry A is in position above the conveyor and ready to blow off]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>GantryB_Ready</Name>
-								<Comment>
-									<![CDATA[ signal that Gantry B is in position above the conveyor and ready to blow off]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ES</Name>
-								<Comment>
-									<![CDATA[ Emergency stop from the IMD that also need to stop the conveyor]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>MaximumSpeed</Name>
-								<Comment>
-									<![CDATA[ theoretical maximum speed with current settings]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>ActualSpeed</Name>
-								<Comment>
-									<![CDATA[ Number of KO's in last cycle]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HMI_Reset</Name>
-								<Comment>
-									<![CDATA[ MZE 20190311 For testing at LoodsLanghout]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[2].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[3].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[4].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[5].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[1].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[2].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[3].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[4].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[5].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxTwinSafe_Reset</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightEmStopImdFront</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightDoorReqImdFront</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightEmStopImdBack</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightDoorReqImdBack</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightEmStopGantryA_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightDoorReqGantryA_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightEmStopGantryA_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightDoorReqGantryA_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightEmStopGantryB_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightDoorReqGantryB_Front</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightEmStopGantryB_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightDoorReqGantryB_Back</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightGreen</Name>
+							<Name>MAIN.ProductHandling.GantryA.ixCollision</Name>
 							<Comment>
-								<![CDATA[ Outputs for alarm tower.]]>
+								<![CDATA[ Vertical axis ]]>
 							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.qxLightYellow</Name>
+							<Name>MAIN.ProductHandling.GantryA.ixEndLimitHorFront</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.qxLightRed</Name>
+							<Name>MAIN.ProductHandling.GantryA.ixEndLimitHorBack</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.qxAlarmHorn</Name>
+							<Name>MAIN.ProductHandling.GantryA.ixEndLimitVertUp</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.qxPcRemoteOff</Name>
+							<Name>MAIN.ProductHandling.GantryA.ixEndLimitVertDown</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
+							<Name>MAIN.ProductHandling.GantryA.HorizontalAxis.axAxis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.HorizontalAxis.iDriveRef</Name>
+							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
+							<SubVar>
+								<Name>aNetId</Name>
+								<Comment>
+									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nSlaveAddr</Name>
+								<Comment>
+									<![CDATA[ Address of the slave device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveNo</Name>
+								<Comment>
+									<![CDATA[ Drive number]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveType</Name>
+								<Comment>
+									<![CDATA[ Drive type]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VerticalAxis.axAxis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VerticalAxis.iDriveRef</Name>
+							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
+							<SubVar>
+								<Name>aNetId</Name>
+								<Comment>
+									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nSlaveAddr</Name>
+								<Comment>
+									<![CDATA[ Address of the slave device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveNo</Name>
+								<Comment>
+									<![CDATA[ Drive number]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveType</Name>
+								<Comment>
+									<![CDATA[ Drive type]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.ixVacuumSensor</Name>
+							<Type GUID="{253B2CC1-6165-9969-47FC-89F64CEC125E}">ARRAY [1..6] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.ixCollision</Name>
+							<Comment>
+								<![CDATA[ Vertical axis ]]>
+							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[2].Q</Name>
+							<Name>MAIN.ProductHandling.GantryB.ixEndLimitHorFront</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[3].Q</Name>
+							<Name>MAIN.ProductHandling.GantryB.ixEndLimitHorBack</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[4].Q</Name>
+							<Name>MAIN.ProductHandling.GantryB.ixEndLimitVertUp</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[5].Q</Name>
+							<Name>MAIN.ProductHandling.GantryB.ixEndLimitVertDown</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[6].Q</Name>
+							<Name>MAIN.ProductHandling.GantryB.HorizontalAxis.axAxis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.HorizontalAxis.iDriveRef</Name>
+							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
+							<SubVar>
+								<Name>aNetId</Name>
+								<Comment>
+									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nSlaveAddr</Name>
+								<Comment>
+									<![CDATA[ Address of the slave device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveNo</Name>
+								<Comment>
+									<![CDATA[ Drive number]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveType</Name>
+								<Comment>
+									<![CDATA[ Drive type]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VerticalAxis.axAxis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VerticalAxis.iDriveRef</Name>
+							<Type GUID="{19428A75-7A99-4A35-BB30-22878D5DF7C1}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
+							<SubVar>
+								<Name>aNetId</Name>
+								<Comment>
+									<![CDATA[ AmsNetId of the EtherCAT master device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nSlaveAddr</Name>
+								<Comment>
+									<![CDATA[ Address of the slave device.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveNo</Name>
+								<Comment>
+									<![CDATA[ Drive number]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>nDriveType</Name>
+								<Comment>
+									<![CDATA[ Drive type]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.ixVacuumSensor</Name>
+							<Type GUID="{253B2CC1-6165-9969-47FC-89F64CEC125E}">ARRAY [1..6] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ComSC.SpeedControl_IMD</Name>
+							<Type GUID="{CECDCACD-CB6F-402C-99AD-47FDFF425B49}">ST_COM_SpdCntrl_IMD</Type>
+							<SubVar>
+								<Name>StartFormingA</Name>
+								<Comment>
+									<![CDATA[Speedcontrol needs the IMD to start froming for A side	]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>StartFormingB</Name>
+								<Comment>
+									<![CDATA[Speedcontrol needs the IMD to start froming for B side	]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>StopForming</Name>
+								<Comment>
+									<![CDATA[ Speedcontrol needs the IMD to stop forming ]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>BlowOffPulseA</Name>
+								<Comment>
+									<![CDATA[ Blowoff pulses for A side]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>BlowOffPulseB</Name>
+								<Comment>
+									<![CDATA[ Blowoff pulses for B side]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ErrSlotANotFree</Name>
+								<Comment>
+									<![CDATA[ Current slot for gantry A blow off was not free]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ErrSlotBNotFree</Name>
+								<Comment>
+									<![CDATA[ Current slot for gantry B blow off was not free]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>Modulo</Name>
+								<Comment>
+									<![CDATA[ Actual modulo position of the belt  ]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>SpeedInKo</Name>
+								<Comment>
+									<![CDATA[Actual Speed that speedcontrol is dictating to the IMD]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>PocketA_Blocked</Name>
+								<Comment>
+									<![CDATA[Pocket is occupied and gantry is not allowed to blow off]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>PocketB_Blocked</Name>
+								<Comment>
+									<![CDATA[Pocket is occupied and gantry is not allowed to blow off]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters</Name>
+								<Comment>
+									<![CDATA[ Needs to be changed to correct format]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^PitchGantry</Name>
+								<Comment>
+									<![CDATA[Pitch distance between sheets on gantry]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^NrOfSheets</Name>
+								<Comment>
+									<![CDATA[Amount of sheets used on IMD]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^NrOfCavities</Name>
+								<Comment>
+									<![CDATA[ The amount of cavities (products) in one sheet.]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^Modulo</Name>
+								<Comment>
+									<![CDATA[System parameter (5180)]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^ModuloOffsetSensorFree</Name>
+								<Comment>
+									<![CDATA[Offset on the modulo to start measuring if the pitch is free for dropping]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^ModuloDetectionSensorFree</Name>
+								<Comment>
+									<![CDATA[How long the sensor needs to be active before alarm/skipping blow off based on modulo length]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ProdParameters^SheetSize</Name>
+								<Comment>
+									<![CDATA[The width of a sheet]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.ix24VoltError1</Name>
+							<Comment>
+								<![CDATA[ 24Volt error]]>
+							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[1].Q</Name>
+							<Name>MAIN.ix24VoltError2</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[2].Q</Name>
+							<Name>MAIN.FbError</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[3].Q</Name>
+							<Name>MAIN.ComErr</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[4].Q</Name>
+							<Name>MAIN.OutErr</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[5].Q</Name>
+							<Name>MAIN.ixResetImdFront</Name>
+							<Comment>
+								<![CDATA[ Operator side/Front ]]>
+							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
+							<Name>MAIN.ixDoorReqImdFront</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.MainAirSupply.Q</Name>
+							<Name>MAIN.ixEmStopImdFront</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetImdBack</Name>
+							<Comment>
+								<![CDATA[ NON Operator side/Back ]]>
+							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
+							<Name>MAIN.ixDoorReqImdBack</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[2].Q</Name>
+							<Name>MAIN.ixEmStopImdBack</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyFrontDoorLeft</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyFrontDoorMiddle</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyFrontDoorRight</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyBackDoorLeft1</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyBackDoorLeft2</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyBackDoorMiddle3</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyBackDoorMiddle4</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyBackDoorRight5</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyBackDoorRight6</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryA_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[3].Q</Name>
+							<Name>MAIN.ixDoorReqGantryA_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[4].Q</Name>
+							<Name>MAIN.ixEmStopGantryA_Front</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryA_Back</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[5].Q</Name>
+							<Name>MAIN.ixDoorReqGantryA_Back</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[6].Q</Name>
+							<Name>MAIN.ixEmStopGantryA_Back</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryB_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[1].Q</Name>
+							<Name>MAIN.ixDoorReqGantryB_Front</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[2].Q</Name>
+							<Name>MAIN.ixEmStopGantryB_Front</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixResetGantryB_Back</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[3].Q</Name>
+							<Name>MAIN.ixDoorReqGantryB_Back</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[4].Q</Name>
+							<Name>MAIN.ixEmStopGantryB_Back</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyGantryA_FrontDoorLeft</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyGantryA_FrontDoorRight</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyGantryA_BackDoor</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyGantryB_FrontDoorLeft</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyGantryB_FrontDoorRight</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixSafetyGantryB_BackDoor</Name>
+							<Comment>
+								<![CDATA[ couple to the TwinSAFE inputs ]]>
+							</Comment>
+							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixTwinSafe_SafetyRelay</Name>
+							<Comment>
+								<![CDATA[ couple to zones in Safety programm FB outputs ]]>
+							</Comment>
+							<Type GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}">ARRAY [1..7] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iwDevID</Name>
+							<Comment>
+								<![CDATA[ Variables for the ethercat diagnosing.]]>
+							</Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iwSlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iwCfgSlaveCount</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iwDevState</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ixMainSwitchOFF</Name>
+							<Comment>
+								<![CDATA[ Variables for the UPS]]>
+							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[5].Q</Name>
+							<Name>MAIN.ixUPS_Alarm</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
+							<Name>MAIN.ixUPS_BatMode</Name>
 							<Type>BOOL</Type>
 						</Var>
+						<Var>
+							<Name>MAIN.ixUPS_Charge</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MainAirPressureSwitch</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iAmsNetID</Name>
+							<Type GUID="{59CB7A65-AEAB-E588-EB2A-AFE112B8A9CC}">ARRAY [0..5] OF BYTE</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.L1</Name>
+							<Comment>
+								<![CDATA[ Variables for O.E.E]]>
+							</Comment>
+							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.L2</Name>
+							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.L3</Name>
+							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>PlcTask Outputs</Name>
 						<Var>
 							<Name>MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.HydraulicValve.qwOutput</Name>
 							<Type>INT</Type>
@@ -20697,6 +20398,417 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>MAIN.InMoldDrying.HydraulicsMain.IsolationValve.Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.HorizontalAxis.axAxis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VerticalAxis.axAxis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.BlowOff[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.BlowOff[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.BlowOff[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.BlowOff[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.BlowOff[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.BlowOff[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VacuumValve[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VacuumValve[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VacuumValve[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VacuumValve[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VacuumValve[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryA.VacuumValve[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.HorizontalAxis.axAxis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VerticalAxis.axAxis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.BlowOff[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.BlowOff[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.BlowOff[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.BlowOff[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.BlowOff[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.BlowOff[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VacuumValve[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VacuumValve[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VacuumValve[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VacuumValve[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VacuumValve[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ProductHandling.GantryB.VacuumValve[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ComSC.IMD_SpeedControl</Name>
+							<Type GUID="{814D4CA6-23AB-4A31-BDE1-38BE1663073E}">ST_COM_IMD_SpdCntrl</Type>
+							<SubVar>
+								<Name>Stopped</Name>
+								<Comment>
+									<![CDATA[ IMD is in stopped state]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>RTO</Name>
+								<Comment>
+									<![CDATA[ IMD is Ready to Operate state]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>BlowOffProcessedA</Name>
+								<Comment>
+									<![CDATA[ signal to confirm that the blowoff has actually happend for A side]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>BlowOffProcessedB</Name>
+								<Comment>
+									<![CDATA[ signal to confirm that the blowoff has actually happend for B side]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>FormingReadyA</Name>
+								<Comment>
+									<![CDATA[ signal to confirm that the forming has actually started for A side]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>FormingReadyB</Name>
+								<Comment>
+									<![CDATA[ signal to confirm that the forming has actually started for B side]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>GantryA_Ready</Name>
+								<Comment>
+									<![CDATA[ signal that Gantry A is in position above the conveyor and ready to blow off]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>GantryB_Ready</Name>
+								<Comment>
+									<![CDATA[ signal that Gantry B is in position above the conveyor and ready to blow off]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ES</Name>
+								<Comment>
+									<![CDATA[ Emergency stop from the IMD that also need to stop the conveyor]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>MaximumSpeed</Name>
+								<Comment>
+									<![CDATA[ theoretical maximum speed with current settings]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>ActualSpeed</Name>
+								<Comment>
+									<![CDATA[ Number of KO's in last cycle]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HMI_Reset</Name>
+								<Comment>
+									<![CDATA[ MZE 20190311 For testing at LoodsLanghout]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldA.VacuumSection[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxTwinSafe_Reset</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightEmStopImdFront</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightDoorReqImdFront</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightEmStopImdBack</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightDoorReqImdBack</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightEmStopGantryA_Front</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightDoorReqGantryA_Front</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightEmStopGantryA_Back</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightDoorReqGantryA_Back</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightEmStopGantryB_Front</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightDoorReqGantryB_Front</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightEmStopGantryB_Back</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightDoorReqGantryB_Back</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightGreen</Name>
+							<Comment>
+								<![CDATA[ Outputs for alarm tower.]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightYellow</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightRed</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxAlarmHorn</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxPcRemoteOff</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.MainAirSupply.Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldA.VacuumSection[6].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[1].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[2].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[3].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[4].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[5].Q</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.PersMachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>

@@ -1,7 +1,7 @@
 {
     "historizedSymbolList": {
-        "PLC1.MAIN.linetrendOutput": {
-            "interval": "PT0.5S",
+        "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL": {
+            "interval": "PT1S",
             "maxEntries": 10000,
             "recordingEnabled": true,
             "rowLimit": 10000

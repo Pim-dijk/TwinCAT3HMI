@@ -89,7 +89,10 @@
     },
     "FILES": {
         "/Properties/tchmimanifest.json": {
-            "ACCESS": 1
+            "ACCESS": 1,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
         }
     },
     "FLOODPROTECTION": 500,
@@ -15879,7 +15882,9 @@
         "TestUserGroup": {
             "ENABLED": true,
             "FILEACCESS": 3,
-            "FILES": {},
+            "FILES": {
+                "/Content/Alarms.content": 0
+            },
             "SYMBOLACCESS": 3,
             "SYMBOLS": {
                 "IsAuthRequired": 3,

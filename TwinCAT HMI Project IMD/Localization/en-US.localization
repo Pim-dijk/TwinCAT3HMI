@@ -786,7 +786,11 @@
     "Spare797": "Spare797",
     "Spare798": "Spare798",
     "Spare799": "Spare799",
-    "Group": "Group:"
+    "Group": "Group:",
+    "text": "Text",
+    "Raised": "Raised",
+    "Confirmed": "Confirmed",
+    "Cleared": "Cleared"
   },
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/LocalizationDescription.Schema.json"
 }

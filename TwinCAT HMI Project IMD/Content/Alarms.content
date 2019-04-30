@@ -19,6 +19,12 @@
     "columnName": "severity"
   },
   {
+    "columnName": "text",
+    "width": 50,
+    "widthUnit": "%",
+    "label": "This is not text"
+  },
+  {
     "columnName": "timeAndDateRaised"
   },
   {
@@ -41,6 +47,14 @@
 ]
 </script>
 
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
 </div>
 
 </div>
