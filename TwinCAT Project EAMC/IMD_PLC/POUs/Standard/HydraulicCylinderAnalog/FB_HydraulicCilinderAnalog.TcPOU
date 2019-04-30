@@ -54,6 +54,7 @@ VAR
 	_machineSide					: STRING;
 	_fbInstancePath					: FB_instancePath;
 	_MyPath							: STRING;
+	_Message						: FB_TcMessage;
 	
 	RodSidePressure: FB_AnalogIn4_20mA;
 	BottomSidePressure: FB_AnalogIn4_20mA;
@@ -181,6 +182,8 @@ END_IF
 	_fbInstancePath();
 	_MyPath := _fbInstancePath.sPath;
 	
+	_Message.CreateEx(TC_Events.Kremer_Events.Top_mold_A_error_on_balluf, 0);
+	
 	(* Apply some logic to determine which events to use *)
 	IF FIND(STR1:= _MyPath , STR2:= 'MoldA') > 0 THEN
 		_machineSide := 'A';
@@ -233,6 +236,7 @@ END_IF
 Errors.BallufError:= HydraulicPos.Error;
 
 IF Errors.BallufError THEN
+	_Message.Send(0);
 	_BallufError.Raise(0);
 END_IF;
 
@@ -543,6 +547,7 @@ HydraulicPos();]]></ST>
       <LineId Id="195" Count="0" />
       <LineId Id="192" Count="0" />
       <LineId Id="194" Count="0" />
+      <LineId Id="244" Count="1" />
       <LineId Id="193" Count="0" />
       <LineId Id="196" Count="1" />
       <LineId Id="235" Count="0" />
@@ -583,6 +588,7 @@ HydraulicPos();]]></ST>
       <LineId Id="75" Count="0" />
       <LineId Id="188" Count="0" />
       <LineId Id="187" Count="0" />
+      <LineId Id="246" Count="0" />
       <LineId Id="127" Count="0" />
       <LineId Id="189" Count="0" />
       <LineId Id="76" Count="25" />

@@ -225,7 +225,7 @@
 </script>
 </div>
 
-<div id="TcHmiTextblock_76" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="Name" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
+<div id="TcHmiTextblock_76" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-text="%l%User%/l%" data-tchmi-top="2.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
@@ -233,7 +233,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_78" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Group" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
+<div id="TcHmiTextblock_78" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="%l%Group%/l%" data-tchmi-top="47.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
@@ -245,7 +245,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_82" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="Auto Logout" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
+<div id="TcHmiTextblock_82" data-tchmi-type="tchmi-textblock" data-tchmi-height="13.0" data-tchmi-height-unit="%" data-tchmi-left="2.0" data-tchmi-left-unit="%" data-tchmi-text="%f%'Auto ' + %l%Logout%/l%%/f%" data-tchmi-top="32.0" data-tchmi-top-unit="%" data-tchmi-width="16.0" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 </div>
 
@@ -306,7 +306,7 @@
       },
       {
         "objectType": "WriteToSymbol",
-        "active": true,
+        "active": false,
         "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
@@ -368,7 +368,7 @@
     "actions": [
       {
         "objectType": "WriteToSymbol",
-        "active": true,
+        "active": false,
         "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
         "valueType": "tchmi:framework#/definitions/Visibility",
         "value": {
@@ -450,18 +450,6 @@
   {
     "event": "TcHmiTextbox_2.onPressed",
     "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Visible"
-        },
-        "asyncWait": true
-      },
       {
         "objectType": "WriteToSymbol",
         "active": true,

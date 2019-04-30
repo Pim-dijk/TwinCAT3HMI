@@ -92,7 +92,7 @@
 }
 </script>
 
-<div id="TcHmiButton_152" data-tchmi-type="tchmi-button" data-tchmi-height="24.6" data-tchmi-height-unit="%" data-tchmi-left="51.0" data-tchmi-left-unit="%" data-tchmi-text="Cancel" data-tchmi-width="44.1" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right-unit="%" data-tchmi-right="5" data-tchmi-bottom-unit="%" data-tchmi-bottom="5">
+<div id="TcHmiButton_152" data-tchmi-type="tchmi-button" data-tchmi-height="24.6" data-tchmi-height-unit="%" data-tchmi-left="51.0" data-tchmi-left-unit="%" data-tchmi-text="%l%Cancel%/l%" data-tchmi-width="44.1" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-right-unit="%" data-tchmi-right="5" data-tchmi-bottom-unit="%" data-tchmi-bottom="5">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">

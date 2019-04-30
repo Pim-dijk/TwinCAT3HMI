@@ -290,7 +290,7 @@
 </script>
 </div>
 
-<div id="IOField_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_AUTO_TOTAL" data-tchmi-valuemax="1000">
+<div id="IOField_78" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="°C" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_AUTO_TOTAL">
 
 </div>
 
