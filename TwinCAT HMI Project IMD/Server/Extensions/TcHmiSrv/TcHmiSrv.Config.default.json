@@ -13,7 +13,8 @@
     "CHUNKSIZE": 1048576,
     "CLIENTCERTIFICATES": [],
     "CONFIGURATIONS": [
-        "remote"
+        "remote",
+        "IPCTest"
     ],
     "COOKIEEXPIRATIONDATE": "P30D",
     "DEFAULTAUTHEXTENSION": "TcHmiUserManagement",
@@ -15905,6 +15906,7 @@
             "FILES": {},
             "SYMBOLACCESS": 0,
             "SYMBOLS": {
+                "ConfirmAlarm": 0,
                 "GetCurrentUser": 3,
                 "IsAuthRequired": 3,
                 "ListDomains": 3,
@@ -15933,6 +15935,7 @@
                 "ListEvents": 3,
                 "ListSymbols": 3,
                 "ListUserNames": 3,
+                "ListUsers": 1,
                 "LocalizeText": 3,
                 "Login": 3,
                 "Logout": 3,
@@ -15942,6 +15945,8 @@
                 "TcHmiSqliteHistorize.GetTrendLineWindow": 3,
                 "TcHmiSqliteHistorize.HistorizeData": 3,
                 "TcHmiUserManagement.ChangePassword": 3,
+                "TcHmiUserManagement.ListSymbols": 1,
+                "TcHmiUserManagement.ListUsers": 1,
                 "Unsubscribe": 3,
                 "UnsubscribeEvents": 3,
                 "UpdateEventsSubscription": 3
@@ -15970,6 +15975,38 @@
                     "TestUserGroup"
                 ],
                 "USERGROUPUSERS_LOCALE": "en"
+            },
+            "TestGroupAndAdminGroup": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
+                "USERGROUPUSERS_GROUPS": [
+                    "TestUserGroup",
+                    "__SystemAdministrators"
+                ],
+                "USERGROUPUSERS_LOCALE": "en-US"
+            },
+            "TestGroupAndGuestGroup": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
+                "USERGROUPUSERS_GROUPS": [
+                    "TestUserGroup",
+                    "__SystemGuests"
+                ],
+                "USERGROUPUSERS_LOCALE": "en-US"
+            },
+            "TestGroupAndUserGroup": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemUsers",
+                    "TestUserGroup"
+                ],
+                "USERGROUPUSERS_LOCALE": "en-US"
+            },
+            "TestUser": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT15M",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemUsers",
+                    "TestUserGroup"
+                ],
+                "USERGROUPUSERS_LOCALE": "nl-NL"
             },
             "__SystemAdministrator": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "P30D",

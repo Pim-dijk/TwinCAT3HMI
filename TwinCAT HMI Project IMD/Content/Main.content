@@ -906,7 +906,23 @@
 </script>
 
 <script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
-[]
+[
+  {
+    "accessright": "observe",
+    "group": "__SystemUsers",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "observe",
+    "group": "TestUserGroup",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "observe",
+    "group": "__SystemGuests",
+    "permission": "Deny"
+  }
+]
 </script>
 </div>
 

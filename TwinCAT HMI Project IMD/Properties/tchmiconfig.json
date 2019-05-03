@@ -99,6 +99,9 @@
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
     },
     {
+      "url": "UserControls/Kremer_StateText.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_UserManagement.usercontrol"
     },
     {
@@ -384,6 +387,9 @@
     },
     {
       "url": "Scripts/WriteToSymbol_TIME.js"
+    },
+    {
+      "url": "Scripts/GetStatusText.js"
     }
   ],
   "symbols": {
@@ -2205,6 +2211,186 @@
       "_pageParameters": {
         "value": "",
         "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "StateMessageList": {
+        "value": {
+          "en-US": {
+            "0": {
+              "0": "Wait for initialisation start",
+              "1": "unused step",
+              "2": "Initialise Tranfermold and machinepond",
+              "3": "Initialise Topmold A",
+              "4": "Initialise Bottomold A",
+              "5": "Initalise Topmold B",
+              "6": "Initialise Bottommold B",
+              "7": "Initialised",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopping sub parts",
+              "11": "Stopped initialising"
+            },
+            "1": {
+              "0": "Wait for initialisation start",
+              "1": "Move to rest position",
+              "2": "Initialised"
+            },
+            "2": {
+              "0": "Wait for initialisation start",
+              "1": "Move pond down to rest position",
+              "2": "Move spraybar to rest position",
+              "3": "spare",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "3": {
+              "0": "Wait for initialisation start",
+              "1": "Move to rest position",
+              "2": "Initialised",
+              "3": "spare",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "4": {
+              "0": "Wait for initialisation start",
+              "1": "Move vertical cylinder down",
+              "2": "Move Bottommold out",
+              "3": "Move horizontal cylinder in",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "5": {
+              "0": "Wait for initialisation start",
+              "1": "Move to rest position",
+              "2": "Initialised",
+              "3": "spare",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "6": {
+              "0": "Wait for initialisation start",
+              "1": "Move vertical cylinder down",
+              "2": "Move Bottommold out",
+              "3": "Move horizontal cylinder in",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "7": {
+              "0": "Wait for initialisation start",
+              "1": "Start init of both gantries",
+              "2": "Await both gantries ",
+              "3": "spare",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "8": {
+              "0": "Wait for initialisation start",
+              "1": "Move vertical up",
+              "2": "Move to horizontal rest position",
+              "3": "Move vertical down (Pick up Position)",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            },
+            "9": {
+              "0": "Wait for initialisation start",
+              "1": "Move vertical up",
+              "2": "Move to horizontal rest position",
+              "3": "Move vertical down (Pick up Position)",
+              "4": "spare",
+              "5": "spare",
+              "6": "spare",
+              "7": "spare",
+              "8": "spare",
+              "9": "spare",
+              "10": "Stopped initalising"
+            }
+          },
+          "nl-NL": {
+            "0": {
+              "0": "Status onbekend",
+              "1": "Fout aanwezig",
+              "2": "Geen produkt data geladen",
+              "3": "Niet in Automatische Mode",
+              "4": "Machine niet geinitialiseerd",
+              "5": "Bezig met initialiseren",
+              "6": "Gereed voor start",
+              "7": "In produktie (Stapel modus), Printer niet gereed",
+              "8": "In produktie (Stapel modus), Inline gereed voor start",
+              "9": "In produktie (Stapel modus en Standalone modus)",
+              "10": "In produktie (Inline modus, zipping)",
+              "11": "Pers niet in bedrijf",
+              "12": "Printer niet gereed",
+              "13": "Standalone modus, stacking niet gereed voor start",
+              "14": "In produktie (Standalone modus), stacking gereed voor start",
+              "15": "Alleen bundel uitvoer is gestart"
+            },
+            "1": {
+              "0": "Niet Geinitialiseerd",
+              "1": "Bezig",
+              "2": "Geinitialiseerd"
+            },
+            "2": {
+              "0": "Wacht op Aanvraag",
+              "1": "Invoeren",
+              "2": "Uitvoeren",
+              "3": "Re-Organiseren"
+            },
+            "3": {
+              "0": "Gereed",
+              "1": "In Bedrijf",
+              "2": "Gestopt",
+              "3": "Fout",
+              "4": "Noodstop"
+            },
+            "4": {
+              "0": "Gereed (Inline)",
+              "1": "In Bedrijf (Inline)",
+              "2": "Gestopt (Inline)",
+              "3": "Gereed (Offline)",
+              "4": "In Bedrijf (Offline)",
+              "5": "Gestopt (Offlline)",
+              "6": "Fout",
+              "7": "Noodstop"
+            }
+          }
+        },
+        "type": "tchmi:general#/definitions/Object",
         "persist": false,
         "readonly": false
       }

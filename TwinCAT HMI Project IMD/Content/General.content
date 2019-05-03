@@ -549,7 +549,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "TcHmi.Server.RecipeManagement.listRecipes (\n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            console.log(data.value);\n        } else {\n            // Error\n        }\n    }\n);\n\nTcHmi.Server.RecipeManagement.activate('TestRecipe', function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            // Success\n            console.log(data);\n        } else {\n            // Error\n            console.log(data);\n        }\n    }\n);\n\nTcHmi.Server.RecipeManagement.getActiveRecipes (\n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            console.log(data);\n        } else {\n            // Error\n        }\n    }\n);"
+          "TcHmi.Server.RecipeManagement.listRecipes (\n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            //console.log(data.value);\n        } else {\n            // Error\n        }\n    }\n);\n\nTcHmi.Server.RecipeManagement.activate('TestRecipe', function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            // Success\n            //console.log(data);\n        } else {\n            // Error\n            console.log(data);\n        }\n    }\n);\n\nTcHmi.Server.RecipeManagement.getActiveRecipes (\n    function(data) {\n        if (data.error === TcHmi.Errors.NONE) {\n            //console.log(data);\n        } else {\n            // Error\n        }\n    }\n);"
         ],
         "injectContextObject": false,
         "asyncWait": true,

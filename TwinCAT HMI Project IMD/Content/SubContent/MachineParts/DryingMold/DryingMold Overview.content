@@ -8,7 +8,7 @@
 
 </div>
 
-<div id="Kremer_Light_33" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="178" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="298" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="PLC1.MAIN.InMoldDrying.BottomMold{0}.Vacuum.Q">
+<div id="Kremer_Light_33" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="178" data-tchmi-left-unit="px" data-tchmi-shape="Ellipse" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="298" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="%f%'PLC1.MAIN.InMoldDrying.BottomMold' + %i%_strAB%/i%+'.Vacuum.Q'%/f%" data-tchmi-parameters="">
 <script data-tchmi-target-attribute="data-tchmi-coloron" type="application/json">
 {
   "color": "rgba(0, 255, 0, 1)"

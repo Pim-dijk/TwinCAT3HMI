@@ -287,6 +287,14 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_PopupMessage"
     },
+    "Kremer_StateText": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Kremer_StateText.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Kremer_StateText"
+    },
     "Kremer_UserManagement": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",

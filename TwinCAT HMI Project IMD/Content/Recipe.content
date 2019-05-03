@@ -415,11 +415,7 @@
 </script>
 </div>
 
-<div id="General_Keyboard_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="331" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-self="%ctrl%General_Keyboard_4%/ctrl%">
-
-</div>
-
-<div id="TextInputField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TextInputField.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="14" data-tchmi-keyboard="%ctrl%General_Keyboard_4%/ctrl%" data-tchmi-placeholdertext="Recipe name here...">
+<div id="TextInputField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TextInputField.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="14" data-tchmi-keyboard="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-placeholdertext="Recipe name here...">
 
 </div>
 
