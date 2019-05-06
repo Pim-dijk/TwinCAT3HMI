@@ -27,7 +27,7 @@
     "DEFLATECOMPRESSIONLEVEL": 5,
     "DISCOVERY": 2,
     "ENDPOINTS": [
-        "http://127.0.0.1:3001"
+        "http://127.0.0.1:3002"
     ],
     "ETAGENABLED": true,
     "EXTENSIONS": {
@@ -15962,19 +15962,12 @@
                 ],
                 "USERGROUPUSERS_LOCALE": "nl-NL"
             },
-            "Guest": {
+            "Persistent": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
                 "USERGROUPUSERS_GROUPS": [
                     "TestUserGroup"
                 ],
-                "USERGROUPUSERS_LOCALE": "en"
-            },
-            "Henk123": {
-                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
-                "USERGROUPUSERS_GROUPS": [
-                    "TestUserGroup"
-                ],
-                "USERGROUPUSERS_LOCALE": "en"
+                "USERGROUPUSERS_LOCALE": "nl-NL"
             },
             "TestGroupAndAdminGroup": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
@@ -16020,7 +16013,7 @@
                 "USERGROUPUSERS_GROUPS": [
                     "__SystemGuests"
                 ],
-                "USERGROUPUSERS_LOCALE": "en"
+                "USERGROUPUSERS_LOCALE": "en-US"
             }
         }
     },

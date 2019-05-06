@@ -242,7 +242,7 @@
 
 </div>
 
-<div id="IOField_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="187" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="mm" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.GantryPickupTime">
+<div id="IOField_90" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-maxvalue="4000" data-tchmi-minvalue="0" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="187" data-tchmi-top-unit="px" data-tchmi-valuetype="REAL" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-attribute="ms" data-tchmi-parameters="%f%'%i%_strAB%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.GantryPickupTime">
 
 
 

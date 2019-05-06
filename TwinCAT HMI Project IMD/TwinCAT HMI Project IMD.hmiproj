@@ -11,9 +11,9 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10131</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10133</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
-    <HmiCommunicationServerPort>3001</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3002</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
     <HmiRecent>1.10.1171.165</HmiRecent>
   </PropertyGroup>
@@ -806,17 +806,20 @@
     <TcHmiReference Include="2b21ef41-40c6-4658-9b4f-44c40ef94fd1">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlTesting/FrameworkControlTesting.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
     <TcHmiReference Include="5c0cd14a-c92b-4320-aa6e-3a1dab1ea1af">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>FrameworkControlJs1/FrameworkControlJs1.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
     <TcHmiReference Include="ec55be3d-dbc7-4773-9864-e617d138c500">
       <Type>FrameworkRefSolution</Type>
       <RelativePath>TestFrameworkControl/TestFrameworkControl.csproj</RelativePath>
-      <Domain></Domain>
+      <Domain>
+      </Domain>
     </TcHmiReference>
   </ItemGroup>
 </Project>

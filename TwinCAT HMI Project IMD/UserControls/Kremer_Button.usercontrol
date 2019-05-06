@@ -193,6 +193,10 @@
         "asyncWait": true
       },
       {
+        "objectType": "Comment",
+        "comment": "Create appropriate bindings"
+      },
+      {
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [

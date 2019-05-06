@@ -61,6 +61,21 @@
       "propertyName": "Visible",
       "propertySetterName": "setVisible",
       "propertyGetterName": "getVisible"
+    },
+    {
+      "name": "data-tchmi-lastbutton",
+      "displayName": "LastButton",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/KeyList",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "LastButton",
+      "propertySetterName": "setLastButton",
+      "propertyGetterName": "getLastButton"
     }
   ],
   "virtualRights": [

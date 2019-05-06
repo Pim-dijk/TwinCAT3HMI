@@ -391,8 +391,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "",
-          "\nTcHmi.EventProvider.raise('readFromDB');"
+          "\n//TcHmi.EventProvider.raise('readFromDB');"
         ],
         "injectContextObject": false,
         "asyncWait": true,

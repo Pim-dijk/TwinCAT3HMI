@@ -19,12 +19,6 @@
     "columnName": "severity"
   },
   {
-    "columnName": "text",
-    "width": 50,
-    "widthUnit": "%",
-    "label": "This is not text"
-  },
-  {
     "columnName": "timeAndDateRaised"
   },
   {
