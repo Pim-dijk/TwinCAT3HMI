@@ -1,34 +1,19 @@
 {
     "USERS": {
-        "CreatedFromHMI": {
-            "ENABLED": true,
-            "PASSWORD": "24979c47039cfc8b0ef60a8e0395f83161ad3056391adabf45eec769f96b4bb4",
-            "SALT": "d94XKMRxnEsZ8xdVk77BKITAXf60m2jyAneq2gwip2lFc3KVcU4pobk5T4iSMS0nT4hCnUupKEvJsHn13LFAAA=="
-        },
-        "Persistent": {
-            "ENABLED": true,
-            "PASSWORD": "9ab248e12ac1e03bbf2e204e76a45b82bd82c2a9a7d2fbc76a45a181d77ce890",
-            "SALT": "FagDeumJxYXULl/2DzJUMn6DYZFAmmqf/iHKGuHDIyUj8dhNRc/E+3kKy7jrJmXb0QnakvWO/fAe3cpRwaOBAA=="
-        },
-        "TestGroupAndAdminGroup": {
+        "Admin": {
             "ENABLED": true,
             "PASSWORD": "d362e4ccd00763a572fd1347adf42f0a195928819d55420eaa094cee5a1653bb",
             "SALT": "o43BTOE+iIJkU7Vw/Fac2LXLsQL2780jh7vOSF3gGSGT4VrnD5V3GdYkp4ZbzXN+3SW8o4FcDp6Dh8vRvNmoAA=="
         },
-        "TestGroupAndGuestGroup": {
+        "Guest": {
             "ENABLED": true,
-            "PASSWORD": "a0ce1dd954ff18eb48e7106bd72c7e662e0b1601aeae513bc42e17cad80697d9",
-            "SALT": "UoP809D9/6qjJSmwcZ9snR8Uig6aCZnLp+WpNxg4PPv/g1cuCTqmDDBNeR2t1NdVAT4LDFWQoLn0JDWA4ujUAA=="
+            "PASSWORD": "07f79d461815020d42a7ea903a98086cbbfd158b79a340e18890f460ec5a9496",
+            "SALT": "sMAQ+UaAnzFFR3Cxr+EFo17dGk4cPtZuadE2rwvZd8jBOjxSgPtYPKQqtn0kDUv502dbm/ZfcZG+2wD6sdUZAA=="
         },
-        "TestGroupAndUserGroup": {
+        "User": {
             "ENABLED": true,
             "PASSWORD": "3ffe5d17dd9f891583a33a8795a8601d4aab5cd4290bdf6a8861a9f2bb4268dd",
             "SALT": "aC3qYAz0m8baCgIyYRKipzUNwfxsXNcvo/6ugJwqc7zGrE6pMY7bIBId8wx9eDAmt2+9kL9gKKkIR5HKWfvPAA=="
-        },
-        "TestUser": {
-            "ENABLED": true,
-            "PASSWORD": "a5ce6c5c7cb1527d70c58072d2d7969a0e6c53710d107bc9c1ff5b93da9d8ba0",
-            "SALT": "VUC080PP4OHpZWiQNp9m9OcqfoySHrP67cJfS4q9uFNUa3N/P/zhjswfjiFx+c8BVnXwTmh79TFm1dTaZDlZAA=="
         },
         "__SystemAdministrator": {
             "ENABLED": false,

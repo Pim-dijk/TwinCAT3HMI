@@ -2,13 +2,47 @@
 
     <div id="IOField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-valuemin="-500" data-tchmi-valuemax="500" data-tchmi-attribute="s" data-tchmi-visibility="Visible" data-tchmi-datatype="In/Output" data-tchmi-border="True" data-tchmi-fontsize="18" data-tchmi-is-enabled="True" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
 
-    </div>
+    
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "Control",
+    "group": "User",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "Control",
+    "group": "Guest",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "Control",
+    "group": "Admin",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "setNewValue",
+    "group": "Guest",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "setNewValue",
+    "group": "User",
+    "permission": "Deny"
+  }
+]
+</script>
+</div>
 
 <div id="Kremer_Light_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="38" data-tchmi-height-unit="px" data-tchmi-left="545" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Light.usercontrol" data-tchmi-top="226" data-tchmi-top-unit="px" data-tchmi-width="38" data-tchmi-width-unit="px" data-tchmi-shape="Ellipse" data-tchmi-visible="True" data-tchmi-symbol="%s%PLC1.MAIN.mxAutoMode%/s%" data-tchmi-coloron="%i%Color_Green%/i%" data-tchmi-visibility="Visible">
 
 </div>
 
-<div id="IOField_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value="" data-tchmi-attribute="ms" data-tchmi-valuemin="-1000" data-tchmi-valuemax="1000" data-tchmi-fontsize="18" data-tchmi-datatype="Output" data-tchmi-border="False" data-tchmi-is-enabled="True" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldB.PositionDownOpen%/s%">
+<div id="IOField_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value="" data-tchmi-attribute="ms" data-tchmi-valuemin="-1000" data-tchmi-valuemax="1000" data-tchmi-fontsize="18" data-tchmi-datatype="Output" data-tchmi-border="False" data-tchmi-is-enabled="True" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%">
 
 
 
@@ -254,6 +288,35 @@
 
 <div id="IOField_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductPar.InMoldDrying.TopMoldA.PositionDownOpen%/s%" data-tchmi-attribute="" data-tchmi-valuemin="-750" data-tchmi-valuemax="750" data-tchmi-fontsize="18" data-tchmi-datatype="Input" data-tchmi-border="True" data-tchmi-is-enabled="True">
 
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "Control",
+    "group": "User",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "Control",
+    "group": "Admin",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "setNewValue",
+    "group": "Guest",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "setNewValue",
+    "group": "User",
+    "permission": "Allow"
+  }
+]
+</script>
 </div>
 
 <div id="TcHmiTextblock_69" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="170" data-tchmi-left-unit="px" data-tchmi-text="In/Output" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16">

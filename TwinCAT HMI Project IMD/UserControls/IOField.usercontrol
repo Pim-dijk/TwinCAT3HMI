@@ -1,7 +1,7 @@
 ﻿<div id="IOField" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
-     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="Visible">
 
 <div id="TcHmiTextblock_IOField" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-horizontal-alignment="%pp%TextAlign%/pp%" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="px" data-tchmi-border-width="%f%if(%pp%Border%/pp%){ '{  &quot;left&quot;: 1,  &quot;right&quot;: 1,  &quot;top&quot;: 1,  &quot;bottom&quot;: 1,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}' } else { '{  &quot;left&quot;: 0,  &quot;right&quot;: 0,  &quot;top&quot;: 0,  &quot;bottom&quot;: 0,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}'  }%/f%" data-tchmi-background-color="%pp%Background%/pp%" data-tchmi-text="%f%if( %pp%DataType%/pp% == &quot;Input&quot;) { &quot;&quot; } else { %pp%Value%/pp%  + ' ' + %pp%Attribute%/pp% }%/f%" data-tchmi-tooltip="%pp%Value%/pp%" data-tchmi-text-color="%pp%TextColor%/pp%">
 
@@ -230,6 +230,43 @@
   "bottomUnit": "px"
 }
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[
+  {
+    "virtualControlRight": "setNewValue",
+    "controlRight": "operate"
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "observe",
+    "group": "User",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "observe",
+    "group": "Guest",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "observe",
+    "group": "Admin",
+    "permission": "Allow"
+  }
+]
+</script>
 </div>
 
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
 </div>

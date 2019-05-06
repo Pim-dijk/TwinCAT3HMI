@@ -262,7 +262,15 @@
       "propertyGetterName": "getTextAlign"
     }
   ],
-  "virtualRights": [],
+  "virtualRights": [
+    {
+      "name": "setNewValue",
+      "description": "Whether the control can be used to modify the Symbol value",
+      "displayName": "setNewValue",
+      "visible": true,
+      "defaultValueInternal": true
+    }
+  ],
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
   "description": ""
 }
