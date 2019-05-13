@@ -11,6 +11,7 @@
 
     var ConvertAlarmWordsToDataGrid = function (ctx,AlarmWordList,AlarmMessageList,AlarmDB) {
         console.log("Checking all alarmwords and storing them in the alarmDB");
+        //console.log(AlarmWordList);
         
         // Get the locale information
         var timeZone = TcHmi.Locale.get();
@@ -39,9 +40,9 @@
                     var serverValue = data.value;
                     var symbol = new TcHmi.Symbol(key);
                     var symbolResult = symbol.read();
-                    var result = JSON.parse(symbolResult); // Convert the object to JSON
+                    var result = symbolResult; // Convert the object to JSON
                     // If the value hasn't changed, return
-                    if ((serverValue === 0 && count < length) || (serverValue === result.Data && count < length)) {
+                    if (serverValue === result.Data && count < length) {
                         console.log("Result hasn't changed or is '0'");
                         return;
                     }
@@ -79,6 +80,8 @@
                                 jsonEntry['Test3'] = result.AlarmGroup.text;
                                 jsonEntry['Test4'] = alarmStrings[timeZone][(i + offset)];
                                 alarmDB[(i + offset)] = jsonEntry;
+                                //console.log(alarmDB);
+                                //console.log(jsonEntry);
                                 jsonEntry = {};
                             }
                         } if (exists && (binArray[i] === '0')) {

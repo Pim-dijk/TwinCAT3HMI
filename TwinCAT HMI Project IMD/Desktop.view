@@ -15,6 +15,14 @@
     "path": "domain",
     "comparator": "==",
     "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "AND"
+  },
+  {
+    "path": "confirmationState",
+    "comparator": "==",
+    "value": 2
   }
 ]
 </script>
@@ -31,19 +39,16 @@
   },
   {
     "columnName": "text",
-    "width": 440,
+    "width": 542,
     "widthUnit": "px"
-  },
-  {
-    "columnName": "timeConfirmed"
   }
 ]
 </script>
 <script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
 [
   {
-    "name": "timeRaised",
-    "order": "Descending"
+    "name": "text",
+    "order": "Ascending"
   }
 ]
 </script>
@@ -129,6 +134,27 @@
 </div>
 
 <div id="UcDateTime" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ucDateTime.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="153" data-tchmi-width-unit="px" data-tchmi-fontsize="16" data-tchmi-datetime="">
+
+</div>
+
+<div id="Kremer_Button_158" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-value="%l%RESET%/l%" data-tchmi-visible="True" data-tchmi-width="99" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.HMI.mxReset%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
 
 </div>
 
@@ -334,7 +360,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_6" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-text="%l%SETTINGS%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_6" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-text="%l%SETTINGS%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="115" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -372,7 +398,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_7" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="684" data-tchmi-left-unit="px" data-tchmi-text="%l%GENERAL%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_7" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="685" data-tchmi-left-unit="px" data-tchmi-text="%l%GENERAL%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="115" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -415,44 +441,6 @@
 
 <script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
 []
-</script>
-</div>
-
-<div id="TcHmiButton_8" data-tchmi-type="tchmi-button" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="694" data-tchmi-left-unit="px" data-tchmi-text="%l%RESET%/l%" data-tchmi-top="-480" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold" data-tchmi-state-symbol="%s%PLC1.HMI.mxReset%/s%">
-
-
-<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiButton_8.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/TrendView.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
 </script>
 </div>
 
@@ -623,10 +611,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -696,10 +680,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -773,10 +753,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -846,10 +822,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -923,10 +895,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -996,10 +964,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1073,10 +1037,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1146,10 +1106,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1223,10 +1179,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1296,10 +1248,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1373,10 +1321,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1446,10 +1390,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1523,10 +1463,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1596,10 +1532,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1673,10 +1605,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1746,10 +1674,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1823,10 +1747,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1896,10 +1816,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1973,10 +1889,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -2046,10 +1958,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"

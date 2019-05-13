@@ -1598,7 +1598,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord1": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord1",
@@ -1611,7 +1611,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord10": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord10",
@@ -1624,7 +1624,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord11": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord11",
@@ -1637,7 +1637,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord12": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord12",
@@ -1650,7 +1650,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord13": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord13",
@@ -1663,7 +1663,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord14": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord14",
@@ -1676,7 +1676,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord15": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord15",
@@ -1689,7 +1689,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord16": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord16",
@@ -1702,7 +1702,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord17": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord17",
@@ -1715,7 +1715,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord18": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord18",
@@ -1728,7 +1728,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord19": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord19",
@@ -1741,7 +1741,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord2": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord2",
@@ -1754,7 +1754,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord20": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord20",
@@ -1767,7 +1767,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord3": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord3",
@@ -1780,7 +1780,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord4": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord4",
@@ -1793,7 +1793,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord5": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord5",
@@ -1806,7 +1806,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord6": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord6",
@@ -1819,7 +1819,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord7": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord7",
@@ -1832,7 +1832,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord8": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord8",
@@ -1845,7 +1845,7 @@
             "USEMAPPING": true
         },
         "PLC1.HMI.AlarmWord9": {
-            "ACCESS": 1,
+            "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC1::HMI::AlarmWord9",
@@ -1854,6 +1854,16 @@
             },
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI.T_HmiReset.Q": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC1::HMI::T_HmiReset::Q",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -15898,8 +15908,10 @@
             "SYMBOLACCESS": 1,
             "SYMBOLS": {
                 "IsAuthRequired": 3,
-                "ListUsers": 3,
-                "Login": 3
+                "ListUsers": 1,
+                "Login": 1,
+                "TcHmiUserManagement.ListSymbols": 0,
+                "TcHmiUserManagement.ListUsers": 0
             }
         },
         "User": {
@@ -15909,8 +15921,15 @@
             "SYMBOLACCESS": 3,
             "SYMBOLS": {
                 "IsAuthRequired": 3,
+                "ListEvents": 3,
+                "ListInternalSymbols": 3,
+                "ListSymbolNames": 3,
+                "ListSymbols": 3,
+                "ListUserNames": 3,
                 "ListUsers": 3,
-                "Login": 3,
+                "Login": 1,
+                "PLC1.HMI.AlarmWord19": 0,
+                "PLC1.HMI.AlarmWord20": 0,
                 "TcHmiUserManagement.ListSymbols": 1,
                 "TcHmiUserManagement.ListUsers": 1
             }
@@ -15985,21 +16004,24 @@
             "Admin": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
                 "USERGROUPUSERS_GROUPS": [
-                    "Admin"
+                    "Admin",
+                    "__SystemAdministrators"
                 ],
                 "USERGROUPUSERS_LOCALE": "en-US"
             },
             "Guest": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
                 "USERGROUPUSERS_GROUPS": [
-                    "Guest"
+                    "Guest",
+                    "__SystemGuests"
                 ],
                 "USERGROUPUSERS_LOCALE": "nl-NL"
             },
             "User": {
                 "USERGROUPUSERS_AUTO_LOGOFF": "PT1H",
                 "USERGROUPUSERS_GROUPS": [
-                    "User"
+                    "User",
+                    "__SystemUsers"
                 ],
                 "USERGROUPUSERS_LOCALE": "en-US"
             },

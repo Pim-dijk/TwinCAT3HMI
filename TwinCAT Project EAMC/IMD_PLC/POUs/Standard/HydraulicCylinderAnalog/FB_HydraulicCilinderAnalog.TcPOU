@@ -44,18 +44,7 @@ VAR_OUTPUT
 	mxMoveIn: BOOL;
 	mxMoveOut: BOOL;
 END_VAR
-VAR
-	/// Alarms
-	_initializeEvents				: BOOL := TRUE;
-	_PositionError 					: FB_TcAlarm;
-	_IsMovingWithoutActivationError	: FB_TcAlarm;
-	_BallufError 					: FB_TcAlarm;
-	_sourceInfo						: STRING;
-	_machineSide					: STRING;
-	_fbInstancePath					: FB_instancePath;
-	_MyPath							: STRING;
-	_Message						: FB_TcMessage;
-	
+VAR	
 	RodSidePressure: FB_AnalogIn4_20mA;
 	BottomSidePressure: FB_AnalogIn4_20mA;
 	/// Objects 
@@ -175,70 +164,7 @@ END_IF
     </Implementation>
     <Action Name="Error" Id="{c1a8f428-ab82-4542-866b-d20534fe250f}">
       <Implementation>
-        <ST><![CDATA[IF _initializeEvents THEN
-	_initializeEvents := FALSE;
-	
-	(* Get the instance path to this FB *)
-	_fbInstancePath();
-	_MyPath := _fbInstancePath.sPath;
-	
-	_Message.CreateEx(TC_Events.Kremer_Events.Top_mold_A_error_on_balluf, 0);
-	
-	(* Apply some logic to determine which events to use *)
-	IF FIND(STR1:= _MyPath , STR2:= 'MoldA') > 0 THEN
-		_machineSide := 'A';
-		_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.Top_mold_A_is_moving_without_activation, TRUE, 0);
-		_PositionError.CreateEx(TC_Events.Kremer_Events.Top_mold_A_position_error, TRUE, 0);
-		_BallufError.CreateEx(TC_Events.Kremer_Events.Top_mold_A_error_on_balluf, TRUE, 0);
-	ELSIF FIND(STR1:= _MyPath , STR2:= 'MoldB') > 0 THEN
-		_machineSide := 'A';
-		_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.Top_mold_B_is_moving_without_activation, TRUE, 0);
-		_PositionError.CreateEx(TC_Events.Kremer_Events.Top_mold_B_position_error, TRUE, 0);
-		_BallufError.CreateEx(TC_Events.Kremer_Events.Top_mold_B_error_on_balluf, TRUE, 0);
-	ELSE 
-		_machineSide := 'Transfermold';
-		_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.Transfermold_is_moving_without_activation, TRUE, 0);
-		_PositionError.CreateEx(TC_Events.Kremer_Events.Transfermold_position_error, TRUE, 0);
-		_BallufError.CreateEx(TC_Events.Kremer_Events.Transfermold_error_on_balluf, TRUE, 0);
-	END_IF
-	
-	(* Set the side of the machine *)	
-	(*
-	IF FIND(STR1:= _BallufError.ipSourceInfo.sName , STR2:= 'MoldA') > 0 THEN
-		_machineSide := 'A';
-	ELSIF FIND(STR1:= _BallufError.ipSourceInfo.sName , STR2:= 'MoldB') > 0 THEN
-		_machineSide := 'B';
-	ELSE 
-		_machineSide := 'Transfermold';
-	END_IF
-	*)
-	
-	(* Set the arguments for the Events, placing the machine side in them *)
-	(*
-	_PositionError.ipArguments.Clear().AddString(_machineSide);
-	_IsMovingWithoutActivationError.ipArguments.Clear().AddString(_machineSide);
-	_BallufError.ipArguments.Clear().AddString(_machineSide);
-	*)
-END_IF
-
-(* Clear events when they get confirmed *)
-IF _BallufError.eConfirmationState = 3 THEN
-	_BallufError.Clear(0, TRUE); (* reset the alarm *)
-END_IF
-IF _PositionError.eConfirmationState = 3 THEN
-	_PositionError.Clear(0, TRUE); (* reset the alarm *)
-END_IF
-IF _IsMovingWithoutActivationError.eConfirmationState = 3 THEN
-	_IsMovingWithoutActivationError.Clear(0, TRUE); (* reset the alarm *)
-END_IF
-
-
-Errors.BallufError:= HydraulicPos.Error;
-
-IF Errors.BallufError THEN
-	_Message.Send(0);
-	_BallufError.Raise(0);
-END_IF;
+        <ST><![CDATA[Errors.BallufError:= HydraulicPos.Error;
 
 // Check for a to high a pressure
 SR_RodSidePressureTooHigh(SET1:=mxIsMovingIn AND (RodSidePressure.EngFilt > MachPar.MaxRodSidePressure),Reset:=mxReset,Q1=>Errors.RodSidePressureTooHigh);
@@ -541,57 +467,7 @@ HydraulicPos();]]></ST>
       <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.Error">
-      <LineId Id="105" Count="0" />
-      <LineId Id="149" Count="0" />
-      <LineId Id="191" Count="0" />
-      <LineId Id="195" Count="0" />
-      <LineId Id="192" Count="0" />
-      <LineId Id="194" Count="0" />
-      <LineId Id="244" Count="1" />
-      <LineId Id="193" Count="0" />
-      <LineId Id="196" Count="1" />
-      <LineId Id="235" Count="0" />
-      <LineId Id="199" Count="0" />
-      <LineId Id="207" Count="0" />
-      <LineId Id="232" Count="0" />
-      <LineId Id="201" Count="0" />
-      <LineId Id="236" Count="0" />
-      <LineId Id="202" Count="0" />
-      <LineId Id="208" Count="0" />
-      <LineId Id="233" Count="0" />
-      <LineId Id="203" Count="0" />
-      <LineId Id="243" Count="0" />
-      <LineId Id="204" Count="0" />
-      <LineId Id="209" Count="0" />
-      <LineId Id="234" Count="0" />
-      <LineId Id="223" Count="0" />
-      <LineId Id="215" Count="2" />
-      <LineId Id="226" Count="0" />
-      <LineId Id="218" Count="4" />
-      <LineId Id="139" Count="0" />
-      <LineId Id="225" Count="0" />
-      <LineId Id="210" Count="2" />
-      <LineId Id="228" Count="0" />
-      <LineId Id="213" Count="1" />
-      <LineId Id="229" Count="0" />
-      <LineId Id="144" Count="0" />
-      <LineId Id="168" Count="0" />
-      <LineId Id="154" Count="0" />
-      <LineId Id="230" Count="0" />
-      <LineId Id="156" Count="1" />
-      <LineId Id="163" Count="1" />
-      <LineId Id="162" Count="0" />
-      <LineId Id="166" Count="1" />
-      <LineId Id="165" Count="0" />
-      <LineId Id="104" Count="0" />
-      <LineId Id="231" Count="0" />
-      <LineId Id="75" Count="0" />
-      <LineId Id="188" Count="0" />
-      <LineId Id="187" Count="0" />
-      <LineId Id="246" Count="0" />
-      <LineId Id="127" Count="0" />
-      <LineId Id="189" Count="0" />
-      <LineId Id="76" Count="25" />
+      <LineId Id="75" Count="26" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.M_Move">

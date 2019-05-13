@@ -283,7 +283,15 @@
       "propertyGetterName": "getBindingStateSymbol"
     }
   ],
-  "virtualRights": [],
+  "virtualRights": [
+    {
+      "name": "OperateControl",
+      "description": "Allows operation of the control",
+      "displayName": "OperateControl",
+      "visible": true,
+      "defaultValueInternal": true
+    }
+  ],
   "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/UserControlConfig.Schema.json",
   "description": "Button with 4 different operation types and configurable colors and font styling"
 }

@@ -1,12 +1,20 @@
 ﻿<div id="Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="True" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="630" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="438" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="True" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="0">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {
     "path": "domain",
     "comparator": "==",
     "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "AND"
+  },
+  {
+    "path": "confirmationState",
+    "comparator": "==",
+    "value": 2
   }
 ]
 </script>
@@ -22,21 +30,17 @@
     "columnName": "timeAndDateRaised"
   },
   {
-    "columnName": "text"
-  },
-  {
-    "columnName": "timeAndDateConfirmed"
-  },
-  {
-    "columnName": "timeAndDateCleared"
+    "columnName": "text",
+    "width": 542,
+    "widthUnit": "px"
   }
 ]
 </script>
 <script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
 [
   {
-    "name": "timeRaised",
-    "order": "Descending"
+    "name": "text",
+    "order": "Ascending"
   }
 ]
 </script>

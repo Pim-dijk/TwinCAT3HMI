@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Database>
+  <ID>1</ID>
+  <Name>DB</Name>
+  <ServerName>C:\Users\Pim\Documents\GitHub\TwinCAT3HMI\TwinCAT Connectivity\TcDatabaseServer1\DB\testSQLiteDB.db</ServerName>
+  <DatabaseName />
+  <TableName />
+  <Authentication>True</Authentication>
+  <UserID />
+  <Password>Ug66eqN6qyD1OqYjKFmnnA==</Password>
+  <Driver />
+  <Provider />
+  <Port>0</Port>
+  <Protocol />
+  <Scheme />
+  <Sequence />
+  <SystemDB />
+  <FireBird_ClientDLLPath />
+  <OLDASCIIFormat>False</OLDASCIIFormat>
+  <ASCIISeparator />
+  <DBValueType>NONE</DBValueType>
+  <DBType>SQLite</DBType>
+  <OdbcSubType>Unknown</OdbcSubType>
+  <Temporary>False</Temporary>
+  <Disabled>False</Disabled>
+  <Description />
+  <FailOverDBID>0</FailOverDBID>
+  <AdditionalParameter />
+  <AuthenticationMechanism>None</AuthenticationMechanism>
+  <SslCa />
+  <SslCertificateFilePath />
+  <SslCertificatePassword>UjztPioDjB0=</SslCertificatePassword>
+</Database>

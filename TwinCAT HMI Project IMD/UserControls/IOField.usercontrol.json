@@ -264,9 +264,9 @@
   ],
   "virtualRights": [
     {
-      "name": "setNewValue",
+      "name": "OperateControl",
       "description": "Whether the control can be used to modify the Symbol value",
-      "displayName": "setNewValue",
+      "displayName": "OperateControl",
       "visible": true,
       "defaultValueInternal": true
     }
