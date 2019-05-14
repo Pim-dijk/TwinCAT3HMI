@@ -1,6 +1,6 @@
 ﻿<div id="Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="438" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="True" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="0">
+<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="0">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {
@@ -21,17 +21,35 @@
 <script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
 [
   {
-    "columnName": "type"
+    "columnName": "type",
+    "width": 30,
+    "widthUnit": "px"
   },
   {
-    "columnName": "severity"
+    "columnName": "severity",
+    "width": 30,
+    "widthUnit": "px"
   },
   {
-    "columnName": "timeAndDateRaised"
+    "columnName": "timeRaised",
+    "width": 75,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "params::eventId",
+    "width": 50,
+    "widthUnit": "px",
+    "label": "Id"
+  },
+  {
+    "columnName": "params::eventClassName",
+    "width": 125,
+    "widthUnit": "px",
+    "label": "Group"
   },
   {
     "columnName": "text",
-    "width": 542,
+    "width": 442,
     "widthUnit": "px"
   }
 ]
@@ -39,7 +57,7 @@
 <script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
 [
   {
-    "name": "text",
+    "name": "params::eventId",
     "order": "Ascending"
   }
 ]

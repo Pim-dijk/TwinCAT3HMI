@@ -8,77 +8,6 @@
      data-tchmi-background-image-height="100" data-tchmi-background-image-width="100"
      data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600" data-tchmi-height="600" data-tchmi-width="800" data-tchmi-class-names="%f%['parent'];%/f%">
 
-<div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
-<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
-[
-  {
-    "path": "domain",
-    "comparator": "==",
-    "value": "TcHmiEventLogger"
-  },
-  {
-    "logic": "AND"
-  },
-  {
-    "path": "confirmationState",
-    "comparator": "==",
-    "value": 2
-  }
-]
-</script>
-<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
-[
-  {
-    "columnName": "type"
-  },
-  {
-    "columnName": "severity"
-  },
-  {
-    "columnName": "timeAndDateRaised"
-  },
-  {
-    "columnName": "text",
-    "width": 542,
-    "widthUnit": "px"
-  }
-]
-</script>
-<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
-[
-  {
-    "name": "text",
-    "order": "Ascending"
-  }
-]
-</script>
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiEventGrid.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/Alarms.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-
-
-</div>
-
 <div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-visibility="Visible">
 
 <div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
@@ -1982,6 +1911,105 @@
 </script>
 <div id="Kremer_CleanScreen_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="600" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_CleanScreen.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-this="%ctrl%Kremer_CleanScreen_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-timetorun="25">
 
+</div>
+
+<div id="TcHmiEventGrid_2" data-tchmi-type="tchmi-event-grid" data-tchmi-height="60" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="378">
+<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+[
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "AND"
+  },
+  {
+    "path": "confirmationState",
+    "comparator": "==",
+    "value": 2
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnName": "type",
+    "width": 30,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "severity",
+    "width": 30,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "timeRaised",
+    "width": 75,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "params::eventId",
+    "width": 50,
+    "widthUnit": "px",
+    "label": "Id"
+  },
+  {
+    "columnName": "params::eventClassName",
+    "width": 125,
+    "widthUnit": "px",
+    "label": "Group"
+  },
+  {
+    "columnName": "text",
+    "width": 442,
+    "widthUnit": "px"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+[
+  {
+    "name": "timeRaised",
+    "order": "Ascending"
+  },
+  {
+    "name": "params::eventId",
+    "order": "Ascending"
+  }
+]
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiEventGrid_2.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/Alarms.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 </div>
