@@ -292,6 +292,9 @@
     <Compile Include="POUs\Standard\NC_Axis\ST_NcAxis_SysPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Standard\UnixTimestamp.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Standard\Valves\FB_MonoValve2Fdbck.TcPOU">
       <SubType>Code</SubType>
     </Compile>

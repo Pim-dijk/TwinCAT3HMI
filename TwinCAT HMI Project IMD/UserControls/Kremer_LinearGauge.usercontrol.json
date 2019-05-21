@@ -86,6 +86,23 @@
       "propertyGetterName": "getOrientation"
     },
     {
+      "name": "data-tchmi-fontsize",
+      "displayName": "FontSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "",
+      "defaultValue": 12,
+      "defaultValueInternal": 12,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "FontSize",
+      "propertySetterName": "setFontSize",
+      "propertyGetterName": "getFontSize"
+    },
+    {
       "name": "data-tchmi-symbolwithplaceholder",
       "displayName": "SymbolWithPlaceholder",
       "visible": true,

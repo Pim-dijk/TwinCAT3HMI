@@ -106,6 +106,9 @@
     },
     {
       "url": "UserControls/ucDateTime.usercontrol"
+    },
+    {
+      "url": "UserControls/UserGroups.usercontrol"
     }
   ],
   "content": [
@@ -326,9 +329,6 @@
   ],
   "userFunctions": [
     {
-      "url": "Scripts/ConvertTimeToInt.js"
-    },
-    {
       "url": "Scripts/GetNameFromSymbol.js"
     },
     {
@@ -357,9 +357,6 @@
     },
     {
       "url": "Scripts/Conversion/Convert32bitIntToBinary.js"
-    },
-    {
-      "url": "Scripts/ToDateTimeStringFunction.js"
     },
     {
       "url": "Scripts/ConvertAlarmWordsToDataGrid.js"

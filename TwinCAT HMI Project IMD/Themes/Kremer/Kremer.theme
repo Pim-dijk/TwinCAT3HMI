@@ -10,7 +10,56 @@
         "TextColor": {
           "color": "rgba(0, 0, 0, 1)"
         },
-        "BorderColor": null
+        "BorderColor": null,
+        "TextFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-combobox": {
+      "attributes": {
+        "TextFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-datagrid": {
+      "attributes": {
+        "HeaderFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-linear-gauge": {
+      "attributes": {
+        "UnitFontFamily": "Verdana",
+        "LabelFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-radial-gauge": {
+      "attributes": {
+        "LabelFontFamily": "Verdana",
+        "ValueFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-textblock": {
+      "attributes": {
+        "TextFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-textbox": {
+      "attributes": {
+        "TextFontFamily": "Verdana"
+      },
+      "themedResources": {}
+    },
+    "tchmi-trend-line-chart": {
+      "attributes": {
+        "MenuBarLabelFontFamily": "Verdana",
+        "TooltipFontFamily": "Verdana",
+        "YLabelFontFamily": "Verdana",
+        "XAxisNameFontFamily": "Verdana",
+        "XLabelFontFamily": "Verdana"
       },
       "themedResources": {}
     }

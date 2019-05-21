@@ -335,7 +335,7 @@
 
 </div>
 
-<div id="Kremer_LinearGauge_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-maxrange="250" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_AUTO_TOTAL" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%">
+<div id="Kremer_LinearGauge_2" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-maxrange="250" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_AUTO_TOTAL" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-fontsize="12">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -372,7 +372,7 @@
 </script>
 </div>
 
-<div id="Kremer_LinearGauge_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_MAN">
+<div id="Kremer_LinearGauge_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="541" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="°C" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.SP_MAN" data-tchmi-fontsize="12">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -409,7 +409,7 @@
 </script>
 </div>
 
-<div id="Kremer_LinearGauge_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="%" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.OUT_MAN">
+<div id="Kremer_LinearGauge_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="206" data-tchmi-height-unit="px" data-tchmi-left="666" data-tchmi-left-unit="px" data-tchmi-maxrange="100" data-tchmi-minrange="0" data-tchmi-orientation="Vertical" data-tchmi-target-user-control="UserControls/Kremer_LinearGauge.usercontrol" data-tchmi-top="36" data-tchmi-top-unit="px" data-tchmi-unit="%" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-parameters="%f%'%i%_strTopBot%/i%, %i%_strAB%/i%, %i%_SetNumber%/i%'%/f%" data-tchmi-symbolwithplaceholder="PLC1.MAIN.MachPar.InMoldDrying.{0}Mold{1}.HeatingZone.{2}.PIDTempZone.OUT_MAN" data-tchmi-fontsize="12">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">

@@ -519,7 +519,8 @@ END_VAR]]></Declaration>
 T_HmiReset(IN:=mxReset,PT:=T#500MS);
 IF T_HmiReset.Q THEN
 	mxReset:=FALSE;
-	eventLogger.ClearAllAlarms(0, TRUE); 
+	eventLogger.ConfirmAllAlarms(Main.timestampNanoseconds);
+	eventLogger.ClearAllAlarms(Main.timestampNanoseconds, TRUE);
 END_IF
 
 (********************************************************************
@@ -3546,16 +3547,14 @@ END_IF
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exWriteParameter THEN 
 Bottommold_A_Horizontal_Drive_write_parameter_error.Raise(0); 
-END_IF 
-
-
-]]></ST>
+END_IF ]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="HMI">
       <LineId Id="98" Count="1" />
       <LineId Id="31" Count="1" />
       <LineId Id="613" Count="0" />
+      <LineId Id="1127" Count="0" />
       <LineId Id="615" Count="0" />
       <LineId Id="614" Count="0" />
       <LineId Id="35" Count="7" />
@@ -3569,8 +3568,8 @@ END_IF
       <LineId Id="1221" Count="657" />
       <LineId Id="1" Count="0" />
       <LineId Id="1880" Count="472" />
-      <LineId Id="2354" Count="1876" />
-      <LineId Id="2353" Count="0" />
+      <LineId Id="2354" Count="0" />
+      <LineId Id="9856" Count="1873" />
       <LineId Id="1879" Count="0" />
     </LineIds>
   </POU>

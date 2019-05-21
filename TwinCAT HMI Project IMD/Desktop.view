@@ -30,23 +30,19 @@
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
-<div id="TcHmiTextblock" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="168" data-tchmi-left-unit="px" data-tchmi-text="%l%Logged_in%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="163" data-tchmi-left-unit="px" data-tchmi-text="%l%Logged_in%/l%" data-tchmi-top="2" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
 
 </div>
 
-<div id="TcHmiTextblock_1" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="168" data-tchmi-left-unit="px" data-tchmi-text="%l%Level%/l%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_1" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="163" data-tchmi-left-unit="px" data-tchmi-text="%l%Level%/l%" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="TcHmiTextblock_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getCurrentUser();%/f%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="243" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getCurrentUser();%/f%" data-tchmi-top="2" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-tooltip="%f%TcHmi.Server.getCurrentUser();%/f%">
 
 </div>
 
-<div id="TcHmiTextblock_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getGroupsOfCurrentUser().join(', ');%/f%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
-
-</div>
-
-<div id="TcHmiTextblock_7" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-text="GodMode / commisioningMode active" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="14" data-tchmi-text-vertical-alignment="Top">
+<div id="TcHmiTextblock_7" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-text="GodMode / commisioningMode active" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="14" data-tchmi-text-vertical-alignment="Top" data-tchmi-visibility="%f%if(%s%PLC1.MAIN.MachPar.InMoldDrying.CommisioningMode%/s%) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -62,7 +58,7 @@
 </script>
 </div>
 
-<div id="UcDateTime" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ucDateTime.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="153" data-tchmi-width-unit="px" data-tchmi-fontsize="16" data-tchmi-datetime="">
+<div id="UcDateTime" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ucDateTime.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="153" data-tchmi-width-unit="px" data-tchmi-fontsize="14" data-tchmi-datetime="">
 
 </div>
 
@@ -84,6 +80,10 @@
 </script>
 
 
+
+</div>
+
+<div id="UserGroups_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fonsize="14" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="243" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/UserGroups.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px">
 
 </div>
 
@@ -165,7 +165,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/TestAllTheThingsHere.content"
+          "value": "Content/SubContent/Service/Init.content"
         },
         "asyncWait": true
       }
@@ -403,7 +403,7 @@
 
 </div>
 
-<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
+<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-fontsize="14" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
 
 </div>
 
@@ -1909,7 +1909,7 @@
   }
 ]
 </script>
-<div id="Kremer_CleanScreen_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="600" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_CleanScreen.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-this="%ctrl%Kremer_CleanScreen_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-timetorun="25">
+<div id="Kremer_CleanScreen_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="600" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_CleanScreen.usercontrol" data-tchmi-top="2" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-this="%ctrl%Kremer_CleanScreen_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-timetorun="25">
 
 </div>
 

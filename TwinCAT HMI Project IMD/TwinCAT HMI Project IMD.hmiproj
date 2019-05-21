@@ -11,9 +11,9 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10139</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10141</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
-    <HmiCommunicationServerPort>3002</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3003</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
     <HmiRecent>1.10.1171.165</HmiRecent>
   </PropertyGroup>
@@ -278,12 +278,6 @@
     <Content Include="Scripts\ConvertAlarmWordsToDataGrid.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Scripts\ConvertTimeToInt.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\ConvertTimeToInt.js">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Scripts\GetNameFromSymbol.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -342,12 +336,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\Recipes\UpdateDatagridFromTarget.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\ToDateTimeStringFunction.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\ToDateTimeStringFunction.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\UpdateAlarmDBForAlarmWord.function.json">
@@ -510,6 +498,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\ucDateTime.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\UserGroups.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\UserGroups.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Folder Include=".hmipkgs" />

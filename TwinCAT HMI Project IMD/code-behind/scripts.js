@@ -16,68 +16,8 @@
         // ----------------------
         // Place your code here!
         // ----------------------
-    }); 
-
-    var readDB = TcHmi.EventProvider.register('readFromDB', function (e, data) {
-        //Werkt niet, alleen in IE
-        //var connection = new ActiveXObject("ADODB.Connection");
-
-        //var connectionstring = "Data Source=wwww; Initial Catalog=storage.db;Provider=SQLOLEDB";
-        //connection.Open(connectionstring);
-
-        //rs.Open("SELECT * FROM JSTest", connection);
-        //rs.MoveFirst
-        //while (!rs.eof) {
-        //    console.log(rs.fields(1));
-        //    rs.movenext;
-        //}
-
-        //rs.close;
-        //connection.close;
-
-        //
-        
-        
-        //var conn = SQL.connect({
-        //    Driver: "SQLite",
-        //    Database: "C:\\Users\\Pim\\School\\OneDrive for Business 2.0\\OneDrive - Graafschap College\\Documenten\\Afstudeerstage\\Backup\\storage.db"
-        //});
-
-        //var result = conn.query("SELECT * FROM JSTest;");
-        //if (result.isValid == false) {
-        //    test.log("Result is not valid, maybe no entries in database?")
-        //} else {
-        //    while (result.isValid) {
-        //        // do something with the result
-        //        var id = result.value(0)
-        //        var text = result.value(1)
-        //        //test.log(id + forename + surname + email + phone)
-        //        //addEntry(forename, surname, email, phone)
-        //        result.toNext();
-        //        console.log(id + ' - ' + text);
-        //    }
-        //}
-
-        
-        function createDatabase() {
-            try {
-                if (window.openDatabase) {
-                    var shortName = 'C:/Users/Pim/Documents/GitHub/TwinCAT3HMI/TwinCAT HMI Project IMD/code-behind/storage.db';
-                    var version = '1.0';
-                    var displayName = 'storage';
-                    var maxSize = 65536; // in bytes
-                    db = openDatabase(shortName, version, displayName, maxSize);
-                }
-            } catch (e) {
-                alert(e);
-            }
-        }
-
-        createDatabase();
-
-        //readDB();
-    });
-
+    });   
+       
     // get a list of all users and send them to the provided target control
     var userDataGrid = TcHmi.EventProvider.register('fillUserDataGrid', function (e, data) {
         //console.log("This is my code behind function...");

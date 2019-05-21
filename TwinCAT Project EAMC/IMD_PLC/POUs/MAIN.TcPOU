@@ -2,7 +2,10 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="MAIN" Id="{147bab3f-acfd-4acf-8d8e-a76750ccc81a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
-VAR
+VAR	
+	unixTime: UnixTimestamp;
+	timestampNanoseconds: ULINT;
+
 	// General variables
 	mxReset									: BOOL;
 	mxEmergency								: BOOL;
@@ -264,7 +267,12 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// 					Object Calls				//
+      <ST><![CDATA[unixTime();
+//timestampMilliseconds := unixTime.milliseconds;
+//timestampSeconds := unixTime.seconds;
+timestampNanoseconds := unixTime.nanoseconds;
+
+// 					Object Calls				//
 FB_GetCurTaskIdx();
 mxFirstCycle:= _TaskInfo[FB_GetCurTaskIdx.index].FirstCycle;
 PlcCycleTime:= UDINT_TO_REAL(_TaskInfo[FB_GetCurTaskIdx.index].CycleTime/10000);
@@ -801,6 +809,10 @@ RT_PauseReqProdHandling(CLK:=(ixDoorReqImdFront OR ixDoorReqImdBack OR ixDoorReq
       </Implementation>
     </Action>
     <LineIds Name="MAIN">
+      <LineId Id="11258" Count="1" />
+      <LineId Id="11251" Count="0" />
+      <LineId Id="11534" Count="0" />
+      <LineId Id="11530" Count="0" />
       <LineId Id="8790" Count="12" />
       <LineId Id="9672" Count="0" />
       <LineId Id="9407" Count="0" />
