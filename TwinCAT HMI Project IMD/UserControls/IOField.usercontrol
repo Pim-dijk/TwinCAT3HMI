@@ -18,86 +18,121 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%DataType%/pp%"
+              "symbolExpression": "%pp%Symbol%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
-              "valueType": "tchmi:project#/definitions/Textbox_DataType",
-              "value": "Output"
+              "valueType": "tchmi:framework#/definitions/Symbol",
+              "value": null
             },
-            "compareOperator": "==",
+            "compareOperator": "!=",
             "logic": null
+          },
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%SymbolWithPlaceholder%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": ""
+            },
+            "compareOperator": "!=",
+            "logic": "OR"
           }
         ],
-        "false": [
+        "true": [
           {
-            "objectType": "Comment",
-            "comment": "Read the "
-          },
-          {
-            "objectType": "JavaScript",
+            "objectType": "Condition",
             "active": true,
-            "sourceLines": [
-              "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\n//console.log(\"...\");\n//console.log(readValue);\nreadSymbol.destroy();\nreadSymbol = null;\n\nvar value = readValue.__symbol.__expression.__expression;\n//console.log(value);\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success\n\t\t//console.log(\"Success\");\t\t\n  \t} else {\n    \t// on error\n\t\tconsole.log(data);    \t\n\t}\n    //console.log(writeSymbol.read());\n    writeSymbol.destroy();\n\twriteSymbol = null;    \n});\n/*\nvar symbol = new TcHmi.Symbol('%pp%Attribute%/pp%');\nvar symbolValue = symbol.read();\nsymbol.destroy();\nsymbol = null;\nif(symbolValue === 'ms'){\n\tconsole.log(\"Attribute === 'ms'\");\n\tvar tempSymbol = new TcHmi.Symbol('%i%TempAttribute%/i%');\n\ttempSymbol.write(symbolValue);\n\ttempSymbol.destroy();\n\ttempSymbol = null;\n}\n*/"
+            "expressions": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%DataType%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:project#/definitions/Textbox_DataType",
+                  "value": "Output"
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
             ],
-            "injectContextObject": false,
-            "asyncWait": true,
-            "waitMode": "Synchronous"
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%TempAttribute%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%Attribute%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%CalcName%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%Keyboard::id%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%MaxValue%/i%",
-            "valueType": "tchmi:general#/definitions/REAL",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ValueMax%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%MinValue%/i%",
-            "valueType": "tchmi:general#/definitions/REAL",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ValueMin%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
-            "valueType": "tchmi:framework#/definitions/Visibility",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:framework#/definitions/Visibility",
-              "value": "Visible"
-            },
+            "false": [
+              {
+                "objectType": "Comment",
+                "comment": "Read the "
+              },
+              {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\n//console.log(\"...\");\n//console.log(readValue);\nreadSymbol.destroy();\nreadSymbol = null;\n\nvar value = readValue.__symbol.__expression.__expression;\n//console.log(value);\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success\n\t\t//console.log(\"Success\");\t\t\n  \t} else {\n    \t// on error\n\t\tconsole.log(data);    \t\n\t}\n    //console.log(writeSymbol.read());\n    writeSymbol.destroy();\n\twriteSymbol = null;    \n});\n/*\nvar symbol = new TcHmi.Symbol('%pp%Attribute%/pp%');\nvar symbolValue = symbol.read();\nsymbol.destroy();\nsymbol = null;\nif(symbolValue === 'ms'){\n\tconsole.log(\"Attribute === 'ms'\");\n\tvar tempSymbol = new TcHmi.Symbol('%i%TempAttribute%/i%');\n\ttempSymbol.write(symbolValue);\n\ttempSymbol.destroy();\n\ttempSymbol = null;\n}\n*/"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%TempAttribute%/i%",
+                "valueType": "tchmi:general#/definitions/String",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%Attribute%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%CalcName%/i%",
+                "valueType": "tchmi:general#/definitions/String",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%Keyboard::id%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%MaxValue%/i%",
+                "valueType": "tchmi:general#/definitions/REAL",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ValueMax%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%MinValue%/i%",
+                "valueType": "tchmi:general#/definitions/REAL",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ValueMin%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
+                "valueType": "tchmi:framework#/definitions/Visibility",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ],
             "asyncWait": true
           }
         ],

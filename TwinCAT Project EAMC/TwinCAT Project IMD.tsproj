@@ -5945,7 +5945,7 @@ External Setpoint Generation:
 	</ImageDatas>
 	<Project ProjectGUID="{CA5A7DDC-1C7E-4805-91FF-63E404163A96}" TargetNetId="192.168.0.122.1.1" ShowHideConfigurations="#x6">
 		<System>
-			<Settings MaxCpus="2" NonWinCpus="1">
+			<Settings MaxCpus="2">
 				<Cpu CpuId="1" BaseTime="2500"/>
 			</Settings>
 			<Licenses>

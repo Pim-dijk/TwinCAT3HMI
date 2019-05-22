@@ -17,7 +17,9 @@
         // Place your code here!
         // ----------------------
     });   
-       
+
+    // Test function
+
     // get a list of all users and send them to the provided target control
     var userDataGrid = TcHmi.EventProvider.register('fillUserDataGrid', function (e, data) {
         //console.log("This is my code behind function...");

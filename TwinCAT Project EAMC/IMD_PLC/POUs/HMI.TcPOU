@@ -1674,1879 +1674,1879 @@ IF initializeEvents THEN
 END_IF 
 
 IF Main.Errors.exEmergency[1] THEN 
-Emergency_zone_1.Raise(0); 
+Emergency_zone_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmergency[2] THEN 
-Emergency_zone_2.Raise(0); 
+Emergency_zone_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmergency[3] THEN 
-Emergency_zone_3.Raise(0); 
+Emergency_zone_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmergency[4] THEN 
-Emergency_zone_4.Raise(0); 
+Emergency_zone_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmergency[5] THEN 
-Emergency_zone_5.Raise(0); 
+Emergency_zone_5.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmergency[6] THEN 
-Emergency_zone_6.Raise(0); 
+Emergency_zone_6.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmergency[7] THEN 
-Emergency_zone_7.Raise(0); 
+Emergency_zone_7.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmStopImdFront THEN 
-In_mold_drying_emergency_stop_pressed_front_side.Raise(0); 
+In_mold_drying_emergency_stop_pressed_front_side.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmStopImdBack THEN 
-In_mold_drying_emergency_stop_pressed_back_side.Raise(0); 
+In_mold_drying_emergency_stop_pressed_back_side.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdFrontDoorLeft THEN 
-In_mold_drying_door_opend_frontside_left.Raise(0); 
+In_mold_drying_door_opend_frontside_left.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdFrontDoorMiddle THEN 
-In_mold_drying_door_opened_frontside_middle.Raise(0); 
+In_mold_drying_door_opened_frontside_middle.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdFrontDoorRight THEN 
-In_mold_drying_door_opened_frontside_right.Raise(0); 
+In_mold_drying_door_opened_frontside_right.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdBackDoorLeft1 THEN 
-In_mold_drying_double_door_opened_backside_left_1.Raise(0); 
+In_mold_drying_double_door_opened_backside_left_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdBackDoorLeft2 THEN 
-In_mold_drying_double_door_opened_backside_left_2.Raise(0); 
+In_mold_drying_double_door_opened_backside_left_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdBackDoorMiddle3 THEN 
-In_mold_drying_double_door_opened_backside_Middle_1.Raise(0); 
+In_mold_drying_double_door_opened_backside_Middle_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdBackDoorMiddle4 THEN 
-In_mold_drying_double_door_opened_backside_Middle_2.Raise(0); 
+In_mold_drying_double_door_opened_backside_Middle_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdBackDoorRight5 THEN 
-In_mold_drying_double_door_opened_backside_Right_1.Raise(0); 
+In_mold_drying_double_door_opened_backside_Right_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exImdBackDoorRight6 THEN 
-In_mold_drying_double_door_opened_backside_Right_2.Raise(0); 
+In_mold_drying_double_door_opened_backside_Right_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exGantryA_FrontDoorLeft THEN 
-Gantry_A_front_door_openend_right.Raise(0); 
+Gantry_A_front_door_openend_right.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exGantryA_FrontDoorRight THEN 
-Gantry_A_front_door_openend_left.Raise(0); 
+Gantry_A_front_door_openend_left.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exGantryA_BackDoor THEN 
-Gantry_A_Back_door_openend.Raise(0); 
+Gantry_A_Back_door_openend.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exGantryB_FrontDoorLeft THEN 
-Gantry_B_front_door_openend_left.Raise(0); 
+Gantry_B_front_door_openend_left.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exGantryB_FrontDoorRight THEN 
-Gantry_B_front_door_openend_right.Raise(0); 
+Gantry_B_front_door_openend_right.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exGantryB_BackDoor THEN 
-Gantry_B_Back_door_openend.Raise(0); 
+Gantry_B_Back_door_openend.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmStopGantryA_Back THEN 
-Emergency_stop_pressed_Gantry_A_backside.Raise(0); 
+Emergency_stop_pressed_Gantry_A_backside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmStopGantryA_Front THEN 
-Emergency_stop_pressed_Gantry_A_Frontside.Raise(0); 
+Emergency_stop_pressed_Gantry_A_Frontside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmStopGantryB_Back THEN 
-Emergency_stop_pressed_Gantry_B_Backside.Raise(0); 
+Emergency_stop_pressed_Gantry_B_Backside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exEmStopGantryB_Front THEN 
-Emergency_stop_pressed_Gantry_B_Frontside.Raise(0); 
+Emergency_stop_pressed_Gantry_B_Frontside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ex24VoltError1 THEN 
-_24_volt_circuit_in_error_1.Raise(0); 
+_24_volt_circuit_in_error_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ex24VoltError2 THEN 
-_24_volt_circuit_in_error_2.Raise(0); 
+_24_volt_circuit_in_error_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.exAtteptedStartWithNoProduct THEN 
-No_product_loaded_please_load_a_valid_product_first.Raise(0); 
+No_product_loaded_please_load_a_valid_product_first.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.MainAirSupplyError THEN 
-Main_air_supply_has_an_error.Raise(0); 
+Main_air_supply_has_an_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.HydraulicPump.SofstarterFailure THEN 
-In_mold_drying_hydraulic_pump_softstarter_failure.Raise(0); 
+In_mold_drying_hydraulic_pump_softstarter_failure.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.HydraulicPump.Maintenance THEN 
-In_mold_drying_hydraulic_pump_maintenance_switch.Raise(0); 
+In_mold_drying_hydraulic_pump_maintenance_switch.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.Coolingfan.Thermal THEN 
-In_mold_drying_cooling_fan_thermal_failure.Raise(0); 
+In_mold_drying_cooling_fan_thermal_failure.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.Coolingfan.Maintenance THEN 
-In_mold_drying_cooling_fan_maintenance_switch.Raise(0); 
+In_mold_drying_cooling_fan_maintenance_switch.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.FilterMotor.Thermal THEN 
-In_mold_drying_filter_motor_thermal.Raise(0); 
+In_mold_drying_filter_motor_thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.FilterMotor.Maintenance THEN 
-In_mold_drying_filter_motor_maintenance.Raise(0); 
+In_mold_drying_filter_motor_maintenance.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.ProductForming.CssHasError THEN 
-Css_has_an_active_error.Raise(0); 
+Css_has_an_active_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.ProductForming.LowLvlOnBothTanks THEN 
-Both_Pulp_Tanks_below_Low_Level_stopping_IMD.Raise(0); 
+Both_Pulp_Tanks_below_Low_Level_stopping_IMD.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_BoMoldAIsMovingToMoldANotInPos THEN 
-RHSR_Bottom_mold_A_moving_while_top_mold_A_not_in_position.Raise(0); 
+RHSR_Bottom_mold_A_moving_while_top_mold_A_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_BoMoldAIsMovingTrMoldNotInPos THEN 
-RHSR_Bottom_mold_A_moving_while_transfer_mold_A_not_in_position.Raise(0); 
+RHSR_Bottom_mold_A_moving_while_transfer_mold_A_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_BoMoldBIsMovingToMoldBNotInPos THEN 
-RHSR_Bottom_mold_B_moving_while_top_mold_B_not_in_position.Raise(0); 
+RHSR_Bottom_mold_B_moving_while_top_mold_B_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_BoMoldBIsMovingTrMoldNotInPos THEN 
-RHSR_Bottom_mold_B_moving_while_transfer_mold_B_not_in_position.Raise(0); 
+RHSR_Bottom_mold_B_moving_while_transfer_mold_B_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_TaOutHorAIsMovingVertIsNotDown THEN 
-RHSR_Takeout_A_moving_while_vertical_cylinder_is_not_down.Raise(0); 
+RHSR_Takeout_A_moving_while_vertical_cylinder_is_not_down.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_TaOutHorBIsMovingVertIsNotDown THEN 
-RHSR_Takeout_B_moving_while_vertical_cylinder_is_not_down.Raise(0); 
+RHSR_Takeout_B_moving_while_vertical_cylinder_is_not_down.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_ToMoldAIsMovingBoMoldANotInPos THEN 
-RHSR_TopMold_A_moving_while_bottom_mold_A_is_not_in_position.Raise(0); 
+RHSR_TopMold_A_moving_while_bottom_mold_A_is_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_ToMoldBIsMovingBoMoldBNotInPos THEN 
-RHSR_TopMold_B_moving_while_bottom_mold_B_is_not_in_position.Raise(0); 
+RHSR_TopMold_B_moving_while_bottom_mold_B_is_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_TrMoldIsMovingBoMoldANotInPos THEN 
-RHSR_Transfermold_moving_while_bottom_mold_A_is_not_in_posititon.Raise(0); 
+RHSR_Transfermold_moving_while_bottom_mold_A_is_not_in_posititon.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_TrMoldIsMovingBoMoldBNotInPos THEN 
-RHSR_Transfermold_moving_while_bottom_mold_B_is_not_in_position.Raise(0); 
+RHSR_Transfermold_moving_while_bottom_mold_B_is_not_in_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_TrMoldIsMovingSprayBNotInPos THEN 
-RHSR_Transfermold_moving_while_spraybar_is_not_at_one_of_rest_positions.Raise(0); 
+RHSR_Transfermold_moving_while_spraybar_is_not_at_one_of_rest_positions.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.TempDiffTopBottomTooHigh_SideA THEN 
-Temperature_difference_between_top_and_bottom_mold_side_A_to_high.Raise(0); 
+Temperature_difference_between_top_and_bottom_mold_side_A_to_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.TempDiffTopBottomTooHigh_SideB THEN 
-Temperature_difference_between_top_and_bottom_mold_side_B_to_high.Raise(0); 
+Temperature_difference_between_top_and_bottom_mold_side_B_to_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.RH_SprayBIsMovingTrNotClear THEN 
-Spare56.Raise(0); 
+Spare56.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.AuxFilter100Dirty THEN 
-Auxiliary_filter_100_dirty.Raise(0); 
+Auxiliary_filter_100_dirty.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.AuxFilter75Dirty THEN 
-Auxiliary_filter_75_dirty.Raise(0); 
+Auxiliary_filter_75_dirty.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.Filter100Dirty THEN 
-Oil_filter_100_dirty.Raise(0); 
+Oil_filter_100_dirty.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.Filter75Dirty THEN 
-Oil_filter_75_dirty.Raise(0); 
+Oil_filter_75_dirty.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.CoolingFanCabinet THEN 
-Fan_on_MCC2_error.Raise(0); 
+Fan_on_MCC2_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.Hydraulics24VError THEN 
-_24V_error_on_MCC2.Raise(0); 
+_24V_error_on_MCC2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.OilLevelTooLow THEN 
-Oil_temperature_too_low.Raise(0); 
+Oil_temperature_too_low.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.InMoldDrying.Errors.HydraulicMain.OilTemperatureTooHigh THEN 
-Oil_temperature_too_high.Raise(0); 
+Oil_temperature_too_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.BallufError THEN 
-Top_mold_A_error_on_balluf.Raise(0); 
+Top_mold_A_error_on_balluf.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.TmDidNotReachBmPosTimeOut							 THEN 
-Top_mold_A_position_error.Raise(0); 
+Top_mold_A_position_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.IsMovingWithoutActivation THEN 
-Top_mold_A_timed_out_Did_not_reach_bottommold_position_in_time.Raise(0); 
+Top_mold_A_timed_out_Did_not_reach_bottommold_position_in_time.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF FALSE THEN 
-Top_mold_A_Rod_side_pressure_too_high.Raise(0); 
+Top_mold_A_Rod_side_pressure_too_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF FALSE THEN 
-Top_mold_A_Bot_side_pressure_too_high.Raise(0); 
+Top_mold_A_Bot_side_pressure_too_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_ConnectorNotConnected THEN 
-Topmold_A_heating_zone_1_connector_not_connected.Raise(0); 
+Topmold_A_heating_zone_1_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_HasWrongPosition THEN 
-Topmold_A_heating_zone_1_PT100_wrong_position.Raise(0); 
+Topmold_A_heating_zone_1_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_Loose THEN 
-Topmold_A_heating_zone_1_PT100_loose.Raise(0); 
+Topmold_A_heating_zone_1_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_NotInserted THEN 
-Topmold_A_heating_zone_1_PT100_not_inserted.Raise(0); 
+Topmold_A_heating_zone_1_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_TempAboveSetpoint THEN 
-Topmold_A_heating_zone_1_Temperature_above_setpoint.Raise(0); 
+Topmold_A_heating_zone_1_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_TempBelowSetpoint THEN 
-Topmold_A_heating_zone_1_Temperature_below_setpoint.Raise(0); 
+Topmold_A_heating_zone_1_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_WireBreak THEN 
-Topmold_A_heating_zone_1_PT100_wirebreak.Raise(0); 
+Topmold_A_heating_zone_1_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].Thermal THEN 
-Topmold_A_heating_zone_1_Thermal.Raise(0); 
+Topmold_A_heating_zone_1_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_TemperatureAboveMaximum THEN 
-Topmold_A_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_A_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[1].PT100_TemperatureTooHighWarn THEN 
-Topmold_A_heating_zone_1_temperature_above_230_degree.Raise(0); 
+Topmold_A_heating_zone_1_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_ConnectorNotConnected THEN 
-Topmold_A_heating_zone_2_connector_not_connected.Raise(0); 
+Topmold_A_heating_zone_2_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_HasWrongPosition THEN 
-Topmold_A_heating_zone_2_PT100_wrong_position.Raise(0); 
+Topmold_A_heating_zone_2_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_Loose THEN 
-Topmold_A_heating_zone_2_PT100_loose.Raise(0); 
+Topmold_A_heating_zone_2_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_NotInserted THEN 
-Topmold_A_heating_zone_2_PT100_not_inserted.Raise(0); 
+Topmold_A_heating_zone_2_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_TempAboveSetpoint THEN 
-Topmold_A_heating_zone_2_Temperature_above_setpoint.Raise(0); 
+Topmold_A_heating_zone_2_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_TempBelowSetpoint THEN 
-Topmold_A_heating_zone_2_Temperature_below_setpoint.Raise(0); 
+Topmold_A_heating_zone_2_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_WireBreak THEN 
-Topmold_A_heating_zone_2_PT100_wirebreak.Raise(0); 
+Topmold_A_heating_zone_2_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].Thermal THEN 
-Topmold_A_heating_zone_2_Thermal.Raise(0); 
+Topmold_A_heating_zone_2_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_TemperatureAboveMaximum THEN 
-Topmold_A_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_A_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[2].PT100_TemperatureTooHighWarn THEN 
-Topmold_A_heating_zone_2_temperature_above_230_degree.Raise(0); 
+Topmold_A_heating_zone_2_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TransferMold.TrDidNotReachBMPosTimeOut							 THEN 
-Tranfermold_timed_out_did_not_reach_bottommold_position_in_time.Raise(0); 
+Tranfermold_timed_out_did_not_reach_bottommold_position_in_time.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TransferMold.TrDidNotReachFormingPosTimeOut	 THEN 
-Tranfermold_timed_out_did_not_reach_forming_position_in_time.Raise(0); 
+Tranfermold_timed_out_did_not_reach_forming_position_in_time.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_ConnectorNotConnected THEN 
-Topmold_A_heating_zone_3_connector_not_connected.Raise(0); 
+Topmold_A_heating_zone_3_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_HasWrongPosition THEN 
-Topmold_A_heating_zone_3_PT100_wrong_position.Raise(0); 
+Topmold_A_heating_zone_3_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_Loose THEN 
-Topmold_A_heating_zone_3_PT100_loose.Raise(0); 
+Topmold_A_heating_zone_3_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_NotInserted THEN 
-Topmold_A_heating_zone_3_PT100_not_inserted.Raise(0); 
+Topmold_A_heating_zone_3_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_TempAboveSetpoint THEN 
-Topmold_A_heating_zone_3_Temperature_above_setpoint.Raise(0); 
+Topmold_A_heating_zone_3_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_TempBelowSetpoint THEN 
-Topmold_A_heating_zone_3_Temperature_below_setpoint.Raise(0); 
+Topmold_A_heating_zone_3_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_WireBreak THEN 
-Topmold_A_heating_zone_3_PT100_wirebreak.Raise(0); 
+Topmold_A_heating_zone_3_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].Thermal THEN 
-Topmold_A_heating_zone_3_Thermal.Raise(0); 
+Topmold_A_heating_zone_3_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_TemperatureAboveMaximum THEN 
-Topmold_A_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_A_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[3].PT100_TemperatureTooHighWarn THEN 
-Topmold_A_heating_zone_3_temperature_above_230_degree.Raise(0); 
+Topmold_A_heating_zone_3_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_ConnectorNotConnected THEN 
-Topmold_A_heating_zone_4_connector_not_connected.Raise(0); 
+Topmold_A_heating_zone_4_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_HasWrongPosition THEN 
-Topmold_A_heating_zone_4_PT100_wrong_position.Raise(0); 
+Topmold_A_heating_zone_4_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_Loose THEN 
-Topmold_A_heating_zone_4_PT100_loose.Raise(0); 
+Topmold_A_heating_zone_4_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_NotInserted THEN 
-Topmold_A_heating_zone_4_PT100_not_inserted.Raise(0); 
+Topmold_A_heating_zone_4_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_TempAboveSetpoint THEN 
-Topmold_A_heating_zone_4_Temperature_above_setpoint.Raise(0); 
+Topmold_A_heating_zone_4_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_TempBelowSetpoint THEN 
-Topmold_A_heating_zone_4_Temperature_below_setpoint.Raise(0); 
+Topmold_A_heating_zone_4_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_WireBreak THEN 
-Topmold_A_heating_zone_4_PT100_wirebreak.Raise(0); 
+Topmold_A_heating_zone_4_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].Thermal THEN 
-Topmold_A_heating_zone_4_Thermal.Raise(0); 
+Topmold_A_heating_zone_4_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_TemperatureAboveMaximum THEN 
-Topmold_A_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_A_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[4].PT100_TemperatureTooHighWarn THEN 
-Topmold_A_heating_zone_4_temperature_above_230_degree.Raise(0); 
+Topmold_A_heating_zone_4_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_ConnectorNotConnected THEN 
-Topmold_A_heating_zone_5_connector_not_connected.Raise(0); 
+Topmold_A_heating_zone_5_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_HasWrongPosition THEN 
-Topmold_A_heating_zone_5_PT100_wrong_position.Raise(0); 
+Topmold_A_heating_zone_5_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_Loose THEN 
-Topmold_A_heating_zone_5_PT100_loose.Raise(0); 
+Topmold_A_heating_zone_5_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_NotInserted THEN 
-Topmold_A_heating_zone_5_PT100_not_inserted.Raise(0); 
+Topmold_A_heating_zone_5_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_TempAboveSetpoint THEN 
-Topmold_A_heating_zone_5_Temperature_above_setpoint.Raise(0); 
+Topmold_A_heating_zone_5_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_TempBelowSetpoint THEN 
-Topmold_A_heating_zone_5_Temperature_below_setpoint.Raise(0); 
+Topmold_A_heating_zone_5_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_WireBreak THEN 
-Topmold_A_heating_zone_5_PT100_wirebreak.Raise(0); 
+Topmold_A_heating_zone_5_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].Thermal THEN 
-Topmold_A_heating_zone_5_Thermal.Raise(0); 
+Topmold_A_heating_zone_5_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_TemperatureAboveMaximum THEN 
-Topmold_A_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_A_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[5].PT100_TemperatureTooHighWarn THEN 
-Topmold_A_heating_zone_5_temperature_above_230_degree.Raise(0); 
+Topmold_A_heating_zone_5_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_ConnectorNotConnected THEN 
-Topmold_A_heating_zone_6_connector_not_connected.Raise(0); 
+Topmold_A_heating_zone_6_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_HasWrongPosition THEN 
-Topmold_A_heating_zone_6_PT100_wrong_position.Raise(0); 
+Topmold_A_heating_zone_6_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_Loose THEN 
-Topmold_A_heating_zone_6_PT100_loose.Raise(0); 
+Topmold_A_heating_zone_6_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_NotInserted THEN 
-Topmold_A_heating_zone_6_PT100_not_inserted.Raise(0); 
+Topmold_A_heating_zone_6_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_TempAboveSetpoint THEN 
-Topmold_A_heating_zone_6_Temperature_above_setpoint.Raise(0); 
+Topmold_A_heating_zone_6_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_TempBelowSetpoint THEN 
-Topmold_A_heating_zone_6_Temperature_below_setpoint.Raise(0); 
+Topmold_A_heating_zone_6_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_WireBreak THEN 
-Topmold_A_heating_zone_6_PT100_wirebreak.Raise(0); 
+Topmold_A_heating_zone_6_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].Thermal THEN 
-Topmold_A_heating_zone_6_Thermal.Raise(0); 
+Topmold_A_heating_zone_6_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_TemperatureAboveMaximum THEN 
-Topmold_A_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_A_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.HeatingZone[6].PT100_TemperatureTooHighWarn THEN 
-Topmold_A_heating_zone_6_temperature_above_230_degree.Raise(0); 
+Topmold_A_heating_zone_6_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_ConnectorNotConnected THEN 
-Bottommold_A_heating_Zone_1_connector_not_connected.Raise(0); 
+Bottommold_A_heating_Zone_1_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_HasWrongPosition THEN 
-Bottommold_A_heating_Zone_1_PT100_wrong_position.Raise(0); 
+Bottommold_A_heating_Zone_1_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_Loose THEN 
-Bottommold_A_heating_Zone_1_PT100_loose.Raise(0); 
+Bottommold_A_heating_Zone_1_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_NotInserted THEN 
-Bottommold_A_heating_Zone_1_PT100_not_inserted.Raise(0); 
+Bottommold_A_heating_Zone_1_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_TempAboveSetpoint THEN 
-Bottommold_A_heating_Zone_1_Temperature_above_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_1_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_TempBelowSetpoint THEN 
-Bottommold_A_heating_Zone_1_Temperature_below_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_1_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_WireBreak THEN 
-Bottommold_A_heating_Zone_1_PT100_wirebreak.Raise(0); 
+Bottommold_A_heating_Zone_1_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].Thermal THEN 
-Bottommold_A_heating_Zone_1_Thermal.Raise(0); 
+Bottommold_A_heating_Zone_1_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_TemperatureAboveMaximum THEN 
-Bottommold_A_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottommold_A_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[1].PT100_TemperatureTooHighWarn THEN 
-Bottommold_A_heating_zone_1_temperature_above_230_degree.Raise(0); 
+Bottommold_A_heating_zone_1_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_ConnectorNotConnected THEN 
-Bottommold_A_heating_Zone_2_connector_not_connected.Raise(0); 
+Bottommold_A_heating_Zone_2_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_HasWrongPosition THEN 
-Bottommold_A_heating_Zone_2_PT100_wrong_position.Raise(0); 
+Bottommold_A_heating_Zone_2_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_Loose THEN 
-Bottommold_A_heating_Zone_2_PT100_loose.Raise(0); 
+Bottommold_A_heating_Zone_2_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_NotInserted THEN 
-Bottommold_A_heating_Zone_2_PT100_not_inserted.Raise(0); 
+Bottommold_A_heating_Zone_2_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_TempAboveSetpoint THEN 
-Bottommold_A_heating_Zone_2_Temperature_above_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_2_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_TempBelowSetpoint THEN 
-Bottommold_A_heating_Zone_2_Temperature_below_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_2_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_WireBreak THEN 
-Bottommold_A_heating_Zone_2_PT100_wirebreak.Raise(0); 
+Bottommold_A_heating_Zone_2_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].Thermal THEN 
-Bottommold_A_heating_Zone_2_Thermal.Raise(0); 
+Bottommold_A_heating_Zone_2_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_TemperatureAboveMaximum THEN 
-Bottommold_A_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottommold_A_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[2].PT100_TemperatureTooHighWarn THEN 
-Bottommold_A_heating_zone_2_temperature_above_230_degree.Raise(0); 
+Bottommold_A_heating_zone_2_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_ConnectorNotConnected THEN 
-Bottommold_A_heating_Zone_3_connector_not_connected.Raise(0); 
+Bottommold_A_heating_Zone_3_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_HasWrongPosition THEN 
-Bottommold_A_heating_Zone_3_PT100_wrong_position.Raise(0); 
+Bottommold_A_heating_Zone_3_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_Loose  THEN 
-Bottommold_A_heating_Zone_3_PT100_loose.Raise(0); 
+Bottommold_A_heating_Zone_3_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_NotInserted THEN 
-Bottommold_A_heating_Zone_3_PT100_not_inserted.Raise(0); 
+Bottommold_A_heating_Zone_3_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_TempAboveSetpoint THEN 
-Bottommold_A_heating_Zone_3_Temperature_above_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_3_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_TempBelowSetpoint THEN 
-Bottommold_A_heating_Zone_3_Temperature_below_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_3_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_WireBreak THEN 
-Bottommold_A_heating_Zone_3_PT100_wirebreak.Raise(0); 
+Bottommold_A_heating_Zone_3_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].Thermal THEN 
-Bottommold_A_heating_Zone_3_Thermal.Raise(0); 
+Bottommold_A_heating_Zone_3_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_TemperatureAboveMaximum THEN 
-Bottommold_A_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottommold_A_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[3].PT100_TemperatureTooHighWarn THEN 
-Bottommold_A_heating_zone_3_temperature_above_230_degree.Raise(0); 
+Bottommold_A_heating_zone_3_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_ConnectorNotConnected THEN 
-Bottommold_A_heating_Zone_4_connector_not_connected.Raise(0); 
+Bottommold_A_heating_Zone_4_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_HasWrongPosition THEN 
-Bottommold_A_heating_Zone_4_PT100_wrong_position.Raise(0); 
+Bottommold_A_heating_Zone_4_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_Loose THEN 
-Bottommold_A_heating_Zone_4_PT100_loose.Raise(0); 
+Bottommold_A_heating_Zone_4_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_NotInserted THEN 
-Bottommold_A_heating_Zone_4_PT100_not_inserted.Raise(0); 
+Bottommold_A_heating_Zone_4_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_TempAboveSetpoint THEN 
-Bottommold_A_heating_Zone_4_Temperature_above_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_4_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_TempBelowSetpoint THEN 
-Bottommold_A_heating_Zone_4_Temperature_below_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_4_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_WireBreak THEN 
-Bottommold_A_heating_Zone_4_PT100_wirebreak.Raise(0); 
+Bottommold_A_heating_Zone_4_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].Thermal THEN 
-Bottommold_A_heating_Zone_4_Thermal.Raise(0); 
+Bottommold_A_heating_Zone_4_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_TemperatureAboveMaximum THEN 
-Bottommold_A_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottommold_A_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[4].PT100_TemperatureTooHighWarn THEN 
-Bottommold_A_heating_zone_4_temperature_above_230_degree.Raise(0); 
+Bottommold_A_heating_zone_4_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_ConnectorNotConnected THEN 
-Bottommold_A_heating_Zone_5_connector_not_connected.Raise(0); 
+Bottommold_A_heating_Zone_5_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_HasWrongPosition THEN 
-Bottommold_A_heating_Zone_5_PT100_wrong_position.Raise(0); 
+Bottommold_A_heating_Zone_5_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_Loose THEN 
-Bottommold_A_heating_Zone_5_PT100_loose.Raise(0); 
+Bottommold_A_heating_Zone_5_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_NotInserted THEN 
-Bottommold_A_heating_Zone_5_PT100_not_inserted.Raise(0); 
+Bottommold_A_heating_Zone_5_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_TempAboveSetpoint THEN 
-Bottommold_A_heating_Zone_5_Temperature_above_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_5_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_TempBelowSetpoint THEN 
-Bottommold_A_heating_Zone_5_Temperature_below_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_5_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_WireBreak THEN 
-Bottommold_A_heating_Zone_5_PT100_wirebreak.Raise(0); 
+Bottommold_A_heating_Zone_5_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].Thermal THEN 
-Bottommold_A_heating_Zone_5_Thermal.Raise(0); 
+Bottommold_A_heating_Zone_5_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_TemperatureAboveMaximum THEN 
-Bottommold_A_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottommold_A_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[5].PT100_TemperatureTooHighWarn THEN 
-Bottommold_A_heating_zone_5_temperature_above_230_degree.Raise(0); 
+Bottommold_A_heating_zone_5_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_ConnectorNotConnected THEN 
-Bottommold_A_heating_Zone_6_connector_not_connected.Raise(0); 
+Bottommold_A_heating_Zone_6_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_HasWrongPosition THEN 
-Bottommold_A_heating_Zone_6_PT100_wrong_position.Raise(0); 
+Bottommold_A_heating_Zone_6_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_Loose THEN 
-Bottommold_A_heating_Zone_6_PT100_loose.Raise(0); 
+Bottommold_A_heating_Zone_6_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_NotInserted THEN 
-Bottommold_A_heating_Zone_6_PT100_not_inserted.Raise(0); 
+Bottommold_A_heating_Zone_6_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_TempAboveSetpoint THEN 
-Bottommold_A_heating_Zone_6_Temperature_above_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_6_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_TempBelowSetpoint THEN 
-Bottommold_A_heating_Zone_6_Temperature_below_setpoint.Raise(0); 
+Bottommold_A_heating_Zone_6_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_WireBreak THEN 
-Bottommold_A_heating_Zone_6_PT100_wirebreak.Raise(0); 
+Bottommold_A_heating_Zone_6_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].Thermal THEN 
-Bottommold_A_heating_Zone_6_Thermal.Raise(0); 
+Bottommold_A_heating_Zone_6_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_TemperatureAboveMaximum THEN 
-Bottommold_A_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottommold_A_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.TmDidNotReachBmPosTimeOut THEN 
-Top_mold_B_timed_out_Did_not_reach_bottommold_position_in_time.Raise(0); 
+Top_mold_B_timed_out_Did_not_reach_bottommold_position_in_time.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.BallufError THEN 
-Top_mold_B_error_on_balluf.Raise(0); 
+Top_mold_B_error_on_balluf.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.IsMovingWithoutActivation THEN 
-Top_mold_B_is_moving_without_activation.Raise(0); 
+Top_mold_B_is_moving_without_activation.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HeatingZone[6].PT100_TemperatureTooHighWarn THEN 
-Bottommold_A_heating_zone_6_temperature_above_230_degree.Raise(0); 
+Bottommold_A_heating_zone_6_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_ConnectorNotConnected THEN 
-Topmold_B_heating_Zone_1_connector_not_connected.Raise(0); 
+Topmold_B_heating_Zone_1_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_HasWrongPosition THEN 
-Topmold_B_heating_Zone_1_PT100_wrong_position.Raise(0); 
+Topmold_B_heating_Zone_1_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_Loose THEN 
-Topmold_B_heating_Zone_1_PT100_loose.Raise(0); 
+Topmold_B_heating_Zone_1_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_NotInserted THEN 
-Topmold_B_heating_Zone_1_PT100_not_inserted.Raise(0); 
+Topmold_B_heating_Zone_1_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_TempAboveSetpoint THEN 
-Topmold_B_heating_Zone_1_Temperature_above_setpoint.Raise(0); 
+Topmold_B_heating_Zone_1_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_TempBelowSetpoint THEN 
-Topmold_B_heating_Zone_1_Temperature_below_setpoint.Raise(0); 
+Topmold_B_heating_Zone_1_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_WireBreak THEN 
-Topmold_B_heating_Zone_1_PT100_wirebreak.Raise(0); 
+Topmold_B_heating_Zone_1_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].Thermal THEN 
-Topmold_B_heating_Zone_1_Thermal.Raise(0); 
+Topmold_B_heating_Zone_1_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_TemperatureAboveMaximum THEN 
-Topmold_B_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_B_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[1].PT100_TemperatureTooHighWarn THEN 
-Topmold_B_heating_zone_1_temperature_above_230_degree.Raise(0); 
+Topmold_B_heating_zone_1_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_ConnectorNotConnected THEN 
-Topmold_B_heating_Zone_2_connector_not_connected.Raise(0); 
+Topmold_B_heating_Zone_2_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_HasWrongPosition THEN 
-Topmold_B_heating_Zone_2_PT100_wrong_position.Raise(0); 
+Topmold_B_heating_Zone_2_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_Loose THEN 
-Topmold_B_heating_Zone_2_PT100_loose.Raise(0); 
+Topmold_B_heating_Zone_2_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_NotInserted THEN 
-Topmold_B_heating_Zone_2_PT100_not_inserted.Raise(0); 
+Topmold_B_heating_Zone_2_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_TempAboveSetpoint THEN 
-Topmold_B_heating_Zone_2_Temperature_above_setpoint.Raise(0); 
+Topmold_B_heating_Zone_2_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_TempBelowSetpoint THEN 
-Topmold_B_heating_Zone_2_Temperature_below_setpoint.Raise(0); 
+Topmold_B_heating_Zone_2_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_WireBreak THEN 
-Topmold_B_heating_Zone_2_PT100_wirebreak.Raise(0); 
+Topmold_B_heating_Zone_2_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].Thermal THEN 
-Topmold_B_heating_Zone_2_Thermal.Raise(0); 
+Topmold_B_heating_Zone_2_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_TemperatureAboveMaximum THEN 
-Topmold_B_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_B_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[2].PT100_TemperatureTooHighWarn THEN 
-Topmold_B_heating_zone_2_temperature_above_230_degree.Raise(0); 
+Topmold_B_heating_zone_2_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_ConnectorNotConnected THEN 
-Topmold_B_heating_Zone_3_connector_not_connected.Raise(0); 
+Topmold_B_heating_Zone_3_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_HasWrongPosition THEN 
-Topmold_B_heating_Zone_3_PT100_wrong_position.Raise(0); 
+Topmold_B_heating_Zone_3_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_Loose THEN 
-Topmold_B_heating_Zone_3_PT100_loose.Raise(0); 
+Topmold_B_heating_Zone_3_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_NotInserted THEN 
-Topmold_B_heating_Zone_3_PT100_not_inserted.Raise(0); 
+Topmold_B_heating_Zone_3_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_TempAboveSetpoint THEN 
-Topmold_B_heating_Zone_3_Temperature_above_setpoint.Raise(0); 
+Topmold_B_heating_Zone_3_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_TempBelowSetpoint THEN 
-Topmold_B_heating_Zone_3_Temperature_below_setpoint.Raise(0); 
+Topmold_B_heating_Zone_3_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_WireBreak THEN 
-Topmold_B_heating_Zone_3_PT100_wirebreak.Raise(0); 
+Topmold_B_heating_Zone_3_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].Thermal THEN 
-Topmold_B_heating_Zone_3_Thermal.Raise(0); 
+Topmold_B_heating_Zone_3_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_TemperatureAboveMaximum THEN 
-Topmold_B_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_B_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[3].PT100_TemperatureTooHighWarn THEN 
-Topmold_B_heating_zone_3_temperature_above_230_degree.Raise(0); 
+Topmold_B_heating_zone_3_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_ConnectorNotConnected THEN 
-Topmold_B_heating_Zone_4_connector_not_connected.Raise(0); 
+Topmold_B_heating_Zone_4_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_HasWrongPosition THEN 
-Topmold_B_heating_Zone_4_PT100_wrong_position.Raise(0); 
+Topmold_B_heating_Zone_4_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_Loose THEN 
-Topmold_B_heating_Zone_4_PT100_loose.Raise(0); 
+Topmold_B_heating_Zone_4_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_NotInserted THEN 
-Topmold_B_heating_Zone_4_PT100_not_inserted.Raise(0); 
+Topmold_B_heating_Zone_4_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_TempAboveSetpoint THEN 
-Topmold_B_heating_Zone_4_Temperature_above_setpoint.Raise(0); 
+Topmold_B_heating_Zone_4_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_TempBelowSetpoint THEN 
-Topmold_B_heating_Zone_4_Temperature_below_setpoint.Raise(0); 
+Topmold_B_heating_Zone_4_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_WireBreak THEN 
-Topmold_B_heating_Zone_4_PT100_wirebreak.Raise(0); 
+Topmold_B_heating_Zone_4_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].Thermal THEN 
-Topmold_B_heating_Zone_4_Thermal.Raise(0); 
+Topmold_B_heating_Zone_4_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_TemperatureAboveMaximum THEN 
-Topmold_B_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_B_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[4].PT100_TemperatureTooHighWarn THEN 
-Topmold_B_heating_zone_4_temperature_above_230_degree.Raise(0); 
+Topmold_B_heating_zone_4_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_ConnectorNotConnected THEN 
-Topmold_B_heating_Zone_5_connector_not_connected.Raise(0); 
+Topmold_B_heating_Zone_5_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_HasWrongPosition THEN 
-Topmold_B_heating_Zone_5_PT100_wrong_position.Raise(0); 
+Topmold_B_heating_Zone_5_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_Loose THEN 
-Topmold_B_heating_Zone_5_PT100_loose.Raise(0); 
+Topmold_B_heating_Zone_5_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_NotInserted THEN 
-Topmold_B_heating_Zone_5_PT100_not_inserted.Raise(0); 
+Topmold_B_heating_Zone_5_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_TempAboveSetpoint THEN 
-Topmold_B_heating_Zone_5_Temperature_above_setpoint.Raise(0); 
+Topmold_B_heating_Zone_5_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_TempBelowSetpoint THEN 
-Topmold_B_heating_Zone_5_Temperature_below_setpoint.Raise(0); 
+Topmold_B_heating_Zone_5_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_WireBreak THEN 
-Topmold_B_heating_Zone_5_PT100_wirebreak.Raise(0); 
+Topmold_B_heating_Zone_5_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].Thermal THEN 
-Topmold_B_heating_Zone_5_Thermal.Raise(0); 
+Topmold_B_heating_Zone_5_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_TemperatureAboveMaximum THEN 
-Topmold_B_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_B_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[5].PT100_TemperatureTooHighWarn THEN 
-Topmold_B_heating_zone_5_temperature_above_230_degree.Raise(0); 
+Topmold_B_heating_zone_5_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_ConnectorNotConnected THEN 
-Topmold_B_heating_Zone_6_connector_not_connected.Raise(0); 
+Topmold_B_heating_Zone_6_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_HasWrongPosition THEN 
-Topmold_B_heating_Zone_6_PT100_wrong_position.Raise(0); 
+Topmold_B_heating_Zone_6_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_Loose THEN 
-Topmold_B_heating_Zone_6_PT100_loose.Raise(0); 
+Topmold_B_heating_Zone_6_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_NotInserted THEN 
-Topmold_B_heating_Zone_6_PT100_not_inserted.Raise(0); 
+Topmold_B_heating_Zone_6_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_TempAboveSetpoint THEN 
-Topmold_B_heating_Zone_6_Temperature_above_setpoint.Raise(0); 
+Topmold_B_heating_Zone_6_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_TempBelowSetpoint THEN 
-Topmold_B_heating_Zone_6_Temperature_below_setpoint.Raise(0); 
+Topmold_B_heating_Zone_6_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_WireBreak THEN 
-Topmold_B_heating_Zone_6_PT100_wirebreak.Raise(0); 
+Topmold_B_heating_Zone_6_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].Thermal THEN 
-Topmold_B_heating_Zone_6_Thermal.Raise(0); 
+Topmold_B_heating_Zone_6_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_TemperatureAboveMaximum THEN 
-Topmold_B_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Topmold_B_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.HeatingZone[6].PT100_TemperatureTooHighWarn THEN 
-Topmold_B_heating_zone_6_temperature_above_230_degree.Raise(0); 
+Topmold_B_heating_zone_6_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.BallufError THEN 
-Bottom_mold_B_error_on_balluf.Raise(0); 
+Bottom_mold_B_error_on_balluf.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.IsMovingWithoutActivation THEN 
-Bottom_mold_B_is_moving_without_activation.Raise(0); 
+Bottom_mold_B_is_moving_without_activation.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF FALSE THEN 
-Top_mold_B_Bot_side_pressure_too_high.Raise(0); 
+Top_mold_B_Bot_side_pressure_too_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF FALSE THEN 
-Top_mold_B_Rot_side_pressure_too_high.Raise(0); 
+Top_mold_B_Rot_side_pressure_too_high.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_ConnectorNotConnected THEN 
-Bottom_mold_B_heating_Zone_1_connector_not_connected.Raise(0); 
+Bottom_mold_B_heating_Zone_1_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_HasWrongPosition THEN 
-Bottom_mold_B_heating_Zone_1_PT100_wrong_position.Raise(0); 
+Bottom_mold_B_heating_Zone_1_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_Loose THEN 
-Bottom_mold_B_heating_Zone_1_PT100_loose.Raise(0); 
+Bottom_mold_B_heating_Zone_1_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_NotInserted THEN 
-Bottom_mold_B_heating_Zone_1_PT100_not_inserted.Raise(0); 
+Bottom_mold_B_heating_Zone_1_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_TempAboveSetpoint THEN 
-Bottom_mold_B_heating_Zone_1_Temperature_above_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_1_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_TempBelowSetpoint THEN 
-Bottom_mold_B_heating_Zone_1_Temperature_below_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_1_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_WireBreak THEN 
-Bottom_mold_B_heating_Zone_1_PT100_wirebreak.Raise(0); 
+Bottom_mold_B_heating_Zone_1_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].Thermal THEN 
-Bottom_mold_B_heating_Zone_1_Thermal.Raise(0); 
+Bottom_mold_B_heating_Zone_1_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_TemperatureAboveMaximum THEN 
-Bottom_mold_B_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottom_mold_B_heating_zone_1_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[1].PT100_TemperatureTooHighWarn THEN 
-Bottom_mold_B_heating_zone_1_temperature_above_230_degree.Raise(0); 
+Bottom_mold_B_heating_zone_1_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_ConnectorNotConnected THEN 
-Bottom_mold_B_heating_Zone_2_connector_not_connected.Raise(0); 
+Bottom_mold_B_heating_Zone_2_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_HasWrongPosition THEN 
-Bottom_mold_B_heating_Zone_2_PT100_wrong_position.Raise(0); 
+Bottom_mold_B_heating_Zone_2_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_Loose THEN 
-Bottom_mold_B_heating_Zone_2_PT100_loose.Raise(0); 
+Bottom_mold_B_heating_Zone_2_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_NotInserted THEN 
-Bottom_mold_B_heating_Zone_2_PT100_not_inserted.Raise(0); 
+Bottom_mold_B_heating_Zone_2_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_TempAboveSetpoint THEN 
-Bottom_mold_B_heating_Zone_2_Temperature_above_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_2_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_TempBelowSetpoint THEN 
-Bottom_mold_B_heating_Zone_2_Temperature_below_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_2_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_WireBreak THEN 
-Bottom_mold_B_heating_Zone_2_PT100_wirebreak.Raise(0); 
+Bottom_mold_B_heating_Zone_2_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].Thermal THEN 
-Bottom_mold_B_heating_Zone_2_Thermal.Raise(0); 
+Bottom_mold_B_heating_Zone_2_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_TemperatureAboveMaximum THEN 
-Bottom_mold_B_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottom_mold_B_heating_zone_2_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[2].PT100_TemperatureTooHighWarn THEN 
-Bottom_mold_B_heating_zone_2_temperature_above_230_degree.Raise(0); 
+Bottom_mold_B_heating_zone_2_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_ConnectorNotConnected THEN 
-Bottom_mold_B_heating_Zone_3_connector_not_connected.Raise(0); 
+Bottom_mold_B_heating_Zone_3_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_HasWrongPosition THEN 
-Bottom_mold_B_heating_Zone_3_PT100_wrong_position.Raise(0); 
+Bottom_mold_B_heating_Zone_3_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_Loose THEN 
-Bottom_mold_B_heating_Zone_3_PT100_loose.Raise(0); 
+Bottom_mold_B_heating_Zone_3_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_NotInserted THEN 
-Bottom_mold_B_heating_Zone_3_PT100_not_inserted.Raise(0); 
+Bottom_mold_B_heating_Zone_3_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_TempAboveSetpoint THEN 
-Bottom_mold_B_heating_Zone_3_Temperature_above_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_3_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_TempBelowSetpoint THEN 
-Bottom_mold_B_heating_Zone_3_Temperature_below_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_3_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_WireBreak THEN 
-Bottom_mold_B_heating_Zone_3_PT100_wirebreak.Raise(0); 
+Bottom_mold_B_heating_Zone_3_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].Thermal THEN 
-Bottom_mold_B_heating_Zone_3_Thermal.Raise(0); 
+Bottom_mold_B_heating_Zone_3_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_TemperatureAboveMaximum THEN 
-Bottom_mold_B_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottom_mold_B_heating_zone_3_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[3].PT100_TemperatureTooHighWarn THEN 
-Bottom_mold_B_heating_zone_3_temperature_above_230_degree.Raise(0); 
+Bottom_mold_B_heating_zone_3_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_ConnectorNotConnected THEN 
-Bottom_mold_B_heating_Zone_4_connector_not_connected.Raise(0); 
+Bottom_mold_B_heating_Zone_4_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_HasWrongPosition THEN 
-Bottom_mold_B_heating_Zone_4_PT100_wrong_position.Raise(0); 
+Bottom_mold_B_heating_Zone_4_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_Loose THEN 
-Bottom_mold_B_heating_Zone_4_PT100_loose.Raise(0); 
+Bottom_mold_B_heating_Zone_4_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_NotInserted THEN 
-Bottom_mold_B_heating_Zone_4_PT100_not_inserted.Raise(0); 
+Bottom_mold_B_heating_Zone_4_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_TempAboveSetpoint THEN 
-Bottom_mold_B_heating_Zone_4_Temperature_above_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_4_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_TempBelowSetpoint THEN 
-Bottom_mold_B_heating_Zone_4_Temperature_below_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_4_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_WireBreak THEN 
-Bottom_mold_B_heating_Zone_4_PT100_wirebreak.Raise(0); 
+Bottom_mold_B_heating_Zone_4_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].Thermal THEN 
-Bottom_mold_B_heating_Zone_4_Thermal.Raise(0); 
+Bottom_mold_B_heating_Zone_4_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_TemperatureAboveMaximum THEN 
-Bottom_mold_B_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottom_mold_B_heating_zone_4_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[4].PT100_TemperatureTooHighWarn THEN 
-Bottom_mold_B_heating_zone_4_temperature_above_230_degree.Raise(0); 
+Bottom_mold_B_heating_zone_4_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_ConnectorNotConnected THEN 
-Bottom_mold_B_heating_Zone_5_connector_not_connected.Raise(0); 
+Bottom_mold_B_heating_Zone_5_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_HasWrongPosition THEN 
-Bottom_mold_B_heating_Zone_5_PT100_wrong_position.Raise(0); 
+Bottom_mold_B_heating_Zone_5_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_Loose THEN 
-Bottom_mold_B_heating_Zone_5_PT100_loose.Raise(0); 
+Bottom_mold_B_heating_Zone_5_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_NotInserted THEN 
-Bottom_mold_B_heating_Zone_5_PT100_not_inserted.Raise(0); 
+Bottom_mold_B_heating_Zone_5_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_TempAboveSetpoint THEN 
-Bottom_mold_B_heating_Zone_5_Temperature_above_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_5_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_TempBelowSetpoint THEN 
-Bottom_mold_B_heating_Zone_5_Temperature_below_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_5_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_WireBreak THEN 
-Bottom_mold_B_heating_Zone_5_PT100_wirebreak.Raise(0); 
+Bottom_mold_B_heating_Zone_5_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].Thermal THEN 
-Bottom_mold_B_heating_Zone_5_Thermal.Raise(0); 
+Bottom_mold_B_heating_Zone_5_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_TemperatureAboveMaximum THEN 
-Bottom_mold_B_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottom_mold_B_heating_zone_5_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[5].PT100_TemperatureTooHighWarn THEN 
-Bottom_mold_B_heating_zone_5_temperature_above_230_degree.Raise(0); 
+Bottom_mold_B_heating_zone_5_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_ConnectorNotConnected THEN 
-Bottom_mold_B_heating_Zone_6_connector_not_connected.Raise(0); 
+Bottom_mold_B_heating_Zone_6_connector_not_connected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_HasWrongPosition THEN 
-Bottom_mold_B_heating_Zone_6_PT100_wrong_position.Raise(0); 
+Bottom_mold_B_heating_Zone_6_PT100_wrong_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_Loose THEN 
-Bottom_mold_B_heating_Zone_6_PT100_loose.Raise(0); 
+Bottom_mold_B_heating_Zone_6_PT100_loose.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_NotInserted THEN 
-Bottom_mold_B_heating_Zone_6_PT100_not_inserted.Raise(0); 
+Bottom_mold_B_heating_Zone_6_PT100_not_inserted.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_TempAboveSetpoint THEN 
-Bottom_mold_B_heating_Zone_6_Temperature_above_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_6_Temperature_above_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_TempBelowSetpoint THEN 
-Bottom_mold_B_heating_Zone_6_Temperature_below_setpoint.Raise(0); 
+Bottom_mold_B_heating_Zone_6_Temperature_below_setpoint.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_WireBreak THEN 
-Bottom_mold_B_heating_Zone_6_PT100_wirebreak.Raise(0); 
+Bottom_mold_B_heating_Zone_6_PT100_wirebreak.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].Thermal THEN 
-Bottom_mold_B_heating_Zone_6_Thermal.Raise(0); 
+Bottom_mold_B_heating_Zone_6_Thermal.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_TemperatureAboveMaximum THEN 
-Bottom_mold_B_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(0); 
+Bottom_mold_B_heating_zone_6_temperature_above_250_degree_heating_element_switched_off.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HeatingZone[6].PT100_TemperatureTooHighWarn THEN 
-Bottom_mold_B_heating_zone_6_temperature_above_230_degree.Raise(0); 
+Bottom_mold_B_heating_zone_6_temperature_above_230_degree.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalCilinder.Cilinder THEN 
-Takeout_unit_A_horizontal_cylinder_error.Raise(0); 
+Takeout_unit_A_horizontal_cylinder_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalCilinder.CilinderSlow_IN THEN 
-Takeout_unit_A_horizontal_cylinder_timeout_in.Raise(0); 
+Takeout_unit_A_horizontal_cylinder_timeout_in.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalCilinder.CilinderSlow_OUT THEN 
-Takeout_unit_A_horizontal_cylinder_timeout_out.Raise(0); 
+Takeout_unit_A_horizontal_cylinder_timeout_out.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalCilinder.Cilinder THEN 
-Takeout_unit_B_horizontal_cylinder_error.Raise(0); 
+Takeout_unit_B_horizontal_cylinder_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalCilinder.CilinderSlow_IN THEN 
-Takeout_unit_B_horizontal_cylinder_timeout_in.Raise(0); 
+Takeout_unit_B_horizontal_cylinder_timeout_in.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalCilinder.CilinderSlow_OUT THEN 
-Takeout_unit_B_horizontal_cylinder_timeout_out.Raise(0); 
+Takeout_unit_B_horizontal_cylinder_timeout_out.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VerticalCilinder.Cilinder THEN 
-Takeout_unit_A_vertical_cylinder_error.Raise(0); 
+Takeout_unit_A_vertical_cylinder_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VerticalCilinder.CilinderSlow_IN THEN 
-Takeout_unit_A_vertical_cylinder_timeout_in.Raise(0); 
+Takeout_unit_A_vertical_cylinder_timeout_in.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VerticalCilinder.CilinderSlow_OUT THEN 
-Takeout_unit_A_vertical_cylinder_timeout_out.Raise(0); 
+Takeout_unit_A_vertical_cylinder_timeout_out.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VerticalCilinder.Cilinder THEN 
-Takeout_unit_B_vertical_cylinder_error.Raise(0); 
+Takeout_unit_B_vertical_cylinder_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VerticalCilinder.CilinderSlow_IN THEN 
-Takeout_unit_B_vertical_cylinder_timeout_in.Raise(0); 
+Takeout_unit_B_vertical_cylinder_timeout_in.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VerticalCilinder.CilinderSlow_OUT THEN 
-Takeout_unit_B_vertical_cylinder_timeout_out.Raise(0); 
+Takeout_unit_B_vertical_cylinder_timeout_out.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VacuumSection[1] THEN 
-Takeout_unit_A_error_on_vacuum_section_1.Raise(0); 
+Takeout_unit_A_error_on_vacuum_section_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VacuumSection[2] THEN 
-Takeout_unit_A_error_on_vacuum_section_2.Raise(0); 
+Takeout_unit_A_error_on_vacuum_section_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VacuumSection[3] THEN 
-Takeout_unit_A_error_on_vacuum_section_3.Raise(0); 
+Takeout_unit_A_error_on_vacuum_section_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.VacuumSection[4] THEN 
-Takeout_unit_A_error_on_vacuum_section_4.Raise(0); 
+Takeout_unit_A_error_on_vacuum_section_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VacuumSection[1] THEN 
-Takeout_unit_B_error_on_vacuum_section_1.Raise(0); 
+Takeout_unit_B_error_on_vacuum_section_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VacuumSection[2] THEN 
-Takeout_unit_B_error_on_vacuum_section_2.Raise(0); 
+Takeout_unit_B_error_on_vacuum_section_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VacuumSection[3] THEN 
-Takeout_unit_B_error_on_vacuum_section_3.Raise(0); 
+Takeout_unit_B_error_on_vacuum_section_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.VacuumSection[4] THEN 
-Takeout_unit_B_error_on_vacuum_section_4.Raise(0); 
+Takeout_unit_B_error_on_vacuum_section_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.HydraulicPump.Maintenance THEN 
-Machine_pond_hydraulic_pump_maintenance_switch.Raise(0); 
+Machine_pond_hydraulic_pump_maintenance_switch.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.HydraulicPump.Thermal THEN 
-Machine_pond_hydraulic_pump_thermal_error.Raise(0); 
+Machine_pond_hydraulic_pump_thermal_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.MachinePond.FeedingPulp.Cilinder THEN 
-Machine_oond_pulp_feeding_cylinder_error.Raise(0); 
+Machine_oond_pulp_feeding_cylinder_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.MachinePond.FeedingPulp.CilinderSlow_IN THEN 
-Machine_pond_pulp_feeding_cylinder_timeout_in.Raise(0); 
+Machine_pond_pulp_feeding_cylinder_timeout_in.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.MachinePond.FeedingPulp.CilinderSlow_OUT THEN 
-Machine_pond_pulp_feeding_cylinder_timeout_out.Raise(0); 
+Machine_pond_pulp_feeding_cylinder_timeout_out.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.BallufError THEN 
-Transfermold_error_on_balluf.Raise(0); 
+Transfermold_error_on_balluf.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.IsMovingWithoutActivation THEN 
-Transfermold_is_moving_without_activation.Raise(0); 
+Transfermold_is_moving_without_activation.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.RH_BotMoldAToCoolForTrMDown THEN 
-RHSR_Bottommold_A_too_cool_for_transfermold_to_come_down.Raise(0); 
+RHSR_Bottommold_A_too_cool_for_transfermold_to_come_down.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.RH_BotMoldBToCoolForTrMDown THEN 
-RHSR_Bottommold_B_too_cool_for_transfermold_to_come_down.Raise(0); 
+RHSR_Bottommold_B_too_cool_for_transfermold_to_come_down.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.Collision THEN 
-Gantry_A_collision_detected.Raise(0); 
+Gantry_A_collision_detected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.EndLimitHorBack THEN 
-Gantry_A_Horizontal_limit_endswitch_backside.Raise(0); 
+Gantry_A_Horizontal_limit_endswitch_backside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.EndLimitHorFront THEN 
-Gantry_A_Horizontal_limit_endswitch_frontside.Raise(0); 
+Gantry_A_Horizontal_limit_endswitch_frontside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.EndLimitVertDown THEN 
-Gantry_A_vertical_limit_endswitch_down.Raise(0); 
+Gantry_A_vertical_limit_endswitch_down.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.EndLimitVertUp THEN 
-Gantry_A_vertical_limit_endswitch_up.Raise(0); 
+Gantry_A_vertical_limit_endswitch_up.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDriveAbsoluut THEN 
-Gantry_A_Horizontal_Drive_absoluut_error.Raise(0); 
+Gantry_A_Horizontal_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDriveJog THEN 
-Gantry_A_Horizontal_Drive_Jog_error.Raise(0); 
+Gantry_A_Horizontal_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDrivePower THEN 
-Gantry_A_Horizontal_Drive_power_error.Raise(0); 
+Gantry_A_Horizontal_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDriveReset THEN 
-Gantry_A_Horizontal_Drive_reset.Raise(0); 
+Gantry_A_Horizontal_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDriveStatus THEN 
-Gantry_A_Horizontal_Drive_status.Raise(0); 
+Gantry_A_Horizontal_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDriveStop THEN 
-Gantry_A_Horizontal_Drive_stop_error.Raise(0); 
+Gantry_A_Horizontal_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exDriveVelocity THEN 
-Gantry_A_Horizontal_Drive_velocity_error.Raise(0); 
+Gantry_A_Horizontal_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exHome THEN 
-Gantry_A_Horizontal_Drive_home_error.Raise(0); 
+Gantry_A_Horizontal_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exLagError THEN 
-Gantry_A_Horizontal_Drive_lag_error.Raise(0); 
+Gantry_A_Horizontal_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exReadParameter THEN 
-Gantry_A_Horizontal_Drive_read_parameter_error.Raise(0); 
+Gantry_A_Horizontal_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.HorizontalNCAxisError.exWriteParameter THEN 
-Gantry_A_Horizontal_Drive_write_parameter_error.Raise(0); 
+Gantry_A_Horizontal_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.Collision THEN 
-Gantry_B_collision_detected.Raise(0); 
+Gantry_B_collision_detected.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.EndLimitHorBack THEN 
-Gantry_B_horizontal_limit_endswitch_backside.Raise(0); 
+Gantry_B_horizontal_limit_endswitch_backside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.EndLimitHorFront THEN 
-Gantry_B_horizontal_limit_endswitch_frontside.Raise(0); 
+Gantry_B_horizontal_limit_endswitch_frontside.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.EndLimitVertDown THEN 
-Gantry_B_vertical_limit_endswitch_down.Raise(0); 
+Gantry_B_vertical_limit_endswitch_down.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.EndLimitVertUp THEN 
-Gantry_B_vertical_limit_endswitch_up.Raise(0); 
+Gantry_B_vertical_limit_endswitch_up.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDriveAbsoluut THEN 
-Gantry_B_Horizontal_Drive_absoluut_error.Raise(0); 
+Gantry_B_Horizontal_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDriveJog THEN 
-Gantry_B_Horizontal_Drive_Jog_error.Raise(0); 
+Gantry_B_Horizontal_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDrivePower THEN 
-Gantry_B_Horizontal_Drive_power_error.Raise(0); 
+Gantry_B_Horizontal_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDriveReset THEN 
-Gantry_B_Horizontal_Drive_reset.Raise(0); 
+Gantry_B_Horizontal_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDriveStatus THEN 
-Gantry_B_Horizontal_Drive_status.Raise(0); 
+Gantry_B_Horizontal_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDriveStop THEN 
-Gantry_B_Horizontal_Drive_stop_error.Raise(0); 
+Gantry_B_Horizontal_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exDriveVelocity THEN 
-Gantry_B_Horizontal_Drive_velocity_error.Raise(0); 
+Gantry_B_Horizontal_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exHome THEN 
-Gantry_B_Horizontal_Drive_home_error.Raise(0); 
+Gantry_B_Horizontal_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exLagError THEN 
-Gantry_B_Horizontal_Drive_lag_error.Raise(0); 
+Gantry_B_Horizontal_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exReadParameter THEN 
-Gantry_B_Horizontal_Drive_read_parameter_error.Raise(0); 
+Gantry_B_Horizontal_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.HorizontalNCAxisError.exWriteParameter THEN 
-Gantry_B_Horizontal_Drive_write_parameter_error.Raise(0); 
+Gantry_B_Horizontal_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.RH_HorMovingVertNotAtTranspPos_A THEN 
-RHSR_product_handling_gantry_A_is_moving_horizotal_while_vertical_not_on_position.Raise(0); 
+RHSR_product_handling_gantry_A_is_moving_horizotal_while_vertical_not_on_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.RH_HorMovingVertNotAtTranspPos_B THEN 
-RHSR_product_handling_gantry_B_is_moving_horizotal_while_vertical_not_on_position.Raise(0); 
+RHSR_product_handling_gantry_B_is_moving_horizotal_while_vertical_not_on_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.RH_VertMovingHorNotInPos_A THEN 
-RHSR_product_handling_gantry_A_is_moving_vertical_while_horizontal_not_on_position.Raise(0); 
+RHSR_product_handling_gantry_A_is_moving_vertical_while_horizontal_not_on_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.RH_VertMovingHorNotInPos_B THEN 
-RHSR_product_handling_gantry_B_is_moving_vertical_while_horizontal_not_on_position.Raise(0); 
+RHSR_product_handling_gantry_B_is_moving_vertical_while_horizontal_not_on_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDriveAbsoluut THEN 
-Spraybar_Drive_absoluut_error.Raise(0); 
+Spraybar_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDriveJog THEN 
-Spraybar_Drive_Jog_error.Raise(0); 
+Spraybar_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDrivePower THEN 
-Spraybar_Drive_power_error.Raise(0); 
+Spraybar_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDriveReset THEN 
-Spraybar_Drive_reset.Raise(0); 
+Spraybar_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDriveStatus THEN 
-Spraybar_Drive_status.Raise(0); 
+Spraybar_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDriveStop THEN 
-Spraybar_Drive_stop_error.Raise(0); 
+Spraybar_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exDriveVelocity THEN 
-Spraybar_Drive_velocity_error.Raise(0); 
+Spraybar_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exHome THEN 
-Spraybar_Drive_home_error.Raise(0); 
+Spraybar_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exLagError THEN 
-Spraybar_Drive_lag_error.Raise(0); 
+Spraybar_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exReadParameter THEN 
-Spraybar_Drive_read_parameter_error.Raise(0); 
+Spraybar_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.NCAxisError.exWriteParameter THEN 
-Spraybar_Drive_write_parameter_error.Raise(0); 
+Spraybar_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.ProductLost[1] THEN 
-Gantry_A_product_lost_section_1.Raise(0); 
+Gantry_A_product_lost_section_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.ProductLost[2] THEN 
-Gantry_A_product_lost_section_2.Raise(0); 
+Gantry_A_product_lost_section_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.ProductLost[3] THEN 
-Gantry_A_product_lost_section_3.Raise(0); 
+Gantry_A_product_lost_section_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.ProductLost[4] THEN 
-Gantry_A_product_lost_section_4.Raise(0); 
+Gantry_A_product_lost_section_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.ProductLost[5] THEN 
-Gantry_A_product_lost_section_5.Raise(0); 
+Gantry_A_product_lost_section_5.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.ProductLost[6] THEN 
-Gantry_A_product_lost_section_6.Raise(0); 
+Gantry_A_product_lost_section_6.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[1] THEN 
-Gantry_B_product_lost_section_1.Raise(0); 
+Gantry_B_product_lost_section_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[2] THEN 
-Gantry_B_product_lost_section_2.Raise(0); 
+Gantry_B_product_lost_section_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[3] THEN 
-Gantry_B_product_lost_section_3.Raise(0); 
+Gantry_B_product_lost_section_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[4] THEN 
-Gantry_B_product_lost_section_4.Raise(0); 
+Gantry_B_product_lost_section_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[5] THEN 
-Gantry_B_product_lost_section_5.Raise(0); 
+Gantry_B_product_lost_section_5.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.ProductLost[6] THEN 
-Gantry_B_product_lost_section_6.Raise(0); 
+Gantry_B_product_lost_section_6.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.PositionAtFrontError THEN 
-Spraybar_not_in_front_rest_position.Raise(0); 
+Spraybar_not_in_front_rest_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.ProductForming.SprayBar.PositionAtBackError THEN 
-Spraybar_not_in_back_rest_position.Raise(0); 
+Spraybar_not_in_back_rest_position.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF MAIN.EtherCatDiag.EtherCATLinkError THEN 
-Ethercat_diagnosed_a_link_error.Raise(0); 
+Ethercat_diagnosed_a_link_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF MAIN.EtherCatDiag.EtherCATSlaveMissing THEN 
-Ethercat_diagnosed_that_a_slave_is_missing.Raise(0); 
+Ethercat_diagnosed_that_a_slave_is_missing.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF MAIN.EtherCatDiag.EtherCATOPmode THEN 
-Ethercat_diagnosed_a_non_OP_state.Raise(0); 
+Ethercat_diagnosed_a_non_OP_state.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF MAIN.EtherCatDiag.EtherCATResetNeeded THEN 
-Ethercat_diagnosed_that_a_ethercat_reset_is_needed.Raise(0); 
+Ethercat_diagnosed_that_a_ethercat_reset_is_needed.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.SafePositionValveNotReached THEN 
-TopMold_A_Safe_position_not_reached.Raise(0); 
+TopMold_A_Safe_position_not_reached.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.SafePositionValveNotReached THEN 
-TopMold_B_Safe_position_not_reached.Raise(0); 
+TopMold_B_Safe_position_not_reached.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.SafePositionValveNotReached THEN 
-Transfermold_Safe_position_not_reached.Raise(0); 
+Transfermold_Safe_position_not_reached.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighA[1] THEN 
-Difference_in_temperature_too_high_top_bottommold_A_zone_1.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_A_zone_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighA[2] THEN 
-Difference_in_temperature_too_high_top_bottommold_A_zone_2.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_A_zone_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighA[3] THEN 
-Difference_in_temperature_too_high_top_bottommold_A_zone_3.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_A_zone_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighA[4] THEN 
-Difference_in_temperature_too_high_top_bottommold_A_zone_4.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_A_zone_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighA[5] THEN 
-Difference_in_temperature_too_high_top_bottommold_A_zone_5.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_A_zone_5.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighA[6] THEN 
-Difference_in_temperature_too_high_top_bottommold_A_zone_6.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_A_zone_6.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighB[1] THEN 
-Difference_in_temperature_too_high_top_bottommold_B_zone_1.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_B_zone_1.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighB[2] THEN 
-Difference_in_temperature_too_high_top_bottommold_B_zone_2.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_B_zone_2.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighB[3] THEN 
-Difference_in_temperature_too_high_top_bottommold_B_zone_3.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_B_zone_3.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighB[4] THEN 
-Difference_in_temperature_too_high_top_bottommold_B_zone_4.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_B_zone_4.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighB[5] THEN 
-Difference_in_temperature_too_high_top_bottommold_B_zone_5.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_B_zone_5.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.TempDeviationToHighB[6] THEN 
-Difference_in_temperature_too_high_top_bottommold_B_zone_6.Raise(0); 
+Difference_in_temperature_too_high_top_bottommold_B_zone_6.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDriveAbsoluut THEN 
-Gantry_A_Vertical_Drive_absoluut_error.Raise(0); 
+Gantry_A_Vertical_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDriveJog THEN 
-Gantry_A_Vertical_Drive_Jog_error.Raise(0); 
+Gantry_A_Vertical_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDrivePower THEN 
-Gantry_A_Vertical_Drive_power_error.Raise(0); 
+Gantry_A_Vertical_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDriveReset THEN 
-Gantry_A_Vertical_Drive_reset.Raise(0); 
+Gantry_A_Vertical_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDriveStatus THEN 
-Gantry_A_Vertical_Drive_status.Raise(0); 
+Gantry_A_Vertical_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDriveStop THEN 
-Gantry_A_Vertical_Drive_stop_error.Raise(0); 
+Gantry_A_Vertical_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exDriveVelocity THEN 
-Gantry_A_Vertical_Drive_velocity_error.Raise(0); 
+Gantry_A_Vertical_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exHome THEN 
-Gantry_A_Vertical_Drive_home_error.Raise(0); 
+Gantry_A_Vertical_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exLagError THEN 
-Gantry_A_Vertical_Drive_lag_error.Raise(0); 
+Gantry_A_Vertical_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exReadParameter THEN 
-Gantry_A_Vertical_Drive_read_parameter_error.Raise(0); 
+Gantry_A_Vertical_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_A.VerticalNCAxisError.exWriteParameter THEN 
-Gantry_A_Vertical_Drive_write_parameter_error.Raise(0); 
+Gantry_A_Vertical_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDriveAbsoluut THEN 
-Gantry_B_Vertical_Drive_absoluut_error.Raise(0); 
+Gantry_B_Vertical_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDriveJog THEN 
-Gantry_B_Vertical_Drive_Jog_error.Raise(0); 
+Gantry_B_Vertical_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDrivePower THEN 
-Gantry_B_Vertical_Drive_power_error.Raise(0); 
+Gantry_B_Vertical_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDriveReset THEN 
-Gantry_B_Vertical_Drive_reset.Raise(0); 
+Gantry_B_Vertical_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDriveStatus THEN 
-Gantry_B_Vertical_Drive_status.Raise(0); 
+Gantry_B_Vertical_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDriveStop THEN 
-Gantry_B_Vertical_Drive_stop_error.Raise(0); 
+Gantry_B_Vertical_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exDriveVelocity THEN 
-Gantry_B_Vertical_Drive_velocity_error.Raise(0); 
+Gantry_B_Vertical_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exHome THEN 
-Gantry_B_Vertical_Drive_home_error.Raise(0); 
+Gantry_B_Vertical_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exLagError THEN 
-Gantry_B_Vertical_Drive_lag_error.Raise(0); 
+Gantry_B_Vertical_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exReadParameter THEN 
-Gantry_B_Vertical_Drive_read_parameter_error.Raise(0); 
+Gantry_B_Vertical_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.ProductHandlingErrors.Gantry_B.VerticalNCAxisError.exWriteParameter THEN 
-Gantry_B_Vertical_Drive_write_parameter_error.Raise(0); 
+Gantry_B_Vertical_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDriveAbsoluut THEN 
-Bottommold_B_Horizontal_Drive_absoluut_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDriveJog THEN 
-Bottommold_B_Horizontal_Drive_Jog_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDrivePower THEN 
-Bottommold_B_Horizontal_Drive_power_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDriveReset THEN 
-Bottommold_B_Horizontal_Drive_reset.Raise(0); 
+Bottommold_B_Horizontal_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDriveStatus THEN 
-Bottommold_B_Horizontal_Drive_status.Raise(0); 
+Bottommold_B_Horizontal_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDriveStop THEN 
-Bottommold_B_Horizontal_Drive_stop_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exDriveVelocity THEN 
-Bottommold_B_Horizontal_Drive_velocity_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exHome THEN 
-Bottommold_B_Horizontal_Drive_home_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exLagError THEN 
-Bottommold_B_Horizontal_Drive_lag_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exReadParameter THEN 
-Bottommold_B_Horizontal_Drive_read_parameter_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldB.HorizontalAxis.exWriteParameter THEN 
-Bottommold_B_Horizontal_Drive_write_parameter_error.Raise(0); 
+Bottommold_B_Horizontal_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDriveAbsoluut THEN 
-Bottommold_A_Horizontal_Drive_absoluut_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_absoluut_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDriveJog THEN 
-Bottommold_A_Horizontal_Drive_Jog_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_Jog_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDrivePower THEN 
-Bottommold_A_Horizontal_Drive_power_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_power_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDriveReset THEN 
-Bottommold_A_Horizontal_Drive_reset.Raise(0); 
+Bottommold_A_Horizontal_Drive_reset.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDriveStatus THEN 
-Bottommold_A_Horizontal_Drive_status.Raise(0); 
+Bottommold_A_Horizontal_Drive_status.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDriveStop THEN 
-Bottommold_A_Horizontal_Drive_stop_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_stop_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exDriveVelocity THEN 
-Bottommold_A_Horizontal_Drive_velocity_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_velocity_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exHome THEN 
-Bottommold_A_Horizontal_Drive_home_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_home_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exLagError THEN 
-Bottommold_A_Horizontal_Drive_lag_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_lag_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exReadParameter THEN 
-Bottommold_A_Horizontal_Drive_read_parameter_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_read_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF 
 
 IF Main.Errors.InMoldDryingErrors.BottomMoldA.HorizontalAxis.exWriteParameter THEN 
-Bottommold_A_Horizontal_Drive_write_parameter_error.Raise(0); 
+Bottommold_A_Horizontal_Drive_write_parameter_error.Raise(Main.timestampNanoseconds); 
 END_IF ]]></ST>
       </Implementation>
     </Action>
@@ -3569,7 +3569,7 @@ END_IF ]]></ST>
       <LineId Id="1" Count="0" />
       <LineId Id="1880" Count="472" />
       <LineId Id="2354" Count="0" />
-      <LineId Id="9856" Count="1873" />
+      <LineId Id="11730" Count="1873" />
       <LineId Id="1879" Count="0" />
     </LineIds>
   </POU>

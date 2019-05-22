@@ -15,7 +15,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var control = TcHmi.Controls.get(\"TcHmiTextblock_835\");\n\nvar group = TcHmi.Server.getGroupsOfCurrentUser();\nvar groups = \"\";\n\n$.each(group, function(key,value){\n       \tconsole.log(value);\n\tif(!value.startsWith(\"__\")){\n   \t   \tconsole.log(value);\n       \tif(groups !== \"\"){\n   \t\t\tgroups += \", \";\n    \t\tgroups += value;\n   \t   \t} else {\t\n    \t\tgroups = value;   \t\t\n   \t\t}\n   \t}\n});\nconsole.log(groups);\ncontrol.setText(groups);"
+          "var control = TcHmi.Controls.get(\"TcHmiTextblock_835\");\n\nvar group = TcHmi.Server.getGroupsOfCurrentUser();\nvar groups = \"\";\n\nif(group.length <= 1) {\n\tgroups = group[0];\t\n} else {\n\t$.each(group, function(key,value){\n\t\tif(!value.startsWith(\"__\")){\n\t       \tif(groups !== \"\"){\n\t   \t\t\tgroups += \", \";\n\t    \t\tgroups += value;\n\t   \t   \t} else {\t\n\t    \t\tgroups = value;   \t\t\n\t   \t\t}\n\t   \t}\n\t});\n}\n\ncontrol.setText(groups);"
         ],
         "injectContextObject": false,
         "asyncWait": true,

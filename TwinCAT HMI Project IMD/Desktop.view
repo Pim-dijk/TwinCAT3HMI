@@ -1944,8 +1944,8 @@
     "widthUnit": "px"
   },
   {
-    "columnName": "timeRaised",
-    "width": 75,
+    "columnName": "timeAndDateRaised",
+    "width": 140,
     "widthUnit": "px"
   },
   {
@@ -1962,7 +1962,7 @@
   },
   {
     "columnName": "text",
-    "width": 442,
+    "width": 377,
     "widthUnit": "px"
   }
 ]
@@ -1971,11 +1971,7 @@
 [
   {
     "name": "timeRaised",
-    "order": "Ascending"
-  },
-  {
-    "name": "params::eventId",
-    "order": "Ascending"
+    "order": "Descending"
   }
 ]
 </script>

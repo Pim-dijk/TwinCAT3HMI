@@ -9,15 +9,12 @@
 
 (function (TcHmi) {
 
+    // Symbol : value of the symbol
+    // itemID : integer that represents the object
+    // StatusTextList : List of all available status messages and their translations.
     var GetStatusText = function (Symbol,itemID,StatusTextList) {
-        //console.log(Symbol);
-        //console.log(itemID);
-        //console.log(StatusTextList);
 
         var locale = TcHmi.Locale.get();
-        //console.log(locale);
-
-        //console.log(StatusTextList[locale][itemID][Symbol]);
 
         var text = StatusTextList[locale][itemID][Symbol];
         return text;

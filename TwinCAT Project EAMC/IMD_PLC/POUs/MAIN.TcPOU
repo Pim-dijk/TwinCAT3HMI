@@ -5,6 +5,7 @@
 VAR	
 	unixTime: UnixTimestamp;
 	timestampNanoseconds: ULINT;
+	timestampNanoseconds2: ULINT;
 
 	// General variables
 	mxReset									: BOOL;

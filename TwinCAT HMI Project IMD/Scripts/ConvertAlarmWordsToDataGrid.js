@@ -9,9 +9,11 @@
 
 (function (TcHmi) {
 
+    // AlarmWordList : List of all alarmwords and their starting number
+    // AlarmMessageList : List of all the alarm messages associated with their respective alarms
+    // AlarmDB : Object to store all of the active alarm messages in
     var ConvertAlarmWordsToDataGrid = function (ctx,AlarmWordList,AlarmMessageList,AlarmDB) {
-        console.log("Checking all alarmwords and storing them in the alarmDB");
-        //console.log(AlarmWordList);
+        //console.log("Checking all alarmwords and storing them in the alarmDB");
         
         // Get the locale information
         var timeZone = TcHmi.Locale.get();
@@ -27,9 +29,9 @@
         var alarmSymbol = AlarmDB.__symbol.__expression.__expression;
         var alarmDBSymbol = new TcHmi.Symbol(alarmSymbol);
         var alarmDB = alarmDBSymbol.read();
+
         // uncomment to reset the DB
         //alarmDB = {};
-        //console.log(allAlarms);
 
         $.each(allAlarms, function (key, value) {
             // Read the server side symbol alarm value
@@ -80,8 +82,6 @@
                                 jsonEntry['Test3'] = result.AlarmGroup.text;
                                 jsonEntry['Test4'] = alarmStrings[timeZone][(i + offset)];
                                 alarmDB[(i + offset)] = jsonEntry;
-                                //console.log(alarmDB);
-                                //console.log(jsonEntry);
                                 jsonEntry = {};
                             }
                         } if (exists && (binArray[i] === '0')) {
@@ -93,7 +93,6 @@
                     // Check if we are at the end of the AlarmWordList
                     // If so, write to target control
                     if (count >= length) {
-                        //console.log(alarmDB);
                         // Write to alarmDB Symbol
                         alarmDBSymbol.write(alarmDB, function (data) {
                             if (data.error === TcHmi.Errors.NONE) {
@@ -152,8 +151,6 @@
         };
 
         function doesExistInDB(index) {
-            //console.log("Does this exists in the DB?");
-            //console.log(alarmDB[index]);
             if (alarmDB[index] !== undefined) {
                 return true;
             } else {

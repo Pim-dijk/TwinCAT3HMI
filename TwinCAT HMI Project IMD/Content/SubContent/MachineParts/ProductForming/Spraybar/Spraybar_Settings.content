@@ -44,7 +44,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content"
+          "value": "Content/SubContent/MachineParts/ProductForming/Spraybar/Spraybar_Overview.content"
         },
         "asyncWait": true
       }
