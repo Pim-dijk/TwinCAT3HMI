@@ -2169,21 +2169,21 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..7] OF BOOL</Name>
-			<BitSize>56</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
-			<ArrayInfo>
-				<LBound>1</LBound>
-				<Elements>7</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
 			<Name GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..1] OF BOOL</Name>
 			<BitSize>16</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>2</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..7] OF BOOL</Name>
+			<BitSize>56</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>7</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
@@ -5943,13 +5943,14 @@ External Setpoint Generation:
 		<ImageData Id="1017">424dba000000000000004a00000028000000100000000e000000010004000000000070000000c30e0000c30e0000050000000500000000000000ff00ff0080808000007fff0000ff000011111111111111110000000000000000020202020000044004040404000004400000000000000000000000000000000002020202000004400404040400000440000000000000000033333311111111113333331111111111333333111111111133333311111111113333331111111111</ImageData>
 		<ImageData Id="1018">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff0000ff0000ff0000ff0000ff0000ff0000c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{CA5A7DDC-1C7E-4805-91FF-63E404163A96}" TargetNetId="192.168.0.122.1.1" ShowHideConfigurations="#x6">
+	<Project ProjectGUID="{CA5A7DDC-1C7E-4805-91FF-63E404163A96}" Target64Bit="true" ShowHideConfigurations="#x6">
 		<System>
-			<Settings MaxCpus="2">
+			<Settings MaxCpus="4">
 				<Cpu CpuId="1" BaseTime="2500"/>
 			</Settings>
 			<Licenses>
 				<Target>
+					<ManualSelect>{92583661-35AE-45CE-BD4F-C35BFE16F07E}</ManualSelect>
 					<ManualSelect>{796D380F-D49E-4C0C-A05F-500052FAC883}</ManualSelect>
 				</Target>
 			</Licenses>
@@ -8990,13 +8991,6 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.ixTwinSafe_SafetyRelay</Name>
-							<Comment>
-								<![CDATA[ couple to zones in Safety programm FB outputs ]]>
-							</Comment>
-							<Type GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}">ARRAY [1..7] OF BOOL</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.ComErr</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -9192,6 +9186,13 @@ External Setpoint Generation:
 							<Type GUID="{11F20A4A-90D4-35C7-DB3B-0E8659E05E68}">ARRAY [0..1] OF BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.ixTwinSafe_SafetyRelay</Name>
+							<Comment>
+								<![CDATA[ couple to zones in Safety programm FB outputs ]]>
+							</Comment>
+							<Type GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}">ARRAY [1..7] OF BOOL</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.ixSafetyGantryB_FrontDoorRight</Name>
 							<Comment>
 								<![CDATA[ couple to the TwinSAFE inputs ]]>
@@ -9213,10 +9214,6 @@ External Setpoint Generation:
 							<Type>UINT</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.iAmsNetID</Name>
-							<Type GUID="{59CB7A65-AEAB-E588-EB2A-AFE112B8A9CC}">ARRAY [0..5] OF BYTE</Type>
-						</Var>
-						<Var>
 							<Name>MAIN.iwSlaveCount</Name>
 							<Type>UINT</Type>
 						</Var>
@@ -9227,21 +9224,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>MAIN.iwDevState</Name>
 							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.L1</Name>
-							<Comment>
-								<![CDATA[ Variables for O.E.E]]>
-							</Comment>
-							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.L2</Name>
-							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.L3</Name>
-							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ixMainSwitchOFF</Name>
@@ -9265,6 +9247,25 @@ External Setpoint Generation:
 						<Var>
 							<Name>MAIN.MainAirPressureSwitch</Name>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iAmsNetID</Name>
+							<Type GUID="{59CB7A65-AEAB-E588-EB2A-AFE112B8A9CC}">ARRAY [0..5] OF BYTE</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.L1</Name>
+							<Comment>
+								<![CDATA[ Variables for O.E.E]]>
+							</Comment>
+							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.L2</Name>
+							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.L3</Name>
+							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
@@ -10062,6 +10063,29 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.qxLightGreen</Name>
+							<Comment>
+								<![CDATA[ Outputs for alarm tower.]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightYellow</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxLightRed</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxAlarmHorn</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.qxPcRemoteOff</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldA.VacuumSection[1].Q</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -10107,29 +10131,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>MAIN.ChkMachPar.InMoldDrying.BottomMoldB.VacuumSection[6].Q</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightGreen</Name>
-							<Comment>
-								<![CDATA[ Outputs for alarm tower.]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightYellow</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxLightRed</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxAlarmHorn</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.qxPcRemoteOff</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -10311,6 +10312,22 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.FbError</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ComErr</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.OutErr</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iwDevID</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.L1</Name>
 							<Type GUID="{E025F0EF-7AF7-48C2-B055-A4A47BBA2C7A}">ST_PowerMeasurement</Type>
 						</Var>
@@ -10328,26 +10345,6 @@ External Setpoint Generation:
 								<![CDATA[ couple to zones in Safety programm FB outputs ]]>
 							</Comment>
 							<Type GUID="{09A1B3AF-5DD5-E41E-C9E6-53B298C60B92}">ARRAY [1..7] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.FbError</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.ComErr</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.OutErr</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iwDevID</Name>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.iAmsNetID</Name>
-							<Type GUID="{59CB7A65-AEAB-E588-EB2A-AFE112B8A9CC}">ARRAY [0..5] OF BYTE</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.iwSlaveCount</Name>
@@ -10376,6 +10373,10 @@ External Setpoint Generation:
 						<Var>
 							<Name>MAIN.ixUPS_Charge</Name>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.iAmsNetID</Name>
+							<Type GUID="{59CB7A65-AEAB-E588-EB2A-AFE112B8A9CC}">ARRAY [0..5] OF BYTE</Type>
 						</Var>
 						<Var>
 							<Name>MAIN.ComSpeedControl_IMD1.IMD_SpeedControl</Name>
@@ -10850,7 +10851,7 @@ External Setpoint Generation:
 			</Project>
 		</Safety>
 		<Io>
-			<Device Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="192.168.0.122.3.1" RemoteName="Device 2 (EtherCAT)" Id="2">
+			<Device Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="192.168.11.221.3.1" RemoteName="Device 2 (EtherCAT)" Id="2">
 				<Name>Device 2 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>

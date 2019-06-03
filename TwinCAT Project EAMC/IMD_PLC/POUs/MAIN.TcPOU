@@ -3,6 +3,7 @@
   <POU Name="MAIN" Id="{147bab3f-acfd-4acf-8d8e-a76750ccc81a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR	
+	// Get current timestamp for raising alarms
 	unixTime: UnixTimestamp;
 	timestampNanoseconds: ULINT;
 	timestampNanoseconds2: ULINT;

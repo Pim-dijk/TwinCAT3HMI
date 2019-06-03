@@ -5,7 +5,7 @@
       "displayName": "FontSize",
       "visible": true,
       "type": "tchmi:general#/definitions/INT",
-      "category": "",
+      "category": "Kremer",
       "description": "",
       "defaultValue": 14,
       "defaultValueInternal": 14,
