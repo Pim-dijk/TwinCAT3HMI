@@ -333,3 +333,5 @@ ASALocalRun/
 .engineering_servers/
 .engineering_servers/TwinCAT HMI Project IMD/tchmi.project.Schema.json
 *.db
+.engineering_servers/TwinCAT HMI Project IMD/historize.db-journal
+.engineering_servers/TwinCAT HMI Project IMD/historize.db
