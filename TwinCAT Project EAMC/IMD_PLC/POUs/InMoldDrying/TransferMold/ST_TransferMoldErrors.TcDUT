@@ -3,11 +3,9 @@
   <DUT Name="ST_TransferMoldErrors" Id="{891babd8-6100-4e00-954e-204ae3c1dd7b}">
     <Declaration><![CDATA[TYPE ST_TransferMoldErrors :
 STRUCT
-	HydraulicCilinder			: ST_HydraulicErrorsAnalog;
-
-	Error1: BOOL;
-	Error2: BOOL;
-
+	TrDidNotReachBMPosTimeOut		: BOOL;
+	TrDidNotReachFormingPosTimeOut 	: BOOL;
+	HydraulicCilinder				: ST_HydraulicErrorsAnalog;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

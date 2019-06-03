@@ -9,14 +9,14 @@
 
 (function (TcHmi) {
 
+    // SymbolString : string representing the symbol to write to
+    // Value : value to write to the symbol
     var WriteToSymbol_TIME = function (ctx,SymbolString,Value) {
-        //console.log(SymbolString);
-        //console.log(Value);
 
+        // Convert the ms back to a time object
         var value = 'PT';
         value += (Value / 1000);
         value += 'S';
-        //console.log(value);
         
         TcHmi.Symbol.writeEx(SymbolString, value, function (data) {
             if (data.error === TcHmi.Errors.NONE) {

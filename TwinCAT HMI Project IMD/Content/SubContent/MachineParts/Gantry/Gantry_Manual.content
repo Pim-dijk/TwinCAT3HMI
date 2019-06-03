@@ -208,38 +208,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_49.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.0"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_49%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_50" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="229" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -266,38 +235,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_50.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.1"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_50%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_51" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="270" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -324,38 +262,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_51.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.2"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_51%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_52" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="311" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -382,38 +289,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_52.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.3"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_52%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_53" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -440,38 +316,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_53.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.4"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_53%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_54" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="393" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -498,38 +343,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_54.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.MachPar.ProductHandling.Gantry{0}.EnableVacuumSection.5"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_54%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_55" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="47" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -556,38 +370,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_55.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.BlowOff.0.mxHMI_On"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_55%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_56" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="89" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -614,38 +397,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_56.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.BlowOff.1.mxHMI_On"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_56%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_57" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -672,38 +424,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_57.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.BlowOff.2.mxHMI_On"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_57%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_58" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="171" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -730,38 +451,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_58.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.BlowOff.3.mxHMI_On"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_58%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_59" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="212" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -788,38 +478,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_59.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.BlowOff.4.mxHMI_On"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_59%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_60" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Toggle" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="253" data-tchmi-top-unit="px" data-tchmi-value="On" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -846,38 +505,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_60.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.BlowOff.5.mxHMI_On"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_60%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_61" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="117" data-tchmi-top-unit="px" data-tchmi-value="Down" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -904,38 +532,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_61.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.VerticalAxis.HMI_Backward"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_61%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_62" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="251" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="51" data-tchmi-top-unit="px" data-tchmi-value="Backward" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -962,38 +559,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_62.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.HorizontalAxis.HMI_Backward"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_62%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_63" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="146" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="51" data-tchmi-top-unit="px" data-tchmi-value="Forward" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -1020,38 +586,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_63.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.HorizontalAxis.HMI_Forward"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_63%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 <div id="Kremer_Button_64" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="16" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="146" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="117" data-tchmi-top-unit="px" data-tchmi-value="Up" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px">
@@ -1078,38 +613,7 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "Kremer_Button_64.onAttached",
-    "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "CreateGantryBinding",
-        "fnParams": [
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": "PLC1.MAIN.ProductHandling.Gantry{0}.VerticalAxis.HMI_Forward"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:framework#/definitions/Control",
-            "symbolExpression": "%ctrl%Kremer_Button_64%/ctrl%"
-          },
-          {
-            "objectType": "StaticValue",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": ""
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
 </div>

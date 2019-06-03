@@ -28,6 +28,8 @@ STRUCT
 	exGantryB_FrontDoorRight		: BOOL;
 	exGantryB_BackDoor				: BOOL;
 	
+	MainAirSupplyError				: BOOL;
+	
 	ex24VoltError1					: BOOL; 
 	ex24VoltError2					: BOOL;
 	

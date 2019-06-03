@@ -1,83 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
-  <POU Name="FB_HydraulicCilinderAnalog" Id="{891d73d8-9b16-4e13-823e-de83c035e09f}" SpecialFunc="None">
+  <POU Name="FB_HydraulicCilinderAnalog" Id="{f656e3fc-b3ed-42d3-a4ef-1eb76193e145}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_HydraulicCilinderAnalog
-
 VAR_INPUT
-	mxReset							: BOOL;	(*Reset Error*)
-	mxEmergency						: BOOL;
-	mxAutoMode						: BOOL; (* TRUE = Automode *)
-	EndPositionIn					: REAL;
-	EndPositionOut					: REAL;
-	OffsetPosition					: REAL;
-	OffsetAlarmPosition				: REAL;	
-	PositionPhysicalMeasured		: REAL;	
-	RHSR_Blocked					: BOOL; (*IF true, then movement of the cylinder is blocked by the red hot safetyrules.*)
-	
-	ManSpeedCreepIn					: REAL;
-	ManSpeedCreepOut				: REAL;
-	ManSpeedSlowIn					: REAL;
-	ManSpeedSlowOut					: REAL;
-	ManSpeedIn						: REAL;
-	ManSpeedOut						: REAL;
-
+	///Reset Error
+	mxReset: BOOL;
+	mxEmergency: BOOL;
+	/// TRUE = Automode 
+	mxAutoMode: BOOL;
+	EndPositionIn: REAL;
+	EndPositionOut: REAL;
+	OffsetPosition: REAL;
+	OffsetAlarmPosition: REAL;
+	PositionPhysicalMeasured: REAL;
+	///IF true, then movement of the cylinder is blocked by the red hot safetyrules.
+	RHSR_Blocked: BOOL;
+	ManSpeedCreepIn: REAL;
+	ManSpeedCreepOut: REAL;
+	ManSpeedSlowIn: REAL;
+	ManSpeedSlowOut: REAL;
+	ManSpeedIn: REAL;
+	ManSpeedOut: REAL;
+	/// Cycle information 
+	mxCycleBusy: BOOL;
+	mxInitBusy: BOOL;
 END_VAR
 VAR_OUTPUT
-(*Errors*)
-	Errors							: ST_HydraulicErrorsAnalog;
-	mxErrorInit						: BOOL;		(* Error, stop immediately. Initialisation neccesary *)
-	mxErrorStopinPos				: BOOL;		(* Error, stop in position. Only reset neccesary *)
-
-(* State vars *)
-	mxCycleBusy						: BOOL;
-	mxInitBusy						: BOOL;
-	
-(* Vars *)
-	mxInitialized					: BOOL;
-	ActPosition						: REAL;
-	ActMeasuredPosition				: REAL;
-	mxSlowActive					: BOOL;
-	mxIsMovingIn					: BOOL;
-	mxIsMovingOut					: BOOL;
-	mxIsIn							: BOOL;
-	mxIsOut							: BOOL;
-	mxMoveIn						: BOOL;
-	mxMoveOut						: BOOL;
+	///Errors
+	Errors: ST_HydraulicErrorsAnalog;
+	/// Error, stop immediately. Initialisation neccesary 
+	mxErrorInit: BOOL;
+	/// Error, stop in position. Only reset neccesary 
+	mxErrorStopinPos: BOOL;
+	/// Vars 
+	mxInitialized: BOOL;
+	ActPosition: REAL;
+	ActMeasuredPosition: REAL;
+	mxSlowActive: BOOL;
+	mxIsMovingIn: BOOL;
+	mxIsMovingOut: BOOL;
+	mxIsIn: BOOL;
+	mxIsOut: BOOL;
+	mxMoveIn: BOOL;
+	mxMoveOut: BOOL;
 END_VAR
-VAR
-(* Testing new HMI alarms *)	
-	_eventBase						: FB_TcEventBase;	
-	_eventSourceName				: STRING;
-	_translatedString				: STRING;
-	_eventSourceInfo				: FB_TcSourceInfo;
-	_asyncResult					: FB_AsyncStrResult;
-	_initializeEvents				: BOOL := TRUE;
-	_PositionError 					: FB_TcAlarm;
-	_IsMovingWithoutActivationError	: FB_TcAlarm;
-	_BallufError 					: FB_TcAlarm;
-
-	RodSidePressure					: FB_AnalogIn4_20mA;
-	BottomSidePressure				: FB_AnalogIn4_20mA;
-
-	(* Objects *)
-	HydraulicValve					: FB_AnalogOutMinus10_10V;
-	HydraulicPos 					: FB_BalluffPosition;
-	MachPar							: ST_HydraulicCilinderMachParAnalog;
-	
-	EndPosition						: REAL; (* Destination position *)
-	SlowPosition					: REAL; (* Slow position *)
-
-	FT_ValveInOff					: F_TRIG;
-	FT_ValveOutOff					: F_TRIG;
-	HydraulicStoredPosition			: REAL;
-	
-	ixEndSwitchA					AT %I* : BOOL;
-	ixEndSwitchB					AT %I* : BOOL;
-	ixMSPAReadyToOperate			AT %I* : BOOL;
-	qxMSPAEnable					AT %Q* : BOOL;
-	
-	mxMoveReadyWithoutMoving		: BOOL;
-	
+VAR	
+	RodSidePressure: FB_AnalogIn4_20mA;
+	BottomSidePressure: FB_AnalogIn4_20mA;
+	/// Objects 
+	HydraulicValve: FB_AnalogOutMinus10_10V;
+	HydraulicPos: FB_BalluffPosition;
+	MachPar: ST_HydraulicCilinderMachParAnalog;
+	/// Destination position 
+	EndPosition: REAL;
+	/// Slow position 
+	SlowPosition: REAL;
+	FT_ValveInOff: F_TRIG;
+	FT_ValveOutOff: F_TRIG;
+	HydraulicStoredPosition: REAL;
+	ixEndSwitchA AT %I*: BOOL;
+	ixEndSwitchB AT %I*: BOOL;
+	ixMSPAReadyToOperate AT %I*: BOOL;
+	qxMSPAEnable AT %Q*: BOOL;
+	mxMoveReadyWithoutMoving: BOOL;
 	RT_Emergency: R_Trig;
 	FT_AutoMode: F_TRIG;
 	SafePosReached: BOOL;
@@ -96,10 +81,16 @@ VAR
 	mxTestValue: REAL;
 	FT_ValveToNeutralPos: F_trig;
 	SR_SafePositionNotReached: SR;
+	ControlledManualy: BOOL;
+	MemPosition: REAL;
+	FT_MemPosition: F_TRIG;
+	FT_ControlledManually: F_TRIG;
+	FT_mxCycleBusy: F_TRIG;
+	FT_mxInitBusy: F_TRIG;
 END_VAR
 VAR_IN_OUT
-	PositionPhysicalMeasuredOld		: REAL;
-	PhysicalOffsetPos				: REAL;
+	PositionPhysicalMeasuredOld: REAL;
+	PhysicalOffsetPos: REAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -138,47 +129,42 @@ IF RT_Emergency.Q OR FT_AutoMode.Q THEN
 	HydraulicValve.EngInput := 0;
 END_IF
 
+
 // From the TOP bosch -> If both feedback signals are high, the valve can be considered "safe" (base position reached
-SafePosReached:= ixEndSwitchA AND ixEndSwitchB;]]></ST>
-    </Implementation>
-    <Action Name="Error" Id="{bdf37958-7b18-41e4-889d-5d7c209f0b0f}">
-      <Implementation>
-        <ST><![CDATA[(* Initialize the alarms at the start *)
-IF _initializeEvents THEN
-	_initializeEvents := FALSE;
-	_eventSourceName := _eventSourceInfo.sName;
-	_PositionError.CreateEx(TC_Events.Kremer_Events.PositionError, TRUE, 0);
-	_PositionError.ipArguments.Clear().AddString(_eventSourceName);
-	_IsMovingWithoutActivationError.CreateEx(TC_Events.Kremer_Events.IsMovingWithoutActivation, TRUE, 0);
-	_IsMovingWithoutActivationError.ipArguments.Clear().AddString(_eventSourceName);
-	_BallufError.CreateEx(TC_Events.Kremer_Events.BallufError, TRUE, 0);
-	
-	_BallufError.RequestEventText(19, _translatedString, SIZEOF(_translatedString));
-	_BallufError.RequestEventClassName(19, _translatedString, SIZEOF(_translatedString));
-	
-	(* _BallufError.ipArguments.Clear().AddString(_eventSourceName); *)
-	
-	
-	F_GetEventText(19, _BallufError, _asyncResult);
-	IF NOT _asyncResult.bBusy AND NOT _asyncResult.bError THEN 
-		_asyncResult.GetString(_eventSourceName, SIZEOF(_eventSourceName));
-		_BallufError.ipArguments.Clear().AddString(_eventSourceName);
-	END_IF 
-	
-	(* _BallufError.SetJsonAttribute('{ "jsonKey":"jsonValue" }'); *)
+SafePosReached:= ixEndSwitchA AND ixEndSwitchB;
+
+
+
+// Bateu 20190317
+
+// niet manual bedient. 
+// niet init bezig.
+// niet cyclus actief.	
+ControlledManualy := (ManDown OR ManSlowDown OR ManCreepDown OR ManUp OR ManSlowUp OR ManCreepUp) AND NOT mxAutoMode; 
+
+FT_ControlledManually(CLK:=ControlledManualy);
+FT_mxCycleBusy(CLK:=mxCycleBusy);
+FT_mxInitBusy(CLK:=mxInitBusy);
+
+// When in manual and control has stopped. Save current position. 
+
+IF FT_ControlledManually.Q OR FT_mxCycleBusy.q OR FT_mxInitBusy.q THEN
+	MemPosition := ActPosition;
+END_IF;	
+							 
+IF NOT ControlledManualy AND NOT mxCycleBusy AND NOT mxInitBusy THEN	// Keep in its "up" position.
+	M_Move(EndPosition:= MemPosition,  NormalSpeed:= ManSpeedCreepIn (*ManSpeedSlowIn*), 		
+			SlowPosition:= MemPosition - 25, SlowSpeed:= ManSpeedCreepIn(*ManSpeedSlowIn*)	, 
+			CreepPosition:=MemPosition - 10, CreepSpeed:=ManSpeedCreepIn);
 END_IF
 
-Errors.BallufError:= HydraulicPos.Error;
-(* Raise the alarm *)
-IF Errors.BallufError THEN
-	_BallufError.Raise(0);
-	(* _IsMovingWithoutActivationError.Raise(0);
-	_PositionError.Raise(0); *)
-ELSE
-	IF _BallufError.eConfirmationState = 3 THEN (* If the alarm has been confirmed, clear it*)
-		_BallufError.Clear(0, FALSE);
-	END_IF
-END_IF
+
+
+]]></ST>
+    </Implementation>
+    <Action Name="Error" Id="{c1a8f428-ab82-4542-866b-d20534fe250f}">
+      <Implementation>
+        <ST><![CDATA[Errors.BallufError:= HydraulicPos.Error;
 
 // Check for a to high a pressure
 SR_RodSidePressureTooHigh(SET1:=mxIsMovingIn AND (RodSidePressure.EngFilt > MachPar.MaxRodSidePressure),Reset:=mxReset,Q1=>Errors.RodSidePressureTooHigh);
@@ -204,39 +190,29 @@ END_IF
 // Look into above alarm, this keeps triggering, probably due to not setting actual position in the right way
 
 (***************************************************************************************)
-mxErrorStopInPos:= Errors.PositionError OR Errors.IsMovingWithoutActivation OR Errors.BotSidePressureTooHigh OR Errors.RodSidePressureTooHigh;
-mxErrorInit:= FALSE;]]></ST>
+mxErrorStopInPos:= FALSE;
+mxErrorInit:= Errors.IsMovingWithoutActivation; //OR Errors.BotSidePressureTooHigh OR Errors.RodSidePressureTooHigh;]]></ST>
       </Implementation>
     </Action>
-    <Method Name="M_Move" Id="{887c48d2-d43c-4aa2-839a-a510859d80b4}">
+    <Method Name="M_Move" Id="{c362a816-6b78-4ee6-b85c-91d27de608d2}">
       <Declaration><![CDATA[METHOD M_Move : BOOL
 VAR_INPUT
-	EndPosition		: REAL; (* Destination position *)
-	NormalSpeed		: REAL;
-	
-	SlowPosition	: REAL; (* Slow position *)
-	SlowSpeed		: REAL;
-		
-	CreepPosition 	: REAL;	(*CreepSpeed.*)
-	CreepSpeed		: REAL;
-	
-END_VAR
-VAR_OUTPUT
+	/// Destination position 
+	EndPosition: REAL;
+	NormalSpeed: REAL;
+	/// Slow position 
+	SlowPosition: REAL;
+	SlowSpeed: REAL;
+	///CreepSpeed.
+	CreepPosition: REAL;
+	CreepSpeed: REAL;
 END_VAR
 VAR
-
-
 	mxMoveINReady: BOOL;
 	mxMoveOutReady: BOOL;
-	ActSpeed : real;
-
-	End_Position: REAL;
-	Slow_Position: REAL;
-	Creep_Position: REAL;
-	Normal_Speed: REAL;
-	Slow_Speed: REAL;
-	Creep_Speed: REAL;
-END_VAR]]></Declaration>
+	ActSpeed: REAL;
+END_VAR
+]]></Declaration>
       <Implementation>
         <ST><![CDATA[mxMoveReadyWithoutMoving := FALSE;
 
@@ -281,25 +257,101 @@ mxMoveOutReady := (mxMoveOut AND ((ActPosition >= (EndPosition - MachPar.Hystere
 // reset directional bits to zero when leaving this method.
 IF mxMoveInReady OR mxMoveOutReady OR mxMoveReadyWithoutMoving THEN
 	mxMoveIn:= FALSE;
-	MxMoveOut:= FALSE;
+	mxMoveOut:= FALSE;
 END_IF
 
 // Signal the method has finished to the caller of the method.
 M_MOVE := mxMoveInReady OR mxMoveOutReady OR mxMoveReadyWithoutMoving; ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_Press" Id="{d031ef3f-5941-457a-9ec3-8cfeb3507604}">
-      <Declaration><![CDATA[METHOD M_Press : BOOL
+    <Method Name="M_OpenAndMove" Id="{1bca8383-6f76-437b-af9c-d968d2c4bba0}">
+      <Declaration><![CDATA[METHOD M_OpenAndMove : BOOL
 VAR_INPUT
-	PressDown		 	: BOOL; // Determines if press needs to be done moving down 
-	PressSpeed			: REAL;	// Flow at which the pressing occures
-	StoppingPressure	: REAL;	// Pressure at which the pressing stops
-END_VAR
-VAR_OUTPUT
+	/// Destination position 
+	EndPosition: REAL;
+	NormalSpeed: REAL;
+	/// Slow position 
+	SlowPosition: REAL;
+	SlowSpeed: REAL;
+	///CreepSpeed.
+	CreepPosition: REAL;
+	CreepSpeed: REAL;
+	OpenPosition: REAL;
+	OpenSpeed: REAL;
 END_VAR
 VAR
-	PressingDone		: Bool;
-END_VAR]]></Declaration>
+	mxMoveINReady: BOOL;
+	mxMoveOutReady: BOOL;
+	ActSpeed: REAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[mxMoveReadyWithoutMoving := FALSE;
+
+//Check current position of the rod, and check where to go and detemine direction
+IF ActPosition > (EndPosition + MachPar.Hysteresis) THEN		// Move up (Positive)
+	(*Set movement direction bit.*)
+	mxMoveIn:= FALSE;
+	mxMoveOut:= TRUE;
+	ActSpeed:= NormalSpeed;
+ELSIF ActPosition < (EndPosition - MachPar.Hysteresis) THEN 	// Move Down (Negative)
+	(*Set movement direction bit.*)
+	mxMoveIn:= TRUE;
+	mxMoveOut:= FALSE;
+	ActSpeed:= NormalSpeed;
+ELSE																			// Don't move at all (allready on pos).
+	mxMoveIn:= FALSE;
+	mxMoveOut:= FALSE;
+	mxMoveReadyWithoutMoving := TRUE;
+END_IF
+
+// Check at which speed the movement needs to be done.
+IF (NOT mxMoveIn AND NOT mxMoveOut) THEN	// No movement.
+	ActSpeed:= 0;
+ELSIF (mxMoveIn AND (ActPosition > CreepPosition)) OR (mxMoveOut AND (ActPosition < CreepPosition)) THEN 	//Creep speed.
+	ActSpeed:= CreepSpeed;
+ELSIF (mxMoveIn AND (ActPosition > SlowPosition)) OR (mxMoveOut AND (ActPosition < SlowPosition)) THEN 		//Slow speed.
+	ActSpeed:= SlowSpeed;
+ELSIF (mxMoveIn AND (ActPosition < OpenPosition)) THEN 		//Only do this on way up.
+	ActSpeed:= OpenSpeed;
+ELSIF (mxMoveIn OR mxMoveOut) THEN	// Normal speed if nothing else is selected.
+	ActSpeed:= NormalSpeed;
+END_IF
+
+// Set actual output on valve.
+IF mxMoveOut THEN ActSpeed := Actspeed *-1; END_IF
+HydraulicValve.EngInput := ActSpeed;
+
+// Check if the movement is ready.
+mxMoveInReady := (mxMoveIn AND ((ActPosition >= (EndPosition - MachPar.Hysteresis)) AND 
+				(ActPosition <= (EndPosition + MachPar.Hysteresis))));
+mxMoveOutReady := (mxMoveOut AND ((ActPosition >= (EndPosition - MachPar.Hysteresis)) AND 
+				(ActPosition <= (EndPosition + MachPar.Hysteresis))));	
+
+// reset directional bits to zero when leaving this method.
+IF mxMoveInReady OR mxMoveOutReady OR mxMoveReadyWithoutMoving THEN
+	mxMoveIn:= FALSE;
+	mxMoveOut:= FALSE;
+END_IF
+
+// Signal the method has finished to the caller of the method.
+M_OpenAndMove := mxMoveInReady OR mxMoveOutReady OR mxMoveReadyWithoutMoving; ]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Press" Id="{a5a9a7da-78ff-48aa-8723-3dc409991b96}">
+      <Declaration><![CDATA[METHOD M_Press : BOOL
+VAR_INPUT
+	/// Determines if press needs to be done moving down 
+	PressDown: BOOL;
+	/// Flow at which the pressing occures
+	PressSpeed: REAL;
+	/// Pressure at which the pressing stops
+	StoppingPressure: REAL;
+END_VAR
+VAR
+	PressingDone: BOOL;
+END_VAR
+]]></Declaration>
       <Implementation>
         <ST><![CDATA[IF PressDown THEN	// PressDown
 	IF (BottomSidePressure.EngFilt < StoppingPressure - 15) THEN
@@ -322,8 +374,8 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_Stop" Id="{8aba7fdd-7ab7-4cce-a136-a62c29cff248}">
-      <Declaration><![CDATA[METHOD M_Stop : BOOL;
+    <Method Name="M_Stop" Id="{5f3d7195-b507-48fd-9117-4dcff1d4dc46}">
+      <Declaration><![CDATA[METHOD M_Stop : BOOL
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[mxMoveIn := FALSE;
@@ -334,7 +386,7 @@ HydraulicValve.EngInput := 0.0;
 M_Stop:= TRUE;]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopDirect" Id="{4b921cd7-9258-4483-a441-0d982380ed05}">
+    <Method Name="M_StopDirect" Id="{a5c23189-cbe6-4a48-92c6-b3494ab42cf9}">
       <Declaration><![CDATA[METHOD M_StopDirect
 ]]></Declaration>
       <Implementation>
@@ -342,7 +394,7 @@ M_Stop:= TRUE;]]></ST>
 ]]></ST>
       </Implementation>
     </Method>
-    <Action Name="Manual" Id="{31253145-94ab-4799-93b9-c367aeeaa9f9}">
+    <Action Name="Manual" Id="{a6b1b29a-9682-4089-adbf-23360c8c6891}">
       <Implementation>
         <ST><![CDATA[IF ManCreepUp THEN
 	HydraulicValve.EngInput := ManSpeedCreepIn;
@@ -358,13 +410,14 @@ ELSIF ManDown THEN											// Somebody is seriously wounded. ^_^
 	HydraulicValve.EngInput := ManSpeedOut * -1;
 END_IF
 
+(* Discontinued because of keeping the hydraulics on pos. (And because of leaks closing was not enough)
 FT_ValveToNeutralPos(CLK:=ManCreepUp OR ManSlowUp OR ManUp OR ManCreepDown OR ManSlowDown OR ManDown);
 
 // When Automode is disabled, set the valve back to neutral position.
 IF FT_AutoMode.Q OR Ft_ValveToNeutralPos.Q THEN
 	HydraulicValve.EngInput := 0.0;
 END_IF
-
+*)
 	
 	
 	
@@ -373,7 +426,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Action>
-    <Action Name="Objects" Id="{c7ff7783-e4ec-4968-9a3a-b2d743ff049e}">
+    <Action Name="Objects" Id="{005cf89f-37c9-49d3-ba5b-7ecfee48fe32}">
       <Implementation>
         <ST><![CDATA[(* Objects Call *)
 BottomSidePressure(
@@ -405,191 +458,44 @@ HydraulicPos();]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="FB_HydraulicCilinderAnalog">
-      <LineId Id="564" Count="0" />
-      <LineId Id="1590" Count="0" />
-      <LineId Id="565" Count="0" />
-      <LineId Id="1307" Count="0" />
-      <LineId Id="1309" Count="0" />
-      <LineId Id="1182" Count="0" />
-      <LineId Id="1765" Count="0" />
-      <LineId Id="1854" Count="0" />
-      <LineId Id="1763" Count="1" />
-      <LineId Id="925" Count="0" />
-      <LineId Id="681" Count="0" />
-      <LineId Id="683" Count="1" />
-      <LineId Id="682" Count="0" />
-      <LineId Id="926" Count="0" />
-      <LineId Id="566" Count="4" />
-      <LineId Id="1177" Count="0" />
-      <LineId Id="2036" Count="0" />
-      <LineId Id="1178" Count="0" />
-      <LineId Id="1180" Count="0" />
-      <LineId Id="1179" Count="0" />
-      <LineId Id="689" Count="0" />
-      <LineId Id="688" Count="0" />
-      <LineId Id="1046" Count="0" />
-      <LineId Id="1315" Count="0" />
-      <LineId Id="1304" Count="0" />
-      <LineId Id="1437" Count="0" />
-      <LineId Id="1312" Count="0" />
-      <LineId Id="2127" Count="0" />
-      <LineId Id="1306" Count="0" />
-      <LineId Id="1507" Count="0" />
-      <LineId Id="9" Count="0" />
+      <LineId Id="3" Count="46" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="156" Count="0" />
+      <LineId Id="154" Count="0" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="50" Count="14" />
+      <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.Error">
-      <LineId Id="84" Count="1" />
-      <LineId Id="94" Count="0" />
-      <LineId Id="100" Count="0" />
-      <LineId Id="87" Count="0" />
-      <LineId Id="102" Count="0" />
-      <LineId Id="88" Count="0" />
-      <LineId Id="101" Count="0" />
-      <LineId Id="89" Count="0" />
-      <LineId Id="122" Count="0" />
-      <LineId Id="120" Count="1" />
-      <LineId Id="112" Count="0" />
-      <LineId Id="123" Count="0" />
-      <LineId Id="111" Count="0" />
-      <LineId Id="114" Count="1" />
-      <LineId Id="106" Count="0" />
-      <LineId Id="109" Count="0" />
-      <LineId Id="99" Count="0" />
-      <LineId Id="108" Count="0" />
-      <LineId Id="119" Count="0" />
-      <LineId Id="113" Count="0" />
-      <LineId Id="82" Count="0" />
-      <LineId Id="80" Count="0" />
-      <LineId Id="43" Count="0" />
-      <LineId Id="76" Count="0" />
-      <LineId Id="75" Count="0" />
-      <LineId Id="77" Count="0" />
-      <LineId Id="103" Count="1" />
-      <LineId Id="90" Count="0" />
-      <LineId Id="96" Count="2" />
-      <LineId Id="78" Count="0" />
-      <LineId Id="55" Count="2" />
-      <LineId Id="69" Count="0" />
-      <LineId Id="73" Count="1" />
-      <LineId Id="70" Count="0" />
-      <LineId Id="64" Count="0" />
-      <LineId Id="63" Count="0" />
-      <LineId Id="68" Count="0" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="15" Count="0" />
-      <LineId Id="65" Count="0" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="26" Count="2" />
-      <LineId Id="19" Count="0" />
-      <LineId Id="8" Count="0" />
-      <LineId Id="71" Count="1" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="4" Count="0" />
-      <LineId Id="2" Count="0" />
+      <LineId Id="75" Count="26" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.M_Move">
-      <LineId Id="447" Count="0" />
-      <LineId Id="431" Count="0" />
-      <LineId Id="359" Count="0" />
-      <LineId Id="361" Count="0" />
-      <LineId Id="370" Count="0" />
-      <LineId Id="450" Count="0" />
-      <LineId Id="448" Count="0" />
-      <LineId Id="364" Count="0" />
-      <LineId Id="363" Count="0" />
-      <LineId Id="371" Count="0" />
-      <LineId Id="451" Count="0" />
-      <LineId Id="374" Count="0" />
-      <LineId Id="365" Count="0" />
-      <LineId Id="367" Count="0" />
-      <LineId Id="375" Count="0" />
-      <LineId Id="408" Count="0" />
-      <LineId Id="368" Count="0" />
-      <LineId Id="362" Count="0" />
-      <LineId Id="377" Count="0" />
-      <LineId Id="395" Count="1" />
-      <LineId Id="452" Count="1" />
-      <LineId Id="392" Count="0" />
-      <LineId Id="391" Count="0" />
-      <LineId Id="393" Count="1" />
-      <LineId Id="384" Count="0" />
-      <LineId Id="381" Count="0" />
-      <LineId Id="380" Count="0" />
-      <LineId Id="401" Count="3" />
-      <LineId Id="397" Count="0" />
-      <LineId Id="405" Count="0" />
-      <LineId Id="399" Count="0" />
-      <LineId Id="406" Count="0" />
-      <LineId Id="398" Count="0" />
-      <LineId Id="253" Count="0" />
-      <LineId Id="249" Count="1" />
-      <LineId Id="252" Count="0" />
-      <LineId Id="251" Count="0" />
-      <LineId Id="407" Count="0" />
-      <LineId Id="248" Count="0" />
-      <LineId Id="229" Count="0" />
-      <LineId Id="5" Count="0" />
+      <LineId Id="3" Count="46" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicCilinderAnalog.M_OpenAndMove">
+      <LineId Id="3" Count="48" />
+      <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.M_Press">
-      <LineId Id="491" Count="0" />
-      <LineId Id="493" Count="0" />
-      <LineId Id="530" Count="1" />
-      <LineId Id="500" Count="1" />
-      <LineId Id="504" Count="0" />
-      <LineId Id="494" Count="0" />
-      <LineId Id="489" Count="1" />
-      <LineId Id="498" Count="0" />
-      <LineId Id="502" Count="1" />
-      <LineId Id="505" Count="0" />
-      <LineId Id="499" Count="0" />
-      <LineId Id="488" Count="0" />
-      <LineId Id="517" Count="1" />
-      <LineId Id="5" Count="0" />
+      <LineId Id="3" Count="17" />
+      <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.M_Stop">
-      <LineId Id="16" Count="0" />
-      <LineId Id="15" Count="0" />
-      <LineId Id="18" Count="1" />
-      <LineId Id="12" Count="0" />
-      <LineId Id="5" Count="0" />
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.M_StopDirect">
-      <LineId Id="61" Count="0" />
-      <LineId Id="5" Count="0" />
+      <LineId Id="3" Count="0" />
+      <LineId Id="2" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.Manual">
-      <LineId Id="2" Count="0" />
-      <LineId Id="6" Count="0" />
-      <LineId Id="8" Count="1" />
-      <LineId Id="11" Count="1" />
-      <LineId Id="14" Count="1" />
-      <LineId Id="17" Count="2" />
-      <LineId Id="16" Count="0" />
-      <LineId Id="31" Count="1" />
-      <LineId Id="22" Count="0" />
-      <LineId Id="27" Count="0" />
-      <LineId Id="23" Count="2" />
-      <LineId Id="33" Count="0" />
-      <LineId Id="13" Count="0" />
-      <LineId Id="10" Count="0" />
-      <LineId Id="7" Count="0" />
-      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="26" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_HydraulicCilinderAnalog.Objects">
-      <LineId Id="2" Count="0" />
-      <LineId Id="31" Count="6" />
-      <LineId Id="26" Count="0" />
-      <LineId Id="38" Count="0" />
-      <LineId Id="40" Count="8" />
-      <LineId Id="50" Count="2" />
-      <LineId Id="56" Count="0" />
-      <LineId Id="53" Count="0" />
-      <LineId Id="55" Count="0" />
-      <LineId Id="5" Count="0" />
+      <LineId Id="2" Count="25" />
       <LineId Id="1" Count="0" />
     </LineIds>
   </POU>

@@ -3,6 +3,7 @@
   <DUT Name="ST_TopMoldErrors" Id="{eb254765-a280-4d1d-9007-86666deae5e0}">
     <Declaration><![CDATA[TYPE ST_TopMoldErrors :
 STRUCT
+	TmDidNotReachBmPosTimeOut	: BOOL;
 	Hydraulic					: ST_HydraulicErrorsAnalog;
 	HeatingZone 				: ARRAY [1..6] OF ST_HeatingZoneErrors;
 END_STRUCT

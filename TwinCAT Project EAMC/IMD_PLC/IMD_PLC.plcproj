@@ -15,6 +15,12 @@
     <LibraryReferences>{f5d08601-8024-42a1-93b5-ff4ae46bdd80}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\ST_COM_SpeedControl.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ST_COM_IMD_SpdCntrl.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ST_MachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +33,12 @@
     <Compile Include="DUTs\ST_ProdPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\ST_COM_SpdCntrl_IMD.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ST_Record.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ST_SysPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -37,13 +49,13 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FB_instancePath.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\HMI.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\BottomMold\FB_BottomMold.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\BottomMold\FB_BottomMold_Old.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\BottomMold\ST_BottomMoldErrors.TcDUT">
@@ -52,16 +64,10 @@
     <Compile Include="POUs\InMoldDrying\BottomMold\ST_BottomMoldMachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\BottomMold\ST_BottomMoldMachPar_Old.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\BottomMold\ST_BottomMoldProdPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\BottomMold\ST_BottomMoldSysPar.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\FB_InMoldDrying_OLD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\FB_InMoldDrying.TcPOU">
@@ -76,28 +82,16 @@
     <Compile Include="POUs\InMoldDrying\HydrolicsMain\ST_HydraulicsMainMachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\ProductForming\FB_ProductForming_OLD.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\ProductForming\FB_ProductForming.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\ProductForming\ST_FormingMoldErrors.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\ProductForming\ST_FormingMoldMachPar_OLD.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\ProductForming\ST_FormingMoldMachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\ProductForming\ST_MachinePondErrors.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\ProductForming\ST_MachinePondErrors_OLD.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\ProductForming\ST_MachinePondMachPar_OLD.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\ProductForming\ST_MachinePondMachPar.TcDUT">
@@ -133,49 +127,25 @@
     <Compile Include="POUs\InMoldDrying\TopMold\FB_TopMold.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\TopMold\FB_TopMold_OLD.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\TopMold\ST_TopMoldErrors.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\TopMold\ST_TopMoldErrors_OLD.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\TopMold\ST_TopMoldMachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\TopMold\ST_TopMoldMachPar_OLD.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\TopMold\ST_TopMoldProdPar.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\TopMold\ST_TopMoldProdPar_OLD.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\TransferMold\FB_TransferMold.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\TransferMold\FB_TransferMold_OLD.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\TransferMold\ST_TransferMoldErrors.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\TransferMold\ST_TransferMoldErrors_OLD.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\InMoldDrying\TransferMold\ST_TransferMoldMachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\InMoldDrying\TransferMold\ST_TransferMoldMachPar_OLD.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\InMoldDrying\TransferMold\ST_TransferMoldProdPar.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\InMoldDrying\TransferMold\ST_TransferMoldProdPar_OLD.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -184,16 +154,13 @@
     <Compile Include="POUs\ProductHandling\FB_Gantry.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\ProductHandling\FB_OutfeedConveyor.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\ProductHandling\FB_ProductHandling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\ProductHandling\ST_GantryMachPar.TcDUT">
+    <Compile Include="POUs\ProductHandling\ST_BlowOffProdPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\ProductHandling\ST_GantryMachPar_Org.TcDUT">
+    <Compile Include="POUs\ProductHandling\ST_GantryMachPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\ProductHandling\ST_GantryProdPar.TcDUT">
@@ -202,22 +169,7 @@
     <Compile Include="POUs\ProductHandling\ST_GantryErrors.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\ProductHandling\ST_GantryProdPar_Org.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\ProductHandling\ST_GantrySysPar.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\ProductHandling\ST_OutfeedConveyorErrors.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\ProductHandling\ST_OutfeedConveyorMachPar.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\ProductHandling\ST_OutfeedConveyorProdPar.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\ProductHandling\ST_OutfeedConveyorSysPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\ProductHandling\ST_ProductHandlingErrors.TcDUT">
@@ -262,6 +214,12 @@
     <Compile Include="POUs\Standard\FB_EthercatDiag.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Standard\FIFO\FB_CalculateMaxKO.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Standard\GateRequest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Standard\HeatingZone\FB_HeatingZone.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -290,6 +248,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Standard\HydraulicCylinderAnalog\FB_HydraulicCilinderAnalog.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Standard\HydraulicCylinderAnalog\FB_HydraulicCilinderAnalog_.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Standard\HydraulicCylinderAnalog\ST_HydraulicCilinderMachParAnalog.TcDUT">
@@ -331,6 +292,9 @@
     <Compile Include="POUs\Standard\NC_Axis\ST_NcAxis_SysPar.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Standard\UnixTimestamp.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Standard\Valves\FB_MonoValve2Fdbck.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -352,28 +316,7 @@
     <Compile Include="POUs\ST_Errors.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\TestingForHMI\Event_Listener.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\TestingForHMI\FB_ListenerTest.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\TestingForHMI\FB_RaiseAlarm.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\TestingForHMI\TimeAnddDate.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\TestingForHMI\UnixTimestamp.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\TestStuff.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="RecipeManager.TcRMO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="VISUs\GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -386,7 +329,6 @@
     <Folder Include="POUs\InMoldDrying\ProductForming" />
     <Folder Include="POUs\InMoldDrying\TopMold" />
     <Folder Include="POUs\InMoldDrying\TransferMold" />
-    <Folder Include="POUs\TestingForHMI" />
     <Folder Include="POUs\ProductHandling" />
     <Folder Include="POUs\Standard\Balluff" />
     <Folder Include="POUs\Standard\HeatingZone\PID" />
@@ -396,6 +338,7 @@
     <Folder Include="POUs\Standard\HeatingZone" />
     <Folder Include="POUs\Standard\Analog" />
     <Folder Include="POUs\Standard\HydraulicCylinderAnalog" />
+    <Folder Include="POUs\Standard\FIFO" />
     <Folder Include="POUs\Standard\Valves" />
     <Folder Include="POUs\Standard" />
     <Folder Include="VISUs" />
@@ -410,6 +353,10 @@
     <PlaceholderReference Include="Tc2_ControllerToolbox">
       <DefaultResolution>Tc2_ControllerToolbox, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_ControllerToolbox</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Database">
+      <DefaultResolution>Tc2_Database, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Database</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Drive">
       <DefaultResolution>Tc2_Drive, * (Beckhoff Automation GmbH)</DefaultResolution>
@@ -435,13 +382,13 @@
       <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_Utilities</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Database">
+      <DefaultResolution>Tc3_Database, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Database</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc3_EventLogger">
       <DefaultResolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_EventLogger</Namespace>
-    </PlaceholderReference>
-    <PlaceholderReference Include="Tc3_JsonXml">
-      <DefaultResolution>Tc3_JsonXml, * (Beckhoff Automation GmbH)</DefaultResolution>
-      <Namespace>Tc3_JsonXml</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc3_Module">
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
@@ -454,20 +401,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClassDiagram.TcCD">
-      <SubType>Content</SubType>
-    </Content>
+    <SubObject Include="FB_HydraulicCilinderAnalog.Manual" />
+    <SubObject Include="FB_HydraulicCilinderAnalog.M_Move" />
+    <SubObject Include="FB_HydraulicCilinderAnalog.M_OpenAndMove" />
+    <SubObject Include="FB_HydraulicCilinderAnalog.M_Press" />
+    <SubObject Include="FB_HydraulicCilinderAnalog.M_Stop" />
+    <SubObject Include="FB_HydraulicCilinderAnalog.M_StopDirect" />
+    <SubObject Include="FB_HydraulicCilinderAnalog.Objects" />
+    <SubObject Include="GateRequest.SFC" />
   </ItemGroup>
   <ItemGroup>
+    <PlaceholderResolution Include="Tc3_Database">
+      <Resolution>Tc3_Database, * (Beckhoff Automation GmbH)</Resolution>
+    </PlaceholderResolution>
     <PlaceholderResolution Include="Tc3_EventLogger">
       <Resolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
-    <PlaceholderResolution Include="Tc3_JsonXml">
-      <Resolution>Tc3_JsonXml, * (Beckhoff Automation GmbH)</Resolution>
-    </PlaceholderResolution>
-  </ItemGroup>
-  <ItemGroup>
-    <PinnedGlobalDataType Include="ST_MyEventClass" />
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
@@ -489,7 +438,53 @@
             <v>Rules</v>
             <o>
               <v n="Name">"Rules"</v>
-              <d n="SubKeys" t="Hashtable" />
+              <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
+                <v>28</v>
+                <o>
+                  <v n="Name">"28"</v>
+                  <d n="SubKeys" t="Hashtable" />
+                  <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
+                    <v>bActive</v>
+                    <v>False</v>
+                  </d>
+                </o>
+                <v>33</v>
+                <o>
+                  <v n="Name">"33"</v>
+                  <d n="SubKeys" t="Hashtable" />
+                  <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
+                    <v>bActive</v>
+                    <v>False</v>
+                  </d>
+                </o>
+                <v>4</v>
+                <o>
+                  <v n="Name">"4"</v>
+                  <d n="SubKeys" t="Hashtable" />
+                  <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
+                    <v>bActive</v>
+                    <v>False</v>
+                  </d>
+                </o>
+                <v>6</v>
+                <o>
+                  <v n="Name">"6"</v>
+                  <d n="SubKeys" t="Hashtable" />
+                  <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
+                    <v>bActive</v>
+                    <v>False</v>
+                  </d>
+                </o>
+                <v>27</v>
+                <o>
+                  <v n="Name">"27"</v>
+                  <d n="SubKeys" t="Hashtable" />
+                  <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
+                    <v>bActive</v>
+                    <v>False</v>
+                  </d>
+                </o>
+              </d>
               <d n="Values" t="Hashtable" />
             </o>
           </d>
@@ -530,6 +525,7 @@
     </o>
         </Data>
         <TypeList>
+          <Type n="Boolean">System.Boolean</Type>
           <Type n="Hashtable">System.Collections.Hashtable</Type>
           <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
           <Type n="String">System.String</Type>

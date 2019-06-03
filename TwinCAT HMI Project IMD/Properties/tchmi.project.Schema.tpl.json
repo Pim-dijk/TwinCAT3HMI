@@ -20,14 +20,6 @@
       "title": "Data type",
       "description": "Select a datatype"
     },
-    "Shape": {
-      "type": "string",
-      "title": "Shape of Light",
-      "enum": [
-        "Ellipse",
-        "Rectangle"
-      ]
-    },
     "ButtonType": {
       "type": "string",
       "title": "Type",
@@ -155,6 +147,18 @@
         }
       ]
     },
+    "Shape": {
+      "type": "string",
+      "title": "Shape of Light",
+      "enum": [
+        "Ellipse",
+        "Rectangle",
+        "Arrow_Left",
+        "Arrow_Right",
+        "Arrow_Top",
+        "Arrow_Bot"
+      ]
+    },
     "ContentView_DisplayName": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -187,22 +191,6 @@
       "type": "object",
       "id": "tchmi:project#/definitions/IOField"
     },
-    "IOField_Direct": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\IOField_Direct.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/IOField_Direct"
-    },
-    "IOField_Final": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\IOField_Final.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/IOField_Final"
-    },
     "Kremer_AlarmLight": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
@@ -226,14 +214,6 @@
       "frameworkUserControlConfig": "UserControls\\Kremer_Calculator.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_Calculator"
-    },
-    "Kremer_Calculator_Direct": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "tchmi-user-control-host",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Calculator_Direct.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Calculator_Direct"
     },
     "Kremer_CleanScreen": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
@@ -283,13 +263,13 @@
       "type": "object",
       "id": "tchmi:project#/definitions/Kremer_PopupMessage"
     },
-    "Kremer_Treeview": {
+    "Kremer_StateText": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "tchmi-user-control-host",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserControls\\Kremer_Treeview.usercontrol.json",
+      "frameworkUserControlConfig": "UserControls\\Kremer_StateText.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/Kremer_Treeview"
+      "id": "tchmi:project#/definitions/Kremer_StateText"
     },
     "Kremer_UserManagement": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
@@ -330,6 +310,14 @@
       "frameworkUserControlConfig": "UserControls\\ucDateTime.usercontrol.json",
       "type": "object",
       "id": "tchmi:project#/definitions/ucDateTime"
+    },
+    "UserGroups": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "tchmi-user-control-host",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\UserGroups.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/UserGroups"
     }
   }
 }

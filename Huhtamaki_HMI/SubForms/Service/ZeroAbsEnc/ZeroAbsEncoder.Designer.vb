@@ -53,8 +53,6 @@ Partial Class ZeroAbsEncoder
         Me.BtnZeroBMB = New KremerControlsWin32.KremerButton()
         Me.SB_Zero = New KremerControlsWin32.KremerVariable(Me.components)
         Me.Btn_ZeroSB = New KremerControlsWin32.KremerButton()
-        Me.PC_Zero = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.Btn_ZeroPc = New KremerControlsWin32.KremerButton()
         Me.GA_HorDone = New KremerControlsWin32.KremerVariable(Me.components)
         Me.plGantryAHorDone = New KremerControlsWin32.KremerLight()
         Me.GA_VerDone = New KremerControlsWin32.KremerVariable(Me.components)
@@ -69,8 +67,6 @@ Partial Class ZeroAbsEncoder
         Me.plBMBDone = New KremerControlsWin32.KremerLight()
         Me.SP_Done = New KremerControlsWin32.KremerVariable(Me.components)
         Me.plSbDone = New KremerControlsWin32.KremerLight()
-        Me.PC_Done = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.plPcDone = New KremerControlsWin32.KremerLight()
         Me.GA_Hor_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GA_Vert_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GB_Hor_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
@@ -78,7 +74,6 @@ Partial Class ZeroAbsEncoder
         Me.BMA_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
         Me.BMB_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
         Me.SB_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.PC_AxDis = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GA_HorPos = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GA_VertPos = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GB_HorPos = New KremerControlsWin32.KremerVariable(Me.components)
@@ -91,8 +86,6 @@ Partial Class ZeroAbsEncoder
         Me.IO_BMBActPos = New KremerControlsWin32.KremerIoField(Me.components)
         Me.SB_Pos = New KremerControlsWin32.KremerVariable(Me.components)
         Me.io_SBPos = New KremerControlsWin32.KremerIoField(Me.components)
-        Me.PC_Pos = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.io_PcPos = New KremerControlsWin32.KremerIoField(Me.components)
         Me.GA_VertHomePos = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_HomingPosVertA = New KremerControlsWin32.KremerIoField(Me.components)
         Me.GB_VertHomePos = New KremerControlsWin32.KremerVariable(Me.components)
@@ -109,7 +102,6 @@ Partial Class ZeroAbsEncoder
         Me.IOHomingPosBMB = New KremerControlsWin32.KremerIoField(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -346,7 +338,6 @@ Partial Class ZeroAbsEncoder
         Me.krVarCollector.Variables.Add(Me.BMA_Zero)
         Me.krVarCollector.Variables.Add(Me.BMB_Zero)
         Me.krVarCollector.Variables.Add(Me.SB_Zero)
-        Me.krVarCollector.Variables.Add(Me.PC_Zero)
         Me.krVarCollector.Variables.Add(Me.GA_HorDone)
         Me.krVarCollector.Variables.Add(Me.GA_VerDone)
         Me.krVarCollector.Variables.Add(Me.GB_HorDone)
@@ -354,7 +345,6 @@ Partial Class ZeroAbsEncoder
         Me.krVarCollector.Variables.Add(Me.BMA_Done)
         Me.krVarCollector.Variables.Add(Me.BMB_Done)
         Me.krVarCollector.Variables.Add(Me.SP_Done)
-        Me.krVarCollector.Variables.Add(Me.PC_Done)
         Me.krVarCollector.Variables.Add(Me.GA_Hor_AxDis)
         Me.krVarCollector.Variables.Add(Me.GA_Vert_AxDis)
         Me.krVarCollector.Variables.Add(Me.GB_Hor_AxDis)
@@ -362,7 +352,6 @@ Partial Class ZeroAbsEncoder
         Me.krVarCollector.Variables.Add(Me.BMA_AxDis)
         Me.krVarCollector.Variables.Add(Me.BMB_AxDis)
         Me.krVarCollector.Variables.Add(Me.SB_AxDis)
-        Me.krVarCollector.Variables.Add(Me.PC_AxDis)
         Me.krVarCollector.Variables.Add(Me.GA_HorPos)
         Me.krVarCollector.Variables.Add(Me.GA_VertPos)
         Me.krVarCollector.Variables.Add(Me.GB_HorPos)
@@ -370,7 +359,6 @@ Partial Class ZeroAbsEncoder
         Me.krVarCollector.Variables.Add(Me.BMA_Pos)
         Me.krVarCollector.Variables.Add(Me.BMB_Pos)
         Me.krVarCollector.Variables.Add(Me.SB_Pos)
-        Me.krVarCollector.Variables.Add(Me.PC_Pos)
         Me.krVarCollector.Variables.Add(Me.GA_VertHomePos)
         Me.krVarCollector.Variables.Add(Me.GB_VertHomePos)
         Me.krVarCollector.Variables.Add(Me.GA_HorHomePos)
@@ -577,42 +565,6 @@ Partial Class ZeroAbsEncoder
         Me.Btn_ZeroSB.UseStateText = False
         Me.Btn_ZeroSB.UseVisualStyleBackColor = False
         '
-        'PC_Zero
-        '
-        Me.PC_Zero.BindControl = Me.Btn_ZeroPc
-        Me.PC_Zero.BindProperty = "Data"
-        Me.PC_Zero.Data = Nothing
-        Me.PC_Zero.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.PC_Zero.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PC_Zero.VariableName = "MAIN.ProductHandling.OutfeedConveyor.Belt.mxZeroCommand"
-        '
-        'Btn_ZeroPc
-        '
-        Me.Btn_ZeroPc.Audit = Nothing
-        Me.Btn_ZeroPc.AuditEnabled = False
-        Me.Btn_ZeroPc.AuditMessage = "KremerPushButton pressed!"
-        Me.Btn_ZeroPc.AuditSource = "KremerPushButton"
-        Me.Btn_ZeroPc.BackColorOn = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Btn_ZeroPc.BackGroundImageOn = Nothing
-        Me.Btn_ZeroPc.ButtonAction = KremerControlsWin32.KremerButton.Action.Momentary
-        Me.Btn_ZeroPc.Data = False
-        Me.Btn_ZeroPc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_ZeroPc.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Btn_ZeroPc.ForeColorOn = System.Drawing.Color.Yellow
-        Me.Btn_ZeroPc.Location = New System.Drawing.Point(26, 346)
-        Me.Btn_ZeroPc.Name = "Btn_ZeroPc"
-        Me.Btn_ZeroPc.Size = New System.Drawing.Size(106, 36)
-        Me.Btn_ZeroPc.State = False
-        Me.Btn_ZeroPc.StateIsData = False
-        Me.Btn_ZeroPc.StateText = New String() {Nothing, Nothing}
-        Me.Btn_ZeroPc.TabIndex = 349
-        Me.Btn_ZeroPc.Tag = ""
-        Me.Btn_ZeroPc.Text = "Zero"
-        Me.Btn_ZeroPc.UserInfo = Nothing
-        Me.Btn_ZeroPc.UserLevel = 500
-        Me.Btn_ZeroPc.UseStateText = False
-        Me.Btn_ZeroPc.UseVisualStyleBackColor = False
-        '
         'GA_HorDone
         '
         Me.GA_HorDone.BindControl = Me.plGantryAHorDone
@@ -774,29 +726,6 @@ Partial Class ZeroAbsEncoder
         Me.plSbDone.Text = "KremerLight1"
         Me.plSbDone.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'PC_Done
-        '
-        Me.PC_Done.BindControl = Me.plPcDone
-        Me.PC_Done.BindProperty = "Data"
-        Me.PC_Done.Data = Nothing
-        Me.PC_Done.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.PC_Done.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PC_Done.VariableName = "MAIN.ProductHandling.OutfeedConveyor.Belt.SignalLightStatus"
-        '
-        'plPcDone
-        '
-        Me.plPcDone.ColorOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.plPcDone.ColorOn = System.Drawing.Color.Lime
-        Me.plPcDone.Data = False
-        Me.plPcDone.Line = True
-        Me.plPcDone.LineSize = 1
-        Me.plPcDone.Location = New System.Drawing.Point(313, 350)
-        Me.plPcDone.Name = "plPcDone"
-        Me.plPcDone.Size = New System.Drawing.Size(24, 24)
-        Me.plPcDone.TabIndex = 356
-        Me.plPcDone.Text = "KremerLight1"
-        Me.plPcDone.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
         'GA_Hor_AxDis
         '
         Me.GA_Hor_AxDis.BindControl = Nothing
@@ -859,15 +788,6 @@ Partial Class ZeroAbsEncoder
         Me.SB_AxDis.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.SB_AxDis.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
         Me.SB_AxDis.VariableName = "MAIN.InMoldDrying.ProductForming.SprayBarMotor.axAxis.Status.Disabled"
-        '
-        'PC_AxDis
-        '
-        Me.PC_AxDis.BindControl = Nothing
-        Me.PC_AxDis.BindProperty = "Data"
-        Me.PC_AxDis.Data = Nothing
-        Me.PC_AxDis.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.PC_AxDis.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PC_AxDis.VariableName = "MAIN.ProductHandling.OutfeedConveyor.Belt.axAxis.Status.Disabled"
         '
         'GA_HorPos
         '
@@ -1042,37 +962,6 @@ Partial Class ZeroAbsEncoder
         Me.io_SBPos.UserInfo = Nothing
         Me.io_SBPos.UserLevel = 999
         '
-        'PC_Pos
-        '
-        Me.PC_Pos.BindControl = Me.io_PcPos
-        Me.PC_Pos.BindProperty = "Data"
-        Me.PC_Pos.Data = Nothing
-        Me.PC_Pos.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
-        Me.PC_Pos.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PC_Pos.VariableName = "MAIN.ProductHandling.OutfeedConveyor.Belt.ActPosition"
-        '
-        'io_PcPos
-        '
-        Me.io_PcPos.Audit = Nothing
-        Me.io_PcPos.AuditEnabled = False
-        Me.io_PcPos.AuditMessage = "KremerIoField changed:"
-        Me.io_PcPos.AuditSource = "KremerIoField"
-        Me.io_PcPos.Data = 0.0R
-        Me.io_PcPos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.io_PcPos.InitialValue = True
-        Me.io_PcPos.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
-        Me.io_PcPos.Location = New System.Drawing.Point(310, 322)
-        Me.io_PcPos.LowerBound = 0.0R
-        Me.io_PcPos.Name = "io_PcPos"
-        Me.io_PcPos.OutputFormat = "0.0 mm"
-        Me.io_PcPos.Size = New System.Drawing.Size(71, 21)
-        Me.io_PcPos.TabIndex = 354
-        Me.io_PcPos.Text = "0.0 mm"
-        Me.io_PcPos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.io_PcPos.UpperBound = 180.0R
-        Me.io_PcPos.UserInfo = Nothing
-        Me.io_PcPos.UserLevel = 999
-        '
         'GA_VertHomePos
         '
         Me.GA_VertHomePos.BindControl = Me.IO_HomingPosVertA
@@ -1168,7 +1057,7 @@ Partial Class ZeroAbsEncoder
         Me.IOHomePosHorA.TabIndex = 367
         Me.IOHomePosHorA.Text = "0,0 mm"
         Me.IOHomePosHorA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IOHomePosHorA.UpperBound = 2500.0R
+        Me.IOHomePosHorA.UpperBound = 3100.0R
         Me.IOHomePosHorA.UserInfo = Nothing
         Me.IOHomePosHorA.UserLevel = 0
         '
@@ -1201,7 +1090,7 @@ Partial Class ZeroAbsEncoder
         Me.IOHomePosHorB.TabIndex = 368
         Me.IOHomePosHorB.Text = "0,0 mm"
         Me.IOHomePosHorB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IOHomePosHorB.UpperBound = 2500.0R
+        Me.IOHomePosHorB.UpperBound = 3100.0R
         Me.IOHomePosHorB.UserInfo = Nothing
         Me.IOHomePosHorB.UserLevel = 0
         '
@@ -1325,16 +1214,6 @@ Partial Class ZeroAbsEncoder
         Me.Label3.TabIndex = 351
         Me.Label3.Tag = ""
         Me.Label3.Text = "Spraybar"
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(21, 320)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(286, 23)
-        Me.Label4.TabIndex = 355
-        Me.Label4.Tag = ""
-        Me.Label4.Text = "Product conveyor"
         '
         'Label5
         '
@@ -1473,14 +1352,10 @@ Partial Class ZeroAbsEncoder
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.IO_GantryBHorActPos)
         Me.Controls.Add(Me.BtnZeroGantryBHor)
-        Me.Controls.Add(Me.plPcDone)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.io_PcPos)
         Me.Controls.Add(Me.Btn_ZeroSB)
         Me.Controls.Add(Me.plSbDone)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.io_SBPos)
-        Me.Controls.Add(Me.Btn_ZeroPc)
         Me.Controls.Add(Me.plGantryAVertDone)
         Me.Controls.Add(Me.plGantryAHorDone)
         Me.Controls.Add(Me.Label2)
@@ -1519,10 +1394,6 @@ Partial Class ZeroAbsEncoder
     Friend WithEvents plSbDone As KremerControlsWin32.KremerLight
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents io_SBPos As KremerControlsWin32.KremerIoField
-    Friend WithEvents Btn_ZeroPc As KremerControlsWin32.KremerButton
-    Friend WithEvents plPcDone As KremerControlsWin32.KremerLight
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents io_PcPos As KremerControlsWin32.KremerIoField
     Friend WithEvents Btn_ZeroSB As KremerControlsWin32.KremerButton
     Friend WithEvents LineShape5 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents LineShape4 As Microsoft.VisualBasic.PowerPacks.LineShape
@@ -1539,25 +1410,21 @@ Partial Class ZeroAbsEncoder
     Friend WithEvents GB_HorZero As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_VertZero As KremerControlsWin32.KremerVariable
     Friend WithEvents SB_Zero As KremerControlsWin32.KremerVariable
-    Friend WithEvents PC_Zero As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_HorDone As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_VerDone As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_HorDone As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_VertDone As KremerControlsWin32.KremerVariable
     Friend WithEvents SP_Done As KremerControlsWin32.KremerVariable
-    Friend WithEvents PC_Done As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_HorPos As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_VertPos As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_HorPos As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_VertPos As KremerControlsWin32.KremerVariable
     Friend WithEvents SB_Pos As KremerControlsWin32.KremerVariable
-    Friend WithEvents PC_Pos As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_Hor_AxDis As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_Vert_AxDis As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_Hor_AxDis As KremerControlsWin32.KremerVariable
     Friend WithEvents GB_Vert_AxDis As KremerControlsWin32.KremerVariable
     Friend WithEvents SB_AxDis As KremerControlsWin32.KremerVariable
-    Friend WithEvents PC_AxDis As KremerControlsWin32.KremerVariable
     Friend WithEvents GA_VertHomePos As KremerControlsWin32.KremerVariable
     Friend WithEvents IO_HomingPosVertA As KremerControlsWin32.KremerIoField
     Friend WithEvents GB_VertHomePos As KremerControlsWin32.KremerVariable

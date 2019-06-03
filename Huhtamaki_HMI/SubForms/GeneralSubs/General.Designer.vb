@@ -61,10 +61,12 @@ Partial Public Class General
         Me.KL_Temp55 = New KremerControlsWin32.KremerLight()
         Me.TempTooHigh = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_TempTooHigh = New KremerControlsWin32.KremerLight()
-        Me.TopMoldReleasedFirst = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.IO_TopmoldReleasedFirst = New KremerControlsWin32.KremerIoField(Me.components)
-        Me.TransferReleasedFirst = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.IO_TransferReleasedFirst = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.TopMoldAReleasedFirst = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_TopmoldAReleasedFirst = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.TopMoldBReleasedFirst = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_TopmoldBReleasedFirst = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.TransferReleasedFirstA = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_TransferReleasedFirstA = New KremerControlsWin32.KremerIoField(Me.components)
         Me.mxStartHydraulics = New KremerControlsWin32.KremerVariable(Me.components)
         Me.BtnStart = New KremerControlsWin32.KremerButton()
         Me.mxStartHydraulicsState = New KremerControlsWin32.KremerVariable(Me.components)
@@ -109,6 +111,10 @@ Partial Public Class General
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.IO_TransferReleasedFirstB = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.TransferReleasedFirstB = New KremerControlsWin32.KremerVariable(Me.components)
         Me.ProductPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -350,8 +356,10 @@ Partial Public Class General
         Me.krVarCollector.Variables.Add(Me.Temp40)
         Me.krVarCollector.Variables.Add(Me.Temp55)
         Me.krVarCollector.Variables.Add(Me.TempTooHigh)
-        Me.krVarCollector.Variables.Add(Me.TopMoldReleasedFirst)
-        Me.krVarCollector.Variables.Add(Me.TransferReleasedFirst)
+        Me.krVarCollector.Variables.Add(Me.TopMoldAReleasedFirst)
+        Me.krVarCollector.Variables.Add(Me.TopMoldBReleasedFirst)
+        Me.krVarCollector.Variables.Add(Me.TransferReleasedFirstA)
+        Me.krVarCollector.Variables.Add(Me.TransferReleasedFirstB)
         Me.krVarCollector.Variables.Add(Me.mxStartHydraulics)
         Me.krVarCollector.Variables.Add(Me.mxStartHydraulicsState)
         Me.krVarCollector.Variables.Add(Me.mxStopHydraulics)
@@ -374,13 +382,13 @@ Partial Public Class General
         Me.IO_Tank1.AuditMessage = "KremerIoField changed:"
         Me.IO_Tank1.AuditSource = "KremerIoField"
         Me.IO_Tank1.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_Tank1.Data = 0R
+        Me.IO_Tank1.Data = 0.0R
         Me.IO_Tank1.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_Tank1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Tank1.InitialValue = True
         Me.IO_Tank1.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_Tank1.Location = New System.Drawing.Point(712, 35)
-        Me.IO_Tank1.LowerBound = 0R
+        Me.IO_Tank1.LowerBound = 0.0R
         Me.IO_Tank1.Name = "IO_Tank1"
         Me.IO_Tank1.OutputFormat = "0.0 '%'"
         Me.IO_Tank1.Size = New System.Drawing.Size(80, 22)
@@ -407,13 +415,13 @@ Partial Public Class General
         Me.IO_Tank2.AuditMessage = "KremerIoField changed:"
         Me.IO_Tank2.AuditSource = "KremerIoField"
         Me.IO_Tank2.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_Tank2.Data = 0R
+        Me.IO_Tank2.Data = 0.0R
         Me.IO_Tank2.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_Tank2.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Tank2.InitialValue = True
         Me.IO_Tank2.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_Tank2.Location = New System.Drawing.Point(717, 61)
-        Me.IO_Tank2.LowerBound = 0R
+        Me.IO_Tank2.LowerBound = 0.0R
         Me.IO_Tank2.Name = "IO_Tank2"
         Me.IO_Tank2.OutputFormat = "0.0 '%'"
         Me.IO_Tank2.Size = New System.Drawing.Size(75, 22)
@@ -440,13 +448,13 @@ Partial Public Class General
         Me.IO_TMA_Percentage.AuditMessage = "KremerIoField changed:"
         Me.IO_TMA_Percentage.AuditSource = "KremerIoField"
         Me.IO_TMA_Percentage.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_TMA_Percentage.Data = 0R
+        Me.IO_TMA_Percentage.Data = 0.0R
         Me.IO_TMA_Percentage.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMA_Percentage.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMA_Percentage.InitialValue = True
         Me.IO_TMA_Percentage.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_TMA_Percentage.Location = New System.Drawing.Point(7, 117)
-        Me.IO_TMA_Percentage.LowerBound = 0R
+        Me.IO_TMA_Percentage.LowerBound = 0.0R
         Me.IO_TMA_Percentage.Name = "IO_TMA_Percentage"
         Me.IO_TMA_Percentage.OutputFormat = "0.0 '%'"
         Me.IO_TMA_Percentage.Size = New System.Drawing.Size(80, 22)
@@ -473,13 +481,13 @@ Partial Public Class General
         Me.IO_TMB_Percentage.AuditMessage = "KremerIoField changed:"
         Me.IO_TMB_Percentage.AuditSource = "KremerIoField"
         Me.IO_TMB_Percentage.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_TMB_Percentage.Data = 0R
+        Me.IO_TMB_Percentage.Data = 0.0R
         Me.IO_TMB_Percentage.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMB_Percentage.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMB_Percentage.InitialValue = True
         Me.IO_TMB_Percentage.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_TMB_Percentage.Location = New System.Drawing.Point(309, 118)
-        Me.IO_TMB_Percentage.LowerBound = 0R
+        Me.IO_TMB_Percentage.LowerBound = 0.0R
         Me.IO_TMB_Percentage.Name = "IO_TMB_Percentage"
         Me.IO_TMB_Percentage.OutputFormat = "0.0 '%'"
         Me.IO_TMB_Percentage.Size = New System.Drawing.Size(80, 22)
@@ -506,13 +514,13 @@ Partial Public Class General
         Me.IO_Tr_Percentage.AuditMessage = "KremerIoField changed:"
         Me.IO_Tr_Percentage.AuditSource = "KremerIoField"
         Me.IO_Tr_Percentage.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_Tr_Percentage.Data = 0R
+        Me.IO_Tr_Percentage.Data = 0.0R
         Me.IO_Tr_Percentage.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_Tr_Percentage.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_Tr_Percentage.InitialValue = True
         Me.IO_Tr_Percentage.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
         Me.IO_Tr_Percentage.Location = New System.Drawing.Point(164, 118)
-        Me.IO_Tr_Percentage.LowerBound = 0R
+        Me.IO_Tr_Percentage.LowerBound = 0.0R
         Me.IO_Tr_Percentage.Name = "IO_Tr_Percentage"
         Me.IO_Tr_Percentage.OutputFormat = "0.0 '%'"
         Me.IO_Tr_Percentage.Size = New System.Drawing.Size(80, 22)
@@ -766,71 +774,104 @@ Partial Public Class General
         Me.KL_TempTooHigh.Text = "KL_TooHigh"
         Me.KL_TempTooHigh.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'TopMoldReleasedFirst
+        'TopMoldAReleasedFirst
         '
-        Me.TopMoldReleasedFirst.BindControl = Me.IO_TopmoldReleasedFirst
-        Me.TopMoldReleasedFirst.BindProperty = "Data"
-        Me.TopMoldReleasedFirst.Data = Nothing
-        Me.TopMoldReleasedFirst.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
-        Me.TopMoldReleasedFirst.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.TopMoldReleasedFirst.VariableName = "MAIN.InMoldDrying.TopLateTime"
+        Me.TopMoldAReleasedFirst.BindControl = Me.IO_TopmoldAReleasedFirst
+        Me.TopMoldAReleasedFirst.BindProperty = "Data"
+        Me.TopMoldAReleasedFirst.Data = Nothing
+        Me.TopMoldAReleasedFirst.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
+        Me.TopMoldAReleasedFirst.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.TopMoldAReleasedFirst.VariableName = "MAIN.InMoldDrying.TopLateTimeA"
         '
-        'IO_TopmoldReleasedFirst
+        'IO_TopmoldAReleasedFirst
         '
-        Me.IO_TopmoldReleasedFirst.Audit = Nothing
-        Me.IO_TopmoldReleasedFirst.AuditEnabled = False
-        Me.IO_TopmoldReleasedFirst.AuditMessage = "KremerIoField changed:"
-        Me.IO_TopmoldReleasedFirst.AuditSource = "KremerIoField"
-        Me.IO_TopmoldReleasedFirst.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_TopmoldReleasedFirst.Data = 0R
-        Me.IO_TopmoldReleasedFirst.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.IO_TopmoldReleasedFirst.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IO_TopmoldReleasedFirst.InitialValue = True
-        Me.IO_TopmoldReleasedFirst.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
-        Me.IO_TopmoldReleasedFirst.Location = New System.Drawing.Point(314, 262)
-        Me.IO_TopmoldReleasedFirst.LowerBound = 0R
-        Me.IO_TopmoldReleasedFirst.Name = "IO_TopmoldReleasedFirst"
-        Me.IO_TopmoldReleasedFirst.OutputFormat = "0 ms"
-        Me.IO_TopmoldReleasedFirst.Size = New System.Drawing.Size(75, 22)
-        Me.IO_TopmoldReleasedFirst.TabIndex = 394
-        Me.IO_TopmoldReleasedFirst.Text = "0 ms"
-        Me.IO_TopmoldReleasedFirst.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IO_TopmoldReleasedFirst.UpperBound = 5000.0R
-        Me.IO_TopmoldReleasedFirst.UserInfo = Nothing
-        Me.IO_TopmoldReleasedFirst.UserLevel = 800
+        Me.IO_TopmoldAReleasedFirst.Audit = Nothing
+        Me.IO_TopmoldAReleasedFirst.AuditEnabled = False
+        Me.IO_TopmoldAReleasedFirst.AuditMessage = "KremerIoField changed:"
+        Me.IO_TopmoldAReleasedFirst.AuditSource = "KremerIoField"
+        Me.IO_TopmoldAReleasedFirst.BackColor = System.Drawing.SystemColors.Control
+        Me.IO_TopmoldAReleasedFirst.Data = 0.0R
+        Me.IO_TopmoldAReleasedFirst.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_TopmoldAReleasedFirst.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_TopmoldAReleasedFirst.InitialValue = True
+        Me.IO_TopmoldAReleasedFirst.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_TopmoldAReleasedFirst.Location = New System.Drawing.Point(313, 264)
+        Me.IO_TopmoldAReleasedFirst.LowerBound = 0.0R
+        Me.IO_TopmoldAReleasedFirst.Name = "IO_TopmoldAReleasedFirst"
+        Me.IO_TopmoldAReleasedFirst.OutputFormat = "0 ms"
+        Me.IO_TopmoldAReleasedFirst.Size = New System.Drawing.Size(75, 22)
+        Me.IO_TopmoldAReleasedFirst.TabIndex = 394
+        Me.IO_TopmoldAReleasedFirst.Text = "0 ms"
+        Me.IO_TopmoldAReleasedFirst.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_TopmoldAReleasedFirst.UpperBound = 5000.0R
+        Me.IO_TopmoldAReleasedFirst.UserInfo = Nothing
+        Me.IO_TopmoldAReleasedFirst.UserLevel = 800
         '
-        'TransferReleasedFirst
+        'TopMoldBReleasedFirst
         '
-        Me.TransferReleasedFirst.BindControl = Me.IO_TransferReleasedFirst
-        Me.TransferReleasedFirst.BindProperty = "Data"
-        Me.TransferReleasedFirst.Data = Nothing
-        Me.TransferReleasedFirst.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
-        Me.TransferReleasedFirst.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.TransferReleasedFirst.VariableName = "MAIN.InMoldDrying.TransferLateTime"
+        Me.TopMoldBReleasedFirst.BindControl = Me.IO_TopmoldBReleasedFirst
+        Me.TopMoldBReleasedFirst.BindProperty = "Data"
+        Me.TopMoldBReleasedFirst.Data = Nothing
+        Me.TopMoldBReleasedFirst.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
+        Me.TopMoldBReleasedFirst.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.TopMoldBReleasedFirst.VariableName = "MAIN.InMoldDrying.TopLateTimeB"
         '
-        'IO_TransferReleasedFirst
+        'IO_TopmoldBReleasedFirst
         '
-        Me.IO_TransferReleasedFirst.Audit = Nothing
-        Me.IO_TransferReleasedFirst.AuditEnabled = False
-        Me.IO_TransferReleasedFirst.AuditMessage = "KremerIoField changed:"
-        Me.IO_TransferReleasedFirst.AuditSource = "KremerIoField"
-        Me.IO_TransferReleasedFirst.BackColor = System.Drawing.SystemColors.Control
-        Me.IO_TransferReleasedFirst.Data = 0R
-        Me.IO_TransferReleasedFirst.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.IO_TransferReleasedFirst.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IO_TransferReleasedFirst.InitialValue = True
-        Me.IO_TransferReleasedFirst.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
-        Me.IO_TransferReleasedFirst.Location = New System.Drawing.Point(314, 241)
-        Me.IO_TransferReleasedFirst.LowerBound = 0R
-        Me.IO_TransferReleasedFirst.Name = "IO_TransferReleasedFirst"
-        Me.IO_TransferReleasedFirst.OutputFormat = "0 ms"
-        Me.IO_TransferReleasedFirst.Size = New System.Drawing.Size(75, 22)
-        Me.IO_TransferReleasedFirst.TabIndex = 393
-        Me.IO_TransferReleasedFirst.Text = "0 ms"
-        Me.IO_TransferReleasedFirst.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IO_TransferReleasedFirst.UpperBound = 5000.0R
-        Me.IO_TransferReleasedFirst.UserInfo = Nothing
-        Me.IO_TransferReleasedFirst.UserLevel = 800
+        Me.IO_TopmoldBReleasedFirst.Audit = Nothing
+        Me.IO_TopmoldBReleasedFirst.AuditEnabled = False
+        Me.IO_TopmoldBReleasedFirst.AuditMessage = "KremerIoField changed:"
+        Me.IO_TopmoldBReleasedFirst.AuditSource = "KremerIoField"
+        Me.IO_TopmoldBReleasedFirst.BackColor = System.Drawing.SystemColors.Control
+        Me.IO_TopmoldBReleasedFirst.Data = 0.0R
+        Me.IO_TopmoldBReleasedFirst.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_TopmoldBReleasedFirst.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_TopmoldBReleasedFirst.InitialValue = True
+        Me.IO_TopmoldBReleasedFirst.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_TopmoldBReleasedFirst.Location = New System.Drawing.Point(313, 308)
+        Me.IO_TopmoldBReleasedFirst.LowerBound = 0.0R
+        Me.IO_TopmoldBReleasedFirst.Name = "IO_TopmoldBReleasedFirst"
+        Me.IO_TopmoldBReleasedFirst.OutputFormat = "0 ms"
+        Me.IO_TopmoldBReleasedFirst.Size = New System.Drawing.Size(75, 22)
+        Me.IO_TopmoldBReleasedFirst.TabIndex = 402
+        Me.IO_TopmoldBReleasedFirst.Text = "0 ms"
+        Me.IO_TopmoldBReleasedFirst.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_TopmoldBReleasedFirst.UpperBound = 5000.0R
+        Me.IO_TopmoldBReleasedFirst.UserInfo = Nothing
+        Me.IO_TopmoldBReleasedFirst.UserLevel = 800
+        '
+        'TransferReleasedFirstA
+        '
+        Me.TransferReleasedFirstA.BindControl = Me.IO_TransferReleasedFirstA
+        Me.TransferReleasedFirstA.BindProperty = "Data"
+        Me.TransferReleasedFirstA.Data = Nothing
+        Me.TransferReleasedFirstA.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
+        Me.TransferReleasedFirstA.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.TransferReleasedFirstA.VariableName = "MAIN.InMoldDrying.TransferLateTimeA"
+        '
+        'IO_TransferReleasedFirstA
+        '
+        Me.IO_TransferReleasedFirstA.Audit = Nothing
+        Me.IO_TransferReleasedFirstA.AuditEnabled = False
+        Me.IO_TransferReleasedFirstA.AuditMessage = "KremerIoField changed:"
+        Me.IO_TransferReleasedFirstA.AuditSource = "KremerIoField"
+        Me.IO_TransferReleasedFirstA.BackColor = System.Drawing.SystemColors.Control
+        Me.IO_TransferReleasedFirstA.Data = 0.0R
+        Me.IO_TransferReleasedFirstA.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_TransferReleasedFirstA.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_TransferReleasedFirstA.InitialValue = True
+        Me.IO_TransferReleasedFirstA.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_TransferReleasedFirstA.Location = New System.Drawing.Point(314, 241)
+        Me.IO_TransferReleasedFirstA.LowerBound = 0.0R
+        Me.IO_TransferReleasedFirstA.Name = "IO_TransferReleasedFirstA"
+        Me.IO_TransferReleasedFirstA.OutputFormat = "0 ms"
+        Me.IO_TransferReleasedFirstA.Size = New System.Drawing.Size(75, 22)
+        Me.IO_TransferReleasedFirstA.TabIndex = 393
+        Me.IO_TransferReleasedFirstA.Text = "0 ms"
+        Me.IO_TransferReleasedFirstA.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_TransferReleasedFirstA.UpperBound = 5000.0R
+        Me.IO_TransferReleasedFirstA.UserInfo = Nothing
+        Me.IO_TransferReleasedFirstA.UserLevel = 800
         '
         'mxStartHydraulics
         '
@@ -943,7 +984,7 @@ Partial Public Class General
         Me.StatusHydraulics.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusHydraulics.ForeColorOn = System.Drawing.Color.Empty
         Me.StatusHydraulics.InitialValue = True
-        Me.StatusHydraulics.IOType = KremerControlsWin32.KremerTextField.IO_Type.InputOutput
+        Me.StatusHydraulics.IOType = KremerControlsWin32.KremerTextField.IO_Type.Output
         Me.StatusHydraulics.Location = New System.Drawing.Point(66, 74)
         Me.StatusHydraulics.Name = "StatusHydraulics"
         Me.StatusHydraulics.PasswordMask = False
@@ -1053,7 +1094,7 @@ Partial Public Class General
         '
         Me.lblcurrentProduct.AutoSize = True
         Me.lblcurrentProduct.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblcurrentProduct.Location = New System.Drawing.Point(109, 14)
+        Me.lblcurrentProduct.Location = New System.Drawing.Point(109, 12)
         Me.lblcurrentProduct.Name = "lblcurrentProduct"
         Me.lblcurrentProduct.Size = New System.Drawing.Size(60, 23)
         Me.lblcurrentProduct.TabIndex = 357
@@ -1065,16 +1106,16 @@ Partial Public Class General
         Me.ProductPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ProductPanel.Controls.Add(Me.Label12)
         Me.ProductPanel.Controls.Add(Me.lblcurrentProduct)
-        Me.ProductPanel.Location = New System.Drawing.Point(11, 306)
+        Me.ProductPanel.Location = New System.Drawing.Point(11, 331)
         Me.ProductPanel.Name = "ProductPanel"
-        Me.ProductPanel.Size = New System.Drawing.Size(374, 73)
+        Me.ProductPanel.Size = New System.Drawing.Size(374, 48)
         Me.ProductPanel.TabIndex = 358
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(12, 14)
+        Me.Label12.Location = New System.Drawing.Point(12, 12)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(91, 23)
         Me.Label12.TabIndex = 358
@@ -1266,10 +1307,10 @@ Partial Public Class General
         Me.Label20.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label20.Location = New System.Drawing.Point(8, 242)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(243, 22)
+        Me.Label20.Size = New System.Drawing.Size(271, 22)
         Me.Label20.TabIndex = 390
         Me.Label20.Tag = ""
-        Me.Label20.Text = "Transfermold released first"
+        Me.Label20.Text = "Transfermold released first (A)"
         '
         'Label21
         '
@@ -1284,12 +1325,12 @@ Partial Public Class General
         'Label22
         '
         Me.Label22.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label22.Location = New System.Drawing.Point(8, 262)
+        Me.Label22.Location = New System.Drawing.Point(7, 264)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(243, 22)
         Me.Label22.TabIndex = 392
         Me.Label22.Tag = ""
-        Me.Label22.Text = "Topmold released first"
+        Me.Label22.Text = "Topmold A released first (A)"
         '
         'Label23
         '
@@ -1327,17 +1368,74 @@ Partial Public Class General
         Me.Label25.Text = "Topmold B"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Label26
+        '
+        Me.Label26.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label26.Location = New System.Drawing.Point(7, 308)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(243, 22)
+        Me.Label26.TabIndex = 401
+        Me.Label26.Tag = ""
+        Me.Label26.Text = "Topmold B released first (B)"
+        '
+        'IO_TransferReleasedFirstB
+        '
+        Me.IO_TransferReleasedFirstB.Audit = Nothing
+        Me.IO_TransferReleasedFirstB.AuditEnabled = False
+        Me.IO_TransferReleasedFirstB.AuditMessage = "KremerIoField changed:"
+        Me.IO_TransferReleasedFirstB.AuditSource = "KremerIoField"
+        Me.IO_TransferReleasedFirstB.BackColor = System.Drawing.SystemColors.Control
+        Me.IO_TransferReleasedFirstB.Data = 0.0R
+        Me.IO_TransferReleasedFirstB.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_TransferReleasedFirstB.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_TransferReleasedFirstB.InitialValue = True
+        Me.IO_TransferReleasedFirstB.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_TransferReleasedFirstB.Location = New System.Drawing.Point(313, 285)
+        Me.IO_TransferReleasedFirstB.LowerBound = 0.0R
+        Me.IO_TransferReleasedFirstB.Name = "IO_TransferReleasedFirstB"
+        Me.IO_TransferReleasedFirstB.OutputFormat = "0 ms"
+        Me.IO_TransferReleasedFirstB.Size = New System.Drawing.Size(75, 22)
+        Me.IO_TransferReleasedFirstB.TabIndex = 404
+        Me.IO_TransferReleasedFirstB.Text = "0 ms"
+        Me.IO_TransferReleasedFirstB.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_TransferReleasedFirstB.UpperBound = 5000.0R
+        Me.IO_TransferReleasedFirstB.UserInfo = Nothing
+        Me.IO_TransferReleasedFirstB.UserLevel = 800
+        '
+        'Label27
+        '
+        Me.Label27.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label27.Location = New System.Drawing.Point(7, 286)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(270, 22)
+        Me.Label27.TabIndex = 403
+        Me.Label27.Tag = ""
+        Me.Label27.Text = "Transfermold released first (B)"
+        '
+        'TransferReleasedFirstB
+        '
+        Me.TransferReleasedFirstB.BindControl = Me.IO_TransferReleasedFirstB
+        Me.TransferReleasedFirstB.BindProperty = "Data"
+        Me.TransferReleasedFirstB.Data = Nothing
+        Me.TransferReleasedFirstB.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
+        Me.TransferReleasedFirstB.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.TransferReleasedFirstB.VariableName = "MAIN.InMoldDrying.TransferLateTimeB"
+        '
         'General
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.Controls.Add(Me.IO_TransferReleasedFirstB)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.IO_TopmoldBReleasedFirst)
+        Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.IO_TMB_Percentage)
         Me.Controls.Add(Me.IO_Tr_Percentage)
         Me.Controls.Add(Me.IO_TMA_Percentage)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label23)
-        Me.Controls.Add(Me.IO_TopmoldReleasedFirst)
-        Me.Controls.Add(Me.IO_TransferReleasedFirst)
+        Me.Controls.Add(Me.IO_TopmoldAReleasedFirst)
+        Me.Controls.Add(Me.IO_TransferReleasedFirstA)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label20)
@@ -1471,10 +1569,10 @@ Partial Public Class General
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents IO_TransferReleasedFirst As KremerControlsWin32.KremerIoField
-    Friend WithEvents IO_TopmoldReleasedFirst As KremerControlsWin32.KremerIoField
-    Friend WithEvents TransferReleasedFirst As KremerControlsWin32.KremerVariable
-    Friend WithEvents TopMoldReleasedFirst As KremerControlsWin32.KremerVariable
+    Friend WithEvents IO_TransferReleasedFirstA As KremerControlsWin32.KremerIoField
+    Friend WithEvents IO_TopmoldAReleasedFirst As KremerControlsWin32.KremerIoField
+    Friend WithEvents TransferReleasedFirstA As KremerControlsWin32.KremerVariable
+    Friend WithEvents TopMoldAReleasedFirst As KremerControlsWin32.KremerVariable
     Friend WithEvents mxHydraulicStateText As KremerControlsWin32.KremerVariable
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
@@ -1485,5 +1583,11 @@ Partial Public Class General
     Friend WithEvents TMAControl As KremerControlsWin32.KremerVariable
     Friend WithEvents TMBControl As KremerControlsWin32.KremerVariable
     Friend WithEvents TR_Control As KremerControlsWin32.KremerVariable
+    Friend WithEvents IO_TopmoldBReleasedFirst As KremerControlsWin32.KremerIoField
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents TopMoldBReleasedFirst As KremerControlsWin32.KremerVariable
+    Friend WithEvents IO_TransferReleasedFirstB As KremerControlsWin32.KremerIoField
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents TransferReleasedFirstB As KremerControlsWin32.KremerVariable
 
 End Class

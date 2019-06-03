@@ -6,12 +6,22 @@ STRUCT
 	EnableEamcSideA						: BOOL;
 	EnableEamcSideB						: BOOL;
 	
-	EnableTakeOutAB						: BOOL; (* Enable new takeout unit, with vertical cilinder *)
-
 	CommisioningMode					: BOOL;	(* Enables movement without RHSR checks.*)
 	
-	MinTempAlowTransferToBot			: REAL := 175.0;
+	MinTempAlowTransferToBot			: REAL := 175.0;	
+	MinimumTransferPosRHSR				: REAL := 950.0;
+	MinimumTrDownSprayReleasePosRHSR	: REAL := 750.0;
+
 	
+	MinimumTmAPosToAllowBmMove			: REAL := 5.0;		// Offset to Topmold up pos.
+	MinimumTmBPosToAllowBmMove			: REAL := 5.0;
+	
+	MinimumTrUpSprayReleasePosRHSR		: REAL := 300.0;
+	SprayBTrCollisionOffset				: REAL := 10.0;
+	
+	MinimumTrUpSprayReleasePosRHSR2		: REAL := 350.0;
+	SprayBTrCollisionOffset2			: REAL := 50.0;
+		
 	TopMoldA							: ST_TopMoldMachPar;
 	TopMoldB							: ST_TopMoldMachPar;
 	BottomMoldA							: ST_BottomMoldMachPar;

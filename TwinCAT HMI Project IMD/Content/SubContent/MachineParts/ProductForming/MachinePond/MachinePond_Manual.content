@@ -46,7 +46,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content"
+          "value": "Content/SubContent/MachineParts/ProductForming/MachinePond/MachinePond_Overview.content"
         },
         "asyncWait": true
       }

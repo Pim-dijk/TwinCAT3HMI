@@ -76,6 +76,8 @@ Partial Public Class frmMain
         Me.KremerAlarmWord18 = New KremerControlsWin32.KremerAlarmWord()
         Me.KremerAlarmWord19 = New KremerControlsWin32.KremerAlarmWord()
         Me.KremerAlarmWord20 = New KremerControlsWin32.KremerAlarmWord()
+        Me.SPDControlAlarmWord1 = New KremerControlsWin32.KremerAlarmWord()
+        Me.SPDControlAlarmWord2 = New KremerControlsWin32.KremerAlarmWord()
         Me.btnAlarms = New KremerControlsWin32.KremerButton()
         Me.BtnOverview = New KremerControlsWin32.KremerButton()
         Me.krVarCollector = New KremerControlsWin32.KremerVariableCollector(Me.components)
@@ -109,6 +111,11 @@ Partial Public Class frmMain
         Me.Channel2 = New KremerControlsWin32.KremerLogItem()
         Me.KremerAlarmLogDB = New KremerControlsWin32.KremerAlarmLogDB(Me.components)
         Me.TxtGodMode = New System.Windows.Forms.TextBox()
+        Me.SpeedControl = New TwincatControlWin32.KremerPLC(Me.components)
+        Me.krConnectorSpeed = New TwincatControlWin32.KremerConnector(Me.components)
+        Me.krVarCollectorSpeed = New KremerControlsWin32.KremerVariableCollector(Me.components)
+        Me.Alarmword1SpdCtrl = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.Alarmword2SpdCtrl = New KremerControlsWin32.KremerVariable(Me.components)
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -442,6 +449,8 @@ Partial Public Class frmMain
         Me.krAlarmData.AlarmWords.Add(Me.KremerAlarmWord18)
         Me.krAlarmData.AlarmWords.Add(Me.KremerAlarmWord19)
         Me.krAlarmData.AlarmWords.Add(Me.KremerAlarmWord20)
+        Me.krAlarmData.AlarmWords.Add(Me.SPDControlAlarmWord1)
+        Me.krAlarmData.AlarmWords.Add(Me.SPDControlAlarmWord2)
         '
         'grpMain
         '
@@ -662,6 +671,20 @@ Partial Public Class frmMain
         Me.KremerAlarmWord20.Data = 0
         Me.KremerAlarmWord20.Group = Me.grpMain
         Me.KremerAlarmWord20.KremerAlarmTypes = New KremerControlsWin32.KremerAlarmType() {Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage}
+        '
+        'SPDControlAlarmWord1
+        '
+        Me.SPDControlAlarmWord1.AlarmBeginNr = 641
+        Me.SPDControlAlarmWord1.Data = 0
+        Me.SPDControlAlarmWord1.Group = Me.grpMain
+        Me.SPDControlAlarmWord1.KremerAlarmTypes = New KremerControlsWin32.KremerAlarmType() {Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage}
+        '
+        'SPDControlAlarmWord2
+        '
+        Me.SPDControlAlarmWord2.AlarmBeginNr = 673
+        Me.SPDControlAlarmWord2.Data = 0
+        Me.SPDControlAlarmWord2.Group = Me.grpMain
+        Me.SPDControlAlarmWord2.KremerAlarmTypes = New KremerControlsWin32.KremerAlarmType() {Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage, Me.SafetyMessage}
         '
         'btnAlarms
         '
@@ -1030,6 +1053,36 @@ Partial Public Class frmMain
         Me.TxtGodMode.Text = "GodMode / commisioningMode active"
         Me.TxtGodMode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'SpeedControl
+        '
+        '
+        'krConnectorSpeed
+        '
+        Me.krConnectorSpeed.VarCollector = Nothing
+        '
+        'krVarCollectorSpeed
+        '
+        Me.krVarCollectorSpeed.Variables.Add(Me.Alarmword1SpdCtrl)
+        Me.krVarCollectorSpeed.Variables.Add(Me.Alarmword2SpdCtrl)
+        '
+        'Alarmword1SpdCtrl
+        '
+        Me.Alarmword1SpdCtrl.BindControl = Nothing
+        Me.Alarmword1SpdCtrl.BindProperty = "Data"
+        Me.Alarmword1SpdCtrl.Data = Nothing
+        Me.Alarmword1SpdCtrl.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
+        Me.Alarmword1SpdCtrl.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.Alarmword1SpdCtrl.VariableName = "HMI.AlarmWord1"
+        '
+        'Alarmword2SpdCtrl
+        '
+        Me.Alarmword2SpdCtrl.BindControl = Nothing
+        Me.Alarmword2SpdCtrl.BindProperty = "Data"
+        Me.Alarmword2SpdCtrl.Data = Nothing
+        Me.Alarmword2SpdCtrl.DataType = KremerControlsWin32.KremerVariable.VarDataType.DINT
+        Me.Alarmword2SpdCtrl.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.Alarmword2SpdCtrl.VariableName = "HMI.AlarmWord2"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -1157,5 +1210,12 @@ Partial Public Class frmMain
     Friend WithEvents AlarmWord20 As KremerControlsWin32.KremerVariable
     Friend WithEvents GodMode As KremerControlsWin32.KremerVariable
     Friend WithEvents TxtGodMode As System.Windows.Forms.TextBox
+    Friend WithEvents SpeedControl As TwincatControlWin32.KremerPLC
+    Friend WithEvents krConnectorSpeed As TwincatControlWin32.KremerConnector
+    Friend WithEvents krVarCollectorSpeed As KremerControlsWin32.KremerVariableCollector
+    Friend WithEvents SPDControlAlarmWord1 As KremerControlsWin32.KremerAlarmWord
+    Friend WithEvents Alarmword1SpdCtrl As KremerControlsWin32.KremerVariable
+    Friend WithEvents SPDControlAlarmWord2 As KremerControlsWin32.KremerAlarmWord
+    Friend WithEvents Alarmword2SpdCtrl As KremerControlsWin32.KremerVariable
 
 End Class

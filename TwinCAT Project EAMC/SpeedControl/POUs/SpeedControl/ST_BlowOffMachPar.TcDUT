@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_BlowOffMachPar" Id="{e23b73a8-66a1-436b-ac3c-8f7ea55249a8}">
+    <Declaration><![CDATA[TYPE ST_BlowOffMachPar :
+STRUCT
+	NrOfPitchMissedAlarm		: DINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

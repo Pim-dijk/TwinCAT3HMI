@@ -9,8 +9,11 @@
 
 (function (TcHmi) {
 
+    // TimeToRun : How long the screen should be displayed, in seconds
+    // ControlTargetID : The id of the control that is the screen overlay
+    // TargetSymbol : The symbol that stores and displays the time that is left
     var CleanScreen = function (TimeToRun,ControlTargetID,TargetSymbol) {
-                
+                        
         var timeLeft = TimeToRun;
 
         var TimeLeftSymbol = new TcHmi.Symbol(TargetSymbol.__symbol.__expression.__expression);

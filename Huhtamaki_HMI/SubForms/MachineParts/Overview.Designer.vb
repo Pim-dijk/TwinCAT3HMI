@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Overview
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Overview
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.BtnTakeOutUnitA = New System.Windows.Forms.Button()
@@ -73,16 +73,22 @@ Partial Class Overview
         Me.ActSingleSideB = New KremerControlsWin32.KremerVariable(Me.components)
         Me.Btn_SingleB = New KremerControlsWin32.KremerButton()
         Me.StateSingleB = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.EnableTakeout = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.BTN_EnableTakeout = New KremerControlsWin32.KremerButton()
         Me.mxStart = New KremerControlsWin32.KremerVariable(Me.components)
         Me.mxPause = New KremerControlsWin32.KremerVariable(Me.components)
         Me.mxStop = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.mxSample = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BTN_SampleBtn = New KremerControlsWin32.KremerButton()
         Me.StartState = New KremerControlsWin32.KremerVariable(Me.components)
         Me.StopState = New KremerControlsWin32.KremerVariable(Me.components)
         Me.PauseState = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.mxSampleState = New KremerControlsWin32.KremerVariable(Me.components)
         Me.actKickofss = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_ActKickOffs = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.SpeedControlModulo = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_SpeedControlModulo = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.SpeedControlKos = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_SpeedControlKos = New KremerControlsWin32.KremerIoField(Me.components)
+        Me.BTN_SpeedControl = New KremerControlsWin32.KremerButton()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.BtnDryingMoldB = New System.Windows.Forms.Button()
         Me.BtnPulp = New System.Windows.Forms.Button()
@@ -93,19 +99,18 @@ Partial Class Overview
         Me.BtnGantryA = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.KremerLight10 = New KremerControlsWin32.KremerLight()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.KremerLight11 = New KremerControlsWin32.KremerLight()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.KremerLight14 = New KremerControlsWin32.KremerLight()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.KremerLight16 = New KremerControlsWin32.KremerLight()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.PnlDoors = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -171,7 +176,7 @@ Partial Class Overview
         Me.BtnPause.BackColor = System.Drawing.SystemColors.Control
         Me.BtnPause.BackColorOn = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BtnPause.BackGroundImageOn = Nothing
-        Me.BtnPause.ButtonAction = KremerControlsWin32.KremerButton.Action.SetBool
+        Me.BtnPause.ButtonAction = KremerControlsWin32.KremerButton.Action.Momentary
         Me.BtnPause.Data = False
         Me.BtnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnPause.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
@@ -199,7 +204,7 @@ Partial Class Overview
         Me.BtnStart.BackColor = System.Drawing.SystemColors.Control
         Me.BtnStart.BackColorOn = System.Drawing.Color.Green
         Me.BtnStart.BackGroundImageOn = Nothing
-        Me.BtnStart.ButtonAction = KremerControlsWin32.KremerButton.Action.SetBool
+        Me.BtnStart.ButtonAction = KremerControlsWin32.KremerButton.Action.Momentary
         Me.BtnStart.Data = False
         Me.BtnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnStart.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
@@ -227,7 +232,7 @@ Partial Class Overview
         Me.BtnStop.BackColor = System.Drawing.SystemColors.Control
         Me.BtnStop.BackColorOn = System.Drawing.Color.Red
         Me.BtnStop.BackGroundImageOn = Nothing
-        Me.BtnStop.ButtonAction = KremerControlsWin32.KremerButton.Action.SetBool
+        Me.BtnStop.ButtonAction = KremerControlsWin32.KremerButton.Action.Momentary
         Me.BtnStop.Data = False
         Me.BtnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnStop.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
@@ -270,14 +275,17 @@ Partial Class Overview
         Me.VarCollector.Variables.Add(Me.StateSingleA)
         Me.VarCollector.Variables.Add(Me.ActSingleSideB)
         Me.VarCollector.Variables.Add(Me.StateSingleB)
-        Me.VarCollector.Variables.Add(Me.EnableTakeout)
         Me.VarCollector.Variables.Add(Me.mxStart)
         Me.VarCollector.Variables.Add(Me.mxPause)
         Me.VarCollector.Variables.Add(Me.mxStop)
+        Me.VarCollector.Variables.Add(Me.mxSample)
         Me.VarCollector.Variables.Add(Me.StartState)
         Me.VarCollector.Variables.Add(Me.StopState)
         Me.VarCollector.Variables.Add(Me.PauseState)
+        Me.VarCollector.Variables.Add(Me.mxSampleState)
         Me.VarCollector.Variables.Add(Me.actKickofss)
+        Me.VarCollector.Variables.Add(Me.SpeedControlModulo)
+        Me.VarCollector.Variables.Add(Me.SpeedControlKos)
         '
         'IMD_States
         '
@@ -300,7 +308,7 @@ Partial Class Overview
         Me.StatusIMD.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusIMD.ForeColorOn = System.Drawing.Color.Empty
         Me.StatusIMD.InitialValue = True
-        Me.StatusIMD.IOType = KremerControlsWin32.KremerTextField.IO_Type.InputOutput
+        Me.StatusIMD.IOType = KremerControlsWin32.KremerTextField.IO_Type.Output
         Me.StatusIMD.Location = New System.Drawing.Point(147, 338)
         Me.StatusIMD.Name = "StatusIMD"
         Me.StatusIMD.PasswordMask = False
@@ -333,7 +341,7 @@ Partial Class Overview
         Me.StatusPH.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusPH.ForeColorOn = System.Drawing.Color.Empty
         Me.StatusPH.InitialValue = True
-        Me.StatusPH.IOType = KremerControlsWin32.KremerTextField.IO_Type.InputOutput
+        Me.StatusPH.IOType = KremerControlsWin32.KremerTextField.IO_Type.Output
         Me.StatusPH.Location = New System.Drawing.Point(147, 361)
         Me.StatusPH.Name = "StatusPH"
         Me.StatusPH.PasswordMask = False
@@ -820,43 +828,6 @@ Partial Class Overview
         Me.StateSingleB.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
         Me.StateSingleB.VariableName = "MAIN.InMoldDrying.MachParameters.EnableEamcSideB"
         '
-        'EnableTakeout
-        '
-        Me.EnableTakeout.BindControl = Me.BTN_EnableTakeout
-        Me.EnableTakeout.BindProperty = "Data"
-        Me.EnableTakeout.Data = Nothing
-        Me.EnableTakeout.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.EnableTakeout.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.EnableTakeout.VariableName = "MAIN.InMoldDrying.MachParameters.EnableTakeOutAB"
-        '
-        'BTN_EnableTakeout
-        '
-        Me.BTN_EnableTakeout.Audit = Nothing
-        Me.BTN_EnableTakeout.AuditEnabled = False
-        Me.BTN_EnableTakeout.AuditMessage = "KremerPushButton pressed!"
-        Me.BTN_EnableTakeout.AuditSource = "KremerPushButton"
-        Me.BTN_EnableTakeout.BackColor = System.Drawing.SystemColors.Control
-        Me.BTN_EnableTakeout.BackColorOn = System.Drawing.Color.White
-        Me.BTN_EnableTakeout.BackGroundImageOn = Nothing
-        Me.BTN_EnableTakeout.ButtonAction = KremerControlsWin32.KremerButton.Action.ToggleBool
-        Me.BTN_EnableTakeout.Data = False
-        Me.BTN_EnableTakeout.Enabled = False
-        Me.BTN_EnableTakeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BTN_EnableTakeout.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.BTN_EnableTakeout.ForeColorOn = System.Drawing.Color.Black
-        Me.BTN_EnableTakeout.Location = New System.Drawing.Point(457, 385)
-        Me.BTN_EnableTakeout.Name = "BTN_EnableTakeout"
-        Me.BTN_EnableTakeout.Size = New System.Drawing.Size(114, 50)
-        Me.BTN_EnableTakeout.State = False
-        Me.BTN_EnableTakeout.StateIsData = True
-        Me.BTN_EnableTakeout.StateText = New String() {Nothing, Nothing}
-        Me.BTN_EnableTakeout.TabIndex = 346
-        Me.BTN_EnableTakeout.Tag = ""
-        Me.BTN_EnableTakeout.UserInfo = Nothing
-        Me.BTN_EnableTakeout.UserLevel = 0
-        Me.BTN_EnableTakeout.UseStateText = False
-        Me.BTN_EnableTakeout.UseVisualStyleBackColor = False
-        '
         'mxStart
         '
         Me.mxStart.BindControl = Me.BtnStart
@@ -884,6 +855,44 @@ Partial Class Overview
         Me.mxStop.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
         Me.mxStop.VariableName = "MAIN.mxHMI_Stop"
         '
+        'mxSample
+        '
+        Me.mxSample.BindControl = Me.BTN_SampleBtn
+        Me.mxSample.BindProperty = "Data"
+        Me.mxSample.Data = Nothing
+        Me.mxSample.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.mxSample.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.mxSample.VariableName = "MAIN.mxHMI_Sample"
+        '
+        'BTN_SampleBtn
+        '
+        Me.BTN_SampleBtn.Audit = Nothing
+        Me.BTN_SampleBtn.AuditEnabled = False
+        Me.BTN_SampleBtn.AuditMessage = "KremerPushButton pressed!"
+        Me.BTN_SampleBtn.AuditSource = "KremerPushButton"
+        Me.BTN_SampleBtn.BackColor = System.Drawing.SystemColors.Control
+        Me.BTN_SampleBtn.BackColorOn = System.Drawing.Color.Lime
+        Me.BTN_SampleBtn.BackGroundImageOn = Nothing
+        Me.BTN_SampleBtn.ButtonAction = KremerControlsWin32.KremerButton.Action.Momentary
+        Me.BTN_SampleBtn.Data = False
+        Me.BTN_SampleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_SampleBtn.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.BTN_SampleBtn.ForeColorOn = System.Drawing.SystemColors.ControlDark
+        Me.BTN_SampleBtn.Location = New System.Drawing.Point(685, 335)
+        Me.BTN_SampleBtn.Name = "BTN_SampleBtn"
+        Me.BTN_SampleBtn.Size = New System.Drawing.Size(114, 50)
+        Me.BTN_SampleBtn.State = False
+        Me.BTN_SampleBtn.StateIsData = False
+        Me.BTN_SampleBtn.StateText = New String() {Nothing, Nothing}
+        Me.BTN_SampleBtn.TabIndex = 359
+        Me.BTN_SampleBtn.Tag = ""
+        Me.BTN_SampleBtn.Text = "Sample"
+        Me.BTN_SampleBtn.UserInfo = Nothing
+        Me.BTN_SampleBtn.UserLevel = 0
+        Me.BTN_SampleBtn.UseStateText = False
+        Me.BTN_SampleBtn.UseVisualStyleBackColor = False
+        Me.BTN_SampleBtn.Visible = False
+        '
         'StartState
         '
         Me.StartState.BindControl = Me.BtnStart
@@ -909,7 +918,16 @@ Partial Class Overview
         Me.PauseState.Data = Nothing
         Me.PauseState.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
         Me.PauseState.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.PauseState.VariableName = "MAIN.InMoldDrying.mxPause"
+        Me.PauseState.VariableName = "MAIN.InMoldDrying.mxInPause"
+        '
+        'mxSampleState
+        '
+        Me.mxSampleState.BindControl = Me.BTN_SampleBtn
+        Me.mxSampleState.BindProperty = "State"
+        Me.mxSampleState.Data = Nothing
+        Me.mxSampleState.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.mxSampleState.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.mxSampleState.VariableName = "MAIN.mxHMI_SampleState"
         '
         'actKickofss
         '
@@ -918,7 +936,7 @@ Partial Class Overview
         Me.actKickofss.Data = Nothing
         Me.actKickofss.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.actKickofss.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.actKickofss.VariableName = "MAIN.ActNrOfKickoffs"
+        Me.actKickofss.VariableName = "MAIN.mrHMI_ActNrOfKickoffs"
         '
         'IO_ActKickOffs
         '
@@ -927,13 +945,13 @@ Partial Class Overview
         Me.IO_ActKickOffs.AuditMessage = "KremerIoField changed:"
         Me.IO_ActKickOffs.AuditSource = "KremerIoField"
         Me.IO_ActKickOffs.AutoSize = True
-        Me.IO_ActKickOffs.Data = 0R
+        Me.IO_ActKickOffs.Data = 0.0R
         Me.IO_ActKickOffs.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ActKickOffs.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ActKickOffs.InitialValue = True
-        Me.IO_ActKickOffs.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
-        Me.IO_ActKickOffs.Location = New System.Drawing.Point(96, 3)
-        Me.IO_ActKickOffs.LowerBound = 0R
+        Me.IO_ActKickOffs.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_ActKickOffs.Location = New System.Drawing.Point(155, 2)
+        Me.IO_ActKickOffs.LowerBound = 0.0R
         Me.IO_ActKickOffs.Name = "IO_ActKickOffs"
         Me.IO_ActKickOffs.OutputFormat = "0.00"
         Me.IO_ActKickOffs.Size = New System.Drawing.Size(40, 18)
@@ -943,6 +961,100 @@ Partial Class Overview
         Me.IO_ActKickOffs.UpperBound = 1000.0R
         Me.IO_ActKickOffs.UserInfo = Nothing
         Me.IO_ActKickOffs.UserLevel = 0
+        '
+        'SpeedControlModulo
+        '
+        Me.SpeedControlModulo.BindControl = Me.IO_SpeedControlModulo
+        Me.SpeedControlModulo.BindProperty = "Data"
+        Me.SpeedControlModulo.Data = Nothing
+        Me.SpeedControlModulo.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
+        Me.SpeedControlModulo.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.SpeedControlModulo.VariableName = "MAIN.mrHMI_SpeedControlModulo"
+        '
+        'IO_SpeedControlModulo
+        '
+        Me.IO_SpeedControlModulo.Audit = Nothing
+        Me.IO_SpeedControlModulo.AuditEnabled = False
+        Me.IO_SpeedControlModulo.AuditMessage = "KremerIoField changed:"
+        Me.IO_SpeedControlModulo.AuditSource = "KremerIoField"
+        Me.IO_SpeedControlModulo.AutoSize = True
+        Me.IO_SpeedControlModulo.Data = 0.0R
+        Me.IO_SpeedControlModulo.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_SpeedControlModulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_SpeedControlModulo.InitialValue = True
+        Me.IO_SpeedControlModulo.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_SpeedControlModulo.Location = New System.Drawing.Point(730, 29)
+        Me.IO_SpeedControlModulo.LowerBound = 0.0R
+        Me.IO_SpeedControlModulo.Name = "IO_SpeedControlModulo"
+        Me.IO_SpeedControlModulo.OutputFormat = "0"
+        Me.IO_SpeedControlModulo.Size = New System.Drawing.Size(16, 18)
+        Me.IO_SpeedControlModulo.TabIndex = 361
+        Me.IO_SpeedControlModulo.Text = "0"
+        Me.IO_SpeedControlModulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_SpeedControlModulo.UpperBound = 1000.0R
+        Me.IO_SpeedControlModulo.UserInfo = Nothing
+        Me.IO_SpeedControlModulo.UserLevel = 0
+        '
+        'SpeedControlKos
+        '
+        Me.SpeedControlKos.BindControl = Me.IO_SpeedControlKos
+        Me.SpeedControlKos.BindProperty = "Data"
+        Me.SpeedControlKos.Data = Nothing
+        Me.SpeedControlKos.DataType = KremerControlsWin32.KremerVariable.VarDataType.LREAL
+        Me.SpeedControlKos.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.SpeedControlKos.VariableName = "MAIN.mrHMI_DictatedKoSpeedControl"
+        '
+        'IO_SpeedControlKos
+        '
+        Me.IO_SpeedControlKos.Audit = Nothing
+        Me.IO_SpeedControlKos.AuditEnabled = False
+        Me.IO_SpeedControlKos.AuditMessage = "KremerIoField changed:"
+        Me.IO_SpeedControlKos.AuditSource = "KremerIoField"
+        Me.IO_SpeedControlKos.AutoSize = True
+        Me.IO_SpeedControlKos.Data = 0.0R
+        Me.IO_SpeedControlKos.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_SpeedControlKos.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_SpeedControlKos.InitialValue = True
+        Me.IO_SpeedControlKos.IOType = KremerControlsWin32.KremerIoField.IO_Type.Output
+        Me.IO_SpeedControlKos.Location = New System.Drawing.Point(731, 2)
+        Me.IO_SpeedControlKos.LowerBound = 0.0R
+        Me.IO_SpeedControlKos.Name = "IO_SpeedControlKos"
+        Me.IO_SpeedControlKos.OutputFormat = "0.00"
+        Me.IO_SpeedControlKos.Size = New System.Drawing.Size(40, 18)
+        Me.IO_SpeedControlKos.TabIndex = 358
+        Me.IO_SpeedControlKos.Text = "0.00"
+        Me.IO_SpeedControlKos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_SpeedControlKos.UpperBound = 1000.0R
+        Me.IO_SpeedControlKos.UserInfo = Nothing
+        Me.IO_SpeedControlKos.UserLevel = 0
+        '
+        'BTN_SpeedControl
+        '
+        Me.BTN_SpeedControl.Audit = Nothing
+        Me.BTN_SpeedControl.AuditEnabled = False
+        Me.BTN_SpeedControl.AuditMessage = "KremerPushButton pressed!"
+        Me.BTN_SpeedControl.AuditSource = "KremerPushButton"
+        Me.BTN_SpeedControl.BackColor = System.Drawing.SystemColors.Info
+        Me.BTN_SpeedControl.BackColorOn = System.Drawing.Color.White
+        Me.BTN_SpeedControl.BackGroundImageOn = Nothing
+        Me.BTN_SpeedControl.ButtonAction = KremerControlsWin32.KremerButton.Action.ToggleBool
+        Me.BTN_SpeedControl.Data = False
+        Me.BTN_SpeedControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_SpeedControl.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.BTN_SpeedControl.ForeColorOn = System.Drawing.Color.Black
+        Me.BTN_SpeedControl.Location = New System.Drawing.Point(457, 385)
+        Me.BTN_SpeedControl.Name = "BTN_SpeedControl"
+        Me.BTN_SpeedControl.Size = New System.Drawing.Size(114, 50)
+        Me.BTN_SpeedControl.State = False
+        Me.BTN_SpeedControl.StateIsData = False
+        Me.BTN_SpeedControl.StateText = New String() {Nothing, Nothing}
+        Me.BTN_SpeedControl.TabIndex = 346
+        Me.BTN_SpeedControl.Tag = ""
+        Me.BTN_SpeedControl.Text = "Speed Control"
+        Me.BTN_SpeedControl.UserInfo = Nothing
+        Me.BTN_SpeedControl.UserLevel = 0
+        Me.BTN_SpeedControl.UseStateText = False
+        Me.BTN_SpeedControl.UseVisualStyleBackColor = False
         '
         'Label10
         '
@@ -1067,99 +1179,39 @@ Partial Class Overview
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.AL_Z5Right)
-        Me.Panel1.Controls.Add(Me.KremerLight10)
         Me.Panel1.Controls.Add(Me.AL_Z5Left)
         Me.Panel1.Location = New System.Drawing.Point(3, 57)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(35, 50)
         Me.Panel1.TabIndex = 9
         '
-        'KremerLight10
-        '
-        Me.KremerLight10.ColorOff = System.Drawing.Color.DarkRed
-        Me.KremerLight10.ColorOn = System.Drawing.Color.Red
-        Me.KremerLight10.Data = False
-        Me.KremerLight10.Line = True
-        Me.KremerLight10.LineSize = 1
-        Me.KremerLight10.Location = New System.Drawing.Point(96, 2)
-        Me.KremerLight10.Name = "KremerLight10"
-        Me.KremerLight10.Size = New System.Drawing.Size(20, 20)
-        Me.KremerLight10.TabIndex = 8
-        Me.KremerLight10.Text = "KremerLight10"
-        Me.KremerLight10.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.AL_Z1left)
-        Me.Panel2.Controls.Add(Me.KremerLight11)
         Me.Panel2.Controls.Add(Me.AL_Z1Right)
         Me.Panel2.Location = New System.Drawing.Point(139, 57)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(35, 50)
         Me.Panel2.TabIndex = 10
         '
-        'KremerLight11
-        '
-        Me.KremerLight11.ColorOff = System.Drawing.Color.DarkRed
-        Me.KremerLight11.ColorOn = System.Drawing.Color.Red
-        Me.KremerLight11.Data = False
-        Me.KremerLight11.Line = True
-        Me.KremerLight11.LineSize = 1
-        Me.KremerLight11.Location = New System.Drawing.Point(96, 2)
-        Me.KremerLight11.Name = "KremerLight11"
-        Me.KremerLight11.Size = New System.Drawing.Size(20, 20)
-        Me.KremerLight11.TabIndex = 8
-        Me.KremerLight11.Text = "KremerLight11"
-        Me.KremerLight11.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
         'Panel5
         '
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel5.Controls.Add(Me.KremerLight14)
         Me.Panel5.Controls.Add(Me.AL_Z6Back)
         Me.Panel5.Location = New System.Drawing.Point(3, 2)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(35, 56)
         Me.Panel5.TabIndex = 10
         '
-        'KremerLight14
-        '
-        Me.KremerLight14.ColorOff = System.Drawing.Color.DarkRed
-        Me.KremerLight14.ColorOn = System.Drawing.Color.Red
-        Me.KremerLight14.Data = False
-        Me.KremerLight14.Line = True
-        Me.KremerLight14.LineSize = 1
-        Me.KremerLight14.Location = New System.Drawing.Point(96, 2)
-        Me.KremerLight14.Name = "KremerLight14"
-        Me.KremerLight14.Size = New System.Drawing.Size(20, 20)
-        Me.KremerLight14.TabIndex = 8
-        Me.KremerLight14.Text = "KremerLight14"
-        Me.KremerLight14.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
         'Panel6
         '
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel6.Controls.Add(Me.KremerLight16)
         Me.Panel6.Controls.Add(Me.AL_Z7Back)
         Me.Panel6.Location = New System.Drawing.Point(139, 2)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(35, 56)
         Me.Panel6.TabIndex = 11
-        '
-        'KremerLight16
-        '
-        Me.KremerLight16.ColorOff = System.Drawing.Color.DarkRed
-        Me.KremerLight16.ColorOn = System.Drawing.Color.Red
-        Me.KremerLight16.Data = False
-        Me.KremerLight16.Line = True
-        Me.KremerLight16.LineSize = 1
-        Me.KremerLight16.Location = New System.Drawing.Point(96, 2)
-        Me.KremerLight16.Name = "KremerLight16"
-        Me.KremerLight16.Size = New System.Drawing.Size(20, 20)
-        Me.KremerLight16.TabIndex = 8
-        Me.KremerLight16.Text = "KremerLight16"
-        Me.KremerLight16.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Panel3
         '
@@ -1192,41 +1244,74 @@ Partial Class Overview
         Me.PnlDoors.Controls.Add(Me.Panel3)
         Me.PnlDoors.Controls.Add(Me.Panel5)
         Me.PnlDoors.Controls.Add(Me.Panel6)
-        Me.PnlDoors.Location = New System.Drawing.Point(622, 3)
+        Me.PnlDoors.Location = New System.Drawing.Point(612, 59)
         Me.PnlDoors.Name = "PnlDoors"
         Me.PnlDoors.Size = New System.Drawing.Size(178, 110)
         Me.PnlDoors.TabIndex = 352
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(99, 23)
-        Me.Label2.TabIndex = 353
-        Me.Label2.Tag = "515"
-        Me.Label2.Text = "Kickoffs/m:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'ShapeContainer1
         '
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1})
         Me.ShapeContainer1.Size = New System.Drawing.Size(800, 435)
         Me.ShapeContainer1.TabIndex = 355
         Me.ShapeContainer1.TabStop = False
+        '
+        'LineShape2
+        '
+        Me.LineShape2.BorderWidth = 2
+        Me.LineShape2.Name = "LineShape2"
+        Me.LineShape2.X1 = 600
+        Me.LineShape2.X2 = 797
+        Me.LineShape2.Y1 = 24
+        Me.LineShape2.Y2 = 24
         '
         'LineShape1
         '
         Me.LineShape1.BorderWidth = 2
         Me.LineShape1.Name = "LineShape1"
         Me.LineShape1.X1 = 2
-        Me.LineShape1.X2 = 135
+        Me.LineShape1.X2 = 200
         Me.LineShape1.Y1 = 24
         Me.LineShape1.Y2 = 24
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(0, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(149, 23)
+        Me.Label3.TabIndex = 356
+        Me.Label3.Tag = ""
+        Me.Label3.Text = "In Mold Drying Ko:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(596, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(136, 23)
+        Me.Label4.TabIndex = 357
+        Me.Label4.Tag = ""
+        Me.Label4.Text = "Speedcontrol Ko:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(664, 26)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(60, 23)
+        Me.Label2.TabIndex = 360
+        Me.Label2.Tag = ""
+        Me.Label2.Text = "modulo:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Overview
         '
@@ -1234,14 +1319,19 @@ Partial Class Overview
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.BackgroundImage = Global.InMoldDrying.My.Resources.Resources.Overview
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Controls.Add(Me.IO_ActKickOffs)
+        Me.Controls.Add(Me.IO_SpeedControlModulo)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.BTN_SampleBtn)
+        Me.Controls.Add(Me.IO_SpeedControlKos)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.IO_ActKickOffs)
         Me.Controls.Add(Me.PnlDoors)
         Me.Controls.Add(Me.StatusPH)
         Me.Controls.Add(Me.StatusIMD)
         Me.Controls.Add(Me.BtnGantryA)
         Me.Controls.Add(Me.BtnGantryB)
-        Me.Controls.Add(Me.BTN_EnableTakeout)
+        Me.Controls.Add(Me.BTN_SpeedControl)
         Me.Controls.Add(Me.Btn_SingleB)
         Me.Controls.Add(Me.Btn_SingleA)
         Me.Controls.Add(Me.Label1)
@@ -1292,10 +1382,9 @@ Partial Class Overview
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Btn_SingleA As KremerControlsWin32.KremerButton
     Friend WithEvents Btn_SingleB As KremerControlsWin32.KremerButton
-    Friend WithEvents BTN_EnableTakeout As KremerControlsWin32.KremerButton
+    Friend WithEvents BTN_SpeedControl As KremerControlsWin32.KremerButton
     Friend WithEvents ActSingleSideA As KremerControlsWin32.KremerVariable
     Friend WithEvents ActSingleSideB As KremerControlsWin32.KremerVariable
-    Friend WithEvents EnableTakeout As KremerControlsWin32.KremerVariable
     Friend WithEvents mxStart As KremerControlsWin32.KremerVariable
     Friend WithEvents mxPause As KremerControlsWin32.KremerVariable
     Friend WithEvents mxStop As KremerControlsWin32.KremerVariable
@@ -1315,17 +1404,13 @@ Partial Class Overview
     Friend WithEvents AL_Z4BackRight As KremerControlsWin32.KremerLight
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents AL_Z5Right As KremerControlsWin32.KremerLight
-    Friend WithEvents KremerLight10 As KremerControlsWin32.KremerLight
     Friend WithEvents AL_Z5Left As KremerControlsWin32.KremerLight
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents AL_Z1left As KremerControlsWin32.KremerLight
-    Friend WithEvents KremerLight11 As KremerControlsWin32.KremerLight
     Friend WithEvents AL_Z1Right As KremerControlsWin32.KremerLight
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
-    Friend WithEvents KremerLight14 As KremerControlsWin32.KremerLight
     Friend WithEvents AL_Z6Back As KremerControlsWin32.KremerLight
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents KremerLight16 As KremerControlsWin32.KremerLight
     Friend WithEvents AL_Z7Back As KremerControlsWin32.KremerLight
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents AL_Z3BackLeft As KremerControlsWin32.KremerLight
@@ -1352,9 +1437,20 @@ Partial Class Overview
     Friend WithEvents DoorZone6Back As KremerControlsWin32.KremerVariable
     Friend WithEvents DoorZone7back As KremerControlsWin32.KremerVariable
     Friend WithEvents PauseState As KremerControlsWin32.KremerVariable
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents IO_ActKickOffs As KremerControlsWin32.KremerIoField
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents actKickofss As KremerControlsWin32.KremerVariable
+    Friend WithEvents SpeedControlKos As KremerControlsWin32.KremerVariable
+    Friend WithEvents LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents IO_SpeedControlKos As KremerControlsWin32.KremerIoField
+    Friend WithEvents BTN_SampleBtn As KremerControlsWin32.KremerButton
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents IO_SpeedControlModulo As KremerControlsWin32.KremerIoField
+    Friend WithEvents mxSample As KremerControlsWin32.KremerVariable
+    Friend WithEvents mxSampleState As KremerControlsWin32.KremerVariable
+    Friend WithEvents SpeedControlModulo As KremerControlsWin32.KremerVariable
+
 End Class

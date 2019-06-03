@@ -2,89 +2,106 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="MAIN" Id="{147bab3f-acfd-4acf-8d8e-a76750ccc81a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
-VAR
-	(* Testing for new HMI*)
-	setAlarm1								: BOOL;
-	setAlarm2								: BOOL;
-	fbSource								: FB_TcSourceInfo;
-	raiseAlarm								: FB_RaiseAlarm;
-	eventTest								: FB_ListenerTest;
-	hr										: HRESULT;
-	fbEvent									: FB_TcEvent;
-	fbEventlogged							: FB_TcEventLogger;
-	fbAlarm									: FB_TcAlarm;
-	fbAlarm2								: FB_TcAlarm;
-	alarmIsRaised							: BOOL;
-	fbMessage								: FB_TcMessage;
-	bInit									: BOOL := TRUE;
-	testMessage								: STRING := 'TestParam';
-	linetrendOutput							: REAL := 3;
-	linetrendMin							: REAL := 0.0;
-	linetrendMax							: REAL := 15.0;
-	linetrendRising							: BOOL := TRUE;
-	linetrendX								: REAL;
-	listenerBase							: FB_ListenerBase;
-	(* 				end of testing 				*)
-	
+VAR	
+	// Get current timestamp for raising alarms
+	unixTime: UnixTimestamp;
+	timestampNanoseconds: ULINT;
+	timestampNanoseconds2: ULINT;
+
+	// General variables
 	mxReset									: BOOL;
 	mxEmergency								: BOOL;
+	EmButtons								: BOOL;
 	mxAutoMode								: BOOL; (* "1" = Auto, "0" = Manual *)
 	mxFirstCycle							: BOOL;
+	mxErrorInit								: BOOL;
+	mxInitialized							: BOOL;
+	SR_AttemptedStartWithNoProductLoaded	: SR;
 	
-	
+	// Sub objects
 	InMoldDrying							: FB_InMoldDrying;
 	ProductHandling							: FB_ProductHandling;
 	Blink									: FB_Blink;
-	TestStuff								: TestStuff();
+
+	// Variables for parameter structs and error structs
+	ComSC									: ST_Com_SpeedControl;	// Communication struct for speedcontrol
+	MachPar									: ST_MachPar;
+	ProductPar								: ST_ProdPar;
+	SysPar									: ST_SysPar;
+	Errors									: ST_Errors;
+	OEEpar									: ST_OEE;
 	
+	// Variables for/with HMI purposes
+{Region "HMI variables"}
 	mxHMI_Start								: BOOL;
 	mxHMI_Stop								: BOOL;
 	mxHMI_Pause								: BOOL;
+	mxHMI_Sample							: BOOL;
 	mxHMI_Reset								: BOOL;
 	mxHMI_StartInit							: BOOL;
 	mxHMI_StopInit							: BOOL;
 	mxHMI_EnableHeating						: BOOL;
-	mxProductLoaded							: BOOL;
-	mxMachineInRest							: BOOL;
-	
+
 	mxHMI_StartState						: BOOL;
 	mxHMI_StopState							: BOOL;
 	mxHMI_PauseState						: BOOL;
-	
-	mxHMI_StartHydraulics					: BOOL;
-	mxHMI_StopHydraulics					: BOOL;
+	mxHMI_SampleState						: BOOL;
+	mxHMI_Stopping							: BOOL;
 	mxHMI_StartHydraulicsState				: BOOL;
 	mxHMI_StopHydraulicsState				: BOOL;
+	mxHMI_StartHydraulics					: BOOL;
+	mxHMI_StopHydraulics					: BOOL;
 	mxHydraulicsReady						: BOOL;
+	mxProductLoaded							: BOOL;
+	mxMachineInRest							: BOOL;
 	
+	// Speedcontrol states for hmi
+	mrHMI_SpeedControlModulo				: LREAL;
+	mxHMI_StartFormingPulse					: BOOL;
+	mxHMI_StopFormingPulse					: BOOL;
+	mxHMI_SlotANotFree						: BOOL;
+	mxHMI_SlotBNotFree						: BOOL;
+	mxHMI_IMDHasES							: BOOL;
+	mrHMI_MaximumNrOfKickoffs				: REAL;
+	mrHMI_ActNrOfKickoffs					: REAL;
+	mxHMI_IMDRTO							: BOOL;
+	mxHMI_IMDStopped						: BOOL;
+	mxHMI_IMDRunning						: BOOL;
+	mrHMI_DictatedKoSpeedControl			: LREAL;
+	
+	
+	T_HMIReset								: TON;
+	FT_AutoMode								: F_Trig;
+	RT_MasterReset							: R_trig;
+{End region}
+	
+	// Triggers for starting and stopping
 	RT_Start								: R_TRIG;
 	RT_Stop									: R_TRIG;
+	RT_StopBySC								: R_TRIG;
+	RT_StartBySC							: R_TRIG;
 	RT_Pause								: R_TRIG;
 	RT_StartInit							: R_TRIG;
 	RT_StopInit								: R_TRIG;
-	
+	RT_StopOnLowLvl							: R_TRIG;
+	RT_StartHydraulics						: R_TRIG;
+	RT_StopHydraulics						: R_TRIG;	
 
+	RT_PauseReqGantryA						: R_TRIG;
+	RT_PauseReqGantryB						: R_TRIG;
+	RT_PauseReqProdHandling					: R_TRIG;
+	RT_PauseReqImd							: R_TRIG;
 	
-	
-	qxLightGreen							AT %Q* : BOOL;
-	qxLightYellow							AT %Q* : BOOL;
-	qxLightRed								AT %Q* : BOOL;
-	qxAlarmHorn								AT %Q* : BOOL;
-
-	(*Added by bateu*)
+	// 24Volt error
 	ix24VoltError1							AT %I* : BOOL;
 	ix24VoltError2							AT %I* : BOOL;
+	SR_24VError1							: SR;
+	SR_24VError2							: SR;	
 	
-	L1										AT %I* : ST_PowerMeasurement;
-	L2										AT %I* : ST_PowerMeasurement;
-	L3										AT %I* : ST_PowerMeasurement;		
-
-	
-	Errors									: ST_Errors;
-(*TwinSAFE*)
+	// inputs and ouputs regarding safety 
+{Region "Safety variables"}
 	ixTwinSafe_SafetyRelay 					AT %I*:ARRAY[1..GVL.MAX_ZONES] OF BOOL; (* couple to zones in Safety programm FB outputs *)
 	qxTwinSafe_Reset						AT %Q*: BOOL;
-
 	FbError 								AT %I*: BOOL;
 	ComErr 									AT %I*: BOOL;
 	OutErr 									AT %I*: BOOL;
@@ -143,8 +160,9 @@ VAR
 	ixSafetyGantryB_FrontDoorLeft			AT %I* 	: ARRAY[0..1] OF BOOL; (* couple to the TwinSAFE inputs *)
 	ixSafetyGantryB_FrontDoorRight			AT %I* 	: ARRAY[0..1] OF BOOL; (* couple to the TwinSAFE inputs *)
 	ixSafetyGantryB_BackDoor				AT %I* 	: ARRAY[0..1] OF BOOL; (* couple to the TwinSAFE inputs *)
-
-	(* Em Stops *)
+{End Region}
+	
+	// Emergency stops
 	SR_exEmergency							: ARRAY[1..GVL.MAX_ZONES] OF SR; (* Emergency of the zones *)
 	SR_EmStopImdFront						: SR;
 	SR_EmStopImdBack						: SR;
@@ -152,7 +170,8 @@ VAR
 	SR_EmStopGantryA_Back					: SR;
 	SR_EmStopGantryB_Front					: SR;
 	SR_EmStopGantryB_Back					: SR;
-	(* Doors IMD*)
+	
+	// Emergency Doors IMD
 	SR_SafetyFrontDoorLeft					: SR;
 	SR_SafetyFrontDoorMiddle				: SR;
 	SR_SafetyFrontDoorRight					: SR;
@@ -162,49 +181,22 @@ VAR
 	SR_SafetyBackDoorMiddle4				: SR;
 	SR_SafetyBackDoorRight5					: SR;
 	SR_SafetyBackDoorRight6					: SR;
-	(* Doors Gantry *)
+	DoorRequestImdFront						: GateRequest;
+	DoorRequestImdBack						: GateRequest;
+	DoorRequestGantryAFront					: GateRequest;
+	DoorRequestGantryABack					: GateRequest;
+	DoorRequestGantryBFront					: GateRequest;
+	DoorRequestGantryBBack					: GateRequest;
+	
+	// Emergency Doors Gantries
 	SR_SafetyGantryA_FrontDoorLeft			: SR;	
 	SR_SafetyGantryA_FrontDoorRight			: SR;
 	SR_SafetyGantryA_BackDoor				: SR;
 	SR_SafetyGantryB_FrontDoorLeft			: SR;	
 	SR_SafetyGantryB_FrontDoorRight			: SR;
 	SR_SafetyGantryB_BackDoor				: SR;
-	
-	(*24V error*)
-	SR_24VError1							: SR;
-	SR_24VError2							: SR;
-	
-	SR_AttemptedStartWithNoProductLoaded	: SR;
-	
-	(* Door request *)
-	RT_DoorReqImdFront						: R_TRIG;
-	RT_DoorReqImdBack						: R_TRIG;
-	RT_DoorReqGantryA_Front					: R_TRIG;
-	RT_DoorReqGantryA_Back					: R_TRIG;
-	RT_DoorReqGantryB_Front					: R_TRIG;
-	RT_DoorReqGantryB_Back					: R_TRIG;
 
-	mx_DoorReqImdFront						: BOOL;
-	mx_DoorReqImdBack						: BOOL;
-	mx_DoorReqGantryA_Front					: BOOL;
-	mx_DoorReqGantryA_Back					: BOOL;
-	mx_DoorReqGantryB_Front					: BOOL;
-	mx_DoorReqGantryB_Back					: BOOL;
-
-	mxReqDoorsZone1							: BOOL;
-	mxReqDoorsZone2							: BOOL;
-	mxReqDoorsZone3							: BOOL;
-	mxReqDoorsZone4							: BOOL;
-	mxReqDoorsZone5							: BOOL;
-	mxReqDoorsZone6							: BOOL;
-	mxReqDoorsZone7							: BOOL;
-	
-	T_HMIReset								: TON;
-	
-	MachPar									: ST_MachPar;
-	ProductPar								: ST_ProdPar;
-	SysPar									: ST_SysPar;
-	(* Persistent vars*)
+	// Presistent data
 	ChkMachPar								: ST_MachPar;
 	CmpMachPar								: DINT;
 	ChkSysPar								: ST_SysPar;
@@ -213,10 +205,8 @@ VAR
 	FB_WritePersistentData					:  WritePersistentData;
 	FB_GetCurTaskIdx						: GETCURTASKINDEX;
 	T_WritePersistent						: TON;
-	mxErrorInit								: BOOL;
-	FT_AutoMode								: F_Trig;
-	RT_MasterReset							: R_trig;
-	mxInitialized							: BOOL;
+	
+	// Variables for the ethercat diagnosing.
 	iwDevID									AT %I* :UINT;
 	iAmsNetID								AT %I* :ARRAY [0..5] OF BYTE;
 	iwSlaveCount							AT %I* :UINT;
@@ -225,99 +215,64 @@ VAR
 	EtherCatDiag							:FB_EtherCATDiag;
 	AmsNetID								: STRING;
 	DeviceID								: INT;
-		
-	Testbutton1								: BOOL;
-	TestButton2 							: BOOL;
 	
-	mxHMI_Stopping							: BOOL;
+	PlcCycleTime     						: REAL := 10.0;
 	
-	Phase1									: REAL;
-	Phase2									: REAL;
-	Phase3									: REAL;
-
+	// Variables for O.E.E
+	L1										AT %I* : ST_PowerMeasurement;
+	L2										AT %I* : ST_PowerMeasurement;
+	L3										AT %I* : ST_PowerMeasurement;	
+	ActNrOfKickoffs							: REAL;	
+	oldSecond								: INT;
+	NTGetTime								: NT_GetTime;
+	mxPulseCycle							: BOOL; 				(* Pulse 1 cycle on, 1 cycle off *)
+	SysTime									: TIMESTRUCT;
+	RT_1SecondTrigger						: R_TRIG;
 	
+	// Outputs for alarm tower.
+	qxLightGreen							AT %Q* : BOOL;
+	qxLightYellow							AT %Q* : BOOL;
+	qxLightRed								AT %Q* : BOOL;
+	qxAlarmHorn								AT %Q* : BOOL;
+	
+	// Variables for the UPS
 	ixMainSwitchOFF							AT %I* : BOOL;	
 	ixUPS_Alarm								AT %I* : BOOL;
 	ixUPS_BatMode							AT %I* : BOOL;
 	ixUPS_Charge							AT %I* : BOOL;
-	
 	qxPcRemoteOff							AT %Q* : BOOL;
+	T_BatteryMode							: TON;
+	T_MaintSwitch							: TON;
+	SR_UPSAlarm								: SR;
+	mxEmDoors								: BOOL;
+
+
+	mxIMDUnlocked							: BOOL;
+	mxProdHandlingUnlocked					: BOOL;
+	mxEmptyByStopSC							: BOOL;
+
+	RT_Sample: R_TRIG;
+	mxSample: BOOL;
+	RT_RestartAfterDoorOpened: R_TRIG;
+	FT_Sample: F_TRIG;
 	
-	PlcCycleTime     						: REAL := 10.0;
-	RT_PauseReq								: R_TRIG;
+	mxReset_ByStartInmold			: BOOL;
+	mxReset_ByStartProdHandling		: BOOL;
+	RT_InMoldDryingBusy				: R_TRIG;
+	RT_ProdHandlingBusy				: R_TRIG;
 	
-	EmButtons								: BOOL;
-
-	ActNrOfKickoffs							: REAL;
-	RT_StopOnLowLvl							: R_TRIG;
-	RT_StartHydraulics						: R_TRIG;
-
-	RT_StopHydraulics: R_TRIG;
-
-	T_BatteryMode: TON;
-	T_MaintSwitch: TON;
-	SR_UPSAlarm: SR;
+	//Main Air supply
+	MainAirSupply					: FB_MonoValveNoFdbck;
+	MainAirPressureSwitch	AT %I* 	: BOOL;
+	SR_MainAirPressureError			: SR;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// 					Testing here				//
-eventTest();
-IF setAlarm2 THEN
-	raiseAlarm(raiseAlarm:= setAlarm2);
-	setAlarm2 := FALSE;
-ELSE 
-	raiseAlarm(raiseAlarm:= FALSE);
-END_IF
-
-IF fbAlarm.bRaised THEN
-	// This alarm is raised
-	IF fbAlarm.eConfirmationState = 0 THEN // NotSupported
-		// State is not supported
-	END_IF
-	IF fbAlarm.eConfirmationState = 1 THEN // NotRequired
-		// A confirmation is not required
-	END_IF
-	IF fbAlarm.eConfirmationState = 2 THEN // WaitForConfirmation
-		// Alarm is not yet confirmed
-	END_IF
-	IF fbAlarm.eConfirmationState = 3 THEN // Confirmed
-		// Alarm has been confirmed
-		fbAlarm.Clear(0, TRUE);
-	END_IF
-	IF fbAlarm.eConfirmationState = 4 THEN // Reset
-		// Alarm has been reset
-	END_IF
-END_IF
-
-IF setAlarm1 THEN
-	setAlarm1 := FALSE;
-	fbSource.Clear();
-	fbSource.sName := 'My custom source';
-	fbSource.nId := 99;
-	fbAlarm.CreateEx(TC_Events.MyEventClass.MyFirstAlarm, TRUE, fbSource);
-	fbAlarm.Raise(0);	
-END_IF
-
-linetrendOutput := SIN(linetrendX);
-linetrendX := linetrendX + 0.01;
-
-(*
-IF linetrendRising THEN
-	IF linetrendOutput < linetrendMax THEN
-		linetrendOutput := linetrendOutput + 0.01;
-	ELSE
-		linetrendRising := FALSE;
-	END_IF
-ELSE
-	IF linetrendOutput > linetrendMin THEN
-		linetrendOutput := linetrendOutput - 0.01;
-	ELSE
-		linetrendRising := TRUE;
-	END_IF
-END_IF
-*)
-// 					End of testing 				//
-
+      <ST><![CDATA[unixTime();
+//timestampMilliseconds := unixTime.milliseconds;
+//timestampSeconds := unixTime.seconds;
+timestampNanoseconds := unixTime.nanoseconds;
 
 // 					Object Calls				//
 FB_GetCurTaskIdx();
@@ -325,88 +280,106 @@ mxFirstCycle:= _TaskInfo[FB_GetCurTaskIdx.index].FirstCycle;
 PlcCycleTime:= UDINT_TO_REAL(_TaskInfo[FB_GetCurTaskIdx.index].CycleTime/10000);
 RemanentData();
 Blink();
-Error();
 Objects();
-OEEE();
-TimeAnddDate();
+HMIState();
 
 // 					R_Trigs.					//
 RT_StartHydraulics(CLK:= mxHMI_StartHydraulics);
 RT_StopHydraulics(CLK:= mxHMI_StopHydraulics);
-RT_Start(CLK:= mxHMI_Start);
+RT_Start(CLK:= mxHMI_Start);// OR (ComSC.SpeedControl_IMD.StartForming AND NOT InMoldDrying.mxInPause));
 RT_Stop(CLK:= mxHMI_Stop); 
+RT_StartBySC(CLK:= ComSC.SpeedControl_IMD.StartFormingA OR ComSC.SpeedControl_IMD.StartFormingB);
+RT_StopBySC(CLK:= ComSC.SpeedControl_IMD.StopForming); 
 RT_StopOnLowLvl(CLK:= Main.Errors.InMoldDryingErrors.ProductForming.LowLvlOnBothTanks);
 RT_Pause(CLK:= mxHMI_Pause);
+RT_Sample(CLK:=mxHMI_Sample);
+FT_Sample(CLK:=InMoldDrying.mxSample);
 RT_StartInit(CLK:= mxHMI_StartInit);
 RT_StopInit(CLK:= mxHMI_StopInit);
 RT_MasterReset(CLK:= NOT mxAutoMode);
-RT_PauseReq(ClK:=mxReqDoorsZone1 OR mxReqDoorsZone2 OR mxReqDoorsZone3 OR mxReqDoorsZone4 OR mxReqDoorsZone5 OR mxReqDoorsZone6 OR mxReqDoorsZone7 OR InMoldDrying.mxErrorStopInPos OR ProductHandling.mxErrorStopinPos);
 mxInitialized:= InMoldDrying.mxInitialized AND ProductHandling.mxInitialized;
 mxMachineInRest := NOT InMoldDrying.mxCycleBusy AND NOT ProductHandling.mxCycleBusy;
 
 
 // 					Start the Hydraulics		//
-IF RT_StartHydraulics.Q AND NOT mxErrorInit THEN
+IF (RT_StartHydraulics.Q OR (RT_RestartAfterDoorOpened.Q AND InMoldDrying.HydraulicsMain.mxCycleInPause AND mxAutoMode)) AND NOT mxErrorInit THEN
 	InMoldDrying.M_StartHydraulics();
 END_IF
 
+// 					Stop hydraulics
 IF RT_StopHydraulics.Q THEN
 	InMoldDrying.M_StopHydraulics();
 END_IF
 
+RT_InMoldDryingBusy(CLK:=InMoldDrying.mxCycleBusy);
+RT_ProdHandlingBusy(CLK:=ProductHandling.mxCycleBusy);
+IF RT_InMoldDryingBusy.Q THEN
+	mxReset_ByStartInmold := TRUE;
+END_IF
+IF RT_ProdHandlingBusy.Q THEN
+	mxReset_ByStartProdHandling := TRUE;
+END_IF
+IF NOT mxEmptyByStopSC THEN
+	mxReset_ByStartInmold := FALSE;
+	mxReset_ByStartProdHandling := FALSE;	
+END_IF
+
 // 					Start machine				//
-IF RT_Start.Q AND mxAutoMode AND mxInitialized AND NOT mxErrorInit AND mxProductLoaded AND mxHydraulicsReady THEN  
+IF (RT_Start.Q OR (mxEmptyByStopSC AND NOT ComSC.SpeedControl_IMD.StopForming)) AND mxAutoMode AND mxInitialized AND NOT mxErrorInit AND mxProductLoaded AND mxHydraulicsReady AND NOT mxIMDUnlocked AND NOT mxProdHandlingUnlocked THEN  
 	InMoldDrying.M_StartCycle(); 
 	ProductHandling.M_StartCycle();
 	mxHMI_Stopping :=FALSE;
+	IF mxReset_ByStartInmold AND mxReset_ByStartProdHandling THEN
+		mxEmptyByStopSC := FALSE;
+	END_IF
 END_IF
 
-//					Pause (stopinpos)			//
-IF RT_PauseReq.Q AND (InMoldDrying.mxCycleBusy OR ProductHandling.mxCycleBusy) THEN
+//					IMD Pause (stopinpos)		//
+IF RT_PauseReqImd.Q THEN
 	InMoldDrying.M_StopCycle();	
-	ProductHandling.M_StopCycle();
+	mxEmptyByStopSC := FALSE;
+END_IF
+
+//					Producthandling Pause (stopinpos)		//
+IF RT_PauseReqProdHandling.Q THEN
+	ProductHandling.M_StopCycle();	
+	mxEmptyByStopSC := FALSE;
 END_IF
 
 //					Normal stop					//
-IF ((RT_StopOnLowLvl.Q OR RT_Stop.Q) AND mxAutoMode) THEN  
+IF ((RT_StopOnLowLvl.Q OR RT_Stop.Q OR RT_StopBySC.Q) AND mxAutoMode) THEN  
 	InMoldDrying.M_StopCycleEmpty();  
 	Producthandling.M_StopCycleEmpty(); 
-	mxHMI_Stopping := TRUE;						
+	mxHMI_Stopping := TRUE;		
+	mxEmptyByStopSC := FALSE;
+	IF 	RT_StopBySC.Q AND (ProductHandling.mxCycleBusy OR InMoldDrying.mxCycleBusy) THEN
+		mxEmptyByStopSC := TRUE;
+	END_IF			
 END_IF
 
 //					Init machine				//
 IF RT_StartInit.Q AND mxAutoMode AND mxProductLoaded AND NOT mxErrorInit AND mxHydraulicsReady THEN 
 	InMoldDrying.M_StartInit(); 
-	IF NOT ProductHandling.mxInitialized THEN Producthandling.M_StartInit(); END_IF
+	mxEmptyByStopSC := FALSE;
+	Producthandling.M_StartInit(); 
 END_IF
 IF RT_StopInit.Q OR mxErrorInit THEN
 	InMoldDrying.M_StopInit();
 	ProductHandling.M_StopInit();
+	mxEmptyByStopSC := FALSE;
 END_IF
 
 //					Stop direct error			//
 IF mxErrorInit OR InMoldDrying.mxErrorInit OR ProductHandling.Errors.Gantry_A.Collision OR ProductHandling.Errors.Gantry_B.Collision THEN
 	InMoldDrying.M_StopDirect();
-	//InMoldDrying.HydraulicsMain.M_StopDirect();
+	mxEmptyByStopSC := FALSE;
 END_IF
 
 IF mxErrorInit OR ProductHandling.mxErrorInit THEN
 	ProductHandling.M_StopDirect();
+	mxEmptyByStopSC := FALSE;
 END_IF
 
-//					HMI stop button color		//
-IF mxHMI_Stopping THEN
-	mxHMI_StopState := TRUE;
-ELSIF NOT InMoldDrying.mxCycleBusy AND NOT ProductHandling.mxCycleBusy AND NOT InMoldDrying.mxPause THEN
-	mxHMI_StopState := TRUE;
-	mxHMI_Stopping := FALSE;
-ELSE
-	mxHMI_StopState := FALSE;
-	mxHMI_Stopping := FALSE;	
-END_IF
- 
-mxHMI_StartHydraulicsState := mxHydraulicsReady;
-mxHMI_StopHydraulicsState := NOT mxHydraulicsReady;
 
 
 //					Signal light				//
@@ -415,9 +388,6 @@ qxLightEmStopImdFront:= qxLightEmStopImdBack:= qxLightEmStopGantryA_Front:= qxLi
 qxLightRed:= HMI.mxError;
 qxLightGreen:= mxHMI_StartState := (InMoldDrying.mxCycleBusy OR ProductHandling.mxCycleBusy) AND NOT mxHMI_PauseState;
 qxLightYellow:= FALSE;
-
-// 					Indicate pause state		//
-mxHMI_PauseState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause;
 
 //					Reseting					//
 T_HMIReset(IN:= mxHMI_Reset,PT:=T#1S);
@@ -431,36 +401,63 @@ IF RT_MasterReset.Q THEN
 	InMoldDrying.mxResetInitState := TRUE;
 	ProductHandling.mxResetCycleState:= TRUE;
 	ProductHandling.mxResetInitState:= TRUE;
+	mxEmptyByStopSC := FALSE;
 END_IF
+
+// 					Sample button				//
+IF RT_Sample.Q THEN
+	mxSample:= InMoldDrying.mxSample := TRUE;
+END_IF; 
+
+IF FT_Sample.Q THEN
+	mxSample:=FALSE;
+END_IF
+
 
 // Get AMS net id and device id for ethercat topology
 AmsNetID:= F_CreateAmsNetId(iAmsNetID);
 DeviceID:= UINT_TO_INT(iwDevID);
 
+// 					Force HMI bits to zero		//
 mxHMI_Start := FALSE;
 mxHMI_Stop := FALSE;
 mxHMI_Pause := FALSE;
+mxHMI_Sample:=FALSE;
 mxHMI_StartHydraulics := FALSE;
 mxHMI_StopHydraulics:=FALSE;
 
-
-IF InMoldDrying.ProductForming.ActTimeSingleKO > 0 THEN
-	ActNrOfKickoffs:= 60000 / InMoldDrying.ProductForming.ActTimeSingleKO;
-ELSE 
-	ActNrOfKickoffs:= 0.0;
-END_IF
-
-
 // Shut of PC when on battery mode or when power was switched off:
 T_BatteryMode(IN:=ixUPS_BatMode, PT:=T#30S);
-//T_MaintSwitch(IN:=NOT ixMainSwitchOFF);
+T_MaintSwitch(IN:=ixMainSwitchOFF, PT:=T#5S);
 
 // Uncomment when timers are tested.
 qxPcRemoteOff := T_BatteryMode.Q OR T_MaintSwitch.Q;
 
+//Main Air Supply
+MainAirSupply.M_On();
 
 ]]></ST>
     </Implementation>
+    <Action Name="Com_SC" Id="{d783749b-6813-4311-9fc2-4a90fec2a0cc}">
+      <Implementation>
+        <ST><![CDATA[// Current speed (dictated by Speedcontrol)
+IF InMoldDrying.ProductForming.CurrentSpeedSingleKO > 0 THEN
+	ComSC.IMD_SpeedControl.ActualSpeed := (60000 / InMoldDrying.ProductForming.CurrentSpeedSingleKO);
+END_IF
+
+// Current maximum speed (Calculated on bases of own forming).
+ComSC.IMD_SpeedControl.MaximumSpeed := InMoldDrying.CalculateMaxKO.MaxKO;
+
+
+ComSC.IMD_SpeedControl.RTO := mxAutoMode AND mxInitialized AND NOT mxErrorInit AND mxProductLoaded AND mxHydraulicsReady;
+ComSC.IMD_SpeedControl.ES := mxEmergency;
+ComSC.IMD_SpeedControl.Stopped := NOT InMoldDrying.mxCycleBusy; // AND NOT ProductHandling.mxCycleBusy;
+ComSC.IMD_SpeedControl.HMI_Reset := mxHMI_Reset;
+
+
+]]></ST>
+      </Implementation>
+    </Action>
     <Action Name="Error" Id="{32a11183-149e-4a28-9cb7-3681850f3bf8}">
       <Implementation>
         <ST><![CDATA[(*Emergency Stop Active Zone x,  Index=Zone , 1=Takeout/Gantr A, 2=Imd Left, 3=Imd Middle, 4=Imd Right, 5=Takeout/Gantry B*, 6=Gantry B *)
@@ -499,6 +496,9 @@ SR_SafetyGantryB_FrontDoorLeft(SET1:= NOT ixSafetyGantryB_FrontDoorLeft[0] OR NO
 SR_SafetyGantryB_FrontDoorRight(SET1:= NOT ixSafetyGantryB_FrontDoorRight[0] OR NOT ixSafetyGantryB_FrontDoorright[1] , RESET:= mxReset, Q1=> Errors.exGantryB_FrontDoorRight);
 SR_SafetyGantryB_BackDoor(SET1:= NOT ixSafetyGantryB_BackDoor[0] OR NOT ixSafetyGantryB_BackDoor[1] , RESET:= mxReset, Q1=> Errors.exGantryB_BackDoor);
 
+(* Main Air Supply *)
+SR_MainAirPressureError(SET1 := NOT MainAirPressureSwitch, RESET:= mxReset, Q1=> Errors.MainAirSupplyError);
+
 (*24V error*)
 SR_24VError1(Set1:=NOT ix24VoltError1, Reset:=mxReset, Q1=>Errors.ex24VoltError1); 
 SR_24VError2(Set1:=NOT ix24VoltError2, Reset:=mxReset, Q1=>Errors.ex24VoltError2); 
@@ -512,11 +512,44 @@ EtherCatDiag(
 	DevState:=		iwDevState);
 
 Errors.exEmergency[8]	:=EmButtons := Errors.exEmStopGantryA_Back OR Errors.exEmStopGantryA_Front OR Errors.exEmStopGantryB_Back OR Errors.exEmStopGantryB_Front OR Errors.exEmStopImdBack OR Errors.exEmStopImdFront;
-	
-mxEmergency := Errors.exEmergency[1] OR Errors.exEmergency[2] OR Errors.exEmergency[3] OR 
-Errors.exEmergency[4] OR Errors.exEmergency[5] OR Errors.exEmergency[6] OR Errors.exEmergency[7] OR EmButtons;
 
-mxErrorInit:= InMoldDrying.mxErrorInit OR ProductHandling.mxErrorInit OR EmButtons;]]></ST>
+mxEmDoors	:= Errors.exEmergency[1] OR Errors.exEmergency[2] OR Errors.exEmergency[3] OR 
+Errors.exEmergency[4] OR Errors.exEmergency[5] OR Errors.exEmergency[6] OR Errors.exEmergency[7]; 	
+
+mxEmergency := mxEmDoors OR EmButtons;
+
+mxErrorInit:= InMoldDrying.mxErrorInit OR ProductHandling.mxErrorInit OR EmButtons OR Errors.MainAirSupplyError OR
+				(NOT InMoldDrying.mxInPause AND NOT ProductHandling.mxInPause AND mxEmDoors); // If door is opened without door req, stopdirect (mxErrorInit).]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="HMIState" Id="{3b6d2f35-c3dd-4e70-be6d-7a184a0192e1}">
+      <Implementation>
+        <ST><![CDATA[//// ***			Starting stopping pause Sample			***	////
+mxHMI_StartHydraulicsState := mxHydraulicsReady;
+mxHMI_StopHydraulicsState := NOT mxHydraulicsReady;
+mxHMI_StartState:= InMoldDrying.mxCycleBusy AND ProductHandling.mxCycleBusy;
+mxHMI_PauseState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause;
+mxHMI_StopState:= (NOT InMoldDrying.mxCycleBusy AND NOT ProductHandling.mxCycleBusy) OR mxHMI_Stopping;
+mxHMI_IMDRunning := NOT mxHMI_PauseState AND (InMoldDrying.mxCycleBusy OR ProductHandling.mxCycleBusy);
+mxHMI_SampleState := mxSample;
+
+
+//// *** 					Speedcontrol					*** ////
+
+// Status for HMI: Speedcontrol commands for IMD
+mrHMI_SpeedControlModulo := ComSC.SpeedControl_IMD.Modulo;
+mxHMI_StartFormingPulse := ComSC.SpeedControl_IMD.StartFormingA OR ComSC.SpeedControl_IMD.StartFormingB;
+mxHMI_StopFormingPulse := ComSC.SpeedControl_IMD.StopForming;
+mxHMI_SlotANotFree := ComSc.SpeedControl_IMD.ErrSlotANotFree;
+mxHMI_SlotBNotFree := ComSc.SpeedControl_IMD.ErrSlotBNotFree;
+
+// Status for HMI: IMD commands for Speedcontrol
+mxHMI_ImdHasES := ComSC.IMD_SpeedControl.ES;
+mrHMI_ActNrOfKickoffs := ComSC.IMD_SpeedControl.ActualSpeed;
+mrHMI_MaximumNrOfKickoffs := ComSc.IMD_SpeedControl.MaximumSpeed;
+mxHMI_IMDRTO := ComSc.IMD_SpeedControl.RTO;
+mxHMI_IMDStopped := ComSC.IMD_SpeedControl.Stopped;
+mrHMI_DictatedKoSpeedControl := ComSC.SpeedControl_IMD.SpeedInKo;]]></ST>
       </Implementation>
     </Action>
     <Action Name="Objects" Id="{2a794986-d238-4cdf-83df-adb4601c4b15}">
@@ -524,17 +557,16 @@ mxErrorInit:= InMoldDrying.mxErrorInit OR ProductHandling.mxErrorInit OR EmButto
         <ST><![CDATA[HMI();
 Error();
 SafetyDoors();
+Com_SC();
+OEE();
 
 InMoldDrying(
 	mxReset:= mxReset, 
 	mxEmergency:= Errors.exEmergency,//Errors.exEmergency[1] OR Errors.exEmergency[2] OR Errors.exEmergency[3] OR Errors.exEmergency[4] OR Errors.exEmergency[5] OR Errors.exEmStopImdFront OR Errors.exEmStopImdBack,
 	mxAutoMode:= mxAutoMode,
+	mxStartFormingA:= ComSC.SpeedControl_IMD.StartFormingA,
+	mxStartFormingB:= ComSC.SpeedControl_IMD.StartFormingB,
 	mxFirstCycle:= mxFirstCycle,
-	mxPauseReqZone1:= mxReqDoorsZone1,
-	mxPauseReqZone2:= mxReqDoorsZone2,
-	mxPauseReqZone3:= mxReqDoorsZone3,
-	mxPauseReqZone4:= mxReqDoorsZone4,
-	mxPauseReqZone5:= mxReqDoorsZone5,
 	mxProductPickedUpGantry_A:= ProductHandling.mxProductPickedUpGantry_A,
 	mxProductPickedUpGantry_B:= ProductHandling.mxProductPickedUpGantry_B,
 	mxEnableHeating:= mxHMI_EnableHeating,
@@ -544,6 +576,8 @@ InMoldDrying(
 	MachParameters:= MachPar.InMoldDrying, 
 	ProdParameters:= ProductPar.InMoldDrying, 
 	SysParameters:= SysPar.InMoldDrying,
+	mxFormingA_Ready => ComSC.IMD_SpeedControl.FormingReadyA,
+	mxFormingB_Ready => ComSC.IMD_SpeedControl.FormingReadyB,
 	Errors=> Errors.InMoldDryingErrors);
 
 ProductHandling(
@@ -551,29 +585,120 @@ ProductHandling(
 	mxEmergency:= Errors.exEmergency,//Errors.exEmergency[1] OR Errors.exEmergency[5] OR Errors.exEmergency[6] OR Errors.exEmergency[7] OR Errors.exEmStopImdFront OR Errors.exEmStopImdBack,
 	mxAutoMode:= mxAutoMode,
 	mxFirstCycle:=mxFirstCycle,
-	mxSideA_Enabled:= MachPar.InMoldDrying.EnableEamcSideA,
-	mxSideB_Enabled:= MachPar.InMoldDrying.EnableEamcSideB,
+	mxSideA_Enabled:= InMoldDrying.mxSideAEnabled, //MachPar.InMoldDrying.EnableEamcSideA,
+	mxSideB_Enabled:= InMoldDrying.mxSideBEnabled, //MachPar.InMoldDrying.EnableEamcSideB,
 	mxEamcIsEmpty:= InMoldDrying.mxIsEmpty,
+	mxStopBeforeSCstarted := InMoldDrying.mxStopBeforeSCstarted,
 	mxProductReadyAtTakeout_A:= InMoldDrying.mxProductReadyAtTakeout_A,
 	mxProductReadyAtTakeout_B:= InMoldDrying.mxProductReadyAtTakeout_B,
+	mxStopCycleGantryA:=RT_PauseReqGantryA.Q,
+	mxStopCycleGantryB:=RT_PauseReqGantryB.Q,
+	GantryA_BlowOffPulse:= ComSC.SpeedControl_IMD.BlowOffPulseA,
+	GantryB_BlowOffPulse:= ComSC.SpeedControl_IMD.BlowOffPulseB,
+	GantryA_BlowOffSucceded	=> ComSC.IMD_SpeedControl.BlowOffProcessedA,
+	GantryB_BlowOffSucceded	=> ComSC.IMD_SpeedControl.BlowOffProcessedB,
+	GantryA_InPositionAtBelt=> ComSC.IMD_SpeedControl.GantryA_Ready,
+	GantryB_InPositionAtBelt=> ComSC.IMD_SpeedControl.GantryB_Ready,
+	NrOfSheets := ComSC.SpeedControl_IMD.ProdParameters.NrOfSheets,
+	NrOfCavities := COmSC.SpeedControl_IMD.ProdParameters.NrOfCavities,
 	MachParameters:= MachPar.ProductHandling, 
 	ProdParameters:= ProductPar.ProductHandling,
 	SysParameters:= SysPar.ProductHandling,
 	Errors=> Errors.ProductHandlingErrors);
 
-	
+MainAirSupply(
+	mxReset:= mxReset, 
+	mxEmergency:= , 
+	mxAutoMode:= TRUE, 
+	RHSR_Blocked:= , 
+	SlowValveIsInverted:= , 
+	mxDisableManualAutoTrigger:= , 
+	mxIsOn=> );	
 	
 ]]></ST>
       </Implementation>
     </Action>
-    <Action Name="OEEE" Id="{b9d6c661-be12-4631-a38e-4ad57534fc61}">
+    <Action Name="OEE" Id="{b9d6c661-be12-4631-a38e-4ad57534fc61}">
       <Implementation>
-        <ST><![CDATA[
+        <ST><![CDATA[(* Read actual Systemtime *)
+mxPulseCycle := NOT mxPulseCycle;
+NTGetTime(START:=mxPulseCycle AND NOT NTGetTime.BUSY , TMOUT:=t#100ms,  TIMESTR=>SysTime );
+
+RT_1SecondTrigger(CLK:=WORD_TO_INT(SysTime.wSecond) <> oldSecond);
+IF RT_1SecondTrigger.Q THEN
+	oldSecond:=WORD_TO_INT(SysTime.wSecond);
+END_IF
+
 // Calculate the voltage to normal format (000.00V)
-Phase1 := DINT_TO_REAL(L1.iwVoltage) / 10000.0;
-Phase2 := DINT_TO_REAL(L2.iwVoltage) / 10000.0;
-Phase3 := DINT_TO_REAL(L3.iwVoltage) / 10000.0;
-]]></ST>
+OEEpar.L1_Voltage := DINT_TO_REAL(L1.iwVoltage) / 10000.0;
+OEEpar.L2_Voltage := DINT_TO_REAL(L2.iwVoltage) / 10000.0;
+OEEpar.L3_Voltage := DINT_TO_REAL(L3.iwVoltage) / 10000.0;
+
+// Calculate the current to normal format (00.00A)
+OEEpar.L1_Current := DINT_TO_REAL(L1.iwCurrent) / 1000.0;
+OEEpar.L2_Current := DINT_TO_REAL(L2.iwCurrent) / 1000.0;
+OEEpar.L3_Current := DINT_TO_REAL(L3.iwCurrent) / 1000.0;
+
+// Calculate the Powerconsumtion 
+OEEpar.L1_Watt := OEEpar.L1_Voltage * OEEpar.L1_Current;
+OEEpar.L2_Watt := OEEpar.L2_Voltage * OEEpar.L2_Current;
+OEEpar.L3_Watt := OEEpar.L3_Voltage * OEEpar.L3_Current;
+
+// Kickoff's A side
+IF InMoldDrying.BottommoldA.NrOfKickOffs <> 0 THEN
+	OEEpar.KickOffsAside := (60000 / InMoldDrying.BottommoldA.NrOfKickOffs);
+ELSE
+	OEEpar.KickOffsAside := 0;
+END_IF
+
+// Kickoff's B side
+IF InMoldDrying.BottommoldB.NrOfKickOffs <> 0 THEN
+	OEEpar.KickOffsBside := (60000 / InMoldDrying.BottommoldB.NrOfKickOffs);
+ELSE
+	OEEpar.KickOffsBside := 0;
+END_IF
+
+// Total Kickoff's
+OEEpar.KickOffsBothSides := ComSC.IMD_SpeedControl.ActualSpeed;
+
+// IMD Error time:
+IF RT_1SecondTrigger.Q AND (InMoldDrying.mxErrorInit OR InMoldDrying.mxErrorStopinPos) THEN
+	OEEpar.ImdErrorTime := OEEpar.ImdErrorTime +1;
+END_IF
+
+// ProductHandling Error Time:
+IF RT_1SecondTrigger.Q AND (ProductHandling.mxErrorInit OR ProductHandling.mxErrorStopinPos) THEN
+	OEEpar.ProductHandingErrorTime := OEEpar.ProductHandingErrorTime +1;
+END_IF
+
+// Total run time (time that the machine was in automatic production mode)
+IF RT_1SecondTrigger.Q AND (mxAutomode AND mxHMI_IMDRunning) THEN
+	OEEpar.TotalRunTime := OEEpar.TotalRunTime +1;
+END_IF
+
+// Total wait time (time that the machine was ready, with no error, but wasn't running)
+IF RT_1SecondTrigger.Q AND (mxAutomode AND NOT mxHMI_IMDRunning AND mxInitialized) THEN
+	OEEpar.TotalWaitTime := OEEpar.TotalWaitTime +1;
+END_IF
+
+// Down time (time that the machine was unable to operate cause of an error).
+// Total wait time (time that the machine was ready, with no error, but wasn't running)
+IF RT_1SecondTrigger.Q AND (mxAutomode AND NOT mxHMI_IMDRunning AND (InMoldDrying.mxErrorInit OR InMoldDrying.mxErrorStopinPos OR 
+ProductHandling.mxErrorInit OR ProductHandling.mxErrorStopinPos)) THEN
+	OEEpar.TotalDownTime := OEEpar.TotalDownTime +1;
+END_IF
+
+// Products for A.
+OEEpar.ProducedSheetsASide := Main.MachPar.ProductHandling.GantryA.SheetsProduced;			// Number of sheets that the A side has produced
+OEEpar.ProducedProductsAside := Main.MachPar.ProductHandling.GantryA.ProductsProduced;			// Number of Products that the A side has produced
+
+// Products for A.
+OEEpar.ProducedSheetsBSide := Main.MachPar.ProductHandling.GantryB.SheetsProduced;			// Number of sheets that the B side has produced
+OEEpar.ProducedProductsBside := Main.MachPar.ProductHandling.GantryB.ProductsProduced;			// Number of Products that the B side has produced
+
+// Total produced sheets and products.
+OEEpar.TotalProducedSheets := Main.MachPar.ProductHandling.GantryA.SheetsProduced + Main.MachPar.ProductHandling.GantryB.SheetsProduced;	
+OEEpar.TotalProducedProducts := Main.MachPar.ProductHandling.GantryA.ProductsProduced + Main.MachPar.ProductHandling.GantryB.ProductsProduced;]]></ST>
       </Implementation>
     </Action>
     <Action Name="RemanentData" Id="{c93fd129-2948-45c7-836c-2640a4ab3350}">
@@ -605,190 +730,158 @@ ChkSysPar:= SysPar;]]></ST>
     </Action>
     <Action Name="SafetyDoors" Id="{44b09eb6-68f0-4032-a64c-9a91aaa03aa3}">
       <Implementation>
-        <ST><![CDATA[(* InMold Drying Front *)
-RT_DoorReqImdFront(CLK:= ixDoorReqImdFront);
-IF RT_DoorReqImdFront.Q THEN
-	mx_DoorReqImdFront:= TRUE; 
-ELSIF mxReset THEN
-	mx_DoorReqImdFront:= FALSE; 
-END_IF
-qxLightDoorReqImdFront:= mx_DoorReqImdFront;
+        <ST><![CDATA[{Region "In mold dryer doors"} 
+// In mold dryer 
+DoorRequestImdFront(
+	GateClosed:= NOT Errors.exImdFrontDoorLeft AND NOT Errors.exImdFrontDoorMiddle AND NOT Errors.exImdFrontDoorRight, 
+	SafeState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause, 
+	Request_Open:= ixDoorReqImdFront, 
+	Reset:=mxReset, 
+	TimeOutSafeState:= T#10S, 
+	Lock=> , 
+	GateRequest_Light=> qxLightDoorReqImdFront, 
+	ResetButton_Light=> );
 
-(* Inmold Drying Back *)
-RT_DoorReqImdBack(CLK:= ixDoorReqImdBack);
-IF RT_DoorReqImdBack.Q THEN
-	mx_DoorReqImdBack:= TRUE; 
-ELSIF mxReset THEN
-	mx_DoorReqImdBack:= FALSE; 
-END_IF
-qxLightDoorReqImdBack:= mx_DoorReqImdBack;
+DoorRequestImdBack(
+	GateClosed:= NOT Errors.exImdBackDoorLeft1 AND NOT Errors.exImdBackDoorLeft2 AND NOT Errors.exImdBackDoorMiddle3 AND NOT Errors.exImdBackDoorMiddle4 
+	AND NOT Errors.exImdBackDoorRight5 AND NOT errors.exImdBackDoorRight6, 
+	SafeState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause, 
+	Request_Open:= ixDoorReqImdBack, 
+	Reset:=mxReset, 
+	TimeOutSafeState:= T#10S, 
+	Lock=> , 
+	GateRequest_Light=> qxLightDoorReqImdBack, 
+	ResetButton_Light=> );
+{End Region}
+	
+{Region "Gantries"}
+// Gantry A Front
+DoorRequestGantryAFront(
+	GateClosed:= NOT Errors.exGantryA_FrontDoorLeft AND NOT Errors.exGantryA_FrontDoorRight, 
+	SafeState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause,  
+	Request_Open:= ixDoorReqGantryA_Front, 
+	Reset:=mxReset, 
+	TimeOutSafeState:= T#10S, 
+	Lock=> , 
+	GateRequest_Light=> qxLightDoorReqGantryA_Front, 
+	ResetButton_Light=> );
 
-(* Gantry A Front *******************************************************************)
-RT_DoorReqGantryA_Front(CLK:= ixDoorReqGantryA_Front);
-IF RT_DoorReqGantryA_Front.Q THEN
-	mx_DoorReqGantryA_Front:= TRUE; 
-ELSIF mxReset THEN
-	mx_DoorReqGantryA_Front:= FALSE; 
-END_IF
-qxLightDoorReqGantryA_Front:= mx_DoorReqGantryA_Front;
+DoorRequestGantryABack(
+	GateClosed:= NOT Errors.exGantryA_BackDoor, 
+	SafeState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause,  
+	Request_Open:= ixDoorReqGantryA_Back, 
+	Reset:=mxReset, 
+	TimeOutSafeState:= T#10S, 
+	Lock=> , 
+	GateRequest_Light=> qxLightDoorReqGantryA_Back, 
+	ResetButton_Light=> );
 
-(* Gantry A Back *)
-RT_DoorReqGantryA_Back(CLK:= ixDoorReqGantryA_Back);
-IF RT_DoorReqGantryA_Back.Q THEN
-	mx_DoorReqGantryA_Back:= TRUE; 
-ELSIF mxReset THEN
-	mx_DoorReqGantryA_Back:= FALSE; 
-END_IF
-qxLightDoorReqGantryA_Back:= mx_DoorReqGantryA_Back;
+DoorRequestGantryBFront(
+	GateClosed:= NOT Errors.exGantryB_FrontDoorLeft AND NOT Errors.exGantryB_FrontDoorRight, 
+	SafeState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause, 
+	Request_Open:= ixDoorReqGantryB_Front, 
+	Reset:=mxReset, 
+	TimeOutSafeState:= T#10S, 
+	Lock=> , 
+	GateRequest_Light=> qxLightDoorReqGantryB_Front, 
+	ResetButton_Light=> );
+	
+DoorRequestGantryBBack(
+	GateClosed:= NOT Errors.exGantryB_BackDoor, 
+	SafeState:= InMoldDrying.mxInPause AND ProductHandling.mxInPause, 
+	Request_Open:= ixDoorReqGantryB_Back, 
+	Reset:=mxReset, 
+	TimeOutSafeState:= T#10S, 
+	Lock=> , 
+	GateRequest_Light=> qxLightDoorReqGantryB_Back, 
+	ResetButton_Light=> );
+{End Region}
 
-(* Gantry B Front *)
-RT_DoorReqGantryB_Front(CLK:= ixDoorReqGantryB_Front);
-IF RT_DoorReqGantryB_Front.Q THEN
-	mx_DoorReqGantryB_Front:= TRUE; 
-ELSIF mxReset THEN
-	mx_DoorReqGantryB_Front:= FALSE; 
-END_IF
-qxLightDoorReqGantryB_Front:= mx_DoorReqGantryB_Front;
+// Collect al lockstates.
+mxIMDUnlocked := NOT DoorRequestImdFront.Lock OR NOT DoorRequestImdBack.Lock;
+mxProdHandlingUnlocked := NOT DoorRequestGantryABack.Lock OR NOT DoorRequestGantryAFront.Lock OR NOT DoorRequestGantryBBack.Lock OR NOT DoorRequestGantryBFront.Lock;
+RT_RestartAfterDoorOpened(CLK:=NOT mxIMDUnlocked AND NOT mxProdHandlingUnlocked AND mxReset);
 
-(* Gantry B Back *)
-RT_DoorReqGantryB_Back(CLK:= ixDoorReqGantryB_Back);
-IF RT_DoorReqGantryB_Back.Q THEN
-	mx_DoorReqGantryB_Back:= TRUE; 
-ELSIF mxReset THEN
-	mx_DoorReqGantryB_Back:= FALSE; 
-END_IF
-qxLightDoorReqGantryB_Back:= mx_DoorReqGantryB_Back;
 
-(* Door request by openeing the safety doors *)
-mxReqDoorsZone1:= Errors.exGantryA_FrontDoorRight OR mx_DoorReqGantryA_Front OR mx_DoorReqGantryA_Back;
-mxReqDoorsZone2:= Errors.exImdFrontDoorLeft OR Errors.exImdBackDoorLeft1 OR Errors.exImdBackDoorLeft2 OR mx_DoorReqImdFront OR mx_DoorReqImdBack;
-mxReqDoorsZone3:= Errors.exImdFrontDoorMiddle OR Errors.exImdBackDoorMiddle3 OR Errors.exImdBackDoorMiddle4 OR mx_DoorReqImdFront OR mx_DoorReqImdBack;
-mxReqDoorsZone4:= Errors.exImdFrontDoorRight OR Errors.exImdBackDoorRight5 OR Errors.exImdBackDoorRight6 OR mx_DoorReqImdFront OR mx_DoorReqImdBack;
-mxReqDoorsZone5:= Errors.exGantryB_FrontDoorLeft OR mx_DoorReqGantryB_Front OR mx_DoorReqGantryB_Back;
-mxReqDoorsZone6:= Errors.exGantryB_FrontDoorRight OR Errors.exGantryB_BackDoor OR mx_DoorReqGantryB_Front OR mx_DoorReqGantryB_Back;
-mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR mx_DoorReqGantryA_Front OR mx_DoorReqGantryA_Back;
-]]></ST>
+// Handle the requests
+RT_PauseReqImd(ClK:=(ixDoorReqImdFront OR ixDoorReqImdBack OR ixDoorReqGantryA_Front OR ixDoorReqGantryB_Front OR InMoldDrying.mxErrorStopinPos) AND mxAutoMode);
+//RT_PauseReqGantryA(CLK:=ixDoorReqImdFront OR ixDoorReqImdBack OR ixDoorReqGantryA_Front OR ixDoorReqGantryA_Back);
+//RT_PauseReqGantryB(CLK:=ixDoorReqImdFront OR ixDoorReqImdBack OR ixDoorReqGantryB_Front OR ixDoorReqGantryB_Back);
+RT_PauseReqProdHandling(CLK:=(ixDoorReqImdFront OR ixDoorReqImdBack OR ixDoorReqGantryB_Front OR ixDoorReqGantryB_Back OR InMoldDrying.mxErrorStopinPos)AND mxAutoMode);]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="MAIN">
-      <LineId Id="7382" Count="0" />
-      <LineId Id="7921" Count="0" />
-      <LineId Id="8245" Count="0" />
-      <LineId Id="8507" Count="1" />
-      <LineId Id="8765" Count="1" />
-      <LineId Id="8506" Count="0" />
-      <LineId Id="8246" Count="0" />
-      <LineId Id="8224" Count="1" />
-      <LineId Id="8241" Count="2" />
-      <LineId Id="8236" Count="2" />
-      <LineId Id="8227" Count="4" />
-      <LineId Id="8244" Count="0" />
-      <LineId Id="8232" Count="3" />
-      <LineId Id="8226" Count="0" />
-      <LineId Id="8197" Count="0" />
-      <LineId Id="8196" Count="0" />
-      <LineId Id="8201" Count="0" />
-      <LineId Id="8218" Count="2" />
-      <LineId Id="8198" Count="0" />
-      <LineId Id="8200" Count="0" />
-      <LineId Id="8199" Count="0" />
-      <LineId Id="8770" Count="1" />
-      <LineId Id="8775" Count="0" />
-      <LineId Id="7944" Count="0" />
-      <LineId Id="7644" Count="0" />
-      <LineId Id="8774" Count="0" />
-      <LineId Id="7651" Count="0" />
-      <LineId Id="7653" Count="0" />
-      <LineId Id="7655" Count="4" />
-      <LineId Id="7661" Count="3" />
-      <LineId Id="7660" Count="0" />
-      <LineId Id="8773" Count="0" />
-      <LineId Id="8769" Count="0" />
-      <LineId Id="8768" Count="0" />
-      <LineId Id="7383" Count="0" />
-      <LineId Id="6671" Count="0" />
-      <LineId Id="1565" Count="1" />
-      <LineId Id="3669" Count="0" />
-      <LineId Id="1567" Count="2" />
-      <LineId Id="5261" Count="1" />
-      <LineId Id="7143" Count="0" />
-      <LineId Id="5265" Count="0" />
-      <LineId Id="1570" Count="0" />
-      <LineId Id="5722" Count="0" />
-      <LineId Id="1571" Count="1" />
-      <LineId Id="5036" Count="0" />
-      <LineId Id="1573" Count="5" />
-      <LineId Id="2827" Count="0" />
-      <LineId Id="3892" Count="0" />
-      <LineId Id="4131" Count="0" />
-      <LineId Id="5493" Count="0" />
-      <LineId Id="5495" Count="2" />
-      <LineId Id="6188" Count="3" />
-      <LineId Id="5494" Count="0" />
-      <LineId Id="4132" Count="0" />
-      <LineId Id="1580" Count="2" />
-      <LineId Id="2423" Count="0" />
-      <LineId Id="1583" Count="1" />
-      <LineId Id="3890" Count="0" />
-      <LineId Id="3882" Count="0" />
-      <LineId Id="3884" Count="0" />
-      <LineId Id="3898" Count="0" />
-      <LineId Id="3889" Count="0" />
-      <LineId Id="3878" Count="0" />
-      <LineId Id="2219" Count="1" />
-      <LineId Id="1585" Count="1" />
-      <LineId Id="2225" Count="0" />
-      <LineId Id="1587" Count="0" />
-      <LineId Id="2616" Count="0" />
-      <LineId Id="4129" Count="0" />
-      <LineId Id="1591" Count="1" />
-      <LineId Id="1594" Count="5" />
-      <LineId Id="4107" Count="1" />
-      <LineId Id="4111" Count="1" />
-      <LineId Id="6192" Count="0" />
-      <LineId Id="4113" Count="4" />
-      <LineId Id="4109" Count="1" />
-      <LineId Id="2205" Count="1" />
-      <LineId Id="2210" Count="0" />
-      <LineId Id="2227" Count="0" />
-      <LineId Id="2226" Count="0" />
-      <LineId Id="2212" Count="0" />
-      <LineId Id="2228" Count="0" />
-      <LineId Id="2214" Count="0" />
-      <LineId Id="2207" Count="0" />
-      <LineId Id="2209" Count="0" />
-      <LineId Id="6434" Count="0" />
-      <LineId Id="6437" Count="0" />
-      <LineId Id="6436" Count="0" />
-      <LineId Id="6433" Count="0" />
-      <LineId Id="2009" Count="0" />
-      <LineId Id="4118" Count="4" />
-      <LineId Id="4357" Count="1" />
-      <LineId Id="4355" Count="0" />
-      <LineId Id="2010" Count="0" />
-      <LineId Id="4123" Count="1" />
-      <LineId Id="4126" Count="0" />
-      <LineId Id="4125" Count="0" />
-      <LineId Id="1612" Count="0" />
-      <LineId Id="1614" Count="0" />
-      <LineId Id="4127" Count="1" />
-      <LineId Id="1616" Count="1" />
-      <LineId Id="1619" Count="3" />
-      <LineId Id="2821" Count="0" />
-      <LineId Id="2823" Count="1" />
-      <LineId Id="2822" Count="0" />
-      <LineId Id="2623" Count="2" />
-      <LineId Id="6422" Count="2" />
-      <LineId Id="3033" Count="0" />
-      <LineId Id="4584" Count="0" />
-      <LineId Id="4587" Count="2" />
-      <LineId Id="4586" Count="0" />
-      <LineId Id="5949" Count="4" />
-      <LineId Id="5955" Count="0" />
-      <LineId Id="5958" Count="0" />
-      <LineId Id="5957" Count="0" />
-      <LineId Id="6905" Count="2" />
+      <LineId Id="11258" Count="1" />
+      <LineId Id="11251" Count="0" />
+      <LineId Id="11534" Count="0" />
+      <LineId Id="11530" Count="0" />
+      <LineId Id="8790" Count="12" />
+      <LineId Id="9672" Count="0" />
+      <LineId Id="9407" Count="0" />
+      <LineId Id="8803" Count="1" />
+      <LineId Id="9151" Count="0" />
+      <LineId Id="9922" Count="0" />
+      <LineId Id="8805" Count="15" />
+      <LineId Id="10696" Count="0" />
+      <LineId Id="10684" Count="0" />
+      <LineId Id="10697" Count="0" />
+      <LineId Id="10694" Count="0" />
+      <LineId Id="10698" Count="5" />
+      <LineId Id="10709" Count="0" />
+      <LineId Id="10706" Count="1" />
+      <LineId Id="10695" Count="0" />
+      <LineId Id="8822" Count="4" />
+      <LineId Id="10682" Count="0" />
+      <LineId Id="9415" Count="0" />
+      <LineId Id="10683" Count="0" />
+      <LineId Id="8827" Count="4" />
+      <LineId Id="9416" Count="0" />
+      <LineId Id="8832" Count="4" />
+      <LineId Id="9417" Count="0" />
+      <LineId Id="8837" Count="6" />
+      <LineId Id="9408" Count="0" />
+      <LineId Id="9414" Count="0" />
+      <LineId Id="9409" Count="1" />
+      <LineId Id="8844" Count="4" />
+      <LineId Id="9418" Count="0" />
+      <LineId Id="8849" Count="0" />
+      <LineId Id="10429" Count="0" />
+      <LineId Id="8851" Count="2" />
+      <LineId Id="9419" Count="0" />
+      <LineId Id="8854" Count="4" />
+      <LineId Id="9420" Count="0" />
+      <LineId Id="8859" Count="3" />
+      <LineId Id="9421" Count="0" />
+      <LineId Id="8863" Count="1" />
+      <LineId Id="10971" Count="1" />
+      <LineId Id="8865" Count="18" />
+      <LineId Id="9422" Count="0" />
+      <LineId Id="8884" Count="1" />
+      <LineId Id="9156" Count="0" />
+      <LineId Id="9153" Count="0" />
+      <LineId Id="9157" Count="1" />
+      <LineId Id="9924" Count="3" />
+      <LineId Id="9154" Count="1" />
+      <LineId Id="8886" Count="7" />
+      <LineId Id="10178" Count="0" />
+      <LineId Id="8894" Count="10" />
+      <LineId Id="10973" Count="0" />
+      <LineId Id="8905" Count="1" />
       <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.Com_SC">
+      <LineId Id="28" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="8" Count="2" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="11" Count="2" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.Error">
       <LineId Id="2" Count="4" />
@@ -805,7 +898,11 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
       <LineId Id="20" Count="0" />
       <LineId Id="19" Count="0" />
       <LineId Id="22" Count="2" />
-      <LineId Id="39" Count="10" />
+      <LineId Id="39" Count="6" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="46" Count="3" />
       <LineId Id="69" Count="0" />
       <LineId Id="59" Count="0" />
       <LineId Id="66" Count="0" />
@@ -813,34 +910,82 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
       <LineId Id="60" Count="0" />
       <LineId Id="68" Count="0" />
       <LineId Id="67" Count="0" />
-      <LineId Id="56" Count="0" />
-      <LineId Id="58" Count="0" />
-      <LineId Id="57" Count="0" />
+      <LineId Id="70" Count="2" />
+      <LineId Id="56" Count="1" />
       <LineId Id="50" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.HMIState">
+      <LineId Id="73" Count="6" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="80" Count="15" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.Objects">
-      <LineId Id="60" Count="1" />
-      <LineId Id="101" Count="0" />
-      <LineId Id="62" Count="4" />
-      <LineId Id="97" Count="0" />
-      <LineId Id="67" Count="2" />
-      <LineId Id="98" Count="0" />
-      <LineId Id="70" Count="2" />
+      <LineId Id="216" Count="32" />
+      <LineId Id="267" Count="0" />
+      <LineId Id="249" Count="7" />
+      <LineId Id="268" Count="1" />
+      <LineId Id="257" Count="7" />
+      <LineId Id="270" Count="6" />
+      <LineId Id="265" Count="1" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.OEE">
+      <LineId Id="110" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="72" Count="1" />
+      <LineId Id="67" Count="1" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="2" Count="1" />
+      <LineId Id="98" Count="2" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="104" Count="2" />
+      <LineId Id="108" Count="1" />
       <LineId Id="103" Count="0" />
-      <LineId Id="73" Count="0" />
-      <LineId Id="99" Count="0" />
-      <LineId Id="74" Count="8" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="48" Count="2" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="51" Count="3" />
+      <LineId Id="13" Count="3" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="77" Count="1" />
+      <LineId Id="83" Count="2" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="24" Count="1" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="91" Count="0" />
       <LineId Id="93" Count="0" />
-      <LineId Id="83" Count="8" />
       <LineId Id="96" Count="0" />
       <LineId Id="94" Count="1" />
       <LineId Id="92" Count="0" />
-      <LineId Id="1" Count="0" />
-    </LineIds>
-    <LineIds Name="MAIN.OEEE">
-      <LineId Id="5" Count="1" />
-      <LineId Id="2" Count="2" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="37" Count="0" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.RemanentData">
@@ -848,39 +993,9 @@ mxReqDoorsZone7:= Errors.exGantryA_FrontDoorLeft OR Errors.exGantryA_BackDoor OR
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.SafetyDoors">
-      <LineId Id="34" Count="0" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="23" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="24" Count="0" />
-      <LineId Id="17" Count="0" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="35" Count="0" />
-      <LineId Id="27" Count="0" />
-      <LineId Id="37" Count="0" />
-      <LineId Id="28" Count="5" />
-      <LineId Id="36" Count="0" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="13" Count="0" />
-      <LineId Id="43" Count="5" />
-      <LineId Id="38" Count="1" />
-      <LineId Id="14" Count="0" />
-      <LineId Id="49" Count="5" />
-      <LineId Id="41" Count="0" />
-      <LineId Id="40" Count="0" />
-      <LineId Id="15" Count="0" />
-      <LineId Id="55" Count="5" />
-      <LineId Id="42" Count="0" />
-      <LineId Id="9" Count="0" />
-      <LineId Id="61" Count="5" />
-      <LineId Id="16" Count="0" />
-      <LineId Id="80" Count="0" />
-      <LineId Id="74" Count="0" />
-      <LineId Id="73" Count="0" />
-      <LineId Id="69" Count="0" />
-      <LineId Id="75" Count="3" />
-      <LineId Id="81" Count="0" />
+      <LineId Id="179" Count="69" />
+      <LineId Id="255" Count="0" />
+      <LineId Id="249" Count="5" />
       <LineId Id="1" Count="0" />
     </LineIds>
   </POU>

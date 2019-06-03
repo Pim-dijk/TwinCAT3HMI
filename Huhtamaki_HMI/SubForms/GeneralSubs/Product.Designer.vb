@@ -88,8 +88,8 @@ Partial Public Class Product
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ioProductId
@@ -98,13 +98,13 @@ Partial Public Class Product
         Me.ioProductId.AuditEnabled = False
         Me.ioProductId.AuditMessage = "KremerIoField changed:"
         Me.ioProductId.AuditSource = "KremerIoField"
-        Me.ioProductId.Data = 0.0R
+        Me.ioProductId.Data = 0R
         Me.ioProductId.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.ioProductId.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
         Me.ioProductId.InitialValue = True
         Me.ioProductId.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
         Me.ioProductId.Location = New System.Drawing.Point(743, 4)
-        Me.ioProductId.LowerBound = 0.0R
+        Me.ioProductId.LowerBound = 0R
         Me.ioProductId.Name = "ioProductId"
         Me.ioProductId.OutputFormat = "0"
         Me.ioProductId.Size = New System.Drawing.Size(43, 18)
@@ -235,7 +235,7 @@ Partial Public Class Product
         Me.IO_GYABlowOff.AuditSource = "KremerIoField"
         Me.IO_GYABlowOff.BackColor = System.Drawing.Color.White
         Me.IO_GYABlowOff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_GYABlowOff.Data = 0.0R
+        Me.IO_GYABlowOff.Data = 0R
         Me.IO_GYABlowOff.DataType = KremerControlsWin32.KremerIoField.NumDataType.DINT
         Me.IO_GYABlowOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IO_GYABlowOff.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -271,7 +271,7 @@ Partial Public Class Product
         Me.IO_GYBBlowOff.AuditSource = "KremerIoField"
         Me.IO_GYBBlowOff.BackColor = System.Drawing.Color.White
         Me.IO_GYBBlowOff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_GYBBlowOff.Data = 0.0R
+        Me.IO_GYBBlowOff.Data = 0R
         Me.IO_GYBBlowOff.DataType = KremerControlsWin32.KremerIoField.NumDataType.DINT
         Me.IO_GYBBlowOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IO_GYBBlowOff.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -307,7 +307,7 @@ Partial Public Class Product
         Me.IO_GYAVerticalPickup.AuditSource = "KremerIoField"
         Me.IO_GYAVerticalPickup.BackColor = System.Drawing.Color.White
         Me.IO_GYAVerticalPickup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_GYAVerticalPickup.Data = 0.0R
+        Me.IO_GYAVerticalPickup.Data = 0R
         Me.IO_GYAVerticalPickup.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_GYAVerticalPickup.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_GYAVerticalPickup.InitialValue = True
@@ -341,7 +341,7 @@ Partial Public Class Product
         Me.IO_GYAVerticalDropOff.AuditSource = "KremerIoField"
         Me.IO_GYAVerticalDropOff.BackColor = System.Drawing.Color.White
         Me.IO_GYAVerticalDropOff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_GYAVerticalDropOff.Data = 0.0R
+        Me.IO_GYAVerticalDropOff.Data = 0R
         Me.IO_GYAVerticalDropOff.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_GYAVerticalDropOff.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_GYAVerticalDropOff.InitialValue = True
@@ -375,7 +375,7 @@ Partial Public Class Product
         Me.IO_GYBVerticalDropOff.AuditSource = "KremerIoField"
         Me.IO_GYBVerticalDropOff.BackColor = System.Drawing.Color.White
         Me.IO_GYBVerticalDropOff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_GYBVerticalDropOff.Data = 0.0R
+        Me.IO_GYBVerticalDropOff.Data = 0R
         Me.IO_GYBVerticalDropOff.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_GYBVerticalDropOff.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_GYBVerticalDropOff.InitialValue = True
@@ -409,7 +409,7 @@ Partial Public Class Product
         Me.IO_GYBVerticalPickup.AuditSource = "KremerIoField"
         Me.IO_GYBVerticalPickup.BackColor = System.Drawing.Color.White
         Me.IO_GYBVerticalPickup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_GYBVerticalPickup.Data = 0.0R
+        Me.IO_GYBVerticalPickup.Data = 0R
         Me.IO_GYBVerticalPickup.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_GYBVerticalPickup.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_GYBVerticalPickup.InitialValue = True
@@ -443,7 +443,7 @@ Partial Public Class Product
         Me.IO_TMDownStop.AuditSource = "KremerIoField"
         Me.IO_TMDownStop.BackColor = System.Drawing.Color.White
         Me.IO_TMDownStop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TMDownStop.Data = 0.0R
+        Me.IO_TMDownStop.Data = 0R
         Me.IO_TMDownStop.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMDownStop.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMDownStop.InitialValue = True
@@ -477,7 +477,7 @@ Partial Public Class Product
         Me.IO_TMDownOpen.AuditSource = "KremerIoField"
         Me.IO_TMDownOpen.BackColor = System.Drawing.Color.White
         Me.IO_TMDownOpen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TMDownOpen.Data = 0.0R
+        Me.IO_TMDownOpen.Data = 0R
         Me.IO_TMDownOpen.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMDownOpen.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMDownOpen.InitialValue = True
@@ -511,7 +511,7 @@ Partial Public Class Product
         Me.IO_TMOpen.AuditSource = "KremerIoField"
         Me.IO_TMOpen.BackColor = System.Drawing.Color.White
         Me.IO_TMOpen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TMOpen.Data = 0.0R
+        Me.IO_TMOpen.Data = 0R
         Me.IO_TMOpen.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMOpen.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMOpen.InitialValue = True
@@ -545,7 +545,7 @@ Partial Public Class Product
         Me.IO_TMTransferStopA.AuditSource = "KremerIoField"
         Me.IO_TMTransferStopA.BackColor = System.Drawing.Color.White
         Me.IO_TMTransferStopA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TMTransferStopA.Data = 0.0R
+        Me.IO_TMTransferStopA.Data = 0R
         Me.IO_TMTransferStopA.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMTransferStopA.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMTransferStopA.InitialValue = True
@@ -579,7 +579,7 @@ Partial Public Class Product
         Me.IO_TMTransferStopB.AuditSource = "KremerIoField"
         Me.IO_TMTransferStopB.BackColor = System.Drawing.Color.White
         Me.IO_TMTransferStopB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TMTransferStopB.Data = 0.0R
+        Me.IO_TMTransferStopB.Data = 0R
         Me.IO_TMTransferStopB.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TMTransferStopB.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TMTransferStopB.InitialValue = True
@@ -613,7 +613,7 @@ Partial Public Class Product
         Me.IO_TopADownStop.AuditSource = "KremerIoField"
         Me.IO_TopADownStop.BackColor = System.Drawing.Color.White
         Me.IO_TopADownStop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TopADownStop.Data = 0.0R
+        Me.IO_TopADownStop.Data = 0R
         Me.IO_TopADownStop.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TopADownStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IO_TopADownStop.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -648,7 +648,7 @@ Partial Public Class Product
         Me.IO_TopBDownStop.AuditSource = "KremerIoField"
         Me.IO_TopBDownStop.BackColor = System.Drawing.Color.White
         Me.IO_TopBDownStop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TopBDownStop.Data = 0.0R
+        Me.IO_TopBDownStop.Data = 0R
         Me.IO_TopBDownStop.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TopBDownStop.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TopBDownStop.InitialValue = True
@@ -682,7 +682,7 @@ Partial Public Class Product
         Me.IO_TopAOpen.AuditSource = "KremerIoField"
         Me.IO_TopAOpen.BackColor = System.Drawing.Color.White
         Me.IO_TopAOpen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TopAOpen.Data = 0.0R
+        Me.IO_TopAOpen.Data = 0R
         Me.IO_TopAOpen.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TopAOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IO_TopAOpen.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -717,7 +717,7 @@ Partial Public Class Product
         Me.IO_TopBOpen.AuditSource = "KremerIoField"
         Me.IO_TopBOpen.BackColor = System.Drawing.Color.White
         Me.IO_TopBOpen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_TopBOpen.Data = 0.0R
+        Me.IO_TopBOpen.Data = 0R
         Me.IO_TopBOpen.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_TopBOpen.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_TopBOpen.InitialValue = True
@@ -737,7 +737,7 @@ Partial Public Class Product
         'ReleaseToA
         '
         Me.ReleaseToA.BindControl = Me.IO_ReleaseToBMA
-        Me.ReleaseToA.BindProperty = "Real"
+        Me.ReleaseToA.BindProperty = "Data"
         Me.ReleaseToA.Data = Nothing
         Me.ReleaseToA.DataType = KremerControlsWin32.KremerVariable.VarDataType.REAL
         Me.ReleaseToA.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
@@ -751,7 +751,7 @@ Partial Public Class Product
         Me.IO_ReleaseToBMA.AuditSource = "KremerIoField"
         Me.IO_ReleaseToBMA.BackColor = System.Drawing.Color.White
         Me.IO_ReleaseToBMA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_ReleaseToBMA.Data = 0.0R
+        Me.IO_ReleaseToBMA.Data = 0R
         Me.IO_ReleaseToBMA.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ReleaseToBMA.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ReleaseToBMA.InitialValue = True
@@ -785,7 +785,7 @@ Partial Public Class Product
         Me.IO_ReleaseToBMB.AuditSource = "KremerIoField"
         Me.IO_ReleaseToBMB.BackColor = System.Drawing.Color.White
         Me.IO_ReleaseToBMB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IO_ReleaseToBMB.Data = 0.0R
+        Me.IO_ReleaseToBMB.Data = 0R
         Me.IO_ReleaseToBMB.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
         Me.IO_ReleaseToBMB.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IO_ReleaseToBMB.InitialValue = True
@@ -801,6 +801,7 @@ Partial Public Class Product
         Me.IO_ReleaseToBMB.UpperBound = 5000.0R
         Me.IO_ReleaseToBMB.UserInfo = Nothing
         Me.IO_ReleaseToBMB.UserLevel = 0
+        Me.IO_ReleaseToBMB.Visible = False
         '
         'ioProductName
         '
@@ -1093,16 +1094,6 @@ Partial Public Class Product
         Me.Label7.Tag = "431"
         Me.Label7.Text = "Top Mold A-Position down stop"
         '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(-2, 203)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(290, 24)
-        Me.Label1.TabIndex = 441
-        Me.Label1.Tag = ""
-        Me.Label1.Text = "Position to release bottommold B"
-        '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1111,7 +1102,18 @@ Partial Public Class Product
         Me.Label3.Size = New System.Drawing.Size(290, 24)
         Me.Label3.TabIndex = 440
         Me.Label3.Tag = ""
-        Me.Label3.Text = "Position to release bottommold A"
+        Me.Label3.Text = "Position to release bottommolds"
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(-2, 203)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(290, 24)
+        Me.Label1.TabIndex = 441
+        Me.Label1.Tag = ""
+        Me.Label1.Text = "Invisible but in db (remove later)"
+        Me.Label1.Visible = False
         '
         'Product
         '
@@ -1230,13 +1232,13 @@ Partial Public Class Product
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents IO_TopBOpen As KremerControlsWin32.KremerIoField
     Friend WithEvents IO_TopAOpen As KremerControlsWin32.KremerIoField
-    Friend WithEvents IO_ReleaseToBMB As KremerControlsWin32.KremerIoField
     Friend WithEvents IO_ReleaseToBMA As KremerControlsWin32.KremerIoField
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TopAOpen As KremerControlsWin32.KremerVariable
     Friend WithEvents TopBOpen As KremerControlsWin32.KremerVariable
     Friend WithEvents ReleaseToA As KremerControlsWin32.KremerVariable
     Friend WithEvents ReleaseToB As KremerControlsWin32.KremerVariable
+    Friend WithEvents IO_ReleaseToBMB As KremerControlsWin32.KremerIoField
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

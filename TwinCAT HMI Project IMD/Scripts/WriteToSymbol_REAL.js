@@ -9,19 +9,18 @@
 
 (function (TcHmi) {
 
+    // SymbolString : string representing the symbol to write to
+    // Value : value to write to the symbol
     var WriteToSymbol_REAL = function (ctx, SymbolString, Value) {
-        //console.log(Value);
-        
+                
         // Create new Symbol object from string, and write the value to it
         var symbol = new TcHmi.Symbol(SymbolString);
         symbol.write(Value, function (data) {
             if (data.error === TcHmi.Errors.NONE) {
                 // Handle success... 
-                //console.log(data.response);
                 ctx.success();
             } else {
                 // Handle error... 
-                //console.log(data.error);
             }
         });
         symbol.destroy();

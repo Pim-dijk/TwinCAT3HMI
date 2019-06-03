@@ -1,0 +1,30 @@
+﻿<div id="UserGroups" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiTextblock_835" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiTextblock_835.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var control = TcHmi.Controls.get(\"TcHmiTextblock_835\");\n\nvar group = TcHmi.Server.getGroupsOfCurrentUser();\nvar groups = \"\";\n\nif(group.length <= 1) {\n\tgroups = group[0];\t\n} else {\n\t$.each(group, function(key,value){\n\t\tif(!value.startsWith(\"__\")){\n\t       \tif(groups !== \"\"){\n\t   \t\t\tgroups += \", \";\n\t    \t\tgroups += value;\n\t   \t   \t} else {\t\n\t    \t\tgroups = value;   \t\t\n\t   \t\t}\n\t   \t}\n\t});\n}\n\ncontrol.setText(groups);"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+</div>

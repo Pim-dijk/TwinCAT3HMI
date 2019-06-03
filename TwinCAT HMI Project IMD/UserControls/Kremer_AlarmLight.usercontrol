@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, 'Collapsed');%/f%">
 
-<div id="TcHmiEllipse_4" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
+<div id="TcHmiEllipse_4" data-tchmi-type="tchmi-ellipse" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {
   "color": "None"
@@ -17,7 +17,7 @@
 
 </div>
 
-<div id="TcHmiPolygon_1" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%">
+<div id="TcHmiPolygon_1" data-tchmi-type="tchmi-polygon" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-points="0, 0 200, 0 200, 200 0, 200 0, 0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-stroke-thickness="0.75" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-visibility="%f%if(%pp%Shape%/pp% == &quot;Ellipse&quot;){&quot;Collapsed&quot;} else {&quot;Visible&quot;};%/f%">
 <script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
 {
   "color": "Black"
@@ -33,124 +33,40 @@
     "event": "Kremer_AlarmLight.onAttached",
     "actions": [
       {
-        "objectType": "Condition",
+        "objectType": "WriteToSymbol",
         "active": true,
-        "expressions": [
-          {
-            "compare1": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%SymbolAlarm%/pp%"
-            },
-            "compare2": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:general#/definitions/BOOL",
-              "value": true
-            },
-            "compareOperator": "==",
-            "logic": null
-          }
-        ],
-        "true": [
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
-            "valueType": "tchmi:framework#/definitions/Color",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
-            "valueType": "tchmi:framework#/definitions/Color",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ColorOnAlarm%/pp%"
-            },
-            "asyncWait": true
-          }
-        ],
-        "false": [
-          {
-            "objectType": "Condition",
-            "active": true,
-            "expressions": [
-              {
-                "compare1": {
-                  "objectType": "Symbol",
-                  "symbolExpression": "%pp%SymbolLight%/pp%"
-                },
-                "compare2": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
-                },
-                "compareOperator": "==",
-                "logic": null
-              }
-            ],
-            "true": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
-                "valueType": "tchmi:framework#/definitions/Color",
-                "value": {
-                  "objectType": "Symbol",
-                  "symbolExpression": "%pp%ColorOnLight%/pp%"
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
-                "valueType": "tchmi:framework#/definitions/Color",
-                "value": {
-                  "objectType": "Symbol",
-                  "symbolExpression": "%pp%ColorOnLight%/pp%"
-                },
-                "asyncWait": true
-              }
-            ],
-            "false": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%TcHmiEllipse_4::FillColor%/ctrl%",
-                "valueType": "tchmi:framework#/definitions/Color",
-                "value": {
-                  "objectType": "Symbol",
-                  "symbolExpression": "%pp%ColorOffLight%/pp%"
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%TcHmiPolygon_1::FillColor%/ctrl%",
-                "valueType": "tchmi:framework#/definitions/Color",
-                "value": {
-                  "objectType": "Symbol",
-                  "symbolExpression": "%pp%ColorOffLight%/pp%"
-                },
-                "asyncWait": true
-              }
-            ],
-            "asyncWait": true
-          }
-        ],
+        "symbolExpression": "%pp%ThisControl%/pp%",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:framework#/definitions/Control",
+          "symbolExpression": "%ctrl%Kremer_AlarmLight%/ctrl%"
+        },
         "asyncWait": true
+      },
+      {
+        "objectType": "Comment",
+        "comment": "Create the correct bindings"
       },
       {
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var alarmSymbol = new TcHmi.Symbol('%pp%SymbolAlarm%/pp%');\nvar alarm = alarmSymbol.read();\n\nvar lightSymbol = new TcHmi.Symbol('%pp%SymbolLight%/pp%');\nvar light = lightSymbol.read();\n\nvar alarmOnSymbol = new TcHmi.Symbol('%pp%ColorOnAlarm%/pp%');\nvar alarmOn = alarmOnSymbol.read();\n\nvar alarmOffSymbol = new TcHmi.Symbol('%pp%ColorOffLight%/pp%');\nvar alarmOff = alarmOffSymbol.read();\n\nvar lightOnSymbol = new TcHmi.Symbol('%pp%ColorOnLight%/pp%');\nvar lightOn = lightOnSymbol.read();\n\nvar Square = TcHmi.Controls.get('TcHmiPolygon_1');\nvar Ellipse = TcHmi.Controls.get('TcHmiEllipse_4');\n\nvar interval = setInterval(blink, 1000);\n\nvar On = false;\n\nfunction blink() {\n\talarm = alarmSymbol.read();\n\tlight = lightSymbol.read();\n\tif(alarm){\n\t\tif(!On){\n\t\tOn = true;\n\t\tSquare.setFillColor(alarmOn);\n\t\tEllipse.setFillColor(alarmOn);\n\t\t} else {\n\t\t\tOn = false;\n\t\t\tif(light){\n\t\t\t\tSquare.setFillColor(lightOn);\n\t\t\t\tEllipse.setFillColor(lightOn);\n\t\t\t} else {\n\t\t\t\tSquare.setFillColor(alarmOff);\n\t\t\t\tEllipse.setFillColor(alarmOff);\n\t\t\t}\t\t\t\n\t\t}\n\t}\n}"
+          "var paramsTemp = \"\";\n\nvar pageParamSymbol = new TcHmi.Symbol('%i%_pageParameters%/i%');\nvar pageParamsSymbolValue = pageParamSymbol.read();\n\nvar paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramSymbolValue = paramSymbol.read();\n\nif(paramSymbolValue){\n\tparamsTemp = paramSymbolValue;\t\n} else if(pageParamsSymbolValue){\n    paramsTemp = pageParamsSymbolValue;\n}\n\nvar placeholderLightSymbol = new TcHmi.Symbol('%pp%SymbolLightWithPlaceholder%/pp%');\nvar placeholderLightValue = placeholderLightSymbol.read();\n\nvar placeholderAlarmSymbol = new TcHmi.Symbol('%pp%SymbolAlarmWithPlaceholder%/pp%');\nvar placeholderAlarmValue = placeholderAlarmSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbolLight();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar valueLight = \"\";\nvar valueAlarm = \"\";\n\nvar write = false;\n\nif(placeholderLightValue && placeholderAlarmValue) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\t\n\tvar tempLightValue = '%s%';\n\ttempLightValue += placeholderLightValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempLightSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempLightSymbolValue = tempLightSymbol.read();\n\t\t\tparams[i] = tempLightSymbolValue;\n\t\t}\n\t\ttempLightValue = tempLightValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempLightValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalueLight = tempLightValue;\n\t\n\tvar tempAlarmValue = '%s%';\n\ttempAlarmValue += placeholderAlarmValue;\n\tfor(var y = 0; y < params.length; y++){\n\t\tif(params[y].startsWith(\"%\")){\n\t\t\tvar tempAlarmSymbol = new TcHmi.Symbol(params[y]);\n\t\t\tvar tempAlarmSymbolValue = tempAlarmSymbol.read();\n\t\t\tparams[y] = tempAlarmSymbolValue;\n\t\t}\n\t\ttempAlarmValue = tempAlarmValue.replace(\"{\" + y + \"}\", params[y]);\n\t}\n\ttempAlarmValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalueAlarm = tempAlarmValue;\n\t\n\t//cleanup\n\tplaceholderLightSymbol.destroy();\n\tplaceholderLightSymbol = null;\n\tplaceholderAlarmSymbol.destroy();\n\tplaceholderAlarmSymbol = null;\n\twrite = true;\n\t\n} else if(hasSymbol) {\n\t// Create binding for the Value parameter, so it will monitor the value in the PLC\n\t\n\tvar SymbolLight = new TcHmi.Symbol('%pp%SymbolLight%/pp%');\n\tvar SymbolLightValue = SymbolLight.read();\n\t\n\tvar SymbolAlarm = new TcHmi.Symbol('%pp%SymbolAlarm%/pp%');\n\tvar SymbolAlarmValue = SymbolAlarm.read();\n\tvalueLight = SymbolLightValue.__symbol.__expression.__expression;\n\tvalueAlarm = SymbolAlarmValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbolLight.destroy();\n\tSymbolLight = null;\n\tSymbolAlarm.destroy();\n\tSymbolAlarm = null;\n\t\n\twrite = true;\n} else {\n\t//No Symbol or SymbolWithPlaceholders was set so not doing anything\t\n}\n\n\nif(control && write){\n\tTcHmi.Binding.createEx(valueLight, 'setBindingSymbolLight', control);\n\tTcHmi.Binding.createEx(valueAlarm, 'setBindingSymbolAlarm', control);\n}\n\n//cleanup\npageParamSymbol.destroy();\npageParamSymbol = null;\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;\n\n"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "Comment",
+        "comment": "Set the alarm interval and set the correct colors for the light and the alarm"
+      },
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "var alarmSymbol = new TcHmi.Symbol('%pp%BindingSymbolAlarm%/pp%');\nvar alarm = alarmSymbol.read();\n\nvar lightSymbol = new TcHmi.Symbol('%pp%BindingSymbolLight%/pp%');\nvar light = lightSymbol.read();\n\nvar alarmOnSymbol = new TcHmi.Symbol('%pp%ColorOnAlarm%/pp%');\nvar alarmOn = alarmOnSymbol.read();\n\nvar alarmOffSymbol = new TcHmi.Symbol('%pp%ColorOffLight%/pp%');\nvar alarmOff = alarmOffSymbol.read();\n\nvar lightOnSymbol = new TcHmi.Symbol('%pp%ColorOnLight%/pp%');\nvar lightOn = lightOnSymbol.read();\n\nvar Square = TcHmi.Controls.get('TcHmiPolygon_1');\nvar Ellipse = TcHmi.Controls.get('TcHmiEllipse_4');\n\nvar interval = setInterval(blink, 1000);\n\nvar On = false;\n\nfunction blink() {\n\talarm = alarmSymbol.read();\n\tlight = lightSymbol.read();\n\tif(alarm){\n\t\tif(!On){\n\t\tOn = true;\n\t\tSquare.setFillColor(alarmOn);\n\t\tEllipse.setFillColor(alarmOn);\n\t\t} else {\n\t\t\tOn = false;\n\t\t\tif(light){\n\t\t\t\tSquare.setFillColor(lightOn);\n\t\t\t\tEllipse.setFillColor(lightOn);\n\t\t\t} else {\n\t\t\t\tSquare.setFillColor(alarmOff);\n\t\t\t\tEllipse.setFillColor(alarmOff);\n\t\t\t}\t\t\t\n\t\t}\n\t}\n}"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -159,7 +75,7 @@
     ]
   },
   {
-    "event": "%pp%SymbolLight%/pp%",
+    "event": "%pp%BindingSymbolLight%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -168,7 +84,7 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%SymbolAlarm%/pp%"
+              "symbolExpression": "%pp%BindingSymbolAlarm%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
@@ -211,7 +127,7 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "symbolExpression": "%pp%SymbolLight%/pp%"
+                  "symbolExpression": "%pp%BindingSymbolLight%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -278,7 +194,7 @@
     ]
   },
   {
-    "event": "%pp%SymbolAlarm%/pp%",
+    "event": "%pp%BindingSymbolAlarm%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -287,7 +203,7 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%SymbolAlarm%/pp%"
+              "symbolExpression": "%pp%BindingSymbolAlarm%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
@@ -330,7 +246,7 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "symbolExpression": "%pp%SymbolLight%/pp%"
+                  "symbolExpression": "%pp%BindingSymbolLight%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",

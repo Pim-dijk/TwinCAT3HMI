@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="FB_NcAxis" Id="{5d73a8fc-0cac-4e36-839f-ab6ed144dfd7}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_NcAxis
+VAR CONSTANT
+
+	sPosBiasStateTextDef: ARRAY[0..2] OF STRING:=	['State 0: Wait for Start',
+										'State 1: Read Pos Bias, calculate new Pos Bias',
+										'State 2: Write Pos Bias'];
+
+	tPosBiasStateTimeouts: ARRAY[0..2] OF TIME:=  [T#10S, T#10S, T#10S];
+	
+END_VAR
+VAR_INPUT
+	mxEnable						: BOOL;
+	mxInhibit						: BOOL :=TRUE;
+	mxAutoMode						: BOOL;
+	mxReset							: BOOL;
+	mxFirstCycle					: BOOL;
+	mxEmergency						: BOOL;
+	mxSimulation					: BOOL;
+	mxResetCycle					: BOOL;
+	mxDisable_Positive				: BOOL; 
+	mxDisable_Negative				: BOOL;
+	mxBlockHMI						: BOOL:= FALSE;
+	mrOverride						: LREAL;
+	mrVelocityManual				: LREAL;
+	mxResetPosBiasState				: BOOL;
+	mxZeroCommand					: BOOL;
+	mrHomePos						: LREAL;
+END_VAR
+VAR_IN_OUT
+	SysParameters					: ST_NcAxis_SysPar;
+END_VAR
+VAR_OUTPUT
+	mxCycleBusy						: BOOL;
+	mxRunning						: BOOL;
+	mxAxisIsMoving					: BOOL;
+	///Errors
+	Errors							: st_NcAxis_Errors;
+	Error							: BOOL;
+	ErrorStop						: BOOL;
+
+	axStatus						:ST_AxisStatus;
+	ActPosition						:LREAL;
+	ActVelocity						:LREAL;
+
+	axAxis							: AXIS_REF;
+
+	mxPosBiasBusy					: BOOL;
+	mxPosBiasHasError				: BOOL;
+	SignalLightStatus					: BOOL;(* Needed in the HMI, for changing the color of the signal light *)	
+END_VAR
+VAR
+	HmiStatus: UINT;
+	HmiControl: UINT;
+	HMI_ReadEncoder:BOOL;
+	HMI_ReadmInc:LREAL;
+	HMI_WriteEncoder:BOOL;
+	HMI_WritemInc: LREAL;
+	
+	HMI_Forward				: BOOL;
+	HMI_Backward			: BOOL;
+	mxActivateAuto:BOOL;
+	mxActivateManual:BOOL;
+	mxActivated:BOOL;
+	
+	MCPower							: MC_Power;
+	MCReset							: MC_Reset;
+	MCJog							: MC_Jog;
+	MCStop							: MC_Stop;
+	MCHome							: MC_Home;
+	MCMoveAbsolute					: ARRAY[0..1] OF MC_MoveAbsolute;
+	mxMoveAbsNr						: INT;
+	MCMoveVelocity					: ARRAY[0..1] OF MC_MoveVelocity;
+	mxMoveVelocityNr				: INT;	
+	MCReadParameter					: MC_ReadParameter;
+	MCReadAxisError					: MC_ReadAxisError;
+	MCWriteParameter				: MC_WriteParameter; 
+ 	MCSetPosition					: MC_SetPosition;
+	MCReadStatus					: MC_ReadStatus;
+	mcResetDrive					: FB_SoEReset_ByDriveRef;
+	iDriveRef						AT %I* :ST_PLCDriveRef;
+	
+(*Drive parameters*)	
+	mcBlendingMode					: MC_BufferMode;
+
+	miState							: INT	:=0;
+	miStopState						: INT	:=0;
+	miOldstate						: INT	:=0;
+	mxTransitionState				: BOOL	:= FALSE;
+	sStateText						: STRING;	
+	
+ 	exPosBiasTimeOut				: BOOL;		(* Timeout for the whole programcycle *)
+	miPosBiasState					: INT	:=0;
+	miPosBiasOldstate				: INT	:=0;
+	mxPosBiasTransitionState		: BOOL	:= FALSE;
+	sPosBiasStateText				: STRING;
+	PosBiasTimeout					: TON;
+
+(* Vars *)
+	mxPosBiasTimeoutEnable			: BOOL;
+	PosBiasTime						: REAL;
+
+	mrStoredAxisPosition			: LREAL;
+	mxPositionError					: BOOL;
+
+	AdsReadPosBias					: ADSREAD;
+	AdsWritePosBias					: ADSWRITE;
+
+	PositionBiasRead 				: LREAL;
+	
+	(* Errors *)
+	SR_DrivePower					: SR;
+	SR_DriveJog						: SR;
+	SR_DriveStatus					: SR;
+	SR_DriveStop					: SR;
+	SR_DriveReset					: SR;
+	SR_Home							: SR;
+	SR_Restart						: SR;
+	SR_MotorError					: SR;
+	SR_DriveAbsError				: SR;
+	SR_DriveVelocity				: SR;
+	SR_WriteParameter				: SR;
+	SR_ReadParameter				: SR;
+	SR_LagError						: SR;
+ 
+	x: INT;
+	
+	mxCycleHasError					: BOOL;
+	
+(*Timers*)
+	T_Power_On						: TON;
+	T_Power_Off						: TOF;
+	CycleTimeout					: TON;
+
+(*Raising Edge detections*)
+	RT_AutoManual					: R_TRIG;
+	FT_AutoManual					: F_TRIG;
+	RT_AutoManualHMI				: R_TRIG;
+	CycleTimeOutUpFlank				: R_TRIG;
+	PosBiasTimeOutUpFlank			: R_TRIG;
+
+(* Vars *)
+	mxCycleTimeoutEnable			: BOOL;
+	CycleTime						: REAL;
+	SR_CycleTimeOut					: SR;	
+	mrPosition: LREAL;
+	mrCheckPosition: LREAL;
+	mxMoveForw: BOOL;
+	mxSimulationDO	:INT:=0;	(*0= direct onposition, 1=seconds OnPosition, 2=not on position first and second*)
+	ErrorIDMoveAbs1: UDINT;
+	ErrorIDMoveAbs0: UDINT;
+
+	T_Delay: TON;
+	T_StandstillDelay: TON;
+	miReadErrorID: DWORD;
+	miReadAxisErrorID: DWORD;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Alarms();
+WritePosBias();
+HMI();
+DriveActions();
+
+]]></ST>
+    </Implementation>
+    <Action Name="Alarms" Id="{aac83900-77dc-460d-a5c9-5744fca5c890}">
+      <Implementation>
+        <ST><![CDATA[SR_DrivePower(SET1:=MCPower.Error , RESET:=mxReset , Q1=> errors.exDrivePower);
+SR_DriveJog(SET1:= MCJog.Error, RESET:=mxReset , Q1=> errors.exDriveJog);
+SR_DriveStatus(SET1:= axAxis.Status.Error, RESET:=mxReset , Q1=> errors.exDriveStatus);
+SR_DriveReset(SET1:= MCReset.Error, RESET:= mxReset, Q1=>errors.exDriveReset );
+SR_DriveAbsError(SET1:=MCMoveAbsolute[0].Error OR MCMoveAbsolute[1].Error, RESET:= mxReset, Q1=>errors.exDriveAbsoluut );
+SR_DriveStop(SET1:= MCStop.Error, RESET:= mxReset, Q1=>errors.exDriveStop );
+SR_WriteParameter(SET1:= MCWriteParameter.Error, RESET:= mxReset, Q1=>errors.exWriteParameter );
+SR_ReadParameter(SET1:= MCReadParameter.Error, RESET:= mxReset, Q1=>errors.exReadParameter );
+SR_Home(SET1:= MCHome.Error, RESET:= mxReset, Q1=>errors.exHome );
+SR_DriveVelocity(SET1:= MCMoveVelocity[0].Error OR MCMoveVelocity[0].Error, RESET:= mxReset, Q1=> Errors.exDriveVelocity);
+SR_LagError(SET1:=(MCMoveAbsolute[0].ErrorID = 17744 AND MCMoveAbsolute[0].Error) OR 
+						 (MCMoveAbsolute[1].ErrorID = 17744 AND MCMoveAbsolute[1].Error) OR
+						 (MCJog.ErrorID = 17744 AND MCJog.Error) OR 
+						 (MCMoveVelocity[0].ErrorID = 17744 AND MCMoveVelocity[0].Error) OR 
+						 (MCMoveVelocity[1].ErrorID = 17744 AND MCMoveVelocity[1].Error) OR
+						 axStatus.ErrorID = 17744
+						 , RESET:= mxReset, Q1=>errors.exLagError );
+
+ErrorStop:= errors.exLagError OR errors.exWriteParameter OR errors.exReadParameter OR 
+	errors.exDriveStop OR errors.exDrivePower OR errors.exDriveJog  OR  errors.exDriveStatus OR 
+	errors.exDriveReset OR Errors.exDriveAbsoluut OR Errors.exDriveVelocity OR errors.exHome;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="DriveActions" Id="{561e7dce-17d8-4b88-be9e-c6bf1225970c}">
+      <Implementation>
+        <ST><![CDATA[(*read axis status*)
+axAxis.ReadStatus();
+axStatus:= axAxis.Status;
+ActPosition:=axAxis.NcToPlc.ActPos;
+ActVelocity:=axAxis.NcToPlc.ActVelo;
+mxAxisIsMoving:= axAxis.Status.Moving;
+
+	(*Power Axis*)
+T_Power_On(IN:=(NOT mxInhibit), PT:= T#10MS);
+T_Power_Off(IN:=T_Power_On.Q , PT:=T#5S , Q=> , ET=> );
+(*power axis*)	
+MCPower(
+	Axis:= axAxis, 
+	Enable:=NOT mxEmergency AND (T_Power_On.Q OR T_Power_Off.Q),  
+	Enable_Positive:= NOT mxDisable_Positive , 
+	Enable_Negative:= NOT mxDisable_Negative , 
+	Override:=, 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+	 
+(*Drive run action manual*)
+MCJog(
+	Axis:= axAxis, 
+	JogForward:= ,
+	JogBackwards:= ,
+	Mode:=MC_JOGMODE_CONTINOUS , 
+	Position:= , 
+	Velocity:= mrVelocityManual, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	MCJog.JogForward:=FALSE; 	
+	MCJog.JogBackwards:=FALSE;
+
+(*Drive Reset*)
+MCReset(
+	Axis:=axAxis , 
+	Execute:=(mxReset AND (axAxis.Status.Error OR Error)), 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+
+	(*Reset*)
+//DriveAxis.mcReset(Execute:= mxReset AND DriveAxis.mcStatus.Error, Axis:= axAxis);
+
+(* Reset Drive Error *)
+mcResetDrive.stDriveRef.sNetId:= F_CreateAmsNetId(iDriveRef.aNetId);
+mcResetDrive.stDriveRef.nSlaveAddr:= iDriveRef.nSlaveAddr;
+mcResetDrive.stDriveRef.nDriveNo:= iDriveRef.nDriveNo;
+
+
+mcResetDrive(
+	bExecute:= mxReset AND axAxis.Status.DriveDeviceError,
+	tTimeout:= t#10s);
+	
+(*Move absolute fb 1*) 
+	MCMoveAbsolute[0](
+			Axis:= axAxis, 
+			Execute:=, 
+			Position:= , 
+			Velocity:= , 
+			Acceleration:= , 
+			Deceleration:= , 
+			Jerk:= , 
+			BufferMode:= , 
+			Options:= , 
+			Done=> , 
+			Busy=> , 
+			Active=> , 
+			CommandAborted=> , 
+			Error=> , 
+			ErrorID=> );
+MCMoveAbsolute[0].Execute:=FALSE;
+IF MCMoveAbsolute[0].ErrorID > 0 THEN ErrorIDMoveAbs0:=MCMoveAbsolute[0].ErrorID; END_IF;
+(*Move absolute fb 2*)
+	MCMoveAbsolute[1](
+			Axis:= axAxis, 
+			Execute:=, 
+			Position:= , 
+			Velocity:= , 
+			Acceleration:= , 
+			Deceleration:= , 
+			Jerk:= , 
+			BufferMode:=, 
+			Options:= , 
+			Done=> , 
+			Busy=> , 
+			Active=> , 
+			CommandAborted=> , 
+			Error=> , 
+			ErrorID=>ErrorIDMoveAbs1 );
+MCMoveAbsolute[1].Execute:=FALSE;
+IF MCMoveAbsolute[1].ErrorID > 0 THEN ErrorIDMoveAbs0:=MCMoveAbsolute[1].ErrorID; END_IF;
+(*Move velocity fb 1*)
+MCMoveVelocity[0](
+	Axis:=axAxis , 
+	Execute:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Direction:= , 
+	BufferMode:= , 
+	Options:= , 
+	InVelocity=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+			
+MCMoveVelocity[0].Execute:=FALSE;		
+ (*Move velocity fb 2*)
+MCMoveVelocity[1](
+	Axis:=axAxis , 
+	Execute:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Direction:= , 
+	BufferMode:= , 
+	Options:= , 
+	InVelocity=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+			
+MCMoveVelocity[1].Execute:=FALSE;		
+
+MCStop(
+	Axis:=axAxis , 
+	Execute:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+MCStop.Execute:=FALSE;
+
+(*Homing*)
+MCHome(
+	Axis:=axAxis , 
+	Execute:= , 
+	Position:=  , 
+	HomingMode:=  , 
+	BufferMode:= , 
+	Options:= , 
+	bCalibrationCam:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+MCHome.Execute:=FALSE;
+	
+(*Read a parameter*)
+MCReadParameter(
+	Axis:=axAxis , 
+	Enable:= , 
+	ParameterNumber:= , 
+	ReadMode:=E_ReadMode.READMODE_CYCLIC , 
+	Valid=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> , 
+	Value=> );
+MCReadParameter.Enable:=FALSE;
+
+(*Write a parameter*)	
+MCWriteParameter(
+	Axis:= axAxis, 
+	Execute:= , 
+	ParameterNumber:= , 
+	Value:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+MCWriteParameter.Execute:=FALSE;
+
+MCSetPosition(
+	Axis:= axAxis, 
+	Execute:= , 
+	Position:= , 
+	Mode:=FALSE , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+	MCSetPosition.Execute:=FALSE;	
+
+MCReadAxisError(
+	Axis:=axAxis , 
+	Enable:=TRUE , 
+	Valid=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> miReadErrorID, 
+	AxisErrorID=>miReadAxisErrorID );
+	(*
+MCReadStatus(
+	Axis:= axAxis, 
+	Enable:= , 
+	Valid=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> , 
+	ErrorStop=> , 
+	Disabled=> , 
+	Stopping=> , 
+	StandStill=> , 
+	DiscreteMotion=> , 
+	ContinuousMotion=> , 
+	SynchronizedMotion=> , 
+	Homing=> , 
+	ConstantVelocity=> , 
+	Accelerating=> , 
+	Decelerating=> , 
+	Status=> );*)
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="HMI" Id="{d57138b6-1417-47ac-886a-4c1e6e1b3154}">
+      <Implementation>
+        <ST><![CDATA[(*Read ax encoder parameter minc*)
+IF HMI_ReadEncoder THEN
+	HMI_ReadmInc :=	M_ReadParameter(MC_AxisParameter.AxisEncoderScalingFactor);
+END_IF
+(*Write ax encoder parameter*)
+IF HMI_WriteEncoder THEN
+	M_WriteParameter(miParameterNr:=MC_AxisParameter.AxisEncoderScalingFactor , miValue:= HMI_WritemInc );
+END_IF
+
+IF mxAutoMode THEN
+	MCPower.Override:=mrOverride;
+ELSE
+	MCPower.Override:=mrOverride(*parameters.VelocityManual*);		
+END_IF;
+
+RT_AutoManual(CLK:= mxAutoMode);
+FT_AutoManual(CLK:= mxAutoMode);
+
+(*Set output*)
+mxActivateAuto:= (mxEnable AND mxAutomode);
+mxActivateManual := (mxEnable AND NOT mxAutoMode);
+
+IF HMI_Forward AND axAxis.Status.Operational AND NOT SR_Restart.Q1 AND T_Power_On.Q AND NOT mxAutomode THEN
+	MCJog.JogForward := TRUE ;
+	MCJog.Velocity:= mrVelocityManual;
+END_IF
+IF HMI_Backward AND axAxis.Status.Operational AND NOT SR_Restart.Q1 AND T_Power_On.Q AND NOT mxAutoMode THEN
+	MCJog.JogBackwards :=TRUE;
+	MCJog.Velocity:= mrVelocityManual;
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_Home" Id="{8f17bdf1-f4ab-4c47-9710-d7a90f5668a5}">
+      <Declaration><![CDATA[METHOD M_Home : BOOL;
+VAR_INPUT
+	mrHomePosition		: LREAL;
+	MCMode				: MC_HomingMode;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[McHome.Position:= mrHomePosition;
+McHome.HomingMode:= MCMode;
+
+McHome.Execute:= TRUE;
+
+
+(* Return Value *)
+M_Home:=MCHome.Done;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_MoveAbsolute" Id="{5b140632-ce16-47b3-8ce7-438bd1babe17}">
+      <Declaration><![CDATA[METHOD M_MoveAbsolute : BOOL
+VAR_INPUT
+	Velocity				:LREAL;			
+	Position				:LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[(*compare for different setpoints, if so change fb mcMoveAbsolute*)
+IF 	(MCMoveAbsolute[mxMoveAbsNr].Position <> Position) OR 
+	(MCMoveAbsolute[mxMoveAbsNr].Velocity <> Velocity) THEN
+
+	IF mxMoveAbsNr = 0 THEN
+		mxMoveAbsNr :=1;
+	ELSE
+		mxMoveAbsNr :=0;
+	END_IF
+	
+	(*Write parameters*)
+	MCMoveAbsolute[mxMoveAbsNr].Position:=Position;
+	MCMoveAbsolute[mxMoveAbsNr].Velocity:=Velocity;
+(*	IF Velocity > 0.0 	THEN  MCMoveAbsolute[mxMoveAbsNr].Velocity:=Velocity; 		 ELSE MCMoveAbsolute[mxMoveAbsNr].Velocity:=parameters.VelocityAuto; 	END_IF*) 
+END_IF
+
+MCMoveAbsolute[mxMoveAbsNr].Execute:=TRUE;
+
+(* Return value *)
+M_MoveAbsolute:=MCMoveAbsolute[mxMoveAbsNr].Done;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_MoveVelocity" Id="{8b124fdb-b738-4e9c-aecb-6e382eaa0ada}">
+      <Declaration><![CDATA[METHOD M_MoveVelocity : BOOL
+VAR_INPUT
+	Velocity			: LREAL;			
+	Direction			: MC_Direction;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[(*compare for different setpoints, if so change fb mcMoveVelocity*)
+IF 	(MCMoveVelocity[mxMoveVelocityNr].Velocity <> Velocity) THEN
+
+	IF mxMoveVelocityNr = 0 THEN
+		mxMoveVelocityNr :=1;
+	ELSE
+		mxMoveVelocityNr :=0;
+	END_IF
+
+	(*Write parameters*)
+	MCMoveVelocity[mxMoveVelocityNr].Velocity:=Velocity;
+(*	IF Velocity > 0 	THEN MCMoveVelocity[mxMoveVelocityNr].Velocity:=Velocity; 			ELSE MCMoveVelocity[mxMoveVelocityNr].Velocity:=parameters.VelocityAuto; 		END_IF*)
+
+END_IF
+
+MCMoveVelocity[mxMoveVelocityNr].Execute:=TRUE;
+MCMoveVelocity[mxMoveVelocityNr].Direction:=Direction;
+
+(*Give return value*)
+M_MoveVelocity:=MCMoveVelocity[mxMoveVelocityNr].Active;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_ReadParameter" Id="{bf1b3ca3-e310-473b-a1a3-4914d0bdfae3}">
+      <Declaration><![CDATA[METHOD M_ReadParameter : LREAL
+VAR_INPUT
+		miParameterNr:INT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[MCReadParameter.ParameterNumber:=miParameterNr;
+MCReadParameter.Enable:=TRUE;
+
+M_ReadParameter:=MCReadParameter.Value;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Reset" Id="{d64c6d9a-9ef8-4d30-87be-70193bbc5802}">
+      <Declaration><![CDATA[METHOD M_Reset : BOOL
+VAR_INPUT
+	
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+(* Return Value *)
+M_Reset:= MCReset.Done;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetPosition" Id="{031f990f-f8e1-4cb8-8061-d41717a3b8b1}">
+      <Declaration><![CDATA[METHOD M_SetPosition : BOOL
+VAR_INPUT
+	NewPosition:LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[MCSetPosition.Position:=NewPosition;
+MCSetPosition.Execute:=TRUE;
+
+M_SetPosition:=MCSetPosition.Done;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Stop" Id="{5fa6fbd5-f2ab-4331-a60b-c1c43e262b1e}">
+      <Declaration><![CDATA[METHOD M_Stop : BOOL
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[MCStop.Execute:=TRUE;
+
+(* Return Value *)
+M_Stop:= MCStop.Done;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_WriteParameter" Id="{cba460a1-9d9d-411c-8943-d30e56eefc71}">
+      <Declaration><![CDATA[METHOD M_WriteParameter : BOOL
+VAR_INPUT
+	miParameterNr:INT;
+	miValue:LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[MCWriteParameter.ParameterNumber:=miParameterNr;
+MCWriteParameter.Value:=miValue;
+MCWriteParameter.Execute:=TRUE;
+
+M_WriteParameter:=MCWriteParameter.Done;]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="WritePosBias" Id="{28aaf2b5-1061-46e9-abdf-9957b62123a5}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxPosBiasTransitionState:=(miPosBiasState<>miPosBiasOldstate);
+(*State text*)
+sPosBiasStateText:=sPosBiasStateTextDef[miPosBiasState];
+(*Timeout Watchdog for Statemachine*)
+mxPosBiasTimeoutEnable:=NOT (miPosBiasState=0)  AND NOT mxReset;
+
+PosBiasTimeout(IN:=mxPosBiasTimeoutEnable  , PT:=tPosBiasStateTimeouts[miPosBiasState] );
+PosBiasTimeOutUpFlank(CLK:=PosBiasTimeout.Q );
+miPosBiasOldstate:=miPosBiasState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF PosBiasTimeOutUpFlank.Q THEN
+	exPosBiasTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetPosBiasState THEN
+	mxResetPosBiasState:=FALSE;
+	miPosBiasState:=0;
+	miPosBiasOldstate:=miPosBiasState;
+	mxPosBiasTransitionState:=FALSE;
+
+	AdsReadPosBias.READ:= FALSE;
+	AdsWritePosBias.WRITE:= FALSE;
+
+	mxZeroCommand:= FALSE;
+	SignalLightStatus:= FALSE;
+END_IF
+
+AdsReadPosBias(
+	NETID:= '',
+	PORT:= 500,
+	IDXGRP:= SysParameters.IDXGRP,
+	IDXOFFS:= 16#7,
+	LEN:= 8,
+	DESTADDR:= ADR(PositionBiasRead),
+	TMOUT:= T#1s);
+
+AdsWritePosBias(
+	NETID:= '',
+	PORT:= 500,
+	IDXGRP:= SysParameters.IDXGRP,
+	IDXOFFS:= 16#7,
+	LEN:= 8,
+	SRCADDR:= ADR(SysParameters.PositionBias),
+	TMOUT:= T#1s);
+
+(*Definition State has Error*)
+mxPosBiasHasError:=FALSE;
+
+(*Cycle State's*)
+CASE miPosBiasState OF
+	(*Wait for Start *)
+	0:
+		(* Zero command from HMI *)
+		IF mxZeroCommand THEN
+			mxZeroCommand:= FALSE;
+			SignalLightStatus:= FALSE;
+
+			AdsReadPosBias.READ:= TRUE;
+			miPosBiasState:= 1;
+		END_IF
+
+		(* PLC startup *)
+		IF mxFirstCycle THEN
+			SignalLightStatus:= FALSE;
+
+			AdsWritePosBias.WRITE:= TRUE;
+			miPosBiasState:= 2;
+		END_IF
+
+	(* Calculate new Position Bias with actual bias and act position *)
+	1:
+		IF NOT AdsReadPosBias.BUSY THEN
+			AdsReadPosBias.READ:= FALSE;
+
+			SysParameters.PositionBias:= mrHomePos - axAxis.NcToPlc.ActPos + PositionBiasRead;
+			AdsWritePosBias.WRITE:= TRUE;
+
+			miPosBiasState:= 2;
+		END_IF
+
+	(* Write new position bias *)
+	2:
+		IF NOT AdsWritePosBias.BUSY THEN
+			AdsWritePosBias.WRITE:= FALSE;
+			SignalLightStatus:= TRUE;
+
+			miPosBiasState:= 0;
+		END_IF
+END_CASE
+
+(*Set Busy bit FOR Statemachine*)
+mxPosBiasBusy:=(miposBiasState<>0);]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_NcAxis">
+      <LineId Id="229" Count="0" />
+      <LineId Id="384" Count="0" />
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.Alarms">
+      <LineId Id="2" Count="5" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="16" Count="3" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.DriveActions">
+      <LineId Id="2" Count="4" />
+      <LineId Id="252" Count="0" />
+      <LineId Id="20" Count="16" />
+      <LineId Id="251" Count="0" />
+      <LineId Id="37" Count="17" />
+      <LineId Id="250" Count="0" />
+      <LineId Id="249" Count="0" />
+      <LineId Id="56" Count="8" />
+      <LineId Id="253" Count="0" />
+      <LineId Id="255" Count="6" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="262" Count="2" />
+      <LineId Id="254" Count="0" />
+      <LineId Id="66" Count="76" />
+      <LineId Id="144" Count="55" />
+      <LineId Id="206" Count="10" />
+      <LineId Id="218" Count="0" />
+      <LineId Id="220" Count="28" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.HMI">
+      <LineId Id="65" Count="7" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="2" Count="4" />
+      <LineId Id="14" Count="2" />
+      <LineId Id="34" Count="3" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="75" Count="1" />
+      <LineId Id="42" Count="2" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_Home">
+      <LineId Id="3" Count="6" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_MoveAbsolute">
+      <LineId Id="3" Count="1" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="9" Count="8" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="25" Count="3" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_MoveVelocity">
+      <LineId Id="3" Count="0" />
+      <LineId Id="7" Count="8" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="23" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_ReadParameter">
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_Reset">
+      <LineId Id="10" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_SetPosition">
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_Stop">
+      <LineId Id="20" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.M_WriteParameter">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_NcAxis.WritePosBias">
+      <LineId Id="2" Count="93" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -24,11 +24,11 @@ VAR CONSTANT
 		'State 17:',
 		'State 18:',
 		'State 19:',
-		'State 20: Stopcylce waiting for EAMC ready',
-		'State 21: Stop cycle awaiting gantries ready',
-		'State 22: Stop cycle awaiting outfeed conveyor ready',
-		'State 23: Stop cycle Stopping Gantries and conveyor',
-		'State 24: Stop cycle awaiting restart',
+		'State 20: [Stopping] Await IMD empty',
+		'State 21: [Stopping] Await gantries empty',
+		'State 22: [Stopping] Stop gantries',
+		'State 23: [Pausing] waiting gantries to pause;',
+		'State 24: [Paused] Await start',
 		'State 25: Stop direct'];
 	
 	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
@@ -59,9 +59,17 @@ VAR_INPUT
 	mxSideA_Enabled					: BOOL;
 	mxSideB_Enabled					: BOOL;
 	mxEamcIsEmpty					: BOOL;
+	mxStopBeforeSCstarted			: BOOL;
 	mxProductReadyAtTakeout_A		: BOOL;
 	mxProductReadyAtTakeout_B		: BOOL;
+	mxStopCycleGantryA				: BOOL;
+	mxStopCycleGantryB				: BOOL;
 	
+	NrOfSheets						: DINT;
+	NrOfCavities					: DINT;
+	GantryA_BlowOffPulse			: ARRAY [1..4] OF BOOL;
+	GantryB_BlowOffPulse			: ARRAY [1..4] OF BOOL;
+
 	mxPause							: BOOL;
 END_VAR
 VAR_IN_OUT
@@ -84,7 +92,13 @@ VAR_OUTPUT
 	mxProductPickedUpGantry_A		: BOOL;
 	mxProductPickedUpGantry_B		: BOOL;
 	mxGantrysNotBusy				: BOOL;
+		
+	GantryA_BlowOffSucceded			: ARRAY [1..4] OF BOOL;
+	GantryB_BlowOffSucceded			: ARRAY [1..4] OF BOOL;
+	GantryA_InPositionAtBelt		: BOOL;
+	GantryB_InPositionAtBelt		: BOOL;
 	
+	mxRTO							: BOOL; // Product handling is ready to operate (speedcontrol).
 END_VAR
 VAR
 	(* State vars *)
@@ -125,7 +139,6 @@ VAR
 	(* Objects *)
 	GantryA								: FB_Gantry;
 	GantryB								: FB_Gantry;
-	OutfeedConveyor						: FB_OutfeedConveyor;
 	
 	mxHMI_DisableCollision				: BOOL;
 
@@ -147,8 +160,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Stopcycle = empty machine *)
-(* Pause = stop at place *)
-
+(* Pause = stop in place *)
 Error();
 Cycle();
 Init();
@@ -162,7 +174,19 @@ END_IF
 T_StopCommisioningMode(IN:=MachParameters.CommisioningMode, PT:=T#120M);
 IF T_StopCommisioningMode.Q THEN
 	MachParameters.CommisioningMode := FALSE;
-END_IF]]></ST>
+END_IF
+
+(*
+//					Gantry A Pause (stopinpos)	//
+IF mxStopCycleGantryA THEN
+	GantryA.M_StopCycle();
+END_IF
+
+//					Gantry B Pause (stopinpos)	//
+IF mxStopCycleGantryB THEN
+	GantryB.M_StopCycle();
+END_IF
+*)]]></ST>
     </Implementation>
     <Action Name="Cycle" Id="{5be5b63a-ceb4-4b96-8e47-4b368e0f91ea}">
       <Implementation>
@@ -200,8 +224,6 @@ IF mxResetCycleState THEN
 			
 	GantryA.mxResetCycleState:= TRUE;
 	GantryB.mxResetCycleState:= TRUE;
-	OutfeedConveyor.mxResetCycleState:= TRUE;
-
 END_IF
 
 (*Definition State has Error*)
@@ -212,27 +234,26 @@ RT_ProductReadyAtTakeout_B(CLK:= mxProductReadyAtTakeout_B);
 
 (*Cycle State's*)
 CASE miCycleState OF
-	0:
-	(*
-		- Wait for startcycle
-		- Start GantryA, B, Outfeedconveyor
+	0: // wait for start
+		IF mxStopCycle THEN
+			mxStopCycle:= FALSE;			
 
-	Als Stop dan leegdraaien, dus wachten op EAMC die leeg is
-	Als Pause dan alles stopInPos en vrijgeven. 
-		*  
-	*)
-		IF mxStartCycle THEN
-			mxStartCycle:= FALSE;
-
-			IF mxSideA_Enabled THEN GantryA.M_StartCycle(); END_IF
-			IF mxSideB_Enabled THEN GantryB.M_StartCycle(); END_IF
-			OutfeedConveyor.M_StartCycle();
+			(* Stop Cycle *)
+			IF mxSideA_Enabled THEN GantryA.M_StopCycle(); END_IF
+			IF mxSideB_Enabled THEN GantryB.M_StopCycle(); END_IF
 			
+			miStopState:= miCycleState;
+			miCycleState:= 23;			
+			
+		ELSIF mxStartCycle THEN
+			mxStartCycle:= FALSE;
+			IF mxSideA_Enabled THEN GantryA.M_StartCycle(); END_IF
+			IF mxSideB_Enabled THEN GantryB.M_StartCycle(); END_IF	
+		
 			miCycleState:= 1;
 		END_IF	
 
-	(* Gantry A, Gantry B, Outfeed started *)
-	1:
+	1: // Gantry A, Gantry B
 		IF RT_ProductReadyAtTakeout_A.Q THEN
 			GantryA.mxProductReadyAtTakeout:= TRUE;
 		END_IF
@@ -240,99 +261,88 @@ CASE miCycleState OF
 			GantryB.mxProductReadyAtTakeout:= TRUE;
 		END_IF
 	
-		IF mxStopCycleEmpty AND mxEamcIsEmpty THEN (* Emtpy *)
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF mxStopCycleEmpty AND mxEamcIsEmpty THEN (* Emtpy *)
 			mxStopCycleEmpty:= FALSE;
-			
 			miStopState:= miCycleState;
 			miCycleState:= 20;
+		ELSIF mxStopCycleEmpty AND mxStopBeforeSCstarted THEN
+			mxStopCycleEmpty := FALSE;
+			miCycleState:= 0;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;			
 
 			(* Stop Cycle *)
 			IF mxSideA_Enabled THEN GantryA.M_StopCycle(); END_IF
 			IF mxSideB_Enabled THEN GantryB.M_StopCycle(); END_IF
-			OutfeedConveyor.M_StopCycle();
 			
 			miStopState:= miCycleState;
 			miCycleState:= 23;
 		END_IF
 
-	(* Stop Cycle, wait for EAMC is empty *)
-	20:
+	20:  // Stop Cycle, wait for EAMC is empty 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			
 			miCycleState:= 25;
 		ELSIF mxEamcIsEmpty THEN // Signal from EAMC that the machine is empty, Gantry A B signals are set when product ready at gantry
-		
 			miCycleState:= 21;			
 		END_IF
-
-	(* Stop Cycle, wait for Gantry is empty *)
-	21:
+	
+	21: // Stop Cycle, wait for Gantry is empty 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			
 			miCycleState:= 25;
 		ELSIF (GantryA.mxIsEmpty OR NOT mxSideA_Enabled) AND (GantryB.mxIsEmpty OR NOT mxSideB_Enabled) THEN
-		
 			(* Stop Cycle *)
-			IF mxSideA_Enabled THEN GantryA.M_StopCycle(); END_IF
-			IF mxSideB_Enabled THEN GantryB.M_StopCycle(); END_IF
-			OutfeedConveyor.M_StopCycle();
-			
+			IF mxSideA_Enabled THEN GantryA.M_StopCycleEmpty(); END_IF
+			IF mxSideB_Enabled THEN GantryB.M_StopCycleEmpty(); END_IF
 			miCycleState:= 22;
 		END_IF
-
-	(* Stop Cycle, outfeed conveyor empty *)
-	22:
+	
+	22: // Stop Cycle, Stop gantry's, Belt 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			
 			miCycleState:= 25;
-		ELSIF NOT OutfeedConveyor.mxCycleBusy THEN
-		
+		ELSIF NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy THEN
 			miCycleState:= 0;
 		END_IF
-	
-	(* Stop Cycle, Stop gantry's, Belt *)
-	23:
+
+	23: 	// [Pausing, await gantries]
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			
 			miCycleState:= 25;
-		ELSIF NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy AND NOT OutfeedConveyor.mxCycleBusy THEN
-			
+		ELSIF NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy THEN
 			miCycleState:= 24;
 		END_IF
-
-	(* Stop Cycle, wait for restart *)
-	24:
+		
+	24:	// [Paused] Await start
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			
 			miCycleState:= 25;
 		ELSIF mxStartCycle THEN
 			mxStartCycle:= FALSE;
 			
+			IF mxSideA_Enabled THEN GantryA.M_StartCycle(); END_IF
+			IF mxSideB_Enabled THEN GantryB.M_StartCycle(); END_IF	
+			
 			miCycleState:= miStopState;
 		END_IF
 
-	(* Stop Direct *)
-	25:
+
+	25:	// Stop Direct
 		mxInitialized:= FALSE;
 		mxStartCycle:= FALSE;
 		mxStopCycle:= FALSE;
 		mxStopDirect:= FALSE;
-
 		GantryA.M_StopDirect();
 		GantryB.M_StopDirect();
-		OutfeedConveyor.M_StopDirect();
-		
 		miCycleState:= 0;
 END_CASE
 
-mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=22);
+mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=24);
+mxInPause:=miCycleState=24 AND (GantryA.mxInPause OR NOT mxSideA_Enabled) AND (GantryB.mxInPause OR NOT mxSideB_Enabled);
 ]]></ST>
       </Implementation>
     </Action>
@@ -371,11 +381,11 @@ SR_VertMovingHorNotInPos_B(
 	RESET:= mxReset, Q1=> Errors.RH_VertMovingHorNotInPos_B);
 
 (*************************************************************************************************)
-mxErrorInit:= GantryA.mxErrorInit OR GantryB.mxErrorInit OR OutfeedConveyor.mxErrorInit OR 
+mxErrorInit:= GantryA.mxErrorInit OR GantryB.mxErrorInit OR
 				Errors.RH_HorMovingVertNotAtTranspPos_A OR Errors.RH_HorMovingVertNotAtTranspPos_B OR 
 				Errors.RH_VertMovingHorNotInPos_A OR Errors.RH_VertMovingHorNotInPos_B;
 				
-mxErrorStopinPos:= GantryA.mxErrorStopinPos OR GantryB.mxErrorStopinPos OR OutfeedConveyor.mxErrorStopinPos;
+mxErrorStopinPos:= GantryA.mxErrorStopinPos OR GantryB.mxErrorStopinPos;
 ]]></ST>
       </Implementation>
     </Action>
@@ -412,8 +422,6 @@ IF mxResetInitState THEN
 	GantryA.mxResetCycleState:=TRUE;
 	GantryB.mxResetInitState:=TRUE;
 	GantryB.mxResetCycleState:= TRUE;
-	OutFeedConveyor.mxResetInitState:=TRUE;
-	OutfeedConveyor.mxResetCycleState:= TRUE;	
 END_IF
 
 (*Definition State has Error*)
@@ -446,7 +454,6 @@ CASE miInitState OF
 		ELSE
 			IF mxSideA_Enabled THEN GantryA.M_StartInit(); END_IF			
 			IF mxSideB_Enabled THEN GantryB.M_StartInit(); END_IF
-			OutfeedConveyor.M_StartInit();
 
 			miInitState:= 2;
 		END_IF
@@ -455,8 +462,7 @@ CASE miInitState OF
 		IF mxStopInit THEN
 			mxStopInit:= FALSE;
 			miInitState:= 10;
-		ELSIF (GantryA.mxInitialized OR NOT mxSideA_Enabled) AND (GantryB.mxInitialized OR NOT mxSideB_Enabled)
-				 AND OutfeedConveyor.mxInitialized THEN
+		ELSIF (GantryA.mxInitialized OR NOT mxSideA_Enabled) AND (GantryB.mxInitialized OR NOT mxSideB_Enabled) THEN
 	
 			mxInitialized:= TRUE;
 			miInitState:= 0;
@@ -470,7 +476,6 @@ CASE miInitState OF
 
 		GantryA.M_StopInit();
 		GantryB.M_StopInit();
-		OutfeedConveyor.M_StopInit();
 		
 		miInitState:= 0;
 			
@@ -486,7 +491,6 @@ mxInitBusy:= miInitState<>0;
       <Implementation>
         <ST><![CDATA[
 IF (NOT mxCycleBusy AND mxInitialized) OR (mxInPause AND mxInitialized) THEN
-	mxInPause:=FALSE;
 	mxStartCycle:= TRUE;	
 END_IF
 ]]></ST>
@@ -508,12 +512,7 @@ END_IF
 
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[
-IF mxCycleBusy THEN
-	mxStopCycle:= TRUE;	
-	mxInPause:=TRUE;
-END_IF
-]]></ST>
+        <ST><![CDATA[mxStopCycle:= TRUE;]]></ST>
       </Implementation>
     </Method>
     <Method Name="M_StopCycleEmpty" Id="{2b14915f-953a-44d2-99d9-b6fbd415fed7}">
@@ -556,12 +555,17 @@ END_IF
 	mxEmergency:= mxEmergency[1] OR mxEmergency[2] OR mxEmergency[7], 
 	mxAutoMode:= mxAutoMode, 
 	mxFirstCycle:= mxFirstCycle,
-	mrModPosConveyor:= OutfeedConveyor.mrActModPos, 
+	mrModPosConveyor:= , 
 	mxDisableCollision:= mxHMI_DisableCollision,
 	MachParameters:= MachParameters.GantryA, 
 	ProdParameters:= ProdParameters.GantryA, 
 	SysParameters:= SysParameters.GantryA,
 	mxProductPickedUp=> mxProductPickedUpGantry_A,
+	NrOfSheets:=NrOfSheets,
+	NrOfCavities:=NrOfCavities,
+	BlowOffPulse:=GantryA_BlowOffPulse,
+	BlowOffSucceded=>GantryB_BlowOffSucceded,
+	Gantry_InPositionAtBelt=> GantryA_InPositionAtBelt,
 	Errors=> Errors.Gantry_A);
 	
 GantryB(
@@ -569,36 +573,41 @@ GantryB(
 	mxEmergency:= mxEmergency[4] OR mxEmergency[5] OR mxEmergency[6], 
 	mxAutoMode:= mxAutoMode, 
 	mxFirstCycle:= mxFirstCycle,
-	mrModPosConveyor:= OutfeedConveyor.mrActModPos, 
+	mrModPosConveyor:= , 
 	mxDisableCollision:= mxHMI_DisableCollision,
 	MachParameters:= MachParameters.GantryB, 
 	ProdParameters:= ProdParameters.GantryB, 
 	SysParameters:= SysParameters.GantryB,
 	mxProductPickedUp=> mxProductPickedUpGantry_B,
+	NrOfSheets:=NrOfSheets,
+	NrOfCavities:=NrOfCavities,
+	BlowOffPulse:=GantryB_BlowOffPulse,
+	BlowOffSucceded=>GantryB_BlowOffSucceded,
+	Gantry_InPositionAtBelt=> GantryB_InPositionAtBelt,
 	Errors=> Errors.Gantry_B);
-	
-OutfeedConveyor(
-	mxReset:= mxReset, 
-	mxEmergency:= mxEmergency[6] OR mxEmergency[7], 
-	mxAutoMode:= mxAutoMode, 
-	mxFirstCycle:= mxFirstCycle,
-	MachParameters:= MachParameters.OutfeedConveyor, 
-	ProdParameters:= ProdParameters.OutfeedConveyor, 
-	SysParameters:= SysParameters.OutfeedConveyor,
-	Errors=> Errors.OutfeedConveyor);
 	
 mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
 ]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="FB_ProductHandling">
-      <LineId Id="195" Count="2" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="197" Count="0" />
       <LineId Id="104" Count="1" />
       <LineId Id="107" Count="0" />
       <LineId Id="25" Count="0" />
       <LineId Id="312" Count="1" />
       <LineId Id="315" Count="1" />
       <LineId Id="455" Count="4" />
+      <LineId Id="606" Count="0" />
+      <LineId Id="771" Count="0" />
+      <LineId Id="618" Count="0" />
+      <LineId Id="607" Count="1" />
+      <LineId Id="610" Count="0" />
+      <LineId Id="609" Count="0" />
+      <LineId Id="617" Count="0" />
+      <LineId Id="612" Count="1" />
+      <LineId Id="615" Count="1" />
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_ProductHandling.Cycle">
@@ -610,79 +619,80 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
       <LineId Id="613" Count="0" />
       <LineId Id="575" Count="1" />
       <LineId Id="571" Count="0" />
-      <LineId Id="567" Count="2" />
+      <LineId Id="567" Count="0" />
       <LineId Id="34" Count="0" />
       <LineId Id="37" Count="3" />
       <LineId Id="641" Count="0" />
       <LineId Id="643" Count="1" />
       <LineId Id="44" Count="2" />
-      <LineId Id="74" Count="0" />
-      <LineId Id="86" Count="0" />
-      <LineId Id="494" Count="0" />
-      <LineId Id="504" Count="2" />
-      <LineId Id="479" Count="0" />
-      <LineId Id="79" Count="0" />
+      <LineId Id="655" Count="0" />
+      <LineId Id="657" Count="7" />
+      <LineId Id="656" Count="0" />
       <LineId Id="75" Count="0" />
-      <LineId Id="57" Count="1" />
+      <LineId Id="57" Count="0" />
       <LineId Id="495" Count="0" />
-      <LineId Id="497" Count="1" />
-      <LineId Id="496" Count="0" />
+      <LineId Id="497" Count="0" />
+      <LineId Id="653" Count="0" />
       <LineId Id="67" Count="0" />
       <LineId Id="503" Count="0" />
       <LineId Id="48" Count="0" />
-      <LineId Id="502" Count="0" />
       <LineId Id="499" Count="0" />
       <LineId Id="636" Count="0" />
       <LineId Id="639" Count="1" />
       <LineId Id="637" Count="0" />
       <LineId Id="645" Count="2" />
+      <LineId Id="669" Count="2" />
       <LineId Id="501" Count="0" />
       <LineId Id="507" Count="0" />
-      <LineId Id="509" Count="1" />
+      <LineId Id="510" Count="0" />
       <LineId Id="513" Count="0" />
+      <LineId Id="672" Count="0" />
+      <LineId Id="674" Count="1" />
       <LineId Id="511" Count="0" />
       <LineId Id="551" Count="0" />
       <LineId Id="512" Count="0" />
       <LineId Id="558" Count="0" />
       <LineId Id="553" Count="0" />
       <LineId Id="609" Count="0" />
-      <LineId Id="555" Count="0" />
       <LineId Id="608" Count="0" />
       <LineId Id="556" Count="1" />
       <LineId Id="508" Count="0" />
       <LineId Id="500" Count="0" />
-      <LineId Id="99" Count="0" />
-      <LineId Id="514" Count="5" />
-      <LineId Id="526" Count="0" />
+      <LineId Id="514" Count="2" />
+      <LineId Id="518" Count="1" />
       <LineId Id="529" Count="0" />
       <LineId Id="522" Count="0" />
-      <LineId Id="524" Count="0" />
-      <LineId Id="535" Count="7" />
+      <LineId Id="535" Count="3" />
+      <LineId Id="540" Count="1" />
       <LineId Id="544" Count="0" />
-      <LineId Id="648" Count="2" />
-      <LineId Id="550" Count="0" />
-      <LineId Id="547" Count="2" />
-      <LineId Id="595" Count="0" />
-      <LineId Id="583" Count="6" />
-      <LineId Id="592" Count="2" />
+      <LineId Id="648" Count="1" />
+      <LineId Id="547" Count="1" />
       <LineId Id="525" Count="0" />
       <LineId Id="224" Count="0" />
-      <LineId Id="414" Count="4" />
-      <LineId Id="277" Count="0" />
+      <LineId Id="414" Count="1" />
+      <LineId Id="417" Count="1" />
       <LineId Id="280" Count="0" />
       <LineId Id="278" Count="0" />
       <LineId Id="263" Count="0" />
-      <LineId Id="607" Count="0" />
-      <LineId Id="596" Count="10" />
+      <LineId Id="676" Count="7" />
+      <LineId Id="596" Count="2" />
+      <LineId Id="600" Count="2" />
+      <LineId Id="665" Count="0" />
+      <LineId Id="667" Count="1" />
+      <LineId Id="666" Count="0" />
+      <LineId Id="604" Count="2" />
       <LineId Id="265" Count="0" />
       <LineId Id="264" Count="0" />
       <LineId Id="616" Count="0" />
       <LineId Id="618" Count="0" />
-      <LineId Id="623" Count="3" />
-      <LineId Id="560" Count="2" />
+      <LineId Id="623" Count="1" />
+      <LineId Id="626" Count="0" />
+      <LineId Id="560" Count="0" />
       <LineId Id="275" Count="0" />
       <LineId Id="267" Count="0" />
-      <LineId Id="53" Count="2" />
+      <LineId Id="53" Count="1" />
+      <LineId Id="654" Count="0" />
+      <LineId Id="55" Count="0" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_ProductHandling.Error">
@@ -722,8 +732,6 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
       <LineId Id="220" Count="0" />
       <LineId Id="229" Count="1" />
       <LineId Id="221" Count="0" />
-      <LineId Id="231" Count="0" />
-      <LineId Id="222" Count="0" />
       <LineId Id="213" Count="0" />
       <LineId Id="56" Count="6" />
       <LineId Id="176" Count="2" />
@@ -740,13 +748,11 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
       <LineId Id="197" Count="0" />
       <LineId Id="214" Count="0" />
       <LineId Id="194" Count="0" />
-      <LineId Id="196" Count="0" />
       <LineId Id="190" Count="0" />
       <LineId Id="199" Count="0" />
       <LineId Id="198" Count="0" />
       <LineId Id="126" Count="0" />
       <LineId Id="200" Count="4" />
-      <LineId Id="215" Count="0" />
       <LineId Id="206" Count="0" />
       <LineId Id="145" Count="0" />
       <LineId Id="208" Count="0" />
@@ -759,7 +765,8 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
       <LineId Id="119" Count="0" />
       <LineId Id="112" Count="0" />
       <LineId Id="223" Count="0" />
-      <LineId Id="216" Count="2" />
+      <LineId Id="216" Count="0" />
+      <LineId Id="218" Count="0" />
       <LineId Id="115" Count="1" />
       <LineId Id="100" Count="0" />
       <LineId Id="80" Count="2" />
@@ -767,7 +774,6 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
     </LineIds>
     <LineIds Name="FB_ProductHandling.M_StartCycle">
       <LineId Id="56" Count="0" />
-      <LineId Id="18" Count="0" />
       <LineId Id="58" Count="0" />
       <LineId Id="36" Count="0" />
       <LineId Id="7" Count="0" />
@@ -779,11 +785,6 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_ProductHandling.M_StopCycle">
-      <LineId Id="56" Count="0" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="58" Count="0" />
-      <LineId Id="36" Count="0" />
-      <LineId Id="7" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_ProductHandling.M_StopCycleEmpty">
@@ -804,30 +805,11 @@ mxGantrysNotBusy:= NOT GantryA.mxCycleBusy AND NOT GantryB.mxCycleBusy;
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_ProductHandling.Objects">
-      <LineId Id="38" Count="0" />
-      <LineId Id="42" Count="2" />
-      <LineId Id="100" Count="0" />
-      <LineId Id="92" Count="0" />
-      <LineId Id="98" Count="0" />
-      <LineId Id="47" Count="0" />
-      <LineId Id="104" Count="0" />
-      <LineId Id="93" Count="0" />
-      <LineId Id="48" Count="0" />
-      <LineId Id="54" Count="2" />
-      <LineId Id="60" Count="2" />
-      <LineId Id="101" Count="0" />
-      <LineId Id="63" Count="0" />
-      <LineId Id="99" Count="0" />
-      <LineId Id="65" Count="1" />
-      <LineId Id="105" Count="0" />
-      <LineId Id="94" Count="0" />
-      <LineId Id="72" Count="2" />
-      <LineId Id="89" Count="2" />
-      <LineId Id="102" Count="0" />
-      <LineId Id="81" Count="0" />
-      <LineId Id="103" Count="0" />
-      <LineId Id="82" Count="0" />
-      <LineId Id="95" Count="2" />
+      <LineId Id="112" Count="13" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="126" Count="16" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="143" Count="3" />
       <LineId Id="1" Count="0" />
     </LineIds>
   </POU>

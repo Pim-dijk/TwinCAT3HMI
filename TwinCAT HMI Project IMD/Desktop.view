@@ -8,72 +8,6 @@
      data-tchmi-background-image-height="100" data-tchmi-background-image-width="100"
      data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600" data-tchmi-height="600" data-tchmi-width="800" data-tchmi-class-names="%f%['parent'];%/f%">
 
-<div id="TcHmiEventGrid" data-tchmi-type="tchmi-event-grid" data-tchmi-height="61" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-menu-bar-position="Top">
-<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
-[
-  {
-    "path": "domain",
-    "comparator": "==",
-    "value": "TcHmiEventLogger"
-  }
-]
-</script>
-<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
-[
-  {
-    "columnName": "type"
-  },
-  {
-    "columnName": "severity"
-  },
-  {
-    "columnName": "timeAndDateRaised"
-  },
-  {
-    "columnName": "text",
-    "width": 440,
-    "widthUnit": "px"
-  },
-  {
-    "columnName": "timeConfirmed"
-  }
-]
-</script>
-<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
-[
-  {
-    "name": "timeRaised",
-    "order": "Descending"
-  }
-]
-</script>
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiEventGrid.onPressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/ContentPath",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/Alarms.content"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-
-
-</div>
-
 <div id="TcHmiContainer" data-tchmi-type="tchmi-container" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-visibility="Visible">
 
 <div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-target-content="Content/Main.content" data-tchmi-scrolling="No" data-tchmi-visibility="Visible">
@@ -96,23 +30,19 @@
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
-<div id="TcHmiTextblock" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="168" data-tchmi-left-unit="px" data-tchmi-text="%l%9%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="163" data-tchmi-left-unit="px" data-tchmi-text="%l%Logged_in%/l%" data-tchmi-top="2" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
 
 </div>
 
-<div id="TcHmiTextblock_1" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="168" data-tchmi-left-unit="px" data-tchmi-text="%l%Group%/l%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_1" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="163" data-tchmi-left-unit="px" data-tchmi-text="%l%Level%/l%" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="TcHmiTextblock_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getCurrentUser();%/f%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_2" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="243" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getCurrentUser();%/f%" data-tchmi-top="2" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-tooltip="%f%TcHmi.Server.getCurrentUser();%/f%">
 
 </div>
 
-<div id="TcHmiTextblock_3" data-tchmi-type="tchmi-textblock" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%f%TcHmi.Server.getGroupsOfCurrentUser().join(', ');%/f%" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
-
-</div>
-
-<div id="TcHmiTextblock_7" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-text="GodMode / commisioningMode active" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="14" data-tchmi-text-vertical-alignment="Top">
+<div id="TcHmiTextblock_7" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-text="GodMode / commisioningMode active" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="14" data-tchmi-text-vertical-alignment="Top" data-tchmi-visibility="%f%if(%s%PLC1.MAIN.MachPar.InMoldDrying.CommisioningMode%/s%) {&quot;Visible&quot;} else {&quot;Collapsed&quot;};%/f%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -128,7 +58,32 @@
 </script>
 </div>
 
-<div id="UcDateTime" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ucDateTime.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="153" data-tchmi-width-unit="px" data-tchmi-fontsize="16" data-tchmi-datetime="">
+<div id="UcDateTime" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ucDateTime.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="153" data-tchmi-width-unit="px" data-tchmi-fontsize="14" data-tchmi-datetime="">
+
+</div>
+
+<div id="Kremer_Button_158" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px"  data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-value="%l%RESET%/l%" data-tchmi-visible="True" data-tchmi-width="99" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.HMI.mxReset%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(200, 200, 200, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+
+</div>
+
+<div id="UserGroups_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-fonsize="14" data-tchmi-height="18" data-tchmi-height-unit="px" data-tchmi-left="243" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/UserGroups.usercontrol" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="162" data-tchmi-width-unit="px">
 
 </div>
 
@@ -136,7 +91,7 @@
 
 <div id="TcHmiContainer_2" data-tchmi-type="tchmi-container" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="551" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px">
 
-<div id="TcHmiButton_1" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="OVERVIEW" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_1" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%l%Overview%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -172,9 +127,17 @@
   }
 ]
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
 </div>
 
-<div id="TcHmiButton_2" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="114" data-tchmi-left-unit="px" data-tchmi-text="INIT" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_2" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="114" data-tchmi-left-unit="px" data-tchmi-text="%l%INIT%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -202,7 +165,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/TestAllTheThingsHere.content"
+          "value": "Content/SubContent/Service/Init.content"
         },
         "asyncWait": true
       }
@@ -212,7 +175,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_3" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="228" data-tchmi-left-unit="px" data-tchmi-text="ALARMS" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_3" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="228" data-tchmi-left-unit="px" data-tchmi-text="%l%ALARMS%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -250,7 +213,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_4" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="342" data-tchmi-left-unit="px" data-tchmi-text="SERVICE" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_4" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="342" data-tchmi-left-unit="px" data-tchmi-text="%l%SERVICE%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -288,12 +251,12 @@
 </script>
 </div>
 
-<div id="TcHmiButton_5" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="456" data-tchmi-left-unit="px" data-tchmi-text="PRODUCT" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_5" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="456" data-tchmi-left-unit="px" data-tchmi-text="%l%PRODUCT%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
-  "color": "rgba(227, 227, 227, 1)"
+  "color": "rgba(255, 250, 217, 1)"
 }
 </script>
 
@@ -326,7 +289,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_6" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-text="SETTINGS" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_6" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-text="%l%SETTINGS%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="115" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -354,7 +317,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Content/subFolder/SubfolderScreen.content"
+          "value": "Content/Settings.content"
         },
         "asyncWait": true
       }
@@ -364,7 +327,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_7" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="684" data-tchmi-left-unit="px" data-tchmi-text="GENERAL" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="114" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiButton_7" data-tchmi-type="tchmi-button" data-tchmi-height="49" data-tchmi-height-unit="px" data-tchmi-left="685" data-tchmi-left-unit="px" data-tchmi-text="%l%GENERAL%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="115" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold">
 
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
@@ -410,22 +373,6 @@
 </script>
 </div>
 
-<div id="TcHmiButton_8" data-tchmi-type="tchmi-button" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="694" data-tchmi-left-unit="px" data-tchmi-text="RESET" data-tchmi-top="-480" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Bold" data-tchmi-state-symbol="%s%PLC1.HMI.mxReset%/s%">
-
-
-<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
-{
-  "color": "rgba(227, 227, 227, 1)"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
-{
-  "color": "rgba(0, 0, 0, 1)"
-}
-</script>
-</div>
-
 </div>
 
 <div id="Calculator_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="349" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-target-user-control="UserControls/Kremer_Calculator.usercontrol" data-tchmi-top="50" data-tchmi-top-unit="%" data-tchmi-width="219" data-tchmi-width-unit="px" data-tchmi-visibility="Visible" data-tchmi-zindex="-1000" data-tchmi-visible="True" data-tchmi-self="%ctrl%Calculator_1%/ctrl%" data-tchmi-class-names="%f%['center'];%/f%" data-tchmi-thiscontrol="%ctrl%Calculator_1%/ctrl%">
@@ -448,35 +395,15 @@
 
 </div>
 
-<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Visible" data-tchmi-self="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-visible="True">
+<div id="General_Keyboard_3" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-zindex="-1000" data-tchmi-visibility="Visible" data-tchmi-self="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-visible="True" data-tchmi-thiscontrol="%ctrl%General_Keyboard_3%/ctrl%">
 
 
 
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "General_Keyboard_3.onAttached",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%General_Keyboard_3::Visibility%/ctrl%",
-        "valueType": "tchmi:framework#/definitions/Visibility",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Visibility",
-          "value": "Collapsed"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+
 </div>
 
-<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-fontsize="18" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
+<div id="ContentView_DisplayName_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="23" data-tchmi-height-unit="px" data-tchmi-left="410" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/ContentView_DisplayName.usercontrol" data-tchmi-top="66" data-tchmi-top-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-fontsize="14" data-tchmi-regioncontent="%ctrl%TcHmiRegion::TargetContent%/ctrl%">
 
 </div>
 
@@ -613,10 +540,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -686,10 +609,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -763,10 +682,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -836,10 +751,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -913,10 +824,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -986,10 +893,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1063,10 +966,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1136,10 +1035,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1213,10 +1108,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1286,10 +1177,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1363,10 +1250,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1436,10 +1319,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1513,10 +1392,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1586,10 +1461,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1663,10 +1534,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1736,10 +1603,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1813,10 +1676,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -1886,10 +1745,6 @@
             "active": true,
             "fn": "ConvertAlarmWordsToDataGrid",
             "fnParams": [
-              {
-                "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
               {
                 "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
@@ -1963,10 +1818,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -2038,10 +1889,6 @@
             "fnParams": [
               {
                 "objectType": "Symbol",
-                "symbolExpression": "%ctrl%TcHmiDatagrid_alarmView::id%/ctrl%"
-              },
-              {
-                "objectType": "Symbol",
                 "symbolExpression": "%i%AlarmWordList%/i%"
               },
               {
@@ -2062,8 +1909,103 @@
   }
 ]
 </script>
-<div id="Kremer_CleanScreen_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="600" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_CleanScreen.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-this="%ctrl%Kremer_CleanScreen_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-timetorun="25">
+<div id="Kremer_CleanScreen_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="600" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_CleanScreen.usercontrol" data-tchmi-top="2" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-this="%ctrl%Kremer_CleanScreen_1%/ctrl%" data-tchmi-visibility="Collapsed" data-tchmi-timetorun="25">
 
+</div>
+
+<div id="TcHmiEventGrid_2" data-tchmi-type="tchmi-event-grid" data-tchmi-height="60" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="378">
+<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+[
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "AND"
+  },
+  {
+    "path": "confirmationState",
+    "comparator": "==",
+    "value": 2
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnName": "type",
+    "width": 30,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "severity",
+    "width": 30,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "timeAndDateRaised",
+    "width": 140,
+    "widthUnit": "px"
+  },
+  {
+    "columnName": "params::eventId",
+    "width": 50,
+    "widthUnit": "px",
+    "label": "Id"
+  },
+  {
+    "columnName": "params::eventClassName",
+    "width": 125,
+    "widthUnit": "px",
+    "label": "Group"
+  },
+  {
+    "columnName": "text",
+    "width": 377,
+    "widthUnit": "px"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+[
+  {
+    "name": "timeRaised",
+    "order": "Descending"
+  }
+]
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiEventGrid_2.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/Alarms.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 
 </div>

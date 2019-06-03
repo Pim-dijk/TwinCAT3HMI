@@ -71,6 +71,81 @@
           {
             "objectType": "WriteToSymbol",
             "active": true,
+            "symbolExpression": "%pp%LastButton%/pp%",
+            "valueType": "tchmi:framework#/definitions/KeyList",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/KeyList",
+              "value": [
+                {
+                  "code": "NumpadEnter",
+                  "key": "Enter",
+                  "location": "numpad",
+                  "unmodifiedKey": "Enter"
+                }
+              ]
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%pp%LastButton%/pp%",
+            "valueType": "tchmi:framework#/definitions/KeyList",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/KeyList",
+              "value": [
+                {
+                  "code": "Numpad1",
+                  "key": "1",
+                  "location": "numpad",
+                  "unmodifiedKey": "1"
+                }
+              ]
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ],
+    "displayName": ""
+  },
+  {
+    "event": "TcHmiKeyboard.onKeyPressFinished",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%LastButton%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:framework#/definitions/KeyList",
+              "value": [
+                {
+                  "code": "NumpadEnter",
+                  "key": "Enter",
+                  "location": "numpad",
+                  "unmodifiedKey": "Enter"
+                }
+              ]
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
             "symbolExpression": "%pp%Value%/pp%",
             "valueType": "tchmi:general#/definitions/REAL",
             "value": {
@@ -261,8 +336,7 @@
         ],
         "asyncWait": true
       }
-    ],
-    "displayName": ""
+    ]
   }
 ]
 </script>

@@ -1,9 +1,9 @@
 ﻿<div id="IOField" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
-     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="Visible">
 
-<div id="TcHmiTextblock_IOField" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-horizontal-alignment="%pp%TextAlign%/pp%" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="px" data-tchmi-border-width="%f%if(%pp%Border%/pp%){ '{  &quot;left&quot;: 1,  &quot;right&quot;: 1,  &quot;top&quot;: 1,  &quot;bottom&quot;: 1,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}' } else { '{  &quot;left&quot;: 0,  &quot;right&quot;: 0,  &quot;top&quot;: 0,  &quot;bottom&quot;: 0,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}'  }%/f%" data-tchmi-background-color="%pp%Background%/pp%" data-tchmi-text-color="%pp%TextColor%/pp%" data-tchmi-text="%f%if( %pp%DataType%/pp% == &quot;Input&quot;) { &quot;&quot; } else { %pp%Value%/pp%  + ' ' + %pp%Attribute%/pp% }%/f%" data-tchmi-tooltip="%pp%Value%/pp%">
+<div id="TcHmiTextblock_IOField" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%" data-tchmi-text-horizontal-alignment="%pp%TextAlign%/pp%" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-text-font-size-unit="px" data-tchmi-border-width="%f%if(%pp%Border%/pp%){ '{  &quot;left&quot;: 1,  &quot;right&quot;: 1,  &quot;top&quot;: 1,  &quot;bottom&quot;: 1,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}' } else { '{  &quot;left&quot;: 0,  &quot;right&quot;: 0,  &quot;top&quot;: 0,  &quot;bottom&quot;: 0,  &quot;leftUnit&quot;: &quot;px&quot;,  &quot;rightUnit&quot;: &quot;px&quot;,  &quot;topUnit&quot;: &quot;px&quot;,  &quot;bottomUnit&quot;: &quot;px&quot;}'  }%/f%" data-tchmi-background-color="%pp%Background%/pp%" data-tchmi-text="%f%if( %pp%DataType%/pp% == &quot;Input&quot;) { &quot;&quot; } else { %pp%Value%/pp%  + ' ' + %pp%Attribute%/pp% }%/f%" data-tchmi-tooltip="%pp%Value%/pp%" data-tchmi-text-color="%pp%TextColor%/pp%" data-tchmi-is-enabled="%f%CheckAccess(%pp%ThisControl%/pp%, 'OperateControl');%/f%">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -18,86 +18,121 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%DataType%/pp%"
+              "symbolExpression": "%pp%Symbol%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
-              "valueType": "tchmi:project#/definitions/Textbox_DataType",
-              "value": "Output"
+              "valueType": "tchmi:framework#/definitions/Symbol",
+              "value": ""
             },
-            "compareOperator": "==",
+            "compareOperator": "!=",
             "logic": null
+          },
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%SymbolWithPlaceholder%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": ""
+            },
+            "compareOperator": "!=",
+            "logic": "OR"
           }
         ],
-        "false": [
+        "true": [
           {
-            "objectType": "Comment",
-            "comment": "Read the "
-          },
-          {
-            "objectType": "JavaScript",
+            "objectType": "Condition",
             "active": true,
-            "sourceLines": [
-              "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\n//console.log(\"...\");\n//console.log(readValue);\nreadSymbol.destroy();\nreadSymbol = null;\n\nvar value = readValue.__symbol.__expression.__expression;\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success\n\t\t//console.log(\"Success\");\t\t\n  \t} else {\n    \t// on error\n\t\tconsole.log(data);    \t\n\t}\n    writeSymbol.destroy();\n\twriteSymbol = null;    \n});\n/*\nvar symbol = new TcHmi.Symbol('%pp%Attribute%/pp%');\nvar symbolValue = symbol.read();\nsymbol.destroy();\nsymbol = null;\nif(symbolValue === 'ms'){\n\tconsole.log(\"Attribute === 'ms'\");\n\tvar tempSymbol = new TcHmi.Symbol('%i%TempAttribute%/i%');\n\ttempSymbol.write(symbolValue);\n\ttempSymbol.destroy();\n\ttempSymbol = null;\n}\n*/"
+            "expressions": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%DataType%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:project#/definitions/Textbox_DataType",
+                  "value": "Output"
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
             ],
-            "injectContextObject": false,
-            "asyncWait": true,
-            "waitMode": "Synchronous"
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%TempAttribute%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%Attribute%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%CalcName%/i%",
-            "valueType": "tchmi:general#/definitions/String",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%Keyboard::id%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%MaxValue%/i%",
-            "valueType": "tchmi:general#/definitions/REAL",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ValueMax%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%i%MinValue%/i%",
-            "valueType": "tchmi:general#/definitions/REAL",
-            "value": {
-              "objectType": "Symbol",
-              "symbolExpression": "%pp%ValueMin%/pp%"
-            },
-            "asyncWait": true
-          },
-          {
-            "objectType": "WriteToSymbol",
-            "active": true,
-            "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
-            "valueType": "tchmi:framework#/definitions/Visibility",
-            "value": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:framework#/definitions/Visibility",
-              "value": "Visible"
-            },
+            "false": [
+              {
+                "objectType": "Comment",
+                "comment": "Read the "
+              },
+              {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "var readSymbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\nvar readValue = readSymbol.read();\nreadSymbol.destroy();\nreadSymbol = null;\n\nvar value = readValue.__symbol.__expression.__expression;\nvar writeSymbol = new TcHmi.Symbol('%i%TempSymbolName%/i%');\nwriteSymbol.write(value, function(data) {\n\tif(data.error === TcHmi.Errors.NONE){\n\t\t// on success\t\t\n  \t} else {\n    \t// on error\n\t\tconsole.log(data);    \t\n\t}\n    writeSymbol.destroy();\n\twriteSymbol = null;    \n});"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%TempAttribute%/i%",
+                "valueType": "tchmi:general#/definitions/String",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%Attribute%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%CalcName%/i%",
+                "valueType": "tchmi:general#/definitions/String",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%Keyboard::id%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%MaxValue%/i%",
+                "valueType": "tchmi:general#/definitions/REAL",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ValueMax%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%MinValue%/i%",
+                "valueType": "tchmi:general#/definitions/REAL",
+                "value": {
+                  "objectType": "Symbol",
+                  "symbolExpression": "%pp%ValueMin%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%pp%Keyboard::Visibility%/pp%",
+                "valueType": "tchmi:framework#/definitions/Visibility",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ],
             "asyncWait": true
           }
         ],
@@ -124,7 +159,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramsTemp = paramSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbol();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar value = \"\";\n\nvar write = false;\n\nif(paramsTemp) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\t//console.log(paramsTemp);\n\tvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\n\tvar placeholderValue = placeholderSymbol.read();\n\t//console.log(placeholderValue);\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempSymbolValue = tempSymbol.read();\n\t\t\tparams[i] = tempSymbolValue;\n\t\t}\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\t//console.log(\"Writing to Symbol param\");\n\tTcHmi.Binding.createEx(value, 'setSymbol', control);\n\t\n\t//cleanup\n\tplaceholderSymbol.destroy();\n\tplaceholderSymbol = null;\n\twrite = true;\n\t\n} else if(hasSymbol) {\n\t// Create binding for the Value parameter, so it will monitor the value in the PLC\n\t\n\tvar Symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\n\tvar SymbolValue = Symbol.read();\n\t//console.log(SymbolValue);\n\tvalue = SymbolValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbol.destroy();\n\tSymbol = null;\n\twrite = true;\n} else {\n\t//No Symbol or SymbolWithPlaceholders was set so not doing anything\t\n}\n\n\nif(control && write){\n\t//console.log(\"Writing to Value param\");\n\t//console.log(value);\n\tTcHmi.Binding.createEx(value, 'setValue', control);\n}\n\n// Set a default keyboard if none is set\nvar keyboardSymbol = new TcHmi.Symbol('%pp%Keyboard%/pp%');\n//console.log(keyboardSymbol);\nvar keyboard = keyboardSymbol.read();\n//console.log(keyboard);\nif(keyboard.__attrs == null) {\n\tvar calcControl = TcHmi.Controls.get('Calculator_1');\n\t//console.log(calcControl);\n\t//console.log(\"Binding default calc\");\n\tTcHmi.Binding.createEx('%ctrl%Calculator_1%/ctrl%', 'setKeyboard', control);\n}\n\n//cleanup\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;\nif(keyboardSymbol !== undefined){\n\tkeyboardSymbol.destroy();\n\tkeyboardSymbol = null;\n}\n"
+          "var paramsTemp = \"\";\n\nvar pageParamSymbol = new TcHmi.Symbol('%i%_pageParameters%/i%');\nvar pageParamsSymbolValue = pageParamSymbol.read();\n\nvar paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramSymbolValue = paramSymbol.read();\n\nif(paramSymbolValue){\n\tparamsTemp = paramSymbolValue;\t\n} else if(pageParamsSymbolValue){\n    paramsTemp = pageParamsSymbolValue;\n}\n\nvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\nvar placeholderValue = placeholderSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbol();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar value = \"\";\n\nvar write = false;\n\nif(placeholderValue) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\t//console.log(paramsTemp);\n\t//console.log(placeholderValue);\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempSymbolValue = tempSymbol.read();\n\t\t\tparams[i] = tempSymbolValue;\n\t\t}\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\t//console.log(\"Writing to Symbol param\");\n\tTcHmi.Binding.createEx(value, 'setSymbol', control);\n\t\n\t//cleanup\n\tplaceholderSymbol.destroy();\n\tplaceholderSymbol = null;\n\twrite = true;\n\t\n} else if(hasSymbol) {\n\t// Create binding for the Value parameter, so it will monitor the value in the PLC\n\t\n\tvar Symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\n\tvar SymbolValue = Symbol.read();\n\t//console.log(SymbolValue);\n\tvalue = SymbolValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbol.destroy();\n\tSymbol = null;\n\twrite = true;\n} else {\n\t//No Symbol or SymbolWithPlaceholders was set so not doing anything\t\n}\n\n\nif(control && write){\n\t//console.log(\"Writing to Value param\");\n\t//console.log(value);\n\tTcHmi.Binding.createEx(value, 'setValue', control);\n}\n\n// Set a default keyboard if none is set\nvar keyboardSymbol = new TcHmi.Symbol('%pp%Keyboard%/pp%');\n//console.log(keyboardSymbol);\nvar keyboard = keyboardSymbol.read();\n//console.log(keyboard);\nif(keyboard.__attrs == null) {\n\tvar calcControl = TcHmi.Controls.get('Calculator_1');\n\t//console.log(calcControl);\n\t//console.log(\"Binding default calc\");\n\tTcHmi.Binding.createEx('%ctrl%Calculator_1%/ctrl%', 'setKeyboard', control);\n}\n\n//cleanup\npageParamSymbol.destroy();\npageParamSymbol = null;\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;\nif(keyboardSymbol !== undefined){\n\tkeyboardSymbol.destroy();\n\tkeyboardSymbol = null;\n}\n"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -152,6 +187,32 @@
             },
             "compareOperator": "==",
             "logic": null
+          },
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Attribute%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "MS"
+            },
+            "compareOperator": "==",
+            "logic": "OR"
+          },
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%Attribute%/pp%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "Ms"
+            },
+            "compareOperator": "==",
+            "logic": "AND"
           }
         ],
         "true": [
@@ -159,7 +220,7 @@
             "objectType": "JavaScript",
             "active": true,
             "sourceLines": [
-              "var symbol = new TcHmi.Symbol('%pp%Value%/pp%');\nvar symbolValue = symbol.read();\n//console.log('Symbol value...');\nconsole.log(symbolValue);\n\nif(symbolValue.startsWith(\"PT\")){\n\t//convert to ms here\n\tvar valueInMS = convertDuration(symbolValue);\n\t//var valueInMS = convertDurationToMS(symbolValue);\n\t//console.log(convertDuration(symbolValue));\n\t//console.log(convertDurationToMS(symbolValue));\n\tsymbol.write(valueInMS);\n}\n\n// duration to ms, assuming duration is never larger then 59S\nfunction convertDurationToMS(t){\n\tvar x = t.slice(2, -1),\n\t\tduration = '';\n\tduration = x * 1000;\n\treturn duration;\n}\n\n// modified function that accepts any time duration and returns it in MS\nfunction convertDuration(t) {\n  //dividing period from time\n  var x = t.split('T'),\n    duration = 0,\n    time = {},\n    period = {},\n    //just shortcuts\n    s = 'string',\n    v = 'variables',\n    l = 'letters',\n    // store the information about ISO8601 duration format and the divided strings\n    d = {\n      period: {\n        string: x[0].substring(1, x[0].length),\n        len: 4,\n        // years, months, weeks, days\n        letters: ['Y', 'M', 'W', 'D'],\n        variables: {}\n      },\n      time: {\n        string: x[1],\n        len: 3,\n        // hours, minutes, seconds\n        letters: ['H', 'M', 'S'],\n        variables: {}\n      }\n    };\n  //in case the duration is a multiple of one day\n  if (!d.time.string) {\n    d.time.string = '';\n  }\n\n  for (var i in d) {\n    var len = d[i].len;\n    for (var j = 0; j < len; j++) {\n      d[i][s] = d[i][s].split(d[i][l][j]);\n      if (d[i][s].length > 1) {\n        d[i][v][d[i][l][j]] = d[i][s][0];\n        d[i][s] = d[i][s][1];\n      } else {\n        d[i][v][d[i][l][j]] = 0;\n        d[i][s] = d[i][s][0];\n      }\n    }\n  }\n  period = d.period.variables;\n  \n  time = d.time.variables;\n  time.H += 24 * period.D +\n    24 * 7 * period.W +\n    24 * 7 * 4 * period.M +\n    24 * 7 * 4 * 12 * period.Y;\n\n  if (time.H) {\n    duration = (time.H * 3600) * 1000;\n  }\n  \n  if(time.M) {\n  \tduration += (time.M * 60) * 1000;\n  }\n  \n  if(time.S) {\n\tduration += (time.S * 1000);  \n  }\n\n  return duration;\n}"
+              "var symbol = new TcHmi.Symbol('%pp%Value%/pp%');\nvar symbolValue = symbol.read();\n//console.log('Symbol value...');\n//console.log(symbolValue);\n\nif(symbolValue.startsWith(\"PT\")){\n\t//convert to ms here\n\tvar valueInMS = convertDuration(symbolValue);\n\t//var valueInMS = convertDurationToMS(symbolValue);\n\t//console.log(convertDuration(symbolValue));\n\t//console.log(convertDurationToMS(symbolValue));\n\tsymbol.write(valueInMS);\n}\n\n// duration to ms, assuming duration is never larger then 59S\nfunction convertDurationToMS(t){\n\tvar x = t.slice(2, -1),\n\t\tduration = '';\n\tduration = x * 1000;\n\treturn duration;\n}\n\n// modified function that accepts any time duration and returns it in MS\nfunction convertDuration(t) {\n  //dividing period from time\n  var x = t.split('T'),\n    duration = 0,\n    time = {},\n    period = {},\n    //just shortcuts\n    s = 'string',\n    v = 'variables',\n    l = 'letters',\n    // store the information about ISO8601 duration format and the divided strings\n    d = {\n      period: {\n        string: x[0].substring(1, x[0].length),\n        len: 4,\n        // years, months, weeks, days\n        letters: ['Y', 'M', 'W', 'D'],\n        variables: {}\n      },\n      time: {\n        string: x[1],\n        len: 3,\n        // hours, minutes, seconds\n        letters: ['H', 'M', 'S'],\n        variables: {}\n      }\n    };\n  //in case the duration is a multiple of one day\n  if (!d.time.string) {\n    d.time.string = '';\n  }\n\n  for (var i in d) {\n    var len = d[i].len;\n    for (var j = 0; j < len; j++) {\n      d[i][s] = d[i][s].split(d[i][l][j]);\n      if (d[i][s].length > 1) {\n        d[i][v][d[i][l][j]] = d[i][s][0];\n        d[i][s] = d[i][s][1];\n      } else {\n        d[i][v][d[i][l][j]] = 0;\n        d[i][s] = d[i][s][0];\n      }\n    }\n  }\n  period = d.period.variables;\n  \n  time = d.time.variables;\n  time.H += 24 * period.D +\n    24 * 7 * period.W +\n    24 * 7 * 4 * period.M +\n    24 * 7 * 4 * 12 * period.Y;\n\n  if (time.H) {\n    duration = (time.H * 3600) * 1000;\n  }\n  \n  if(time.M) {\n  \tduration += (time.M * 60) * 1000;\n  }\n  \n  if(time.S) {\n\tduration += (time.S * 1000);  \n  }\n\n  return duration;\n}"
             ],
             "injectContextObject": false,
             "asyncWait": true,
@@ -204,6 +265,43 @@
   "bottomUnit": "px"
 }
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[
+  {
+    "virtualControlRight": "OperateControl",
+    "controlRight": "operate"
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "observe",
+    "group": "User",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "observe",
+    "group": "Guest",
+    "permission": "Allow"
+  },
+  {
+    "accessright": "observe",
+    "group": "Admin",
+    "permission": "Allow"
+  }
+]
+</script>
 </div>
 
+
+<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[]
+</script>
 </div>
