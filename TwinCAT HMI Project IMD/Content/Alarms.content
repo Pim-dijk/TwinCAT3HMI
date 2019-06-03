@@ -1,6 +1,6 @@
 ﻿<div id="Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="0">
+<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-is-enabled="True">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {

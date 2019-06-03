@@ -45,7 +45,7 @@
                     var result = symbolResult; // Convert the object to JSON
                     // If the value hasn't changed, return
                     if (serverValue === result.Data && count < length) {
-                        console.log("Result hasn't changed or is '0'");
+                        //console.log("Result hasn't changed or is '0'");
                         return;
                     }
                     result.Data = serverValue;
