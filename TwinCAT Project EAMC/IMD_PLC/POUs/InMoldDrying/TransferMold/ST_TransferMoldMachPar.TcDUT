@@ -30,25 +30,6 @@ STRUCT
 	DownSpeedCreepToBm					: REAL;
 	DownOpenSpeedToBm					: REAL; (* Down open, just above the pond *)
 	
-// To Pause							
-	PausePositionUp						: REAL;
-	PausePositionUpSlow					: REAL;	// Offset to pause up position 
-	PausePositionUpCreep				: REAL;	// Offset to pause up position
-
-// Init speeds
-	InitUpCreepSpeed					: REAL; (* Transfer Creep speed*)
-	InitUpSlowSpeed						: REAL;	(* Transfer Slow speed*)
-	InitUpNormalSpeed					: REAL; (* Transfer Normal speed*)
-	InitDownNormalSpeed					: REAL; 
-	InitDownSpeedSlow					: REAL;
-	InitDownSpeedCreep					: REAL;
-
-// Manual speeds
-	ManSpeed							: REAL;
-	ManSpeedSlow						: REAL;
-	ManSpeedCreep						: REAL;
-	
-// Misc vars
 	PositionStartFormingProcess			: REAL;
 	TransferTimeClosed					: TIME;	// Time the transfermold is closed on the bottommold.
 	
@@ -64,9 +45,6 @@ STRUCT
 	PositionPhyscialMeasured			: REAL;
 	PositionPhysicalMeasuredOld			: REAL;
 	PhysicalOffsetPos					: REAL;
-
-	
-	
 	
 END_STRUCT
 END_TYPE

@@ -1,8 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
-  <POU Name="FB_InMoldDrying" Id="{c18e6ac4-7922-4bb2-b934-de1694970bb6}" SpecialFunc="None">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB_InMoldDrying" Id="{468792ab-e555-460c-9ab2-66f765da9e4f}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_InMoldDrying
+(* Objects 
+	EAMC
+		-TopMold_A, TopMold_B:			
+			-HydrolicCilinder:
+				-ValveUp
+				-ValveDown
+				-ValveSlow
+			-ValveRelief
+			-ValveBlowOff
+			-ValveVacuum
+		
+		-BottomMold_A, BottomMold_B:
+			-HydrolicCilinder:
+				-ValveUp
+				-ValveDown
+				-ValveSlow
+			-ValveBlowOff
+			-ValveVacuum
 
+		-TransferMold
+			-HydrolicCilinder:
+				-ValveUp
+				-ValveDown
+				-ValveSlow
+			-ValveBlowOff
+			-ValveVacuum
+
+		-ProductForming
+			-MachinePond
+				-HydrolicCilinder:
+					-ValveUp
+					-ValveDown
+					-ValveSlow
+			-SprayBar
+				-ValveWire
+				-ValveBeard
+			-FormingMold
+				-ValveVacuum
+				-ValveBlowOff
+		-HydrolicsMain:
+			-HydroPump
+			-Rebotech
+*)
 VAR CONSTANT
 	sCycleStateTextDef: ARRAY[0..100]  OF STRING :=	
 		['State 0: Wait for Start',
@@ -18,19 +60,17 @@ VAR CONSTANT
 		'State 10: Wait for transfermold down at forming position',
 		'State 11: Move tranfermold up with product',
 		'State 12: Await transfer and topmold A or B up to Release bottommold A/ B movement',
-		'State 13: [Emptying] Move topmold A Or B up',
-		'State 14: [Emptying] Move bottommold A or B in ',
-		'State 15: [Emptying] Move bottommold A or B out',
-		'State 16: [Emptying] Waiting on machine to empty',
-		'State 17: [Emptying] Stopping subparts',
-		'State 18: [Emptying] Check if everything has stopped',
-		'State 19: [Pausing] Stopping sub objects.',
-		'State 20: [Pausing] Pause the hydraulic system',
-		'State 21: [Paused] await start',
-		'State 22: [Restart] Restart sub parts',
-		'State 23: Spare',
-		'State 24: Spare',
-		'State 25: [Stopped direct]'];
+		'State 13: Spare',
+		'State 14: Spare',
+		'State 15: [Emptying] Move topmold A Or B up',
+		'State 16: [Emptying] Move bottommold A or B in ',
+		'State 17: [Emptying] Move bottommold A or B out',
+		'State 18: [Emptying] Waiting on machine to empty',
+		'State 19: [Pause] Waiting on subparts to pause',
+		'State 20: [Paused]',
+		'State 21: [Paused]',
+		'State 22: [Emptying] Machine is empty, awaiting producthandling',
+		'State 23: [Direct stop]'];
 	
 	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
 		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
@@ -62,16 +102,21 @@ VAR_INPUT
 	mxEmergency						: ARRAY [1..Max_Zones+1] OF BOOL; // 1=TakeOutA, 2=Aside, 3=mid, 4=Bside, 5=TakeoutB, 6= GantryB, 7=GantryA, 8=All EM stop.
 	mxAutoMode						: BOOL; (* TRUE = Automode *)
 	mxFirstCycle					: BOOL;
-	mxSample						: BOOL; // Block vacuum of first bottommold in cycle at this bit.
 	mxEnableHeating					: BOOL;
 	
-	mxStartFormingA					: BOOL;	// Signal from speed control to start the forming process for A side (Used at top of cycle).
-	mxStartFormingB					: BOOL;	// Signal from speed control to start the forming process for B side (Used at top of cycle).
-
+	mxStart							: BOOL;
+	mxStop							: BOOL;
+	mxPause							: BOOL;
+	
+	mxtest							: BOOL;
+	
+	mxPauseReqZone1					: BOOL;
+	mxPauseReqZone2					: BOOL;
+	mxPauseReqZone3					: BOOL;
+	mxPauseReqZone4					: BOOL;
+	mxPauseReqZone5					: BOOL;
 	mxProductPickedUpGantry_A		: BOOL;
 	mxProductPickedUpGantry_B		: BOOL;	
-	mxGantryA_AtBelt				: BOOL;
-	mxGantryB_AtBelt				: BOOL;
 	mxGantrysNotBusy				: BOOL;
 	PlcCycleTime					: REAL;
 END_VAR
@@ -94,19 +139,10 @@ VAR_OUTPUT
 	mxProductReadyAtTakeout_A		: BOOL;
 	mxProductReadyAtTakeout_B		: BOOL;	
 	mxIsEmpty						: BOOL;
-	mxStopBeforeSCstarted			: BOOL;
-	
-	mxFormingA_Ready				: BOOL;	// Signal to speed control to confirm the forming process for A side is started 
-	mxFormingB_Ready				: BOOL;	// Signal to speed control to confirm the forming process for B side is started 
-	
 (* Vars *)
 	mxInitialized					: BOOL;
 
 	mxHydraulicsReady				: BOOL;
-	mxRTO							: BOOL; // IMD indication that it is ready to run (speedcontrol).
-	MaximumSpeed					: BOOL;	// Theoretical maximum speed (Speedcontrol).
-	ActualSpeed						: BOOL; // No. of Ko's in last cycle
-	
 END_VAR
 VAR
 (* State vars *)
@@ -174,64 +210,44 @@ VAR
 	mxCommisioningMode					: BOOL;
 	T_StopCommisioningMode				: TON;
 	mxSafetyRulesEnabled				: BOOL;
+	mxBSideReady						: BOOL;
+	mxAsideReady						: BOOL;
 	
 	//VacuumTakeout					: ARRAY [1..6] OF FB_MonoValveNoFdbck;	(* IMD-V *)		
 	SR_TempDeviationToHighA				: ARRAY[1..6] OF SR;
 	SR_TempDeviationToHighB				: ARRAY[1..6] OF SR;
-
-	ASideNotWarm						: BOOL;
-	BSideNotWarm						: BOOL;
-	SR_BotMoldAToCoolForTrMDown			: SR;
-	SR_BotMoldBToCoolForTrMDown			: SR;
+	RT_DryingTimeA: R_TRIG;
+	T_AlmTimeCounterA: TON;
+	RT_DryingTimeB: R_TRIG;
+	T_AlmTimeCounterB: TON;
+	ASideNotWarm: BOOL;
+	BSideNotWarm: BOOL;
+	SR_BotMoldAToCoolForTrMDown: SR;
+	SR_BotMoldBToCoolForTrMDown: SR;
+	RT_ProcessTimeA: R_TRIG;
+	T_AlmProcessTimeCounterA: TON;
+	RT_ProcessTimeB: R_TRIG;
+	T_AlmProcessTimeCounterB: TON;
+	RT_Pause: R_TRIG;
 	
-	mxInPause 							: BOOL;
-	ProductDryingAtSideA				: BOOL;
-	ProductDryingAtSideB				: BOOL;
-	ContinueWithA						: BOOL;
-	ContinueWithB						: BOOL;
-	ProductOnTopMoldA					: BOOL;
-	ProductOnTopMoldB					: BOOL;
-	T_TransferReleasedBottom			: TON;
-	T_TopReleasedBottom					: TON;
-	T_TopReleasedBottomA				: TON;
-	T_TopReleasedBottomB				: TON;
-	TransferLateTime					: TIME;
-	TopLateTime							: TIME;
-	RT_ReleaseDifference				: R_TRIG;
-	RT_ChooseSide						: R_TRIG;
-	mxEmptying							: BOOL;
-	LastProductWasA						: BOOL;
-	SR_SprayBStartsMovingTrNotClear: SR;
-	FT_StartFormingAside				: F_TRIG;
-	FT_StartFormingBside				: F_TRIG;
-	RT_StartFormingASide				: R_TRIG;
-	RT_StartFormingBSide				: R_TRIG;
-	T_IMDKickoffs: TON;
-	KickoffsIMD: REAL;
-	TotalKickoffsB: REAL;
-	TotalKickoffsA: REAL;
-	KoB: REAL;
-	KoA: REAL;
-	Calc_TotalTimeA	: BOOL;
-	Calc_TotalTimeB	: BOOL;
-	
-	CalculateMaxKO			: FB_CalculateMaxKO;
-	NewValue_MaxKO_A		: BOOL;
-	NewValue_MaxKO_B		: BOOL;
-	NewValue_MaxKO_Forming	: BOOL;
-	TopLateTimeA: TIME;
-	TopLateTimeB: TIME;
-	TransferLateTimeA: TIME;
-	TransferLateTimeB: TIME;
-	RT_StartFormingA: R_TRIG;
-	RT_StartFormingB: R_TRIG;
-	mxMachineComesFromPause: BOOL;
-	RT_FormingToPause: R_TRIG;
-	mxFormingIsPaused: BOOL;
-	mxFormingForASideStarted: BOOL;
-	mxFormingForBSideStarted: BOOL;
-	T_Unpause250ms: TON;
-	T_Unpause500ms: TON;
+	mxInPause : BOOL;
+	ProductDryingAtSideA: BOOL;
+	ProductDryingAtSideB: BOOL;
+	ContinueWithA: BOOL;
+	ContinueWithB: BOOL;
+	ProductOnTopMoldA: BOOL;
+	ProductOnTopMoldB: BOOL;
+	T_TransferReleasedBottom: TON;
+	T_TopReleasedBottom: TON;
+	mxTest3: BOOL;
+	mxTest1: BOOL;
+	mxTest2: BOOL;
+	TransferLateTime: TIME;
+	TopLateTime: TIME;
+	RT_ReleaseDifference: R_TRIG;
+	RT_ChooseSide: R_TRIG;
+	mxEmptying: BOOL;
+	LastProductWasA: BOOL;
 END_VAR
 
 VAR_TEMP
@@ -262,23 +278,6 @@ IF T_StopCommisioningMode.Q THEN
 	MachParameters.CommisioningMode := FALSE;
 END_IF
 
-IF 	ProductForming.MaxTimeSingleKO = 0 THEN
-	CalculateMaxKO.Value_Forming 	:= 0;
-ELSE
-	CalculateMaxKO.Value_Forming 	:= (60000 / ProductForming.MaxTimeSingleKO);	
-END_IF
-
-CalculateMaxKO(
-	init			:= NOT mxAutoMode OR mxInitBusy OR mxInPause,
-	AEnabled		:= mxSideAEnabled,
-	BEnabled		:= mxSideBEnabled,
-	CLK_A 			:= NewValue_MaxKO_A,
-	CLK_B 			:= NewValue_MaxKO_B,
-	CLK_Forming		:= NewValue_MaxKO_Forming,
-	Value_A 		:= TopMoldA.MaxDryingSingleKO * 2,
-	Value_B 		:= TopMoldB.MaxDryingSingleKO * 2,
-);
-
 (* Actions *)
 Error();
 ErrorsTemperature();
@@ -288,7 +287,7 @@ Objects();
 
 ]]></ST>
     </Implementation>
-    <Action Name="Cycle" Id="{5dfdbb51-0792-47a5-8a31-f7b888b74536}">
+    <Action Name="Cycle" Id="{780237df-b812-4890-8083-c753a4061b2e}">
       <Implementation>
         <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
 mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
@@ -308,7 +307,7 @@ END_IF
 
 (*Function to reset the Statemachine*)
 IF mxResetCycleState THEN
-	mxInPause := FALSE;
+	mxPause := FALSE;
 	mxResetCycleState:= FALSE;
 	miCycleState:=0;
 	miCycleOldstate:=miCycleState;
@@ -326,30 +325,33 @@ IF mxResetCycleState THEN
 	mxStopCycle:= FALSE;
 	mxStopCycleEmpty := FALSE;
 	mxStopDirect:= FALSE;
-	mxMachineComesFromPause := FALSE;
-
-	ProductDryingAtSideA := FALSE;
-	ProductDryingAtSideB := FALSE;
-	mxFormingIsPaused := FALSE;
-	mxFormingForASideStarted := FALSE;
-	mxFormingForBSideStarted := FALSE;
-
-	BottomMoldA.sgSample := BottomMoldB.sgSample := mxSample :=FALSE;
+	mxASideReady := FALSE;	// Used to determine which side needs attention
+	mxBSideReady := FALSE;
 	
-	KickoffsIMD := TIME_TO_REAL(T_IMDKickoffs.ET);
-	T_IMDKickoffs.IN:=FALSE;
+	T_AlmProcessTimeCounterA.IN:=FALSE;
+	T_AlmProcessTimeCounterB.IN:=FALSE;
+	T_AlmTimeCounterA.IN := FALSE;
+	T_AlmTimeCounterB.IN := FALSE;
 	
-	T_Unpause250ms.IN :=FALSE;
-	T_Unpause500ms.IN :=FALSE;	
+	ProductDryingAtSideA	  := FALSE;
+	ProductDryingAtSideB	  := FALSE;
 	
 	miStopState:= 0;
 END_IF
 
+// Code to unpause when in pause mode.
+IF mxCycleBusy AND mxStartCycle THEN
+	mxStartCycle:=FALSE;
+	IF NOT TopMoldA.mxCycleBusy THEN TopMoldA.M_StartCycle(); END_IF
+	IF NOT TopMoldB.mxCycleBusy THEN TopMoldB.M_StartCycle(); END_IF
+	IF NOT TransferMold.mxCycleBusy THEN TransferMold.M_StartCycle(); END_IF
+	IF NOT BottomMoldA.mxCycleBusy THEN	BottomMoldA.M_StartCycle(); END_IF
+	IF NOT BottomMoldB.mxCycleBusy THEN	BottomMoldB.M_StartCycle(); END_IF
+	IF NOT ProductForming.mxCycleBusy THEN ProductForming.M_StartCycle(); END_IF
+END_IF
+
 (*Definition State has Error*)
 mxCycleHasError:=FALSE;
-
-T_Unpause250ms(IN:=, PT:=T#500MS);
-T_Unpause500ms(IN:=, PT:=T#1000MS);
 
 // Only switch sides when machine stands still.
 IF NOT mxCycleBusy THEN 
@@ -357,184 +359,89 @@ IF NOT mxCycleBusy THEN
 	mxSideBEnabled:= MachParameters.EnableEamcSideB;
 END_IF
 
+
+
 {region "Code to determine: Continue with A /B"}
-RT_ChooseSide(CLK:=(miCycleState = 12));
-RT_StartFormingA(CLK:= mxStartFormingA AND miCycleState = 12 AND mxSideAEnabled);
-RT_StartFormingB(CLK:= mxStartFormingB AND miCycleState = 12 AND mxSideBEnabled);
-RT_FormingToPause(CLK:=ProductForming.sgFormingToPause);
+RT_ChooseSide(CLK:=(miCycleState = 4) OR (miCycleState = 10));
 
-IF RT_FormingToPause.Q THEN
-	mxFormingIsPaused := TRUE;
-END_IF
-
-IF RT_StartFormingA.Q OR RT_StartFormingB.Q AND NOT mxMachineComesFromPause  THEN			// <- Needs to b a R_TRIG	
-	IF mxSideAEnabled AND NOT mxSideBEnabled THEN		// Only A enabled
-		ContinueWithA := TRUE;
-		ContinueWithB := False;
-	ELSIF NOT mxSideAEnabled AND mxSideBEnabled THEN 	// Only B enabled
-		ContinueWithA := FALSE;
-		ContinueWithB := True;
-	ELSIF mxSideAEnabled AND mxSideBEnabled THEN		// A AND B enabled
-		IF mxStartFormingA AND NOT mxStartFormingB THEN
+	 IF RT_ChooseSide.Q THEN			// <- Needs to b a R_TRIG	
+		IF mxSideAEnabled AND NOT mxSideBEnabled THEN		// Only A enabled
 			ContinueWithA := TRUE;
-			ContinueWithB := FALSE;
-		ELSIF NOT mxStartFormingA AND  mxStartFormingB THEN
+			ContinueWithB := False;
+		ELSIF NOT mxSideAEnabled AND mxSideBEnabled THEN 	// Only B enabled
 			ContinueWithA := FALSE;
-			ContinueWithB := TRUE;
-		ELSE
-			IF ContinueWithA THEN							// when busy with A, new carton will be B
+			ContinueWithB := True;
+		ELSIF mxSideAEnabled AND mxSideBEnabled THEN		// A AND B enabled
+			IF ContinueWithA then							// when busy with A, new carton will be B
 				ContinueWithA := FALSE;
 				ContinueWithB := TRUE;
 			ELSIF ContinueWithB THEN						// When Busy with B, New carton will be A
 				ContinueWithA := TRUE;
-				ContinueWithB := FALSE;
-			ELSE											// When machine is empty new carton will be A
-				ContinueWithA := TRUE;
-				ContinueWithB := FALSE;
+				ContinueWithB := False;
 			END_IF
 		END_IF
 	END_IF
-ELSIF mxMachineComesFromPause AND mxFormingForASideStarted AND RT_ChooseSide.Q THEN
-	ContinueWithA := TRUE;
-	ContinueWithB := FALSE;
-ELSIF mxMachineComesFromPause AND mxFormingForBSideStarted AND RT_ChooseSide.Q THEN
-	ContinueWithA := FALSE;
-	ContinueWithB := TRUE;
-END_IF
-
 {endregion}
 
-{region "Reset communication signals with SpeedControl"}
-	FT_StartFormingAside(CLK:= mxStartFormingA);
-	FT_StartFormingBside(CLK:= mxStartFormingB);
-	
-	IF FT_StartFormingAside.Q THEN
-		mxFormingA_Ready := FALSE;
-	END_IF
-	IF FT_StartFormingBside.Q THEN
-		mxFormingB_Ready := FALSE;
-	END_IF
-{endregion}
-	
 {region "Determine which signaled for release first."}
 	T_TransferReleasedBottom(IN:=, PT:=T#600S);
 	T_TopReleasedBottom(IN:=, PT:=T#600S);
-	T_TopReleasedBottomA(IN:=, PT:=T#600S);
-	T_TopReleasedBottomB(IN:=, PT:=T#600S);
-	RT_ReleaseDifference(CLK:=(NOT (miCycleState = 12)), Q=> );
+	RT_ReleaseDifference(CLK:=(*(NOT (miCycleState = 12)) OR *) NOT mxTest3 , Q=> );
 
-	IF miCycleState >= 9 AND miCycleState <= 12 THEN //Step 12
-		IF TransferMold.sgTrReleaseBmMoveIn THEN
+	IF mxTest3 OR miCycleState = 12 THEN //Step 12
+		IF TransferMold.sgTrReleaseBmMoveIn OR mxTest1 THEN
 			T_TransferReleasedBottom.IN:=TRUE;
 		END_IF
 		
-		IF TopMoldA.SgTmIsUp OR TopMoldB.SgTmIsUp THEN
+		IF TopMoldA.SgTmIsUp OR TopMoldB.SgTmIsUp OR mxTest2 THEN
 			T_TopReleasedBottom.IN:=TRUE;		
 		END_IF
-		
-		IF TopMoldA.SgTmIsUp THEN
-			T_TopReleasedBottomA.IN:=TRUE;
-			Calc_TotalTimeA	:= TRUE;	
-		END_IF
-		IF TopMoldB.SgTmIsUp THEN
-			T_TopReleasedBottomB.IN:=TRUE;
-			Calc_TotalTimeB	:= TRUE;		
-		END_IF
-		
 	END_IF
 	
 	IF RT_ReleaseDifference.Q THEN
-		TransferLateTimeA:=T#0MS;
-		TransferLateTimeB:=T#0MS;
+		TransferLateTime:=T#0MS;
 		TopLateTime:=T#0MS;
-		TopMoldA.TopLateTime := 0;
-		TopMoldB.TopLateTime := 0;
-		
-		// old is only an example now and can be removed later
-		//IF T_TransferReleasedBottom.ET > T_TopReleasedBottom.ET THEN
-		//	TransferLateTime := T_TransferReleasedBottom.ET;
-		//ELSIF T_TopReleasedBottom.ET > T_TransferReleasedBottom.ET THEN
-		//	TopLateTime := T_TopReleasedBottom.ET;
-		//END_IF	
-			
-		IF Calc_TotalTimeA THEN
-			// Update HMI
-			TopLateTimeA := T_TopReleasedBottomA.ET;
-			TransferLateTimeA := T_TransferReleasedBottom.ET;
+		IF T_TransferReleasedBottom.ET > T_TopReleasedBottom.ET THEN
+			TransferLateTime := T_TransferReleasedBottom.ET;
+		ELSIF T_TopReleasedBottom.ET > T_TransferReleasedBottom.ET THEN
+			TopLateTime := T_TopReleasedBottom.ET;
+		END_IF	
 
-			// Needed for speed control
-			TopMoldA.TopLateTime := TIME_TO_REAL(T_TopReleasedBottomA.ET);
-			Calc_TotalTimeA := FALSE;
-			NewValue_MaxKO_A := TRUE;
-		END_IF
-		IF Calc_TotalTimeB THEN
-			// Update HMI
-			TopLateTimeB := T_TopReleasedBottomB.ET;
-			TransferLateTimeB := T_TransferReleasedBottom.ET;
-			
-			// Needed for speed control
-			TopMoldB.TopLateTime := TIME_TO_REAL(T_TopReleasedBottomB.ET);
-			Calc_TotalTimeB := FALSE;
-			NewValue_MaxKO_B := TRUE;
-		END_IF
-		
 		T_TransferReleasedBottom.IN:=FALSE;	
 		T_TopReleasedBottom.IN:=FALSE;
-		T_TopReleasedBottomA.IN:=FALSE;
-		T_TopReleasedBottomB.IN:=FALSE;
 	END_IF	
 
 {endregion}
 
-// Start forming from speedcontrol, only hapens during normal production.
-RT_StartFormingASide(CLK:=mxStartFormingA  AND mxSideAEnabled);
-RT_StartFormingBSide(CLK:=mxStartFormingB AND mxSideBEnabled);
-IF RT_StartFormingASide.Q THEN
-	mxFormingForASideStarted := TRUE;	
-END_IF
-IF RT_StartFormingBSide.Q THEN
-	mxFormingForBSideStarted := TRUE;	
-END_IF
-
-(*IF ((miCyclestate = 1) AND RT_StartFormingASide.Q OR RT_StartFormingBSide.Q) OR
-	((miCyclestate >= 4) AND (miCyclestate <= 12) AND ((RT_StartFormingASide.Q AND mxGantryA_AtBelt) OR (RT_StartFormingBSide.Q AND mxGantryB_AtBelt))) THEN*)
-IF ((miCyclestate >= 4) AND (miCyclestate <= 12) OR (miCyclestate = 1)) AND RT_StartFormingASide.Q OR RT_StartFormingBSide.Q THEN
-	IF NOT mxEmptying AND NOT mxFormingIsPaused  THEN	// emptying added by Bateu. // mxFormingIsPaused added by Mazee
-		ProductForming.M_StartCycle();
-	END_IF
-END_IF
-
-
-T_IMDKickoffs(PT:=T#600S);
+{region "Overname uitleg"}	
+		(*
+		// >>>	Transfer moves down
+		// * Forming stops vacuum pos
+		// * Transfer start vacuum pos
+		// * Closed timer
+		// * Blowoff forming mold aan pos
+		// * Blowoff forming mold uit pos
+		*)
+{endregion}
 
 (*Cycle State's*)
 CASE miCycleState OF
-	0:	// (P)  Wait for start 
-		IF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 19;
-		ELSIF mxStartCycle THEN
+	0:	// Wait for start 
+		IF mxStartCycle THEN
 			mxStartCycle:= FALSE;
 			miStopState:= 0;
 			mxIsEmpty:= FALSE;
 			mxEmptying:=FALSE;
-			mxStopBeforeSCstarted := FALSE;
-			mxFormingForASideStarted := FALSE;
-			mxFormingForBSideStarted := FALSE;	
+			
+			//HydraulicsMain.HydraulicPump.M_Start();
 			
 			IF mxSideAEnabled AND mxSideBEnabled THEN
 				ContinueWithB := TRUE;
 				ContinueWithA := FALSE;
-			ELSIF mxSideAEnabled AND NOT mxSideBEnabled THEN		// Only A enabled
-				ContinueWithA := TRUE;
-				ContinueWithB := False;
-			ELSIF NOT mxSideAEnabled AND mxSideBEnabled THEN 	// Only B enabled
-				ContinueWithA := FALSE;
-				ContinueWithB := True; 
-			END_IF			
+			END_IF
 			
 			TransferMold.M_StartCycle();
+			ProductForming.M_StartCycle();
 			
 			IF mxSideAEnabled THEN 
 				TopMoldA.M_StartCycle(); 
@@ -548,81 +455,90 @@ CASE miCycleState OF
 			miCycleState:= 1;
 		END_IF
 		
-	1:	// (NP) Wait for product forming ready
+	1:	// Wait for product forming ready
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
-		ELSIF NOT ProductForming.mxCycleBusy AND (mxStopCycleEmpty OR mxStopCycle) THEN
-			mxStopBeforeSCstarted := TRUE;
-			mxStopCycleEmpty := FALSE;
+			miCycleState:=23;
+		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
-			miCycleState:= 0;		
+			miStopState:= miCycleState;
+			miCycleState:= 19;
 		ELSIF ProductForming.SgTransferToDownForming THEN	// Signal the transfer to move down
 			ProductForming.SgTransferToDownForming :=FALSE;
 			TransferMold.sgMoveDownToFormingPos:= TRUE;
 			miCycleState:= 2;	
 		END_IF
 		
-	2:  // (NP) Wait for transfermold is down at forming pos
+	2:  // Wait for transfermold is down at forming pos
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 19;
 		ELSIF TransferMold.sgTrAtFormingPos THEN	
 			TransferMold.sgTrAtFormingPos := FALSE;
 			ProductForming.sgTransferIsDown:= TRUE;		// ProductForming.TransferAtStopVacuumForming
 			miCycleState:= 3;
 		END_IF
 		
-	3:  // (NP) Wait for productforming time closed and then move transfer up
+	3: // Wait for productforming time closed and then move transfer up
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 19;
 		ELSIF ProductForming.sgTransferToMoveUp THEN	// ClosedDelayTimeElapsed
 			ProductForming.sgTransferToMoveUp := FALSE;
 			TransferMold.sgMoveUp:= TRUE;
 			miCycleState:= 4;
 		END_IF
 	
-	4:	// (P)  Move Transfermold up and at certain point make a new porduct (only if emty machine is not active).	
-		ProductOnTopMoldA := FALSE;					// These bits indicate weather it is the first run for a certain side.
+	4:	// Move Transfermold up and at certain point make a new porduct (only if emty machine is not active).
+		IF TransferMold.mxStartProductForming THEN 
+			TransferMold.mxStartProductForming:= FALSE;
+			ProductForming.mxStartCycle:= TRUE;
+		END_IF
+	
+		//mxEmptying := mxStopCycleEmpty;
+		
+		// These bits indicate weather it is the first run for a certain side.
+		ProductOnTopMoldA := FALSE;
 		ProductOnTopMoldB := FALSE;
-		ProductDryingAtSideA	  := FALSE;			// These bits indicate if a side is empty
+		
+		// These bits indicate if a side is empty
+		ProductDryingAtSideA	  := FALSE;
 		ProductDryingAtSideB	  := FALSE;
 		
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
 			miCycleState:= 19;
-		ELSIF TransferMold.sgTrReleaseBmMoveIn AND mxStartFormingA AND mxSideAEnabled THEN
-			ContinueWithA := TRUE;
-			mxFormingA_Ready := TRUE;
+		ELSIF TransferMold.sgTrReleaseBmMoveIn AND ContinueWithA THEN
 			TransferMold.sgTrReleaseBmMoveIn:= FALSE;
 			BottomMoldA.sgMoveIn:= TRUE;
-			BottomMoldA.mxProductOnTopMold:= ProductOnTopMoldA;	// Skip step 5 (move top mold up, because at a fresh start.
-			BottomMoldA.sgSample := mxSample;					// If Sample is '1', block the bottommold in vacuum.	
+			BottomMoldA.mxProductOnTopMold:= ProductOnTopMoldA;	// Skip step 5 (move top mold up, because at a fresh start,
 			miCycleState := 6;									// topmold is allready up. Just continue with the bottommold in movement.
-		ELSIF TransferMold.sgTrReleaseBmMoveIn AND mxStartFormingB AND mxSideBEnabled THEN
-			ContinueWithB := TRUE;
-			mxFormingB_Ready := TRUE;
+		ELSIF TransferMold.sgTrReleaseBmMoveIn AND ContinueWithB THEN
 			TransferMold.sgTrReleaseBmMoveIn:= FALSE;
 			BottomMoldB.mxProductOnTopMold:= ProductOnTopMoldB;
 			BottomMoldB.sgMoveIn:= TRUE;
-			BottomMoldB.sgSample := mxSample;								// If Sample is '1', block the bottommold in vacuum.	
 			miCycleState := 6;
 		END_IF										
 		
 		//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\ Main program loop			
-	5:	// (NP) Obsolete Step.
-		miCycleState:= 6;
-	6:	// (P)  Move bottom mold A / B in	
-		T_IMDKickoffs.IN:=TRUE;
+	5:	// Obsolete Step.
 	
+	6:	// Move bottom mold A / B in		
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;	
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
@@ -637,11 +553,10 @@ CASE miCycleState OF
 			miCycleState:= 7;
 		END_IF
 
-	7:	// (P)  Move Transfer mold up
-			
+	7:	// Move Transfer mold up
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;	
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
@@ -658,10 +573,10 @@ CASE miCycleState OF
 			miCycleState:= 8;
 		END_IF
 		
-	8:	// (P)  Move bottom Mold A / B Out
+	8:	// Move bottom Mold A / B Out
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
@@ -678,123 +593,113 @@ CASE miCycleState OF
 			miCycleState:= 9;		
 		END_IF
 
-	9:	// (P)  Move Topmold A / B down, Wait for productForming ready
-		mxEmptying:=mxStopCycleEmpty;		// Set a bit to show the machine is emptying. This ensures that the transfer loses its last product on the bottommold.
-		mxSample :=FALSE;
-		
+	9:	// Move Topmold A / B down, Wait for productForming ready
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
 			miCycleState:= 19;
-		ELSIF (ProductForming.SgTransferToDownForming OR (mxEmptying AND NOT ProductForming.mxCycleBusy)) AND ContinueWithA THEN	
+		ELSIF (ProductForming.SgTransferToDownForming OR mxEmptying) AND ContinueWithA THEN	
 			ProductForming.SgTransferToDownForming:=FALSE; 
-			ProductDryingAtSideA := TRUE; //NOT BottomMoldA.sgSample;
-			BottomMoldA.sgSample := FALSE;
-
-			IF mxEmptying AND NOT ProductForming.mxCycleBusy THEN
+			ProductDryingAtSideA := TRUE;
+			
+			IF mxEmptying THEN
 				IF mxSideAEnabled AND mxSideBEnabled THEN
 					ContinueWithA := NOT ContinueWithA;
 					ContinueWithB := NOT ContinueWithB;
 				END_IF
-				miCycleState:= 13;
+				miCycleState:= 15;
 			ELSE
 				TransferMold.sgMoveDownToFormingPos:= TRUE;
 				miCycleState:= 10;
 			END_IF
-		ELSIF (ProductForming.SgTransferToDownForming OR (mxEmptying AND NOT ProductForming.mxCycleBusy)) AND ContinueWithB THEN	
+		ELSIF (ProductForming.SgTransferToDownForming OR mxEmptying) AND ContinueWithB THEN	
 			ProductForming.SgTransferToDownForming:=FALSE; 
-			ProductDryingAtSideB := TRUE; //NOT BottomMoldB.sgSample;
-			BottomMoldB.sgSample := FALSE;
-			IF mxEmptying AND NOT ProductForming.mxCycleBusy THEN
+			ProductDryingAtSideB := True;
+			
+			IF mxEmptying THEN
 				IF mxSideAEnabled AND mxSideBEnabled THEN
 					ContinueWithA := NOT ContinueWithA;
 					ContinueWithB := NOT ContinueWithB;
 				END_IF
-				miCycleState:= 13;
+				miCycleState:= 15;
 			ELSE
 				TransferMold.sgMoveDownToFormingPos:= TRUE;
 				miCycleState:= 10;
 			END_IF				
 		END_IF																									
 			
-	10: // (NP) Wait for transfermold is down at forming pos !! Meanwhile, at top of cycle, new continue with A/B is set.
+	10: // Wait for transfermold is down at forming pos !! Meanwhile, at top of cycle, new continue with A/B is set.
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 19;
 		ELSIF TransferMold.sgTrAtFormingPos THEN		// No selection is side is done cause its irrelavant here.
 			Transfermold.sgTrAtFormingPos := FALSE;
 			ProductForming.sgTransferIsDown:= TRUE;
 			miCycleState:= 11;
 		END_IF
 
-	11: // (NP) Wait for productforming after blowOff is on
+	11: //Wait for productforming after blowOff is on
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 19;
 		ELSIF ProductForming.sgTransferToMoveUp THEN	// ClosedDelayTimeElapsed
 			ProductForming.sgTransferToMoveUp := FALSE;
 			TransferMold.sgMoveUp:= TRUE;
 			miCycleState:= 12;
 		END_IF
 
-	12:	// (P)  Move Transfermold up  -> P by bateu 20190408
-		mxEmptying:=mxStopCycleEmpty;		// Set a bit to show the machine is emptying. This ensures that the transfer loses its last product on the bottommold.
+	12:	// Move Transfermold up 
+		IF TransferMold.mxStartProductForming AND NOT mxStopCycleEmpty THEN 
+			TransferMold.mxStartProductForming:= FALSE;
+			ProductForming.mxStartCycle:= TRUE;
+		END_IF
 		
-		
+		// Set a bit to show the machine is emptying. This ensures that the transfer loses its last product on the bottommold.
+		mxEmptying:=mxStopCycleEmpty;
+	
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
 			miCycleState:= 19;
-		ELSIF TransferMold.sgTrReleaseBmMoveIn AND (TopmoldA.SgTmIsUp OR NOT ProductDryingAtSideA) AND ContinueWithA THEN // A side = next
-			mxFormingIsPaused := FALSE;
-			mxFormingForASideStarted := FALSE;
-			mxMachineComesFromPause := FALSE;	
-			
-			mxFormingA_Ready := TRUE;	//Used to reset start forming bit
-			mxFormingB_Ready := TRUE;	//Used to reset start forming bit
-	
+		ELSIF TransferMold.sgTrReleaseBmMoveIn AND (TopmoldA.SgTmIsUp OR NOT ProductDryingAtSideA) AND ContinueWithA THEN		// A side = next
 			TransferMold.sgTrReleaseBmMoveIn:= FALSE;		
 			BottomMoldA.sgMoveIn:= TRUE;
-			BottomMoldA.sgSample := mxSample;								// If Sample is '1', block the bottommold in vacuum.
 			ProductOnTopMoldA := TRUE; 										// Next time this step is executed, the topmold will indicate it has a product
 			BottomMoldA.mxProductOnTopMold:= ProductDryingAtSideA;
 			miCycleState:= 6;	
-			
-			KickoffsIMD := TIME_TO_REAL(T_IMDKickoffs.ET);
-			T_IMDKickoffs.IN:=FALSE;				
-			TotalKickoffsA := KickoffsIMD + Main.ProductHandling.GantryA.GantrySingleKo;		
 		ELSIF TransferMold.sgTrReleaseBmMoveIn AND (TopMoldB.SgTmIsUp OR NOT ProductDryingAtSideB) AND ContinueWithB THEN 		// B Side = next
-			mxFormingIsPaused := FALSE;
-			mxFormingForBSideStarted := FALSE;
-			mxMachineComesFromPause := FALSE;	
-			
-			mxFormingA_Ready := TRUE;	//Used to reset start forming bit
-			mxFormingB_Ready := TRUE;	//Used to reset start forming bit
-			
 			TransferMold.sgTrReleaseBmMoveIn:= FALSE;		
 			BottomMoldB.sgMoveIn:= TRUE;
-			BottomMoldB.sgSample := mxSample;								// If Sample is '1', block the bottommold in vacuum.		
 			ProductOnTopMoldB := TRUE; 										// Next time this step is executed, the topmold will indicate it has a product
-			BottomMoldB.mxProductOnTopMold:= ProductDryingAtSideB;
-			miCycleState:= 6;
-
-			KickoffsIMD := TIME_TO_REAL(T_IMDKickoffs.ET);
-			T_IMDKickoffs.IN:=FALSE;		
-			TotalKickoffsB := KickoffsIMD + Main.ProductHandling.GantryB.GantrySingleKo;
+			BottomMoldB.mxProductOnTopMold:= ProductDryingAtSideB;//ProductOnTopMoldB;
+			miCycleState:= 6;	
 		END_IF
 
-		//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\ Normal production loop -> 6		
-
-	13:	// (P)  Move topmold A / B up 
+		//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\//\\//\\/\\//\\//\\ Normal production loop -> 6
+	13: // Obsolete Step
+		miCycleState:=16;
+		
+	14: // Obsolete Step
+		miCycleState:=15;
+		
+	15:	// Move topmold A / B up 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
@@ -802,17 +707,17 @@ CASE miCycleState OF
 		ELSIF TopMoldA.SgTmIsUp AND ContinueWithA THEN
 			BottomMoldA.sgMoveIn:= TRUE;
 			BottomMoldA.mxProductOnTopMold:= TRUE;
-			miCycleState:= 14;
+			miCycleState:= 16;
 		ELSIF TopMoldB.SgTmIsUp AND ContinueWithB THEN
 			BottomMoldB.sgMoveIn:= TRUE;
 			BottomMoldB.mxProductOnTopMold:= TRUE;
-			miCycleState:= 14;
+			miCycleState:= 16;
 		END_IF
 		
-	14: // (P)  Move bottomMold in to fill takeoutunit with last product on this side
+	16: // Move bottomMold in to fill takeoutunit with last product on this side
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
@@ -820,17 +725,17 @@ CASE miCycleState OF
 		ELSIF BottomMoldA.SgBottomIsIn AND ContinueWithA THEN
 			BottomMoldA.SgBottomIsIn := FALSE; 
 			BottomMoldA.sgMoveOut:= TRUE;	
-			miCycleState:= 15;
+			miCycleState:= 17;
 		ELSIF BottomMoldB.SgBottomIsIn AND ContinueWithB THEN
 			BottomMoldB.SgBottomIsIn := FALSE; 
 			BottomMoldB.sgMoveOut:= TRUE;	
-			miCycleState:= 15;
+			miCycleState:= 17;
 		END_IF 
 		
-	15: // (P)  Move bottommold out to the gantries, and wait for last product on this side to be picked up
+	17: // Move bottommold out to the gantries, and wait for last product on this side to be picked up
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
@@ -845,9 +750,9 @@ CASE miCycleState OF
 			LastProductWasA := TRUE;
 			
 			IF NOT ProductDryingAtSideA AND NOT ProductDryingAtSideB THEN
-				miCycleState:=16;
+				miCycleState:=18;
 			ELSE	
-				miCycleState:= 13;
+				miCycleState:= 15;
 			END_IF
 		ELSIF BottomMoldB.SgBottomIsOut AND ContinueWithB THEN
 			BottomMoldB.SgBottomIsOut := FALSE;
@@ -859,16 +764,20 @@ CASE miCycleState OF
 			LastProductWasA := FALSE;
 			
 			IF NOT ProductDryingAtSideA AND NOT ProductDryingAtSideB THEN
-				miCycleState:=16;
+				miCycleState:=18;
 			ELSE	
-				miCycleState:= 13;
+				miCycleState:= 15;
 			END_IF
 		END_IF 
 
-	16:	// (NP) Machine is empty, Wait until Gantry picked up Product A and B 
+	18:	// Machine is empty, Wait until Gantry picked up Product A and B 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:=25;
+			miCycleState:=23;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 19;
 		ELSIF (LastProductWasA AND BottommoldA.mxHorCilIsIn AND BottomMoldA.mxGantryPickedUpProduct) OR
 				(NOT LastProductWasA AND BottommoldB.mxHorCilIsIn AND BottomMoldB.mxGantryPickedUpProduct) THEN 	
 			mxIsEmpty := TRUE;
@@ -879,10 +788,37 @@ CASE miCycleState OF
 			ProductOnTopMoldB := FALSE;
 			
 			miStopState:= miCycleState;
-			miCycleState:= 17;
+			miCycleState:= 21;
 		END_IF
 	
-	17: // [Emptying] Stopping sub parts
+	19: // stopping sub objects.
+		IF TopMoldA.mxCycleBusy THEN TopMoldA.M_StopCycle(); END_IF
+		IF TopMoldB.mxCycleBusy THEN TopMoldB.M_StopCycle(); END_IF
+		IF TransferMold.mxCycleBusy THEN TransferMold.M_StopCycle(); END_IF
+		IF BottomMoldA.mxCycleBusy THEN	BottomMoldA.M_StopCycle(); END_IF
+		IF BottomMoldB.mxCycleBusy THEN	BottomMoldB.M_StopCycle(); END_IF
+		IF ProductForming.mxCycleBusy THEN ProductForming.M_StopCycle(); END_IF
+		IF HydraulicsMain.mxCycleBusy THEN HydraulicsMain.M_StopCycle(); END_IF
+		
+		miCycleState := 20;
+		
+	20: // Pause / Stop sub parts.
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:=23;
+		ELSIF mxStartCycle OR mxtest THEN
+			mxStartCycle:= FALSE;
+			TopMoldA.M_StartCycle();
+			TopMoldB.M_StartCycle();
+			TransferMold.M_StartCycle();
+			BottomMoldA.M_StartCycle();
+			BottomMoldB.M_StartCycle();
+			ProductForming.M_StartCycle();
+
+			miCycleState:= miStopState;
+		END_IF;
+		
+	21: // Stop Cycle 
 		mxStopCycle:= FALSE;
 
 		IF TopMoldA.mxCycleBusy THEN TopMoldA.M_EmptyMachine(); END_IF
@@ -899,12 +835,13 @@ CASE miCycleState OF
 		IF BottomMoldB.mxCycleBusy THEN	BottomMoldB.M_StopCycle(); END_IF
 		IF ProductForming.mxCycleBusy THEN ProductForming.M_StopCycle(); END_IF
 
-		miCycleState:= 0;
-		
-	18: // [Emptying] Check if everything has stopped.
+		miCycleState:= 22;
+
+	22: // Stop cycle 
 		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;	
-			miCycleState:=25;
+			mxStopDirect:= FALSE;
+			
+			miCycleState:=23;
 		ELSIF NOT TopMoldA.mxCycleBusy AND NOT TopMoldB.mxCycleBusy AND NOT TransferMold.mxCycleBusy AND NOT BottomMoldA.mxCycleBusy
 			AND NOT BottomMoldB.mxCycleBusy AND NOT ProductForming.mxCycleBusy THEN
 
@@ -913,79 +850,8 @@ CASE miCycleState OF
 			TransferMold.mxStartProductForming := FALSE;			
 			miCycleState:= 0;
 		END_IF
-		
-	19: // [Pausing] stopping sub objects. (to pause mode)
-		IF mxSideAEnabled THEN
-			TopMoldA.M_StopCycle(); 
-			BottomMoldA.M_StopCycle();
-		END_IF
-		IF mxSideBEnabled THEN
-			TopMoldB.M_StopCycle(); 
-			BottomMoldB.M_StopCycle();
-		END_IF
-		TransferMold.M_StopCycle(); 
-		ProductForming.M_StopCycle(); 
-		
-		miCycleState := 20;
 	
-	20: // [Pausing] Hydraulics
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:=25;
-		ELSIF NOT TopMoldA.mxCycleBusy AND NOT TopMoldB.mxCycleBusy AND NOT TransferMold.mxCycleBusy AND NOT ProductForming.mxCycleBusy THEN			
-			IF HydraulicsMain.mxCycleBusy THEN HydraulicsMain.M_StopCycle(); END_IF// Force Hydraulics to pause state 
-			miCycleState := 21;
-		END_IF;	
-		
-	21: // [Paused] -> restart hydraulics at mxstartcycle.
-		TransferMold.sgSample := mxSample; 	// shut of vacuum of transfer when taking a sample.
-		
-		KickoffsIMD := TIME_TO_REAL(T_IMDKickoffs.ET);
-		T_IMDKickoffs.IN:=FALSE;
-	
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:=25;
-		ELSIF mxStartCycle THEN
-			mxStartCycle:= FALSE;
-			HydraulicsMain.M_StartCycle();
-			miCycleState:= 22;
-		END_IF;
-	
-	22: // [Restart] Restart sub parts 
-
-	
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:=25;
-		ELSIF HydraulicsMain.mxHydraulicsReady THEN
-			mxStartCycle:= FALSE;
-			T_Unpause250ms.IN:= TRUE;
-			T_Unpause500ms.IN:=TRUE;
-			
-			IF mxSideAEnabled THEN							// Restart immidiatly
-				TopmoldA.sgSample := mxSample;
-				TopMoldA.M_StartCycle();
-				BottomMoldA.M_StartCycle();
-			END_IF
-			IF mxSideBEnabled AND T_Unpause250ms.Q THEN		// Restart after 250ms to prevent hammering
-				TopmoldB.sgSample := mxSample;
-				TopMoldB.M_StartCycle();
-				BottomMoldB.M_StartCycle();
-				T_Unpause250ms.in := FALSE;
-			END_IF
-			
-			IF T_Unpause500ms.q THEN						// Restart after 500ms to continue production
-				TransferMold.M_StartCycle();		
-				ProductForming.M_StartCycle();
-				T_Unpause500ms.in := FALSE;
-				
-				mxMachineComesFromPause := TRUE;
-				miCycleState:= miStopState;
-			END_IF
-		END_IF;
-		
-	25: // Stop Direct 
+	23: // Stop Direct 
 		mxStartCycle:= FALSE;
 		mxStopCycle:= FALSE;
 		mxStopDirect:= FALSE;
@@ -995,18 +861,14 @@ CASE miCycleState OF
 		mxEmptying := FALSE;
 		ProductOnTopMoldA := FALSE;
 		ProductOnTopMoldB := FALSE;
-		mxMachineComesFromPause := FALSE;
-		mxFormingIsPaused := FALSE;
-		mxFormingForASideStarted := FALSE;
-		mxFormingForBSideStarted := FALSE;
-
+		
+		T_AlmProcessTimeCounterA.IN:=FALSE;
+		T_AlmProcessTimeCounterB.IN:=FALSE;
+		T_AlmTimeCounterA.IN := FALSE;
+		T_AlmTimeCounterB.IN := FALSE;
+		
 		ProductDryingAtSideA	  := FALSE;
 		ProductDryingAtSideB	  := FALSE;
-		
-		T_Unpause250ms.IN :=FALSE;
-		T_Unpause500ms.IN :=FALSE;	
-		
-		BottomMoldA.sgSample := BottomMoldB.sgSample := mxSample :=FALSE;
 		
 		IF HydraulicsMain.mxCycleBusy THEN HydraulicsMain.m_StopDirect(); END_IF
 		IF TopMoldA.mxCycleBusy THEN TopMoldA.M_StopDirect(); END_IF
@@ -1016,24 +878,13 @@ CASE miCycleState OF
 		IF BottomMoldB.mxCycleBusy THEN	BottomMoldB.M_StopDirect(); END_IF
 		IF ProductForming.mxCycleBusy THEN ProductForming.M_StopDirect(); END_IF
 
-		KickoffsIMD := TIME_TO_REAL(T_IMDKickoffs.ET);
-		T_IMDKickoffs.IN:=FALSE;
-		
 		miCycleState:= 0;
 END_CASE
 
-mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=21);
-mxInPause:=	miCycleState=21  
-			AND ((TopMoldA.mxInPause AND BottomMoldA.mxInPause) OR NOT mxSideAEnabled)
-			AND ((TopMoldB.mxInPause AND BottomMoldB.mxInPause) OR NOT mxSideBEnabled)
-			AND ProductForming.mxInPause AND TransferMold.mxInPause;
-			
-// Caclulate kickoffs for speed control		
-IF TotalKickoffsA <> 0 THEN KoA := 60000/TotalKickoffsA; END_IF
-IF TotalKickoffsB <>0 THEN KoB := 60000/TotalKickoffsB; END_IF]]></ST>
+mxCycleBusy:= miCycleState<>0;]]></ST>
       </Implementation>
     </Action>
-    <Action Name="Error" Id="{626e1ae0-4c16-470d-9902-01e8e2d7837a}">
+    <Action Name="Error" Id="{bc64783d-715e-497a-abce-8f6aee8a5c80}">
       <Implementation>
         <ST><![CDATA[
 (********** RED HOT SAFETY RULES ************)
@@ -1041,51 +892,28 @@ mxSafetyRulesEnabled := ((mxInitialized AND mxAutoMode) OR (NOT mxAutomode)) AND
 
 	(* Transfer Mold Up or Down 	Bottom Drying Molds are In or Out / Spray bar is at one of the rest positions *)	
 	SR_TrMoldIsMovingBoMoldANotInPos(SET1:=mxSafetyRulesEnabled AND  (TransferMold.mxCilIsMovingIn OR TransferMold.mxCilIsMovingOut) AND 
-	(NOT BottomMoldA.mxCilIsOut AND NOT BottomMoldA.mxCilIsIn) AND (TransferMold.ActualPosition < MachParameters.MinimumTransferPosRHSR) , RESET:= mxReset, Q1=> Errors.RH_TrMoldIsMovingBoMoldANotInPos);
+	(NOT BottomMoldA.mxCilIsOut AND NOT BottomMoldA.mxCilIsIn) AND (TransferMold.ActualPosition < 950) , RESET:= mxReset, Q1=> Errors.RH_TrMoldIsMovingBoMoldANotInPos);
 	
 	SR_TrMoldIsMovingBoMoldBNotInPos(SET1:= mxSafetyRulesEnabled AND (TransferMold.mxCilIsMovingIn OR TransferMold.mxCilIsMovingOut) AND
-	(NOT BottomMoldB.mxCilIsOut AND NOT BottomMoldB.mxCilIsIn) AND (TransferMold.ActualPosition < MachParameters.MinimumTransferPosRHSR), RESET:= mxReset, Q1=> Errors.RH_TrMoldIsMovingBoMoldBNotInPos);
+	(NOT BottomMoldB.mxCilIsOut AND NOT BottomMoldB.mxCilIsIn) AND (TransferMold.ActualPosition < 950), RESET:= mxReset, Q1=> Errors.RH_TrMoldIsMovingBoMoldBNotInPos);
 
-	(*Transfermold position is to far down while spraybar is not yet in restposition.*)
-	SR_TrMoldIsMovingSprayBNotInPos(SET1:= mxSafetyRulesEnabled AND (TransferMold.mxCilIsMovingOut AND (TransferMold.ActualPosition < MachParameters.MinimumTrDownSprayReleasePosRHSR) AND NOT ProductForming.mxSprayBarAtRestPos),
+	SR_TrMoldIsMovingSprayBNotInPos(SET1:= mxSafetyRulesEnabled AND (TransferMold.mxCilIsMovingOut AND NOT ProductForming.mxSprayBarAtRestPos) AND NOT (BottomMoldA.mxCilIsIn OR BottomMoldB.mxCilIsIn),
 	RESET:= mxReset, Q1=> Errors.RH_TrMoldIsMovingSprayBNotInPos);
 	
-	(*Spraybar starts moving while tranfefermold is still down or close to forming.*)
-	//SR_SprayBStartsMovingTrNotClear(SET1:=mxSafetyRulesEnabled AND 
-	//(TransferMold.mxCilIsMovingIn AND (TransferMold.ActualPosition < MachParameters.MinimumTrUpSprayReleasePosRHSR) AND NOT ProductForming.mxSprayBarAtRestPos),
-	//RESET:=mxReset, Q1=> ERrors.RH_SprayBIsMovingTrNotClear);
-	
-	// first window
-	SR_SprayBStartsMovingTrNotClear(SET1:=mxSafetyRulesEnabled AND 
-	(TransferMold.mxCilIsMovingIn AND (TransferMold.ActualPosition < MachParameters.MinimumTrUpSprayReleasePosRHSR) AND 
-	(ProductForming.SprayBarMotor.ActPosition >= (MachParameters.ProductForming.SprayBar.PositionRestBack + MachParameters.SprayBTrCollisionOffset))),
-	RESET:=mxReset, Q1=> Errors.RH_SprayBIsMovingTrNotClear);	
-	
-	// 2nd window.
-	(*SR_SprayBStartsMovingTrNotClear(SET1:=mxSafetyRulesEnabled AND 
-	(TransferMold.mxCilIsMovingIn AND (TransferMold.ActualPosition < MachParameters.MinimumTrUpSprayReleasePosRHSR2) AND 
-	(ProductForming.SprayBarMotor.ActPosition >= (MachParameters*)
-	
 	(* Top Drying Mold Down 	Corresponding Bottom Drying Mold Out *)
-	SR_ToMoldAIsMovingBoMoldANotInPos(SET1:= mxSafetyRulesEnabled AND 
-	(TopMoldA.mxCilIsMovingOut AND (TopMoldA.ActualPosition < (MachParameters.TopMoldA.PositionUpStop - Machparameters.MinimumTmAPosToAllowBmMove))) 
-	AND NOT BottomMoldA.mxCilIsOut, 
+	SR_ToMoldAIsMovingBoMoldANotInPos(SET1:= mxSafetyRulesEnabled AND TopMoldA.mxCilIsMovingOut AND NOT BottomMoldA.mxCilIsOut, //NOT BottomMoldA.mxCilIsIn, 
 		RESET:= mxReset, Q1=> Errors.RH_ToMoldAIsMovingBoMoldANotInPos);
-	SR_ToMoldBIsMovingBoMoldBNotInPos(SET1:= mxSafetyRulesEnabled AND 
-	(TopMoldB.mxCilIsMovingOut AND (TopMoldB.ActualPosition < (MachParameters.TopMoldB.PositionUpStop - Machparameters.MinimumTmBPosToAllowBmMove))) 
-	AND NOT BottomMoldB.mxCilIsOut, 
+	SR_ToMoldBIsMovingBoMoldBNotInPos(SET1:= mxSafetyRulesEnabled AND TopMoldB.mxCilIsMovingOut AND NOT BottomMoldB.mxCilIsOut, //NOT BottomMoldB.mxCilIsIn, 
 		RESET:= mxReset, Q1=> Errors.RH_ToMoldBIsMovingBoMoldBNotInPos);
 	
 	(* Bottom Drying Mold In	Corresponding Top Drying Mold Up and Transfer Mold is Up *)
-	SR_BoMoldAIsMovingToMoldANotInPos(SET1:= mxSafetyRulesEnabled AND (BottomMoldA.mxCilIsMovingIn OR BottomMoldA.mxCilIsMovingout) AND 
-	(TopMoldA.ActualPosition < (MachParameters.TopMoldA.PositionUpStop - Machparameters.MinimumTmAPosToAllowBmMove)), 
+	SR_BoMoldAIsMovingToMoldANotInPos(SET1:= mxSafetyRulesEnabled AND BottomMoldA.mxCilIsMovingIn AND NOT TopMoldA.mxCilIsIn, 
 		RESET:= mxReset, Q1=> Errors.RH_BoMoldAIsMovingToMoldANotInPos);
-	SR_BoMoldAIsMovingTrMoldNotInPos(SET1:= mxSafetyRulesEnabled AND BottomMoldA.mxCilIsMovingIn AND (TransferMold.ActualPosition < MachParameters.MinimumTransferPosRHSR), 
+	SR_BoMoldAIsMovingTrMoldNotInPos(SET1:= mxSafetyRulesEnabled AND BottomMoldA.mxCilIsMovingIn AND NOT TransferMold.mxCilIsIn, 
 		RESET:= mxReset, Q1=> Errors.RH_BoMoldAIsMovingTrMoldNotInPos);
-	SR_BoMoldBIsMovingToMoldBNotInPos(SET1:= mxSafetyRulesEnabled AND (BottomMoldB.mxCilIsMovingIn OR BottomMoldB.mxCilIsMovingOut) AND
-	(TopMoldB.ActualPosition < (MachParameters.TopMoldB.PositionUpStop - Machparameters.MinimumTmBPosToAllowBmMove)), 
+	SR_BoMoldBIsMovingToMoldBNotInPos(SET1:= mxSafetyRulesEnabled AND BottomMoldB.mxCilIsMovingIn AND NOT TopMoldB.mxCilIsIn, 
 		RESET:= mxReset, Q1=> Errors.RH_BoMoldBIsMovingToMoldBNotInPos);
-	SR_BoMoldBIsMovingTrMoldNotInPos(SET1:= mxSafetyRulesEnabled AND BottomMoldB.mxCilIsMovingIn AND (TransferMold.ActualPosition < MachParameters.MinimumTransferPosRHSR), 
+	SR_BoMoldBIsMovingTrMoldNotInPos(SET1:= mxSafetyRulesEnabled AND BottomMoldB.mxCilIsMovingIn AND NOT TransferMold.mxCilIsIn, 
 		RESET:= mxReset, Q1=> Errors.RH_BoMoldBIsMovingTrMoldNotInPos);
 	
 	(* Table Horizontal In	Corresponding Table Vertical is down *)	
@@ -1093,6 +921,7 @@ mxSafetyRulesEnabled := ((mxInitialized AND mxAutoMode) OR (NOT mxAutomode)) AND
 		RESET:= mxReset, Q1=> Errors.RH_TaOutHorAIsMovingVertIsNotDown);
 	SR_TaOutHorBIsMovingVertIsNotDown(SET1:= mxSafetyRulesEnabled AND (NOT BottomMoldB.mxHorCilIsIn AND NOT BottomMoldB.mxVertCilIsOut), // in is down
 		RESET:= mxReset, Q1=> Errors.RH_TaOutHorBIsMovingVertIsNotDown);
+
 // OR BottomMoldA.mxErrorStopinPos OR BottomMoldB.mxErrorStopinPos 
 (**********************************************************************************************************)
 mxErrorStopinPos:= TopMoldA.mxErrorStopinPos OR TopMoldB.mxErrorStopinPos OR BottomMoldA.mxErrorStopinPos OR BottomMoldB.mxErrorStopinPos 
@@ -1102,14 +931,14 @@ mxErrorInit:= TopMoldA.mxErrorInit OR TopMoldB.mxErrorInit Or BottomMoldA.mxErro
 	OR TransferMold.mxErrorInit OR ProductForming.mxErrorInit OR HydraulicsMain.mxErrorInit 
 	OR Errors.RH_BoMoldAIsMovingToMoldANotInPos OR Errors.RH_BoMoldAIsMovingTrMoldNotInPos OR Errors.RH_BoMoldBIsMovingToMoldBNotInPos OR Errors.RH_BoMoldBIsMovingTrMoldNotInPos
 	OR Errors.RH_TaOutHorAIsMovingVertIsNotDown OR Errors.RH_TaOutHorBIsMovingVertIsNotDown OR Errors.RH_ToMoldAIsMovingBoMoldANotInPos OR Errors.RH_ToMoldBIsMovingBoMoldBNotInPos
-	OR Errors.RH_TrMoldIsMovingBoMoldANotInPos OR Errors.RH_TrMoldIsMovingBoMoldBNotInPos OR Errors.RH_TrMoldIsMovingSprayBNotInPos OR Errors.RH_BotMoldAToCoolForTrMDown OR Errors.RH_SprayBIsMovingTrNotClear
+	OR Errors.RH_TrMoldIsMovingBoMoldANotInPos OR Errors.RH_TrMoldIsMovingBoMoldBNotInPos OR Errors.RH_TrMoldIsMovingSprayBNotInPos OR Errors.RH_BotMoldAToCoolForTrMDown 
 	OR Errors.RH_BotMoldBToCoolForTrMDown OR Errors.TempDeviationToHighA[1] OR Errors.TempDeviationToHighA[2] OR Errors.TempDeviationToHighA[3] OR Errors.TempDeviationToHighA[4]
 	OR Errors.TempDeviationToHighA[5] OR Errors.TempDeviationToHighA[6] OR Errors.TempDeviationToHighB[1] OR Errors.TempDeviationToHighB[2] OR Errors.TempDeviationToHighB[3]
 	OR Errors.TempDeviationToHighB[4] OR Errors.TempDeviationToHighB[5] OR Errors.TempDeviationToHighB[6];
 	]]></ST>
       </Implementation>
     </Action>
-    <Action Name="ErrorsTemperature" Id="{2a486222-b7ba-4acc-b33c-977d4608339b}">
+    <Action Name="ErrorsTemperature" Id="{1c0af6d3-fee7-4751-9a2d-05a60759bb31}">
       <Implementation>
         <ST><![CDATA[(*Red hot safety regarding heating, block movement when top temperature deviates to much from bottom temperature*)
 	SR_TempDeviationToHighA[1](SET1:=mxAutoMode AND
@@ -1186,7 +1015,7 @@ SR_BotMoldBToCoolForTrMDown(Set1:= NOT mxCommisioningMode AND (BottomMoldB.mxCil
 ]]></ST>
       </Implementation>
     </Action>
-    <Action Name="Init" Id="{bebf601a-4395-4aa3-ae13-588f23f74a94}">
+    <Action Name="Init" Id="{cf98e249-e393-4447-a761-ca32ee654c68}">
       <Implementation>
         <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
 mxInitTransitionState:=(miInitState<>miInitOldstate);
@@ -1220,6 +1049,7 @@ IF mxResetInitState THEN
 	BottomMoldB.mxResetInitState:= TRUE;
 	TransferMold.mxResetInitState:= TRUE;
 	ProductForming.mxResetInitState:= TRUE;
+	
 END_IF
 
 (*Definition State has Error*)
@@ -1227,74 +1057,103 @@ mxInitHasError:=FALSE;
 
 (*Init State's*)
 CASE miInitState OF
-	0: // Wait for initalisation start
+	0:
 		IF mxStartInit THEN
 			mxStartInit:= FALSE;
 			mxInitialized:= FALSE;
+			
 			TransferMold.M_StartInit();
 			ProductForming.M_StartInit();
+			
+			//HydraulicsMain.HydraulicPump.M_Start();
+		
 			miInitState:= 2;
 		END_IF
 
-	2: // Init Transfermold and product forming
+	(* Init Transfermold / Product Forming*)
+	2:
 		IF mxStopInit THEN
-			mxStopInit:= FALSE;		
+			mxStopInit:= FALSE;
+			
 			miInitState:= 10;
 		ELSIF TransferMold.mxInitialized AND ProductForming.mxInitialized THEN 
 			IF MachParameters.EnableEamcSideA THEN
 				TopMoldA.M_StartInit(); 
+
 				miInitState:= 3;
 			ELSIF MachParameters.EnableEamcSideB THEN
 				TopMoldB.M_StartInit();
+
 				miInitState:= 5; 
 			END_IF
 		END_IF
-		
-	3: // Initialise topmold A
+
+	(* Init topMold A *)
+	3:
 		IF mxStopInit THEN
 			mxStopInit:= FALSE;
+			
 			miInitState:= 10;
 		ELSIF TopMoldA.mxInitialized THEN
 			BottomMoldA.M_StartInit();
+
 			miInitState:= 4;
 		END_IF
 
-	4:	// Initialise Bottommold A
+	(* Init BottomMold A *)	
+	4:
 		IF mxStopInit THEN
-			mxStopInit:= FALSE;			
+			mxStopInit:= FALSE;
+			
 			miInitState:= 10;
 		ELSIF BottomMoldA.mxInitialized THEN
 			IF MachParameters.EnableEamcSideB THEN
 				TopMoldB.M_StartInit();
+
 				miInitState:= 5; 
 			ELSE
+				//HydraulicsMain.M_SartInit();
+				
 				miInitState:= 7;
 			END_IF
 		END_IF
 
-	5:	// Initialise Topmold B
+	(* Init topMold B *)
+	5:
 		IF mxStopInit THEN
 			mxStopInit:= FALSE;
+			
 			miInitState:= 10;
 		ELSIF TopMoldB.mxInitialized THEN
 			BottomMoldB.M_StartInit();
+
 			miInitState:= 6;
 		END_IF
 
-	6: 	// Initialise BottomMold B	
+	(* Init BottomMold B *)	
+	6:
 		IF mxStopInit THEN
 			mxStopInit:= FALSE;
+			
 			miInitState:= 10;
 		ELSIF BottomMoldB.mxInitialized THEN
+			//HydraulicsMain.M_SartInit();
+
 			miInitState:= 7;
 		END_IF
 
-	7: 	// Initialized 
+	(* Initialized *)
+	7:
 		mxInitialized:= TRUE;
 		miInitState:= 0;
-
-	10:	// Stop init 
+		
+		//HydraulicsMain.HydraulicPump.M_Stop();
+	(* Stop init *)
+	10:
 		mxInitialized:= FALSE;
+
+		//HydraulicsMain.HydraulicPump.M_Stop();
+		
 		IF TopMoldA.mxInitBusy THEN TopMoldA.M_StopInit(); END_IF
 		IF TopMoldB.mxInitBusy THEN TopMoldB.M_StopInit(); END_IF
 		IF BottomMoldA.mxInitBusy THEN BottomMoldA.M_StopInit(); END_IF
@@ -1302,11 +1161,16 @@ CASE miInitState OF
 		IF TransferMold.mxInitBusy THEN TransferMold.M_StopInit(); END_IF
 		IF ProductForming.mxInitBusy THEN ProductForming.M_StopInit(); END_IF
 		IF HydraulicsMain.mxInitbusy THEN HydraulicsMain.M_StopInit(); END_IF		
+
 		miInitState:=11;
 		
-	11:	// Stop Init *)
+	(* Stop Init *)
+	11:
 		IF NOT TopMoldA.mxInitBusy AND NOT TopMoldB.mxInitBusy AND NOT BottomMoldA.mxInitBusy AND NOT BottomMoldB.mxInitBusy AND NOT TransferMold.mxInitBusy 
-			AND NOT ProductForming.mxInitBusy AND NOT HydraulicsMain.mxInitbusy THEN
+			AND NOT ProductForming.mxInitBusy AND NOT HydraulicsMain.mxInitbusy THEN	
+
+			
+			
 			miInitState:= 0;
 		END_IF
 END_CASE
@@ -1315,25 +1179,26 @@ mxInitBusy:= miInitState<>0;
 ]]></ST>
       </Implementation>
     </Action>
-    <Method Name="M_StartCycle" Id="{c3ba6355-830f-4f64-92b8-b0926b73ee4f}">
+    <Method Name="M_StartCycle" Id="{d0b21f39-708b-480d-8d5d-b2870683729f}">
       <Declaration><![CDATA[METHOD M_StartCycle
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
 IF (NOT mxCycleBusy AND mxInitialized) OR (mxInPause AND mxInitialized) THEN
+	mxInPause:= FALSE;
 	mxStartCycle:= TRUE;	
 END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StartHydraulics" Id="{03288d8b-f8cf-472e-ab5a-a5b45c757502}">
+    <Method Name="M_StartHydraulics" Id="{614eec73-fcf7-496a-a332-4001f31b042a}">
       <Declaration><![CDATA[METHOD M_StartHydraulics : BOOL
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[HydraulicsMain.M_StartCycle();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StartInit" Id="{d0065209-eb3a-4b27-a51b-a49eea89f583}">
+    <Method Name="M_StartInit" Id="{49758d7a-ff9f-4c13-8b59-610f6adf2ea2}">
       <Declaration><![CDATA[METHOD M_StartInit
 ]]></Declaration>
       <Implementation>
@@ -1344,15 +1209,19 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopCycle" Id="{edc55864-e25b-4fbd-a5ae-a10731f37f98}">
+    <Method Name="M_StopCycle" Id="{605cbf9c-ce7c-48bf-95b9-53b77bb59ed5}">
       <Declaration><![CDATA[METHOD M_StopCycle
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[mxStopCycle:= TRUE;	
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxStopCycle:= TRUE;	
+	mxInPause:=TRUE;
+END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopCycleEmpty" Id="{2a6319e3-d535-4338-b86b-e3bceabb1bc8}">
+    <Method Name="M_StopCycleEmpty" Id="{09e6e738-5a35-4cb1-a5bc-3c8d286697c0}">
       <Declaration><![CDATA[METHOD M_StopCycleEmpty
 ]]></Declaration>
       <Implementation>
@@ -1363,7 +1232,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopDirect" Id="{849f630c-3dec-4312-8e21-5c8187cfa2ed}">
+    <Method Name="M_StopDirect" Id="{557392f1-bae9-4090-ad8d-0e59d0a9ddff}">
       <Declaration><![CDATA[METHOD M_StopDirect
 ]]></Declaration>
       <Implementation>
@@ -1374,14 +1243,14 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopHydraulics" Id="{968a70db-9d0a-4ed2-afa3-4e0bfe9b47a9}">
+    <Method Name="M_StopHydraulics" Id="{f2b92d05-161c-464e-b94a-50eb36676cd9}">
       <Declaration><![CDATA[METHOD M_StopHydraulics
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[HydraulicsMain.M_StopCycleEmpty();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopInit" Id="{c05d5840-e068-4039-b19c-cd8158955ab6}">
+    <Method Name="M_StopInit" Id="{5d3086e3-ebe2-4c39-94a8-ab601c4b56d0}">
       <Declaration><![CDATA[METHOD M_StopInit
 ]]></Declaration>
       <Implementation>
@@ -1392,7 +1261,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Action Name="Objects" Id="{7c462a33-addc-41a0-865f-b837ce491c63}">
+    <Action Name="Objects" Id="{d54b9e0f-6ee5-416e-b483-ceef2da33aa6}">
       <Implementation>
         <ST><![CDATA[
 TopMoldA(
@@ -1404,7 +1273,6 @@ TopMoldA(
 	mxTakeOutIsMovingUp:= BottomMoldA.mxTakeoutIsMovingUp, 
 	ActualPositionTransfermold:=Transfermold.ActualPosition,	
 	RHSR_Blocked:= Errors.RH_ToMoldAIsMovingBoMoldANotInPos,
-	sgTakeOutUnitDown := BottomMoldA.sgTakeOutUnitDown,
 	MachParameters:= MachParameters.TopMoldA,
 	ProdParameters:= ProdParameters.TopMoldA,
 	Errors=> Errors.TopMoldA);
@@ -1418,7 +1286,6 @@ TopMoldB(
 	mxTakeOutIsMovingUp:= BottomMoldB.mxTakeoutIsMovingUp, 
 	ActualPositionTransfermold:=Transfermold.ActualPosition,
 	RHSR_Blocked := Errors.RH_ToMoldBIsMovingBoMoldBNotInPos,
-	sgTakeOutUnitDown := BottomMoldB.sgTakeOutUnitDown,
 	MachParameters:= MachParameters.TopMoldB,
 	ProdParameters:= ProdParameters.TopMoldB,
 	Errors=> Errors.TopMoldB);
@@ -1434,11 +1301,7 @@ BottomMoldA(
 	TransferPosB:= TransferMold.TransferPosB,
 	ContinueWithA:=ContinueWithA,
 	ContinueWithB:=ContinueWithB,
-	SgElapsedDryingTime:=TopMoldA.SgElapsedDryingTime,
-	SgTotalDryingTime := TopMoldA.SgTotalDryingTime,
 	SgMoldsAreClosed := TopMoldA.SgTmIsDown,
-	sgTopmoldBlowOffReady := TopmoldA.sgTopmoldBlowOffReady,
-	sgEmptying:=mxEmptying,
 	RHSR_Blocked := Errors.RH_BoMoldAIsMovingToMoldANotInPos OR Errors.RH_BoMoldAIsMovingTrMoldNotInPos OR Errors.RH_TaOutHorAIsMovingVertIsNotDown,
 	mxGantryPickedUpProduct:= mxProductPickedUpGantry_A,
 	MachParameters:= MachParameters.BottomMoldA,
@@ -1458,11 +1321,7 @@ BottomMoldB(
 	TransferPosB:= TransferMold.TransferPosB,
 	ContinueWithA:=ContinueWithA,
 	ContinueWithB:=ContinueWithB,
-	SgElapsedDryingTime:=TopMoldB.SgElapsedDryingTime,
-	SgTotalDryingTime := TopMoldB.SgTotalDryingTime,
-	SgMoldsAreClosed := TopMoldB.SgTmIsDown,
-	sgTopmoldBlowOffReady := TopmoldB.sgTopmoldBlowOffReady,
-	sgEmptying:=mxEmptying,	
+	SgMoldsAreClosed := TopMoldB.SgTmIsDown,	
 	RHSR_Blocked := Errors.RH_BoMoldBIsMovingToMoldBNotInPos OR Errors.RH_BoMoldBIsMovingTrMoldNotInPos OR Errors.RH_TaOutHorBIsMovingVertIsNotDown,
 	mxGantryPickedUpProduct:= mxProductPickedUpGantry_B,
 	MachParameters:= MachParameters.BottomMoldB,
@@ -1481,20 +1340,21 @@ TransferMold(
 	ProdParameters:= ProdParameters.TransferMold,
 	Errors=> Errors.TransferMold);
 
+	//TransferMold.mxCilIsMovingOut;
+	
 ProductForming( 
 	mxReset:= mxReset,
 	mxEmergency:= mxEmergency[2] OR mxEmergency[3] OR mxEmergency[4] OR mxEmergency[8],
 	mxFirstCycle:= mxFirstCycle,
 	mxAutoMode:= mxAutoMode,
+	//sgTransferIsDown:= TransferMold.sgTrAtFormingPos,
 	TransfermoldDownPosition:=TransferMold.DownPosition,
 	TransfermoldMovingDown:=TransferMold.mxCilIsMovingOut,
 	TransfermoldMovingUp:=Transfermold.mxCilIsMovingIn,
-	TransferFormingPosOffset:= MachParameters.TransferMold.PositionStartFormingProcess,
 	ActualPositionTransfermold:=TransferMold.ActualPosition,
-	RHSR_Blocked := Errors.RH_SprayBIsMovingTrNotClear,
+	RHSR_Blocked := FALSE,
 	MachParameters:= MachParameters.ProductForming,
 	SysParameters:= SysParameters.ProductForming,
-	NewValue_MaxTimeSingleKO := NewValue_MaxKO_Forming,
 	Errors=> Errors.ProductForming);
 
 HydraulicsMain(
@@ -1522,22 +1382,7 @@ HydraulicsMain(
       <LineId Id="1770" Count="0" />
       <LineId Id="1768" Count="0" />
       <LineId Id="1771" Count="0" />
-      <LineId Id="3086" Count="0" />
-      <LineId Id="3316" Count="0" />
-      <LineId Id="3318" Count="0" />
-      <LineId Id="3320" Count="1" />
-      <LineId Id="3319" Count="0" />
-      <LineId Id="3317" Count="0" />
-      <LineId Id="3087" Count="0" />
-      <LineId Id="3322" Count="0" />
-      <LineId Id="3548" Count="1" />
-      <LineId Id="3094" Count="0" />
-      <LineId Id="3097" Count="0" />
-      <LineId Id="3093" Count="0" />
-      <LineId Id="3088" Count="0" />
-      <LineId Id="3090" Count="0" />
-      <LineId Id="3089" Count="0" />
-      <LineId Id="3085" Count="0" />
+      <LineId Id="1766" Count="0" />
       <LineId Id="1394" Count="0" />
       <LineId Id="1177" Count="0" />
       <LineId Id="288" Count="0" />
@@ -1548,221 +1393,166 @@ HydraulicsMain(
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.Cycle">
-      <LineId Id="4127" Count="34" />
-      <LineId Id="4911" Count="0" />
-      <LineId Id="4162" Count="2" />
-      <LineId Id="4927" Count="0" />
-      <LineId Id="4952" Count="1" />
-      <LineId Id="4165" Count="0" />
-      <LineId Id="4860" Count="1" />
-      <LineId Id="4755" Count="0" />
-      <LineId Id="4757" Count="0" />
-      <LineId Id="4756" Count="0" />
-      <LineId Id="4988" Count="1" />
-      <LineId Id="4992" Count="0" />
-      <LineId Id="4166" Count="5" />
-      <LineId Id="4983" Count="0" />
-      <LineId Id="4986" Count="0" />
-      <LineId Id="4984" Count="0" />
-      <LineId Id="4172" Count="8" />
-      <LineId Id="4875" Count="0" />
-      <LineId Id="4920" Count="4" />
-      <LineId Id="4932" Count="0" />
-      <LineId Id="4181" Count="7" />
-      <LineId Id="4728" Count="0" />
-      <LineId Id="4730" Count="0" />
-      <LineId Id="4732" Count="0" />
-      <LineId Id="4731" Count="0" />
-      <LineId Id="4729" Count="0" />
-      <LineId Id="4733" Count="2" />
-      <LineId Id="4894" Count="8" />
-      <LineId Id="4727" Count="0" />
-      <LineId Id="4196" Count="0" />
-      <LineId Id="4954" Count="1" />
-      <LineId Id="4958" Count="0" />
-      <LineId Id="4956" Count="1" />
-      <LineId Id="4959" Count="0" />
-      <LineId Id="4925" Count="0" />
-      <LineId Id="4960" Count="0" />
-      <LineId Id="4198" Count="2" />
-      <LineId Id="4718" Count="0" />
-      <LineId Id="4202" Count="12" />
-      <LineId Id="4804" Count="1" />
-      <LineId Id="4215" Count="9" />
-      <LineId Id="4779" Count="0" />
-      <LineId Id="4784" Count="0" />
-      <LineId Id="4782" Count="0" />
-      <LineId Id="4800" Count="0" />
-      <LineId Id="4783" Count="0" />
-      <LineId Id="4785" Count="1" />
-      <LineId Id="4801" Count="0" />
-      <LineId Id="4787" Count="0" />
-      <LineId Id="4780" Count="0" />
-      <LineId Id="4225" Count="3" />
-      <LineId Id="4845" Count="0" />
-      <LineId Id="4229" Count="0" />
-      <LineId Id="4819" Count="1" />
-      <LineId Id="4823" Count="1" />
-      <LineId Id="4230" Count="4" />
-      <LineId Id="4827" Count="0" />
-      <LineId Id="4806" Count="1" />
-      <LineId Id="4825" Count="0" />
-      <LineId Id="4808" Count="0" />
-      <LineId Id="4837" Count="0" />
-      <LineId Id="4834" Count="0" />
-      <LineId Id="4843" Count="0" />
-      <LineId Id="4835" Count="0" />
-      <LineId Id="4814" Count="0" />
-      <LineId Id="4809" Count="1" />
-      <LineId Id="4839" Count="0" />
-      <LineId Id="4826" Count="0" />
-      <LineId Id="4840" Count="0" />
-      <LineId Id="4844" Count="0" />
-      <LineId Id="4841" Count="1" />
-      <LineId Id="4812" Count="0" />
-      <LineId Id="4818" Count="0" />
-      <LineId Id="4813" Count="0" />
-      <LineId Id="4788" Count="0" />
-      <LineId Id="4236" Count="1" />
-      <LineId Id="4792" Count="1" />
-      <LineId Id="4238" Count="4" />
-      <LineId Id="4737" Count="2" />
-      <LineId Id="4940" Count="1" />
-      <LineId Id="4937" Count="0" />
-      <LineId Id="4942" Count="2" />
-      <LineId Id="4915" Count="0" />
-      <LineId Id="4917" Count="0" />
-      <LineId Id="4919" Count="0" />
-      <LineId Id="4244" Count="0" />
-      <LineId Id="4849" Count="0" />
-      <LineId Id="4931" Count="0" />
-      <LineId Id="4245" Count="1" />
-      <LineId Id="4758" Count="2" />
-      <LineId Id="4247" Count="11" />
-      <LineId Id="4884" Count="0" />
-      <LineId Id="4961" Count="1" />
-      <LineId Id="4259" Count="3" />
-      <LineId Id="4968" Count="5" />
-      <LineId Id="4263" Count="0" />
-      <LineId Id="4967" Count="0" />
-      <LineId Id="4265" Count="17" />
-      <LineId Id="4879" Count="1" />
-      <LineId Id="4883" Count="0" />
-      <LineId Id="4882" Count="0" />
-      <LineId Id="4881" Count="0" />
-      <LineId Id="4283" Count="26" />
-      <LineId Id="4316" Count="1" />
-      <LineId Id="4320" Count="15" />
-      <LineId Id="4859" Count="0" />
-      <LineId Id="4336" Count="6" />
-      <LineId Id="4858" Count="0" />
-      <LineId Id="4343" Count="6" />
-      <LineId Id="4740" Count="1" />
-      <LineId Id="4350" Count="17" />
-      <LineId Id="4854" Count="0" />
-      <LineId Id="4368" Count="39" />
-      <LineId Id="4869" Count="1" />
-      <LineId Id="4913" Count="0" />
-      <LineId Id="4867" Count="0" />
-      <LineId Id="4409" Count="9" />
-      <LineId Id="4912" Count="0" />
-      <LineId Id="4419" Count="46" />
-      <LineId Id="4472" Count="1" />
-      <LineId Id="4914" Count="0" />
-      <LineId Id="4474" Count="2" />
-      <LineId Id="4871" Count="3" />
-      <LineId Id="4481" Count="0" />
-      <LineId Id="4483" Count="0" />
-      <LineId Id="4946" Count="0" />
-      <LineId Id="4963" Count="0" />
-      <LineId Id="4947" Count="0" />
-      <LineId Id="4929" Count="0" />
-      <LineId Id="4974" Count="1" />
-      <LineId Id="4484" Count="1" />
-      <LineId Id="4853" Count="0" />
-      <LineId Id="4486" Count="2" />
-      <LineId Id="4746" Count="2" />
-      <LineId Id="4762" Count="0" />
-      <LineId Id="4489" Count="0" />
-      <LineId Id="4491" Count="0" />
-      <LineId Id="4948" Count="0" />
-      <LineId Id="4964" Count="0" />
-      <LineId Id="4949" Count="0" />
-      <LineId Id="4930" Count="0" />
-      <LineId Id="4976" Count="1" />
-      <LineId Id="4492" Count="1" />
-      <LineId Id="4851" Count="0" />
-      <LineId Id="4494" Count="2" />
-      <LineId Id="4743" Count="0" />
-      <LineId Id="4745" Count="0" />
-      <LineId Id="4744" Count="0" />
-      <LineId Id="4764" Count="0" />
-      <LineId Id="4497" Count="127" />
-      <LineId Id="4631" Count="22" />
-      <LineId Id="5008" Count="1" />
-      <LineId Id="4752" Count="0" />
-      <LineId Id="4754" Count="0" />
-      <LineId Id="4753" Count="0" />
-      <LineId Id="4654" Count="9" />
-      <LineId Id="5006" Count="1" />
-      <LineId Id="4664" Count="5" />
-      <LineId Id="5003" Count="0" />
-      <LineId Id="5002" Count="0" />
-      <LineId Id="4670" Count="0" />
-      <LineId Id="5004" Count="0" />
-      <LineId Id="4671" Count="3" />
-      <LineId Id="5005" Count="0" />
-      <LineId Id="4675" Count="1" />
-      <LineId Id="5000" Count="0" />
-      <LineId Id="4677" Count="1" />
-      <LineId Id="4997" Count="0" />
-      <LineId Id="4679" Count="2" />
-      <LineId Id="5001" Count="0" />
-      <LineId Id="4909" Count="0" />
-      <LineId Id="4682" Count="0" />
-      <LineId Id="4998" Count="0" />
-      <LineId Id="4683" Count="11" />
-      <LineId Id="4910" Count="0" />
-      <LineId Id="4928" Count="0" />
-      <LineId Id="4950" Count="1" />
-      <LineId Id="4695" Count="3" />
-      <LineId Id="4993" Count="0" />
-      <LineId Id="4995" Count="0" />
-      <LineId Id="4994" Count="0" />
-      <LineId Id="4862" Count="1" />
-      <LineId Id="4699" Count="7" />
-      <LineId Id="4749" Count="0" />
-      <LineId Id="4751" Count="0" />
-      <LineId Id="4750" Count="0" />
-      <LineId Id="4707" Count="7" />
-      <LineId Id="4766" Count="0" />
-      <LineId Id="4768" Count="1" />
-      <LineId Id="4774" Count="0" />
+      <LineId Id="3182" Count="48" />
+      <LineId Id="3806" Count="0" />
+      <LineId Id="3231" Count="17" />
+      <LineId Id="3802" Count="0" />
+      <LineId Id="3941" Count="1" />
+      <LineId Id="3807" Count="0" />
+      <LineId Id="3250" Count="0" />
+      <LineId Id="3943" Count="1" />
+      <LineId Id="3252" Count="15" />
+      <LineId Id="3804" Count="0" />
+      <LineId Id="3797" Count="1" />
+      <LineId Id="3836" Count="1" />
+      <LineId Id="3889" Count="0" />
+      <LineId Id="3852" Count="0" />
+      <LineId Id="3821" Count="0" />
+      <LineId Id="3823" Count="0" />
+      <LineId Id="3839" Count="0" />
+      <LineId Id="3826" Count="1" />
+      <LineId Id="3829" Count="2" />
+      <LineId Id="3844" Count="0" />
+      <LineId Id="3899" Count="0" />
+      <LineId Id="3869" Count="0" />
+      <LineId Id="3887" Count="1" />
+      <LineId Id="3881" Count="0" />
+      <LineId Id="3883" Count="3" />
+      <LineId Id="3882" Count="0" />
+      <LineId Id="3873" Count="1" />
+      <LineId Id="3872" Count="0" />
+      <LineId Id="3896" Count="0" />
+      <LineId Id="3890" Count="0" />
+      <LineId Id="3892" Count="0" />
+      <LineId Id="3901" Count="0" />
+      <LineId Id="3903" Count="8" />
+      <LineId Id="3902" Count="0" />
+      <LineId Id="3269" Count="6" />
+      <LineId Id="3949" Count="0" />
+      <LineId Id="3276" Count="2" />
+      <LineId Id="3932" Count="0" />
+      <LineId Id="3934" Count="0" />
+      <LineId Id="3940" Count="0" />
+      <LineId Id="3939" Count="0" />
+      <LineId Id="3933" Count="0" />
+      <LineId Id="3279" Count="41" />
+      <LineId Id="3735" Count="0" />
+      <LineId Id="3322" Count="19" />
+      <LineId Id="3950" Count="1" />
+      <LineId Id="3342" Count="2" />
+      <LineId Id="3731" Count="0" />
+      <LineId Id="3346" Count="13" />
+      <LineId Id="3753" Count="0" />
+      <LineId Id="3360" Count="2" />
+      <LineId Id="3754" Count="0" />
+      <LineId Id="3363" Count="5" />
+      <LineId Id="3387" Count="18" />
+      <LineId Id="3424" Count="9" />
+      <LineId Id="3777" Count="0" />
+      <LineId Id="3434" Count="3" />
+      <LineId Id="3778" Count="0" />
+      <LineId Id="3438" Count="6" />
+      <LineId Id="3446" Count="2" />
+      <LineId Id="3450" Count="11" />
+      <LineId Id="3463" Count="11" />
+      <LineId Id="3979" Count="0" />
+      <LineId Id="3476" Count="5" />
+      <LineId Id="3483" Count="13" />
+      <LineId Id="3498" Count="29" />
+      <LineId Id="3796" Count="0" />
+      <LineId Id="3529" Count="8" />
+      <LineId Id="3945" Count="0" />
+      <LineId Id="3947" Count="0" />
+      <LineId Id="3946" Count="0" />
+      <LineId Id="3538" Count="3" />
+      <LineId Id="3733" Count="0" />
+      <LineId Id="3543" Count="5" />
+      <LineId Id="3912" Count="0" />
+      <LineId Id="3814" Count="0" />
+      <LineId Id="3549" Count="2" />
+      <LineId Id="3816" Count="1" />
+      <LineId Id="3913" Count="0" />
+      <LineId Id="3818" Count="0" />
+      <LineId Id="3554" Count="2" />
+      <LineId Id="3974" Count="0" />
+      <LineId Id="3976" Count="0" />
+      <LineId Id="3975" Count="0" />
+      <LineId Id="3557" Count="52" />
+      <LineId Id="3928" Count="0" />
+      <LineId Id="3957" Count="1" />
+      <LineId Id="3610" Count="0" />
+      <LineId Id="3924" Count="3" />
+      <LineId Id="3611" Count="5" />
+      <LineId Id="3929" Count="0" />
+      <LineId Id="3955" Count="1" />
+      <LineId Id="3919" Count="1" />
+      <LineId Id="3923" Count="0" />
+      <LineId Id="3922" Count="0" />
+      <LineId Id="3921" Count="0" />
+      <LineId Id="3621" Count="9" />
+      <LineId Id="3952" Count="0" />
+      <LineId Id="3954" Count="0" />
+      <LineId Id="3634" Count="0" />
+      <LineId Id="3973" Count="0" />
+      <LineId Id="3635" Count="0" />
+      <LineId Id="3930" Count="0" />
+      <LineId Id="3968" Count="2" />
+      <LineId Id="3636" Count="4" />
+      <LineId Id="3961" Count="5" />
+      <LineId Id="3960" Count="0" />
+      <LineId Id="3967" Count="0" />
+      <LineId Id="3641" Count="2" />
+      <LineId Id="3651" Count="41" />
+      <LineId Id="3694" Count="0" />
+      <LineId Id="3696" Count="11" />
+      <LineId Id="3948" Count="0" />
+      <LineId Id="3708" Count="0" />
+      <LineId Id="3972" Count="0" />
+      <LineId Id="3971" Count="0" />
+      <LineId Id="3709" Count="7" />
+      <LineId Id="3931" Count="0" />
+      <LineId Id="3719" Count="10" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.Error">
-      <LineId Id="372" Count="15" />
-      <LineId Id="425" Count="0" />
-      <LineId Id="388" Count="1" />
-      <LineId Id="438" Count="0" />
-      <LineId Id="428" Count="0" />
-      <LineId Id="436" Count="0" />
-      <LineId Id="439" Count="0" />
-      <LineId Id="437" Count="0" />
-      <LineId Id="426" Count="0" />
-      <LineId Id="448" Count="3" />
-      <LineId Id="427" Count="0" />
-      <LineId Id="390" Count="1" />
-      <LineId Id="446" Count="0" />
-      <LineId Id="444" Count="0" />
-      <LineId Id="392" Count="1" />
-      <LineId Id="447" Count="0" />
-      <LineId Id="445" Count="0" />
-      <LineId Id="394" Count="3" />
-      <LineId Id="442" Count="0" />
-      <LineId Id="398" Count="3" />
-      <LineId Id="443" Count="0" />
-      <LineId Id="402" Count="22" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="19" Count="1" />
+      <LineId Id="333" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="334" Count="1" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="258" Count="0" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="4" Count="2" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="79" Count="3" />
+      <LineId Id="289" Count="0" />
+      <LineId Id="331" Count="1" />
+      <LineId Id="78" Count="0" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.ErrorsTemperature">
@@ -1788,72 +1578,92 @@ HydraulicsMain(
       <LineId Id="309" Count="0" />
       <LineId Id="306" Count="1" />
       <LineId Id="300" Count="5" />
+      <LineId Id="114" Count="0" />
       <LineId Id="55" Count="6" />
       <LineId Id="150" Count="2" />
       <LineId Id="154" Count="0" />
-      <LineId Id="77" Count="2" />
+      <LineId Id="299" Count="0" />
+      <LineId Id="77" Count="1" />
+      <LineId Id="156" Count="0" />
+      <LineId Id="282" Count="1" />
+      <LineId Id="79" Count="0" />
       <LineId Id="157" Count="0" />
       <LineId Id="147" Count="0" />
+      <LineId Id="185" Count="0" />
       <LineId Id="158" Count="0" />
       <LineId Id="149" Count="0" />
       <LineId Id="258" Count="0" />
-      <LineId Id="261" Count="0" />
+      <LineId Id="260" Count="1" />
       <LineId Id="259" Count="0" />
       <LineId Id="159" Count="0" />
       <LineId Id="143" Count="0" />
+      <LineId Id="142" Count="0" />
       <LineId Id="169" Count="0" />
       <LineId Id="141" Count="0" />
       <LineId Id="144" Count="0" />
+      <LineId Id="146" Count="0" />
       <LineId Id="170" Count="0" />
       <LineId Id="145" Count="0" />
       <LineId Id="71" Count="0" />
-      <LineId Id="310" Count="0" />
+      <LineId Id="160" Count="0" />
+      <LineId Id="163" Count="0" />
       <LineId Id="161" Count="0" />
       <LineId Id="164" Count="0" />
-      <LineId Id="262" Count="0" />
-      <LineId Id="264" Count="1" />
+      <LineId Id="262" Count="3" />
       <LineId Id="166" Count="0" />
-      <LineId Id="173" Count="0" />
+      <LineId Id="172" Count="1" />
       <LineId Id="179" Count="0" />
       <LineId Id="162" Count="0" />
+      <LineId Id="182" Count="0" />
       <LineId Id="199" Count="1" />
-      <LineId Id="266" Count="0" />
-      <LineId Id="268" Count="1" />
+      <LineId Id="266" Count="3" />
       <LineId Id="201" Count="0" />
-      <LineId Id="238" Count="0" />
-      <LineId Id="240" Count="0" />
+      <LineId Id="238" Count="2" />
       <LineId Id="236" Count="0" />
+      <LineId Id="241" Count="0" />
+      <LineId Id="244" Count="0" />
       <LineId Id="196" Count="0" />
       <LineId Id="242" Count="0" />
       <LineId Id="222" Count="0" />
-      <LineId Id="203" Count="0" />
+      <LineId Id="202" Count="1" />
       <LineId Id="228" Count="1" />
-      <LineId Id="270" Count="0" />
-      <LineId Id="272" Count="1" />
-      <LineId Id="230" Count="0" />
-      <LineId Id="232" Count="1" />
+      <LineId Id="270" Count="3" />
+      <LineId Id="230" Count="4" />
       <LineId Id="243" Count="0" />
       <LineId Id="209" Count="1" />
-      <LineId Id="274" Count="0" />
-      <LineId Id="276" Count="1" />
+      <LineId Id="274" Count="3" />
+      <LineId Id="211" Count="0" />
+      <LineId Id="223" Count="0" />
       <LineId Id="250" Count="0" />
       <LineId Id="249" Count="0" />
       <LineId Id="227" Count="0" />
+      <LineId Id="251" Count="0" />
       <LineId Id="245" Count="3" />
+      <LineId Id="284" Count="0" />
+      <LineId Id="218" Count="0" />
       <LineId Id="131" Count="0" />
       <LineId Id="99" Count="0" />
+      <LineId Id="285" Count="0" />
+      <LineId Id="290" Count="0" />
+      <LineId Id="286" Count="0" />
       <LineId Id="106" Count="0" />
       <LineId Id="103" Count="1" />
       <LineId Id="252" Count="2" />
       <LineId Id="256" Count="0" />
+      <LineId Id="255" Count="0" />
       <LineId Id="291" Count="1" />
-      <LineId Id="133" Count="4" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="133" Count="2" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="287" Count="1" />
+      <LineId Id="136" Count="1" />
       <LineId Id="63" Count="0" />
       <LineId Id="80" Count="2" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.M_StartCycle">
       <LineId Id="56" Count="0" />
+      <LineId Id="63" Count="0" />
       <LineId Id="18" Count="0" />
       <LineId Id="36" Count="0" />
       <LineId Id="7" Count="0" />
@@ -1868,7 +1678,11 @@ HydraulicsMain(
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.M_StopCycle">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="60" Count="0" />
       <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.M_StopCycleEmpty">
@@ -1892,28 +1706,25 @@ HydraulicsMain(
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_InMoldDrying.Objects">
-      <LineId Id="262" Count="2" />
+      <LineId Id="262" Count="0" />
+      <LineId Id="404" Count="0" />
+      <LineId Id="264" Count="0" />
       <LineId Id="396" Count="0" />
       <LineId Id="265" Count="2" />
       <LineId Id="375" Count="0" />
-      <LineId Id="269" Count="0" />
-      <LineId Id="416" Count="0" />
-      <LineId Id="270" Count="6" />
+      <LineId Id="269" Count="5" />
+      <LineId Id="406" Count="0" />
+      <LineId Id="276" Count="0" />
       <LineId Id="397" Count="0" />
       <LineId Id="277" Count="2" />
       <LineId Id="376" Count="0" />
-      <LineId Id="281" Count="0" />
-      <LineId Id="417" Count="0" />
-      <LineId Id="282" Count="6" />
+      <LineId Id="281" Count="7" />
       <LineId Id="398" Count="0" />
       <LineId Id="289" Count="1" />
       <LineId Id="395" Count="0" />
       <LineId Id="389" Count="0" />
       <LineId Id="385" Count="2" />
-      <LineId Id="405" Count="1" />
       <LineId Id="400" Count="0" />
-      <LineId Id="414" Count="0" />
-      <LineId Id="420" Count="0" />
       <LineId Id="293" Count="3" />
       <LineId Id="358" Count="0" />
       <LineId Id="297" Count="5" />
@@ -1921,22 +1732,18 @@ HydraulicsMain(
       <LineId Id="303" Count="1" />
       <LineId Id="371" Count="0" />
       <LineId Id="390" Count="3" />
-      <LineId Id="407" Count="1" />
       <LineId Id="402" Count="0" />
-      <LineId Id="415" Count="0" />
-      <LineId Id="421" Count="0" />
       <LineId Id="306" Count="3" />
       <LineId Id="359" Count="0" />
       <LineId Id="310" Count="7" />
-      <LineId Id="319" Count="7" />
+      <LineId Id="319" Count="4" />
+      <LineId Id="378" Count="1" />
+      <LineId Id="324" Count="2" />
       <LineId Id="354" Count="0" />
-      <LineId Id="327" Count="0" />
+      <LineId Id="327" Count="1" />
       <LineId Id="380" Count="2" />
-      <LineId Id="410" Count="0" />
       <LineId Id="370" Count="0" />
-      <LineId Id="329" Count="2" />
-      <LineId Id="411" Count="0" />
-      <LineId Id="332" Count="4" />
+      <LineId Id="329" Count="7" />
       <LineId Id="394" Count="0" />
       <LineId Id="337" Count="0" />
       <LineId Id="363" Count="0" />

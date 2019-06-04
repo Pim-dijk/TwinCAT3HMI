@@ -63,6 +63,12 @@
       "url": "UserControls/IOField.usercontrol"
     },
     {
+      "url": "UserControls/IOField_Direct.usercontrol"
+    },
+    {
+      "url": "UserControls/IOField_Final.usercontrol"
+    },
+    {
       "url": "UserControls/Kremer_AlarmLight.usercontrol"
     },
     {
@@ -70,6 +76,9 @@
     },
     {
       "url": "UserControls/Kremer_Calculator.usercontrol"
+    },
+    {
+      "url": "UserControls/Kremer_Calculator_Direct.usercontrol"
     },
     {
       "url": "UserControls/Kremer_CleanScreen.usercontrol"
@@ -90,7 +99,7 @@
       "url": "UserControls/Kremer_PopupMessage.usercontrol"
     },
     {
-      "url": "UserControls/Kremer_StateText.usercontrol"
+      "url": "UserControls/Kremer_Treeview.usercontrol"
     },
     {
       "url": "UserControls/Kremer_UserManagement.usercontrol"
@@ -106,12 +115,21 @@
     },
     {
       "url": "UserControls/ucDateTime.usercontrol"
-    },
-    {
-      "url": "UserControls/UserGroups.usercontrol"
     }
   ],
   "content": [
+    {
+      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Manual.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Overview.content",
+      "preload": false
+    },
+    {
+      "url": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Settings.content",
+      "preload": false
+    },
     {
       "url": "Content/SubContent/MachineParts/DryingMold/Detail_Bot/DryingMoldDetails_Bottom.content",
       "preload": false
@@ -126,18 +144,6 @@
     },
     {
       "url": "Content/SubContent/MachineParts/DryingMold/DryingMold Overview.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold_Manual.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold_Settings.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/DryingMold/DryingMold_Settings2.content",
       "preload": false
     },
     {
@@ -178,18 +184,6 @@
     },
     {
       "url": "Content/SubContent/MachineParts/ProductForming/ProductForming_Overview.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/SpeedControl/SpeedControl_Manual.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/SpeedControl/SpeedControl_Overview.content",
-      "preload": false
-    },
-    {
-      "url": "Content/SubContent/MachineParts/SpeedControl/SpeedControl_Settings.content",
       "preload": false
     },
     {
@@ -289,6 +283,10 @@
       "preload": false
     },
     {
+      "url": "Content/subFolder/SubfolderScreen.content",
+      "preload": false
+    },
+    {
       "url": "Content/Alarms.content",
       "preload": false
     },
@@ -309,10 +307,6 @@
       "preload": false
     },
     {
-      "url": "Content/Settings.content",
-      "preload": false
-    },
-    {
       "url": "Content/TestAllTheThingsHere.content",
       "preload": false
     },
@@ -328,6 +322,9 @@
     }
   ],
   "userFunctions": [
+    {
+      "url": "Scripts/ConvertTimeToInt.js"
+    },
     {
       "url": "Scripts/GetNameFromSymbol.js"
     },
@@ -359,6 +356,9 @@
       "url": "Scripts/Conversion/Convert32bitIntToBinary.js"
     },
     {
+      "url": "Scripts/ToDateTimeStringFunction.js"
+    },
+    {
       "url": "Scripts/ConvertAlarmWordsToDataGrid.js"
     },
     {
@@ -371,13 +371,25 @@
       "url": "Scripts/UpdateAlarmDBForAlarmWord.js"
     },
     {
+      "url": "Scripts/BooleanToEnum.js"
+    },
+    {
       "url": "Scripts/InsertParamToSymbolString.js"
     },
     {
-      "url": "Scripts/WriteToSymbol_TIME.js"
+      "url": "Scripts/CreateBindingPIDControllerSettings.js"
     },
     {
-      "url": "Scripts/GetStatusText.js"
+      "url": "Scripts/CreateDryingMoldButtonBinding.js"
+    },
+    {
+      "url": "Scripts/CreateGantryBinding.js"
+    },
+    {
+      "url": "Scripts/CreateDynamicBinding.js"
+    },
+    {
+      "url": "Scripts/WriteToSymbol_TIME.js"
     }
   ],
   "symbols": {
@@ -697,18 +709,6 @@
       "TempTargetIDString": {
         "value": "undefined",
         "type": "tchmi:general#/definitions/String",
-        "persist": false,
-        "readonly": false
-      },
-      "_pageParameters": {
-        "value": "",
-        "type": "tchmi:general#/definitions/String",
-        "persist": false,
-        "readonly": false
-      },
-      "StateMessageList": {
-        "value": "{\r\n  \"en-US\": {\r\n    \"0\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"unused step\",\r\n      \"2\": \"Initialise Tranfermold and machinepond\",\r\n      \"3\": \"Initialise Topmold A\",\r\n      \"4\": \"Initialise Bottomold A\",\r\n      \"5\": \"Initalise Topmold B\",\r\n      \"6\": \"Initialise Bottommold B\",\r\n      \"7\": \"Initialised\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopping sub parts\",\r\n      \"11\": \"Stopped initialising\"\r\n    },\r\n    \"1\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move to rest position\",\r\n      \"2\": \"Initialised\"\r\n    },\r\n    \"2\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move pond down to rest position\",\r\n      \"2\": \"Move spraybar to rest position\",\r\n      \"3\": \"spare\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"3\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move to rest position\",\r\n      \"2\": \"Initialised\",\r\n      \"3\": \"spare\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"4\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move vertical cylinder down\",\r\n      \"2\": \"Move Bottommold out\",\r\n      \"3\": \"Move horizontal cylinder in\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"5\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move to rest position\",\r\n      \"2\": \"Initialised\",\r\n      \"3\": \"spare\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"6\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move vertical cylinder down\",\r\n      \"2\": \"Move Bottommold out\",\r\n      \"3\": \"Move horizontal cylinder in\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"7\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Start init of both gantries\",\r\n      \"2\": \"Await both gantries \",\r\n      \"3\": \"spare\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"8\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move vertical up\",\r\n      \"2\": \"Move to horizontal rest position\",\r\n      \"3\": \"Move vertical down (Pick up Position)\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    },\r\n    \"9\": {\r\n      \"0\": \"Wait for initialisation start\",\r\n      \"1\": \"Move vertical up\",\r\n      \"2\": \"Move to horizontal rest position\",\r\n      \"3\": \"Move vertical down (Pick up Position)\",\r\n      \"4\": \"spare\",\r\n      \"5\": \"spare\",\r\n      \"6\": \"spare\",\r\n      \"7\": \"spare\",\r\n      \"8\": \"spare\",\r\n      \"9\": \"spare\",\r\n      \"10\": \"Stopped initalising\"\r\n    }\r\n  },\r\n  \"nl-NL\": {\r\n    \"0\": {\r\n      \"0\": \"Status onbekend\",\r\n      \"1\": \"Fout aanwezig\",\r\n      \"2\": \"Geen produkt data geladen\",\r\n      \"3\": \"Niet in Automatische Mode\",\r\n      \"4\": \"Machine niet geinitialiseerd\",\r\n      \"5\": \"Bezig met initialiseren\",\r\n      \"6\": \"Gereed voor start\",\r\n      \"7\": \"In produktie (Stapel modus), Printer niet gereed\",\r\n      \"8\": \"In produktie (Stapel modus), Inline gereed voor start\",\r\n      \"9\": \"In produktie (Stapel modus en Standalone modus)\",\r\n      \"10\": \"In produktie (Inline modus, zipping)\",\r\n      \"11\": \"Pers niet in bedrijf\",\r\n      \"12\": \"Printer niet gereed\",\r\n      \"13\": \"Standalone modus, stacking niet gereed voor start\",\r\n      \"14\": \"In produktie (Standalone modus), stacking gereed voor start\",\r\n      \"15\": \"Alleen bundel uitvoer is gestart\"\r\n    },\r\n    \"1\": {\r\n      \"0\": \"Niet Geinitialiseerd\",\r\n      \"1\": \"Bezig\",\r\n      \"2\": \"Geinitialiseerd\"\r\n    },\r\n    \"2\": {\r\n      \"0\": \"Wacht op Aanvraag\",\r\n      \"1\": \"Invoeren\",\r\n      \"2\": \"Uitvoeren\",\r\n      \"3\": \"Re-Organiseren\"\r\n    },\r\n    \"3\": {\r\n      \"0\": \"Gereed\",\r\n      \"1\": \"In Bedrijf\",\r\n      \"2\": \"Gestopt\",\r\n      \"3\": \"Fout\",\r\n      \"4\": \"Noodstop\"\r\n    },\r\n    \"4\": {\r\n      \"0\": \"Gereed (Inline)\",\r\n      \"1\": \"In Bedrijf (Inline)\",\r\n      \"2\": \"Gestopt (Inline)\",\r\n      \"3\": \"Gereed (Offline)\",\r\n      \"4\": \"In Bedrijf (Offline)\",\r\n      \"5\": \"Gestopt (Offlline)\",\r\n      \"6\": \"Fout\",\r\n      \"7\": \"Noodstop\"\r\n    }\r\n  }\r\n}",
-        "type": "tchmi:general#/definitions/Object",
         "persist": false,
         "readonly": false
       }

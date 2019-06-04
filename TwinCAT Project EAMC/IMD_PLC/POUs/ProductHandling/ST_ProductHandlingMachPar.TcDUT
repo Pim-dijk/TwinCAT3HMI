@@ -5,6 +5,7 @@
 STRUCT
 	GantryA						: ST_GantryMachPar;
 	GantryB						: ST_GantryMachPar;
+	OutfeedConveyor				: ST_OutfeedConveyorMachPar;
 	CommisioningMode 			: BOOL	:= FALSE;
 END_STRUCT
 END_TYPE

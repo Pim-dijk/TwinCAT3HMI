@@ -9,9 +9,6 @@
 
 (function (TcHmi) {
 
-    // Target : The target control to display the alarm messages
-    // AlarmDB : The object in which the alarm messages are stored
-    // AlarmMessageList : List of all alarm messages with their translations
     var ConvertAlarmDBToDataGrid = function (Target,AlarmDB,AlarmMessageList) {
         console.log('Converting the alarmDB to datagrid');
 
@@ -21,7 +18,7 @@
 
         // Target to send the data to
         var target = TcHmi.Controls.get(Target);
-
+        //console.log(target);
         // Get the locale information
         var timeZone = TcHmi.Locale.get();
         // The Array that holds the alarms
@@ -29,9 +26,10 @@
         // Locally stored alarms
         var alarmDB = {};
         alarmDB = AlarmDB;
-
+        //console.log(alarmDB);
         // List of alarm messages
         var alarmStrings = AlarmMessageList;
+        //console.log(alarmStrings);
 
         // foreach registered alarm, convert the time and message to the set locale
         $.each(alarmDB, function (key, value) {

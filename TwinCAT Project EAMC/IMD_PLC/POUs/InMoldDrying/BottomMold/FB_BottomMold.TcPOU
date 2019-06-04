@@ -1,36 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
-  <POU Name="FB_BottomMold" Id="{ccbf8089-291c-4aab-94f9-a44bd213a368}" SpecialFunc="None">
+  <POU Name="FB_BottomMold" Id="{83d79438-62bd-4b64-be74-cc7c6a3e372c}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_BottomMold
 VAR CONSTANT
-	sCycleStateTextDef: ARRAY[0..30]  OF STRING :=	
+	sCycleStateTextDef: ARRAY[0..10]  OF STRING :=	
 		['State 0: Wait for Start',
 		'State 1: Wait for transfer / drying ready to move in',
 		'State 2: Move bottom mold in',
 		'State 3: Move take out vertical up',
 		'State 4: Move take out vertical down',
 		'State 5: Wait for transfer is down, and vacuum on',
-		'State 6: Move out, Move take out unit to out position',
-		'State 7: Wait for product is picked up by gantry',
-		'State 8: Move take out unit in',
-		'State 9: Spare',
-		'State 10: Spare',
-		'State 11: Spare',
-		'State 12: Spare',
-		'State 13: Spare',
-		'State 14: Spare',
-		'State 15: Spare',
-		'State 16: Spare',
-		'State 17: Spare',
-		'State 18: Spare',
-		'State 19: Spare',
-		'State 20: [Paused] wait for start',
-		'State 21: Spare',
-		'State 22: Spare',
-		'State 23: Spare',
-		'State 24: Spare',
-		'State 25: StopDirect',
-		'State 26: Error'];
+		'State 6: Wait for transfer is up and ready',
+		'State 7: Move bottommold out, take out horizontal in',
+		'State 8: Awaiting finnished product picked up by Gantry',
+		'State 9: Move take out in',
+		'State 10: Error'];
 	
 	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
 		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
@@ -64,7 +48,7 @@ VAR_INPUT
 	mxAutoMode						: BOOL; (* TRUE = Automode *)
 	mxEmptyMachine					: BOOL;
 	mxEnableHeating					: BOOL;
-
+	
 
 
 	mxGantryPickedUpProduct			: BOOL;
@@ -76,7 +60,6 @@ VAR_INPUT
 	ContinueWithB					: BOOL;
 
 	mxProductReadyForGantry			: BOOL; (* Signal to gantry, take out product *)
-
 
 	mxVacuumOn						: BOOL;
 	mxProductOnTopMold				: BOOL;
@@ -90,13 +73,6 @@ VAR_INPUT
 	SgBottomIsIn					: BOOL; (* Signal to transfer *)
 	SgBottomIsOut					: BOOL; (* Signal to TopMold, move down to dry *)
 	SgMoldsAreClosed				: BOOL; (* Signal that indicates that the topmold is closed on the bottommold.*)
-	sgEmptying						: BOOL; // machine is emptying.
-	sgSample						: BOOL; // Block vacuum when bottommold goes in (Sample has been taken out).
-	
-	SgElapsedDryingTime				: TIME;
-	SgTotalDryingTime				: TIME;
-	
-	sgTopmoldBlowOffReady			: BOOl; (*Signal from the topmold, the takeout may depart.*)
 END_VAR
 VAR_IN_OUT
 	MachParameters					: ST_BottomMoldMachPar;
@@ -119,7 +95,6 @@ VAR_OUTPUT
 		
 	mxProductReadyAtTakeOut			: BOOL; (* Signal to gantry, take out product *)
 	mxTakeoutIsMovingUp				: BOOL;
-	sgTakeOutUnitDown				: BOOL;
 	
 	mxCilIsMovingIn					: BOOL;
 	mxCilIsMovingOut				: BOOL;
@@ -174,11 +149,10 @@ VAR
 	
 
 	Vacuum							: FB_MonoValveNoFdbck;	(* IMD-V *)		
-	BlowOff							: FB_MonoValveNoFdBck;
 	
 (* Vars *)
 	T_TakeOutTime					: TON;
-	T_VacSectionDelay				: ARRAY [1..6] OF TON;
+	T_VacSectionDelay				: ARRAY [1..GVL.MaxNrOfVacSectTakeOutUnit] OF TON;
 	SR_ErrorNoVacAtSection			: ARRAY [1..GVL.MaxNrOfVacSectTakeOutUnit] OF SR;
 	mxSwitchVacuumOn				: BOOL;
 	miVacSection					: INT;
@@ -197,12 +171,6 @@ VAR
 	mxHMI_MoveToGreasingPos: BOOL;
 	T_VacuumBottomMoldClosed: TON;
 	RT_VacuumBottomMoldClosed: R_TRIG;
-	mxInPause: BOOL;
-	RT_BlowOff: R_TRIG;
-	T_BlowoffTime: TON;
-	T_KickOffs: TON;
-	NrOfKickoffs: REAL;
-	mxResetBotStroke: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -216,23 +184,15 @@ ActualPosition := LREAL_TO_REAL(HorizontalAxis.ActPosition);
 mxCilIsIn := ((ActualPosition < (MachParameters.PositionInStop + 1)) AND (ActualPosition > (MachParameters.PositionInStop - 1))); 
 mxCilIsOut := ((ActualPosition < (MachParameters.PositionOutStop + 1)) AND (ActualPosition > (MachParameters.PositionOutStop - 1))); 
 
-mxCilIsMovingIn := HorizontalAxis.mxAxisIsMoving AND HorizontalAxis.axAxis.Status.NegativeDirection;
-mxCilIsMovingOut := HorizontalAxis.mxAxisIsMoving AND HorizontalAxis.axAxis.Status.PositiveDirection;
-
 // Move to Greasing Position
 IF mxHMI_MoveToGreasingPos AND NOT mxCycleBusy AND NOT mxAutoMode THEN
 	IF HorizontalAxis.M_MoveAbsolute(MachParameters.GreasingVelocity, MachParameters.GreasingPosition) THEN
 		mxHMI_MoveToGreasingPos := FALSE;
 	END_IF	
 END_IF
-
-IF mxResetBotStroke THEN
-	mxResetBotStroke := FALSE;
-	MachParameters.KickOffCounter :=0;
-END_IF
 ]]></ST>
     </Implementation>
-    <Action Name="Cycle" Id="{ae3b5cab-4c78-4bb0-8feb-8ce871150b54}">
+    <Action Name="Cycle" Id="{9bde8544-099a-42ca-877b-653e4032dada}">
       <Implementation>
         <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
 mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
@@ -268,22 +228,20 @@ IF mxResetCycleState THEN
 	SgBottomIsOut := FALSE;
 	sgMoveIn := FALSE;
 	sgMoveOut := FALSE;
-	sgTakeOutUnitDown := FALSE;
 	mxEmptyMachine := FALSE;
+	
+	
 	mxProductOnTopMold:= FALSE;
+	
 	T_VCilinderMoveIn.IN :=FALSE;
 	HorizontalAxis.M_Stop();
-	T_BlowOffTime.IN:=FALSE;
-	BlowOff.M_Off();
-	NrOfKickoffs := 0;
-	T_KickOffs.IN := FALSE;
 	
+	//HydraulicCilinder.M_Stop();
 END_IF
 
 (*Definition State has Error*)
 mxCycleHasError:=FALSE;
 
-T_KickOffs(IN:=, PT:=T#600S);
 T_TakeOutTime(IN:=, PT:= MachParameters.VerticalCilinderTakeOutTime);
 T_VCilinderMoveOut(IN:=, PT:= T#3S);
 T_VCilinderMoveIn(IN:=, PT:=MachParameters.VerticalCilinderUpDelay);
@@ -301,7 +259,7 @@ IF T_VacuumBottomMoldClosed.Q THEN
 	Vacuum.M_Off();
 END_IF
 
-//Gantry picked up product from the Takeout unit 
+(* Gantry picked up product from the Takeout unit *) 
 RT_GantryPickedUpProduct(CLK:= mxGantryPickedUpProduct);
 
 IF mxSwitchVacuumOn AND mxAutoMode THEN
@@ -318,41 +276,38 @@ IF FT_SwitchVacuumOff.Q AND mxAutoMode THEN
 	IF MachParameters.EnableVacuumSection[4] THEN VacuumTakeout[4].M_Off(); END_IF
 END_IF
 
-IF (miCycleState >= 3 AND miCycleState <= 5) AND NOT sgSample THEN	
+IF (miCycleState >= 3 AND miCycleState <= 5) THEN	
 		IF (ContinueWithA AND (ActualPositionTransfermold < (TransferPosA + MachParameters.StartVacAtTrPosOffset))) OR // At an ofset of transfermold pos
 		 (ContinueWithB AND (ActualPositionTransfermold < (TransferPosB + MachParameters.StartVacAtTrPosOffset))) THEN	// Open the vacuum valve.
 			Vacuum.M_On();
 		END_IF
 END_IF
 
-RT_BlowOff(CLK:=SgElapsedDryingTime > (SgTotalDryingTime - MachParameters.OffsetStartBlowOff));
-T_BlowoffTime(IN:=, PT:=MachParameters.BlowOffTime);
-
-
-IF RT_BlowOff.Q THEN
-	T_BlowoffTime.IN:=TRUE;
-	BlowOff.M_On();
-END_IF
-
-IF T_BlowoffTime.Q THEN
-	T_BlowOffTime.IN:=FALSE;
-	BlowOff.M_Off();
-END_IF
-
 (*Cycle State's*)
 CASE miCycleState OF
+{region "Description"}
+	(*
+		-Wait for move in signal from transfermold
+		-Move in
+		-Als product aan topmold, takeout unit up, vacuum aan, blow off topmold aan
+		-wacht op transfer is down
+		-vacuum aan
+		-wacht op transfer is up
+		-move Out
+		-Set signal ready for takeout gantry
+		-Set signal move topmold down
+		-wait for Top mold is Up after drying
+		-goto 1
+	*)
+{endregion}
 
-	0:  // (P)  Wait for start 
-		IF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 20;
-		ELSIF mxStartCycle THEN
+	0:
+	IF mxStartCycle THEN
 			mxStartCycle:= FALSE;
 			miCycleState:= 1;
-		END_IF	
+	END_IF	
 
-	1:  // (P)  Wait for transfer/Drying ready to move in 
+	1: // Wait for transfer/Drying ready to move in *)
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
 			miCycleState:= 25;
@@ -368,52 +323,62 @@ CASE miCycleState OF
 			SgMoveIn:= FALSE;
 			SgBottomIsOut:= FALSE;
 			
-			T_KickOffs.IN := TRUE;
 			miCycleState:= 2;
 		END_IF
 
-	2:	// (NP) Move IN
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 25;
-		ELSIF HorizontalAxis.M_MoveAbsolute(MachParameters.AxisVelocityAuto, MachParameters.PositionInStop) AND HorizontalCilinder.M_In() THEN
-			SgBottomIsIn:= TRUE;
-			SgBottomIsOut := FALSE;
-			MachParameters.KickOffCounter := MachParameters.KickOffCounter +1;
-			miCycleState:=3;
-		END_IF
-
-	3:	// (P) Move Take out vertical Up (bateu: changed NP to P -> 20190408)
+	2:	// Move IN
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
 			miCycleState:= 25;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
-			mxSwitchVacuumOn:= FALSE;		// Close vacuum valve if it was opened allready	
-			Vacuum.M_Off();					// Close vacuum of bottommold (starts at top off cycle).
 			miCycleState:= 20;
-		ELSIF mxProductOnTopMold THEN									// check if there is a product				
-			IF (VerticalCilinder.M_In_Pressure()) THEN //OR T_VCilinderMoveIn.Q) THEN	// if there is a product, Get it with the cylinder. //MZE 20190404 Replaced method M_In				
+		ELSIF HorizontalAxis.M_MoveAbsolute(MachParameters.AxisVelocityAuto, MachParameters.PositionInStop) AND HorizontalCilinder.M_In() THEN
+			SgBottomIsIn:= TRUE;
+			SgBottomIsOut := FALSE;
+			MachParameters.KickOffCounter := MachParameters.KickOffCounter +1;
+			
+			miCycleState:=3;
+		END_IF
+
+	3:	// Move Take out vertical Up
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF mxProductOnTopMold THEN									// check if there is a product
+			T_VCilinderMoveIn.IN :=TRUE;
+								
+			IF (VerticalCilinder.M_In() OR T_VCilinderMoveIn.Q) THEN	// if there is a product, Get it with the cylinder.				
 				mxTakeoutIsMovingUp:= TRUE;								// when cilinder is up signal topmold to start blowoff
+
 				mxSwitchVacuumOn:= TRUE;
-				IF sgTopmoldBlowOffReady THEN
-					miCycleState:= 4;
-				END_IF
+				T_VCilinderMoveIn.IN :=FALSE;
+				
+				miCycleState:= 4;
 			END_IF
 		ELSE 
 			miCycleState:= 5;
 		END_IF
 
-	4:	// (NP) Move take out vertical down 	
+
+	4:	// Move take out vertical down 	
 		T_TakeOutTime.IN:= TRUE;
-		mxTakeoutIsMovingUp:= FALSE;		
+		mxTakeoutIsMovingUp:= FALSE;
+		
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;		
 			miCycleState:= 25;
-		ELSIF TRUE THEN		
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF T_TakeOutTime.Q  THEN
 			IF VerticalCilinder.M_Out() THEN
-				sgTakeOutUnitDown := TRUE;
 				T_TakeOutTime.IN:= FALSE;
 				IF NOT mxEmptyMachine THEN
 					miCycleState:= 5;
@@ -423,34 +388,33 @@ CASE miCycleState OF
 			END_IF
 		END_IF		
 
-	5:  // (P)  Wait for transfer is down, vacuum on
+	
+	5: // Wait for transfer is down, vacuum on 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
 			miCycleState:= 25;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
-			Vacuum.M_Off(); 	// gets restarted above cycle.
 			miCycleState:= 20;
 		ELSIF sgMoveOut THEN	// When the closed wait time has elapsed and tranfer is up.
 			sgMoveOut:= FALSE;
 			miCycleState:= 6;
 		END_IF
 		
-	6:  // (NP) Move OUT, takeout horizontal out
+	6: // Move OUT, takeout horizontal out
 		IF HorizontalAxis.ActPosition > (MachParameters.PositionOutStop - MachParameters.StopVacAtBmPosOffset) THEN
 			Vacuum.M_Off();
 		END_IF
-		
-		IF HorizontalAxis.ActPosition > (MachParameters.PositionOutStop - MachParameters.StartVacBeforeDryingAtBmPosOffset) AND NOT sgSample AND NOT sgEmptying THEN
-			Vacuum.M_On();
-		END_IF
-		
+	
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;	
 			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;	
+			miStopState:= miCycleState;
+			miCycleState:= 20;
 		ELSIF HorizontalAxis.M_MoveAbsolute(MachParameters.AxisVelocityAuto,MachParameters.PositionOutStop) AND HorizontalCilinder.M_Out() THEN
-			sgTakeOutUnitDown := FALSE;
 			SgBottomIsOut:= TRUE;
 			SgBottomIsIn:= FALSE;
 			mxSwitchVacuumOn:= FALSE;
@@ -459,49 +423,49 @@ CASE miCycleState OF
 			miCycleState:= 7;
 		END_IF
 
-	7:	// (P)  Wait for product is picked up by gantry	
+	7:	// Wait for product is picked up by gantry	
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
 			miCycleState:= 25;
 		ELSIF mxStopCycle THEN
 			mxStopCycle:= FALSE;
 			miStopState:= miCycleState;
-			mxProductReadyAtTakeOut:=FALSE; // Set this false because gantry expects a pulse.
 			miCycleState:= 20;
 		ELSIF (mxProductOnTopMold AND RT_GantryPickedUpProduct.Q) OR NOT mxProductOnTopMold THEN
 			mxProductReadyAtTakeOut := FALSE; // -> stop signaling the gantry that there is a product ready to take
 			mxProductOnTopMold:= FALSE;
 			mxGantryPickedUpProduct:= FALSE;
-			miCycleState:= 8;
+		
+			miCycleState:= 9;
 		END_IF
 
-	8: 	// (NP) Move Takeout IN 
+	9: 	// Move Takeout IN 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;		
 			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
 		ELSIF HorizontalCilinder.M_In() THEN
-			NrOfKickoffs := TIME_TO_REAL(T_KickOffs.ET);	// Calculate the time this run took.
-			T_KickOffs.IN := FALSE;	
-			
 			miCycleState:= 1;
 		END_IF
 
-	20:	// Pause state
-		NrOfKickoffs := 0;
-		T_KickOffs.IN := FALSE;
-	
-		
-		
+	20: // Stop Cycle, 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 25;
+		ELSIF TRUE THEN		
+			miCycleState:= 21;
+		END_IF
+
+	21:	// Stop Cycle 
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
 			miCycleState:= 25;
 		ELSIF mxStartCycle THEN
-			IF miStopState = 7 AND mxProductOnTopMold THEN
-				mxProductReadyAtTakeOut := mxProductOnTopMold; // resignal gantry to get product from takeout unit.
-			END_IF
-
 			mxStartCycle:= FALSE;
-			miCycleState:= miStopState;			
+			miCycleState:= miStopState;
 		END_IF
 
 	25: // Stop Direct 
@@ -517,43 +481,28 @@ CASE miCycleState OF
 		SgBottomIsOut := FALSE;
 		sgMoveIn := FALSE;
 		sgMoveOut := FALSE;
-		sgTakeOutUnitDown := FALSE;
-		
-		HorizontalAxis.M_Stop();
 		
 		Vacuum.M_Off();
-		T_BlowOffTime.IN:=FALSE;
-		BlowOff.M_Off();
-	
-		NrOfKickoffs := 0;
-		T_KickOffs.IN := FALSE;		
-
+		
 		miCycleState:= 0;
 END_CASE
 
-mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=20);
-mxInPause:=miCycleState=20;]]></ST>
+mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=21);]]></ST>
       </Implementation>
     </Action>
-    <Action Name="Error" Id="{c4df5ba1-9a66-4098-86d4-b90ed497cf90}">
+    <Action Name="Error" Id="{9c0c3edd-6c0d-4116-8673-34930311d263}">
       <Implementation>
-        <ST><![CDATA[T_VacSectionDelay[1](PT:= T#3S);
-T_VacSectionDelay[2](PT:= T#3S);
-T_VacSectionDelay[3](PT:= T#3S);
-T_VacSectionDelay[4](PT:= T#3S);
-T_VacSectionDelay[5](PT:= T#3S);
-T_VacSectionDelay[6](PT:= T#3S);
-
+        <ST><![CDATA[
 FOR miVacSection:= 1 TO GVL.MaxNrOfVacSectTakeOutUnit DO
-	T_VacSectionDelay[miVacSection].IN:= VacuumTakeout[miVacSection].mxIsOn;
+	T_VacSectionDelay[miVacSection](IN:= VacuumTakeout[miVacSection].mxIsOn, PT:= T#3S);
 	SR_ErrorNoVacAtSection[miVacSection](SET1:= MachParameters.EnableVacuumSection[miVacSection] AND VacuumTakeout[miVacSection].mxIsOn AND 
 	(T_VacSectionDelay[miVacSection].Q AND NOT VacuumSensor[miVacSection]), 
 	RESET:= mxReset, Q1=> Errors.VacuumSection[miVacSection]);
 END_FOR
 
 (*************************************************************************************************)
-mxErrorStopinPos:= FALSE;
-mxErrorInit:=HorizontalAxis.ErrorStop OR HorizontalCilinder.mxErrorInit  OR VerticalCilinder.mxErrorInit 
+mxErrorStopinPos:= HorizontalCilinder.mxErrorStopInPos OR VerticalCilinder.mxErrorStopInPos;
+mxErrorInit:=HorizontalAxis.ErrorStop OR HorizontalCilinder.mxErrorInit  OR VerticalCilinder.mxErrorInit
 			OR HeatingZone[1].mxErrorInit
 			OR HeatingZone[2].mxErrorInit
 			OR HeatingZone[3].mxErrorInit
@@ -563,7 +512,7 @@ mxErrorInit:=HorizontalAxis.ErrorStop OR HorizontalCilinder.mxErrorInit  OR Vert
 ]]></ST>
       </Implementation>
     </Action>
-    <Action Name="Init" Id="{be5348c5-1e7b-4d14-8a83-11a73630b247}">
+    <Action Name="Init" Id="{dad2a1bc-4c03-4793-b42c-4b45e6bcb586}">
       <Implementation>
         <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
 mxInitTransitionState:=(miInitState<>miInitOldstate);
@@ -656,7 +605,7 @@ END_CASE
 mxInitBusy:= miInitState<>0;]]></ST>
       </Implementation>
     </Action>
-    <Method Name="M_EmptyMachine" Id="{8d25f409-41f7-42e5-a22e-e7a7df432e5b}">
+    <Method Name="M_EmptyMachine" Id="{ed7ede44-0bd1-4007-a455-dc787b16f319}">
       <Declaration><![CDATA[METHOD M_EmptyMachine
 ]]></Declaration>
       <Implementation>
@@ -667,7 +616,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StartCycle" Id="{e67aad85-0604-47f1-ba47-55fa411ac9d5}">
+    <Method Name="M_StartCycle" Id="{dc7b889c-8196-4b2a-ba8f-b94a8c679642}">
       <Declaration><![CDATA[METHOD M_StartCycle
 ]]></Declaration>
       <Implementation>
@@ -679,7 +628,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StartInit" Id="{b1603155-5875-4637-b9e7-7322b22e5028}">
+    <Method Name="M_StartInit" Id="{f3a57e7f-9e62-496a-9965-981474c05fb5}">
       <Declaration><![CDATA[METHOD M_StartInit
 ]]></Declaration>
       <Implementation>
@@ -690,14 +639,18 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopCycle" Id="{67078015-fce2-453c-bc24-705d492a5fa1}">
+    <Method Name="M_StopCycle" Id="{d28f5d89-1001-4bb5-bf7d-95847fc2a56c}">
       <Declaration><![CDATA[METHOD M_StopCycle
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[mxStopCycle:= TRUE; ]]></ST>
+        <ST><![CDATA[
+IF mxCycleBusy THEN 
+	mxStopCycle:= TRUE; 
+END_IF
+]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopDirect" Id="{3637dbb7-e0c0-400a-9a56-9c236c7a25f9}">
+    <Method Name="M_StopDirect" Id="{f866f0f1-61be-469c-b7b5-23aa88dc1ed5}">
       <Declaration><![CDATA[METHOD M_StopDirect
 ]]></Declaration>
       <Implementation>
@@ -708,7 +661,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="M_StopInit" Id="{bddf29e3-2749-41e5-a185-d5ddaa20a853}">
+    <Method Name="M_StopInit" Id="{51e15017-bf0e-44af-8de7-09c273cd1c96}">
       <Declaration><![CDATA[METHOD M_StopInit
 ]]></Declaration>
       <Implementation>
@@ -719,7 +672,7 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Action Name="Objects" Id="{3dbdf37a-b6ab-487d-9bfd-5659ada96c89}">
+    <Action Name="Objects" Id="{8b0d2690-9953-47a7-9b3d-0e1417f2ef05}">
       <Implementation>
         <ST><![CDATA[HorizontalAxis(
 	mxEnable:= NOT mxEmergency OR NOT mxDoorsOpened, 
@@ -805,48 +758,48 @@ VerticalCilinder(
 
 HeatingZone[1](
 	mxReset:= mxReset,
-	mxEmergency:=mxEmergency OR mxDoorsOpened,
-	mxDoorsOpened:=FALSE,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
 	mxEnableHeating:=mxEnableHeating,
 	MachParameters:=MachParameters.HeatingZone[1],
 	Errors=> Errors.HeatingZone[1]);
 
 HeatingZone[2](
 	mxReset:= mxReset,
-	mxEmergency:=mxEmergency OR mxDoorsOpened,
-	mxDoorsOpened:=FALSE,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
 	mxEnableHeating:=mxEnableHeating,
 	MachParameters:=MachParameters.HeatingZone[2],
 	Errors=> Errors.HeatingZone[2]);
 
 HeatingZone[3](
 	mxReset:= mxReset,
-	mxEmergency:=mxEmergency OR mxDoorsOpened,
-	mxDoorsOpened:=FALSE,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
 	mxEnableHeating:=mxEnableHeating,
 	MachParameters:=MachParameters.HeatingZone[3],
 	Errors=> Errors.HeatingZone[3]);
 
 HeatingZone[4](
 	mxReset:= mxReset,
-	mxEmergency:=mxEmergency OR mxDoorsOpened,
-	mxDoorsOpened:=FALSE,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
 	mxEnableHeating:=mxEnableHeating,
 	MachParameters:=MachParameters.HeatingZone[4],
 	Errors=> Errors.HeatingZone[4]);
 
 HeatingZone[5](
 	mxReset:= mxReset,
-	mxEmergency:=mxEmergency OR mxDoorsOpened,
-	mxDoorsOpened:=FALSE,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
 	mxEnableHeating:=mxEnableHeating,
 	MachParameters:=MachParameters.HeatingZone[5],
 	Errors=> Errors.HeatingZone[5]);
 
 HeatingZone[6](
 	mxReset:= mxReset,
-	mxEmergency:=mxEmergency OR mxDoorsOpened,
-	mxDoorsOpened:=FALSE,
+	mxEmergency:=mxEmergency,
+	mxDoorsOpened:=mxDoorsOpened,
 	mxEnableHeating:=mxEnableHeating,
 	MachParameters:=MachParameters.HeatingZone[6],
 	Errors=> Errors.HeatingZone[6]);]]></ST>
@@ -858,59 +811,134 @@ HeatingZone[6](
       <LineId Id="437" Count="1" />
       <LineId Id="440" Count="0" />
       <LineId Id="112" Count="0" />
-      <LineId Id="787" Count="0" />
-      <LineId Id="789" Count="0" />
-      <LineId Id="788" Count="0" />
       <LineId Id="606" Count="1" />
       <LineId Id="611" Count="0" />
       <LineId Id="614" Count="1" />
       <LineId Id="612" Count="0" />
-      <LineId Id="992" Count="2" />
-      <LineId Id="997" Count="0" />
-      <LineId Id="995" Count="0" />
       <LineId Id="608" Count="0" />
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_BottomMold.Cycle">
-      <LineId Id="1387" Count="32" />
-      <LineId Id="1675" Count="0" />
-      <LineId Id="1420" Count="117" />
-      <LineId Id="1676" Count="0" />
-      <LineId Id="1678" Count="1" />
-      <LineId Id="1683" Count="0" />
-      <LineId Id="1686" Count="0" />
-      <LineId Id="1680" Count="0" />
-      <LineId Id="1538" Count="0" />
-      <LineId Id="1540" Count="2" />
-      <LineId Id="1670" Count="0" />
-      <LineId Id="1544" Count="0" />
-      <LineId Id="1669" Count="0" />
-      <LineId Id="1545" Count="13" />
-      <LineId Id="1671" Count="0" />
-      <LineId Id="1559" Count="14" />
-      <LineId Id="1687" Count="0" />
-      <LineId Id="1574" Count="9" />
-      <LineId Id="1694" Count="0" />
-      <LineId Id="1697" Count="2" />
-      <LineId Id="1695" Count="0" />
-      <LineId Id="1584" Count="4" />
-      <LineId Id="1672" Count="0" />
-      <LineId Id="1589" Count="13" />
-      <LineId Id="1689" Count="0" />
-      <LineId Id="1603" Count="22" />
-      <LineId Id="1681" Count="1" />
-      <LineId Id="1626" Count="3" />
-      <LineId Id="1690" Count="2" />
-      <LineId Id="1630" Count="0" />
-      <LineId Id="1693" Count="0" />
-      <LineId Id="1631" Count="15" />
-      <LineId Id="1674" Count="0" />
-      <LineId Id="1647" Count="14" />
+      <LineId Id="824" Count="34" />
+      <LineId Id="1305" Count="0" />
+      <LineId Id="859" Count="2" />
+      <LineId Id="1211" Count="0" />
+      <LineId Id="1249" Count="0" />
+      <LineId Id="1212" Count="0" />
+      <LineId Id="862" Count="3" />
+      <LineId Id="1358" Count="0" />
+      <LineId Id="867" Count="1" />
+      <LineId Id="1193" Count="0" />
+      <LineId Id="1184" Count="0" />
+      <LineId Id="1321" Count="0" />
+      <LineId Id="1185" Count="0" />
+      <LineId Id="1228" Count="0" />
+      <LineId Id="1347" Count="0" />
+      <LineId Id="1349" Count="0" />
+      <LineId Id="1355" Count="0" />
+      <LineId Id="1350" Count="3" />
+      <LineId Id="1356" Count="0" />
+      <LineId Id="1354" Count="0" />
+      <LineId Id="1324" Count="0" />
+      <LineId Id="869" Count="4" />
+      <LineId Id="1195" Count="0" />
+      <LineId Id="1215" Count="0" />
+      <LineId Id="1217" Count="0" />
+      <LineId Id="1216" Count="0" />
+      <LineId Id="1229" Count="1" />
+      <LineId Id="879" Count="0" />
+      <LineId Id="1218" Count="2" />
+      <LineId Id="882" Count="1" />
+      <LineId Id="1295" Count="0" />
+      <LineId Id="1300" Count="0" />
+      <LineId Id="1302" Count="2" />
+      <LineId Id="1299" Count="0" />
+      <LineId Id="1248" Count="0" />
+      <LineId Id="884" Count="2" />
+      <LineId Id="1256" Count="13" />
+      <LineId Id="1254" Count="1" />
+      <LineId Id="1250" Count="0" />
+      <LineId Id="902" Count="0" />
+      <LineId Id="904" Count="2" />
+      <LineId Id="908" Count="2" />
+      <LineId Id="912" Count="1" />
+      <LineId Id="1314" Count="0" />
+      <LineId Id="914" Count="0" />
+      <LineId Id="916" Count="2" />
+      <LineId Id="920" Count="4" />
+      <LineId Id="1244" Count="0" />
+      <LineId Id="926" Count="1" />
+      <LineId Id="1232" Count="0" />
+      <LineId Id="1289" Count="0" />
+      <LineId Id="931" Count="1" />
+      <LineId Id="934" Count="2" />
+      <LineId Id="938" Count="5" />
+      <LineId Id="1315" Count="0" />
+      <LineId Id="947" Count="2" />
+      <LineId Id="951" Count="0" />
+      <LineId Id="954" Count="1" />
+      <LineId Id="957" Count="2" />
+      <LineId Id="961" Count="2" />
+      <LineId Id="1213" Count="1" />
+      <LineId Id="1210" Count="0" />
+      <LineId Id="966" Count="0" />
+      <LineId Id="1203" Count="1" />
+      <LineId Id="967" Count="14" />
+      <LineId Id="983" Count="2" />
+      <LineId Id="987" Count="4" />
+      <LineId Id="993" Count="3" />
+      <LineId Id="998" Count="7" />
+      <LineId Id="1007" Count="2" />
+      <LineId Id="1011" Count="2" />
+      <LineId Id="1281" Count="2" />
+      <LineId Id="1038" Count="0" />
+      <LineId Id="1040" Count="0" />
+      <LineId Id="1285" Count="0" />
+      <LineId Id="1287" Count="1" />
+      <LineId Id="1286" Count="0" />
+      <LineId Id="1041" Count="1" />
+      <LineId Id="1044" Count="2" />
+      <LineId Id="1048" Count="4" />
+      <LineId Id="1201" Count="0" />
+      <LineId Id="1316" Count="0" />
+      <LineId Id="1053" Count="0" />
+      <LineId Id="1055" Count="2" />
+      <LineId Id="1059" Count="2" />
+      <LineId Id="1063" Count="2" />
+      <LineId Id="1067" Count="2" />
+      <LineId Id="1194" Count="0" />
+      <LineId Id="1070" Count="2" />
+      <LineId Id="1074" Count="2" />
+      <LineId Id="1078" Count="2" />
+      <LineId Id="1082" Count="2" />
+      <LineId Id="1086" Count="2" />
+      <LineId Id="1090" Count="2" />
+      <LineId Id="1094" Count="2" />
+      <LineId Id="1098" Count="1" />
+      <LineId Id="1102" Count="2" />
+      <LineId Id="1106" Count="2" />
+      <LineId Id="1110" Count="2" />
+      <LineId Id="1114" Count="2" />
+      <LineId Id="1118" Count="9" />
+      <LineId Id="1311" Count="2" />
+      <LineId Id="1310" Count="0" />
+      <LineId Id="1129" Count="5" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_BottomMold.Error">
-      <LineId Id="81" Count="5" />
-      <LineId Id="57" Count="16" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="38" Count="4" />
+      <LineId Id="7" Count="0" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_BottomMold.Init">
@@ -983,6 +1011,8 @@ HeatingZone[6](
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_BottomMold.M_StopCycle">
+      <LineId Id="14" Count="0" />
+      <LineId Id="10" Count="2" />
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_BottomMold.M_StopDirect">
@@ -1031,7 +1061,7 @@ HeatingZone[6](
       <LineId Id="237" Count="0" />
       <LineId Id="301" Count="0" />
       <LineId Id="311" Count="0" />
-      <LineId Id="433" Count="0" />
+      <LineId Id="427" Count="0" />
       <LineId Id="218" Count="0" />
       <LineId Id="230" Count="0" />
       <LineId Id="206" Count="0" />
@@ -1039,14 +1069,14 @@ HeatingZone[6](
       <LineId Id="240" Count="0" />
       <LineId Id="302" Count="0" />
       <LineId Id="312" Count="0" />
-      <LineId Id="434" Count="0" />
+      <LineId Id="428" Count="0" />
       <LineId Id="219" Count="0" />
       <LineId Id="207" Count="1" />
       <LineId Id="232" Count="0" />
       <LineId Id="197" Count="0" />
       <LineId Id="303" Count="0" />
       <LineId Id="313" Count="0" />
-      <LineId Id="435" Count="0" />
+      <LineId Id="429" Count="0" />
       <LineId Id="220" Count="0" />
       <LineId Id="209" Count="0" />
       <LineId Id="233" Count="0" />
@@ -1054,14 +1084,14 @@ HeatingZone[6](
       <LineId Id="199" Count="0" />
       <LineId Id="304" Count="0" />
       <LineId Id="314" Count="0" />
-      <LineId Id="436" Count="0" />
+      <LineId Id="430" Count="0" />
       <LineId Id="221" Count="0" />
       <LineId Id="211" Count="1" />
       <LineId Id="234" Count="0" />
       <LineId Id="201" Count="0" />
       <LineId Id="305" Count="0" />
       <LineId Id="315" Count="0" />
-      <LineId Id="437" Count="0" />
+      <LineId Id="431" Count="0" />
       <LineId Id="222" Count="0" />
       <LineId Id="215" Count="0" />
       <LineId Id="235" Count="0" />
@@ -1069,7 +1099,7 @@ HeatingZone[6](
       <LineId Id="203" Count="0" />
       <LineId Id="306" Count="0" />
       <LineId Id="316" Count="0" />
-      <LineId Id="438" Count="0" />
+      <LineId Id="432" Count="0" />
       <LineId Id="223" Count="0" />
       <LineId Id="217" Count="0" />
       <LineId Id="191" Count="0" />

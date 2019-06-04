@@ -8,14 +8,18 @@ STRUCT
 	BlowOffTimeClosed					: TIME;
 	VacuumTimeClosed					: TIME;
 
+
 // Moving up
 	SpeedUpNormal						: REAL;
 	SpeedUpSlow							: REAL;
-	SpeedUpCreep						: REAL;	
+	SpeedUpCreep						: REAL;
 	PositionUpStop						: REAL;
 	PositionUpSlow						: REAL;
 	PositionUpCreep						: REAL;	(*New since speed upgrade*)
+
+// Opening
 	SpeedOpening						: REAL;
+	//PositionDownOpen					: REAL;	//product par.
 	
 // Moving down	
 	SpeedDownNormal						: REAL;
@@ -23,26 +27,12 @@ STRUCT
 	SpeedDownCreep						: REAL;
 	PositionDownSlow					: REAL;
 	PositionDownCreep					: REAL;
+	//PositionDownStop					: REAL;	// product par.
+	
+	
+// Moving down pressing.
 	PressSpeed							: REAL; // Flow at which the pressing is executed.
 	PressStop							: REAL; // Pressure at which the pressing stops.
-	
-// Init speeds
-	InitSpeedUpNormal					: REAL;
-	InitSpeedUpSlow						: REAL;
-	InitSpeedUpCreep					: REAL;
-	InitSpeedDownNormal					: REAL;
-	InitSpeedDownSlow					: REAL;
-	InitSpeedDownCreep					: REAL;
-
-// Manual speeds
-	ManSpeed							: REAL;
-	ManSpeedSlow						: REAL;
-	ManSpeedCreep						: REAL;
-	
-// Pause speeds / positions					
-	PausePositionUp						: REAL;
-	PausePositionUpSlow					: REAL;	// Offset to pause up position 
-	PausePositionUpCreep				: REAL;	// Offset to pause up position
 
 	PositionOffsetZero					: REAL;
 	PositionOffsetSlowRange				: REAL;
@@ -54,9 +44,6 @@ STRUCT
 	DryingTime							: TIME;
 	BlowOffToTakeOut					: TIME;
 	HeatingZone 						: ARRAY [1..6] OF ST_HeatingZone;
-	VacuumTimeEndDrying					: TIME;
-	
-	UseNormalSpeedProfile				: BOOl;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

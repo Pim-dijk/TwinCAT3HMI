@@ -1,0 +1,40 @@
+﻿<div id="Kremer_Treeview" data-tchmi-type="tchmi-user-control"
+     data-tchmi-top="0" data-tchmi-left="0"
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+
+    <div id="TreeViewTest1" data-tchmi-type="tchmi-user-control" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-width="89.0" data-tchmi-height="80.8" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+        <ul id="myUL">
+            <li>
+                <span class="caret">
+                </span>
+                <ul class="nested">
+                    <li>
+                        <span class="caret">In Mold Drying</span>
+                        <ul class="nested">
+                            <li>Bottom mold A</li>
+                            <li>Top mold A</li>
+                            <li>Transfermold</li>
+                            <li>Machine Pond</li>
+                            <li>Bottom Mold B</li>
+                            <li>Top mold B</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nested">
+                    <li>
+                        <span class="caret">Product handling</span>
+                        <ul class="nested">
+                            <li>Gantry A</li>
+                            <li>Gantry A</li>
+                            <li>Product Conveyor</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    
+</div>

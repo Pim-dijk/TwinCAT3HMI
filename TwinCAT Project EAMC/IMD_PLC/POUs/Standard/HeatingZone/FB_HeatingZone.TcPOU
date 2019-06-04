@@ -20,6 +20,7 @@ VAR
 	qxPWMOut3 AT%Q*					: BOOL;
 	ixThermal AT%I*					: BOOL;
 	
+	RT_EnableHeating				:R_Trig;
 	FT_EnableHeating				:F_Trig;	
 
 	FB_Heating_Controller			: FB_PIDCtrl;
@@ -38,7 +39,7 @@ VAR
 	SR_TempAboveSetpoint			: SR;
 	T_TimeInAutomode				: TON;
 
-	T_HeatingStarted				: TON;
+	T_HeatingStarted				: TP;
 
 	SR_PT100_Loose					: SR;
 	SR_PT100_WireBreakActive		: SR;
@@ -67,14 +68,10 @@ VAR
 	T_TempAtSetpointDelayNextStep	: TON;
 	RT_StartHeatingInSteps			: R_TRIG;
 	HeatingInSteps					: BOOL;
+	testing123: BOOL;
 	RT_StopHeatingInSteps: R_TRIG;
 	RT_DoorOpened: R_TRIG;
 	FT_DoorOpened: F_TRIG;
-	RT_HeatingPIDON: R_TRIG;
-	FT_HeatingPIDON: F_TRIG;
-	RT_SetPointChanged: R_TRIG;
-	OldSetpoint: REAL; 
-	SR_TemperatureTooHighWarning: SR;
 END_VAR
 VAR_IN_OUT
 	MachParameters					: ST_HeatingZone;
@@ -85,21 +82,41 @@ END_VAR
 Error();
 Objects();
 
+
 RT_ActivateHeating(CLK:=MachParameters.mxZoneActive);
+FT_ActivateHeating(CLK:=MachParameters.mxZoneActive);
+RT_EnableHeating(CLK:=mxEnableHeating, Q=> );
+FT_EnableHeating(CLK:=mxEnableHeating, Q=> );
+RT_EmStop(CLK:=mxEmergency OR testing123, Q=>);
+FT_EmSTop(CLK:=mxEmergency OR testing123, Q=>);
+RT_DoorOpened(CLK:=mxDoorsOpened);
+FT_DoorOpened(CLK:=mxDoorsOpened);
+RT_TempError(CLK:= FB_Temperature.Error);
 T_HeatingStarted(IN:=, PT:=T#10M);
 
-RT_HeatingPIDON(CLK:=FB_Heating_Controller.PID_ON);
-FT_HeatingPIDON(CLK:=FB_Heating_Controller.PID_ON);
 
-FB_Heating_Controller.PID_ON := mxEnableHeating AND MachParameters.mxZoneActive AND NOT mxEmergency AND NOT FB_Temperature.Error;
-
-// Start heating "started" timer when heating switches on
-IF RT_HeatingPIDON.Q THEN
+// Enabeling and activating heating
+IF (RT_EnableHeating.Q AND MachParameters.mxZoneActive) OR (mxEnableHeating AND RT_ActivateHeating.Q) OR FT_EmSTop.Q THEN
+	FB_Heating_Controller.PID_ON := TRUE;
+	//MachParameters.PIDTempZone.PID_ON := TRUE;
 	T_HeatingStarted.IN := TRUE;
 END_IF
 
-IF NOT FB_Heating_Controller.PID_ON THEN
-	T_HeatingStarted.IN :=FALSE;
+// Interlock when emergency is active.
+IF RT_DoorOpened.Q THEN 
+	MachParameters.PIDTempZone.OUT_IL := FB_Heating_Controller.OUT_PID;
+	MachParameters.PIDTempZone.IL_ON := TRUE;
+END_IF
+
+IF FT_DoorOpened.Q THEN
+	MachParameters.PIDTempZone.IL_ON := FALSE;
+END_IF
+
+(* Disable Heating when Temp Error *)
+IF FT_EnableHeating.Q OR RT_TempError.Q OR FT_ActivateHeating.Q OR RT_EmStop.q THEN
+	MachParameters.PIDTempZone.IL_ON := FALSE;
+	FB_Heating_Controller.PID_ON := FALSE;
+	//MachParameters.PIDTempZone.PID_ON := FALSE;
 END_IF
 
 // Autoreset the PWM controller when a error occures
@@ -109,7 +126,7 @@ ELSE
 	ControlMode := eCTRL_MODE_ACTIVE;
 END_IF
 
-OldSetpoint := MachParameters.PIDTempZone.SP_AUTO;]]></ST>
+]]></ST>
     </Implementation>
     <Action Name="DetermineSetpoint" Id="{fd7171c7-201a-4521-9c3d-8968f4828c63}">
       <Implementation>
@@ -120,12 +137,14 @@ OldSetpoint := MachParameters.PIDTempZone.SP_AUTO;]]></ST>
 // is elapsed the next set is set into the PID -> 180/10 * 2.
 
 
-RT_StartHeatingInSteps(CLK:=(FB_Heating_Controller.PV_EXT < MachParameters.LowLimitSP) AND RT_HeatingPIDON.Q);
-RT_StopHeatingInSteps(CLK:=FT_HeatingPIDON.Q, Q=>);
+RT_StartHeatingInSteps(CLK:=(FB_Heating_Controller.PV_EXT < MachParameters.LowLimitSP AND ((RT_EnableHeating.Q AND MachParameters.mxZoneActive) OR (mxEnableHeating AND RT_ActivateHeating.Q))));
+RT_StopHeatingInSteps(CLK:=FT_ActivateHeating.Q OR FT_EnableHeating.Q, Q=>);
 T_TempAtSetpointDelayNextStep(IN:=mxSetpointReached, PT:=MachParameters.WaitTimeAfterStepReached);
 
 // Interupt/stop heating in steps.
 IF RT_StopHeatingInSteps.Q THEN HeatingInSteps:= FALSE; END_IF
+
+
 
 //do this once when starting heating, determine setpoints.
 IF RT_StartHeatingInSteps.q THEN
@@ -176,7 +195,7 @@ SR_PT100_HasWrongPosition(SET1:=NOT mxEmergency AND mxEnableHeating AND MachPara
 AND (FB_Temperature.EngTempOut < (MachParameters.PIDTempZone.SP_AUTO - 40.0))  , Reset:=mxReset);
 
 //4 check heating element zone, check if there is a difference in temperature over a x time while element is not
-SR_PT100_NotInserted(SET1:=((NOT MachParameters.mxZoneActive) AND mxIncreasedTemperatureNonActive AND NOT T_HeatingStarted.Q), Reset:=mxReset); // testen!
+SR_PT100_NotInserted(SET1:=((NOT MachParameters.mxZoneActive) AND mxIncreasedTemperatureNonActive AND T_HeatingStarted.Q), Reset:=mxReset); // testen!
 
 // Other errors.. //
 SR_PT100_EnabledZoneWithoutProperPt100(SET1:=(FB_Temperature.EngTempOut < 5.0) AND RT_ActivateHeating.Q, RESET:=mxReset );
@@ -196,22 +215,14 @@ SR_TempAboveSetpoint(SET1:=T_TempAboveSetpoint.Q , RESET:= mxReset);
 T_TempBelowSetpoint(IN:= mxEnableHeating AND MachParameters.mxZoneActive AND (FB_Temperature.EngTempOut < (MachParameters.PIDTempZone.SP_AUTO -15)), PT:=T#1M);
 T_TempAboveSetpoint(IN:= mxEnableHeating AND MachParameters.mxZoneActive AND (FB_Temperature.EngTempOut > (MachParameters.PIDTempZone.SP_AUTO +15)), PT:=T#1M);
 
-// reset the timer of the change in temperature when the setpoint is changed on the HMI
-RT_SetPointChanged(CLK:= OldSetpoint <> MachParameters.PIDTempZone.SP_AUTO);
-
-T_PT100_CheckTemperatures(IN:= NOT T_PT100_CheckTemperatures.Q AND FB_Heating_Controller.PID_ON AND NOT RT_SetPointChanged.Q, PT:=MachParameters.TimeErrorCheckinterval);
+T_PT100_CheckTemperatures(IN:= NOT T_PT100_CheckTemperatures.Q, PT:=MachParameters.TimeErrorCheckinterval);
 IF T_PT100_CheckTemperatures.Q THEN
-	mxNoIncreaseTemperatureActive := mxIncreasedTemperatureNonActive := FALSE;
 	mxNoIncreaseTemperatureActive := mxEnableHeating AND NOT (FB_Temperature.EngTempOut > (OldTemperature + MachParameters.TempErrorRaise));
 	mxIncreasedTemperatureNonActive := mxEnableHeating AND (FB_Temperature.EngTempOut > (OldTemperature + MachParameters.TempErrorRaise));
 	OldTemperature := FB_Temperature.EngTempOut;
 END_IF
 
-IF NOT FB_Heating_Controller.PID_ON THEN mxNoIncreaseTemperatureActive := mxIncreasedTemperatureNonActive := FALSE; END_IF
-
-SR_TemperatureWayTooHigh(SET1:=(FB_Temperature.EngTempOut > 250) AND (FB_Temperature.EngTempOut < 300.0), RESET:=mxReset);
-SR_TemperatureTooHighWarning(SET1:=(FB_Temperature.EngTempOut > 230) AND (FB_Temperature.EngTempOut < 300.0), RESET:=mxReset);
-
+SR_TemperatureWayTooHigh(SET1:=(FB_Temperature.EngTempOut > 230) AND (FB_Temperature.EngTempOut < 300.0), RESET:=mxReset);
 
 Errors.Thermal:= NOT ixThermal;
 Errors.PT100_Loose := SR_PT100_Loose.Q1;
@@ -220,8 +231,7 @@ Errors.PT100_HasWrongPosition := SR_PT100_HasWrongPosition.Q1;
 Errors.PT100_NotInserted := SR_PT100_NotInserted.Q1;
 Errors.PT100_ConnectorNotConnected := SR_PT100_ConnectorNotConnected.Q1;
 Errors.PT100_TemperatureAboveMaximum := SR_TemperatureWayTooHigh.Q1;
-Errors.PT100_TemperatureTooHighWarn := SR_TemperatureTooHighWarning.Q1;
- 
+
 (**********************************************************************************************************)
 mxErrorStopinPos:= FALSE; 
 mxErrorInit:= errors.PT100_TemperatureAboveMaximum OR Errors.PT100_Loose;// OR Errors.PT100_ConnectorNotConnected; ]]></ST>
@@ -262,15 +272,74 @@ qxPWMOut1:= qxPWMOut2:= qxPWMOut3:= FB_PWM.bPwmOutBitPos AND MachParameters.mxZo
       </Implementation>
     </Action>
     <LineIds Name="FB_HeatingZone">
-      <LineId Id="1214" Count="9" />
-      <LineId Id="1314" Count="0" />
-      <LineId Id="1225" Count="3" />
-      <LineId Id="1315" Count="3" />
-      <LineId Id="1229" Count="8" />
+      <LineId Id="659" Count="0" />
+      <LineId Id="261" Count="0" />
+      <LineId Id="658" Count="0" />
+      <LineId Id="144" Count="1" />
+      <LineId Id="581" Count="0" />
+      <LineId Id="146" Count="1" />
+      <LineId Id="386" Count="0" />
+      <LineId Id="742" Count="0" />
+      <LineId Id="894" Count="1" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="256" Count="0" />
+      <LineId Id="583" Count="1" />
+      <LineId Id="150" Count="2" />
+      <LineId Id="819" Count="0" />
+      <LineId Id="453" Count="0" />
+      <LineId Id="153" Count="1" />
+      <LineId Id="381" Count="0" />
+      <LineId Id="388" Count="0" />
+      <LineId Id="737" Count="0" />
+      <LineId Id="739" Count="0" />
+      <LineId Id="738" Count="0" />
+      <LineId Id="383" Count="0" />
+      <LineId Id="743" Count="0" />
+      <LineId Id="745" Count="1" />
+      <LineId Id="744" Count="0" />
+      <LineId Id="296" Count="0" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="740" Count="0" />
+      <LineId Id="820" Count="0" />
+      <LineId Id="156" Count="1" />
+      <LineId Id="183" Count="0" />
+      <LineId Id="185" Count="1" />
+      <LineId Id="188" Count="1" />
+      <LineId Id="191" Count="1" />
+      <LineId Id="181" Count="1" />
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_HeatingZone.DetermineSetpoint">
-      <LineId Id="110" Count="44" />
+      <LineId Id="2" Count="4" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="76" Count="1" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="107" Count="1" />
+      <LineId Id="105" Count="1" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="81" Count="1" />
+      <LineId Id="91" Count="5" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="44" Count="2" />
+      <LineId Id="63" Count="1" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="42" Count="0" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_HeatingZone.Error">
@@ -300,19 +369,10 @@ qxPWMOut1:= qxPWMOut2:= qxPWMOut3:= FB_PWM.bPwmOutBitPos AND MachParameters.mxZo
       <LineId Id="159" Count="0" />
       <LineId Id="162" Count="1" />
       <LineId Id="160" Count="0" />
-      <LineId Id="190" Count="0" />
-      <LineId Id="187" Count="1" />
       <LineId Id="142" Count="0" />
-      <LineId Id="144" Count="0" />
-      <LineId Id="192" Count="1" />
-      <LineId Id="146" Count="2" />
-      <LineId Id="197" Count="0" />
-      <LineId Id="194" Count="0" />
-      <LineId Id="186" Count="0" />
-      <LineId Id="183" Count="0" />
+      <LineId Id="144" Count="4" />
+      <LineId Id="182" Count="1" />
       <LineId Id="143" Count="0" />
-      <LineId Id="199" Count="0" />
-      <LineId Id="198" Count="0" />
       <LineId Id="53" Count="0" />
       <LineId Id="22" Count="0" />
       <LineId Id="99" Count="0" />
@@ -320,7 +380,6 @@ qxPWMOut1:= qxPWMOut2:= qxPWMOut3:= FB_PWM.bPwmOutBitPos AND MachParameters.mxZo
       <LineId Id="100" Count="0" />
       <LineId Id="157" Count="0" />
       <LineId Id="184" Count="0" />
-      <LineId Id="200" Count="0" />
       <LineId Id="29" Count="3" />
       <LineId Id="1" Count="0" />
     </LineIds>

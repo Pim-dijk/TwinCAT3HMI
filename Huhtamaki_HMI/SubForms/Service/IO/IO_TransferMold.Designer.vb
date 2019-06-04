@@ -37,12 +37,9 @@ Partial Class IO_TransferMold
         Me.KL_TM_EsB = New KremerControlsWin32.KremerLight()
         Me.TMA_MspaRTO = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_TM_MspaRTO = New KremerControlsWin32.KremerLight()
-        Me.TMA_MspaEn = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_TM_MSPAEnable = New KremerControlsWin32.KremerLight()
-        Me.blowoff = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_TMBlowOff = New KremerControlsWin32.KremerLight()
-        Me.vacuum = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_TMVacuum = New KremerControlsWin32.KremerLight()
+        Me.KL_TM_MSPAEnable = New KremerControlsWin32.KremerLight()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -56,6 +53,9 @@ Partial Class IO_TransferMold
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.TMA_MspaEn = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.blowoff = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.vacuum = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -243,38 +243,6 @@ Partial Class IO_TransferMold
         Me.KL_TM_MspaRTO.Text = "KL_TMA_MspaRTO"
         Me.KL_TM_MspaRTO.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'TMA_MspaEn
-        '
-        Me.TMA_MspaEn.BindControl = Me.KL_TM_MSPAEnable
-        Me.TMA_MspaEn.BindProperty = "Data"
-        Me.TMA_MspaEn.Data = Nothing
-        Me.TMA_MspaEn.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.TMA_MspaEn.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.TMA_MspaEn.VariableName = "MAIN.InMoldDrying.TransferMold.HydraulicCilinder.qxMSPAEnable"
-        '
-        'KL_TM_MSPAEnable
-        '
-        Me.KL_TM_MSPAEnable.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_TM_MSPAEnable.ColorOn = System.Drawing.Color.Lime
-        Me.KL_TM_MSPAEnable.Data = False
-        Me.KL_TM_MSPAEnable.Line = True
-        Me.KL_TM_MSPAEnable.LineSize = 1
-        Me.KL_TM_MSPAEnable.Location = New System.Drawing.Point(10, 218)
-        Me.KL_TM_MSPAEnable.Name = "KL_TM_MSPAEnable"
-        Me.KL_TM_MSPAEnable.Size = New System.Drawing.Size(20, 20)
-        Me.KL_TM_MSPAEnable.TabIndex = 294
-        Me.KL_TM_MSPAEnable.Text = "KremerLight3"
-        Me.KL_TM_MSPAEnable.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'blowoff
-        '
-        Me.blowoff.BindControl = Me.KL_TMBlowOff
-        Me.blowoff.BindProperty = "Data"
-        Me.blowoff.Data = Nothing
-        Me.blowoff.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.blowoff.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.blowoff.VariableName = "MAIN.InMoldDrying.TransferMold.BlowOff.Q"
-        '
         'KL_TMBlowOff
         '
         Me.KL_TMBlowOff.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -289,15 +257,6 @@ Partial Class IO_TransferMold
         Me.KL_TMBlowOff.Text = "KremerLight2"
         Me.KL_TMBlowOff.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'vacuum
-        '
-        Me.vacuum.BindControl = Me.KL_TMVacuum
-        Me.vacuum.BindProperty = "Data"
-        Me.vacuum.Data = Nothing
-        Me.vacuum.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.vacuum.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.vacuum.VariableName = "MAIN.InMoldDrying.TransferMold.Vacuum.Q"
-        '
         'KL_TMVacuum
         '
         Me.KL_TMVacuum.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -311,6 +270,20 @@ Partial Class IO_TransferMold
         Me.KL_TMVacuum.TabIndex = 292
         Me.KL_TMVacuum.Text = "KremerLight4"
         Me.KL_TMVacuum.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_TM_MSPAEnable
+        '
+        Me.KL_TM_MSPAEnable.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_TM_MSPAEnable.ColorOn = System.Drawing.Color.Lime
+        Me.KL_TM_MSPAEnable.Data = False
+        Me.KL_TM_MSPAEnable.Line = True
+        Me.KL_TM_MSPAEnable.LineSize = 1
+        Me.KL_TM_MSPAEnable.Location = New System.Drawing.Point(10, 218)
+        Me.KL_TM_MSPAEnable.Name = "KL_TM_MSPAEnable"
+        Me.KL_TM_MSPAEnable.Size = New System.Drawing.Size(20, 20)
+        Me.KL_TM_MSPAEnable.TabIndex = 294
+        Me.KL_TM_MSPAEnable.Text = "KremerLight3"
+        Me.KL_TM_MSPAEnable.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Label5
         '
@@ -476,14 +449,41 @@ Partial Class IO_TransferMold
         Me.Label13.Text = "Bot side pressure"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'IO_TransferMold
+        'TMA_MspaEn
+        '
+        Me.TMA_MspaEn.BindControl = Me.KL_TM_MSPAEnable
+        Me.TMA_MspaEn.BindProperty = "Data"
+        Me.TMA_MspaEn.Data = Nothing
+        Me.TMA_MspaEn.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.TMA_MspaEn.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.TMA_MspaEn.VariableName = "MAIN.InMoldDrying.TransferMold.HydraulicCilinder.qxMSPAEnable"
+        '
+        'blowoff
+        '
+        Me.blowoff.BindControl = Me.KL_TMBlowOff
+        Me.blowoff.BindProperty = "Data"
+        Me.blowoff.Data = Nothing
+        Me.blowoff.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.blowoff.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.blowoff.VariableName = "MAIN.InMoldDrying.TransferMold.BlowOff.Q"
+        '
+        'vacuum
+        '
+        Me.vacuum.BindControl = Me.KL_TMVacuum
+        Me.vacuum.BindProperty = "Data"
+        Me.vacuum.Data = Nothing
+        Me.vacuum.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.vacuum.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.vacuum.VariableName = "MAIN.InMoldDrying.TransferMold.Vacuum.Q"
+        '
+        'IO_TopMolds
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "IO_TransferMold"
+        Me.Name = "IO_TopMolds"
         Me.Size = New System.Drawing.Size(800, 435)
-        Me.Tag = "504"
+        Me.Tag = "540"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

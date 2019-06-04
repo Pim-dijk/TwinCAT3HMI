@@ -26,7 +26,7 @@ Public Class ServiceSettings
     End Sub
 
     Private Sub Btn_Settings2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btn_Settings2.Click
-        frmMain.SubFormChange(frmMain.SubServiceSettings2)
+        'frmMain.SubFormChange(frmMain.SubServiceSettings2)
     End Sub
 
 End Class

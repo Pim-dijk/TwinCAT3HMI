@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB_RaiseAlarm" Id="{a86e7208-70e1-4801-9566-47af1d00dce2}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RaiseAlarm
+VAR_INPUT
+	raiseAlarm: BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbAlarm1: FB_TcAlarm;
+	hr1 : HRESULT;
+	hr2 : HRESULT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF raiseAlarm THEN
+	fbAlarm1.CreateEx(TC_Events.MyEventClass.MySecondAlarm, TRUE, 0);
+	fbAlarm1.Raise(0);
+END_IF
+
+IF fbAlarm1.eConfirmationState = 3 THEN // Waiting for confirmation
+	hr1 := fbAlarm1.Clear(0, FALSE); // Veranderd de state niet van Confirmed naar cleared. de state blijft Confirmed
+	hr2 := fbAlarm1.Release();  // Zet de state naar NotSupported (0)
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RaiseAlarm">
+      <LineId Id="9" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="57" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -157,7 +157,6 @@ VAR
 	mxTest5: BOOL;
 	RT_EmergencyStop: R_TRIG;
 
-	T_CheckFeedback: TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -179,6 +178,308 @@ IF FT_OilCoolerOff.q AND CoolingFan.IsRunning THEN
 END_IF
 ]]></ST>
     </Implementation>
+    <Action Name="Cycle" Id="{c3cff216-476b-49a2-8b2f-6e28d426d6e6}">
+      <Implementation>
+        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
+mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
+(*State text*)
+sCycleStateText:=sCycleStateTextDef[miCycleState];
+(*Timeout Watchdog for Statemachine*)
+mxCycleTimeoutEnable:=NOT (miCycleState=0) AND NOT mxReset;
+
+CycleTimeout(IN:=mxCycleTimeoutEnable  , PT:=tCycleStateTimeouts[miCycleState] );
+CycleTimeOutUpFlank(CLK:=CycleTimeout.Q );
+miCycleOldstate:=miCycleState;
+
+(*Set Errorbit when Raising edge of Timeout has been detected*)
+IF CycleTimeOutUpFlank.Q THEN
+	exCycleTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
+END_IF
+
+(*Function to reset the Statemachine*)
+IF mxResetCycleState THEN
+	mxResetCycleState:= FALSE;
+	mxInitialized := FALSE;
+		
+	miCycleState:=0;
+	mxCycleTransitionState:=FALSE;
+
+	mxStartCycle:= FALSE;
+	mxStopCycle:= FALSE;
+	mxStopDirect:=FALSE;
+	mxStopcycleEmpty:=False;
+	
+	HydraulicPump.M_Stop();
+	CoolingFan.M_Stop();
+	FilterMotor.M_Stop();
+	AccuDrainValve.M_Off();
+	IsolationValve.M_Off();
+	PressurizePumpValve.M_Off();
+END_IF
+
+mxCycleHasError:=FALSE;
+
+T_DelayOpenBlockingValve(PT:= T#15S);
+T_DepresurizePump(PT:=T#2S);
+
+mxHydraulicsReady:= miCycleState=8;
+
+
+(*Cycle State's*)
+CASE miCycleState OF
+
+	0:	// Idle state/Wait for start
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			miCycleState:= 0;
+			mxStopCycle:=FALSE;
+		ELSIF mxStartCycle THEN		
+			miCycleState:= 1;
+			mxStartCycle:=FALSE;
+			mxStopCycleEmpty:=FALSE;
+		END_IF	
+
+	1:	// Check oil temperature and oil levels	and valves Start main pump
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF ixTemperatureSwitchTooHigh AND ixOilLvlTooLow AND NOT PressurizePumpValve.mxIsOn THEN			
+			HydraulicPump.M_Start();
+			miCycleState:= 2;
+		END_IF
+
+	2:	//When pump is running, start cooler and filterpump 	
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF HydraulicPump.IsRunning THEN			
+			FilterMotor.M_Start();
+			miCycleState:= 3;
+		END_IF
+
+	3:	//When pumps are running open the Pressurize valve 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;			
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF FilterMotor.IsRunning THEN					
+			PressurizePumpValve.M_On();
+			miCycleState:= 4;
+		END_IF
+	
+	4:	// When circulation valve is open, open accumulator valve
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF PressurizePumpValve.mxIsOn THEN			
+			AccuDrainValve.M_On();
+			miCycleState:= 5;
+		END_IF
+	
+	5:	//Check if accuValve is open and wait for 15s 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;		
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF AccuDrainValve.mxIsOn THEN			
+			T_DelayOpenBlockingValve.IN:=TRUE;
+			miCycleState:= 6;
+		END_IF
+		
+	6:	//Open blocking valve
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;	
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF T_DelayOpenBlockingValve.Q THEN				
+			T_DelayOpenBlockingValve.IN:=FALSE;
+			IsolationValve.M_On();
+			miCycleState:= 7;
+		END_IF
+		
+	7:	// Check if blocking valve is open and main pressure is > X 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF IsolationValve.mxIsOn AND (MainSystemPressure.EngFilt > 240.0) THEN			
+			miCycleState:= 8;
+		END_IF
+		
+	8: // State of main hydraulics is running, wait in this step for stop.	
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		
+		// Stopping the cycle CMD.
+		ELSIF mxStopCycleEmpty THEN
+			mxStopCycleEmpty:=FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 9;
+		END_IF
+		
+	9:	// Check if all analog valves are in safe state. (not controlled)
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF (MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.SafePosReached AND 
+			Main.InMoldDrying.TopMoldB.HydraulicCilinder.SafePosReached AND 
+			Main.InMoldDrying.TransferMold.HydraulicCilinder.SafePosReached) THEN
+			PressurizePumpValve.M_Off();	// Pomp vrijschakelen
+			CoolingFan.M_Stop();
+			FilterMotor.M_Stop();
+			
+			T_DepresurizePump.IN := TRUE;
+			
+			miCycleState:=10;
+		END_IF
+		
+	10:	// Check if pressurise pump valve, coolingfan / filtermotor are stopped/closed -> Open isolation and drain valve
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF NOT PressurizePumpValve.mxIsOn AND NOT CoolingFan.IsRunning AND NOT FilterMotor.IsRunning AND T_DepresurizePump.Q THEN
+			T_DepresurizePump.IN := FALSE;	
+			IsolationValve.M_Off();
+			AccuDrainValve.M_Off();
+			micycleState:=11;
+		END_IF
+		
+	11:	// Check if isolationvalve and accudrain valve have stopped -> stop pump
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStopCycle THEN		
+			mxStopCycle:= FALSE;
+			miStopState:= miCycleState;
+			miCycleState:= 13;
+		ELSIF NOT IsolationValve.mxIsOn AND NOT AccuDrainValve.mxIsOn THEN	
+			HydraulicPump.M_Stop();
+			miCycleState:=0;
+		END_IF
+		
+	13:	// Stop cycle, wait for start 
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSE
+ 			IsolationValve.M_Off();		// Switch off the isolation valve in rest mode (rest of hydraulics keep functioning as normal).
+			miCycleState:=14;
+		END_IF
+		
+	14: // Pause cycle step.			// in rest.
+		IF mxStopDirect OR MAIN.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.SafePositionValveNotReached OR
+		Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.SafePositionValveNotReached OR
+		Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.SafePositionValveNotReached THEN
+			mxStopDirect:= FALSE;
+			miCycleState:= 15;
+		ELSIF mxStartCycle THEN
+			mxStopCycle:=FALSE;
+			mxStartCycle:=FALSE;
+ 			IsolationValve.M_on();		// At restart, open valve again.
+			miCycleState:=miStopState;
+		ELSIF mxStopCycleEmpty THEN		// At pause stop rest of hydraulics.
+			mxStopcycleEmpty:=FALSE;
+			miCycleState := 9;
+		END_IF
+
+	15:	// Stop Direct
+		mxStartCycle:= FALSE;
+		mxStopCycle:= FALSE;
+		mxStopCycleEmpty:=FALSE;
+		mxInitialized:= FALSE;
+		
+		HydraulicPump.M_Stop();
+		CoolingFan.M_Stop();
+		FilterMotor.M_Stop();
+		
+		IsolationValve.M_Off();
+		PressurizePumpValve.M_Off();
+		AccuDrainValve.M_Off();		
+		
+		miCycleState:= 0;
+END_CASE
+
+mxCycleBusy:= miCycleState<>0;
+mxCycleInPause := miCycleState=14;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Error" Id="{fdad504a-67ea-46f2-be61-4d24b55ec8c0}">
+      <Implementation>
+        <ST><![CDATA[
+SR_TempTooHigh(SET1:=NOT ixTemperatureSwitchTooHigh, RESET:=mxReset , Q1=>Errors.OilTemperatureTooHigh);
+SR_LevelTooLow(SET1:=NOT ixOilLvlTooLow, Reset:=mxReset, Q1=>Errors.OilLevelTooLow);
+
+SR_Filter100Dirty(SET1:=NOT ixPressureFilterAt100, RESET:=mxReset, Q1=>Errors.Filter100Dirty);
+SR_AuxFilter100Dirty(SET1:=NOT ixAuxFilterAt100, RESET:=mxReset, Q1=>Errors.AuxFilter100Dirty);
+
+SR_Filter75DirtyWarning(SET1:=ixPressureFilterAt75, RESET:=mxReset, Q1=>Errors.Filter75Dirty);
+SR_AuxFilter75DirtyWarning(SET1:=ixAuxFilterAt75, RESET:=mxReset, Q1=>Errors.AuxFilter75Dirty);
+
+SR_CabinetCoolerError(SET1:= NOT ixCabinetCoolerError, Reset:=mxReset, Q1=>);
+
+SR_HydraulicsMcc24VError(SET1:= NOT ixHydraulicsMcc24vError, Reset:=mxReset, Q1=>);
+
+
+RT_Doorsopenend(CLK:=mxDoorOpened);
+RT_EmergencyStop(CLK:=mxEmergency);
+
+IF RT_Doorsopenend.Q THEN
+	M_StopCycle();
+END_IF
+
+IF RT_EmergencyStop.Q THEN
+	M_StopDirect();
+END_IF
+
+
+
+(**********************************************************************************************************)
+mxErrorStopinPos:= HydraulicPump.mxErrorStopinPos OR FilterMotor.mxErrorStopinPos OR CoolingFan.mxErrorStopinPos;
+
+mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFilter100Dirty OR Errors.OilLevelTooLow OR
+				Errors.OilTemperatureTooHigh OR FilterMotor.mxErrorInit OR CoolingFan.mxErrorInit;]]></ST>
+      </Implementation>
+    </Action>
     <Method Name="M_StartCycle" Id="{23c82821-bb4b-42f7-b56a-4ec9995d96cf}">
       <Declaration><![CDATA[METHOD M_StartCycle : BOOL]]></Declaration>
       <Implementation>
@@ -186,6 +487,43 @@ END_IF
 	mxStartCycle:= TRUE;	
 	mxStopCycle:=False;
 END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycle" Id="{7bf68905-085e-4b1f-81f6-4006fb1101d3}">
+      <Declaration><![CDATA[METHOD M_StopCycle : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF mxCycleBusy THEN 
+	mxStopCycle:= TRUE; 
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopCycleEmpty" Id="{e3cc7dc4-d945-4e94-adea-d2238685669b}">
+      <Declaration><![CDATA[METHOD M_StopCycleEmpty : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF mxCycleBusy THEN 
+	mxStopCycleEmpty:= TRUE; 
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopDirect" Id="{9e8558f0-e4fa-4bb7-8256-f18c40d3f5ef}">
+      <Declaration><![CDATA[METHOD M_StopDirect
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF mxCycleBusy THEN
+	mxStopDirect:= TRUE;	
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_StopInit" Id="{70b250cf-0b9a-4fa7-93bb-6dc13ce4e146}">
+      <Declaration><![CDATA[METHOD M_StopInit
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[;]]></ST>
       </Implementation>
     </Method>
     <Action Name="Objects" Id="{63170b63-f4cd-4429-ac1b-df5e730ad407}">
@@ -254,340 +592,6 @@ MainSystemPressure(
 	UnderRange=> );]]></ST>
       </Implementation>
     </Action>
-    <Method Name="M_StopInit" Id="{70b250cf-0b9a-4fa7-93bb-6dc13ce4e146}">
-      <Declaration><![CDATA[METHOD M_StopInit
-
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[;]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="M_StopCycle" Id="{7bf68905-085e-4b1f-81f6-4006fb1101d3}">
-      <Declaration><![CDATA[METHOD M_StopCycle : BOOL
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[IF mxCycleBusy THEN 
-	mxStopCycle:= TRUE; 
-END_IF]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="M_StopDirect" Id="{9e8558f0-e4fa-4bb7-8256-f18c40d3f5ef}">
-      <Declaration><![CDATA[METHOD M_StopDirect
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[
-IF mxCycleBusy THEN
-	mxStopDirect:= TRUE;	
-END_IF
-]]></ST>
-      </Implementation>
-    </Method>
-    <Action Name="Cycle" Id="{c3cff216-476b-49a2-8b2f-6e28d426d6e6}">
-      <Implementation>
-        <ST><![CDATA[(*StateChange (Transition)  Signalgeneration*)
-mxCycleTransitionState:=(miCycleState<>miCycleOldstate);
-(*State text*)
-sCycleStateText:=sCycleStateTextDef[miCycleState];
-(*Timeout Watchdog for Statemachine*)
-mxCycleTimeoutEnable:=NOT (miCycleState=0) AND NOT mxReset;
-
-CycleTimeout(IN:=mxCycleTimeoutEnable  , PT:=tCycleStateTimeouts[miCycleState] );
-CycleTimeOutUpFlank(CLK:=CycleTimeout.Q );
-miCycleOldstate:=miCycleState;
-
-(*Set Errorbit when Raising edge of Timeout has been detected*)
-IF CycleTimeOutUpFlank.Q THEN
-	exCycleTimeOut:=TRUE; 			(* 1 Timeout for the whole programcycle *)
-END_IF
-
-(*Function to reset the Statemachine*)
-IF mxResetCycleState THEN
-	mxResetCycleState:= FALSE;
-	mxInitialized := FALSE;
-		
-	miCycleState:=0;
-	mxCycleTransitionState:=FALSE;
-
-	mxStartCycle:= FALSE;
-	mxStopCycle:= FALSE;
-	mxStopDirect:=FALSE;
-	mxStopcycleEmpty:=False;
-	
-	HydraulicPump.M_Stop();
-	CoolingFan.M_Stop();
-	FilterMotor.M_Stop();
-	AccuDrainValve.M_Off();
-	IsolationValve.M_Off();
-	PressurizePumpValve.M_Off();
-END_IF
-
-mxCycleHasError:=FALSE;
-
-T_DelayOpenBlockingValve(PT:= T#15S);
-T_DepresurizePump(PT:=T#2S);
-T_CheckFeedback(PT:=T#300MS);
-
-mxHydraulicsReady:= miCycleState=8;
-
-
-(*Cycle State's*)
-CASE miCycleState OF
-
-	0:	// Idle state/Wait for start
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;		
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN		
-			miCycleState:= 0;
-			mxStopCycle:=FALSE;
-		ELSIF mxStartCycle THEN		
-			miCycleState:= 1;
-			mxStartCycle:=FALSE;
-			mxStopCycleEmpty:=FALSE;
-		END_IF	
-
-	1:	// Check oil temperature and oil levels	and valves Start main pump
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF ixTemperatureSwitchTooHigh AND ixOilLvlTooLow AND NOT PressurizePumpValve.mxIsOn THEN			
-			HydraulicPump.M_Start();
-			miCycleState:= 2;
-		END_IF
-
-	2:	//When pump is running, start cooler and filterpump 	
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF HydraulicPump.IsRunning THEN			
-			FilterMotor.M_Start();
-			miCycleState:= 3;
-		END_IF
-
-	3:	//When pumps are running open the Pressurize valve 
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;			
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF FilterMotor.IsRunning THEN					
-			PressurizePumpValve.M_On();
-			miCycleState:= 4;
-		END_IF
-	
-	4:	// (P) When circulation valve is open, open accumulator valve
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;		
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF PressurizePumpValve.mxIsOn THEN			
-			AccuDrainValve.M_On();
-			miCycleState:= 5;
-		END_IF
-	
-	5:	// (P) Check if accuValve is open and wait for 15s 
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;		
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF AccuDrainValve.mxIsOn THEN			
-			T_DelayOpenBlockingValve.IN:=TRUE;
-			miCycleState:= 6;
-		END_IF
-		
-	6:	// (NP) Open blocking valve
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;	
-			miCycleState:= 15;
-		ELSIF T_DelayOpenBlockingValve.Q THEN				
-			T_DelayOpenBlockingValve.IN:=FALSE;
-			IsolationValve.M_On();
-			miCycleState:= 7;
-		END_IF
-		
-	7:	// (NP) Check if blocking valve is open and main pressure is > X 
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF IsolationValve.mxIsOn AND (MainSystemPressure.EngFilt > 240.0) THEN			
-			miCycleState:= 8;
-		END_IF
-		
-	8: // State of main hydraulics is running, wait in this step for stop.	
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN				// To pause
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF mxStopCycleEmpty THEN 		// Stopping the cycle CMD.
-			mxStopCycleEmpty:=FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 9;
-		END_IF
-		
-	9:	// Check if all analog valves are in safe state. (not controlled)
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN		
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF (MAIN.InMoldDrying.TopMoldA.HydraulicCilinder.SafePosReached AND 
-			Main.InMoldDrying.TopMoldB.HydraulicCilinder.SafePosReached AND 
-			Main.InMoldDrying.TransferMold.HydraulicCilinder.SafePosReached) THEN
-			PressurizePumpValve.M_Off();	// Pomp vrijschakelen
-			CoolingFan.M_Stop();
-			FilterMotor.M_Stop();
-			
-			T_DepresurizePump.IN := TRUE;
-			
-			miCycleState:=10;
-		END_IF
-		
-	10:	// Check if pressurise pump valve, coolingfan / filtermotor are stopped/closed -> Open isolation and drain valve
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN		
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF NOT PressurizePumpValve.mxIsOn AND NOT CoolingFan.IsRunning AND NOT FilterMotor.IsRunning AND T_DepresurizePump.Q THEN
-			T_DepresurizePump.IN := FALSE;	
-			IsolationValve.M_Off();
-			AccuDrainValve.M_Off();
-			micycleState:=11;
-		END_IF
-		
-	11:	// Check if isolationvalve and accudrain valve have stopped -> stop pump
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStopCycle THEN		
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 13;
-		ELSIF NOT IsolationValve.mxIsOn AND NOT AccuDrainValve.mxIsOn THEN	
-			HydraulicPump.M_Stop();
-			miCycleState:=0;
-		END_IF
-		
-	13:	// [Pause cycle] Close blocking valve
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSE
- 			IsolationValve.M_Off();		// Switch off the isolation valve in rest mode (rest of hydraulics keep functioning as normal).
-			T_CheckFeedback.In :=TRUE;	
-			miCycleState:=14;					
-		END_IF
-		
-	14: // [Paused] cycle step.			
-		IF mxStopDirect OR (T_CheckFeedback.q AND (MAIN.Errors.InMoldDryingErrors.TopMoldA.Hydraulic.SafePositionValveNotReached OR
-		Main.Errors.InMoldDryingErrors.TopMoldB.Hydraulic.SafePositionValveNotReached OR
-		Main.Errors.InMoldDryingErrors.TransferMold.HydraulicCilinder.SafePositionValveNotReached)) THEN
-			T_CheckFeedback.In :=FALSE;
-			mxStopDirect:= FALSE;
-			miCycleState:= 15;
-		ELSIF mxStartCycle THEN
-			mxStopCycle:=FALSE;
-			mxStartCycle:=FALSE;
-			T_CheckFeedback.In :=FALSE;
- 			IsolationValve.M_on();		// At restart, open valve again.
-			miCycleState:=miStopState;
-		ELSIF mxStopCycleEmpty THEN		// At pause stop rest of hydraulics.
-			mxStopcycleEmpty:=FALSE;
-			T_CheckFeedback.In :=FALSE;
-			miCycleState := 9;
-		END_IF
-
-	15:	// Stop Direct
-		mxStartCycle:= FALSE;
-		mxStopCycle:= FALSE;
-		mxStopCycleEmpty:=FALSE;
-		mxInitialized:= FALSE;
-		
-		HydraulicPump.M_Stop();
-		CoolingFan.M_Stop();
-		FilterMotor.M_Stop();
-		
-		IsolationValve.M_Off();
-		PressurizePumpValve.M_Off();
-		AccuDrainValve.M_Off();		
-		
-		miCycleState:= 0;
-END_CASE
-
-mxCycleBusy:= miCycleState<>0;
-mxCycleInPause := miCycleState=14;
-]]></ST>
-      </Implementation>
-    </Action>
-    <Method Name="M_StopCycleEmpty" Id="{e3cc7dc4-d945-4e94-adea-d2238685669b}">
-      <Declaration><![CDATA[METHOD M_StopCycleEmpty : BOOL
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[IF mxCycleBusy THEN 
-	mxStopCycleEmpty:= TRUE; 
-END_IF]]></ST>
-      </Implementation>
-    </Method>
-    <Action Name="Error" Id="{fdad504a-67ea-46f2-be61-4d24b55ec8c0}">
-      <Implementation>
-        <ST><![CDATA[
-SR_TempTooHigh(SET1:=NOT ixTemperatureSwitchTooHigh, RESET:=mxReset , Q1=>Errors.OilTemperatureTooHigh);
-SR_LevelTooLow(SET1:=NOT ixOilLvlTooLow, Reset:=mxReset, Q1=>Errors.OilLevelTooLow);
-
-SR_Filter100Dirty(SET1:=NOT ixPressureFilterAt100, RESET:=mxReset, Q1=>Errors.Filter100Dirty);
-SR_AuxFilter100Dirty(SET1:=NOT ixAuxFilterAt100, RESET:=mxReset, Q1=>Errors.AuxFilter100Dirty);
-
-SR_Filter75DirtyWarning(SET1:=ixPressureFilterAt75, RESET:=mxReset, Q1=>Errors.Filter75Dirty);
-SR_AuxFilter75DirtyWarning(SET1:=ixAuxFilterAt75, RESET:=mxReset, Q1=>Errors.AuxFilter75Dirty);
-
-SR_CabinetCoolerError(SET1:= NOT ixCabinetCoolerError, Reset:=mxReset, Q1=>);
-
-SR_HydraulicsMcc24VError(SET1:= NOT ixHydraulicsMcc24vError, Reset:=mxReset, Q1=>);
-
-
-RT_Doorsopenend(CLK:=mxDoorOpened);
-RT_EmergencyStop(CLK:=mxEmergency);
-
-IF RT_Doorsopenend.Q THEN
-	M_StopCycle();
-END_IF
-
-IF RT_EmergencyStop.Q THEN
-	M_StopDirect();
-END_IF
-
-
-
-(**********************************************************************************************************)
-mxErrorStopinPos:=  FALSE;
-
-mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFilter100Dirty OR Errors.OilLevelTooLow OR
-				Errors.OilTemperatureTooHigh OR FilterMotor.mxErrorInit OR CoolingFan.mxErrorInit;]]></ST>
-      </Implementation>
-    </Action>
     <LineIds Name="FB_HydraulicsMain">
       <LineId Id="403" Count="0" />
       <LineId Id="68" Count="0" />
@@ -602,57 +606,6 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="704" Count="0" />
       <LineId Id="9" Count="0" />
     </LineIds>
-    <LineIds Name="FB_HydraulicsMain.M_StartCycle">
-      <LineId Id="9" Count="2" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_HydraulicsMain.Objects">
-      <LineId Id="92" Count="0" />
-      <LineId Id="91" Count="0" />
-      <LineId Id="90" Count="0" />
-      <LineId Id="118" Count="0" />
-      <LineId Id="120" Count="4" />
-      <LineId Id="153" Count="0" />
-      <LineId Id="125" Count="1" />
-      <LineId Id="154" Count="1" />
-      <LineId Id="127" Count="5" />
-      <LineId Id="152" Count="0" />
-      <LineId Id="133" Count="2" />
-      <LineId Id="142" Count="4" />
-      <LineId Id="151" Count="0" />
-      <LineId Id="147" Count="0" />
-      <LineId Id="119" Count="0" />
-      <LineId Id="58" Count="0" />
-      <LineId Id="75" Count="0" />
-      <LineId Id="87" Count="1" />
-      <LineId Id="148" Count="0" />
-      <LineId Id="78" Count="0" />
-      <LineId Id="84" Count="0" />
-      <LineId Id="105" Count="3" />
-      <LineId Id="149" Count="0" />
-      <LineId Id="109" Count="0" />
-      <LineId Id="104" Count="0" />
-      <LineId Id="63" Count="1" />
-      <LineId Id="73" Count="1" />
-      <LineId Id="150" Count="0" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="95" Count="8" />
-      <LineId Id="1" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_HydraulicsMain.M_StopInit">
-      <LineId Id="5" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_HydraulicsMain.M_StopCycle">
-      <LineId Id="6" Count="1" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_HydraulicsMain.M_StopDirect">
-      <LineId Id="56" Count="0" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="36" Count="0" />
-      <LineId Id="7" Count="0" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
     <LineIds Name="FB_HydraulicsMain.Cycle">
       <LineId Id="2" Count="20" />
       <LineId Id="24" Count="4" />
@@ -661,7 +614,6 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="41" Count="1" />
       <LineId Id="44" Count="1" />
       <LineId Id="53" Count="1" />
-      <LineId Id="666" Count="0" />
       <LineId Id="643" Count="0" />
       <LineId Id="604" Count="0" />
       <LineId Id="631" Count="1" />
@@ -718,7 +670,8 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="190" Count="1" />
       <LineId Id="423" Count="0" />
       <LineId Id="425" Count="0" />
-      <LineId Id="434" Count="0" />
+      <LineId Id="429" Count="1" />
+      <LineId Id="432" Count="2" />
       <LineId Id="502" Count="0" />
       <LineId Id="633" Count="0" />
       <LineId Id="437" Count="1" />
@@ -726,7 +679,8 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="211" Count="1" />
       <LineId Id="439" Count="0" />
       <LineId Id="441" Count="0" />
-      <LineId Id="450" Count="0" />
+      <LineId Id="445" Count="1" />
+      <LineId Id="448" Count="2" />
       <LineId Id="453" Count="1" />
       <LineId Id="228" Count="0" />
       <LineId Id="230" Count="1" />
@@ -734,6 +688,7 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="457" Count="0" />
       <LineId Id="461" Count="1" />
       <LineId Id="464" Count="1" />
+      <LineId Id="647" Count="1" />
       <LineId Id="644" Count="0" />
       <LineId Id="649" Count="0" />
       <LineId Id="645" Count="1" />
@@ -770,22 +725,17 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="503" Count="1" />
       <LineId Id="506" Count="1" />
       <LineId Id="610" Count="0" />
-      <LineId Id="671" Count="0" />
       <LineId Id="609" Count="0" />
       <LineId Id="510" Count="0" />
       <LineId Id="621" Count="1" />
       <LineId Id="630" Count="0" />
       <LineId Id="662" Count="1" />
-      <LineId Id="623" Count="0" />
-      <LineId Id="667" Count="0" />
-      <LineId Id="624" Count="1" />
+      <LineId Id="623" Count="2" />
       <LineId Id="657" Count="0" />
       <LineId Id="650" Count="0" />
-      <LineId Id="668" Count="0" />
       <LineId Id="627" Count="1" />
       <LineId Id="651" Count="0" />
       <LineId Id="653" Count="0" />
-      <LineId Id="669" Count="0" />
       <LineId Id="652" Count="0" />
       <LineId Id="629" Count="0" />
       <LineId Id="492" Count="0" />
@@ -805,12 +755,86 @@ mxErrorInit:= HydraulicPump.mxErrorInit OR Errors.Filter100Dirty OR Errors.AuxFi
       <LineId Id="536" Count="0" />
       <LineId Id="1" Count="0" />
     </LineIds>
+    <LineIds Name="FB_HydraulicsMain.Error">
+      <LineId Id="21" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="46" Count="1" />
+      <LineId Id="49" Count="1" />
+      <LineId Id="52" Count="3" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="4" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StartCycle">
+      <LineId Id="9" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StopCycle">
+      <LineId Id="6" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
     <LineIds Name="FB_HydraulicsMain.M_StopCycleEmpty">
       <LineId Id="6" Count="1" />
       <LineId Id="5" Count="0" />
     </LineIds>
-    <LineIds Name="FB_HydraulicsMain.Error">
-      <LineId Id="56" Count="31" />
+    <LineIds Name="FB_HydraulicsMain.M_StopDirect">
+      <LineId Id="56" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.M_StopInit">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HydraulicsMain.Objects">
+      <LineId Id="92" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="120" Count="4" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="125" Count="1" />
+      <LineId Id="154" Count="1" />
+      <LineId Id="127" Count="5" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="133" Count="2" />
+      <LineId Id="142" Count="4" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="87" Count="1" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="105" Count="3" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="63" Count="1" />
+      <LineId Id="73" Count="1" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="95" Count="8" />
       <LineId Id="1" Count="0" />
     </LineIds>
   </POU>

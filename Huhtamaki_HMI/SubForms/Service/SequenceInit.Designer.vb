@@ -23,17 +23,18 @@ Partial Class SequenceInit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Bottom mold A")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Top Mold A")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Transfermold")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Machine pond")
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Bottom Mold B")
-        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Top Mold B")
-        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("In Mold drying", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4, TreeNode5, TreeNode6})
-        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Gantry A")
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Gantry B")
-        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Product handling", New System.Windows.Forms.TreeNode() {TreeNode8, TreeNode9})
-        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Machine", New System.Windows.Forms.TreeNode() {TreeNode7, TreeNode10})
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Bottom mold A")
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Top Mold A")
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Transfermold")
+        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Machine pond")
+        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Bottom Mold B")
+        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Top Mold B")
+        Dim TreeNode19 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("In Mold drying", New System.Windows.Forms.TreeNode() {TreeNode13, TreeNode14, TreeNode15, TreeNode16, TreeNode17, TreeNode18})
+        Dim TreeNode20 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Gantry A")
+        Dim TreeNode21 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Gantry B")
+        Dim TreeNode22 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Product Conveyor")
+        Dim TreeNode23 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Product handling", New System.Windows.Forms.TreeNode() {TreeNode20, TreeNode21, TreeNode22})
+        Dim TreeNode24 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Machine", New System.Windows.Forms.TreeNode() {TreeNode19, TreeNode23})
         Me.krConnector = New TwincatControlWin32.KremerConnector(Me.components)
         Me.krVarCollector = New KremerControlsWin32.KremerVariableCollector(Me.components)
         Me.StartInit = New KremerControlsWin32.KremerVariable(Me.components)
@@ -61,6 +62,7 @@ Partial Class SequenceInit
         Me.InitGantryB = New KremerControlsWin32.KremerVariable(Me.components)
         Me.GantryB = New KremerControlsWin32.KremerTextField(Me.components)
         Me.InitProductConv = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.txtProductConveyor = New KremerControlsWin32.KremerTextField(Me.components)
         Me.txtInlineAutomation = New KremerControlsWin32.KremerStatusBox()
         Me.tvInline = New System.Windows.Forms.TreeView()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -496,6 +498,30 @@ Partial Class SequenceInit
         Me.InitProductConv.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
         Me.InitProductConv.VariableName = Nothing
         '
+        'txtProductConveyor
+        '
+        Me.txtProductConveyor.Audit = Nothing
+        Me.txtProductConveyor.AuditEnabled = False
+        Me.txtProductConveyor.AuditMessage = "KremerTextField changed:"
+        Me.txtProductConveyor.AuditSource = "KremerTextField"
+        Me.txtProductConveyor.BackColor = System.Drawing.Color.White
+        Me.txtProductConveyor.BackColorOn = System.Drawing.Color.Empty
+        Me.txtProductConveyor.Data = "Text"
+        Me.txtProductConveyor.ForeColor = System.Drawing.Color.Navy
+        Me.txtProductConveyor.ForeColorOn = System.Drawing.Color.Empty
+        Me.txtProductConveyor.InitialValue = True
+        Me.txtProductConveyor.IOType = KremerControlsWin32.KremerTextField.IO_Type.Output
+        Me.txtProductConveyor.Location = New System.Drawing.Point(153, 187)
+        Me.txtProductConveyor.Name = "txtProductConveyor"
+        Me.txtProductConveyor.PasswordMask = False
+        Me.txtProductConveyor.Size = New System.Drawing.Size(240, 14)
+        Me.txtProductConveyor.State = False
+        Me.txtProductConveyor.TabIndex = 346
+        Me.txtProductConveyor.Text = "Cycle State"
+        Me.txtProductConveyor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.txtProductConveyor.UserInfo = Nothing
+        Me.txtProductConveyor.UserLevel = 0
+        '
         'txtInlineAutomation
         '
         Me.txtInlineAutomation.BackColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -521,41 +547,44 @@ Partial Class SequenceInit
         Me.tvInline.LineColor = System.Drawing.Color.Red
         Me.tvInline.Location = New System.Drawing.Point(2, 10)
         Me.tvInline.Name = "tvInline"
-        TreeNode1.Checked = True
-        TreeNode1.Name = "Node8"
-        TreeNode1.Text = "Bottom mold A"
-        TreeNode2.Checked = True
-        TreeNode2.Name = "Node9"
-        TreeNode2.Text = "Top Mold A"
-        TreeNode3.Checked = True
-        TreeNode3.Name = "Node10"
-        TreeNode3.Text = "Transfermold"
-        TreeNode4.Checked = True
-        TreeNode4.Name = "Node11"
-        TreeNode4.Text = "Machine pond"
-        TreeNode5.Checked = True
-        TreeNode5.Name = "Node12"
-        TreeNode5.Text = "Bottom Mold B"
-        TreeNode5.ToolTipText = "Bottom mold B"
-        TreeNode6.Checked = True
-        TreeNode6.Name = "Node13"
-        TreeNode6.Text = "Top Mold B"
-        TreeNode7.Checked = True
-        TreeNode7.Name = "Node0"
-        TreeNode7.Text = "In Mold drying"
-        TreeNode8.Checked = True
-        TreeNode8.Name = "Node14"
-        TreeNode8.Text = "Gantry A"
-        TreeNode9.Checked = True
-        TreeNode9.Name = "Node15"
-        TreeNode9.Text = "Gantry B"
-        TreeNode10.Checked = True
-        TreeNode10.Name = "Node3"
-        TreeNode10.Text = "Product handling"
-        TreeNode11.Checked = True
-        TreeNode11.Name = "Node0"
-        TreeNode11.Text = "Machine"
-        Me.tvInline.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode11})
+        TreeNode13.Checked = True
+        TreeNode13.Name = "Node8"
+        TreeNode13.Text = "Bottom mold A"
+        TreeNode14.Checked = True
+        TreeNode14.Name = "Node9"
+        TreeNode14.Text = "Top Mold A"
+        TreeNode15.Checked = True
+        TreeNode15.Name = "Node10"
+        TreeNode15.Text = "Transfermold"
+        TreeNode16.Checked = True
+        TreeNode16.Name = "Node11"
+        TreeNode16.Text = "Machine pond"
+        TreeNode17.Checked = True
+        TreeNode17.Name = "Node12"
+        TreeNode17.Text = "Bottom Mold B"
+        TreeNode17.ToolTipText = "Bottom mold B"
+        TreeNode18.Checked = True
+        TreeNode18.Name = "Node13"
+        TreeNode18.Text = "Top Mold B"
+        TreeNode19.Checked = True
+        TreeNode19.Name = "Node0"
+        TreeNode19.Text = "In Mold drying"
+        TreeNode20.Checked = True
+        TreeNode20.Name = "Node14"
+        TreeNode20.Text = "Gantry A"
+        TreeNode21.Checked = True
+        TreeNode21.Name = "Node15"
+        TreeNode21.Text = "Gantry B"
+        TreeNode22.Checked = True
+        TreeNode22.Name = "Node16"
+        TreeNode22.Text = "Product Conveyor"
+        TreeNode23.Checked = True
+        TreeNode23.Name = "Node3"
+        TreeNode23.Text = "Product handling"
+        TreeNode24.Checked = True
+        TreeNode24.Name = "Node0"
+        TreeNode24.Text = "Machine"
+        Me.tvInline.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode24})
         Me.tvInline.ShowPlusMinus = False
         Me.tvInline.ShowRootLines = False
         Me.tvInline.Size = New System.Drawing.Size(415, 375)
@@ -586,6 +615,7 @@ Partial Class SequenceInit
         Me.Controls.Add(Me.btnStartINIT)
         Me.Controls.Add(Me.txtProductHandling)
         Me.Controls.Add(Me.txtTopMoldB)
+        Me.Controls.Add(Me.txtProductConveyor)
         Me.Controls.Add(Me.GantryB)
         Me.Controls.Add(Me.txtGantryA)
         Me.Controls.Add(Me.txtBottomMoldB)
@@ -612,6 +642,7 @@ Partial Class SequenceInit
     Friend WithEvents txtBottomMoldB As KremerControlsWin32.KremerTextField
     Friend WithEvents txtProductHandling As KremerControlsWin32.KremerTextField
     Friend WithEvents txtTopMoldB As KremerControlsWin32.KremerTextField
+    Friend WithEvents txtProductConveyor As KremerControlsWin32.KremerTextField
     Friend WithEvents GantryB As KremerControlsWin32.KremerTextField
     Friend WithEvents txtGantryA As KremerControlsWin32.KremerTextField
     Friend WithEvents txtInlineAutomation As KremerControlsWin32.KremerStatusBox

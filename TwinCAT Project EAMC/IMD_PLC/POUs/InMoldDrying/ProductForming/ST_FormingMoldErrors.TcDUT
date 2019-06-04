@@ -4,7 +4,7 @@
     <Declaration><![CDATA[TYPE ST_FormingMoldErrors :
 STRUCT
 	
-	//Error1: BOOL;
+	Error1: BOOL;
 
 END_STRUCT
 END_TYPE

@@ -9,15 +9,14 @@
 
 (function (TcHmi) {
 
-    // Currently not used as it doesn't work as intended when multiple alarmwords are changed at the same time.
-
-    // AlarmDB : Object that stores all currently active alarms
-    // AlarmWordServer : Represents the value of the alarmword on the server
-    // AlarmWordInternal : Value of the alarmword as stored internally
-    // AlarmMessageList : List with all alarm messages and their translations
     var UpdateAlarmDBForAlarmWord = function (AlarmDB, AlarmWordServer, AlarmWordInternal, AlarmMessageList) {
-        //console.log('Updating the alarmDB for: ' + AlarmWordServer.__symbol.__expression.__name);
-        
+        console.log('Updating the alarmDB for: ' + AlarmWordServer.__symbol.__expression.__name);
+
+        //console.log(AlarmDB);
+        //console.log(AlarmWordServer);
+        //console.log(AlarmWordInternal);
+        //console.log(AlarmMessageList);
+
         // Get the locale information
         var timeZone = TcHmi.Locale.get();
         // Create date object with current date time
@@ -37,6 +36,7 @@
                 var result = symbol.read();
                 result.Data = serverValue;
                 symbol.write(result);
+                //console.log(symbol.read());
 
 
                 // Convert the DINT value to Binary
@@ -64,19 +64,23 @@
                     if (!exists) {
                         if (binArray[i] === '1') {
                             // 1
+                            //console.log("This one doesn't exist yet!");
                             jsonEntry['Test1'] = (i + offset);
                             jsonEntry['Test2'] = date;
                             jsonEntry['Test3'] = result.AlarmGroup.text;
                             jsonEntry['Test4'] = alarmStrings[timeZone][(i + offset)];
+                            //console.log(jsonEntry);
                             alarmDB[(i + offset)] = jsonEntry;
                             jsonEntry = {};
                         }
                     } if (exists && (binArray[i] === '0')) {
                         // 0
+                        //console.log('Already exists, deleting!');
                         delete alarmDB[(i + offset)];
                     }
                 };
                 
+                //console.log(alarmDB);
                 // Write to alarmDB Symbol
                 alarmDBSymbol.write(alarmDB, function (data) {
                     if (data.error === TcHmi.Errors.NONE) {
@@ -102,6 +106,8 @@
         };
 
         function doesExistInDB(index) {
+            //console.log("Does this exists in the DB?");
+            //console.log(alarmDB[index]);
             if (alarmDB[index] !== undefined) {
                 return true;
             } else {

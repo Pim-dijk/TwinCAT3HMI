@@ -1,9 +1,9 @@
 ﻿<div id="ucDateTime" data-tchmi-type="tchmi-user-control" 
      data-tchmi-top="0" data-tchmi-left="0" 
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
-     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="Visible">
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%">
 
-<div id="TcHmiTextblock_64" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%" data-tchmi-visibility="%f%ConvertBooleanToVisibility( %pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%">
+<div id="TcHmiTextblock_64" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 
 
@@ -21,7 +21,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var dateTime = new TcHmi.Symbol('%pp%DateTime%/pp%');\nvar offset = new TcHmi.Symbol('%pp%TimeOffset%/pp%');\nsetInterval(function(){\n  \tdateTime.write(Date.now()); \n  \toffset.write((new Date().getTimezoneOffset() * 60000));\n}, 1000);"
+          "var dateTime = new TcHmi.Symbol('%pp%DateTime%/pp%');\nvar offset = new TcHmi.Symbol('%pp%TimeOffset%/pp%');\nsetInterval(function(){dateTime.write(Date.now()); offset.write((new Date().getTimezoneOffset() * 60000));}, 1000);"
         ],
         "injectContextObject": false,
         "asyncWait": true,

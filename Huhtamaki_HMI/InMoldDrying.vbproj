@@ -194,124 +194,142 @@
     <Compile Include="SubForms\GeneralSubs\HisAlarmsSub.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Bot\DryingMoldDetail_Bot.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Manual.Designer.vb">
+      <DependentUpon>ConveyorBelt_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Manual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Overview.Designer.vb">
+      <DependentUpon>ConveyorBelt_Overview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Settings.Designer.vb">
+      <DependentUpon>ConveyorBelt_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot.Designer.vb">
       <DependentUpon>DryingMoldDetail_Bot.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Bot\DryingMoldDetail_Bot.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.Designer.vb">
       <DependentUpon>DryingMoldDetail_Bot_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Manual.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Manual.Designer.vb">
       <DependentUpon>DryingMold_Manual.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Manual.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Manual.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Settings2.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings2.Designer.vb">
       <DependentUpon>DryingMold_Settings2.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Settings2.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings2.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings.Designer.vb">
       <DependentUpon>DryingMold_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Settings.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.Designer.vb">
       <DependentUpon>DryingMoldDetail_Top_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Manual.Designer.vb">
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Manual.Designer.vb">
       <DependentUpon>Gantry_Manual.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Manual.vb">
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Manual.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Overview.Designer.vb">
       <DependentUpon>Gantry_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Overview.vb">
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Settings.Designer.vb">
       <DependentUpon>Gantry_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Settings.vb">
+    <Compile Include="SubForms\MachineParts\Gantry\Gantry_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Settings.Designer.vb">
       <DependentUpon>MachinePond_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Settings.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\ProductForming_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\ProductForming_Overview.Designer.vb">
       <DependentUpon>ProductForming_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\ProductForming_Overview.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\ProductForming_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Manual.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Manual.Designer.vb">
       <DependentUpon>TakeOutUnit_Manual.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Manual.vb">
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Manual.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Overview.Designer.vb">
       <DependentUpon>TakeOutUnit_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Overview.vb">
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Settings.Designer.vb">
       <DependentUpon>TakeOutUnit_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Settings.vb">
+    <Compile Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings.Designer.vb">
       <DependentUpon>TransferMold_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Settings.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Settings2.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings2.Designer.vb">
       <DependentUpon>TransferMold_Settings2.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Settings2.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Settings2.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Manual.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Manual.Designer.vb">
       <DependentUpon>Spraybar_Manual.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Manual.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Manual.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Manual.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Manual.Designer.vb">
       <DependentUpon>MachinePond_Manual.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Manual.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Manual.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Settings.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Settings.Designer.vb">
       <DependentUpon>Spraybar_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Settings.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Overview.Designer.vb">
       <DependentUpon>MachinePond_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Overview.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubForms\GeneralSubs\General.Designer.vb">
@@ -320,28 +338,28 @@
     <Compile Include="SubForms\GeneralSubs\General.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Overview.Designer.vb">
       <DependentUpon>TransferMold_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Overview.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Overview.Designer.vb">
       <DependentUpon>Spraybar_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Overview.vb">
+    <Compile Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Manual.Designer.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Manual.Designer.vb">
       <DependentUpon>TransferMold_Manual.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Manual.vb">
+    <Compile Include="SubForms\MachineParts\TransferMold\TransferMold_Manual.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Top\DryingMoldDetail_Top.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.Designer.vb">
       <DependentUpon>DryingMoldDetail_Top.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Top\DryingMoldDetail_Top.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubForms\MachineParts\Overview.Designer.vb">
@@ -368,28 +386,10 @@
     <Compile Include="SubForms\GeneralSubs\Trend.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Overview.Designer.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Overview.Designer.vb">
       <DependentUpon>DryingMold_Overview.vb</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Overview.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SubForms\MachineParts\SpeedControl\SpeedControl_Manual.Designer.vb">
-      <DependentUpon>SpeedControl_Manual.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SubForms\MachineParts\SpeedControl\SpeedControl_Manual.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SubForms\MachineParts\SpeedControl\SpeedControl_Overview.Designer.vb">
-      <DependentUpon>SpeedControl_Overview.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SubForms\MachineParts\SpeedControl\SpeedControl_Overview.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SubForms\MachineParts\SpeedControl\SpeedControl_Settings.Designer.vb">
-      <DependentUpon>SpeedControl_Settings.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SubForms\MachineParts\SpeedControl\SpeedControl_Settings.vb">
+    <Compile Include="SubForms\MachineParts\DryingMold\DryingMold_Overview.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubForms\Service\CilinderTimes\CT.Designer.vb">
@@ -530,79 +530,88 @@
     <EmbeddedResource Include="SubForms\GeneralSubs\HisAlarmsSub.resx">
       <DependentUpon>HisAlarmsSub.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Bot\DryingMoldDetail_Bot.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Manual.resx">
+      <DependentUpon>ConveyorBelt_Manual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Overview.resx">
+      <DependentUpon>ConveyorBelt_Overview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\ConveyorBelt\ConveyorBelt_Settings.resx">
+      <DependentUpon>ConveyorBelt_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot.resx">
       <DependentUpon>DryingMoldDetail_Bot.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Bot\DryingMoldDetail_Bot_Settings.resx">
       <DependentUpon>DryingMoldDetail_Bot_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Manual.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Manual.resx">
       <DependentUpon>DryingMold_Manual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Settings2.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Settings2.resx">
       <DependentUpon>DryingMold_Settings2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Settings.resx">
       <DependentUpon>DryingMold_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top_Settings.resx">
       <DependentUpon>DryingMoldDetail_Top_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Manual.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\Gantry\Gantry_Manual.resx">
       <DependentUpon>Gantry_Manual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\Gantry\Gantry_Overview.resx">
       <DependentUpon>Gantry_Overview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\Gantry\Gantry_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\Gantry\Gantry_Settings.resx">
       <DependentUpon>Gantry_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Settings.resx">
       <DependentUpon>MachinePond_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\ProductForming_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\ProductForming_Overview.resx">
       <DependentUpon>ProductForming_Overview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Manual.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Manual.resx">
       <DependentUpon>TakeOutUnit_Manual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Overview.resx">
       <DependentUpon>TakeOutUnit_Overview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TakeOutUnit\TakeOutUnit_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TakeOutUnit\TakeOutUnit_Settings.resx">
       <DependentUpon>TakeOutUnit_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Settings.resx">
       <DependentUpon>TransferMold_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Settings2.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Settings2.resx">
       <DependentUpon>TransferMold_Settings2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Manual.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Manual.resx">
       <DependentUpon>Spraybar_Manual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Manual.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Manual.resx">
       <DependentUpon>MachinePond_Manual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Settings.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Settings.resx">
       <DependentUpon>Spraybar_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\MachinePond\MachinePond_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\MachinePond\MachinePond_Overview.resx">
       <DependentUpon>MachinePond_Overview.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\GeneralSubs\General.resx">
       <DependentUpon>General.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Overview.resx">
       <DependentUpon>TransferMold_Overview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\ProductForming\Spraybar\Spraybar_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\ProductForming\Spraybar\Spraybar_Overview.resx">
       <DependentUpon>Spraybar_Overview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\TransferMold\TransferMold_Manual.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\TransferMold\TransferMold_Manual.resx">
       <DependentUpon>TransferMold_Manual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\Detail_Top\DryingMoldDetail_Top.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\Detail_Top\DryingMoldDetail_Top.resx">
       <DependentUpon>DryingMoldDetail_Top.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\MachineParts\Overview.resx">
@@ -617,17 +626,8 @@
     <EmbeddedResource Include="SubForms\GeneralSubs\Trend.resx">
       <DependentUpon>Trend.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\InMoldDryer\DryingMold\DryingMold_Overview.resx">
+    <EmbeddedResource Include="SubForms\MachineParts\DryingMold\DryingMold_Overview.resx">
       <DependentUpon>DryingMold_Overview.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\SpeedControl\SpeedControl_Manual.resx">
-      <DependentUpon>SpeedControl_Manual.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\SpeedControl\SpeedControl_Overview.resx">
-      <DependentUpon>SpeedControl_Overview.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\MachineParts\SpeedControl\SpeedControl_Settings.resx">
-      <DependentUpon>SpeedControl_Settings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\Service\CilinderTimes\CT.resx">
       <DependentUpon>CT.vb</DependentUpon>

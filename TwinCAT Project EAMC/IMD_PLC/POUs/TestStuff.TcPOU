@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="TestStuff" Id="{4aefed9b-9e84-4387-aa83-75ce843fb620}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK TestStuff
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	//HydraulicCylinder : FB_HydraulicCilinderAnalog;
+	mxReset: BOOL;
+	mxEmStop: BOOL;
+	mxAutoMode: BOOL;
+	mxIsIn: BOOL;
+	mxIsOut: BOOL;
+	mxMovesOut: BOOL;
+	mxMovesIn: BOOL;
+	mxSlowMoveActive: BOOL;
+	ActMeasuredPos: REAL;
+	ActPos: REAL;
+	mxErrorStopInPos: BOOL;
+	mxErrorInit: BOOL;
+	mxMoveOut: BOOL;
+	mxMoveIn: BOOL;
+	PositionPhysicalMeasured: REAL;
+	OffsetAlarmPos: REAL;
+	OffsetPos: REAL;
+	EndPositionOut: REAL;
+	EndPositionIn: REAL;
+	Errors: ST_HydraulicErrors;
+	PositionPhyisicalMeasuredOld: REAL;
+	PhysicalOffsetPos: REAL;
+	TestEndPos: INT;
+	TestNormSpeed: INT;
+	TestSlowPos: INT;
+	TestSlowSpeed: INT;
+	TestCreepPos: INT;
+	TestCreepSpeed: REAL;
+	DoThis: BOOL;
+	CurrentPos: REAL;
+	Blink: FB_Blink;
+	//AnaTest: FB_AnalogOutMinus10_10V;
+	EngInputTest: REAL;
+	EngMin: REAL;
+	EngMax: REAL;
+	VOut: REAL;
+	RawOut: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Objects();
+TestCylinder();]]></ST>
+    </Implementation>
+    <Action Name="Objects" Id="{0a4bcf43-3f91-4193-be94-7e918e23ee86}">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="TestCylinder" Id="{cdf009e4-ced9-42d9-9b19-8fc81fdf51f7}">
+      <Implementation>
+        <ST><![CDATA[;]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="TestStuff">
+      <LineId Id="33" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="TestStuff.Objects">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="TestStuff.TestCylinder">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

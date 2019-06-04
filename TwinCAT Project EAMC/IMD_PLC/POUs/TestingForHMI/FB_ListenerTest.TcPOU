@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB_ListenerTest" Id="{8e62e84e-44ee-4a40-9ba4-b66944f11efd}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ListenerTest
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	bAddListener : BOOL := TRUE;
+	bRemoveListener : BOOL; 
+	
+	fbLogger : FB_TcEventLogger;
+	fbMessageListener : Event_Listener;	
+	
+	ipMessageConfig : ITcEventFilterConfig;
+	chosenEventClass : GUID := TC_EVENT_CLASSES.MyEventClass;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bAddListener THEN 
+	bAddListener := FALSE;
+	fbMessageListener.Subscribe(ADR(ipMessageConfig), 0);
+	IF (ipMessageConfig <> 0) THEN
+		ipMessageConfig.AddEventClass(chosenEventClass, TcEventSeverity.Verbose);		
+	END_IF
+END_IF 
+
+IF bRemoveListener THEN 
+	bRemoveListener := FALSE;
+	fbMessageListener.Unsubscribe();
+END_IF 
+
+fbMessageListener.Execute(); // retrieve messages and its texts
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ListenerTest">
+      <LineId Id="18" Count="12" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="46" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

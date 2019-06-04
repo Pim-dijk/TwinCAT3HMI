@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_GantryMachPar_Org" Id="{29331570-d061-4e05-86a4-6e03899ea65d}">
+    <Declaration><![CDATA[TYPE ST_GantryMachPar_Org :
+STRUCT
+(* Prod par 
+	VertPickup
+	VertDropOff
+	HorPickup
+	HorDropOff
+	Blow Off *)
+	Vert_VelocityManual					: LREAL;
+	Vert_VelocityAuto					: LREAL;
+	Vert_PositionTransport				: LREAL;
+	Vert_PositionHome					: LREAL;(* Used when motor is Replaced, write this value as "position bias" in system manager NC-Axis *)
+	
+	Hor_VelocityManual					: LREAL;
+	Hor_VelocityAuto					: LREAL;
+	Hor_PositionRest					: LREAL;
+	Hor_PositionHome					: LREAL;(* Used when motor is Replaced, write this value as "position bias" in system manager NC-Axis *)
+
+	DropOffConveyorPostion				: LREAL; (* Modulo position from outfeed belt *)
+	EnableVacuumSection					: ARRAY [1..6] OF BOOL;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -5,6 +5,8 @@
 STRUCT
 	GantryA						: ST_GantryProdPar;
 	GantryB						: ST_GantryProdPar;
+	OutfeedConveyor				: ST_OutfeedConveyorProdPar;
+
 END_STRUCT
 END_TYPE
 ]]></Declaration>

@@ -25,86 +25,19 @@ Partial Class IO_ProductHandling
         Me.components = New System.ComponentModel.Container()
         Me.KrConnector = New TwincatControlWin32.KremerConnector(Me.components)
         Me.VarCollector = New KremerControlsWin32.KremerVariableCollector(Me.components)
-        Me.ACollisionSensor = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GACollision = New KremerControlsWin32.KremerLight()
-        Me.AEsHorizontalFront = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAEsHorizontalFront = New KremerControlsWin32.KremerLight()
-        Me.AEsHorizontalBack = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAEsHorizontalback = New KremerControlsWin32.KremerLight()
-        Me.AEsVerticalUp = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAEsverticalUp = New KremerControlsWin32.KremerLight()
-        Me.AEsVerticalDown = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_EsVerticalDown = New KremerControlsWin32.KremerLight()
-        Me.AVacSensor1 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAInputVac1 = New KremerControlsWin32.KremerLight()
-        Me.AVacSensor2 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAInputVac2 = New KremerControlsWin32.KremerLight()
-        Me.AVacSensor3 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAInputVac3 = New KremerControlsWin32.KremerLight()
-        Me.AVacSensor4 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_GAInputVac4 = New KremerControlsWin32.KremerLight()
-        Me.AVacSensor5 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAInputVac5 = New KremerControlsWin32.KremerLight()
-        Me.AVacSensor6 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAInputVac6 = New KremerControlsWin32.KremerLight()
-        Me.AVacOutp1 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAOutputVac1 = New KremerControlsWin32.KremerLight()
-        Me.AVacOutp2 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAOutputVac2 = New KremerControlsWin32.KremerLight()
-        Me.AVacOutp3 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAOutputVac3 = New KremerControlsWin32.KremerLight()
-        Me.AVacOutp4 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAOutputVac4 = New KremerControlsWin32.KremerLight()
-        Me.AVacOutp5 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAOutputVac5 = New KremerControlsWin32.KremerLight()
-        Me.AVacOutp6 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_GAOutputVac6 = New KremerControlsWin32.KremerLight()
-        Me.BcolisionSensor = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BColision = New KremerControlsWin32.KremerLight()
-        Me.BEsHorizontalFront = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BEsHorizontalFront = New KremerControlsWin32.KremerLight()
-        Me.BEsHorizontalBack = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BEsHorizontalBack = New KremerControlsWin32.KremerLight()
-        Me.BEsVerticalUp = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BEsVerticalUp = New KremerControlsWin32.KremerLight()
-        Me.BEsVerticalDown = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BEsVerticalDown = New KremerControlsWin32.KremerLight()
-        Me.BVacSensor1 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BVacSens1 = New KremerControlsWin32.KremerLight()
-        Me.BVacSensor2 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BVacSens2 = New KremerControlsWin32.KremerLight()
-        Me.BVacSensor3 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BVacSens3 = New KremerControlsWin32.KremerLight()
-        Me.BVacSensor4 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BVacSens4 = New KremerControlsWin32.KremerLight()
-        Me.BVacSensor5 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BVacSens5 = New KremerControlsWin32.KremerLight()
-        Me.BVacSensor6 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BVacSens6 = New KremerControlsWin32.KremerLight()
-        Me.BVacOutp1 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BOutputVac1 = New KremerControlsWin32.KremerLight()
-        Me.BVacOutp2 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BOutputVac2 = New KremerControlsWin32.KremerLight()
-        Me.BVacOutp3 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BOutputVac3 = New KremerControlsWin32.KremerLight()
-        Me.BVacOutp4 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BOutputVac4 = New KremerControlsWin32.KremerLight()
-        Me.BVacOutp5 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BOutputVac5 = New KremerControlsWin32.KremerLight()
-        Me.BVacOutp6 = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.KL_BOutputVac6 = New KremerControlsWin32.KremerLight()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -113,24 +46,91 @@ Partial Class IO_ProductHandling
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.KL_GAInputVac5 = New KremerControlsWin32.KremerLight()
+        Me.KL_GAInputVac6 = New KremerControlsWin32.KremerLight()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.KL_GAOutputVac1 = New KremerControlsWin32.KremerLight()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.KL_GAOutputVac2 = New KremerControlsWin32.KremerLight()
+        Me.KL_GAOutputVac3 = New KremerControlsWin32.KremerLight()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.KL_GAOutputVac4 = New KremerControlsWin32.KremerLight()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.KL_GAOutputVac5 = New KremerControlsWin32.KremerLight()
+        Me.KL_GAOutputVac6 = New KremerControlsWin32.KremerLight()
+        Me.ACollisionSensor = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AEsHorizontalFront = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AEsHorizontalBack = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AEsVerticalUp = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AEsVerticalDown = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacSensor1 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacSensor2 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacSensor3 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacSensor4 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacSensor5 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacSensor6 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacOutp1 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacOutp2 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacOutp3 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacOutp4 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacOutp5 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.AVacOutp6 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BcolisionSensor = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BEsHorizontalFront = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BEsHorizontalBack = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BEsVerticalUp = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BEsVerticalDown = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacSensor1 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacSensor2 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacSensor3 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacSensor4 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacSensor5 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacSensor6 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacOutp1 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacOutp2 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacOutp3 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacOutp4 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacOutp5 = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.BVacOutp6 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.KL_BOutputVac4 = New KremerControlsWin32.KremerLight()
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.KL_BOutputVac5 = New KremerControlsWin32.KremerLight()
+        Me.KL_BOutputVac6 = New KremerControlsWin32.KremerLight()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
+        Me.KL_BOutputVac1 = New KremerControlsWin32.KremerLight()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
+        Me.KL_BOutputVac2 = New KremerControlsWin32.KremerLight()
+        Me.KL_BOutputVac3 = New KremerControlsWin32.KremerLight()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.KL_BVacSens5 = New KremerControlsWin32.KremerLight()
+        Me.KL_BVacSens6 = New KremerControlsWin32.KremerLight()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.KL_BEsVerticalDown = New KremerControlsWin32.KremerLight()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.KL_BColision = New KremerControlsWin32.KremerLight()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.KL_BEsHorizontalFront = New KremerControlsWin32.KremerLight()
+        Me.KL_BEsHorizontalBack = New KremerControlsWin32.KremerLight()
+        Me.KL_BEsVerticalUp = New KremerControlsWin32.KremerLight()
+        Me.KL_BVacSens1 = New KremerControlsWin32.KremerLight()
+        Me.KL_BVacSens2 = New KremerControlsWin32.KremerLight()
+        Me.KL_BVacSens3 = New KremerControlsWin32.KremerLight()
+        Me.KL_BVacSens4 = New KremerControlsWin32.KremerLight()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -176,15 +176,6 @@ Partial Class IO_ProductHandling
         Me.VarCollector.Variables.Add(Me.BVacOutp5)
         Me.VarCollector.Variables.Add(Me.BVacOutp6)
         '
-        'ACollisionSensor
-        '
-        Me.ACollisionSensor.BindControl = Me.KL_GACollision
-        Me.ACollisionSensor.BindProperty = "Data"
-        Me.ACollisionSensor.Data = Nothing
-        Me.ACollisionSensor.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.ACollisionSensor.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.ACollisionSensor.VariableName = "MAIN.ProductHandling.GantryA.ixCollision"
-        '
         'KL_GACollision
         '
         Me.KL_GACollision.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -198,15 +189,6 @@ Partial Class IO_ProductHandling
         Me.KL_GACollision.TabIndex = 290
         Me.KL_GACollision.Text = "KL_GACollision"
         Me.KL_GACollision.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AEsHorizontalFront
-        '
-        Me.AEsHorizontalFront.BindControl = Me.KL_GAEsHorizontalFront
-        Me.AEsHorizontalFront.BindProperty = "Data"
-        Me.AEsHorizontalFront.Data = Nothing
-        Me.AEsHorizontalFront.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AEsHorizontalFront.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AEsHorizontalFront.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitHorFront"
         '
         'KL_GAEsHorizontalFront
         '
@@ -222,15 +204,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAEsHorizontalFront.Text = "KL_GAEsHorizontalFront"
         Me.KL_GAEsHorizontalFront.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'AEsHorizontalBack
-        '
-        Me.AEsHorizontalBack.BindControl = Me.KL_GAEsHorizontalback
-        Me.AEsHorizontalBack.BindProperty = "Data"
-        Me.AEsHorizontalBack.Data = Nothing
-        Me.AEsHorizontalBack.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AEsHorizontalBack.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AEsHorizontalBack.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitHorBack"
-        '
         'KL_GAEsHorizontalback
         '
         Me.KL_GAEsHorizontalback.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -244,15 +217,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAEsHorizontalback.TabIndex = 294
         Me.KL_GAEsHorizontalback.Text = "KL_GAEsHorizontalback"
         Me.KL_GAEsHorizontalback.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AEsVerticalUp
-        '
-        Me.AEsVerticalUp.BindControl = Me.KL_GAEsverticalUp
-        Me.AEsVerticalUp.BindProperty = "Data"
-        Me.AEsVerticalUp.Data = Nothing
-        Me.AEsVerticalUp.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AEsVerticalUp.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AEsVerticalUp.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitVertUp"
         '
         'KL_GAEsverticalUp
         '
@@ -268,15 +232,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAEsverticalUp.Text = "KremerLight2"
         Me.KL_GAEsverticalUp.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'AEsVerticalDown
-        '
-        Me.AEsVerticalDown.BindControl = Me.KL_EsVerticalDown
-        Me.AEsVerticalDown.BindProperty = "Data"
-        Me.AEsVerticalDown.Data = Nothing
-        Me.AEsVerticalDown.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AEsVerticalDown.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AEsVerticalDown.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitVertDown"
-        '
         'KL_EsVerticalDown
         '
         Me.KL_EsVerticalDown.ColorOff = System.Drawing.Color.Red
@@ -290,15 +245,6 @@ Partial Class IO_ProductHandling
         Me.KL_EsVerticalDown.TabIndex = 298
         Me.KL_EsVerticalDown.Text = "KremerLight9"
         Me.KL_EsVerticalDown.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacSensor1
-        '
-        Me.AVacSensor1.BindControl = Me.KL_GAInputVac1
-        Me.AVacSensor1.BindProperty = "Data"
-        Me.AVacSensor1.Data = Nothing
-        Me.AVacSensor1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacSensor1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacSensor1.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[1]"
         '
         'KL_GAInputVac1
         '
@@ -314,15 +260,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAInputVac1.Text = "KremerLight10"
         Me.KL_GAInputVac1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'AVacSensor2
-        '
-        Me.AVacSensor2.BindControl = Me.KL_GAInputVac2
-        Me.AVacSensor2.BindProperty = "Data"
-        Me.AVacSensor2.Data = Nothing
-        Me.AVacSensor2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacSensor2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacSensor2.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[2]"
-        '
         'KL_GAInputVac2
         '
         Me.KL_GAInputVac2.ColorOff = System.Drawing.Color.Red
@@ -336,15 +273,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAInputVac2.TabIndex = 302
         Me.KL_GAInputVac2.Text = "KremerLight11"
         Me.KL_GAInputVac2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacSensor3
-        '
-        Me.AVacSensor3.BindControl = Me.KL_GAInputVac3
-        Me.AVacSensor3.BindProperty = "Data"
-        Me.AVacSensor3.Data = Nothing
-        Me.AVacSensor3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacSensor3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacSensor3.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[3]"
         '
         'KL_GAInputVac3
         '
@@ -360,15 +288,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAInputVac3.Text = "KremerLight12"
         Me.KL_GAInputVac3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'AVacSensor4
-        '
-        Me.AVacSensor4.BindControl = Me.KL_GAInputVac4
-        Me.AVacSensor4.BindProperty = "Data"
-        Me.AVacSensor4.Data = Nothing
-        Me.AVacSensor4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacSensor4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacSensor4.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[4]"
-        '
         'KL_GAInputVac4
         '
         Me.KL_GAInputVac4.ColorOff = System.Drawing.Color.Red
@@ -382,581 +301,6 @@ Partial Class IO_ProductHandling
         Me.KL_GAInputVac4.TabIndex = 306
         Me.KL_GAInputVac4.Text = "KremerLight13"
         Me.KL_GAInputVac4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacSensor5
-        '
-        Me.AVacSensor5.BindControl = Me.KL_GAInputVac5
-        Me.AVacSensor5.BindProperty = "Data"
-        Me.AVacSensor5.Data = Nothing
-        Me.AVacSensor5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacSensor5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacSensor5.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[5]"
-        '
-        'KL_GAInputVac5
-        '
-        Me.KL_GAInputVac5.ColorOff = System.Drawing.Color.Red
-        Me.KL_GAInputVac5.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAInputVac5.Data = False
-        Me.KL_GAInputVac5.Line = True
-        Me.KL_GAInputVac5.LineSize = 1
-        Me.KL_GAInputVac5.Location = New System.Drawing.Point(10, 212)
-        Me.KL_GAInputVac5.Name = "KL_GAInputVac5"
-        Me.KL_GAInputVac5.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAInputVac5.TabIndex = 318
-        Me.KL_GAInputVac5.Text = "KremerLight12"
-        Me.KL_GAInputVac5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacSensor6
-        '
-        Me.AVacSensor6.BindControl = Me.KL_GAInputVac6
-        Me.AVacSensor6.BindProperty = "Data"
-        Me.AVacSensor6.Data = Nothing
-        Me.AVacSensor6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacSensor6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacSensor6.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[6]"
-        '
-        'KL_GAInputVac6
-        '
-        Me.KL_GAInputVac6.ColorOff = System.Drawing.Color.Red
-        Me.KL_GAInputVac6.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAInputVac6.Data = False
-        Me.KL_GAInputVac6.Line = True
-        Me.KL_GAInputVac6.LineSize = 1
-        Me.KL_GAInputVac6.Location = New System.Drawing.Point(10, 233)
-        Me.KL_GAInputVac6.Name = "KL_GAInputVac6"
-        Me.KL_GAInputVac6.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAInputVac6.TabIndex = 320
-        Me.KL_GAInputVac6.Text = "KremerLight13"
-        Me.KL_GAInputVac6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacOutp1
-        '
-        Me.AVacOutp1.BindControl = Me.KL_GAOutputVac1
-        Me.AVacOutp1.BindProperty = "Data"
-        Me.AVacOutp1.Data = Nothing
-        Me.AVacOutp1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacOutp1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacOutp1.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[1].Q"
-        '
-        'KL_GAOutputVac1
-        '
-        Me.KL_GAOutputVac1.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAOutputVac1.ColorOn = System.Drawing.Color.Lime
-        Me.KL_GAOutputVac1.Data = False
-        Me.KL_GAOutputVac1.Line = True
-        Me.KL_GAOutputVac1.LineSize = 1
-        Me.KL_GAOutputVac1.Location = New System.Drawing.Point(10, 276)
-        Me.KL_GAOutputVac1.Name = "KL_GAOutputVac1"
-        Me.KL_GAOutputVac1.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAOutputVac1.TabIndex = 322
-        Me.KL_GAOutputVac1.Text = "KremerLight3"
-        Me.KL_GAOutputVac1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacOutp2
-        '
-        Me.AVacOutp2.BindControl = Me.KL_GAOutputVac2
-        Me.AVacOutp2.BindProperty = "Data"
-        Me.AVacOutp2.Data = Nothing
-        Me.AVacOutp2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacOutp2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacOutp2.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[2].Q"
-        '
-        'KL_GAOutputVac2
-        '
-        Me.KL_GAOutputVac2.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAOutputVac2.ColorOn = System.Drawing.Color.Lime
-        Me.KL_GAOutputVac2.Data = False
-        Me.KL_GAOutputVac2.Line = True
-        Me.KL_GAOutputVac2.LineSize = 1
-        Me.KL_GAOutputVac2.Location = New System.Drawing.Point(10, 297)
-        Me.KL_GAOutputVac2.Name = "KL_GAOutputVac2"
-        Me.KL_GAOutputVac2.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAOutputVac2.TabIndex = 324
-        Me.KL_GAOutputVac2.Text = "KremerLight4"
-        Me.KL_GAOutputVac2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacOutp3
-        '
-        Me.AVacOutp3.BindControl = Me.KL_GAOutputVac3
-        Me.AVacOutp3.BindProperty = "Data"
-        Me.AVacOutp3.Data = Nothing
-        Me.AVacOutp3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacOutp3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacOutp3.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[3].Q"
-        '
-        'KL_GAOutputVac3
-        '
-        Me.KL_GAOutputVac3.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAOutputVac3.ColorOn = System.Drawing.Color.Lime
-        Me.KL_GAOutputVac3.Data = False
-        Me.KL_GAOutputVac3.Line = True
-        Me.KL_GAOutputVac3.LineSize = 1
-        Me.KL_GAOutputVac3.Location = New System.Drawing.Point(10, 318)
-        Me.KL_GAOutputVac3.Name = "KL_GAOutputVac3"
-        Me.KL_GAOutputVac3.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAOutputVac3.TabIndex = 326
-        Me.KL_GAOutputVac3.Text = "KremerLight5"
-        Me.KL_GAOutputVac3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacOutp4
-        '
-        Me.AVacOutp4.BindControl = Me.KL_GAOutputVac4
-        Me.AVacOutp4.BindProperty = "Data"
-        Me.AVacOutp4.Data = Nothing
-        Me.AVacOutp4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacOutp4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacOutp4.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[4].Q"
-        '
-        'KL_GAOutputVac4
-        '
-        Me.KL_GAOutputVac4.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAOutputVac4.ColorOn = System.Drawing.Color.Lime
-        Me.KL_GAOutputVac4.Data = False
-        Me.KL_GAOutputVac4.Line = True
-        Me.KL_GAOutputVac4.LineSize = 1
-        Me.KL_GAOutputVac4.Location = New System.Drawing.Point(10, 338)
-        Me.KL_GAOutputVac4.Name = "KL_GAOutputVac4"
-        Me.KL_GAOutputVac4.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAOutputVac4.TabIndex = 328
-        Me.KL_GAOutputVac4.Text = "KremerLight6"
-        Me.KL_GAOutputVac4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacOutp5
-        '
-        Me.AVacOutp5.BindControl = Me.KL_GAOutputVac5
-        Me.AVacOutp5.BindProperty = "Data"
-        Me.AVacOutp5.Data = Nothing
-        Me.AVacOutp5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacOutp5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacOutp5.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[5].Q"
-        '
-        'KL_GAOutputVac5
-        '
-        Me.KL_GAOutputVac5.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAOutputVac5.ColorOn = System.Drawing.Color.Lime
-        Me.KL_GAOutputVac5.Data = False
-        Me.KL_GAOutputVac5.Line = True
-        Me.KL_GAOutputVac5.LineSize = 1
-        Me.KL_GAOutputVac5.Location = New System.Drawing.Point(10, 359)
-        Me.KL_GAOutputVac5.Name = "KL_GAOutputVac5"
-        Me.KL_GAOutputVac5.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAOutputVac5.TabIndex = 330
-        Me.KL_GAOutputVac5.Text = "KremerLight7"
-        Me.KL_GAOutputVac5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'AVacOutp6
-        '
-        Me.AVacOutp6.BindControl = Me.KL_GAOutputVac6
-        Me.AVacOutp6.BindProperty = "Data"
-        Me.AVacOutp6.Data = Nothing
-        Me.AVacOutp6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.AVacOutp6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.AVacOutp6.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[6].Q"
-        '
-        'KL_GAOutputVac6
-        '
-        Me.KL_GAOutputVac6.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_GAOutputVac6.ColorOn = System.Drawing.Color.Lime
-        Me.KL_GAOutputVac6.Data = False
-        Me.KL_GAOutputVac6.Line = True
-        Me.KL_GAOutputVac6.LineSize = 1
-        Me.KL_GAOutputVac6.Location = New System.Drawing.Point(10, 380)
-        Me.KL_GAOutputVac6.Name = "KL_GAOutputVac6"
-        Me.KL_GAOutputVac6.Size = New System.Drawing.Size(20, 20)
-        Me.KL_GAOutputVac6.TabIndex = 332
-        Me.KL_GAOutputVac6.Text = "KremerLight8"
-        Me.KL_GAOutputVac6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BcolisionSensor
-        '
-        Me.BcolisionSensor.BindControl = Me.KL_BColision
-        Me.BcolisionSensor.BindProperty = "Data"
-        Me.BcolisionSensor.Data = Nothing
-        Me.BcolisionSensor.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BcolisionSensor.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BcolisionSensor.VariableName = "MAIN.ProductHandling.GantryB.ixCollision"
-        '
-        'KL_BColision
-        '
-        Me.KL_BColision.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BColision.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BColision.Data = False
-        Me.KL_BColision.Line = True
-        Me.KL_BColision.LineSize = 1
-        Me.KL_BColision.Location = New System.Drawing.Point(6, 25)
-        Me.KL_BColision.Name = "KL_BColision"
-        Me.KL_BColision.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BColision.TabIndex = 334
-        Me.KL_BColision.Text = "KremerLight10"
-        Me.KL_BColision.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BEsHorizontalFront
-        '
-        Me.BEsHorizontalFront.BindControl = Me.KL_BEsHorizontalFront
-        Me.BEsHorizontalFront.BindProperty = "Data"
-        Me.BEsHorizontalFront.Data = Nothing
-        Me.BEsHorizontalFront.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BEsHorizontalFront.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BEsHorizontalFront.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitHorFront"
-        '
-        'KL_BEsHorizontalFront
-        '
-        Me.KL_BEsHorizontalFront.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BEsHorizontalFront.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BEsHorizontalFront.Data = False
-        Me.KL_BEsHorizontalFront.Line = True
-        Me.KL_BEsHorizontalFront.LineSize = 1
-        Me.KL_BEsHorizontalFront.Location = New System.Drawing.Point(6, 46)
-        Me.KL_BEsHorizontalFront.Name = "KL_BEsHorizontalFront"
-        Me.KL_BEsHorizontalFront.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BEsHorizontalFront.TabIndex = 336
-        Me.KL_BEsHorizontalFront.Text = "KremerLight11"
-        Me.KL_BEsHorizontalFront.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BEsHorizontalBack
-        '
-        Me.BEsHorizontalBack.BindControl = Me.KL_BEsHorizontalBack
-        Me.BEsHorizontalBack.BindProperty = "Data"
-        Me.BEsHorizontalBack.Data = Nothing
-        Me.BEsHorizontalBack.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BEsHorizontalBack.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BEsHorizontalBack.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitHorBack"
-        '
-        'KL_BEsHorizontalBack
-        '
-        Me.KL_BEsHorizontalBack.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BEsHorizontalBack.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BEsHorizontalBack.Data = False
-        Me.KL_BEsHorizontalBack.Line = True
-        Me.KL_BEsHorizontalBack.LineSize = 1
-        Me.KL_BEsHorizontalBack.Location = New System.Drawing.Point(6, 67)
-        Me.KL_BEsHorizontalBack.Name = "KL_BEsHorizontalBack"
-        Me.KL_BEsHorizontalBack.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BEsHorizontalBack.TabIndex = 338
-        Me.KL_BEsHorizontalBack.Text = "KremerLight12"
-        Me.KL_BEsHorizontalBack.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BEsVerticalUp
-        '
-        Me.BEsVerticalUp.BindControl = Me.KL_BEsVerticalUp
-        Me.BEsVerticalUp.BindProperty = "Data"
-        Me.BEsVerticalUp.Data = Nothing
-        Me.BEsVerticalUp.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BEsVerticalUp.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BEsVerticalUp.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitVertUp"
-        '
-        'KL_BEsVerticalUp
-        '
-        Me.KL_BEsVerticalUp.ColorOff = System.Drawing.Color.Red
-        Me.KL_BEsVerticalUp.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BEsVerticalUp.Data = False
-        Me.KL_BEsVerticalUp.Line = True
-        Me.KL_BEsVerticalUp.LineSize = 1
-        Me.KL_BEsVerticalUp.Location = New System.Drawing.Point(6, 87)
-        Me.KL_BEsVerticalUp.Name = "KL_BEsVerticalUp"
-        Me.KL_BEsVerticalUp.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BEsVerticalUp.TabIndex = 340
-        Me.KL_BEsVerticalUp.Text = "KremerLight2"
-        Me.KL_BEsVerticalUp.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BEsVerticalDown
-        '
-        Me.BEsVerticalDown.BindControl = Me.KL_BEsVerticalDown
-        Me.BEsVerticalDown.BindProperty = "Data"
-        Me.BEsVerticalDown.Data = Nothing
-        Me.BEsVerticalDown.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BEsVerticalDown.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BEsVerticalDown.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitVertDown"
-        '
-        'KL_BEsVerticalDown
-        '
-        Me.KL_BEsVerticalDown.ColorOff = System.Drawing.Color.Red
-        Me.KL_BEsVerticalDown.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BEsVerticalDown.Data = False
-        Me.KL_BEsVerticalDown.Line = True
-        Me.KL_BEsVerticalDown.LineSize = 1
-        Me.KL_BEsVerticalDown.Location = New System.Drawing.Point(6, 108)
-        Me.KL_BEsVerticalDown.Name = "KL_BEsVerticalDown"
-        Me.KL_BEsVerticalDown.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BEsVerticalDown.TabIndex = 342
-        Me.KL_BEsVerticalDown.Text = "KremerLight9"
-        Me.KL_BEsVerticalDown.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacSensor1
-        '
-        Me.BVacSensor1.BindControl = Me.KL_BVacSens1
-        Me.BVacSensor1.BindProperty = "Data"
-        Me.BVacSensor1.Data = Nothing
-        Me.BVacSensor1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacSensor1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacSensor1.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[1]"
-        '
-        'KL_BVacSens1
-        '
-        Me.KL_BVacSens1.ColorOff = System.Drawing.Color.Red
-        Me.KL_BVacSens1.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BVacSens1.Data = False
-        Me.KL_BVacSens1.Line = True
-        Me.KL_BVacSens1.LineSize = 1
-        Me.KL_BVacSens1.Location = New System.Drawing.Point(6, 129)
-        Me.KL_BVacSens1.Name = "KL_BVacSens1"
-        Me.KL_BVacSens1.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BVacSens1.TabIndex = 344
-        Me.KL_BVacSens1.Text = "KremerLight10"
-        Me.KL_BVacSens1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacSensor2
-        '
-        Me.BVacSensor2.BindControl = Me.KL_BVacSens2
-        Me.BVacSensor2.BindProperty = "Data"
-        Me.BVacSensor2.Data = Nothing
-        Me.BVacSensor2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacSensor2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacSensor2.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[2]"
-        '
-        'KL_BVacSens2
-        '
-        Me.KL_BVacSens2.ColorOff = System.Drawing.Color.Red
-        Me.KL_BVacSens2.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BVacSens2.Data = False
-        Me.KL_BVacSens2.Line = True
-        Me.KL_BVacSens2.LineSize = 1
-        Me.KL_BVacSens2.Location = New System.Drawing.Point(6, 150)
-        Me.KL_BVacSens2.Name = "KL_BVacSens2"
-        Me.KL_BVacSens2.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BVacSens2.TabIndex = 346
-        Me.KL_BVacSens2.Text = "KremerLight11"
-        Me.KL_BVacSens2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacSensor3
-        '
-        Me.BVacSensor3.BindControl = Me.KL_BVacSens3
-        Me.BVacSensor3.BindProperty = "Data"
-        Me.BVacSensor3.Data = Nothing
-        Me.BVacSensor3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacSensor3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacSensor3.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[3]"
-        '
-        'KL_BVacSens3
-        '
-        Me.KL_BVacSens3.ColorOff = System.Drawing.Color.Red
-        Me.KL_BVacSens3.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BVacSens3.Data = False
-        Me.KL_BVacSens3.Line = True
-        Me.KL_BVacSens3.LineSize = 1
-        Me.KL_BVacSens3.Location = New System.Drawing.Point(6, 171)
-        Me.KL_BVacSens3.Name = "KL_BVacSens3"
-        Me.KL_BVacSens3.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BVacSens3.TabIndex = 348
-        Me.KL_BVacSens3.Text = "KremerLight12"
-        Me.KL_BVacSens3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacSensor4
-        '
-        Me.BVacSensor4.BindControl = Me.KL_BVacSens4
-        Me.BVacSensor4.BindProperty = "Data"
-        Me.BVacSensor4.Data = Nothing
-        Me.BVacSensor4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacSensor4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacSensor4.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[4]"
-        '
-        'KL_BVacSens4
-        '
-        Me.KL_BVacSens4.ColorOff = System.Drawing.Color.Red
-        Me.KL_BVacSens4.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BVacSens4.Data = False
-        Me.KL_BVacSens4.Line = True
-        Me.KL_BVacSens4.LineSize = 1
-        Me.KL_BVacSens4.Location = New System.Drawing.Point(6, 192)
-        Me.KL_BVacSens4.Name = "KL_BVacSens4"
-        Me.KL_BVacSens4.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BVacSens4.TabIndex = 350
-        Me.KL_BVacSens4.Text = "KremerLight13"
-        Me.KL_BVacSens4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacSensor5
-        '
-        Me.BVacSensor5.BindControl = Me.KL_BVacSens5
-        Me.BVacSensor5.BindProperty = "Data"
-        Me.BVacSensor5.Data = Nothing
-        Me.BVacSensor5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacSensor5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacSensor5.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[5]"
-        '
-        'KL_BVacSens5
-        '
-        Me.KL_BVacSens5.ColorOff = System.Drawing.Color.Red
-        Me.KL_BVacSens5.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BVacSens5.Data = False
-        Me.KL_BVacSens5.Line = True
-        Me.KL_BVacSens5.LineSize = 1
-        Me.KL_BVacSens5.Location = New System.Drawing.Point(6, 212)
-        Me.KL_BVacSens5.Name = "KL_BVacSens5"
-        Me.KL_BVacSens5.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BVacSens5.TabIndex = 353
-        Me.KL_BVacSens5.Text = "KremerLight12"
-        Me.KL_BVacSens5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacSensor6
-        '
-        Me.BVacSensor6.BindControl = Me.KL_BVacSens6
-        Me.BVacSensor6.BindProperty = "Data"
-        Me.BVacSensor6.Data = Nothing
-        Me.BVacSensor6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacSensor6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacSensor6.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[6]"
-        '
-        'KL_BVacSens6
-        '
-        Me.KL_BVacSens6.ColorOff = System.Drawing.Color.Red
-        Me.KL_BVacSens6.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BVacSens6.Data = False
-        Me.KL_BVacSens6.Line = True
-        Me.KL_BVacSens6.LineSize = 1
-        Me.KL_BVacSens6.Location = New System.Drawing.Point(6, 233)
-        Me.KL_BVacSens6.Name = "KL_BVacSens6"
-        Me.KL_BVacSens6.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BVacSens6.TabIndex = 355
-        Me.KL_BVacSens6.Text = "KremerLight13"
-        Me.KL_BVacSens6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacOutp1
-        '
-        Me.BVacOutp1.BindControl = Me.KL_BOutputVac1
-        Me.BVacOutp1.BindProperty = "Data"
-        Me.BVacOutp1.Data = Nothing
-        Me.BVacOutp1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacOutp1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacOutp1.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[1].Q"
-        '
-        'KL_BOutputVac1
-        '
-        Me.KL_BOutputVac1.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BOutputVac1.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BOutputVac1.Data = False
-        Me.KL_BOutputVac1.Line = True
-        Me.KL_BOutputVac1.LineSize = 1
-        Me.KL_BOutputVac1.Location = New System.Drawing.Point(6, 276)
-        Me.KL_BOutputVac1.Name = "KL_BOutputVac1"
-        Me.KL_BOutputVac1.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BOutputVac1.TabIndex = 357
-        Me.KL_BOutputVac1.Text = "KremerLight3"
-        Me.KL_BOutputVac1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacOutp2
-        '
-        Me.BVacOutp2.BindControl = Me.KL_BOutputVac2
-        Me.BVacOutp2.BindProperty = "Data"
-        Me.BVacOutp2.Data = Nothing
-        Me.BVacOutp2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacOutp2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacOutp2.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[2].Q"
-        '
-        'KL_BOutputVac2
-        '
-        Me.KL_BOutputVac2.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BOutputVac2.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BOutputVac2.Data = False
-        Me.KL_BOutputVac2.Line = True
-        Me.KL_BOutputVac2.LineSize = 1
-        Me.KL_BOutputVac2.Location = New System.Drawing.Point(6, 297)
-        Me.KL_BOutputVac2.Name = "KL_BOutputVac2"
-        Me.KL_BOutputVac2.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BOutputVac2.TabIndex = 359
-        Me.KL_BOutputVac2.Text = "KremerLight4"
-        Me.KL_BOutputVac2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacOutp3
-        '
-        Me.BVacOutp3.BindControl = Me.KL_BOutputVac3
-        Me.BVacOutp3.BindProperty = "Data"
-        Me.BVacOutp3.Data = Nothing
-        Me.BVacOutp3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacOutp3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacOutp3.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[3].Q"
-        '
-        'KL_BOutputVac3
-        '
-        Me.KL_BOutputVac3.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BOutputVac3.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BOutputVac3.Data = False
-        Me.KL_BOutputVac3.Line = True
-        Me.KL_BOutputVac3.LineSize = 1
-        Me.KL_BOutputVac3.Location = New System.Drawing.Point(6, 318)
-        Me.KL_BOutputVac3.Name = "KL_BOutputVac3"
-        Me.KL_BOutputVac3.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BOutputVac3.TabIndex = 361
-        Me.KL_BOutputVac3.Text = "KremerLight5"
-        Me.KL_BOutputVac3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacOutp4
-        '
-        Me.BVacOutp4.BindControl = Me.KL_BOutputVac4
-        Me.BVacOutp4.BindProperty = "Data"
-        Me.BVacOutp4.Data = Nothing
-        Me.BVacOutp4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacOutp4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacOutp4.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[4].Q"
-        '
-        'KL_BOutputVac4
-        '
-        Me.KL_BOutputVac4.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BOutputVac4.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BOutputVac4.Data = False
-        Me.KL_BOutputVac4.Line = True
-        Me.KL_BOutputVac4.LineSize = 1
-        Me.KL_BOutputVac4.Location = New System.Drawing.Point(6, 338)
-        Me.KL_BOutputVac4.Name = "KL_BOutputVac4"
-        Me.KL_BOutputVac4.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BOutputVac4.TabIndex = 363
-        Me.KL_BOutputVac4.Text = "KremerLight6"
-        Me.KL_BOutputVac4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacOutp5
-        '
-        Me.BVacOutp5.BindControl = Me.KL_BOutputVac5
-        Me.BVacOutp5.BindProperty = "Data"
-        Me.BVacOutp5.Data = Nothing
-        Me.BVacOutp5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacOutp5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacOutp5.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[5].Q"
-        '
-        'KL_BOutputVac5
-        '
-        Me.KL_BOutputVac5.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BOutputVac5.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BOutputVac5.Data = False
-        Me.KL_BOutputVac5.Line = True
-        Me.KL_BOutputVac5.LineSize = 1
-        Me.KL_BOutputVac5.Location = New System.Drawing.Point(6, 359)
-        Me.KL_BOutputVac5.Name = "KL_BOutputVac5"
-        Me.KL_BOutputVac5.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BOutputVac5.TabIndex = 365
-        Me.KL_BOutputVac5.Text = "KremerLight7"
-        Me.KL_BOutputVac5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
-        '
-        'BVacOutp6
-        '
-        Me.BVacOutp6.BindControl = Me.KL_BOutputVac6
-        Me.BVacOutp6.BindProperty = "Data"
-        Me.BVacOutp6.Data = Nothing
-        Me.BVacOutp6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
-        Me.BVacOutp6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.BVacOutp6.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[6].Q"
-        '
-        'KL_BOutputVac6
-        '
-        Me.KL_BOutputVac6.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KL_BOutputVac6.ColorOn = System.Drawing.Color.Lime
-        Me.KL_BOutputVac6.Data = False
-        Me.KL_BOutputVac6.Line = True
-        Me.KL_BOutputVac6.LineSize = 1
-        Me.KL_BOutputVac6.Location = New System.Drawing.Point(6, 380)
-        Me.KL_BOutputVac6.Name = "KL_BOutputVac6"
-        Me.KL_BOutputVac6.Size = New System.Drawing.Size(20, 20)
-        Me.KL_BOutputVac6.TabIndex = 367
-        Me.KL_BOutputVac6.Text = "KremerLight8"
-        Me.KL_BOutputVac6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Label5
         '
@@ -1036,94 +380,6 @@ Partial Class IO_ProductHandling
         Me.GroupBox1.TabIndex = 306
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gantry A"
-        '
-        'Label9
-        '
-        Me.Label9.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(68, 338)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(181, 20)
-        Me.Label9.TabIndex = 329
-        Me.Label9.Tag = ""
-        Me.Label9.Text = "Vacuum valve 4"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label10
-        '
-        Me.Label10.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(68, 359)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(181, 20)
-        Me.Label10.TabIndex = 331
-        Me.Label10.Tag = ""
-        Me.Label10.Text = "Vacuum valve 5"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label13
-        '
-        Me.Label13.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(68, 380)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(181, 20)
-        Me.Label13.TabIndex = 333
-        Me.Label13.Tag = ""
-        Me.Label13.Text = "Vacuum valve 6"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(68, 276)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(181, 20)
-        Me.Label2.TabIndex = 323
-        Me.Label2.Tag = ""
-        Me.Label2.Text = "Vacuum valve 1"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label6
-        '
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(68, 297)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(181, 20)
-        Me.Label6.TabIndex = 325
-        Me.Label6.Tag = ""
-        Me.Label6.Text = "Vacuum valve 2"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label7
-        '
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(68, 318)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(181, 20)
-        Me.Label7.TabIndex = 327
-        Me.Label7.Tag = ""
-        Me.Label7.Text = "Vacuum valve 3"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(68, 233)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(181, 20)
-        Me.Label4.TabIndex = 321
-        Me.Label4.Tag = ""
-        Me.Label4.Text = "Vacuum sensor 6"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label11
-        '
-        Me.Label11.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(68, 212)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(181, 20)
-        Me.Label11.TabIndex = 319
-        Me.Label11.Tag = ""
-        Me.Label11.Text = "Vacuum sensor 5"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label8
         '
@@ -1248,6 +504,512 @@ Partial Class IO_ProductHandling
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Gantry B"
         '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(68, 233)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(181, 20)
+        Me.Label4.TabIndex = 321
+        Me.Label4.Tag = ""
+        Me.Label4.Text = "Vacuum sensor 6"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label11
+        '
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(68, 212)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(181, 20)
+        Me.Label11.TabIndex = 319
+        Me.Label11.Tag = ""
+        Me.Label11.Text = "Vacuum sensor 5"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_GAInputVac5
+        '
+        Me.KL_GAInputVac5.ColorOff = System.Drawing.Color.Red
+        Me.KL_GAInputVac5.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAInputVac5.Data = False
+        Me.KL_GAInputVac5.Line = True
+        Me.KL_GAInputVac5.LineSize = 1
+        Me.KL_GAInputVac5.Location = New System.Drawing.Point(10, 212)
+        Me.KL_GAInputVac5.Name = "KL_GAInputVac5"
+        Me.KL_GAInputVac5.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAInputVac5.TabIndex = 318
+        Me.KL_GAInputVac5.Text = "KremerLight12"
+        Me.KL_GAInputVac5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_GAInputVac6
+        '
+        Me.KL_GAInputVac6.ColorOff = System.Drawing.Color.Red
+        Me.KL_GAInputVac6.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAInputVac6.Data = False
+        Me.KL_GAInputVac6.Line = True
+        Me.KL_GAInputVac6.LineSize = 1
+        Me.KL_GAInputVac6.Location = New System.Drawing.Point(10, 233)
+        Me.KL_GAInputVac6.Name = "KL_GAInputVac6"
+        Me.KL_GAInputVac6.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAInputVac6.TabIndex = 320
+        Me.KL_GAInputVac6.Text = "KremerLight13"
+        Me.KL_GAInputVac6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(68, 276)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(181, 20)
+        Me.Label2.TabIndex = 323
+        Me.Label2.Tag = ""
+        Me.Label2.Text = "Vacuum valve 1"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label6
+        '
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(68, 297)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(181, 20)
+        Me.Label6.TabIndex = 325
+        Me.Label6.Tag = ""
+        Me.Label6.Text = "Vacuum valve 2"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_GAOutputVac1
+        '
+        Me.KL_GAOutputVac1.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAOutputVac1.ColorOn = System.Drawing.Color.Lime
+        Me.KL_GAOutputVac1.Data = False
+        Me.KL_GAOutputVac1.Line = True
+        Me.KL_GAOutputVac1.LineSize = 1
+        Me.KL_GAOutputVac1.Location = New System.Drawing.Point(10, 276)
+        Me.KL_GAOutputVac1.Name = "KL_GAOutputVac1"
+        Me.KL_GAOutputVac1.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAOutputVac1.TabIndex = 322
+        Me.KL_GAOutputVac1.Text = "KremerLight3"
+        Me.KL_GAOutputVac1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(68, 318)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(181, 20)
+        Me.Label7.TabIndex = 327
+        Me.Label7.Tag = ""
+        Me.Label7.Text = "Vacuum valve 3"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_GAOutputVac2
+        '
+        Me.KL_GAOutputVac2.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAOutputVac2.ColorOn = System.Drawing.Color.Lime
+        Me.KL_GAOutputVac2.Data = False
+        Me.KL_GAOutputVac2.Line = True
+        Me.KL_GAOutputVac2.LineSize = 1
+        Me.KL_GAOutputVac2.Location = New System.Drawing.Point(10, 297)
+        Me.KL_GAOutputVac2.Name = "KL_GAOutputVac2"
+        Me.KL_GAOutputVac2.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAOutputVac2.TabIndex = 324
+        Me.KL_GAOutputVac2.Text = "KremerLight4"
+        Me.KL_GAOutputVac2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_GAOutputVac3
+        '
+        Me.KL_GAOutputVac3.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAOutputVac3.ColorOn = System.Drawing.Color.Lime
+        Me.KL_GAOutputVac3.Data = False
+        Me.KL_GAOutputVac3.Line = True
+        Me.KL_GAOutputVac3.LineSize = 1
+        Me.KL_GAOutputVac3.Location = New System.Drawing.Point(10, 318)
+        Me.KL_GAOutputVac3.Name = "KL_GAOutputVac3"
+        Me.KL_GAOutputVac3.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAOutputVac3.TabIndex = 326
+        Me.KL_GAOutputVac3.Text = "KremerLight5"
+        Me.KL_GAOutputVac3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'Label9
+        '
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(68, 338)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(181, 20)
+        Me.Label9.TabIndex = 329
+        Me.Label9.Tag = ""
+        Me.Label9.Text = "Vacuum valve 4"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label10
+        '
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(68, 359)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(181, 20)
+        Me.Label10.TabIndex = 331
+        Me.Label10.Tag = ""
+        Me.Label10.Text = "Vacuum valve 5"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_GAOutputVac4
+        '
+        Me.KL_GAOutputVac4.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAOutputVac4.ColorOn = System.Drawing.Color.Lime
+        Me.KL_GAOutputVac4.Data = False
+        Me.KL_GAOutputVac4.Line = True
+        Me.KL_GAOutputVac4.LineSize = 1
+        Me.KL_GAOutputVac4.Location = New System.Drawing.Point(10, 338)
+        Me.KL_GAOutputVac4.Name = "KL_GAOutputVac4"
+        Me.KL_GAOutputVac4.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAOutputVac4.TabIndex = 328
+        Me.KL_GAOutputVac4.Text = "KremerLight6"
+        Me.KL_GAOutputVac4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'Label13
+        '
+        Me.Label13.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(68, 380)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(181, 20)
+        Me.Label13.TabIndex = 333
+        Me.Label13.Tag = ""
+        Me.Label13.Text = "Vacuum valve 6"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_GAOutputVac5
+        '
+        Me.KL_GAOutputVac5.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAOutputVac5.ColorOn = System.Drawing.Color.Lime
+        Me.KL_GAOutputVac5.Data = False
+        Me.KL_GAOutputVac5.Line = True
+        Me.KL_GAOutputVac5.LineSize = 1
+        Me.KL_GAOutputVac5.Location = New System.Drawing.Point(10, 359)
+        Me.KL_GAOutputVac5.Name = "KL_GAOutputVac5"
+        Me.KL_GAOutputVac5.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAOutputVac5.TabIndex = 330
+        Me.KL_GAOutputVac5.Text = "KremerLight7"
+        Me.KL_GAOutputVac5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_GAOutputVac6
+        '
+        Me.KL_GAOutputVac6.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_GAOutputVac6.ColorOn = System.Drawing.Color.Lime
+        Me.KL_GAOutputVac6.Data = False
+        Me.KL_GAOutputVac6.Line = True
+        Me.KL_GAOutputVac6.LineSize = 1
+        Me.KL_GAOutputVac6.Location = New System.Drawing.Point(10, 380)
+        Me.KL_GAOutputVac6.Name = "KL_GAOutputVac6"
+        Me.KL_GAOutputVac6.Size = New System.Drawing.Size(20, 20)
+        Me.KL_GAOutputVac6.TabIndex = 332
+        Me.KL_GAOutputVac6.Text = "KremerLight8"
+        Me.KL_GAOutputVac6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'ACollisionSensor
+        '
+        Me.ACollisionSensor.BindControl = Me.KL_GACollision
+        Me.ACollisionSensor.BindProperty = "Data"
+        Me.ACollisionSensor.Data = Nothing
+        Me.ACollisionSensor.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.ACollisionSensor.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.ACollisionSensor.VariableName = "MAIN.ProductHandling.GantryA.ixCollision"
+        '
+        'AEsHorizontalFront
+        '
+        Me.AEsHorizontalFront.BindControl = Me.KL_GAEsHorizontalFront
+        Me.AEsHorizontalFront.BindProperty = "Data"
+        Me.AEsHorizontalFront.Data = Nothing
+        Me.AEsHorizontalFront.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AEsHorizontalFront.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AEsHorizontalFront.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitHorFront"
+        '
+        'AEsHorizontalBack
+        '
+        Me.AEsHorizontalBack.BindControl = Me.KL_GAEsHorizontalback
+        Me.AEsHorizontalBack.BindProperty = "Data"
+        Me.AEsHorizontalBack.Data = Nothing
+        Me.AEsHorizontalBack.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AEsHorizontalBack.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AEsHorizontalBack.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitHorBack"
+        '
+        'AEsVerticalUp
+        '
+        Me.AEsVerticalUp.BindControl = Me.KL_GAEsverticalUp
+        Me.AEsVerticalUp.BindProperty = "Data"
+        Me.AEsVerticalUp.Data = Nothing
+        Me.AEsVerticalUp.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AEsVerticalUp.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AEsVerticalUp.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitVertUp"
+        '
+        'AEsVerticalDown
+        '
+        Me.AEsVerticalDown.BindControl = Me.KL_EsVerticalDown
+        Me.AEsVerticalDown.BindProperty = "Data"
+        Me.AEsVerticalDown.Data = Nothing
+        Me.AEsVerticalDown.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AEsVerticalDown.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AEsVerticalDown.VariableName = "MAIN.ProductHandling.GantryA.ixEndLimitVertDown"
+        '
+        'AVacSensor1
+        '
+        Me.AVacSensor1.BindControl = Me.KL_GAInputVac1
+        Me.AVacSensor1.BindProperty = "Data"
+        Me.AVacSensor1.Data = Nothing
+        Me.AVacSensor1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacSensor1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacSensor1.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[1]"
+        '
+        'AVacSensor2
+        '
+        Me.AVacSensor2.BindControl = Me.KL_GAInputVac2
+        Me.AVacSensor2.BindProperty = "Data"
+        Me.AVacSensor2.Data = Nothing
+        Me.AVacSensor2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacSensor2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacSensor2.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[2]"
+        '
+        'AVacSensor3
+        '
+        Me.AVacSensor3.BindControl = Me.KL_GAInputVac3
+        Me.AVacSensor3.BindProperty = "Data"
+        Me.AVacSensor3.Data = Nothing
+        Me.AVacSensor3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacSensor3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacSensor3.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[3]"
+        '
+        'AVacSensor4
+        '
+        Me.AVacSensor4.BindControl = Me.KL_GAInputVac4
+        Me.AVacSensor4.BindProperty = "Data"
+        Me.AVacSensor4.Data = Nothing
+        Me.AVacSensor4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacSensor4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacSensor4.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[4]"
+        '
+        'AVacSensor5
+        '
+        Me.AVacSensor5.BindControl = Me.KL_GAInputVac5
+        Me.AVacSensor5.BindProperty = "Data"
+        Me.AVacSensor5.Data = Nothing
+        Me.AVacSensor5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacSensor5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacSensor5.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[5]"
+        '
+        'AVacSensor6
+        '
+        Me.AVacSensor6.BindControl = Me.KL_GAInputVac6
+        Me.AVacSensor6.BindProperty = "Data"
+        Me.AVacSensor6.Data = Nothing
+        Me.AVacSensor6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacSensor6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacSensor6.VariableName = "MAIN.ProductHandling.GantryA.ixVacuumSensor[6]"
+        '
+        'AVacOutp1
+        '
+        Me.AVacOutp1.BindControl = Me.KL_GAOutputVac1
+        Me.AVacOutp1.BindProperty = "Data"
+        Me.AVacOutp1.Data = Nothing
+        Me.AVacOutp1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacOutp1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacOutp1.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[1].Q"
+        '
+        'AVacOutp2
+        '
+        Me.AVacOutp2.BindControl = Me.KL_GAOutputVac2
+        Me.AVacOutp2.BindProperty = "Data"
+        Me.AVacOutp2.Data = Nothing
+        Me.AVacOutp2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacOutp2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacOutp2.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[2].Q"
+        '
+        'AVacOutp3
+        '
+        Me.AVacOutp3.BindControl = Me.KL_GAOutputVac3
+        Me.AVacOutp3.BindProperty = "Data"
+        Me.AVacOutp3.Data = Nothing
+        Me.AVacOutp3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacOutp3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacOutp3.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[3].Q"
+        '
+        'AVacOutp4
+        '
+        Me.AVacOutp4.BindControl = Me.KL_GAOutputVac4
+        Me.AVacOutp4.BindProperty = "Data"
+        Me.AVacOutp4.Data = Nothing
+        Me.AVacOutp4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacOutp4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacOutp4.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[4].Q"
+        '
+        'AVacOutp5
+        '
+        Me.AVacOutp5.BindControl = Me.KL_GAOutputVac5
+        Me.AVacOutp5.BindProperty = "Data"
+        Me.AVacOutp5.Data = Nothing
+        Me.AVacOutp5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacOutp5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacOutp5.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[5].Q"
+        '
+        'AVacOutp6
+        '
+        Me.AVacOutp6.BindControl = Me.KL_GAOutputVac6
+        Me.AVacOutp6.BindProperty = "Data"
+        Me.AVacOutp6.Data = Nothing
+        Me.AVacOutp6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.AVacOutp6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.AVacOutp6.VariableName = "MAIN.ProductHandling.GantryA.VacuumValve[6].Q"
+        '
+        'BcolisionSensor
+        '
+        Me.BcolisionSensor.BindControl = Me.KL_BColision
+        Me.BcolisionSensor.BindProperty = "Data"
+        Me.BcolisionSensor.Data = Nothing
+        Me.BcolisionSensor.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BcolisionSensor.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BcolisionSensor.VariableName = "MAIN.ProductHandling.GantryB.ixCollision"
+        '
+        'BEsHorizontalFront
+        '
+        Me.BEsHorizontalFront.BindControl = Me.KL_BEsHorizontalFront
+        Me.BEsHorizontalFront.BindProperty = "Data"
+        Me.BEsHorizontalFront.Data = Nothing
+        Me.BEsHorizontalFront.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BEsHorizontalFront.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BEsHorizontalFront.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitHorFront"
+        '
+        'BEsHorizontalBack
+        '
+        Me.BEsHorizontalBack.BindControl = Me.KL_BEsHorizontalBack
+        Me.BEsHorizontalBack.BindProperty = "Data"
+        Me.BEsHorizontalBack.Data = Nothing
+        Me.BEsHorizontalBack.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BEsHorizontalBack.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BEsHorizontalBack.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitHorBack"
+        '
+        'BEsVerticalUp
+        '
+        Me.BEsVerticalUp.BindControl = Me.KL_BEsVerticalUp
+        Me.BEsVerticalUp.BindProperty = "Data"
+        Me.BEsVerticalUp.Data = Nothing
+        Me.BEsVerticalUp.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BEsVerticalUp.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BEsVerticalUp.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitVertUp"
+        '
+        'BEsVerticalDown
+        '
+        Me.BEsVerticalDown.BindControl = Me.KL_BEsVerticalDown
+        Me.BEsVerticalDown.BindProperty = "Data"
+        Me.BEsVerticalDown.Data = Nothing
+        Me.BEsVerticalDown.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BEsVerticalDown.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BEsVerticalDown.VariableName = "MAIN.ProductHandling.GantryB.ixEndLimitVertDown"
+        '
+        'BVacSensor1
+        '
+        Me.BVacSensor1.BindControl = Me.KL_BVacSens1
+        Me.BVacSensor1.BindProperty = "Data"
+        Me.BVacSensor1.Data = Nothing
+        Me.BVacSensor1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacSensor1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacSensor1.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[1]"
+        '
+        'BVacSensor2
+        '
+        Me.BVacSensor2.BindControl = Me.KL_BVacSens2
+        Me.BVacSensor2.BindProperty = "Data"
+        Me.BVacSensor2.Data = Nothing
+        Me.BVacSensor2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacSensor2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacSensor2.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[2]"
+        '
+        'BVacSensor3
+        '
+        Me.BVacSensor3.BindControl = Me.KL_BVacSens3
+        Me.BVacSensor3.BindProperty = "Data"
+        Me.BVacSensor3.Data = Nothing
+        Me.BVacSensor3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacSensor3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacSensor3.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[3]"
+        '
+        'BVacSensor4
+        '
+        Me.BVacSensor4.BindControl = Me.KL_BVacSens4
+        Me.BVacSensor4.BindProperty = "Data"
+        Me.BVacSensor4.Data = Nothing
+        Me.BVacSensor4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacSensor4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacSensor4.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[4]"
+        '
+        'BVacSensor5
+        '
+        Me.BVacSensor5.BindControl = Me.KL_BVacSens5
+        Me.BVacSensor5.BindProperty = "Data"
+        Me.BVacSensor5.Data = Nothing
+        Me.BVacSensor5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacSensor5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacSensor5.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[5]"
+        '
+        'BVacSensor6
+        '
+        Me.BVacSensor6.BindControl = Me.KL_BVacSens6
+        Me.BVacSensor6.BindProperty = "Data"
+        Me.BVacSensor6.Data = Nothing
+        Me.BVacSensor6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacSensor6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacSensor6.VariableName = "MAIN.ProductHandling.GantryB.ixVacuumSensor[6]"
+        '
+        'BVacOutp1
+        '
+        Me.BVacOutp1.BindControl = Me.KL_BOutputVac1
+        Me.BVacOutp1.BindProperty = "Data"
+        Me.BVacOutp1.Data = Nothing
+        Me.BVacOutp1.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacOutp1.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacOutp1.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[1].Q"
+        '
+        'BVacOutp2
+        '
+        Me.BVacOutp2.BindControl = Me.KL_BOutputVac2
+        Me.BVacOutp2.BindProperty = "Data"
+        Me.BVacOutp2.Data = Nothing
+        Me.BVacOutp2.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacOutp2.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacOutp2.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[2].Q"
+        '
+        'BVacOutp3
+        '
+        Me.BVacOutp3.BindControl = Me.KL_BOutputVac3
+        Me.BVacOutp3.BindProperty = "Data"
+        Me.BVacOutp3.Data = Nothing
+        Me.BVacOutp3.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacOutp3.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacOutp3.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[3].Q"
+        '
+        'BVacOutp4
+        '
+        Me.BVacOutp4.BindControl = Me.KL_BOutputVac4
+        Me.BVacOutp4.BindProperty = "Data"
+        Me.BVacOutp4.Data = Nothing
+        Me.BVacOutp4.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacOutp4.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacOutp4.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[4].Q"
+        '
+        'BVacOutp5
+        '
+        Me.BVacOutp5.BindControl = Me.KL_BOutputVac5
+        Me.BVacOutp5.BindProperty = "Data"
+        Me.BVacOutp5.Data = Nothing
+        Me.BVacOutp5.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacOutp5.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacOutp5.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[5].Q"
+        '
+        'BVacOutp6
+        '
+        Me.BVacOutp6.BindControl = Me.KL_BOutputVac6
+        Me.BVacOutp6.BindProperty = "Data"
+        Me.BVacOutp6.Data = Nothing
+        Me.BVacOutp6.DataType = KremerControlsWin32.KremerVariable.VarDataType.BOOL
+        Me.BVacOutp6.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.BVacOutp6.VariableName = "MAIN.ProductHandling.GantryB.VacuumValve[6].Q"
+        '
         'Label14
         '
         Me.Label14.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1270,6 +1032,20 @@ Partial Class IO_ProductHandling
         Me.Label20.Text = "Vacuum valve 5"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'KL_BOutputVac4
+        '
+        Me.KL_BOutputVac4.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BOutputVac4.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BOutputVac4.Data = False
+        Me.KL_BOutputVac4.Line = True
+        Me.KL_BOutputVac4.LineSize = 1
+        Me.KL_BOutputVac4.Location = New System.Drawing.Point(6, 338)
+        Me.KL_BOutputVac4.Name = "KL_BOutputVac4"
+        Me.KL_BOutputVac4.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BOutputVac4.TabIndex = 363
+        Me.KL_BOutputVac4.Text = "KremerLight6"
+        Me.KL_BOutputVac4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
         'Label21
         '
         Me.Label21.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1280,6 +1056,34 @@ Partial Class IO_ProductHandling
         Me.Label21.Tag = ""
         Me.Label21.Text = "Vacuum valve 6"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_BOutputVac5
+        '
+        Me.KL_BOutputVac5.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BOutputVac5.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BOutputVac5.Data = False
+        Me.KL_BOutputVac5.Line = True
+        Me.KL_BOutputVac5.LineSize = 1
+        Me.KL_BOutputVac5.Location = New System.Drawing.Point(6, 359)
+        Me.KL_BOutputVac5.Name = "KL_BOutputVac5"
+        Me.KL_BOutputVac5.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BOutputVac5.TabIndex = 365
+        Me.KL_BOutputVac5.Text = "KremerLight7"
+        Me.KL_BOutputVac5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BOutputVac6
+        '
+        Me.KL_BOutputVac6.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BOutputVac6.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BOutputVac6.Data = False
+        Me.KL_BOutputVac6.Line = True
+        Me.KL_BOutputVac6.LineSize = 1
+        Me.KL_BOutputVac6.Location = New System.Drawing.Point(6, 380)
+        Me.KL_BOutputVac6.Name = "KL_BOutputVac6"
+        Me.KL_BOutputVac6.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BOutputVac6.TabIndex = 367
+        Me.KL_BOutputVac6.Text = "KremerLight8"
+        Me.KL_BOutputVac6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Label22
         '
@@ -1303,16 +1107,19 @@ Partial Class IO_ProductHandling
         Me.Label23.Text = "Vacuum valve 2"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label36
+        'KL_BOutputVac1
         '
-        Me.Label36.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.Location = New System.Drawing.Point(64, 108)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(181, 20)
-        Me.Label36.TabIndex = 343
-        Me.Label36.Tag = ""
-        Me.Label36.Text = "End switch vertical down"
-        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.KL_BOutputVac1.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BOutputVac1.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BOutputVac1.Data = False
+        Me.KL_BOutputVac1.Line = True
+        Me.KL_BOutputVac1.LineSize = 1
+        Me.KL_BOutputVac1.Location = New System.Drawing.Point(6, 276)
+        Me.KL_BOutputVac1.Name = "KL_BOutputVac1"
+        Me.KL_BOutputVac1.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BOutputVac1.TabIndex = 357
+        Me.KL_BOutputVac1.Text = "KremerLight3"
+        Me.KL_BOutputVac1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Label24
         '
@@ -1325,38 +1132,33 @@ Partial Class IO_ProductHandling
         Me.Label24.Text = "Vacuum valve 3"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label35
+        'KL_BOutputVac2
         '
-        Me.Label35.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.Location = New System.Drawing.Point(64, 129)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(181, 20)
-        Me.Label35.TabIndex = 345
-        Me.Label35.Tag = ""
-        Me.Label35.Text = "Vacuum sensor 1"
-        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.KL_BOutputVac2.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BOutputVac2.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BOutputVac2.Data = False
+        Me.KL_BOutputVac2.Line = True
+        Me.KL_BOutputVac2.LineSize = 1
+        Me.KL_BOutputVac2.Location = New System.Drawing.Point(6, 297)
+        Me.KL_BOutputVac2.Name = "KL_BOutputVac2"
+        Me.KL_BOutputVac2.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BOutputVac2.TabIndex = 359
+        Me.KL_BOutputVac2.Text = "KremerLight4"
+        Me.KL_BOutputVac2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'Label34
+        'KL_BOutputVac3
         '
-        Me.Label34.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(64, 67)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(181, 20)
-        Me.Label34.TabIndex = 339
-        Me.Label34.Tag = ""
-        Me.Label34.Text = "End switch horizontal back"
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label33
-        '
-        Me.Label33.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(64, 150)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(181, 20)
-        Me.Label33.TabIndex = 347
-        Me.Label33.Tag = ""
-        Me.Label33.Text = "Vacuum sensor 2"
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.KL_BOutputVac3.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BOutputVac3.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BOutputVac3.Data = False
+        Me.KL_BOutputVac3.Line = True
+        Me.KL_BOutputVac3.LineSize = 1
+        Me.KL_BOutputVac3.Location = New System.Drawing.Point(6, 318)
+        Me.KL_BOutputVac3.Name = "KL_BOutputVac3"
+        Me.KL_BOutputVac3.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BOutputVac3.TabIndex = 361
+        Me.KL_BOutputVac3.Text = "KremerLight5"
+        Me.KL_BOutputVac3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Label25
         '
@@ -1369,17 +1171,6 @@ Partial Class IO_ProductHandling
         Me.Label25.Text = "Vacuum sensor 6"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label32
-        '
-        Me.Label32.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(64, 171)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(181, 20)
-        Me.Label32.TabIndex = 349
-        Me.Label32.Tag = ""
-        Me.Label32.Text = "Vacuum sensor 3"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'Label26
         '
         Me.Label26.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1391,27 +1182,33 @@ Partial Class IO_ProductHandling
         Me.Label26.Text = "Vacuum sensor 5"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label31
+        'KL_BVacSens5
         '
-        Me.Label31.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(64, 192)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(181, 20)
-        Me.Label31.TabIndex = 351
-        Me.Label31.Tag = ""
-        Me.Label31.Text = "Vacuum sensor 4"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.KL_BVacSens5.ColorOff = System.Drawing.Color.Red
+        Me.KL_BVacSens5.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BVacSens5.Data = False
+        Me.KL_BVacSens5.Line = True
+        Me.KL_BVacSens5.LineSize = 1
+        Me.KL_BVacSens5.Location = New System.Drawing.Point(6, 212)
+        Me.KL_BVacSens5.Name = "KL_BVacSens5"
+        Me.KL_BVacSens5.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BVacSens5.TabIndex = 353
+        Me.KL_BVacSens5.Text = "KremerLight12"
+        Me.KL_BVacSens5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
-        'Label30
+        'KL_BVacSens6
         '
-        Me.Label30.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(64, 87)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(181, 20)
-        Me.Label30.TabIndex = 341
-        Me.Label30.Tag = ""
-        Me.Label30.Text = "End switch vertical up"
-        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.KL_BVacSens6.ColorOff = System.Drawing.Color.Red
+        Me.KL_BVacSens6.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BVacSens6.Data = False
+        Me.KL_BVacSens6.Line = True
+        Me.KL_BVacSens6.LineSize = 1
+        Me.KL_BVacSens6.Location = New System.Drawing.Point(6, 233)
+        Me.KL_BVacSens6.Name = "KL_BVacSens6"
+        Me.KL_BVacSens6.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BVacSens6.TabIndex = 355
+        Me.KL_BVacSens6.Text = "KremerLight13"
+        Me.KL_BVacSens6.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
         '
         'Label27
         '
@@ -1424,17 +1221,6 @@ Partial Class IO_ProductHandling
         Me.Label27.Text = "Outputs"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label29
-        '
-        Me.Label29.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(64, 46)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(181, 20)
-        Me.Label29.TabIndex = 337
-        Me.Label29.Tag = ""
-        Me.Label29.Text = "End switch horizontal front"
-        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'Label28
         '
         Me.Label28.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1446,6 +1232,220 @@ Partial Class IO_ProductHandling
         Me.Label28.Text = "Collision sensor active"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Label29
+        '
+        Me.Label29.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(64, 46)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(181, 20)
+        Me.Label29.TabIndex = 337
+        Me.Label29.Tag = ""
+        Me.Label29.Text = "End switch horizontal front"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label30
+        '
+        Me.Label30.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(64, 87)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(181, 20)
+        Me.Label30.TabIndex = 341
+        Me.Label30.Tag = ""
+        Me.Label30.Text = "End switch vertical up"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label31
+        '
+        Me.Label31.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(64, 192)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(181, 20)
+        Me.Label31.TabIndex = 351
+        Me.Label31.Tag = ""
+        Me.Label31.Text = "Vacuum sensor 4"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_BEsVerticalDown
+        '
+        Me.KL_BEsVerticalDown.ColorOff = System.Drawing.Color.Red
+        Me.KL_BEsVerticalDown.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BEsVerticalDown.Data = False
+        Me.KL_BEsVerticalDown.Line = True
+        Me.KL_BEsVerticalDown.LineSize = 1
+        Me.KL_BEsVerticalDown.Location = New System.Drawing.Point(6, 108)
+        Me.KL_BEsVerticalDown.Name = "KL_BEsVerticalDown"
+        Me.KL_BEsVerticalDown.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BEsVerticalDown.TabIndex = 342
+        Me.KL_BEsVerticalDown.Text = "KremerLight9"
+        Me.KL_BEsVerticalDown.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'Label32
+        '
+        Me.Label32.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(64, 171)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(181, 20)
+        Me.Label32.TabIndex = 349
+        Me.Label32.Tag = ""
+        Me.Label32.Text = "Vacuum sensor 3"
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label33
+        '
+        Me.Label33.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(64, 150)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(181, 20)
+        Me.Label33.TabIndex = 347
+        Me.Label33.Tag = ""
+        Me.Label33.Text = "Vacuum sensor 2"
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_BColision
+        '
+        Me.KL_BColision.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BColision.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BColision.Data = False
+        Me.KL_BColision.Line = True
+        Me.KL_BColision.LineSize = 1
+        Me.KL_BColision.Location = New System.Drawing.Point(6, 25)
+        Me.KL_BColision.Name = "KL_BColision"
+        Me.KL_BColision.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BColision.TabIndex = 334
+        Me.KL_BColision.Text = "KremerLight10"
+        Me.KL_BColision.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'Label34
+        '
+        Me.Label34.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(64, 67)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(181, 20)
+        Me.Label34.TabIndex = 339
+        Me.Label34.Tag = ""
+        Me.Label34.Text = "End switch horizontal back"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label35
+        '
+        Me.Label35.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(64, 129)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(181, 20)
+        Me.Label35.TabIndex = 345
+        Me.Label35.Tag = ""
+        Me.Label35.Text = "Vacuum sensor 1"
+        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label36
+        '
+        Me.Label36.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(64, 108)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(181, 20)
+        Me.Label36.TabIndex = 343
+        Me.Label36.Tag = ""
+        Me.Label36.Text = "End switch vertical down"
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'KL_BEsHorizontalFront
+        '
+        Me.KL_BEsHorizontalFront.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BEsHorizontalFront.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BEsHorizontalFront.Data = False
+        Me.KL_BEsHorizontalFront.Line = True
+        Me.KL_BEsHorizontalFront.LineSize = 1
+        Me.KL_BEsHorizontalFront.Location = New System.Drawing.Point(6, 46)
+        Me.KL_BEsHorizontalFront.Name = "KL_BEsHorizontalFront"
+        Me.KL_BEsHorizontalFront.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BEsHorizontalFront.TabIndex = 336
+        Me.KL_BEsHorizontalFront.Text = "KremerLight11"
+        Me.KL_BEsHorizontalFront.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BEsHorizontalBack
+        '
+        Me.KL_BEsHorizontalBack.ColorOff = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BEsHorizontalBack.ColorOn = System.Drawing.Color.Lime
+        Me.KL_BEsHorizontalBack.Data = False
+        Me.KL_BEsHorizontalBack.Line = True
+        Me.KL_BEsHorizontalBack.LineSize = 1
+        Me.KL_BEsHorizontalBack.Location = New System.Drawing.Point(6, 67)
+        Me.KL_BEsHorizontalBack.Name = "KL_BEsHorizontalBack"
+        Me.KL_BEsHorizontalBack.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BEsHorizontalBack.TabIndex = 338
+        Me.KL_BEsHorizontalBack.Text = "KremerLight12"
+        Me.KL_BEsHorizontalBack.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BEsVerticalUp
+        '
+        Me.KL_BEsVerticalUp.ColorOff = System.Drawing.Color.Red
+        Me.KL_BEsVerticalUp.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BEsVerticalUp.Data = False
+        Me.KL_BEsVerticalUp.Line = True
+        Me.KL_BEsVerticalUp.LineSize = 1
+        Me.KL_BEsVerticalUp.Location = New System.Drawing.Point(6, 87)
+        Me.KL_BEsVerticalUp.Name = "KL_BEsVerticalUp"
+        Me.KL_BEsVerticalUp.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BEsVerticalUp.TabIndex = 340
+        Me.KL_BEsVerticalUp.Text = "KremerLight2"
+        Me.KL_BEsVerticalUp.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BVacSens1
+        '
+        Me.KL_BVacSens1.ColorOff = System.Drawing.Color.Red
+        Me.KL_BVacSens1.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BVacSens1.Data = False
+        Me.KL_BVacSens1.Line = True
+        Me.KL_BVacSens1.LineSize = 1
+        Me.KL_BVacSens1.Location = New System.Drawing.Point(6, 129)
+        Me.KL_BVacSens1.Name = "KL_BVacSens1"
+        Me.KL_BVacSens1.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BVacSens1.TabIndex = 344
+        Me.KL_BVacSens1.Text = "KremerLight10"
+        Me.KL_BVacSens1.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BVacSens2
+        '
+        Me.KL_BVacSens2.ColorOff = System.Drawing.Color.Red
+        Me.KL_BVacSens2.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BVacSens2.Data = False
+        Me.KL_BVacSens2.Line = True
+        Me.KL_BVacSens2.LineSize = 1
+        Me.KL_BVacSens2.Location = New System.Drawing.Point(6, 150)
+        Me.KL_BVacSens2.Name = "KL_BVacSens2"
+        Me.KL_BVacSens2.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BVacSens2.TabIndex = 346
+        Me.KL_BVacSens2.Text = "KremerLight11"
+        Me.KL_BVacSens2.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BVacSens3
+        '
+        Me.KL_BVacSens3.ColorOff = System.Drawing.Color.Red
+        Me.KL_BVacSens3.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BVacSens3.Data = False
+        Me.KL_BVacSens3.Line = True
+        Me.KL_BVacSens3.LineSize = 1
+        Me.KL_BVacSens3.Location = New System.Drawing.Point(6, 171)
+        Me.KL_BVacSens3.Name = "KL_BVacSens3"
+        Me.KL_BVacSens3.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BVacSens3.TabIndex = 348
+        Me.KL_BVacSens3.Text = "KremerLight12"
+        Me.KL_BVacSens3.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'KL_BVacSens4
+        '
+        Me.KL_BVacSens4.ColorOff = System.Drawing.Color.Red
+        Me.KL_BVacSens4.ColorOn = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.KL_BVacSens4.Data = False
+        Me.KL_BVacSens4.Line = True
+        Me.KL_BVacSens4.LineSize = 1
+        Me.KL_BVacSens4.Location = New System.Drawing.Point(6, 192)
+        Me.KL_BVacSens4.Name = "KL_BVacSens4"
+        Me.KL_BVacSens4.Size = New System.Drawing.Size(20, 20)
+        Me.KL_BVacSens4.TabIndex = 350
+        Me.KL_BVacSens4.Text = "KremerLight13"
+        Me.KL_BVacSens4.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
         'IO_ProductHandling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -1454,7 +1454,7 @@ Partial Class IO_ProductHandling
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "IO_ProductHandling"
         Me.Size = New System.Drawing.Size(800, 435)
-        Me.Tag = "506"
+        Me.Tag = "540"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)

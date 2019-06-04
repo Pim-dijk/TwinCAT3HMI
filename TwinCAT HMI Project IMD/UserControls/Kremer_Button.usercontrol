@@ -3,7 +3,7 @@
      data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
      data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-visibility="%f%ConvertBooleanToVisibility(%pp%Visible%/pp%, &quot;Collapsed&quot;);%/f%">
 
-<div id="TcHmiButton_34" data-tchmi-type="tchmi-button" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%Value%/pp%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-family="%f%if(%pp%FontFamily%/pp% != &quot;&quot;) { %pp%FontFamily%/pp% } else {}%/f%" data-tchmi-text-font-size="%f%if(%pp%FontSize%/pp% != 0){ %pp%FontSize%/pp% } else {}%/f%" data-tchmi-is-enabled="True">
+<div id="TcHmiButton_34" data-tchmi-type="tchmi-button" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-text="%pp%Value%/pp%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-family="%f%if(%pp%FontFamily%/pp% != &quot;&quot;) { %pp%FontFamily%/pp% } else {}%/f%" data-tchmi-text-font-size="%f%if(%pp%FontSize%/pp% != 0){ %pp%FontSize%/pp% } else {}%/f%">
 
 
 
@@ -41,6 +41,28 @@
               "objectType": "StaticValue",
               "valueType": "tchmi:general#/definitions/BOOL",
               "value": true
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiButton_34::BackgroundColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%BackcolorOn%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiButton_34::TextColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/SolidColor",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%TextcolorOn%/pp%"
             },
             "asyncWait": true
           }
@@ -82,6 +104,28 @@
               "value": false
             },
             "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiButton_34::BackgroundColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/Color",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%BackcolorOff%/pp%"
+            },
+            "asyncWait": true
+          },
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%ctrl%TcHmiButton_34::TextColor%/ctrl%",
+            "valueType": "tchmi:framework#/definitions/SolidColor",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%pp%TextcolorOff%/pp%"
+            },
+            "asyncWait": true
           }
         ],
         "asyncWait": true
@@ -105,7 +149,7 @@
     "displayName": ""
   },
   {
-    "event": "%pp%BindingStateSymbol%/pp%",
+    "event": "%pp%BindingSymbol%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -114,7 +158,7 @@
           {
             "compare1": {
               "objectType": "Symbol",
-              "symbolExpression": "%pp%BindingStateSymbol%/pp%"
+              "symbolExpression": "%pp%BindingSymbol%/pp%"
             },
             "compare2": {
               "objectType": "StaticValue",
@@ -193,14 +237,10 @@
         "asyncWait": true
       },
       {
-        "objectType": "Comment",
-        "comment": "Create appropriate bindings"
-      },
-      {
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "var paramsTemp = \"\";\n\nvar pageParamSymbol = new TcHmi.Symbol('%i%_pageParameters%/i%');\nvar pageParamsSymbolValue = pageParamSymbol.read();\n\nvar paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramSymbolValue = paramSymbol.read();\n\nif(paramSymbolValue){\n\tparamsTemp = paramSymbolValue;\t\n} else if(pageParamsSymbolValue){\n    paramsTemp = pageParamsSymbolValue;\n}\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbol();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar stateSymbol = new TcHmi.Symbol(\"%pp%StateSymbol%/pp%\");\nvar stateSymbolValue = stateSymbol.read();\nvar hasStateSymbol = stateSymbolValue.__symbol !== undefined ? true : false;\n\nvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\nvar placeholderValue = placeholderSymbol.read();\n\t\nvar value = \"\";\nvar stateValue = \"\";\n\nvar write = false;\n\nif(placeholderValue && !hasSymbol) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\t//console.log(paramsTemp);\n\t\n\t//console.log(placeholderValue);\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempSymbolValue = tempSymbol.read();\n\t\t\tparams[i] = tempSymbolValue;\n\t\t}\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\t\n\tTcHmi.Binding.createEx(value, 'setSymbol', control);\n\t\n\t// Create binding for the StateSymbol if needed\n\tvar placeholderStateSymbol = new TcHmi.Symbol('%pp%StateSymbolWithPlaceholder%/pp%');\n\tvar placeholderStateValue = placeholderStateSymbol.read();\n\tif(placeholderStateValue){\n\t\tvar tempStateValue = \"%s%\";\n\t\ttempStateValue += placeholderStateValue;\n\t\tfor(var i = 0; i < params.length; i++){\n\t\t\tif(params[i].startsWith(\"%\")){\n\t\t\t\tvar tempStateSymbol = new TcHmi.Symbol(params[i]);\n\t\t\t\tvar tempStateSymbolValue = tempStateSymbol.read();\n\t\t\t\tparams[i] = tempStateSymbolValue;\n\t\t\t}\n\t\t\ttempStateValue = tempStateValue.replace(\"{\" + i + \"}\", params[i]);\n\t\t}\n\t\ttempStateValue += '%/s%';\n\t\tstateValue = tempStateValue;\n\t} else {\n\t\tstateValue = value;\n\t}\n\t\n\t\n\t//cleanup\n\tplaceholderSymbol.destroy();\n\tplaceholderSymbol = null;\n\tplaceholderStateSymbol.destroy();\n\tplaceholderStateSymbol = null;\n\t\n\twrite = true;\n\t\n} else if(hasSymbol){\n\t// Create binding for the Value parameter, so it will monitor the value in the PLC\n\t\n\tvar Symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\n\tvar SymbolValue = Symbol.read();\n\t//console.log(SymbolValue);\n\tvalue = SymbolValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbol.destroy();\n\tSymbol = null;\n\t\n\tif(hasStateSymbol){\n\t\tstateValue = stateSymbolValue.__symbol.__expression.__expression;\n\t} else {\n\t\tstateValue = value;\t\n\t}\n\t\n\twrite = true;\n} else {\n\t//No Symbol or SymbolWithPlaceholders was set so not doing anything\t\n}\n\nif(control && write){\n\t//console.log(\"Value\");\n\t//console.log(value);\n\tTcHmi.Binding.createEx(value, 'setBindingSymbol', control);\n}\n\nif(stateValue !== \"\" && write){\n\t//console.log(\"State Value\");\n\t//console.log(stateValue);\n\tTcHmi.Binding.createEx(stateValue, 'setBindingStateSymbol', control);\t\n}\n\n//cleanup\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;\nstateSymbol.destroy();\nstateSymbol = null;"
+          "var paramSymbol = new TcHmi.Symbol('%pp%Parameters%/pp%');\nvar paramsTemp = paramSymbol.read();\n\nvar targetControl = new TcHmi.Symbol('%pp%ThisControl%/pp%');\nvar controlValue = targetControl.read();\nvar control = controlValue.__parent;\nvar ControlgetSymbol = control.getSymbol();\nvar hasSymbol = ControlgetSymbol.__symbol !== undefined ? true : false;\n\nvar value = \"\";\n\nvar write = false;\n\nif(paramsTemp) {\n\t// Convert the string with placeholders to the symbol string\n\t// bind the new symbol to the Symbol parameter to be able to update it throught the HMI\n\t// and afterwards set the Value parameter binding aswell\n\t\n\t//console.log(paramsTemp);\n\tvar placeholderSymbol = new TcHmi.Symbol('%pp%SymbolWithPlaceholder%/pp%');\n\tvar placeholderValue = placeholderSymbol.read();\n\t//console.log(placeholderValue);\n\tparamsTemp = paramsTemp.replace(/ /g, \"\");\n\tvar params = paramsTemp.split(',');\n\tvar tempValue = '%s%';\n\ttempValue += placeholderValue;\n\tfor(var i = 0; i < params.length; i++){\n\t\tif(params[i].startsWith(\"%\")){\n\t\t\tvar tempSymbol = new TcHmi.Symbol(params[i]);\n\t\t\tvar tempSymbolValue = tempSymbol.read();\n\t\t\tparams[i] = tempSymbolValue;\n\t\t}\n\t\ttempValue = tempValue.replace(\"{\" + i + \"}\", params[i]);\n\t}\n\ttempValue += '%/s%';\n\t//var tempValue = TcHmi.Functions.Beckhoff.FormatString(SymbolValue, params);\n\tvalue = tempValue;\n\t\n\tTcHmi.Binding.createEx(value, 'setSymbol', control);\n\t\n\t//cleanup\n\tplaceholderSymbol.destroy();\n\tplaceholderSymbol = null;\n\t\n\twrite = true;\n\t\n} else if(hasSymbol){\n\t// Create binding for the Value parameter, so it will monitor the value in the PLC\n\t\n\tvar Symbol = new TcHmi.Symbol('%pp%Symbol%/pp%');\n\tvar SymbolValue = Symbol.read();\n\t//console.log(SymbolValue);\n\tvalue = SymbolValue.__symbol.__expression.__expression;\n\t\n\t//cleanup\n\tSymbol.destroy();\n\tSymbol = null;\n\twrite = true;\n} else {\n\t//No Symbol or SymbolWithPlaceholders was set so not doing anything\t\n}\n\nif(control && write){\n\tTcHmi.Binding.createEx(value, 'setBindingSymbol', control);\n}\n\n//cleanup\nparamSymbol.destroy();\nparamSymbol = null;\ntargetControl.destroy();\ntargetControl = null;"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -249,19 +289,6 @@
 {
   "color": "rgba(193, 193, 193, 1)"
 }
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
-[]
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
-[
-  {
-    "virtualControlRight": "OperateControl",
-    "controlRight": "operate"
-  }
-]
 </script>
 </div>
 

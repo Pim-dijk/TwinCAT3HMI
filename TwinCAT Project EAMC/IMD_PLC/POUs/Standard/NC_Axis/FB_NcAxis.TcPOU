@@ -124,7 +124,8 @@ VAR
 	SR_WriteParameter				: SR;
 	SR_ReadParameter				: SR;
 	SR_LagError						: SR;
-
+ 
+	x: INT;
 	
 	mxCycleHasError					: BOOL;
 	
@@ -537,7 +538,7 @@ IF 	(MCMoveVelocity[mxMoveVelocityNr].Velocity <> Velocity) THEN
 	END_IF
 
 	(*Write parameters*)
-	MCMoveVelocity[mxMoveVelocityNr].Velocity:=Velocity;
+	MCMoveVelocity[mxMoveAbsNr].Velocity:=Velocity;
 (*	IF Velocity > 0 	THEN MCMoveVelocity[mxMoveVelocityNr].Velocity:=Velocity; 			ELSE MCMoveVelocity[mxMoveVelocityNr].Velocity:=parameters.VelocityAuto; 		END_IF*)
 
 END_IF

@@ -9,7 +9,6 @@
 
 (function (TcHmi) {
 
-    // Symbol : The symbol to get the name of
     var GetNameFromSymbol = function (Symbol) {
         var symbolExpression = Symbol.__symbol.__expression.__name;
         return symbolExpression; 

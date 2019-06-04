@@ -56,10 +56,10 @@ Public Class frmMain
     Public SubGantry_Overview As New Gantry_Overview
     Public SubGantry_Settings As New Gantry_Settings
 
-    'SpeedControl
-    Public SubSpeedControl_Manual As New SpeedControl_Manual
-    Public SubSpeedControl_Overview As New SpeedControl_Overview
-    Public SubSpeedControl_Settings As New SpeedControl_Settings
+    'ConveyorBelt
+    Public SubConveyorBelt_Manual As New ConveyorBelt_Manual
+    Public SubConveyorBelt_Overview As New ConveyorBelt_Overview
+    Public SubConveyorBelt_Settings As New ConveyorBelt_Settings
 
     'Declare other subs
     Public SubGeneral As New General
@@ -77,8 +77,6 @@ Public Class frmMain
     Public SubZeroAbsEnc As New ZeroAbsEncoder
     'Public SubEtherCatTop As New EtherCatTopology
     Public SubServiceSettings As New ServiceSettings
-    Public SubServiceSettings2 As New ServiceSettings2
-
     Public SubCT As New CT
     Public SubI2TSettings As New I2T_Settings
     
@@ -96,7 +94,6 @@ Public Class frmMain
     Public AlarmHisForm As New frmHisAlarm
     Dim UpdateAlarmForm As Boolean
     Dim VarsConnected As Boolean = False
-    Dim VarsConnectedSpeed As Boolean = False
     Public krMessage As New KremerControlsWin32.KremerMessageBox
     Public AlarmColumnText(3) As String
 
@@ -107,9 +104,39 @@ Public Class frmMain
     Private Sub frmMain_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         On Error Resume Next
 
-
         CX1020.Disconnect()
-        SpeedControl.Disconnect()
+
+        'Service
+        'SubService.Dispose()
+        'SubSequence.Dispose()
+        'SubInit.Dispose()
+        'SubSequenceInit.Dispose()
+        'SubZeroAbsEnc.Dispose()
+        'SubEtherCatTop.Dispose()
+        'SubServiceSettings.Dispose()
+        'SubServiceSettings2.Dispose()
+
+        'Service IO
+        'SubIoOverview.Dispose()
+        'SubIoOverview_Mirrored.Dispose()
+        'SubIoZipper.Dispose()
+        'SubIoBBT.Dispose()
+        'SubIoOutfeed.Dispose()
+        'SubIoStacker.Dispose()
+
+        'Service CilinderTimes
+        'SubCT_Overview.Dispose()
+        'SubCT_Overview_Mirrored.Dispose()
+        'SubCT_Zipper.Dispose()
+        'SubCT_VDenester.Dispose()
+        'SubCT_BundleAutomation.Dispose()
+        'SubCT_Stacker.Dispose()
+        'SubCT_Outfeed.Dispose()
+        'SubCT_BBT.Dispose()
+
+        'I2t Settings
+        'SubI2TSettings.Dispose()
+        'SubI2TSettings2.Dispose()
 
         'General:
         SubOverview.Dispose()
@@ -118,8 +145,6 @@ Public Class frmMain
 
         krConnector = Nothing
         CX1020 = Nothing
-        SpeedControl = Nothing
-        krConnectorSpeed = Nothing
     End Sub
 
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -134,8 +159,6 @@ Public Class frmMain
 
         'CX1020.Connect("172.18.138.40.1.1", 851)
         CX1020.Connect("", 851)
-        SpeedControl.Connect("", 852)
-
 
         'CX1020.Connect()
 
@@ -214,13 +237,6 @@ Public Class frmMain
             If TypeOf IoCtl Is KremerTextField Then CType(IoCtl, KremerTextField).UserInfo = HmiUserInfo
             If TypeOf IoCtl Is KremerButton Then CType(IoCtl, KremerButton).UserInfo = HmiUserInfo
         Next
-
-        ' Added by bateu 20190321
-        If mxManualAutomode.Data Then
-            btnInit.Enabled = True
-        Else
-            btnInit.Enabled = False
-        End If
     End Sub
 
     Private Sub CloseApp(ByVal sReason As String)
@@ -300,9 +316,6 @@ Public Class frmMain
         krConnector.Connect()
         VarsConnected = True
 
-        'Reset product loaded.
-        mxProduktDataLoaded.Data = False
-
         SubFormChange(SubOverview)
         'pnlSub.Controls.Add(SubOverview)
         lblTitle.Text = GetSingleLabel(CInt(SubOverview.Tag))
@@ -330,41 +343,6 @@ Public Class frmMain
         VarsConnected = False
 
         CX1020.Disconnect()
-    End Sub
-
-    Private Sub SpeedControl_Connected() Handles SpeedControl.Connected
-        krConnectorSpeed.PLC = SpeedControl
-        krConnectorSpeed.VarCollector = Me.krVarCollectorSpeed
-        krConnectorSpeed.Connect()
-        VarsConnectedSpeed = True
-
-        SubFormChange(SubOverview)
-        'pnlSub.Controls.Add(SubOverview)
-        lblTitle.Text = GetSingleLabel(CInt(SubOverview.Tag))
-    End Sub
-
-    Private Sub SpeedControl_ConnectError() Handles SpeedControl.ConnectError
-        KremerAddLogLine("No connection with the PLC could be establised.")
-        CloseApp(GetSingleLabel(75))
-    End Sub
-
-    Private Sub SpeedControl_DisConnected() Handles SpeedControl.DisConnected
-        krConnectorSpeed.Disconnect()
-        VarsConnectedSpeed = False
-    End Sub
-
-    Private Sub SpeedControl_Started() Handles SpeedControl.Started
-
-        SpeedControl.Connect("", 852)
-    End Sub
-
-    Private Sub SpeedControl_Stopped() Handles SpeedControl.Stopped
-        pnlSub.Controls.Clear()
-
-        krConnectorSpeed.Disconnect()
-        VarsConnectedSpeed = False
-
-        SpeedControl.Disconnect()
     End Sub
 
 #End Region
@@ -406,8 +384,6 @@ Public Class frmMain
 #End Region
 
 #Region "AlarmWords"
-
-#Region "IMD"
 
     Private Sub AlarmWord1_DataChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles AlarmWord1.DataChanged
         KremerAlarmWord1.Data = AlarmWord1.Data
@@ -480,21 +456,6 @@ Public Class frmMain
     Private Sub AlarmWord20_DataChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles AlarmWord20.DataChanged
         KremerAlarmWord20.Data = AlarmWord20.Data
     End Sub
-
-#End Region
-
-#Region "Speed control"
-
-    Private Sub Alarmword1SpdCtrl_DataChanged(sender As Object, e As EventArgs) Handles Alarmword1SpdCtrl.DataChanged
-        SPDControlAlarmWord1.Data = Alarmword1SpdCtrl.Data
-    End Sub
-
-    Private Sub Alarmword2SpdCtrl_DataChanged(sender As Object, e As EventArgs) Handles Alarmword2SpdCtrl.DataChanged
-        SPDControlAlarmWord2.Data = Alarmword2SpdCtrl.Data
-    End Sub
-
-#End Region
-
 
 
 #End Region

@@ -11,9 +11,9 @@
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <Name>TwinCAT HMI Project IMD</Name>
-    <HmiCommunicationRouterPort>10143</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10123</HmiCommunicationRouterPort>
     <HmiFrameworkVersion>Latest</HmiFrameworkVersion>
-    <HmiCommunicationServerPort>3003</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
     <HmiInitial>1.10.1171.165</HmiInitial>
     <HmiRecent>1.10.1171.165</HmiRecent>
   </PropertyGroup>
@@ -92,16 +92,13 @@
     <Content Include="Content\Kremer_Alarms.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\Settings.content">
+    <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Manual.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\SubContent\MachineParts\SpeedControl\SpeedControl_Manual.content">
+    <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Overview.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\SubContent\MachineParts\SpeedControl\SpeedControl_Overview.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Content\SubContent\MachineParts\SpeedControl\SpeedControl_Settings.content">
+    <Content Include="Content\SubContent\MachineParts\ConveyorBelt\ConveyerBelt_Settings.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot\DryingMoldDetails_Bottom.content">
@@ -111,15 +108,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold Overview.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold_Manual.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold_Settings.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Content\SubContent\MachineParts\DryingMold\DryingMold_Settings2.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\SubContent\MachineParts\DryingMold\PID_Settings\DryingMoldDetail_PID_Settings.content">
@@ -227,6 +215,9 @@
     <Content Include="Content\SubContent\Service\ZeroAbsEnc\ZeroAbsEncoder.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\subFolder\SubfolderScreen.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\General.content">
       <SubType>Content</SubType>
     </Content>
@@ -254,6 +245,12 @@
     <Content Include="Localization\nl-NL.tpl.localization">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\BooleanToEnum.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\BooleanToEnum.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\CleanScreen.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -278,16 +275,40 @@
     <Content Include="Scripts\ConvertAlarmWordsToDataGrid.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\ConvertTimeToInt.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ConvertTimeToInt.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateBindingPIDControllerSettings.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateBindingPIDControllerSettings.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDryingMoldButtonBinding.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDryingMoldButtonBinding.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDynamicBinding.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateDynamicBinding.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateGantryBinding.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\CreateGantryBinding.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\GetNameFromSymbol.function.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetNameFromSymbol.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\GetStatusText.function.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Scripts\GetStatusText.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Scripts\GetSymbolStringFromSymbol.function.json">
@@ -338,6 +359,12 @@
     <Content Include="Scripts\Recipes\UpdateDatagridFromTarget.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scripts\ToDateTimeStringFunction.function.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\ToDateTimeStringFunction.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Scripts\UpdateAlarmDBForAlarmWord.function.json">
       <SubType>Content</SubType>
     </Content>
@@ -356,30 +383,6 @@
     <Content Include="Scripts\WriteToSymbol_REAL.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Server\Extensions\ADS\ADS.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiEventLogger\TcHmiEventLogger.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiLua\TcHmiLua.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiRecipeManagement\TcHmiRecipeManagement.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiSqliteLogger\TcHmiSqliteLogger.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiSrv\TcHmiSrv.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Server\Extensions\TcHmiUserManagement\TcHmiUserManagement.Config.IPCTest.json">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Themes\Kremer\Kremer.theme">
       <SubType>Content</SubType>
     </Content>
@@ -390,6 +393,24 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\ContentView_DisplayName.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Final.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Final.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Calculator_Direct.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Kremer_Calculator_Direct.usercontrol.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Direct.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\IOField_Direct.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_AlarmLight.usercontrol">
@@ -464,10 +485,10 @@
     <Content Include="UserControls\Kremer_PopupMessage.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Kremer_StateText.usercontrol">
+    <Content Include="UserControls\Kremer_Treeview.usercontrol">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\Kremer_StateText.usercontrol.json">
+    <Content Include="UserControls\Kremer_Treeview.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserControls\Kremer_UserManagement.usercontrol">
@@ -500,16 +521,10 @@
     <Content Include="UserControls\ucDateTime.usercontrol.json">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UserControls\UserGroups.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UserControls\UserGroups.usercontrol.json">
-      <SubType>Content</SubType>
-    </Content>
     <Folder Include=".hmipkgs" />
     <Folder Include="Content\SubContent" />
     <Folder Include="Content\SubContent\MachineParts" />
-    <Folder Include="Content\SubContent\MachineParts\SpeedControl" />
+    <Folder Include="Content\SubContent\MachineParts\ConveyorBelt" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Bot" />
     <Folder Include="Content\SubContent\MachineParts\DryingMold\Detail_Top" />
@@ -526,6 +541,7 @@
     <Folder Include="Content\SubContent\Service\IO" />
     <Folder Include="Content\SubContent\Service\ZeroAbsEnc" />
     <Folder Include="Content\SubContent\Service\Settings" />
+    <Folder Include="Content\subFolder" />
     <Folder Include="Libraries" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />

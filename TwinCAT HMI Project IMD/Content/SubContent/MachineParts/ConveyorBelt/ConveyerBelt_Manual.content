@@ -1,0 +1,122 @@
+﻿<div id="ConveyerBelt_Manual" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
+
+<div id="TcHmiTextblock_89" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-text="Conveyor belt" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="242" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18">
+
+</div>
+
+<div id="TcHmiLine_9" data-tchmi-type="tchmi-line" data-tchmi-height="1" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="56" data-tchmi-top-unit="px" data-tchmi-width="383" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="383" data-tchmi-y1="0" data-tchmi-y2="0">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "Black"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_90" data-tchmi-type="tchmi-textblock" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-text="Belt move" data-tchmi-top="65" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="16" data-tchmi-text-vertical-alignment="Center">
+
+</div>
+
+<div id="TcHmiButton_52" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="692" data-tchmi-left-unit="px" data-tchmi-text="Overview" data-tchmi-top="381" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_52.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Overview.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiButton_53" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="692" data-tchmi-left-unit="px" data-tchmi-text="Settings" data-tchmi-top="323" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_53.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Content/SubContent/MachineParts/ConveyorBelt/ConveyerBelt_Settings.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="Kremer_Button_5" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="195" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="65" data-tchmi-top-unit="px" data-tchmi-value="Forward" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.HMI_Forward%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(244, 255, 0, 1)"
+}
+</script>
+</div>
+
+<div id="Kremer_Button_6" data-tchmi-type="tchmi-user-control-host" data-tchmi-buttontype="Continuous" data-tchmi-fontsize="14" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="303" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Kremer_Button.usercontrol" data-tchmi-top="65" data-tchmi-top-unit="px" data-tchmi-value="Reverse" data-tchmi-visible="True" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-symbol="%s%PLC1.MAIN.ProductHandling.OutfeedConveyor.Belt.HMI_Backward%/s%">
+<script data-tchmi-target-attribute="data-tchmi-backcoloron" type="application/json">
+{
+  "color": "rgba(0, 0, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-backcoloroff" type="application/json">
+{
+  "color": "rgba(227, 227, 227, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-textcoloroff" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-textcoloron" type="application/json">
+{
+  "color": "rgba(244, 255, 0, 1)"
+}
+</script>
+</div>
+
+</div>

@@ -69,7 +69,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_502" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature switch 40c" data-tchmi-top="79" data-tchmi-top-unit="px" data-tchmi-width="177" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiTextblock_502" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature switch 40c" data-tchmi-top="79" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 </div>
 
@@ -87,7 +87,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_503" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature switch 55c" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="177" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiTextblock_503" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Temperature switch 55c" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 </div>
 
@@ -249,7 +249,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_512" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pump maintenance switch" data-tchmi-top="289" data-tchmi-top-unit="px" data-tchmi-width="177" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiTextblock_512" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Pump maintenance switch" data-tchmi-top="289" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 </div>
 
@@ -289,7 +289,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_515" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Filter motor maintenance" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-width="177" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+<div id="TcHmiTextblock_515" data-tchmi-type="tchmi-textblock" data-tchmi-height="20" data-tchmi-height-unit="px" data-tchmi-left="61" data-tchmi-left-unit="px" data-tchmi-text="Filter motor maintenance" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
 
 </div>
 

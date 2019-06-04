@@ -40,6 +40,50 @@
 </script>
 </div>
 
+<div id="TcHmiTextblock_95" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Init Cycles" data-tchmi-top="295" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiRectangle_31" data-tchmi-type="tchmi-rectangle" data-tchmi-height="108" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="680" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_96" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Top mold:" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_97" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="212" data-tchmi-left-unit="px" data-tchmi-text="State" data-tchmi-top="321" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
 <div id="TcHmiButton_PID_Top_0" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="79" data-tchmi-left-unit="px" data-tchmi-text="PID settings" data-tchmi-top="207" data-tchmi-top-unit="px" data-tchmi-width="94" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
 
 

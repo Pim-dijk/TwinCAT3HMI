@@ -1,10 +1,10 @@
 ﻿<div id="Recipe" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="600">
 
-<div id="TcHmiTextblock_SelectRecipe_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="%l%Product_Selection%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_SelectRecipe_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Selected recipe:" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="TcHmiTextblock_NewRecipeName_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="New product name:" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="140" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_NewRecipeName_59" data-tchmi-type="tchmi-textblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="New recipe name:" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-font-weight="Bold" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
@@ -22,7 +22,7 @@
 
 </div>
 
-<div id="TcHmiButton_TeachAsNew_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="360" data-tchmi-left-unit="px" data-tchmi-text="%l%Save_as_new%/l%" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the current values from the target and then saved into a new recipe with the defined name.">
+<div id="TcHmiButton_TeachAsNew_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="360" data-tchmi-left-unit="px" data-tchmi-text="Teach as new recipe" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the current values from the target and then saved into a new recipe with the defined name.">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -83,7 +83,7 @@
 </script>
 </div>
 
-<div id="TcHmiButton_Update_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="500" data-tchmi-left-unit="px" data-tchmi-text="%l%Save%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the values of the third column of the datagrid.">
+<div id="TcHmiButton_Update_31" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="500" data-tchmi-left-unit="px" data-tchmi-text="Save recipe" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-tooltip="The values of the selected recipe's members are updated with the values of the third column of the datagrid.">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
@@ -415,7 +415,11 @@
 </script>
 </div>
 
-<div id="TextInputField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TextInputField.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="14" data-tchmi-keyboard="%ctrl%General_Keyboard_3%/ctrl%" data-tchmi-placeholdertext="Recipe name here...">
+<div id="General_Keyboard_4" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="331" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/General_Keyboard.usercontrol" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-self="%ctrl%General_Keyboard_4%/ctrl%">
+
+</div>
+
+<div id="TextInputField_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/TextInputField.usercontrol" data-tchmi-top="60" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-visible="True" data-tchmi-fontsize="14" data-tchmi-keyboard="%ctrl%General_Keyboard_4%/ctrl%" data-tchmi-placeholdertext="Recipe name here...">
 
 </div>
 

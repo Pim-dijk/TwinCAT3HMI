@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_FormingMoldMachPar_OLD" Id="{459bb9c4-2d1f-4225-a855-07401950483a}">
+    <Declaration><![CDATA[TYPE ST_FormingMoldMachPar_OLD :
+STRUCT
+	VacuumTime							: TIME;
+	SecondVacuum						: TIME;
+	ThirdVacuum							: TIME;
+	VacuumTimeIncr						: TIME; (* Increase vacuum time when pulp tank is switched *)
+	AfterVacuumTime						: TIME; (* Drying the product in the forming mold when the pond is down *)
+	PreIgnitionTime						: TIME 	:= T#3S;
+	
+	BubbleTime							: TIME;
+	BlowOffTime							: TIME;
+	AfterBlowOffTime					: TIME;
+
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

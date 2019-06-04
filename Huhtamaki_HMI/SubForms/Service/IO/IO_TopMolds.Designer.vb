@@ -27,8 +27,6 @@ Partial Class IO_TopMolds
         Me.VarCollector = New KremerControlsWin32.KremerVariableCollector(Me.components)
         Me.TMA_HydraulicValve = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_TMAHydraulicValve = New KremerControlsWin32.KremerIoField(Me.components)
-        Me.TMB_HydraulicValve = New KremerControlsWin32.KremerVariable(Me.components)
-        Me.IO_TMBHydraulicValve = New KremerControlsWin32.KremerIoField(Me.components)
         Me.TMA_Bot = New KremerControlsWin32.KremerVariable(Me.components)
         Me.IO_TMABotSidePressure = New KremerControlsWin32.KremerIoField(Me.components)
         Me.TMB_Bot = New KremerControlsWin32.KremerVariable(Me.components)
@@ -53,6 +51,8 @@ Partial Class IO_TopMolds
         Me.KL_TMAZone4 = New KremerControlsWin32.KremerLight()
         Me.TMA_Zone5 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_TMAZone5 = New KremerControlsWin32.KremerLight()
+        Me.TMB_HydraulicValve = New KremerControlsWin32.KremerVariable(Me.components)
+        Me.IO_TMBHydraulicValve = New KremerControlsWin32.KremerIoField(Me.components)
         Me.TMA_Zone6 = New KremerControlsWin32.KremerVariable(Me.components)
         Me.KL_TMAZone6 = New KremerControlsWin32.KremerLight()
         Me.TMA_Blowoff = New KremerControlsWin32.KremerVariable(Me.components)
@@ -196,39 +196,6 @@ Partial Class IO_TopMolds
         Me.IO_TMAHydraulicValve.UpperBound = 1000.0R
         Me.IO_TMAHydraulicValve.UserInfo = Nothing
         Me.IO_TMAHydraulicValve.UserLevel = 0
-        '
-        'TMB_HydraulicValve
-        '
-        Me.TMB_HydraulicValve.BindControl = Me.IO_TMBHydraulicValve
-        Me.TMB_HydraulicValve.BindProperty = "Data"
-        Me.TMB_HydraulicValve.Data = Nothing
-        Me.TMB_HydraulicValve.DataType = KremerControlsWin32.KremerVariable.VarDataType.INT
-        Me.TMB_HydraulicValve.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
-        Me.TMB_HydraulicValve.VariableName = "MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.HydraulicValve.qwOutput"
-        '
-        'IO_TMBHydraulicValve
-        '
-        Me.IO_TMBHydraulicValve.Audit = Nothing
-        Me.IO_TMBHydraulicValve.AuditEnabled = False
-        Me.IO_TMBHydraulicValve.AuditMessage = "KremerIoField changed:"
-        Me.IO_TMBHydraulicValve.AuditSource = "KremerIoField"
-        Me.IO_TMBHydraulicValve.AutoSize = True
-        Me.IO_TMBHydraulicValve.Data = 0.0R
-        Me.IO_TMBHydraulicValve.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
-        Me.IO_TMBHydraulicValve.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IO_TMBHydraulicValve.InitialValue = True
-        Me.IO_TMBHydraulicValve.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
-        Me.IO_TMBHydraulicValve.Location = New System.Drawing.Point(6, 390)
-        Me.IO_TMBHydraulicValve.LowerBound = 0.0R
-        Me.IO_TMBHydraulicValve.Name = "IO_TMBHydraulicValve"
-        Me.IO_TMBHydraulicValve.OutputFormat = "0.0 "
-        Me.IO_TMBHydraulicValve.Size = New System.Drawing.Size(28, 16)
-        Me.IO_TMBHydraulicValve.TabIndex = 316
-        Me.IO_TMBHydraulicValve.Text = "0.0 "
-        Me.IO_TMBHydraulicValve.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IO_TMBHydraulicValve.UpperBound = 1000.0R
-        Me.IO_TMBHydraulicValve.UserInfo = Nothing
-        Me.IO_TMBHydraulicValve.UserLevel = 0
         '
         'TMA_Bot
         '
@@ -545,6 +512,39 @@ Partial Class IO_TopMolds
         Me.KL_TMAZone5.TabIndex = 304
         Me.KL_TMAZone5.Text = "KremerLight12"
         Me.KL_TMAZone5.Type = KremerControlsWin32.KremerLight.GraphicType.Ellipse
+        '
+        'TMB_HydraulicValve
+        '
+        Me.TMB_HydraulicValve.BindControl = Me.IO_TMBHydraulicValve
+        Me.TMB_HydraulicValve.BindProperty = "Data"
+        Me.TMB_HydraulicValve.Data = Nothing
+        Me.TMB_HydraulicValve.DataType = KremerControlsWin32.KremerVariable.VarDataType.INT
+        Me.TMB_HydraulicValve.UpdateMode = System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged
+        Me.TMB_HydraulicValve.VariableName = "MAIN.InMoldDrying.TopMoldB.HydraulicCilinder.HydraulicValve.qwOutput"
+        '
+        'IO_TMBHydraulicValve
+        '
+        Me.IO_TMBHydraulicValve.Audit = Nothing
+        Me.IO_TMBHydraulicValve.AuditEnabled = False
+        Me.IO_TMBHydraulicValve.AuditMessage = "KremerIoField changed:"
+        Me.IO_TMBHydraulicValve.AuditSource = "KremerIoField"
+        Me.IO_TMBHydraulicValve.AutoSize = True
+        Me.IO_TMBHydraulicValve.Data = 0.0R
+        Me.IO_TMBHydraulicValve.DataType = KremerControlsWin32.KremerIoField.NumDataType.LREAL
+        Me.IO_TMBHydraulicValve.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IO_TMBHydraulicValve.InitialValue = True
+        Me.IO_TMBHydraulicValve.IOType = KremerControlsWin32.KremerIoField.IO_Type.InputOutput
+        Me.IO_TMBHydraulicValve.Location = New System.Drawing.Point(6, 390)
+        Me.IO_TMBHydraulicValve.LowerBound = 0.0R
+        Me.IO_TMBHydraulicValve.Name = "IO_TMBHydraulicValve"
+        Me.IO_TMBHydraulicValve.OutputFormat = "0.0 "
+        Me.IO_TMBHydraulicValve.Size = New System.Drawing.Size(28, 16)
+        Me.IO_TMBHydraulicValve.TabIndex = 316
+        Me.IO_TMBHydraulicValve.Text = "0.0 "
+        Me.IO_TMBHydraulicValve.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.IO_TMBHydraulicValve.UpperBound = 1000.0R
+        Me.IO_TMBHydraulicValve.UserInfo = Nothing
+        Me.IO_TMBHydraulicValve.UserLevel = 0
         '
         'TMA_Zone6
         '
@@ -1406,7 +1406,7 @@ Partial Class IO_TopMolds
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "IO_TopMolds"
         Me.Size = New System.Drawing.Size(800, 435)
-        Me.Tag = "505"
+        Me.Tag = "540"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

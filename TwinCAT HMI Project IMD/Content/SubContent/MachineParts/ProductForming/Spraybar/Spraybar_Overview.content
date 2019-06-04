@@ -82,6 +82,50 @@
 </script>
 </div>
 
+<div id="TcHmiRectangle_53" data-tchmi-type="tchmi-rectangle" data-tchmi-height="108" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="327" data-tchmi-top-unit="px" data-tchmi-width="680" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_238" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="Spraybar:" data-tchmi-top="327" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_239" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="217" data-tchmi-left-unit="px" data-tchmi-text="State" data-tchmi-top="327" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_240" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="275" data-tchmi-left-unit="px" data-tchmi-text="Init Cycles" data-tchmi-top="301" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
 <div id="TcHmiRectangle_54" data-tchmi-type="tchmi-rectangle" data-tchmi-height="200" data-tchmi-height-unit="px" data-tchmi-left="202" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="300" data-tchmi-width-unit="px">
 <script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
 {

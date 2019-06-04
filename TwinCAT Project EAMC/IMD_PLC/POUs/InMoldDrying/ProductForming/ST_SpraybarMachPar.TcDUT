@@ -20,9 +20,7 @@ STRUCT
 	PositionActualMeasured				: LREAL; (* ?? *)	
 	PositionOffsetZero					: LREAL; (* Zero offset *)
 
-	SprayDelayTime						: TIME;	//Obsolete ("Bateu 20190326")
-	SprayDelayTimeOffset				: TIME;	//Spray delay time offset (from 2nd vacuum).
-	
+	SprayDelayTime						: TIME;
 	WireSprayInterval					: INT; (* 0 = no spraying *)
 	FlashSprayInterval					: INT; (* 0 = no spraying *)
 	

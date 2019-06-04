@@ -16,11 +16,18 @@
         // ----------------------
         // Place your code here!
         // ----------------------
-    });   
+    }); 
 
-    // Test function
+    var moveElement = TcHmi.EventProvider.register('moveElementToMousePos', function (e) {
+        console.log(e);
+        let x = e.pageX;
+        let y = e.pageY;
 
-    // get a list of all users and send them to the provided target control
+        var control = TcHmi.Controls.get('Kremer_Light_35');
+        control.setTop(y);
+        control.setLeft(x);
+    });
+
     var userDataGrid = TcHmi.EventProvider.register('fillUserDataGrid', function (e, data) {
         //console.log("This is my code behind function...");
         var target = TcHmi.Controls.get(data);
@@ -69,5 +76,6 @@
         // destorys this function, making it a 1 time use function
         //userDataGrid();
     });
-    
+
+    let test123 = "Hello world!";
 })(TcHmi);

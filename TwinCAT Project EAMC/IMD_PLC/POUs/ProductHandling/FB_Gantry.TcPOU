@@ -3,36 +3,9 @@
   <POU Name="FB_Gantry" Id="{ec7f78dd-5062-47e3-8cb6-2a2e0ceb8133}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Gantry
 VAR CONSTANT
-	sCycleStateTextDef: ARRAY[0..30]  OF STRING :=	
-		['State 0: Wait for Start',
-		'State 1: Wait for product ready at takeout unit',
-		'State 2: Move vertical down to pickup position',
-		'State 3: Wait for pickup at pickup position',
-		'State 4: Move vertical to transport position',
-		'State 5: Move horizontal to dropoff position',
-		'State 6: Move vertical to dropoff position',
-		'State 7: Await First dropoff window',
-		'State 8: Await second dropoff window',
-		'State 9: Await third dropoff window',
-		'State 10: Await fourth dropoff window',
-		'State 11: Move vertical up to transport position',
-		'State 12: Move horizontal to pickup position',
-		'State 13: Move vertican to wait for pickup position',
-		'State 14',
-		'State 15: [Pausing] Stop all movement',
-		'State 16: [Pausing] Await all movement stopped',
-		'State 17: [Paused] Wait for start',
-		'State 18',
-		'State 19',
-		'State 20',
-		'State 21',
-		'State 22',
-		'State 23',
-		'State 24',
-		'State 25',
-		'State 26',
-		'State 27',
-		'State 28: Error'];
+	sCycleStateTextDef: ARRAY[0..10]  OF STRING :=	
+		['State 0: Wait for Start','1','2','3','4','5','6','7','8','9',
+		'State 10: Error'];
 	
 	tCycleStateTimeouts: ARRAY[0..10] OF TIME := 
 		[T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,T#10S,
@@ -60,10 +33,6 @@ VAR_INPUT
 	mxAutoMode						: BOOL; (* TRUE = Automode *)
 	mxFirstCycle					: BOOL;
 
-	BlowOffPulse					: ARRAY [1..4] OF BOOL;
-	NrOfSheets						: DINT;
-	NrOfCavities					: DINT;
-	
 	mrModPosConveyor				: LREAL;
 	mxProductReadyAtTakeout			: BOOL; (* Signal from BottomMold, Takeout Unit *)
 	mxDisableCollision				: BOOL;
@@ -93,8 +62,6 @@ VAR_OUTPUT
 	(* Signals *)
 	mxIsEmpty						: BOOL;
 	mxProductPickedUp				: BOOL;
-	BlowOffSucceded					: ARRAY [1..4] OF BOOL;
-	Gantry_InPositionAtBelt			: BOOL;
 END_VAR
 VAR
 (* State vars *)
@@ -140,11 +107,11 @@ VAR
 	VacuumValve						: ARRAY [1..6] OF FB_MonoValveNoFdbck;
 	ixVacuumSensor					 AT %I* : ARRAY [1..6] OF BOOL;
 
-	
 (* Vars *)	
 	miVacSection					: INT;
 	miBlowOffSection				: INT;
 	
+	mxSwitchVacuumOn				: BOOL;
 	(* Errors *)
 	SR_exCollision					: SR;
 	SR_exEndLimitHorFront			: SR;
@@ -153,23 +120,15 @@ VAR
 	SR_exEndLimitVertDown			: SR;
 	SR_exProductLost				: ARRAY [1..6] OF SR;
 	T_VacSensor						: ARRAY [1..6] OF TON;
-	T_WaitAtPickupPosition			: TON;
-
-
-	mxInPause						: BOOL;
-	
-	T_BlowOff1						: TON;
-	T_BlowOff2						: TON;
-	T_BlowOff3						: TON;	
-	T_BlowOff4						: TON;
-	mxSwitchVacuumOn				: ARRAY[1..6] OF BOOL; //MZE 20190314 changed to individual mxSwitchVacuum Settings
-	fT_SwitchVacuumOff: F_TRIG;
-	T_GantryKOTimer: TON;
-	GantrySingleKo: REAL;
-	T_GantryKOMaxTimer: TON;
-	GantrySingleMaxKo: REAL;
-	mxStopCycleEmpty: BOOL;
-	mxCheckforVacuumError: BOOL;
+	mxSwitchBlowOffOn				: BOOL;
+	T_WaitAtPickupPosition: TON;
+	RT_DropOffPosCoveyor: R_TRIG;
+	T_BlowOff: TON;
+	mxTemp: BOOL;
+	mxTemp2: BOOL;
+	mxTest: BOOL;
+	FT_SwitchVacuumOff: F_TRIG;
+	FT_SwitchBlowOff: F_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -211,318 +170,328 @@ IF mxResetCycleState THEN
 
 	mxIsEmpty:= FALSE;
 	mxProductPickedUp:= FALSE;
-	Gantry_InPositionAtBelt := FALSE;
+	mxSwitchBlowOffOn:= FALSE;
+	mxSwitchVacuumOn:= FALSE;
 
 	T_WaitAtPickupPosition.IN:= FALSE;
-	T_BlowOff1.IN:= FALSE;
-	T_BlowOff2.IN:= FALSE;
-	T_BlowOff3.IN:= FALSE;
-	T_BlowOff4.IN:= FALSE;
-	
-	VacuumValve[1].M_Off();
-	VacuumValve[2].M_Off();
-	VacuumValve[3].M_Off();
-	VacuumValve[4].M_Off();
-
-	mxStopCycleEmpty := FALSE;
-	
-	T_GantryKOTimer.IN:= FALSE;
-	GantrySingleKo:= TIME_TO_REAL(T_GantryKOTimer.ET);
-	T_GantryKOMaxTimer.IN:= FALSE;
-	GantrySingleMaxKo:= TIME_TO_REAL(T_GantryKOMaxTimer.ET);
+	T_BlowOff.IN:= FALSE;
 END_IF
+
+fT_SwitchVacuumOff(CLK:= mxSwitchVacuumOn);
+FT_SwitchBlowOff(CLK:=mxSwitchBlowOffOn);
+
 
 (*Definition State has Error*)
 mxCycleHasError:=FALSE;
 
-T_WaitAtPickupPosition(IN:= , PT:= MachParameters.GantryPickupTime);		
-T_BlowOff1(IN:= , PT:= ProdParameters.BlowOffTime);
-T_BlowOff2(IN:= , PT:= ProdParameters.BlowOffTime);
-T_BlowOff3(IN:= , PT:= ProdParameters.BlowOffTime);
-T_BlowOff4(IN:= , PT:= ProdParameters.BlowOffTime);
-
 // Open active valves on switch vacuum on.
-IF mxAutoMode THEN	//MZE 20190314 changed to individual mxSwitchVacuum Settings
-	IF MachParameters.EnableVacuumSection[1] AND mxSwitchVacuumOn[1] THEN VacuumValve[1].M_On(); END_IF 
-	IF MachParameters.EnableVacuumSection[2] AND mxSwitchVacuumOn[2] THEN VacuumValve[2].M_On(); END_IF
-	IF MachParameters.EnableVacuumSection[3] AND mxSwitchVacuumOn[3] THEN VacuumValve[3].M_On(); END_IF
-	IF MachParameters.EnableVacuumSection[4] AND mxSwitchVacuumOn[4] THEN VacuumValve[4].M_On(); END_IF
+IF (mxSwitchVacuumOn AND mxAutoMode) THEN
+	IF MachParameters.EnableVacuumSection[1] THEN VacuumValve[1].M_On(); END_IF
+	IF MachParameters.EnableVacuumSection[2] THEN VacuumValve[2].M_On(); END_IF
+	IF MachParameters.EnableVacuumSection[3] THEN VacuumValve[3].M_On(); END_IF
+	IF MachParameters.EnableVacuumSection[4] THEN VacuumValve[4].M_On(); END_IF
 END_IF
 
-IF T_BlowOff1.Q THEN 
-	T_BlowOff1.IN:= FALSE; 
-	BlowOff[1].M_Off(); 
-	BlowOffSucceded[1] := FALSE;
+// On trigger, close active valves
+IF fT_SwitchVacuumOff.q AND mxAutoMode THEN
+	IF MachParameters.EnableVacuumSection[1] THEN VacuumValve[1].M_Off(); END_IF
+	IF MachParameters.EnableVacuumSection[2] THEN VacuumValve[2].M_Off(); END_IF
+	IF MachParameters.EnableVacuumSection[3] THEN VacuumValve[3].M_Off(); END_IF
+	IF MachParameters.EnableVacuumSection[4] THEN VacuumValve[4].M_Off(); END_IF
 END_IF
 
-IF T_BlowOff2.Q THEN 
-	T_BlowOff2.IN:= FALSE; 
-	BlowOff[2].M_Off(); 
-	BlowOffSucceded[2] := FALSE;	
+// Open blowoff valves
+IF mxSwitchBlowOffOn AND mxAutoMode THEN
+	BlowOff[1].M_On();
+	BlowOff[2].M_On();
+	BlowOff[3].M_On();
+	BlowOff[4].M_On();
 END_IF
 
-IF T_BlowOff3.Q THEN 
-	T_BlowOff3.IN:= FALSE; 
-	BlowOff[3].M_Off(); 
-	BlowOffSucceded[3] := FALSE;	
+// On trigger, close blowoff valves.
+IF FT_SwitchBlowOff.q AND mxAutoMode THEN
+	BlowOff[1].M_Off();
+	BlowOff[2].M_Off();
+	BlowOff[3].M_Off();
+	BlowOff[4].M_Off();
 END_IF
 
-IF T_BlowOff4.Q THEN 
-	T_BlowOff4.IN:= FALSE; 
-	BlowOff[4].M_Off(); 
-	BlowOffSucceded[4] := FALSE;
-END_IF
-
-T_GantryKOTimer(PT:=T#600S);
-T_GantryKOMaxTimer(PT:=T#600S);
-
-
+RT_DropOffPosCoveyor(CLK:= mrModPosConveyor > MachParameters.DropOffConveyorPostion);
+T_WaitAtPickupPosition(IN:= , PT:= T#1S);		
+T_BlowOff(IN:= , PT:= ProdParameters.BlowOffTime);
+IF T_BlowOff.Q THEN T_BlowOff.IN:= FALSE; END_IF
+	
 (*Cycle State's*)
 CASE miCycleState OF
-	0: // Wait for start
-		IF mxStopCycle THEN
-			mxStopCycle:= FALSE;		
-			miStopState:= miCycleState;
-			miCycleState:= 15;		
-		ELSIF mxStartCycle THEN
+	0:
+	(*
+	
+	- StopCyle en mxPause -> stop bewegingen.
+	- Stop Cycle -> empty machine, ga naar rust
+	
+		- wait for startcycle
+		- wait for product ready at takeout
+		- Move horizontal to product pickup
+		- move vertical to product pickup
+		- Vacuum on
+		- Move vertical up to transport pos
+		- Move horizontal to drop off position (Rest)
+		- wait for drop off position conveyor
+		- Move vertical down to dropoff position
+		- Blow off product
+		- Move vertical up to transport pos
+		- Goto 1
+
+		* During vertical down, guard the collission sensor=> stop hor and vertical
+		* Vacuum sensor check when vacuum on=> error leakage
+		*  
+	*)
+		IF mxStartCycle THEN
 			mxStartCycle:= FALSE;
 			mxIsEmpty:= FALSE;
 			mxProductPickedUp:= FALSE;
+
 			miCycleState:= 1;
 		END_IF	
 
-	1: // (P) Wait for product ready at takeout 
+	(* Set when goto 1 mxIsEmpty:= FALSE;	*)
+
+	(* Wait for product ready at takeout *)
+	1:
 		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;			
+			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
+		//ELSIF mxStopCycle AND mxPause THEN
+		//	mxPause:= FALSE;
+			
+		//	miCycleState:= 0;
 		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;		
+			mxStopCycle:= FALSE;
+			VerticalAxis.M_Stop();
+			HorizontalAxis.M_Stop();
+			
 			miStopState:= miCycleState;
-			miCycleState:= 15;
-		ELSIF mxStopCycleEmpty THEN
-			mxStopCycleEmpty := FALSE;
-			miCycleState:=0;
+			miCycleState:= 20;
 		ELSIF mxProductReadyAtTakeout THEN
 			mxProductReadyAtTakeout:= FALSE;
 			mxIsEmpty:= FALSE;
 			mxProductPickedUp:= FALSE;
-			mxSwitchVacuumOn[1]:= TRUE;	// Switch vacuum on all sections
-			mxSwitchVacuumOn[2]:= TRUE;	// Switch vacuum on all sections
-			mxSwitchVacuumOn[3]:= TRUE;	// Switch vacuum on all sections
-			mxSwitchVacuumOn[4]:= TRUE;	// Switch vacuum on all sections
 			
 			miCycleState:= 2;
 		END_IF
-	
-	2: // (P) Move Vertical down to pickup position
+		
+	(* Move horizontal to the front to pickup position *)
+	2:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
-		ELSIF VerticalAxis.M_MoveAbsolute(Position:= ProdParameters.PositionVerticalPickup, Velocity:= MachParameters.Vert_VelocityAuto) THEN
-			miCycleState:= 3;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			VerticalAxis.M_Stop();
+			HorizontalAxis.M_Stop();
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.PositionHorizontalPickup, Velocity:= MachParameters.Hor_VelocityAuto) THEN
+
+			mxSwitchVacuumOn:= TRUE;
+			
+			miCycleState:=3;
 		END_IF
-	
-	3: // (P) Wait at pickup position 
+
+	(* Move Vertical down to pickup position, vacuum on *)
+	3:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF VerticalAxis.M_MoveAbsolute(Position:= ProdParameters.PositionVerticalPickup, Velocity:= MachParameters.Vert_VelocityAuto) THEN
+		
+			miCycleState:= 4;
+		END_IF
+
+	(* Wait at pickup position *)	
+	4:
 		T_WaitAtPickupPosition.IN:= TRUE;
 	
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
 		ELSIF T_WaitAtPickupPosition.Q THEN
 			T_WaitAtPickupPosition.IN:= FALSE;
-			mxProductPickedUp:= TRUE;
-			miCycleState:= 4;
+			
+			miCycleState:= 5;
 		END_IF		
 
-	4: // (NP) Move vertical up to transport position
+	(* Move Vertical up to transport position *)
+	5:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
-		ELSIF VerticalAxis.M_MoveAbsolute(Position:= MachParameters.Vert_PositionTransport, Velocity:= MachParameters.Vert_VelocityAuto) THEN		
-			miCycleState:= 5;
-		END_IF
-	
-	5: // (NP) Move horizontal to the back to drop-off position 
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;
-			miCycleState:= 25;
-		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.PositionHorizontalDropOff, Velocity:= MachParameters.Hor_VelocityAuto) THEN
-			mxProductPickedUp := FALSE;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF VerticalAxis.M_MoveAbsolute(Position:= MachParameters.Vert_PositionTransport, Velocity:= MachParameters.Vert_VelocityAuto) THEN
+			mxProductPickedUp:= TRUE;
+
 			miCycleState:= 6;
 		END_IF
-
-	6: // (NP) Move Vertical Axis down to drop off position. 
+		
+	(* Move horizontal to the back to drop-off position *)
+	6:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
-		ELSIF VerticalAxis.M_MoveAbsolute(Position:= ProdParameters.PositionVerticalDropOff, Velocity:= MachParameters.Vert_VelocityAuto) THEN
-			GantrySingleKo:= TIME_TO_REAL(T_GantryKOTimer.ET);			
-			T_GantryKOTimer.IN:= FALSE;
-			T_GantryKOMaxTimer.IN:= TRUE;
-			Gantry_InPositionAtBelt := TRUE;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.PositionHorizontalDropOff, Velocity:= MachParameters.Hor_VelocityAuto) THEN
+			mxProductPickedUp := FALSE;
 			miCycleState:= 7;
 		END_IF
-
-	7: // (NP) Await blowoff puls 1 from speed control
+		
+	(* Wait for drop off position conveyor *)
+	7:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
-		ELSIF NrOfSheets >= 1 THEN
-			IF BlowoffPulse[3] THEN //MZE 20190401 blowoff changed because of different direction then HLU
-				mxSwitchVacuumOn[3] := FALSE; //MZE 20190314 changed to individual mxSwitchVacuum Settings
-				VacuumValve[3].M_Off();
-				BlowOff[3].M_On();
-				T_BlowOff3.IN :=TRUE;
-				BlowOffSucceded[3] := TRUE;
-				
-				T_GantryKOTimer.IN:= TRUE;	
-				T_GantryKOMaxTimer.IN:= FALSE;
-				GantrySingleMaxKo:= TIME_TO_REAL(T_GantryKOMaxTimer.ET);
-			// OEE Calculate products made
-			MachParameters.SheetsProduced := MachParameters.SheetsProduced + 1;
-			MachParameters.ProductsProduced := MachParameters.ProductsProduced + NrOfCavities;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF RT_DropOffPosCoveyor.Q THEN
+			
 			miCycleState:= 8;
-			END_IF
-		ELSE
-			miCycleState:=11;
 		END_IF
-		
-	8: // (NP) Await blowoff puls 2 from speed control
+
+	(* Move Vertical Axis down to drop off position *)
+	8:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
-		ELSIF NrOfSheets >= 2 THEN
-			IF BlowoffPulse[2] THEN
-				mxSwitchVacuumOn[2] := FALSE; //MZE 20190314 changed to individual mxSwitchVacuum Settings
-				VacuumValve[2].M_Off();
-				BlowOff[2].M_On();
-				T_BlowOff2.IN :=TRUE;
-				BlowOffSucceded[2] := TRUE;
-			// OEE Calculate products made
-			MachParameters.SheetsProduced := MachParameters.SheetsProduced + 1;
-			MachParameters.ProductsProduced := MachParameters.ProductsProduced + NrOfCavities;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF VerticalAxis.M_MoveAbsolute(Position:= ProdParameters.PositionVerticalDropOff, Velocity:= MachParameters.Vert_VelocityAuto) THEN
+			T_BlowOff.IN:= TRUE;
+			mxSwitchBlowOffOn := TRUE;
+			mxSwitchVacuumOn := FALSE; // bateu 20180619
+			
 			miCycleState:= 9;
-			END_IF
-		ELSE
-			miCycleState:=11;
 		END_IF
 		
-	9: // (NP) Await blowoff puls 3 from speed control
+	(* Move Vertical Axis up to transport position *)
+	9:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
+			
 			miCycleState:= 25;
-		ELSIF NrOfSheets >= 3 THEN
-			IF BlowoffPulse[1] THEN //MZE 20190401 blowoff changed because of different direction then HLU
-				mxSwitchVacuumOn[1] := FALSE; //MZE 20190314 changed to individual mxSwitchVacuum Settings
-				VacuumValve[1].M_Off();
-				BlowOff[1].M_On();
-				T_BlowOff1.IN :=TRUE;
-				BlowOffSucceded[1] := TRUE;
-			// OEE Calculate products made
-			MachParameters.SheetsProduced := MachParameters.SheetsProduced + 1;
-			MachParameters.ProductsProduced := MachParameters.ProductsProduced + NrOfCavities;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF T_BlowOff.q THEN
+			T_BlowOff.IN := FALSE;
+			mxSwitchBlowOffOn := FALSE;
 			miCycleState:= 10;
-			END_IF
-		ELSE
-			miCycleState:=11;
 		END_IF
-		
-	10: // (NP) Await blowoff puls 4 from speed control
+	
+	10:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:= 25;
-		ELSIF NrOfSheets >= 4 THEN
-			IF BlowoffPulse[4] THEN
-				mxSwitchVacuumOn[4] := FALSE; //MZE 20190314 changed to individual mxSwitchVacuum Settings
-				VacuumValve[4].M_Off();
-				BlowOff[4].M_On();
-				T_BlowOff4.IN :=TRUE;
-				BlowOffSucceded[4] := TRUE;
-			// OEE Calculate products made
-			MachParameters.SheetsProduced := MachParameters.SheetsProduced + 1;
-			MachParameters.ProductsProduced := MachParameters.ProductsProduced + NrOfCavities;
-			miCycleState:= 11;
-			END_IF
-		ELSE
-			miCycleState:=11;
-		END_IF
 			
-	11: // (P) Move vertical to transport position.
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;			
 			miCycleState:= 25;
 		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;			
+			mxStopCycle:= FALSE;
+			
 			miStopState:= miCycleState;
-			miCycleState:= 15;
+			miCycleState:= 20;
 		ELSIF VerticalAxis.M_MoveAbsolute(Position:= MachParameters.Vert_PositionTransport, Velocity:= MachParameters.Vert_VelocityAuto) THEN
-			Gantry_InPositionAtBelt := FALSE;
-			miCycleState:= 12;
-		END_IF
-
-	12:	// (P) Move Horizontal to rest position.
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;	
-			miCycleState:= 25;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 15;
-		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.PositionHorizontalPickup, Velocity:= MachParameters.Hor_VelocityAuto) THEN
-			miCycleState:= 13;
-		END_IF
-
-	13:	// (P) Move vertical to await pickup pos
-		IF mxStopDirect THEN
-			mxStopDirect:= FALSE;	
-			miCycleState:= 25;
-		ELSIF mxStopCycle THEN
-			mxStopCycle:= FALSE;
-			miStopState:= miCycleState;
-			miCycleState:= 15;
-		ELSIF VerticalAxis.M_MoveAbsolute(Position:= ProdParameters.PositionVerticalPickup + MachParameters.Vert_PickUpRestPosOffset, Velocity:= MachParameters.Vert_VelocityAuto) THEN
-			mxIsEmpty:= TRUE;
+			//mxIsEmpty:= TRUE;
 			
+			miCycleState:= 11;
+		END_IF
 
-
+	(* Move Horizontal Axis to rest position *)
+	11:
+		IF mxStopDirect THEN
+			mxStopDirect:= FALSE;
+			
+			miCycleState:= 25;
+		ELSIF mxStopCycle THEN
+			mxStopCycle:= FALSE;
+			
+			miStopState:= miCycleState;
+			miCycleState:= 20;
+		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.Hor_Positionrest, Velocity:= MachParameters.Hor_VelocityAuto) THEN
+			mxIsEmpty:= TRUE;
 			
 			miCycleState:= 1;
 		END_IF
-		
-	15: // [Pausing] stop horizontal and vertical axis.
+
+	(* Stop Cycle *)
+	20:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:= 25;
+			
+			miCycleState:= 21;
 		ELSE 
 			VerticalAxis.M_Stop();
-			HorizontalAxis.M_Stop();		
-			miCycleState:= 16;
+			HorizontalAxis.M_Stop();
+			
+			miCycleState:= 21;
 		END_IF
 	
-	16:	// [Pausing] Await horizontal and vertical axis standstill.
+	(* Stop Cycle, wait for gantry's stopped *)
+	21:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:= 25;
+			
+			miCycleState:= 21;
 		ELSIF (HorizontalAxis.axStatus.StandStill OR NOT HorizontalAxis.axStatus.Moving) AND (VerticalAxis.axStatus.StandStill OR NOT VerticalAxis.axStatus.Moving) THEN
-			miCycleState:= 17;
-			Gantry_InPositionAtBelt := FALSE;
+			
+			miCycleState:= 22;
 		END_IF
 
-	17: // [Paused] Await restart
-		T_GantryKOTimer.IN:= FALSE;
-		GantrySingleKo:= TIME_TO_REAL(T_GantryKOTimer.ET);
-		T_GantryKOMaxTimer.IN:= FALSE;
-		GantrySingleMaxKo:= TIME_TO_REAL(T_GantryKOMaxTimer.ET);
-		
+	(* Stop Cycle, wait for restart *)
+	22:
 		IF mxStopDirect THEN
 			mxStopDirect:= FALSE;
-			miCycleState:= 25;
+			
+			miCycleState:= 21;
 		ELSIF mxStartCycle THEN
 			mxStartCycle:= FALSE;
+			
 			miCycleState:= miStopState;
 		END_IF
 
-	25:	// [Direct stop]
+	(* Stop Direct *)
+	25:
 		mxInitialized:= FALSE;
 		mxStartCycle:= FALSE;
 		mxStopCycle:= FALSE;
@@ -530,34 +499,16 @@ CASE miCycleState OF
 
 		mxIsEmpty:= FALSE;
 		mxProductPickedUp:= FALSE;
-		VerticalAxis.M_Stop();
-		HorizontalAxis.M_Stop();	
-		
-		T_WaitAtPickupPosition.IN:= FALSE;
-		T_BlowOff1.IN:= FALSE;
-		T_BlowOff2.IN:= FALSE;
-		T_BlowOff3.IN:= FALSE;
-		T_BlowOff4.IN:= FALSE;
+		mxSwitchBlowOffOn:= FALSE;
+		mxSwitchVacuumOn:= FALSE;
 
-		VacuumValve[1].M_Off();
-		VacuumValve[2].M_Off();
-		VacuumValve[3].M_Off();
-		VacuumValve[4].M_Off();
-		
-		T_GantryKOTimer.IN:= FALSE;
-		GantrySingleKo:= TIME_TO_REAL(T_GantryKOTimer.ET);
-		T_GantryKOMaxTimer.IN:= FALSE;
-		GantrySingleMaxKo:= TIME_TO_REAL(T_GantryKOMaxTimer.ET);
-		
-		mxStopCycleEmpty := FALSE;
-		Gantry_InPositionAtBelt := FALSE;
-		
+		T_WaitAtPickupPosition.IN:= FALSE;
+		T_BlowOff.IN:= FALSE;
+
 		miCycleState:= 0;
 END_CASE
 
-mxCheckforVacuumError := (miCycleState >=1) AND (miCycleState <=6);
-mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=17);
-mxInPause:= miCycleState=17;
+mxCycleBusy:= miCycleState<>0 AND NOT (miCycleState=22);
 ]]></ST>
       </Implementation>
     </Action>
@@ -569,29 +520,43 @@ SR_exEndLimitHorBack(SET1:= NOT ixEndLimitHorBack, RESET:= mxReset, Q1=> Errors.
 SR_exEndLimitVertUp(SET1:= NOT ixEndLimitVertUp, RESET:= mxReset, Q1=> Errors.EndLimitVertUp);
 SR_exEndLimitVertDown(SET1:= NOT ixEndLimitVertDown, RESET:= mxReset, Q1=> Errors.EndLimitVertDown);
 
+(*
+FOR miVacSection:= 1 TO 6 DO
+T_VacSensor[miVacSection](IN:= VacuumValve[miVacSection].mxIsOn, PT:= T#3S);
+SR_exProductLost[miVacSection](
+		SET1:= MachParameters.EnableVacuumSection[miVacSection] AND VacuumValve[miVacSection].mxIsOn AND (T_VacSensor[miVacSection].Q AND NOT ixVacuumSensor[miVacSection]) , 
+		RESET:= mxReset, Q1=> Errors.ProductLost[miVacSection]);
+END_FOR
+*)
+
 T_VacSensor[1](IN:= VacuumValve[1].mxIsOn, PT:= T#3S);
 SR_exProductLost[1](
-		SET1:= MachParameters.EnableVacuumSection[1] AND mxCheckforVacuumError AND VacuumValve[1].mxIsOn AND (T_VacSensor[1].Q AND NOT ixVacuumSensor[1]) , 
+		SET1:= MachParameters.EnableVacuumSection[1] AND VacuumValve[1].mxIsOn AND (T_VacSensor[1].Q AND NOT ixVacuumSensor[1]) , 
 		RESET:= mxReset, Q1=> Errors.ProductLost[1]);
 		
 T_VacSensor[2](IN:= VacuumValve[2].mxIsOn, PT:= T#3S);
 SR_exProductLost[2](
-		SET1:= MachParameters.EnableVacuumSection[2] AND mxCheckforVacuumError AND VacuumValve[2].mxIsOn AND (T_VacSensor[2].Q AND NOT ixVacuumSensor[2]) , 
+		SET1:= MachParameters.EnableVacuumSection[2] AND VacuumValve[2].mxIsOn AND (T_VacSensor[2].Q AND NOT ixVacuumSensor[2]) , 
 		RESET:= mxReset, Q1=> Errors.ProductLost[2]);
 		
 T_VacSensor[3](IN:= VacuumValve[3].mxIsOn, PT:= T#3S);
 SR_exProductLost[3](
-		SET1:= MachParameters.EnableVacuumSection[3] AND mxCheckforVacuumError AND VacuumValve[3].mxIsOn AND (T_VacSensor[3].Q AND NOT ixVacuumSensor[3]) , 
+		SET1:= MachParameters.EnableVacuumSection[3] AND VacuumValve[3].mxIsOn AND (T_VacSensor[3].Q AND NOT ixVacuumSensor[3]) , 
 		RESET:= mxReset, Q1=> Errors.ProductLost[3]);
 		
 T_VacSensor[4](IN:= VacuumValve[4].mxIsOn, PT:= T#3S);
 SR_exProductLost[4](
-		SET1:= MachParameters.EnableVacuumSection[4] AND mxCheckforVacuumError AND VacuumValve[4].mxIsOn AND (T_VacSensor[4].Q AND NOT ixVacuumSensor[4]) , 
+		SET1:= MachParameters.EnableVacuumSection[4] AND VacuumValve[4].mxIsOn AND (T_VacSensor[4].Q AND NOT ixVacuumSensor[4]) , 
 		RESET:= mxReset, Q1=> Errors.ProductLost[4]);
+
+
+
+
+
 
 (*************************************************************************************************)
 mxErrorInit:= Errors.Collision OR Errors.EndLimitHorFront OR Errors.EndLimitHorBack OR Errors.EndLimitVertUp OR Errors.EndLimitVertDown OR
-	HorizontalAxis.ErrorStop OR VerticalAxis.ErrorStop;
+	HorizontalAxis.ErrorStop OR VerticalAxis.ErrorStop;;
 mxErrorStopinPos:= FALSE;
 ]]></ST>
       </Implementation>
@@ -620,6 +585,7 @@ IF mxResetInitState THEN
 	miInitState:=0;
 	miInitOldstate:=miInitState;
 	mxInitTransitionState:=FALSE;
+
 	mxInitialized:= FALSE;	
 	mxStartInit:= FALSE;
 	mxStopInit:= FALSE;
@@ -630,46 +596,59 @@ mxInitHasError:=FALSE;
 
 (*Init State's*)
 CASE miInitState OF
+	0:
 	
-	0:	// Wait for start initalisation
+	(* 
+		- Wait for start int
+		- Blow off uit
+		- vacuum aan laten
+		- Vertical move up to transport pos.
+		- Horizontal move back to drop off positie
+		- 	
+	
+	*)
 		IF mxStartInit THEN
 			mxStartInit:= FALSE;
 			mxInitialized:= FALSE;
-			//mxSwitchBlowOffOn:= FALSE;	// Don't turn vacuum off, turn blowoff off 
+
+			(* Don't turn vacuum off, turn blowoff off *)
+			mxSwitchBlowOffOn:= FALSE;
+			
 			miInitState:= 1;
 		END_IF
 
-	1: // Move vertical up 
+	(* Move vertical up *)
+	1:
 		IF mxStopInit THEN
 			mxStopInit:= FALSE;
+			
 			miInitState:= 10;
 		ELSIF VerticalAxis.M_MoveAbsolute(Position:= MachParameters.Vert_PositionTransport, Velocity:= MachParameters.Vert_VelocityAuto) THEN
+			
 			miInitState:= 2;			
 		END_IF
 
-	2: // Move to horizontal rest position (which is also horizontal point of pickup).
+	(* Move horizontal back *)
+	2:
 		IF mxStopInit THEN
 			mxStopInit:= FALSE;
+
 			miInitState:= 10;
-		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.PositionHorizontalPickup, Velocity:= MachParameters.Hor_VelocityAuto) THEN	
-			miInitState:= 3;			
-		END_IF
-		
-	3: // Move to vertical rest position
-		IF mxStopInit THEN
-			mxStopInit:= FALSE;
-			miInitState:= 10;
-		ELSIF VerticalAxis.M_MoveAbsolute(Position:= ProdParameters.PositionVerticalPickup + MachParameters.Vert_PickUpRestPosOffset, Velocity:= MachParameters.Vert_VelocityAuto) THEN
+		ELSIF HorizontalAxis.M_MoveAbsolute(Position:= MachParameters.Hor_Positionrest, Velocity:= MachParameters.Hor_VelocityAuto) THEN
+			
 			mxInitialized:= TRUE;
 			miInitState:= 0;			
 		END_IF
 
-	10: // Stopping initalisation
+	(* Stop Init *)
+	10:
 		mxInitialized:= FALSE;	
 		mxStartInit:= FALSE;
 		mxStopInit:= FALSE;
+
 		VerticalAxis.M_Stop();
 		HorizontalAxis.M_Stop();
+		
 		miInitState:= 0;
 		
 END_CASE
@@ -705,16 +684,9 @@ END_IF]]></ST>
       <Declaration><![CDATA[METHOD M_StopCycle
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[mxStopCycle:= TRUE; ]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="M_StopCycleEmpty" Id="{a21973e0-8652-48c6-b70c-3a4f0878b5b8}">
-      <Declaration><![CDATA[METHOD M_StopCycleEmpty
-]]></Declaration>
-      <Implementation>
         <ST><![CDATA[
 IF mxCycleBusy THEN 
-	mxStopCycleEmpty:= TRUE; 
+	mxStopCycle:= TRUE; 
 END_IF
 ]]></ST>
       </Implementation>
@@ -819,69 +791,168 @@ END_FOR
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="FB_Gantry.Cycle">
-      <LineId Id="1010" Count="28" />
-      <LineId Id="1419" Count="0" />
-      <LineId Id="1039" Count="5" />
-      <LineId Id="1420" Count="1" />
-      <LineId Id="1423" Count="2" />
-      <LineId Id="1422" Count="0" />
-      <LineId Id="1410" Count="1" />
-      <LineId Id="1384" Count="1" />
-      <LineId Id="1395" Count="1" />
-      <LineId Id="1045" Count="42" />
-      <LineId Id="1387" Count="0" />
-      <LineId Id="1393" Count="1" />
-      <LineId Id="1388" Count="0" />
-      <LineId Id="1088" Count="21" />
-      <LineId Id="1407" Count="0" />
-      <LineId Id="1409" Count="0" />
-      <LineId Id="1408" Count="0" />
-      <LineId Id="1110" Count="15" />
-      <LineId Id="1130" Count="9" />
-      <LineId Id="1144" Count="9" />
-      <LineId Id="1158" Count="7" />
-      <LineId Id="1170" Count="8" />
-      <LineId Id="1183" Count="0" />
-      <LineId Id="1389" Count="1" />
-      <LineId Id="1397" Count="0" />
-      <LineId Id="1415" Count="0" />
-      <LineId Id="1184" Count="6" />
-      <LineId Id="1195" Count="6" />
-      <LineId Id="1399" Count="0" />
-      <LineId Id="1406" Count="0" />
-      <LineId Id="1400" Count="1" />
-      <LineId Id="1202" Count="12" />
-      <LineId Id="1219" Count="19" />
-      <LineId Id="1243" Count="19" />
-      <LineId Id="1267" Count="16" />
-      <LineId Id="1391" Count="0" />
-      <LineId Id="1285" Count="7" />
-      <LineId Id="1416" Count="0" />
-      <LineId Id="1293" Count="23" />
-      <LineId Id="1386" Count="0" />
-      <LineId Id="1371" Count="0" />
-      <LineId Id="1373" Count="1" />
-      <LineId Id="1317" Count="18" />
-      <LineId Id="1417" Count="0" />
-      <LineId Id="1336" Count="2" />
-      <LineId Id="1379" Count="0" />
-      <LineId Id="1381" Count="0" />
-      <LineId Id="1380" Count="0" />
-      <LineId Id="1403" Count="0" />
-      <LineId Id="1402" Count="0" />
-      <LineId Id="1339" Count="24" />
-      <LineId Id="1426" Count="0" />
-      <LineId Id="1428" Count="2" />
-      <LineId Id="1427" Count="0" />
-      <LineId Id="1375" Count="0" />
-      <LineId Id="1377" Count="0" />
-      <LineId Id="1404" Count="1" />
-      <LineId Id="1376" Count="0" />
-      <LineId Id="1412" Count="1" />
-      <LineId Id="1418" Count="0" />
-      <LineId Id="1364" Count="2" />
-      <LineId Id="1414" Count="0" />
-      <LineId Id="1367" Count="2" />
+      <LineId Id="10" Count="21" />
+      <LineId Id="682" Count="1" />
+      <LineId Id="629" Count="1" />
+      <LineId Id="628" Count="0" />
+      <LineId Id="692" Count="0" />
+      <LineId Id="537" Count="0" />
+      <LineId Id="633" Count="2" />
+      <LineId Id="632" Count="0" />
+      <LineId Id="631" Count="0" />
+      <LineId Id="607" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="731" Count="0" />
+      <LineId Id="737" Count="1" />
+      <LineId Id="732" Count="0" />
+      <LineId Id="38" Count="2" />
+      <LineId Id="736" Count="0" />
+      <LineId Id="310" Count="0" />
+      <LineId Id="721" Count="3" />
+      <LineId Id="311" Count="0" />
+      <LineId Id="733" Count="0" />
+      <LineId Id="735" Count="0" />
+      <LineId Id="734" Count="0" />
+      <LineId Id="312" Count="0" />
+      <LineId Id="728" Count="2" />
+      <LineId Id="317" Count="1" />
+      <LineId Id="741" Count="0" />
+      <LineId Id="500" Count="0" />
+      <LineId Id="502" Count="0" />
+      <LineId Id="715" Count="2" />
+      <LineId Id="508" Count="0" />
+      <LineId Id="739" Count="0" />
+      <LineId Id="742" Count="0" />
+      <LineId Id="740" Count="0" />
+      <LineId Id="509" Count="0" />
+      <LineId Id="718" Count="2" />
+      <LineId Id="514" Count="0" />
+      <LineId Id="501" Count="0" />
+      <LineId Id="549" Count="2" />
+      <LineId Id="586" Count="1" />
+      <LineId Id="44" Count="2" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="515" Count="1" />
+      <LineId Id="530" Count="0" />
+      <LineId Id="517" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="479" Count="14" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="57" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="608" Count="0" />
+      <LineId Id="529" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="523" Count="1" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="226" Count="1" />
+      <LineId Id="229" Count="1" />
+      <LineId Id="325" Count="0" />
+      <LineId Id="327" Count="1" />
+      <LineId Id="326" Count="0" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="282" Count="1" />
+      <LineId Id="666" Count="1" />
+      <LineId Id="284" Count="1" />
+      <LineId Id="281" Count="0" />
+      <LineId Id="495" Count="1" />
+      <LineId Id="693" Count="1" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="430" Count="0" />
+      <LineId Id="329" Count="3" />
+      <LineId Id="337" Count="1" />
+      <LineId Id="668" Count="1" />
+      <LineId Id="339" Count="2" />
+      <LineId Id="498" Count="0" />
+      <LineId Id="533" Count="1" />
+      <LineId Id="290" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="532" Count="0" />
+      <LineId Id="343" Count="5" />
+      <LineId Id="350" Count="2" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="168" Count="1" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="212" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="535" Count="0" />
+      <LineId Id="552" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="353" Count="5" />
+      <LineId Id="360" Count="2" />
+      <LineId Id="147" Count="1" />
+      <LineId Id="419" Count="0" />
+      <LineId Id="545" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="198" Count="0" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="363" Count="5" />
+      <LineId Id="370" Count="2" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="609" Count="0" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="196" Count="0" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="373" Count="5" />
+      <LineId Id="380" Count="2" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="51" Count="1" />
+      <LineId Id="547" Count="0" />
+      <LineId Id="383" Count="5" />
+      <LineId Id="390" Count="2" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="570" Count="12" />
+      <LineId Id="712" Count="0" />
+      <LineId Id="588" Count="0" />
+      <LineId Id="695" Count="0" />
+      <LineId Id="583" Count="2" />
+      <LineId Id="568" Count="0" />
+      <LineId Id="589" Count="0" />
+      <LineId Id="698" Count="13" />
+      <LineId Id="696" Count="1" />
+      <LineId Id="590" Count="10" />
+      <LineId Id="606" Count="0" />
+      <LineId Id="602" Count="2" />
+      <LineId Id="611" Count="16" />
+      <LineId Id="649" Count="0" />
+      <LineId Id="653" Count="6" />
+      <LineId Id="664" Count="1" />
+      <LineId Id="661" Count="2" />
+      <LineId Id="223" Count="1" />
+      <LineId Id="414" Count="4" />
+      <LineId Id="277" Count="0" />
+      <LineId Id="280" Count="0" />
+      <LineId Id="278" Count="0" />
+      <LineId Id="263" Count="0" />
+      <LineId Id="670" Count="11" />
+      <LineId Id="265" Count="0" />
+      <LineId Id="264" Count="0" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="648" Count="0" />
+      <LineId Id="636" Count="10" />
+      <LineId Id="270" Count="0" />
+      <LineId Id="267" Count="0" />
+      <LineId Id="53" Count="2" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_Gantry.Error">
@@ -889,10 +960,16 @@ END_FOR
       <LineId Id="33" Count="0" />
       <LineId Id="38" Count="1" />
       <LineId Id="91" Count="0" />
-      <LineId Id="118" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="114" Count="2" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="117" Count="1" />
       <LineId Id="125" Count="9" />
       <LineId Id="136" Count="7" />
-      <LineId Id="124" Count="0" />
+      <LineId Id="119" Count="5" />
       <LineId Id="32" Count="0" />
       <LineId Id="5" Count="0" />
       <LineId Id="76" Count="0" />
@@ -900,36 +977,41 @@ END_FOR
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="FB_Gantry.Init">
-      <LineId Id="32" Count="20" />
+      <LineId Id="32" Count="21" />
       <LineId Id="228" Count="1" />
       <LineId Id="226" Count="1" />
       <LineId Id="56" Count="6" />
-      <LineId Id="233" Count="0" />
+      <LineId Id="176" Count="2" />
+      <LineId Id="182" Count="4" />
+      <LineId Id="180" Count="1" />
       <LineId Id="92" Count="1" />
       <LineId Id="95" Count="0" />
-      <LineId Id="219" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="221" Count="0" />
+      <LineId Id="219" Count="1" />
       <LineId Id="96" Count="0" />
       <LineId Id="94" Count="0" />
       <LineId Id="91" Count="0" />
+      <LineId Id="196" Count="0" />
       <LineId Id="187" Count="1" />
       <LineId Id="191" Count="0" />
-      <LineId Id="216" Count="0" />
+      <LineId Id="215" Count="1" />
       <LineId Id="192" Count="0" />
+      <LineId Id="203" Count="0" />
       <LineId Id="194" Count="1" />
       <LineId Id="126" Count="0" />
-      <LineId Id="205" Count="2" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="205" Count="3" />
       <LineId Id="217" Count="1" />
+      <LineId Id="209" Count="1" />
       <LineId Id="213" Count="0" />
-      <LineId Id="211" Count="0" />
-      <LineId Id="234" Count="6" />
-      <LineId Id="242" Count="0" />
-      <LineId Id="241" Count="0" />
-      <LineId Id="212" Count="0" />
+      <LineId Id="211" Count="1" />
+      <LineId Id="214" Count="0" />
       <LineId Id="109" Count="0" />
       <LineId Id="117" Count="0" />
-      <LineId Id="230" Count="1" />
+      <LineId Id="230" Count="2" />
       <LineId Id="225" Count="0" />
-      <LineId Id="222" Count="0" />
+      <LineId Id="222" Count="1" />
       <LineId Id="115" Count="1" />
       <LineId Id="100" Count="0" />
       <LineId Id="80" Count="2" />
@@ -947,9 +1029,6 @@ END_FOR
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="FB_Gantry.M_StopCycle">
-      <LineId Id="5" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_Gantry.M_StopCycleEmpty">
       <LineId Id="14" Count="0" />
       <LineId Id="10" Count="2" />
       <LineId Id="5" Count="0" />

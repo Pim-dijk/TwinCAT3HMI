@@ -1,19 +1,19 @@
 {
     "USERS": {
-        "Admin": {
-            "ENABLED": true,
-            "PASSWORD": "d362e4ccd00763a572fd1347adf42f0a195928819d55420eaa094cee5a1653bb",
-            "SALT": "o43BTOE+iIJkU7Vw/Fac2LXLsQL2780jh7vOSF3gGSGT4VrnD5V3GdYkp4ZbzXN+3SW8o4FcDp6Dh8vRvNmoAA=="
+        "CreatedFromHMI": {
+            "ENABLED": false,
+            "PASSWORD": "3218250ab734958a38b2d078c61bbd3cfae9b82676d1302c563dce049e3ef72e",
+            "SALT": "WEKmccJ5DZno5XyRoyWvjoI1+B4QDp04IxrusGK6M3jgl4UBIogoH+hq6lyl8eHZ5ZwPlcweW4sn4O3oWiRtAA=="
         },
         "Guest": {
             "ENABLED": true,
-            "PASSWORD": "07f79d461815020d42a7ea903a98086cbbfd158b79a340e18890f460ec5a9496",
-            "SALT": "sMAQ+UaAnzFFR3Cxr+EFo17dGk4cPtZuadE2rwvZd8jBOjxSgPtYPKQqtn0kDUv502dbm/ZfcZG+2wD6sdUZAA=="
+            "PASSWORD": "91b705b2b6ba42c1feab8418c233feb7aeadbe57e7bc46b5450ddba5b995346e",
+            "SALT": "3x3ZLdFs5ImuKiDlMXtNu1bCCNIErTn59922z0PYsWqISZs5mRFGuUX5xpVxe1RF6Y4gQtIKLbiLck6Fn/k/AA=="
         },
-        "User": {
+        "Henk123": {
             "ENABLED": true,
-            "PASSWORD": "3ffe5d17dd9f891583a33a8795a8601d4aab5cd4290bdf6a8861a9f2bb4268dd",
-            "SALT": "aC3qYAz0m8baCgIyYRKipzUNwfxsXNcvo/6ugJwqc7zGrE6pMY7bIBId8wx9eDAmt2+9kL9gKKkIR5HKWfvPAA=="
+            "PASSWORD": "2c7c0bddb3f826eb653f73951c8b5baf2a0a7457957d330222569e0a5cf3eb9f",
+            "SALT": "zy0KWqN8x2vFIQfROmoxyyyvRR0pZW0uSwDjWOtXM/BXz7Gz1065hNXaZBdnV0vd8LiT3ajjFj6wwekJMH3fAA=="
         },
         "__SystemAdministrator": {
             "ENABLED": false,

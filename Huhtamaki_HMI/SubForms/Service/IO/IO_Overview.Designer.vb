@@ -101,7 +101,6 @@ Partial Class IO_Overview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.BackColor = System.Drawing.SystemColors.Control
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -110,7 +109,7 @@ Partial Class IO_Overview
         Me.Controls.Add(Me.Button1)
         Me.Name = "IO_Overview"
         Me.Size = New System.Drawing.Size(800, 435)
-        Me.Tag = "507"
+        Me.Tag = "540"
         Me.ResumeLayout(False)
 
     End Sub

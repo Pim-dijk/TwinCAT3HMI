@@ -200,7 +200,7 @@
 
 </div>
 
-<div id="IOField_133" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="42" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-border="True" data-tchmi-valuemax="48.5" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpNormalSpeed%/s%">
+<div id="IOField_133" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="42" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-border="True" data-tchmi-valuemax="5000" data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpNormalSpeed%/s%">
 
 </div>
 
@@ -213,7 +213,7 @@
 
 </div>
 
-<div id="IOField_134" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-valuemax="48.5" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpSlowSpeed%/s%">
+<div id="IOField_134" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpSlowSpeed%/s%">
 
 
 </div>
@@ -222,7 +222,7 @@
 
 </div>
 
-<div id="IOField_135" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="86" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpCreepSpeed%/s%">
+<div id="IOField_135" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="86" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpCreepSpeed%/s%">
 
 </div>
 
@@ -230,7 +230,7 @@
 
 </div>
 
-<div id="IOField_136" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeed%/s%">
+<div id="IOField_136" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeed%/s%">
 
 </div>
 
@@ -242,11 +242,11 @@
 
 </div>
 
-<div id="IOField_137" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemax="48.5" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedSlow%/s%">
+<div id="IOField_137" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedSlow%/s%">
 
 </div>
 
-<div id="IOField_138" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="152" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedCreep%/s%">
+<div id="IOField_138" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="152" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedCreep%/s%">
 
 </div>
 
@@ -254,7 +254,7 @@
 
 </div>
 
-<div id="IOField_139" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownOpenSpeed%/s%">
+<div id="IOField_139" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownOpenSpeed%/s%">
 
 
 </div>
@@ -263,7 +263,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_348" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed to/from forming settings" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="385" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+<div id="TcHmiTextblock_348" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed to/from forming settings" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
 
 </div>
 
@@ -276,7 +276,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_356" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Speed to/from bottommold" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="385" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+<div id="TcHmiTextblock_356" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Speed to/from bottommold" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
 
 </div>
 
@@ -284,7 +284,7 @@
 
 </div>
 
-<div id="IOField_140" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="42" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-border="True" data-tchmi-valuemax="48.5" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpNormalSpeedToBm%/s%">
+<div id="IOField_140" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="42" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-border="True" data-tchmi-valuemax="5000" data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpNormalSpeedToBm%/s%">
 
 </div>
 
@@ -297,7 +297,7 @@
 
 </div>
 
-<div id="IOField_141" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-valuemax="48.5" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpSlowSpeedToBm%/s%">
+<div id="IOField_141" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpSlowSpeedToBm%/s%">
 
 
 </div>
@@ -306,7 +306,7 @@
 
 </div>
 
-<div id="IOField_142" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="86" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpCreepSpeedToBm%/s%">
+<div id="IOField_142" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="86" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpCreepSpeedToBm%/s%">
 
 </div>
 
@@ -314,7 +314,7 @@
 
 </div>
 
-<div id="IOField_143" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedToBm%/s%">
+<div id="IOField_143" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedToBm%/s%">
 
 </div>
 
@@ -326,11 +326,11 @@
 
 </div>
 
-<div id="IOField_144" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemax="48.5" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedSlowToBm%/s%">
+<div id="IOField_144" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemax="5000" data-tchmi-valuemin="-5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedSlowToBm%/s%">
 
 </div>
 
-<div id="IOField_145" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="152" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedCreepToBm%/s%">
+<div id="IOField_145" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="152" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedCreepToBm%/s%">
 
 </div>
 
@@ -338,130 +338,12 @@
 
 </div>
 
-<div id="IOField_146" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="48.5" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownOpenSpeedToBm%/s%">
+<div id="IOField_146" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="-5000" data-tchmi-valuemax="5000" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownOpenSpeedToBm%/s%">
 
 
 </div>
 
 <div id="TcHmiTextblock_363" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Speed transfer open" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="TcHmiLine_128" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="232" data-tchmi-top-unit="px" data-tchmi-width="385" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="385" data-tchmi-y1="0" data-tchmi-y2="0">
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "Black"
-}
-</script>
-
-</div>
-
-<div id="TcHmiTextblock_781" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed up" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_263" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-border="True" data-tchmi-valuemax="40" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpNormalSpeed%/s%">
-
-</div>
-
-<div id="TcHmiLine_129" data-tchmi-type="tchmi-line" data-tchmi-height="138" data-tchmi-height-unit="px" data-tchmi-left="280" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="232" data-tchmi-top-unit="px" data-tchmi-width="5" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="138">
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "Black"
-}
-</script>
-
-</div>
-
-<div id="IOField_264" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-valuemax="40" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpSlowSpeed%/s%">
-
-
-</div>
-
-<div id="TcHmiTextblock_782" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="speed up slow" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_265" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="282" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="40" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpCreepSpeed%/s%">
-
-</div>
-
-<div id="TcHmiTextblock_783" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed up creep" data-tchmi-top="282" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_266" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="304" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="40" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeed%/s%">
-
-</div>
-
-<div id="TcHmiTextblock_784" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed down" data-tchmi-top="304" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="TcHmiTextblock_785" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed down slow" data-tchmi-top="326" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_267" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="326" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemax="40" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedSlow%/s%">
-
-</div>
-
-<div id="IOField_268" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="285" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="348" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="40" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.DownSpeedCreep%/s%">
-
-</div>
-
-<div id="TcHmiTextblock_786" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Speed down creep" data-tchmi-top="348" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="TcHmiTextblock_787" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Init speeds" data-tchmi-top="206" data-tchmi-top-unit="px" data-tchmi-width="385" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
-
-</div>
-
-<div id="TcHmiLine_130" data-tchmi-type="tchmi-line" data-tchmi-height="6" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="232" data-tchmi-top-unit="px" data-tchmi-width="385" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="385" data-tchmi-y1="0" data-tchmi-y2="0">
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "Black"
-}
-</script>
-
-</div>
-
-<div id="TcHmiTextblock_788" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Speed" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_269" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="238" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-border="True" data-tchmi-valuemax="32" data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpNormalSpeed%/s%">
-
-</div>
-
-<div id="TcHmiLine_131" data-tchmi-type="tchmi-line" data-tchmi-height="72" data-tchmi-height-unit="px" data-tchmi-left="675" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="232" data-tchmi-top-unit="px" data-tchmi-width="5" data-tchmi-width-unit="px" data-tchmi-x1="0" data-tchmi-x2="0" data-tchmi-y1="0" data-tchmi-y2="72">
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "Black"
-}
-</script>
-
-</div>
-
-<div id="IOField_270" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="True" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-valuemax="32" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-attribute="%" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpSlowSpeed%/s%">
-
-
-</div>
-
-<div id="TcHmiTextblock_789" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Speed slow" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="IOField_271" data-tchmi-type="tchmi-user-control-host" data-tchmi-datatype="In/Output" data-tchmi-fontsize="14" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="680" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="282" data-tchmi-top-unit="px" data-tchmi-visible="True" data-tchmi-width="110" data-tchmi-width-unit="px"  data-tchmi-attribute="%" data-tchmi-valuemin="0" data-tchmi-valuemax="32" data-tchmi-symbol="%s%PLC1.MAIN.MachPar.InMoldDrying.TransferMold.UpCreepSpeed%/s%">
-
-</div>
-
-<div id="TcHmiTextblock_790" data-tchmi-type="tchmi-textblock" data-tchmi-height="22" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Speed creep" data-tchmi-top="282" data-tchmi-top-unit="px" data-tchmi-width="265" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center">
-
-</div>
-
-<div id="TcHmiTextblock_791" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="405" data-tchmi-left-unit="px" data-tchmi-text="Manual speeds" data-tchmi-top="206" data-tchmi-top-unit="px" data-tchmi-width="385" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
 
 </div>
 

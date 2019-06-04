@@ -13,8 +13,8 @@ STRUCT
 	PT100_TempAboveSetpoint			: BOOL; (* When heating is on, and startup period is over, temperature is higher that 20 degrees above setpoint for a period of 1 minute*)
 	PT100_TempBelowSetpoint			: BOOL; (* When heating is on, and startup period is over, temperature is lower that 20 degrees below setpoint for a period of 1 minute*)
 	PT100_Heating100OhmTryActivate	: BOOL; (* Happens when the connector measures 100 ohm if this happens, this element may not be enabeled (because of electric failure) *)
-	PT100_TemperatureTooHighWarn	: BOOL; (* Temperature too high warning (230 degree) *)
-	PT100_TemperatureAboveMaximum	: BOOL;	(* Temperature is above the 250 degree maximum mark.*)
+	PT100_TemperatureAboveMaximum	: BOOL;	(* Temperature is above the 230 degree maximum mark.*)
+	
 END_STRUCT
 END_TYPE
 ]]></Declaration>

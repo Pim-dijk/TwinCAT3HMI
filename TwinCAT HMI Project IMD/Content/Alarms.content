@@ -1,76 +1,46 @@
 ﻿<div id="Alarms" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="439">
 
-<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="439" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="False" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-right="0" data-tchmi-bottom="0">
+<div id="TcHmiEventGrid_1" data-tchmi-type="tchmi-event-grid" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="True" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="630" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {
     "path": "domain",
     "comparator": "==",
     "value": "TcHmiEventLogger"
-  },
-  {
-    "logic": "AND"
-  },
-  {
-    "path": "confirmationState",
-    "comparator": "==",
-    "value": 2
   }
 ]
 </script>
 <script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
 [
   {
-    "columnName": "type",
-    "width": 30,
-    "widthUnit": "px"
+    "columnName": "type"
   },
   {
-    "columnName": "severity",
-    "width": 30,
-    "widthUnit": "px"
+    "columnName": "severity"
   },
   {
-    "columnName": "timeAndDateRaised",
-    "width": 140,
-    "widthUnit": "px"
+    "columnName": "timeAndDateRaised"
   },
   {
-    "columnName": "params::eventId",
-    "width": 50,
-    "widthUnit": "px",
-    "label": "Id"
+    "columnName": "text"
   },
   {
-    "columnName": "params::eventClassName",
-    "width": 125,
-    "widthUnit": "px",
-    "label": "Group"
+    "columnName": "timeAndDateConfirmed"
   },
   {
-    "columnName": "text",
-    "width": 377,
-    "widthUnit": "px"
+    "columnName": "timeAndDateCleared"
   }
 ]
 </script>
 <script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
 [
   {
-    "name": "timeAndDateRaised",
+    "name": "timeRaised",
     "order": "Descending"
   }
 ]
 </script>
 
-
-<script data-tchmi-target-attribute="data-tchmi-virtual-control-right-mappings" type="application/json">
-[]
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
-[]
-</script>
 </div>
 
 </div>

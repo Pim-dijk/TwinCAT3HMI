@@ -80,7 +80,7 @@
       "color": "rgba(71, 148, 218, 1)"
     },
     "pointDotInStopMode": true,
-    "symbol": "PLC1.MAIN.MachPar.InMoldDrying.BottomMoldB.HeatingZone.0.PIDTempZone.SP_AUTO_TOTAL"
+    "symbol": "PLC1.MAIN.linetrendOutput"
   }
 ]
 </script>

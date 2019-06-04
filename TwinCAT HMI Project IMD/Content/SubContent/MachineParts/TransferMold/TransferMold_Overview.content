@@ -74,6 +74,50 @@
 </script>
 </div>
 
+<div id="TcHmiTextblock_310" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="Init Cycles" data-tchmi-top="300" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiRectangle_57" data-tchmi-type="tchmi-rectangle" data-tchmi-height="108" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-stroke-thickness="1" data-tchmi-top="326" data-tchmi-top-unit="px" data-tchmi-width="680" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+</div>
+
+<div id="TcHmiTextblock_311" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="15" data-tchmi-left-unit="px" data-tchmi-text="Transfer mold:" data-tchmi-top="326" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
+<div id="TcHmiTextblock_312" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="217" data-tchmi-left-unit="px" data-tchmi-text="State" data-tchmi-top="326" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="14" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 2, 73, 1)"
+}
+</script>
+</div>
+
 <div id="TcHmiImage_10" data-tchmi-type="tchmi-image" data-tchmi-height="325" data-tchmi-height-unit="px" data-tchmi-left="300" data-tchmi-left-unit="px" data-tchmi-src="Images/Transfermold.PNG" data-tchmi-top="54" data-tchmi-top-unit="px" data-tchmi-width="139" data-tchmi-width-unit="px">
 
 </div>
@@ -82,15 +126,15 @@
 
 </div>
 
-<div id="TcHmiTextblock_314" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Rod side:" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-width="79" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_314" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Rod side:" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-width="64" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="TcHmiTextblock_315" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Bottom side:" data-tchmi-top="106" data-tchmi-top-unit="px" data-tchmi-width="79" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_315" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="Bottom side:" data-tchmi-top="106" data-tchmi-top-unit="px" data-tchmi-width="64" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 
-<div id="IOField_112" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="528" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.RodSidePressure.EngFilt%/s%">
+<div id="IOField_112" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="513" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.RodSidePressure.EngFilt%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -99,7 +143,7 @@
 
 </div>
 
-<div id="IOField_113" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="528" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="106" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.BottomSidePressure.EngFilt%/s%">
+<div id="IOField_113" data-tchmi-type="tchmi-user-control-host" data-tchmi-border="False" data-tchmi-datatype="Output" data-tchmi-fontsize="12" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="513" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/IOField.usercontrol" data-tchmi-top="106" data-tchmi-top-unit="px" data-tchmi-valuemax="1000" data-tchmi-valuemin="0" data-tchmi-visible="True" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-attribute="Bar" data-tchmi-value="0" data-tchmi-symbol="%s%PLC1.MAIN.InMoldDrying.TransferMold.HydraulicCilinder.BottomSidePressure.EngFilt%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background" type="application/json">
 {
   "color": "None"
@@ -121,7 +165,7 @@
 
 </div>
 
-<div id="TcHmiTextblock_317" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="159" data-tchmi-left-unit="px" data-tchmi-text="Vacuum" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_317" data-tchmi-type="tchmi-textblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="189" data-tchmi-left-unit="px" data-tchmi-text="Vacuum" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="18" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center">
 
 </div>
 

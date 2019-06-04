@@ -205,6 +205,11 @@ PID.Invers	:= Parameters.INVERTED;
 (* Status visualisation of limitation of output, ROC-out active *)
 //Status.ROC_ACT	:= PID.FB_PID.bSync;
 
+
+// this was at the top
+
+// Commented out beenen stuff
+
 IF RT_AutoBtnState.Q THEN
 	Parameters.AutoState := TRUE;	
 	Parameters.SetpointState := FALSE;
@@ -260,7 +265,8 @@ END_IF
       <LineId Id="791" Count="6" />
       <LineId Id="1125" Count="1" />
       <LineId Id="798" Count="26" />
-      <LineId Id="975" Count="0" />
+      <LineId Id="969" Count="2" />
+      <LineId Id="973" Count="2" />
       <LineId Id="1193" Count="0" />
       <LineId Id="1248" Count="0" />
       <LineId Id="1251" Count="1" />

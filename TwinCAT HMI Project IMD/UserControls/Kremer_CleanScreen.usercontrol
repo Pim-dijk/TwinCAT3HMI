@@ -9,7 +9,7 @@
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
-<div id="TcHmiTextblock_84" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-text="%f%%l%Clean_Screen_closes_in%/l% + ' ' + %pp%TimeLeft%/pp% + ' ' +%l%seconds_!!%/l% ;%/f%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
+<div id="TcHmiTextblock_84" data-tchmi-type="tchmi-textblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-text="%f%%l%56%/l% + ' ' + %pp%TimeLeft%/pp% + ' ' +%l%57%/l% ;%/f%" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%pp%FontSize%/pp%">
 
 
 
